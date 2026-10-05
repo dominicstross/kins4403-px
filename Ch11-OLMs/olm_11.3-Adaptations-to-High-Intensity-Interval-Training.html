@@ -1,0 +1,2240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PX – KINS 4403 | 11.3 Adaptations to High-Intensity Interval Training</title>
+  
+  <style>
+    :root {
+      --primary: #0f172a;
+      --primary-accent: #1e293b;
+      --secondary: #2563eb;
+      --secondary-hover: #1d4ed8;
+      --success: #16a34a;
+      --success-bg: #dcfce7;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --warning: #d97706;
+      --warning-bg: #fef3c7;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #cbd5e1;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --radius: 8px;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* Sticky Dashboard Header */
+    header.sticky-dashboard {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--primary);
+      color: #f8fafc;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      border-bottom: 1px solid #334155;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand-title h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    .brand-title p {
+      font-size: 0.82rem;
+      color: #94a3b8;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .score-badge {
+      background-color: #1e293b;
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      border: 1px solid #475569;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #f8fafc;
+    }
+
+    .score-badge span {
+      color: #38bdf8;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      border-radius: var(--radius);
+      border: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 7px 12px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-ctrl {
+      background-color: #334155;
+      color: #f8fafc;
+    }
+    .btn-ctrl:hover {
+      background-color: #475569;
+    }
+
+    .btn-danger-ctrl {
+      background-color: var(--danger);
+      color: #ffffff;
+    }
+    .btn-danger-ctrl:hover {
+      background-color: #b91c1c;
+    }
+
+    .btn-action {
+      background-color: var(--secondary);
+      color: #ffffff;
+      padding: 8px 16px;
+    }
+    .btn-action:hover {
+      background-color: var(--secondary-hover);
+    }
+
+    /* Dual-Tier TOC Navigation */
+    .header-toc {
+      background-color: var(--primary-accent);
+      padding: 6px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .toc-tier-1, .toc-tier-2 {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 2px 0;
+      font-size: 0.78rem;
+      align-items: center;
+    }
+
+    .toc-tier-label {
+      color: #94a3b8;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    .toc-pill {
+      color: #cbd5e1;
+      text-decoration: none;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.08);
+      transition: all 0.15s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .toc-pill:hover, .toc-pill.active {
+      background: var(--secondary);
+      color: #ffffff;
+      border-color: #60a5fa;
+    }
+
+    .toc-tier-2 a {
+      color: #cbd5e1;
+      text-decoration: none;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      transition: all 0.15s ease;
+    }
+
+    .toc-tier-2 a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 4px;
+      background-color: #334155;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #2563eb);
+      transition: width 0.3s ease;
+    }
+
+    /* Navigation Tab Bar */
+    .tab-bar {
+      display: flex;
+      background-color: #e2e8f0;
+      padding: 8px 24px 0 24px;
+      gap: 8px;
+      border-bottom: 2px solid #cbd5e1;
+    }
+
+    .tab-btn {
+      background-color: #cbd5e1;
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: 6px 6px 0 0;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .tab-btn.active {
+      background-color: var(--surface);
+      color: var(--secondary);
+      border: 2px solid #cbd5e1;
+      border-bottom: 2px solid var(--surface);
+      margin-bottom: -2px;
+    }
+
+    /* Main Container & Page Views */
+    main {
+      max-width: 1060px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+
+    .tab-pane {
+      display: none;
+    }
+    #pane-lesson {
+      display: block;
+    }
+
+    .concept-page-view {
+      display: block;
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    /* Native Accordion Cards */
+    details.accordion-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    summary.accordion-header {
+      padding: 14px 18px;
+      background-color: #f1f5f9;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      transition: background-color 0.2s ease;
+    }
+
+    summary.accordion-header::-webkit-details-marker {
+      display: none;
+    }
+
+    summary.accordion-header:hover {
+      background-color: #e2e8f0;
+    }
+
+    details.accordion-card[open] > summary.accordion-header {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .accordion-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .accordion-chevron {
+      font-size: 0.8rem;
+      display: inline-block;
+      transition: transform 0.2s ease;
+      color: #64748b;
+    }
+
+    details.accordion-card[open] > summary.accordion-header .accordion-chevron {
+      transform: rotate(90deg);
+    }
+
+    .section-score-pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background-color: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+    }
+
+    .accordion-body {
+      padding: 20px 18px;
+    }
+
+    /* Reading Content Styles */
+    .accordion-body h3 {
+      font-size: 1.15rem;
+      color: var(--secondary);
+      margin: 14px 0 8px 0;
+    }
+
+    .accordion-body h4 {
+      font-size: 1rem;
+      color: var(--primary);
+      margin: 12px 0 6px 0;
+    }
+
+    .accordion-body p {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .accordion-body ul {
+      margin: 8px 0 14px 22px;
+      font-size: 0.95rem;
+    }
+
+    .accordion-body li {
+      margin-bottom: 6px;
+    }
+
+    .callout-box {
+      background-color: #eff6ff;
+      border-left: 4px solid var(--secondary);
+      padding: 14px 16px;
+      margin: 16px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: #1e40af;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.88rem;
+    }
+
+    table.data-table th, table.data-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background-color: #f1f5f9;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    hr.assessment-divider {
+      border: none;
+      border-top: 2px dashed #cbd5e1;
+      margin: 24px 0;
+    }
+
+    /* Assessment Items */
+    .q-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .q-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .q-type-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #f1f5f9;
+      color: #64748b;
+    }
+
+    .q-title {
+      font-weight: 600;
+      font-size: 0.93rem;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .opt-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      transition: all 0.15s ease;
+    }
+
+    .opt-label:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .opt-label input {
+      accent-color: var(--secondary);
+    }
+
+    /* Cloze Dropdowns Uniform Anti-Guessing Width */
+    .cloze-dropdown {
+      display: inline-block;
+      min-width: 190px;
+      width: 190px;
+      text-align-last: center;
+      padding: 4px 6px;
+      margin: 0 4px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      background-color: #ffffff;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .cloze-hint-text {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: #64748b;
+      font-style: italic;
+    }
+
+    /* Short Answer Elements */
+    .sa-textarea {
+      width: 100%;
+      min-height: 90px;
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+      resize: vertical;
+    }
+
+    .sa-counter {
+      font-size: 0.75rem;
+      color: #64748b;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    .sa-rubric-box {
+      display: none;
+      background: #f1f5f9;
+      border-left: 4px solid var(--secondary);
+      padding: 14px;
+      margin: 12px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.88rem;
+    }
+
+    .sa-checklist {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 10px;
+      border-radius: 6px;
+      margin: 10px 0;
+    }
+
+    .sa-check-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      font-size: 0.82rem;
+    }
+
+    .radio-scale-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .scale-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #ffffff;
+      padding: 4px 8px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .scale-btn input {
+      margin-bottom: 2px;
+    }
+
+    /* Feedback Panels */
+    .feedback-box {
+      display: none;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .feedback-box.correct {
+      background-color: var(--success-bg);
+      color: var(--success);
+      border: 1px solid #86efac;
+    }
+
+    .feedback-box.incorrect {
+      background-color: var(--danger-bg);
+      color: var(--danger);
+      border: 1px solid #fca5a5;
+    }
+
+    .feedback-box.warning {
+      background-color: var(--warning-bg);
+      color: var(--warning);
+      border: 1px solid #fcd34d;
+    }
+
+    .btn-reset-section {
+      background-color: #e2e8f0;
+      color: #334155;
+      font-size: 0.8rem;
+      margin-top: 14px;
+    }
+    .btn-reset-section:hover {
+      background-color: #cbd5e1;
+      color: #0f172a;
+    }
+
+    .page-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 30px 0 10px 0;
+      padding: 14px 0;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    /* Glossary View */
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .glossary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .glossary-card h3 {
+      color: var(--secondary);
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 4px;
+    }
+
+    .glossary-card p {
+      font-size: 0.88rem;
+      color: #334155;
+    }
+
+    .formula-tag {
+      display: inline-block;
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.82rem;
+      margin-top: 6px;
+      border: 1px solid #cbd5e1;
+    }
+  </style>
+
+  <!-- ISOLATED CORE UI NAVIGATION FUNCTIONS IN HEAD -->
+  <script>
+    function navigateToPage(pageKey) {
+      const page1 = document.getElementById("page-p1");
+      const page2 = document.getElementById("page-p2");
+      const pill1 = document.getElementById("pill-p1");
+      const pill2 = document.getElementById("pill-p2");
+
+      if (!page1 || !page2) return;
+
+      if (pageKey === "p1") {
+        page1.style.display = "block";
+        page2.style.display = "none";
+        if (pill1) pill1.classList.add("active");
+        if (pill2) pill2.classList.remove("active");
+
+        const lReading = document.getElementById("link-t2-reading");
+        const lMcq = document.getElementById("link-t2-mcq");
+        const lMs = document.getElementById("link-t2-ms");
+        const lTf = document.getElementById("link-t2-tf");
+        const lCloze = document.getElementById("link-t2-cloze");
+        const lSa = document.getElementById("link-t2-sa");
+
+        if (lReading) lReading.href = "#sec-reading-p1";
+        if (lMcq) lMcq.href = "#sec-mcq-p1";
+        if (lMs) lMs.href = "#sec-ms-p1";
+        if (lTf) lTf.href = "#sec-tf-p1";
+        if (lCloze) lCloze.href = "#sec-cloze-p1";
+        if (lSa) lSa.href = "#sec-sa-p1";
+      } else {
+        page1.style.display = "none";
+        page2.style.display = "block";
+        if (pill1) pill1.classList.remove("active");
+        if (pill2) pill2.classList.add("active");
+
+        const lReading = document.getElementById("link-t2-reading");
+        const lMcq = document.getElementById("link-t2-mcq");
+        const lMs = document.getElementById("link-t2-ms");
+        const lTf = document.getElementById("link-t2-tf");
+        const lCloze = document.getElementById("link-t2-cloze");
+        const lSa = document.getElementById("link-t2-sa");
+
+        if (lReading) lReading.href = "#sec-reading-p2";
+        if (lMcq) lMcq.href = "#sec-mcq-p2";
+        if (lMs) lMs.href = "#sec-ms-p2";
+        if (lTf) lTf.href = "#sec-tf-p2";
+        if (lCloze) lCloze.href = "#sec-cloze-p2";
+        if (lSa) lSa.href = "#sec-sa-p2";
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchTab(tabId) {
+      const lessonPane = document.getElementById("pane-lesson");
+      const glossaryPane = document.getElementById("pane-glossary");
+      const btnLesson = document.getElementById("tab-lesson-btn");
+      const btnGlossary = document.getElementById("tab-glossary-btn");
+
+      if (!lessonPane || !glossaryPane) return;
+
+      if (tabId === "lesson") {
+        lessonPane.style.display = "block";
+        glossaryPane.style.display = "none";
+        if (btnLesson) btnLesson.classList.add("active");
+        if (btnGlossary) btnGlossary.classList.remove("active");
+      } else {
+        lessonPane.style.display = "none";
+        glossaryPane.style.display = "block";
+        if (btnLesson) btnLesson.classList.remove("active");
+        if (btnGlossary) btnGlossary.classList.add("active");
+      }
+    }
+
+    function expandAllSections() {
+      document.querySelectorAll("details.accordion-card").forEach(function(d) {
+        d.open = true;
+      });
+    }
+
+    function collapseAllSections() {
+      document.querySelectorAll("details.accordion-card").forEach(function(d) {
+        d.open = false;
+      });
+    }
+
+    function restartLesson() {
+      ['p1', 'p2'].forEach(function(p) {
+        ['mcq', 'ms', 'tf', 'cloze', 'sa'].forEach(function(act) {
+          if (typeof resetSection === "function") {
+            resetSection(p, act);
+          }
+        });
+      });
+      collapseAllSections();
+      navigateToPage('p1');
+    }
+  </script>
+</head>
+<body>
+
+  <!-- High-Contrast Sticky Dashboard Header -->
+  <header class="sticky-dashboard">
+    <div class="header-main">
+      <div class="brand-title">
+        <h1>PX – KINS 4403: Physiology of Exercise</h1>
+        <p>Section 11.3: Adaptations to High-Intensity Interval Training (HIIT)</p>
+      </div>
+      <div class="header-actions">
+        <div class="score-badge" id="global-score-badge">
+          Total Score: <span id="global-score-text">0 / 26 pts</span>
+        </div>
+        <div class="btn-group">
+          <button class="btn-ctrl" onclick="expandAllSections()">Expand All</button>
+          <button class="btn-ctrl" onclick="collapseAllSections()">Collapse All</button>
+          <button class="btn-danger-ctrl" onclick="resetAllActivities()">Reset All Activities</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dual-Tier Navigation -->
+    <div class="header-toc">
+      <div class="toc-tier-1">
+        <span class="toc-tier-label">Concepts:</span>
+        <button class="toc-pill active" id="pill-p1" onclick="navigateToPage('p1')">Part 1: Physiological Adaptations &amp; Time Efficiency</button>
+        <button class="toc-pill" id="pill-p2" onclick="navigateToPage('p2')">Part 2: Trained vs. Untrained &amp; Training Specificity</button>
+      </div>
+      <div class="toc-tier-2" id="tier-2-links">
+        <span class="toc-tier-label">Jump to Section:</span>
+        <a id="link-t2-reading" href="#sec-reading-p1">Concept Reading</a>
+        <a id="link-t2-mcq" href="#sec-mcq-p1">MCQ</a>
+        <a id="link-t2-ms" href="#sec-ms-p1">Multi-Select</a>
+        <a id="link-t2-tf" href="#sec-tf-p1">True/False</a>
+        <a id="link-t2-cloze" href="#sec-cloze-p1">Precision Cloze</a>
+        <a id="link-t2-sa" href="#sec-sa-p1">Short Answer</a>
+      </div>
+    </div>
+
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="global-progress-bar"></div>
+    </div>
+  </header>
+
+  <!-- Navigation Tab Bar -->
+  <div class="tab-bar">
+    <button class="tab-btn active" id="tab-lesson-btn" onclick="switchTab('lesson')">Interactive Lesson</button>
+    <button class="tab-btn" id="tab-glossary-btn" onclick="switchTab('glossary')">Master Terminology [Reference]</button>
+  </div>
+
+  <main>
+    <!-- TAB PANE 1: LESSON VIEW -->
+    <div class="tab-pane" id="pane-lesson">
+
+      <!-- =========================================================================
+           CONCEPT PAGE 1: PHYSIOLOGICAL ADAPTATIONS & TIME EFFICIENCY (P1)
+           ========================================================================= -->
+      <section id="page-p1" class="concept-page-view">
+        <h1 class="page-title">Part 1: Physiological Adaptations &amp; Time Efficiency: HIIT vs. Continuous Training</h1>
+
+        <!-- STATIC READING CARD 1 -->
+        <details class="accordion-card" id="sec-reading-p1" open>
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Concept Reading: Time Efficiency, Sprint Interval Paradigms, and Cellular Parity</span>
+            </span>
+          </summary>
+          <div class="accordion-body">
+            <h3>High-Intensity Interval Training and the Time-Efficiency Paradigm</h3>
+            <p>High-intensity interval training (HIIT) is a time-efficient exercise strategy utilizing short bursts of very intense exercise, interspersed with up to a few minutes of rest or low-intensity recovery. While traditional continuous endurance training (CET) typically requires 45 to 60 minutes of uninterrupted exercise per session, adaptations to HIIT closely mirror those associated with more traditional aerobic training.</p>
+
+            <div class="callout-box">
+              <div class="callout-title">The Landmark Interval Protocol Comparison</div>
+              <p>In a seminal investigation evaluating training volume disparities, previously untrained young men performed repeated all-out sprint cycling:</p>
+              <ul>
+                <li><strong>HIIT Protocol:</strong> Four to six 30-second all-out sprints separated by 4 minutes of recovery, performed 3 days per week (totaling just 2 to 3 minutes of maximal work per session).</li>
+                <li><strong>Continuous Endurance Protocol:</strong> Up to an hour of continuous moderate-to-vigorous cycling, performed 5 days per week (up to 5 hours of weekly training).</li>
+              </ul>
+              <p>Despite marked differences in total training time commitment, subjects performing low-volume HIIT exhibited the same beneficial changes in their heart, blood vessels, and skeletal muscle as those in the continuous endurance group.</p>
+            </div>
+
+            <h4>Functional Performance Outcomes</h4>
+            <p>Functional exercise performance improvements were comparable between groups across two distinct testing paradigms:</p>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Performance Assessment</th>
+                  <th>Testing Format</th>
+                  <th>Observed Adaptation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Time to Exhaustion (TTE)</strong></td>
+                  <td>Sustained cycling at a fixed absolute submaximal work intensity until volitional fatigue</td>
+                  <td>Comparable percentage increases between HIIT and continuous groups</td>
+                </tr>
+                <tr>
+                  <td><strong>Time-Trial Performance</strong></td>
+                  <td>Completion of a set distance or fixed mechanical work resembling athletic competition</td>
+                  <td>Equivalent reductions in completion time and increases in average sustainable power</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4>Shared Molecular Signaling Cascades</h4>
+            <p>High-intensity interval training stimulates some of the same upstream molecular signaling pathways that regulate skeletal muscle remodeling in response to traditional endurance training. The profound intracellular metabolic stress of repeated 30-second supramaximal sprints (high AMP/ATP ratios, glycogen depletion, and calcium flux) activates signaling cascades—including AMPK, CaMK, and the transcriptional coactivator PGC-1&alpha;—driving <strong>mitochondrial biogenesis</strong> and increasing the myocyte's capacity for both carbohydrate and fatty acid transport and oxidation.</p>
+          </div>
+        </details>
+
+        <hr class="assessment-divider">
+
+        <!-- ACTIVITY 1: MCQ (P1) -->
+        <details class="accordion-card" id="sec-mcq-p1">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 1: Multiple Choice (Time-Efficiency &amp; Functional Adaptations)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-mcq">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p1-mcq"></div>
+            <button class="btn-reset-section" onclick="resetSection('p1', 'mcq')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 2: MULTI-SELECT (P1) -->
+        <details class="accordion-card" id="sec-ms-p1">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 2: Multi-Select (HIIT Protocols &amp; Cellular Remodeling)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-ms">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p1-ms"></div>
+            <button class="btn-reset-section" onclick="resetSection('p1', 'ms')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 3: TRUE/FALSE (P1) -->
+        <details class="accordion-card" id="sec-tf-p1">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 3: True / False (Time Commitments &amp; Performance Parity)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-tf">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p1-tf"></div>
+            <button class="btn-reset-section" onclick="resetSection('p1', 'tf')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 4: CLOZE (P1) -->
+        <details class="accordion-card" id="sec-cloze-p1">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 4: Precision Cloze (Interval Terminology &amp; Protocols)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-cloze">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p1-cloze"></div>
+            <button class="btn-reset-section" onclick="resetSection('p1', 'cloze')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 5: SHORT ANSWER (P1) -->
+        <details class="accordion-card" id="sec-sa-p1">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 5: Analytical Synthesis (Protocol Comparison &amp; Aerobic Remodeling)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-sa">Score: 0 / 5 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p1-sa"></div>
+            <button class="btn-reset-section" onclick="resetSection('p1', 'sa')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- PAGE 1 BOTTOM NAV -->
+        <div class="page-nav-bar">
+          <span style="font-size:0.85rem; color:#64748b;">Step 1 of 2 Complete</span>
+          <button class="btn-action" onclick="navigateToPage('p2')">Continue to Part 2: Trained vs. Untrained &amp; Training Specificity &rarr;</button>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+           CONCEPT PAGE 2: TRAINED VS. UNTRAINED & TRAINING SPECIFICITY (P2)
+           ========================================================================= -->
+      <section id="page-p2" class="concept-page-view" style="display: none;">
+        <h1 class="page-title">Part 2: Divergent Adaptations in Trained Athletes &amp; Training Specificity</h1>
+
+        <!-- STATIC READING CARD 2 -->
+        <details class="accordion-card" id="sec-reading-p2" open>
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Concept Reading: Divergent Enzyme Mechanisms, Training Ceilings, and SAID Specificity</span>
+            </span>
+          </summary>
+          <div class="accordion-body">
+            <h3>Integrating HIIT in Already Conditioned Athletes</h3>
+            <p>Athletes who already train vigorously can likewise improve performance by integrating high-intensity interval training into their regimens. However, the physiological mechanisms responsible for these performance enhancements differ substantially from those seen in previously untrained individuals.</p>
+
+            <div class="callout-box">
+              <div class="callout-title">The Oxidative Enzyme Divergence</div>
+              <p>The rapid, multi-fold increases in skeletal muscle oxidative enzymes (such as citrate synthase and succinate dehydrogenase) observed in previously untrained exercisers are <strong>not apparent</strong> in already trained individuals who add HIIT to their workouts. Because trained athletes have already driven their mitochondrial oxidative enzyme concentrations near an adaptation ceiling through extensive base conditioning, performance gains must be driven by alternative physiological adaptations that are not yet well understood.</p>
+            </div>
+
+            <h4>Hypothesized Performance Mechanisms in Elite Athletes</h4>
+            <p>Because oxidative enzyme activities remain stable, performance improvements in already trained athletes adding HIIT are hypothesized to stem from alternative neuromuscular and metabolic adaptations:</p>
+            <ul>
+              <li><strong>Enhanced Intracellular Buffering Capacity:</strong> Greater capacity of active myocytes to buffer hydrogen ions (H+), delaying contractile acidosis and preserving cross-bridge cycling during sustained high-intensity surges.</li>
+              <li><strong>Neuromuscular Recruitment Efficiency:</strong> Enhanced motor unit recruitment, synchronization, and firing frequency, enabling greater force generation with reduced metabolic cost.</li>
+              <li><strong>Fractional Utilization:</strong> The ability to sustain a higher percentage of VO2max at competitive race pace without blood lactate accumulation.</li>
+              <li><strong>Biomechanical Movement Economy:</strong> Reductions in the oxygen cost required to maintain race pace, optimizing kinetic energy transfer.</li>
+            </ul>
+
+            <h3>The Principle of Training Specificity (SAID)</h3>
+            <p>The metabolic alterations resulting from exercise training are highly specific to the imposed training stimuli:</p>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Training Modality</th>
+                  <th>Primary Metabolic Stresses</th>
+                  <th>Enzymatic Adaptations</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Pure Anaerobic Sprint Training</strong></td>
+                  <td>Phosphagen depletion &amp; rapid glycolytic flux (&le;6&ndash;30 s bouts)</td>
+                  <td>Increases <strong>ATP-PCr</strong> (creatine kinase, myokinase) and <strong>glycolytic enzymes</strong> (PFK, LDH); <strong>no effect on oxidative enzymes</strong>.</td>
+                </tr>
+                <tr>
+                  <td><strong>Continuous Aerobic Training</strong></td>
+                  <td>Sustained oxidative phosphorylation &amp; lipid oxidation (30&ndash;60+ min)</td>
+                  <td>Increases <strong>mitochondrial oxidative enzymes</strong> (SDH, citrate synthase); <strong>little to no effect on anaerobic enzymes</strong>.</td>
+                </tr>
+                <tr>
+                  <td><strong>High-Intensity Interval Training (HIIT)</strong></td>
+                  <td>Supramaximal work intervals paired with active/passive oxidative recovery</td>
+                  <td>Stimulates <strong>mitochondrial biogenesis</strong> and oxidative enzyme upregulation in novices, while enhancing <strong>buffering capacity and anaerobic power</strong> across all populations.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <hr class="assessment-divider">
+
+        <!-- ACTIVITY 1: MCQ (P2) -->
+        <details class="accordion-card" id="sec-mcq-p2">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 1: Multiple Choice (Trained Athlete Enzyme Ceilings &amp; Specificity)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-mcq">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p2-mcq"></div>
+            <button class="btn-reset-section" onclick="resetSection('p2', 'mcq')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 2: MULTI-SELECT (P2) -->
+        <details class="accordion-card" id="sec-ms-p2">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 2: Multi-Select (Enzymatic Divergence &amp; Elite Performance Factors)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-ms">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p2-ms"></div>
+            <button class="btn-reset-section" onclick="resetSection('p2', 'ms')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 3: TRUE/FALSE (P2) -->
+        <details class="accordion-card" id="sec-tf-p2">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 3: True / False (SAID Specificity &amp; Oxidative Ceilings)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-tf">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p2-tf"></div>
+            <button class="btn-reset-section" onclick="resetSection('p2', 'tf')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 4: CLOZE (P2) -->
+        <details class="accordion-card" id="sec-cloze-p2">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 4: Precision Cloze (Enzymatic Specificity &amp; Adaptation Concepts)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-cloze">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p2-cloze"></div>
+            <button class="btn-reset-section" onclick="resetSection('p2', 'cloze')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 5: SHORT ANSWER (P2) -->
+        <details class="accordion-card" id="sec-sa-p2">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 5: Analytical Synthesis (Trained vs. Untrained &amp; SAID Principle)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-sa">Score: 0 / 5 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p2-sa"></div>
+            <button class="btn-reset-section" onclick="resetSection('p2', 'sa')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- PAGE 2 BOTTOM NAV -->
+        <div class="page-nav-bar">
+          <button class="btn-ctrl" onclick="navigateToPage('p1')">&larr; Return to Part 1: Physiological Adaptations &amp; Time Efficiency</button>
+          <button class="btn-action" onclick="alert('Congratulations! You have completed Module 11.3: Adaptations to High-Intensity Interval Training.')">Complete Module 11.3 &check;</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- TAB PANE 2: MASTER GLOSSARY VIEW -->
+    <div class="tab-pane" id="pane-glossary">
+      <h2 style="margin-bottom: 16px; color: var(--primary);">Master Terminology &amp; Clinical Definitions</h2>
+      <div class="glossary-grid" id="glossary-grid-container"></div>
+    </div>
+  </main>
+
+  <!-- External Bottom Navigation Bar -->
+  <!-- ... Previous module content, main tag, or scripts ... -->
+
+    <!-- PASTE THE CODE BLOCK HERE -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px auto; max-width: 1060px; padding: 0 20px; text-align: center;">
+      <span style="flex: 1; text-align: left;">
+        <a href="olm_11.2-Adaptations-to-Anaerobic-Training.html">← Back to Previous Section</a>
+      </span>
+      <span style="flex: 1;">
+        <a href="index.html">Main Menu</a>
+      </span>
+      <span style="flex: 1; text-align: right;">
+        <a href="olm_11.4-Specificity-of-Training-and-Cross-Training.html">Next Section →</a>
+      </span>
+    </div>
+
+  </body>
+</html>
+
+
+  <!-- JAVASCRIPT ENGINE & DATA BINDING -->
+  <script>
+    /* =========================================================================
+       1. MASTER QUESTION BANK (p1 and p2 Data Branches)
+       Strict Unquoted Object Identifiers & Fully Escaped Strings
+       ========================================================================= */
+    const assessmentBanks = {
+      p1: {
+        mcq: [
+          {
+            id: 1,
+            q: "What is the primary operational advantage of High-Intensity Interval Training (HIIT) compared to traditional Continuous Endurance Training (CET)?",
+            opts: [
+              "It completely eliminates the production of lactic acid in active muscles",
+              "It is a time-efficient way to induce aerobic training benefits comparable to continuous endurance exercise",
+              "It permanently prevents heart rate from exceeding resting levels during exercise",
+              "It replaces all skeletal muscle tissue with smooth muscle fibers"
+            ],
+            correct: 1,
+            rationale: "HIIT provides a time-efficient strategy to elicit cardiovascular and metabolic adaptations comparable to continuous endurance training while requiring significantly less total training time."
+          },
+          {
+            id: 2,
+            q: "In the landmark interval study cited in the textbook, what interval protocol did the untrained subjects perform?",
+            opts: [
+              "Ten 2-minute sprints separated by 10 seconds of rest, 7 days per week",
+              "Four to six 30-second sprints separated by 4 minutes of recovery, 3 times per week",
+              "One single 60-minute continuous cycling ride at 50% VO2max, once per week",
+              "Thirty 5-second sprints separated by 15 seconds of recovery, 6 times per week"
+            ],
+            correct: 1,
+            rationale: "Untrained subjects performed 4 to 6 thirty-second all-out sprints separated by 4 minutes of recovery, 3 days per week, and achieved adaptations matching 5 hours of weekly continuous cycling."
+          },
+          {
+            id: 3,
+            q: "How did functional performance gains (cycling time to exhaustion and time-trial performance) compare between the low-volume HIIT group and the traditional continuous endurance group?",
+            opts: [
+              "The continuous endurance group improved by 200%, while the HIIT group did not improve",
+              "Improvements in exercise performance were comparable between both groups",
+              "The HIIT group experienced severe decrements in time-trial performance",
+              "Performance improvements only occurred in the continuous group because HIIT work bouts were too short"
+            ],
+            correct: 1,
+            rationale: "Despite substantial differences in total exercise time commitment, improvements in both fixed-intensity time to exhaustion and competitive time trials were comparable between groups."
+          },
+          {
+            id: 4,
+            q: "Which molecular signaling process is stimulated similarly by both low-volume HIIT and traditional high-volume continuous endurance training?",
+            opts: [
+              "Permanent degradation of all myoglobin stores in slow-twitch fibers",
+              "Intracellular pathways that regulate mitochondrial biogenesis and substrate oxidation",
+              "Total destruction of the cell membrane to facilitate passive diffusion",
+              "Conversion of skeletal myocytes into adipose storage tissue"
+            ],
+            correct: 1,
+            rationale: "HIIT stimulates common molecular signaling pathways that regulate skeletal muscle remodeling, including mitochondrial biogenesis and enhanced capacity for carbohydrate and fat transport and oxidation."
+          },
+          {
+            id: 5,
+            q: "Compared to the HIIT group (4\u20136 x 30 s sprints, 3 days/week), what was the training commitment of the traditional endurance group in the comparison study?",
+            opts: [
+              "Up to an hour of continuous cycling, 5 days per week",
+              "Ten minutes of brisk walking, twice per month",
+              "Three hours of continuous swimming, once every two weeks",
+              "Twenty seconds of calisthenics, once per day"
+            ],
+            correct: 0,
+            rationale: "The traditional CET comparison group cycled continuously for up to an hour per day, 5 days per week, representing a vastly greater weekly time commitment."
+          },
+          {
+            id: 6,
+            q: "What cellular adaptations in substrate handling occur in skeletal muscle following chronic HIIT in previously untrained individuals?",
+            opts: [
+              "Complete cessation of both carbohydrate and fatty acid metabolism",
+              "Enhanced cellular capacity for carbohydrate and fat transport and oxidation",
+              "Exclusive reliance on amino acid breakdown with total inhibition of glycolysis",
+              "Permanent shutdown of all sarcolemmal glucose transporter proteins"
+            ],
+            correct: 1,
+            rationale: "HIIT enhances the capacity of skeletal muscle to transport and oxidize both carbohydrates and lipids, matching adaptations observed with continuous endurance training."
+          },
+          {
+            id: 7,
+            q: "How do cardiovascular adaptations (changes in the heart and blood vessels) following low-volume HIIT compare to continuous endurance cycling in untrained adults?",
+            opts: [
+              "HIIT produces no cardiovascular adaptations whatsoever",
+              "HIIT produces the same beneficial changes in the heart and blood vessels as traditional endurance training",
+              "Continuous training causes heart failure, whereas HIIT strengthens the heart",
+              "HIIT causes severe arterial constriction and reduction in cardiac output"
+            ],
+            correct: 1,
+            rationale: "Research demonstrates that previously untrained subjects show the same beneficial adaptations in the heart, blood vessels, and skeletal muscle following HIIT as those following continuous endurance training."
+          }
+        ],
+        ms: [
+          {
+            id: 1,
+            q: "Which characteristics describe the low-volume HIIT protocol utilized in the comparison research study? (Select all that apply)",
+            opts: [
+              "Four to six 30-second all-out sprint bouts",
+              "Four minutes of recovery between sprint intervals",
+              "Exercise performed three days per week",
+              "Sixty minutes of continuous steady-state cycling per session",
+              "Zero recovery time between repeated cycling sprints"
+            ],
+            correctArray: [0, 1, 2],
+            rationale: "The protocol consisted of 4\u20136 repeats of 30 s sprints with 4 min recovery periods, performed 3 days per week. Continuous 60-minute exercise was the comparative CET protocol."
+          },
+          {
+            id: 2,
+            q: "Which physiological and performance adaptations are similarly improved by both HIIT and continuous endurance training in untrained individuals? (Select all that apply)",
+            opts: [
+              "Skeletal muscle mitochondrial biogenesis",
+              "Cycling time to exhaustion at a fixed submaximal workload",
+              "Time-trial performance resembling athletic competition",
+              "Capacity for carbohydrate and fat transport and oxidation",
+              "Loss of all cardiovascular stroke volume adaptations"
+            ],
+            correctArray: [0, 1, 2, 3],
+            rationale: "Both modalities elicit comparable improvements in mitochondrial biogenesis, time to exhaustion, time-trial speed, and substrate transport/oxidation. Stroke volume improves or is maintained."
+          },
+          {
+            id: 3,
+            q: "Why is HIIT considered a valuable exercise prescription tool in clinical and general fitness populations? (Select all that apply)",
+            opts: [
+              "It addresses perceived lack of time, a primary barrier to regular exercise adherence",
+              "It induces aerobic, vascular, and metabolic benefits mirroring continuous endurance protocols",
+              "It requires zero physical effort or metabolic exertion from the client",
+              "Modified protocols can improve health and fitness in populations with metabolic diseases",
+              "It completely eliminates the need for proper warm-up or recovery"
+            ],
+            correctArray: [0, 1, 3],
+            rationale: "HIIT offers time-efficiency, aerobic/metabolic benefits matching CET, and modified formats that can benefit clinical populations. It requires high effort and proper recovery."
+          },
+          {
+            id: 4,
+            q: "What mechanisms explain why 30-second supramaximal sprints can stimulate aerobic energy system remodeling? (Select all that apply)",
+            opts: [
+              "High metabolic flux activates upstream intracellular signaling cascades regulating mitochondrial biogenesis",
+              "The aerobic energy system is recruited progressively during the recovery intervals and subsequent sprint bouts",
+              "Skeletal muscle only uses oxidative phosphorylation during the first 5 seconds of all-out sprinting",
+              "Repeated glycogen depletion stimulates cellular pathways regulating substrate transport capacity",
+              "Sprint intervals destroy all glycolytic enzymes, forcing exclusive aerobic metabolism"
+            ],
+            correctArray: [0, 1, 3],
+            rationale: "Metabolic stress from repeated sprints triggers signaling pathways for mitochondrial biogenesis (e.g., PGC-1alpha), stimulates substrate transporters, and relies on oxidative recovery between bouts."
+          },
+          {
+            id: 5,
+            q: "Which measures were used in the referenced study to evaluate functional performance improvements following interval training? (Select all that apply)",
+            opts: [
+              "Cycling time to exhaustion at a fixed absolute work intensity",
+              "Time trials resembling athletic competition",
+              "Resting electrocardiogram QRS complex duration",
+              "Total bone mineral density assessed via DXA scan",
+              "Maximal grip strength on a hand dynamometer"
+            ],
+            correctArray: [0, 1],
+            rationale: "Performance was evaluated using cycling time to exhaustion at a fixed work intensity and athletic time trials. ECG duration, bone density, and grip strength were not primary performance metrics."
+          },
+          {
+            id: 6,
+            q: "Which statements accurately reflect the comparison between low-volume HIIT and high-volume CET? (Select all that apply)",
+            opts: [
+              "Both training groups achieve comparable beneficial changes in heart, blood vessel, and muscle function",
+              "The continuous endurance group required up to 5 hours of weekly training compared to a fraction of that time for HIIT",
+              "HIIT failed to produce any changes in skeletal muscle substrate oxidation",
+              "Performance adaptations occurred despite marked differences in training time commitment",
+              "Continuous endurance training is completely ineffective at improving cardiorespiratory fitness"
+            ],
+            correctArray: [0, 1, 3],
+            rationale: "HIIT and CET produced comparable cardiovascular and muscular adaptations and performance gains despite CET requiring 5 hours/week vs. brief interval sessions. CET remains highly effective."
+          }
+        ],
+        tf: [
+          {
+            id: 1,
+            q: "High-intensity interval training stimulates many of the same aerobic adaptations typically associated with continuous endurance training.",
+            ans: true,
+            feedback: "True. Adaptations to HIIT mirror those associated with traditional continuous aerobic training."
+          },
+          {
+            id: 2,
+            q: "In untrained individuals, low-volume HIIT produces significantly inferior performance gains compared to 60 minutes of continuous cycling.",
+            ans: false,
+            feedback: "False. Studies show that low-volume HIIT produces comparable performance improvements to traditional continuous endurance training."
+          },
+          {
+            id: 3,
+            q: "High-intensity interval training stimulates molecular signaling pathways that regulate mitochondrial biogenesis in skeletal muscle.",
+            ans: true,
+            feedback: "True. HIIT activates intracellular signaling cascades that promote mitochondrial biogenesis and substrate oxidation."
+          },
+          {
+            id: 4,
+            q: "Untrained subjects performing 4 to 6 thirty-second sprints with 4 minutes of recovery required the same total weekly training hours as subjects cycling for an hour 5 days per week.",
+            ans: false,
+            feedback: "False. The HIIT protocol required a fraction of the time commitment of the continuous cycling protocol (up to 5 hours per week)."
+          },
+          {
+            id: 5,
+            q: "Both cycling time to exhaustion and simulated time-trial performance show comparable improvements following HIIT versus continuous endurance training.",
+            ans: true,
+            feedback: "True. Performance outcomes were comparable between groups despite substantial differences in time commitment."
+          },
+          {
+            id: 6,
+            q: "HIIT has been shown to increase the capacity for both carbohydrate and fat transport and oxidation in skeletal muscle.",
+            ans: true,
+            feedback: "True. Cellular adaptations to HIIT include expanded capacity for both carbohydrate and fat transport and oxidation."
+          },
+          {
+            id: 7,
+            q: "High-intensity interval training produces no adaptations within the heart or systemic blood vessels.",
+            ans: false,
+            feedback: "False. Research confirms that HIIT elicits beneficial changes in the heart, blood vessels, and skeletal muscle comparable to continuous training."
+          }
+        ],
+        cloze: [
+          {
+            id: 1,
+            statement: "High-intensity interval training is a **time-efficient** strategy to induce aerobic training benefits that mirror traditional **continuous endurance training**.",
+            targets: ["time-efficient", "continuous endurance training"],
+            optionsBank: ["continuous endurance training", "harmful", "ineffective", "passive recovery", "time-efficient"],
+            hint: "The primary scheduling advantage of HIIT and the traditional training modality it matches."
+          },
+          {
+            id: 2,
+            statement: "In research studies, untrained subjects performed four to six **30 s sprints** separated by **4 min** of recovery, three times per week.",
+            targets: ["30 s sprints", "4 min"],
+            optionsBank: ["10 s sprints", "20 min", "30 s sprints", "4 min", "60 min bouts"],
+            hint: "The duration of the all-out cycling bursts and the rest interval duration."
+          },
+          {
+            id: 3,
+            statement: "HIIT stimulates molecular signaling pathways that regulate **mitochondrial biogenesis** as well as enhanced transport and oxidation of **carbohydrates** and fats.",
+            targets: ["mitochondrial biogenesis", "carbohydrates"],
+            optionsBank: ["carbohydrates", "cellular atrophy", "mitochondrial biogenesis", "myofibrillar degradation", "urea"],
+            hint: "The formation of new cellular energy organelles and a primary dietary fuel substrate."
+          },
+          {
+            id: 4,
+            statement: "Functional exercise improvements following HIIT were documented using cycling **time to exhaustion** at a fixed workload and competitive **time trials**.",
+            targets: ["time to exhaustion", "time trials"],
+            optionsBank: ["resting heart rate", "time to exhaustion", "time trials", "vital capacity", "Wingate braking force"],
+            hint: "The two performance tests evaluating sustained submaximal endurance and competitive speed."
+          },
+          {
+            id: 5,
+            statement: "The traditional training comparison group engaged in continuous cycling for up to **one hour** per day, **5 days** per week.",
+            targets: ["one hour", "5 days"],
+            optionsBank: ["5 days", "7 days", "one hour", "six hours", "ten minutes"],
+            hint: "Daily duration and weekly frequency of the continuous endurance protocol."
+          },
+          {
+            id: 6,
+            statement: "Despite major differences in **training time commitment**, adaptations in the heart, blood vessels, and muscles were **comparable** between HIIT and continuous groups.",
+            targets: ["training time commitment", "comparable"],
+            optionsBank: ["comparable", "divergent", "dietary intake", "training time commitment", "zero"],
+            hint: "The primary independent variable difference versus the equality of the physiological outcomes."
+          }
+        ],
+        sa: [
+          {
+            id: 1,
+            prompt: "Analyze the physiological and functional outcomes of the low-volume HIIT protocol versus high-volume continuous endurance training in untrained subjects. Detail the training protocols, functional performance tests, and cellular remodeling mechanisms.",
+            model: "In the referenced landmark study, untrained young subjects were assigned to either a low-volume High-Intensity Interval Training (HIIT) protocol or a traditional high-volume Continuous Endurance Training (CET) protocol. The HIIT group performed 4 to 6 repeats of 30-second all-out cycling sprints (Wingate-style bursts) interspersed with 4 minutes of recovery, 3 days per week, totaling approximately 2 to 3 minutes of actual maximal work per session. In contrast, the continuous endurance group performed up to 60 minutes of unbroken cycling, 5 days per week (up to 5 hours of weekly exercise). Despite the marked difference in training time commitment, both groups achieved comparable improvements in cardiovascular function (adaptations in the heart and blood vessels) and skeletal muscle remodeling. Functional exercise performance\u2014evaluated both as cycling time to exhaustion (TTE) at a fixed submaximal workload and in athletic time trials\u2014improved to an equivalent degree in both groups. At the cellular level, the intense metabolic stress of repeated 30-second sprints stimulated upstream molecular signaling cascades similar to continuous endurance training, driving mitochondrial biogenesis and expanding the muscle\'s enzymatic and transport capacity for both carbohydrate and fatty acid oxidation.",
+            criteria: [
+              "Details the specific protocols: HIIT (4\u20136 x 30 s sprints, 4 min recovery, 3 days/wk) vs. CET (up to 60 min, 5 days/wk)",
+              "Reports that cardiovascular and muscular adaptations were comparable between groups despite the time commitment difference",
+              "Identifies the functional tests: cycling time to exhaustion at a fixed workload and athletic time trials",
+              "Explains cellular mechanisms: shared molecular signaling cascades for mitochondrial biogenesis and substrate transport/oxidation"
+            ],
+            rubric: {
+              0: "Unsatisfactory / Inaccurate explanation with no protocol details",
+              1: "Mentions that HIIT saves time, but cannot state specific protocols or physiological findings",
+              2: "Correctly outlines protocols, but provides superficial explanations of cellular and performance outcomes",
+              3: "Accurately details both protocols, notes comparable performance on both functional tests, and identifies shared cellular remodeling",
+              4: "Thorough comparative analysis of volume disparities, functional testing metrics, and molecular pathways governing mitochondrial and substrate remodeling",
+              5: "Masterful academic synthesis integrating time-efficiency paradigms, PGC-1alpha/molecular signaling, vascular/cardiac remodeling, and metabolic parity"
+            }
+          },
+          {
+            id: 2,
+            prompt: "Explain how supramaximal, predominantly anaerobic exercise bouts (e.g., 30-second all-out sprints) can elicit aerobic cardiovascular and muscular adaptations that mirror traditional continuous endurance training.",
+            model: "Although a single 30-second all-out sprint relies predominantly on the ATP-PCr system and anaerobic glycolysis during its initial seconds, performing repeated sprint intervals separated by recovery periods places profound cumulative stress on the aerobic energy system. During the 4-minute recovery intervals between sprints, oxidative phosphorylation is heavily engaged to clear accumulated metabolites, resynthesize phosphocreatine stores, and restore cellular homeostasis. Across repeated sprints, glycogen depletion, high AMP/ATP ratios, and intense calcium flux trigger upstream intracellular signaling cascades (such as AMPK and CaMK), which converge to activate PGC-1alpha, the master transcriptional coactivator for mitochondrial biogenesis. This signaling upregulates nuclear and mitochondrial DNA transcription, increasing mitochondrial density and the synthesis of oxidative enzymes (e.g., citrate synthase, SDH). Concurrently, repeated high shear stress and cardiac output spikes during intervals stimulate vascular endothelial adaptations and ventricular filling. Thus, repeated high-intensity metabolic stress triggers the same end-point cellular adaptations (mitochondrial biogenesis, expanded substrate transport, and capillary perfusion) normally stimulated by prolonged low-intensity volume.",
+            criteria: [
+              "Explains that oxidative metabolism is heavily engaged during recovery intervals to resynthesize PCr and clear metabolites",
+              "Identifies high metabolic stress (AMP/ATP flux, glycogen depletion) triggering upstream signaling cascades (e.g., PGC-1alpha)",
+              "Connects signaling pathways to mitochondrial biogenesis and enhanced substrate transport capacity",
+              "Mentions cardiovascular/hemodynamic stresses (shear stress, cardiac workload) driving systemic adaptations"
+            ],
+            rubric: {
+              0: "Unsatisfactory / Asserts that sprints cannot stimulate aerobic pathways",
+              1: "Mentions that sprinting is hard work, but provides no cellular or bioenergetic explanation",
+              2: "Identifies recovery oxidative demand, but lacks explanation of molecular signaling cascades or mitochondrial biogenesis",
+              3: "Accurately explains oxidative recovery demands, metabolic stress triggers, and molecular pathways for mitochondrial remodeling",
+              4: "Detailed physiological analysis connecting PCr resynthesis, cellular energetic flux, transcriptional activation, and vascular shear stress",
+              5: "Exemplary bioenergetic and molecular breakdown integrating kinase activation, PGC-1alpha transcriptional regulation, organelle biogenesis, and systemic hemodynamics"
+            }
+          },
+          {
+            id: 3,
+            prompt: "A fitness facility proposes replacing all continuous endurance training with a 15-minute HIIT protocol for all clients, claiming it is universally superior. Evaluate the physiological merits and limitations of this proposal based on Chapter 11 concepts.",
+            model: "The proposal has sound physiological merit regarding time efficiency and functional adaptations, but universal replacement overlooks key physiological and adherence limitations. On the positive side, Chapter 11 confirms that in previously untrained and recreationally active individuals, low-volume HIIT (such as 4\u20136 x 30 s sprints with recovery) stimulates cardiovascular, vascular, and skeletal muscle oxidative adaptations comparable to continuous endurance training in a fraction of the time, improving both time to exhaustion and time-trial performance. It addresses the common barrier of perceived time constraints and stimulates mitochondrial biogenesis and substrate oxidation. However, the proposal has critical limitations: (1) All-out supramaximal intervals require high anaerobic power and produce severe intracellular acidosis, causing discomfort that can reduce adherence in sedentary, deconditioned, or clinical populations; (2) Traditional continuous endurance training promotes low-stress volume, musculoskeletal durability, and continuous hemodynamic loading that may be safer and better tolerated; and (3) As noted in Chapter 11, \'modified\' forms of HIIT must be investigated and prescribed for older or less fit individuals with metabolic disease. Therefore, while HIIT is an effective, time-efficient alternative, it should complement rather than universally replace continuous endurance exercise.",
+            criteria: [
+              "Acknowledges the physiological merits of HIIT (time efficiency, comparable aerobic and mitochondrial adaptations)",
+              "Identifies limitations regarding exercise tolerance, discomfort, and adherence in sedentary/clinical clients",
+              "Highlights the value of traditional continuous endurance training for low-stress volume and broad tolerance",
+              "Recommends a balanced or individualized approach incorporating modified protocols rather than an absolute replacement"
+            ],
+            rubric: {
+              0: "Unsatisfactory / Completely agrees or disagrees without physiological justification",
+              1: "Mentions time efficiency, but fails to evaluate limitations or clinical implications",
+              2: "Outlines basic benefits and risks, but lacks depth on physiological mechanisms and client variability",
+              3: "Accurately balances physiological merits (mitochondrial/functional parity) against limitations (tolerability, adherence, safety)",
+              4: "Thorough critical evaluation integrating bioenergetic demands, client stratification, modified protocols, and exercise prescription principles",
+              5: "Masterful exercise physiology appraisal synthesizing comparative adaptations, adherence psychology, metabolic disease safety, and periodized prescription"
+            }
+          }
+        ]
+      },
+      p2: {
+        mcq: [
+          {
+            id: 1,
+            q: "How does the skeletal muscle oxidative enzyme response to HIIT differ between already trained endurance athletes and previously untrained exercisers?",
+            opts: [
+              "Trained athletes show a 500% greater increase in oxidative enzymes than untrained exercisers",
+              "The rapid increases in oxidative enzymes seen in untrained exercisers are not apparent in already trained athletes",
+              "Trained athletes completely lose all oxidative enzymes within their skeletal muscle fibers",
+              "Untrained exercisers show zero enzyme changes, while trained athletes experience massive increases"
+            ],
+            correct: 1,
+            rationale: "Research indicates that the rapid increases in skeletal muscle oxidative enzymes seen in previously untrained exercisers do not occur in already trained athletes who integrate HIIT."
+          },
+          {
+            id: 2,
+            q: "What happens to competitive performance when highly conditioned endurance athletes incorporate HIIT into their existing training programs?",
+            opts: [
+              "Performance consistently declines by 15% to 20% due to cellular overtraining",
+              "Athletes can likewise improve their exercise performance",
+              "Performance is unaffected because their fitness has reached an absolute ceiling",
+              "Athletes immediately lose all cardiovascular stroke volume adaptations"
+            ],
+            correct: 1,
+            rationale: "Athletes who already train vigorously can likewise improve their performance by integrating HIIT into their regimens, although through mechanisms differing from untrained individuals."
+          },
+          {
+            id: 3,
+            q: "What is currently understood regarding the precise physiological mechanisms driving performance gains when already trained athletes add HIIT?",
+            opts: [
+              "The mechanisms are fully documented and identical to sedentary individuals",
+              "The underlying adaptations for improved performance in these athletes are not well understood",
+              "Gains are entirely explained by the rapid growth of new pulmonary alveoli",
+              "Improvements result exclusively from a reduction in total red blood cell volume"
+            ],
+            correct: 1,
+            rationale: "The textbook explicitly states that the underlying adaptations responsible for improved performance in already trained athletes adding HIIT are not well understood."
+          },
+          {
+            id: 4,
+            q: "According to the Chapter 11 review, how do pure anaerobic training and aerobic training contrast in their enzymatic effects?",
+            opts: [
+              "Anaerobic training increases ATP-PCr and glycolytic enzymes without affecting oxidative enzymes; aerobic training increases oxidative enzymes with little effect on anaerobic enzymes",
+              "Anaerobic training increases oxidative enzymes, while aerobic training increases glycolytic enzymes",
+              "Both training modes elicit identical increases in ATP-PCr, glycolytic, and oxidative enzymes",
+              "Neither training mode produces any change in skeletal muscle metabolic enzyme activity"
+            ],
+            correct: 0,
+            rationale: "Anaerobic training increases ATP-PCr and glycolytic enzymes but has no effect on oxidative enzymes; conversely, aerobic training increases oxidative enzymes with little effect on anaerobic enzymes."
+          },
+          {
+            id: 5,
+            q: "What training principle is reinforced by the contrasting enzyme profiles of pure anaerobic versus pure aerobic conditioning?",
+            opts: [
+              "The principle of reversibility",
+              "The principle of progressive overload",
+              "The principle of training specificity (SAID)",
+              "The law of diminishing genetic returns"
+            ],
+            correct: 2,
+            rationale: "The divergence in enzymatic adaptations reinforces the principle of training specificity: physiological alterations that result from training are highly specific to the training stimulus."
+          },
+          {
+            id: 6,
+            q: "Why do previously untrained individuals experience rapid increases in skeletal muscle oxidative enzymes with HIIT, while already trained athletes do not?",
+            opts: [
+              "Untrained individuals possess a wide adaptive window, whereas trained athletes have already maximized baseline oxidative enzyme levels",
+              "Trained athletes lack the genes necessary to synthesize mitochondrial enzymes",
+              "Untrained individuals exercise with higher absolute power outputs than elite athletes",
+              "Trained athletes only use anaerobic energy pathways during all workouts"
+            ],
+            correct: 0,
+            rationale: "Untrained individuals have a large adaptation reserve, while already conditioned athletes have already elevated their oxidative enzyme content through extensive endurance training."
+          },
+          {
+            id: 7,
+            q: "What are hypothesized mechanisms explaining improved performance in already trained athletes who add HIIT, given the absence of oxidative enzyme increases?",
+            opts: [
+              "Enhanced intracellular buffering capacity, motor unit recruitment, and fractional utilization",
+              "Atrophy of Type II fibers and shrinkage of left ventricular chamber dimensions",
+              "Complete cessation of sweat production and peripheral vasodilation",
+              "Permanent reduction in maximal cardiac output and stroke volume"
+            ],
+            correct: 0,
+            rationale: "In the absence of oxidative enzyme increases, performance gains in trained athletes are thought to stem from enhanced buffering capacity, neuromuscular recruitment efficiency, and higher fractional utilization of VO2max."
+          }
+        ],
+        ms: [
+          {
+            id: 1,
+            q: "Which statements correctly contrast the adaptations of untrained versus already trained individuals adding HIIT? (Select all that apply)",
+            opts: [
+              "Both groups can achieve improvements in exercise performance",
+              "Untrained individuals experience rapid increases in skeletal muscle oxidative enzymes",
+              "Already trained athletes do not show the rapid increases in oxidative enzymes observed in untrained subjects",
+              "The precise mechanisms driving performance improvements in already trained athletes are not well understood",
+              "Already trained athletes experience massive reductions in VO2max when adding HIIT"
+            ],
+            correctArray: [0, 1, 2, 3],
+            rationale: "Both groups improve performance, but untrained subjects show rapid oxidative enzyme increases, whereas trained athletes do not. The mechanisms in trained athletes remain incompletely understood."
+          },
+          {
+            id: 2,
+            q: "According to the principle of training specificity, which enzymatic changes occur with pure anaerobic versus pure aerobic exercise? (Select all that apply)",
+            opts: [
+              "Anaerobic training increases ATP-PCr enzymes (e.g., creatine kinase, myokinase)",
+              "Anaerobic training increases glycolytic enzymes (e.g., PFK, LDH)",
+              "Anaerobic training produces marked multi-fold increases in oxidative enzymes (e.g., SDH)",
+              "Aerobic training increases mitochondrial oxidative enzymes with little effect on anaerobic enzymes",
+              "Aerobic training causes immediate destruction of all phosphagen enzymes"
+            ],
+            correctArray: [0, 1, 3],
+            rationale: "Anaerobic training upregulates ATP-PCr and glycolytic enzymes without altering oxidative enzymes. Aerobic training upregulates oxidative enzymes without affecting anaerobic enzymes."
+          },
+          {
+            id: 3,
+            q: "Which factors likely contribute to improved race performance in elite endurance athletes adding HIIT despite stagnant oxidative enzyme levels? (Select all that apply)",
+            opts: [
+              "Improved neuromuscular motor unit firing synchronization and recruitment",
+              "Enhanced cellular and blood buffering capacity to neutralize hydrogen ions",
+              "Greater fractional utilization of VO2max sustained at race pace",
+              "Improved biomechanical movement economy and pacing strategy",
+              "Loss of all cardiac stroke volume and capillary density"
+            ],
+            correctArray: [0, 1, 2, 3],
+            rationale: "Neuromuscular coordination, buffering capacity, fractional utilization, and movement economy are key factors improving race performance in trained athletes without requiring further enzyme increases."
+          },
+          {
+            id: 4,
+            q: "Which enzymes belong to the ATP-PCr and glycolytic pathways that increase with anaerobic training but remain unaffected by pure aerobic training? (Select all that apply)",
+            opts: [
+              "Creatine kinase",
+              "Phosphofructokinase (PFK)",
+              "Lactate dehydrogenase (LDH)",
+              "Succinate dehydrogenase (SDH)",
+              "Myokinase"
+            ],
+            correctArray: [0, 1, 2, 4],
+            rationale: "Creatine kinase, myokinase, PFK, and LDH are phosphagen and glycolytic enzymes that increase with anaerobic training. Succinate dehydrogenase (SDH) is an oxidative enzyme."
+          },
+          {
+            id: 5,
+            q: "Why is the integration of HIIT into an already vigorous training program considered a nuanced coaching challenge? (Select all that apply)",
+            opts: [
+              "Trained athletes are closer to their genetic ceiling, making further adaptations smaller and harder to attain",
+              "The risk of overtraining or excessive fatigue increases when adding high-intensity intervals to high volume",
+              "The mechanisms of improvement differ from those in beginners and require precise load management",
+              "HIIT has been proven to permanently shut down mitochondrial respiration in trained athletes",
+              "Trained athletes completely stop producing force during interval work"
+            ],
+            correctArray: [0, 1, 2],
+            rationale: "Trained athletes operate near their genetic ceiling, face overtraining risks when combining HIIT with high volume, and require precise prescription because mechanisms differ from novices."
+          },
+          {
+            id: 6,
+            q: "Which observations support the concept of training specificity in exercise physiology? (Select all that apply)",
+            opts: [
+              "Sprint training improves anaerobic power and capacity more than continuous cycling",
+              "Aerobic training selectively enhances oxidative enzymes without elevating PFK or creatine kinase",
+              "Anaerobic training increases fast-twitch fiber cross-sectional area with minimal oxidative enzyme changes",
+              "All forms of physical exercise produce identical cellular biochemical adaptations",
+              "Endurance runners automatically become world-class Olympic weightlifters"
+            ],
+            correctArray: [0, 1, 2],
+            rationale: "Specificity is evidenced by divergent enzyme profiles, fiber-specific hypertrophy, and mode-specific performance adaptations. Exercise does not produce uniform adaptations across all modes."
+          }
+        ],
+        tf: [
+          {
+            id: 1,
+            q: "Already trained endurance athletes who integrate HIIT into their workouts do not exhibit the rapid increases in skeletal muscle oxidative enzymes seen in untrained exercisers.",
+            ans: true,
+            feedback: "True. The rapid increases in oxidative enzymes observed in untrained individuals are not apparent in already trained athletes adding HIIT."
+          },
+          {
+            id: 2,
+            q: "Athletes who already train vigorously cannot improve their performance any further by adding high-intensity interval training.",
+            ans: false,
+            feedback: "False. Highly trained athletes can likewise improve performance by integrating HIIT, although via different mechanisms."
+          },
+          {
+            id: 3,
+            q: "The precise physiological adaptations responsible for improved performance in already trained athletes who add HIIT are not well understood.",
+            ans: true,
+            feedback: "True. The underlying adaptations driving performance gains in already trained athletes adding HIIT remain incompletely understood."
+          },
+          {
+            id: 4,
+            q: "Pure anaerobic training increases both ATP-PCr and glycolytic enzymes while simultaneously causing multi-fold increases in oxidative enzymes.",
+            ans: false,
+            feedback: "False. Anaerobic training increases ATP-PCr and glycolytic enzymes but has no effect on oxidative enzymes."
+          },
+          {
+            id: 5,
+            q: "Aerobic endurance training increases mitochondrial oxidative enzymes but has little effect on ATP-PCr or glycolytic enzymes.",
+            ans: true,
+            feedback: "True. Aerobic training selectively increases oxidative enzymes with little effect on anaerobic enzymes."
+          },
+          {
+            id: 6,
+            q: "The divergence in metabolic adaptations between aerobic and anaerobic training reinforces the principle of training specificity.",
+            ans: true,
+            feedback: "True. Highly specific enzymatic adaptations reinforce the core principle of training specificity (SAID)."
+          },
+          {
+            id: 7,
+            q: "In already trained athletes, performance gains from HIIT are fully explained by a dramatic expansion of left ventricular chamber diameter.",
+            ans: false,
+            feedback: "False. Central cardiac adaptations are largely established in trained athletes; interval-induced performance gains are thought to stem from peripheral, neuromuscular, or buffering factors."
+          }
+        ],
+        cloze: [
+          {
+            id: 1,
+            statement: "Athletes who already train vigorously can improve performance by integrating HIIT, but the **underlying adaptations** for these improvements appear to **differ**.",
+            targets: ["underlying adaptations", "differ"],
+            optionsBank: ["differ", "match", "remain identical", "underlying adaptations", "VO2max limits"],
+            hint: "The biological mechanisms behind the gains and their divergence from beginner adaptations."
+          },
+          {
+            id: 2,
+            statement: "The rapid increases in skeletal muscle **oxidative enzymes** seen in untrained exercisers are **not apparent** in already trained individuals who add HIIT.",
+            targets: ["oxidative enzymes", "not apparent"],
+            optionsBank: ["doubled", "glycolytic enzymes", "not apparent", "oxidative enzymes", "substantially larger"],
+            hint: "Mitochondrial metabolic catalysts and their absence of change in trained athletes."
+          },
+          {
+            id: 3,
+            statement: "Anaerobic training increases **ATP-PCr** and glycolytic enzymes but has **no effect** on oxidative enzymes.",
+            targets: ["ATP-PCr", "no effect"],
+            optionsBank: ["ATP-PCr", "a massive effect", "destructive impact", "no effect", "oxidative phosphorylation"],
+            hint: "The immediate phosphagen energy system and its lack of crossover to oxidative enzymes."
+          },
+          {
+            id: 4,
+            statement: "Conversely, aerobic training increases **oxidative enzymes** but has little effect on the ATP-PCr or **glycolytic** enzymes.",
+            targets: ["oxidative enzymes", "glycolytic"],
+            optionsBank: ["cardiac", "glycolytic", "oxidative enzymes", "pulmonary", "urea cycle"],
+            hint: "Mitochondrial respiratory proteins and the anaerobic carbohydrate-splitting pathway."
+          },
+          {
+            id: 5,
+            statement: "Divergent enzymatic alterations reinforce a recurring theme: adaptations resulting from training are highly **specific** to the **type of training** performed.",
+            targets: ["specific", "type of training"],
+            optionsBank: ["accidental", "duration of sleep", "random", "specific", "type of training"],
+            hint: "The core SAID principle of exercise physiology."
+          },
+          {
+            id: 6,
+            statement: "The underlying adaptations for improved performance in already trained athletes who add HIIT are **not well understood**, but may involve improved **buffering capacity** and neuromuscular efficiency.",
+            targets: ["not well understood", "buffering capacity"],
+            optionsBank: ["alveolar growth", "buffering capacity", "completely solved", "not well understood", "zero fatigue"],
+            hint: "The current state of scientific certainty and the physiological ability to neutralize acid."
+          }
+        ],
+        sa: [
+          {
+            id: 1,
+            prompt: "Compare and contrast the physiological adaptations elicited by HIIT in previously untrained exercisers versus highly conditioned endurance athletes. Explain why oxidative enzyme responses diverge between these populations.",
+            model: "When previously untrained individuals engage in HIIT, they possess a wide adaptive window. In this population, low-volume HIIT stimulates rapid, robust cellular remodeling: skeletal muscle oxidative enzymes (such as citrate synthase and succinate dehydrogenase) increase significantly within a few weeks, accompanied by mitochondrial biogenesis, expanded capillary recruitment, and enhanced substrate transport capacity. These peripheral adaptations directly explain the rapid improvements in VO2max and time-trial performance observed in beginners. In contrast, highly conditioned endurance athletes who integrate HIIT into their already vigorous training programs also experience meaningful performance enhancements (e.g., faster time-trial times, higher sustainable power), but their underlying cellular adaptations diverge. Specifically, already trained athletes do not display the rapid increases in skeletal muscle oxidative enzymes seen in novices. Because years of continuous endurance training have already driven their mitochondrial density and oxidative enzyme concentrations near an upper physiological adaptation ceiling, further interval training cannot stimulate substantial enzyme synthesis. Instead, performance gains in elite athletes are hypothesized to stem from non-enzymatic adaptations, including enhanced intracellular and blood buffering capacity (neutralizing H+ ions), improved neuromuscular motor unit recruitment efficiency, enhanced fractional utilization of VO2max, and superior mechanical movement economy.",
+            criteria: [
+              "Contrasts the baseline adaptive window: untrained individuals possess a wide adaptive reserve vs. elite athletes near an adaptation ceiling",
+              "Explains that untrained individuals exhibit rapid increases in oxidative enzymes and mitochondrial biogenesis",
+              "States that already trained athletes do not display significant further increases in oxidative enzymes",
+              "Hypothesizes alternative mechanisms in trained athletes: buffering capacity, neuromuscular recruitment, fractional utilization, or movement economy"
+            ],
+            rubric: {
+              0: "Unsatisfactory / Asserts that trained and untrained athletes adapt identically",
+              1: "Mentions that both improve, but cannot explain the divergence in enzyme adaptations",
+              2: "Identifies that enzymes increase in beginners but not trained athletes, but provides no alternative mechanisms for trained athletes",
+              3: "Accurately contrasts enzyme responses and details at least two alternative performance mechanisms in trained athletes",
+              4: "Thorough physiological breakdown connecting baseline training status, adaptation ceilings, enzyme saturation, and neuromuscular/buffering factors",
+              5: "Masterful academic synthesis integrating cellular ceilings, fractional utilization kinetics, intracellular buffering, and motor unit recruitment dynamics"
+            }
+          },
+          {
+            id: 2,
+            prompt: "Synthesize the principle of training specificity (SAID) using the contrasting metabolic enzyme adaptations of pure anaerobic training, pure aerobic training, and High-Intensity Interval Training.",
+            model: "The principle of training specificity (Specific Adaptations to Imposed Demands, or SAID) states that physiological adaptations are precisely tailored to the metabolic, mechanical, and neuromuscular stresses imposed by the training modality. This principle is demonstrated by contrasting enzymatic profiles across modalities: (1) Pure anaerobic sprint and resistance training (such as short 6-second maximal bouts or heavy lifting) stresses non-oxidative pathways; this upregulates phosphagen enzymes (creatine kinase, myokinase) and fast glycolytic enzymes (PFK, glycogen phosphorylase, LDH), while producing zero change in mitochondrial oxidative enzymes. (2) Pure continuous aerobic endurance training stresses oxidative phosphorylation; this selectively increases mitochondrial oxidative enzymes (succinate dehydrogenase, citrate synthase) and lipid oxidation machinery, while producing negligible changes in phosphagen or fast glycolytic enzyme activities. (3) High-Intensity Interval Training (HIIT) bridges these distinct domains. Because HIIT combines supramaximal work intervals with active/passive aerobic recovery periods, it stimulates rapid glycolytic and phosphagen flux during the work bouts while imposing intense oxidative demand during recovery. Consequently, in untrained subjects, HIIT stimulates upstream molecular pathways that induce aerobic remodeling (mitochondrial biogenesis, oxidative enzyme upregulation, substrate transport) while simultaneously improving high-intensity anaerobic power and capacity.",
+            criteria: [
+              "Defines the SAID principle with respect to metabolic and enzymatic adaptations",
+              "Identifies anaerobic training adaptations: increased ATP-PCr and glycolytic enzymes with no change in oxidative enzymes",
+              "Identifies aerobic training adaptations: increased mitochondrial oxidative enzymes with little effect on anaerobic enzymes",
+              "Explains how HIIT serves as a hybrid stimulus bridging non-oxidative sprint flux with aerobic recovery demands"
+            ],
+            rubric: {
+              0: "Unsatisfactory / Confuses enzyme systems across training modes",
+              1: "Mentions training specificity, but fails to name specific enzymes or pathways",
+              2: "Correctly contrasts pure aerobic vs. pure anaerobic enzymes, but omits how HIIT bridges both domains",
+              3: "Accurately details enzyme profiles for anaerobic, aerobic, and HIIT modalities, linking them to training specificity",
+              4: "Thorough biochemical analysis explaining pathway localization, allosteric regulation, and the unique dual-energy stress of interval training",
+              5: "Exemplary bioenergetic critique synthesizing metabolic compartmentalization, enzyme kinetic adaptations, recovery bioenergetics, and periodized training specificity"
+            }
+          },
+          {
+            id: 3,
+            prompt: "A collegiate soccer coach asks why high-intensity interval running should be integrated into preseason conditioning instead of only long-distance continuous jogging. Provide an evidence-based recommendation citing Chapter 11 concepts.",
+            model: "Based on Chapter 11 concepts, integrating high-intensity interval training (HIIT) into soccer preseason conditioning provides substantial physiological and sport-specific advantages over relying exclusively on continuous long-distance jogging. Soccer is an intermittent sport characterized by repeated short bursts of sprinting, tackling, and cutting interspersed with brief recovery periods. While continuous distance jogging improves baseline cardiorespiratory endurance, it fails to recruit high-threshold Type II fast-twitch motor units and does not challenge the ATP-PCr or fast glycolytic energy systems. In contrast, HIIT accomplishes two critical goals simultaneously: (1) It provides the same central cardiovascular and peripheral muscular adaptations as continuous endurance exercise\u2014including enhanced stroke volume, capillarization, mitochondrial biogenesis, and improved capacity for carbohydrate and fat oxidation\u2014in a fraction of the training time; and (2) It replicates the intermittent metabolic and neuromuscular demands of soccer match play by challenging intracellular buffering capacity, rapid phosphocreatine resynthesis during recovery, and high-velocity neuromuscular recruitment. Prescribing repeated interval sprints (e.g., 15- to 30-second high-intensity runs with structured recovery) prepares athletes for the specific high-intensity running demands of competition while preserving practice time for technical and tactical development.",
+            criteria: [
+              "Identifies soccer as an intermittent sport requiring both anaerobic sprint power and aerobic recovery",
+              "Explains that HIIT matches continuous endurance training for aerobic, vascular, and mitochondrial adaptations",
+              "Highlights sport-specific adaptations: high-threshold motor unit recruitment, PCr recovery kinetics, and buffering capacity",
+              "Notes practical time efficiency, allowing more session time for tactical and sport-specific skill development"
+            ],
+            rubric: {
+              0: "Unsatisfactory / Recommends only continuous jogging or provides no physiological rationale",
+              1: "States that soccer players sprint so they should run intervals, with minimal physiology",
+              2: "Outlines basic interval benefits, but lacks depth on shared aerobic adaptations and neuromuscular specificity",
+              3: "Accurately justifies HIIT using evidence of aerobic/mitochondrial parity, sport-specific energy systems, and time efficiency",
+              4: "Thorough comparative recommendation linking match-play movement profiles, energy system fractionation, buffering capacity, and tactical efficiency",
+              5: "Masterful coaching and exercise physiology consultation synthesizing Henneman\'s Size Principle, intermittent bioenergetics, metabolic recovery kinetics, and athletic periodization"
+            }
+          }
+        ]
+      }
+    };
+
+    /* =========================================================================
+       2. MASTER GLOSSARY DEFINITIONS
+       ========================================================================= */
+    const masterGlossary = [
+      {
+        term: "All-Out Sprint Interval Training (SIT)",
+        definition: "A specific, maximal sub-category of high-intensity interval training typically utilizing \'all-out\' supramaximal efforts (such as the Wingate cycling test, lasting 15 to 30 seconds) performed at intensities exceeding 100% of VO2max or peak aerobic power, interspersed with multi-minute passive or low-intensity recovery periods.",
+        formula: "Intensity > 100% VO2max or Peak Power"
+      },
+      {
+        term: "Continuous Endurance Training (CET)",
+        definition: "Traditional endurance conditioning characterized by prolonged, unbroken submaximal exercise (typically 30 to 60+ minutes at moderate-to-vigorous intensities, ~60% to 75% of VO2max) targeting cardiovascular, pulmonary, and skeletal muscle oxidative remodeling.",
+        formula: "Continuous Exercise (~60% - 75% VO2max)"
+      },
+      {
+        term: "Fractional Utilization",
+        definition: "The percentage of an athlete\'s maximal oxygen consumption (VO2max) that can be sustained for an extended duration during competition without excessive blood lactate accumulation, frequently improved by interval training in already conditioned athletes.",
+        formula: "% VO2max Sustained at Threshold"
+      },
+      {
+        term: "High-Intensity Interval Training (HIIT)",
+        definition: "An exercise training paradigm characterized by repeated brief bouts of high-intensity exercise (ranging from 85% to >100% of VO2max or peak power) interspersed with periods of rest or low-intensity active recovery.",
+        formula: "Work Bouts + Recovery Periods"
+      },
+      {
+        term: "Intracellular Buffering Capacity",
+        definition: "The biochemical ability of muscle fibers and circulating blood to neutralize hydrogen ions (H+) generated during intense metabolic flux, delaying intracellular acidosis and preserving cross-bridge cycling during high-intensity interval work.",
+        formula: "Physicochemical & Metabolic H+ Neutralization"
+      },
+      {
+        term: "Mitochondrial Biogenesis",
+        definition: "The complex cellular signaling process involving the synthesis of new mitochondrial proteins and expansion of mitochondrial volume and density, upregulated in response to both endurance training and HIIT via common molecular cascades (such as PGC-1alpha, AMPK, and CaMK).",
+        formula: "Upregulated via PGC-1alpha Signaling"
+      },
+      {
+        term: "Molecular Signaling Cascades",
+        definition: "Intracellular biochemical pathways (including protein kinases and transcription coactivators) activated by the mechanical, metabolic, and energy stress of muscle contractions that upregulate nuclear gene expression and protein translation.",
+        formula: "Kinase Activation -> Nuclear Transcription"
+      },
+      {
+        term: "Neuromuscular Recruitment Efficiency",
+        definition: "The coordinated neural activation, firing frequency, and synchronization of motor units that allows skeletal muscle to generate higher mechanical force or power output with reduced metabolic energy expenditure.",
+        formula: "Motor Unit Firing & Synchronization"
+      },
+      {
+        term: "Oxidative Enzyme Ceiling",
+        definition: "The physiological adaptation boundary observed in already conditioned endurance athletes wherein further increases in mitochondrial oxidative enzyme concentrations (e.g., citrate synthase, succinate dehydrogenase) are limited or absent despite intensified training.",
+        formula: "Adaptation Asymptote in Elite Athletes"
+      },
+      {
+        term: "Substrate Transport Capacity",
+        definition: "The cellular density and translocation efficiency of specific sarcolemmal transport proteins responsible for moving carbohydrates (e.g., GLUT4 glucose transporters) and free fatty acids (e.g., FAT/CD36) across the muscle cell membrane to fuel oxidative metabolism.",
+        formula: "Sarcolemmal Transporter Density (GLUT4, FAT/CD36)"
+      },
+      {
+        term: "Time to Exhaustion (TTE)",
+        definition: "A standardized laboratory performance test measuring the total duration an individual can sustain exercise at a fixed, absolute submaximal or supramaximal workload until volitional fatigue.",
+        formula: "Duration (min:sec) at Fixed Workload"
+      },
+      {
+        term: "Time-Trial Performance",
+        definition: "A simulated competitive exercise performance assessment wherein an individual must complete a set distance or fixed amount of mechanical work as quickly as possible, reflecting pacing, metabolic capacity, and movement economy.",
+        formula: "Work (kJ) / Time or Distance / Time"
+      }
+    ];
+
+    /* =========================================================================
+       3. ENGINE STATE & DATA STRUCTURES
+       ========================================================================= */
+    const appState = {
+      currentPage: "p1",
+      scores: {
+        p1: { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 },
+        p2: { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 }
+      },
+      sampledItems: {
+        p1: { mcq: null, ms: null, tf: null, cloze: null, sa: null },
+        p2: { mcq: null, ms: null, tf: null, cloze: null, sa: null }
+      }
+    };
+
+    /* Utility Functions */
+    function getRandomItems(array, count) {
+      if (!count) count = 1;
+      const shuffled = [...array].sort(function() { return 0.5 - Math.random(); });
+      return count === 1 ? shuffled[0] : shuffled.slice(0, count);
+    }
+
+    function recordScore(pageKey, actKey, score) {
+      appState.scores[pageKey][actKey] = score;
+      updateSectionScoreBadge(pageKey, actKey);
+      updateGlobalScore();
+    }
+
+    function updateSectionScoreBadge(pageKey, actKey) {
+      const badge = document.getElementById("score-badge-" + pageKey + "-" + actKey);
+      if (!badge) return;
+      const score = appState.scores[pageKey][actKey];
+      const maxPts = actKey === 'sa' ? 5 : 2;
+      badge.innerText = "Score: " + score + " / " + maxPts + " pts";
+    }
+
+    function updateGlobalScore() {
+      const p1 = appState.scores.p1;
+      const p2 = appState.scores.p2;
+      const earned = p1.mcq + p1.ms + p1.tf + p1.cloze + p1.sa +
+                     p2.mcq + p2.ms + p2.tf + p2.cloze + p2.sa;
+      const totalPossible = 26;
+
+      const badgeText = document.getElementById("global-score-text");
+      const progressBar = document.getElementById("global-progress-bar");
+      
+      const pct = Math.round((earned / totalPossible) * 100);
+      if (badgeText) badgeText.innerText = earned + " / " + totalPossible + " pts (" + pct + "%)";
+      if (progressBar) progressBar.style.width = pct + "%";
+    }
+
+    function resetAllActivities() {
+      if (confirm("Reset all assessment activities across both concept pages? This will refresh all questions and reset your running score.")) {
+        restartLesson();
+      }
+    }
+
+    /* =========================================================================
+       4. ACTIVITY RENDERERS & EVENT HANDLERS
+       ========================================================================= */
+    function initPageQuestions(pageKey) {
+      const bank = assessmentBanks[pageKey];
+      appState.sampledItems[pageKey].mcq = getRandomItems(bank.mcq);
+      appState.sampledItems[pageKey].ms = getRandomItems(bank.ms);
+      appState.sampledItems[pageKey].tf = getRandomItems(bank.tf);
+      appState.sampledItems[pageKey].cloze = getRandomItems(bank.cloze);
+      appState.sampledItems[pageKey].sa = getRandomItems(bank.sa);
+
+      renderMCQ(pageKey);
+      renderMS(pageKey);
+      renderTF(pageKey);
+      renderCloze(pageKey);
+      renderSA(pageKey);
+    }
+
+    /* Render Activity 1: MCQ */
+    function renderMCQ(pageKey) {
+      const container = document.getElementById("container-" + pageKey + "-mcq");
+      const item = appState.sampledItems[pageKey].mcq;
+      if (!container || !item) return;
+
+      container.innerHTML = `
+        <div class="q-card">
+          <div class="q-meta">
+            <span class="q-type-tag">Multiple Choice</span>
+            <span style="font-size:0.75rem; font-weight:700; color:#64748b;">Worth 2 pts</span>
+          </div>
+          <div class="q-title">${item.q}</div>
+          <div class="options-grid">
+            ${item.opts.map(function(opt, i) {
+              return `
+                <label class="opt-label">
+                  <input type="radio" name="${pageKey}-mcq-opt" value="${i}" onchange="handleMCQSelection('${pageKey}',${i})">
+                  <span>${opt}</span>
+                </label>
+              `;
+            }).join('')}
+          </div>
+          <div class="feedback-box" id="fb-${pageKey}-mcq"></div>
+        </div>
+      `;
+    }
+
+    function handleMCQSelection(pageKey, selectedIndex) {
+      const item = appState.sampledItems[pageKey].mcq;
+      const fb = document.getElementById("fb-" + pageKey + "-mcq");
+      if (!fb) return;
+      fb.style.display = "block";
+
+      if (selectedIndex === item.correct) {
+        fb.className = "feedback-box correct";
+        fb.innerHTML = "<strong>Correct! (2/2 pts)</strong> " + item.rationale;
+        recordScore(pageKey, 'mcq', 2);
+      } else {
+        fb.className = "feedback-box incorrect";
+        fb.innerHTML = "<strong>Incorrect (0/2 pts).</strong> " + item.rationale;
+        recordScore(pageKey, 'mcq', 0);
+      }
+    }
+
+    /* Render Activity 2: Multi-Select */
+    function renderMS(pageKey) {
+      const container = document.getElementById("container-" + pageKey + "-ms");
+      const item = appState.sampledItems[pageKey].ms;
+      if (!container || !item) return;
+
+      container.innerHTML = `
+        <div class="q-card">
+          <div class="q-meta">
+            <span class="q-type-tag">Multi-Select</span>
+            <span style="font-size:0.75rem; font-weight:700; color:#64748b;">Worth 2 pts</span>
+          </div>
+          <div class="q-title">${item.q}</div>
+          <div class="options-grid">
+            ${item.opts.map(function(opt, i) {
+              return `
+                <label class="opt-label">
+                  <input type="checkbox" name="${pageKey}-ms-opt" value="${i}">
+                  <span>${opt}</span>
+                </label>
+              `;
+            }).join('')}
+          </div>
+          <button class="btn-action" onclick="handleMSCheck('${pageKey}')">Check Selections</button>
+          <div class="feedback-box" id="fb-${pageKey}-ms"></div>
+        </div>
+      `;
+    }
+
+    function handleMSCheck(pageKey) {
+      const item = appState.sampledItems[pageKey].ms;
+      const fb = document.getElementById("fb-" + pageKey + "-ms");
+      const checkedBoxes = Array.from(document.querySelectorAll("input[name=\"" + pageKey + "-ms-opt\"]:checked")).map(function(c) {
+        return parseInt(c.value);
+      });
+      if (!fb) return;
+      fb.style.display = "block";
+
+      if (checkedBoxes.length === 0) {
+        fb.className = "feedback-box warning";
+        fb.innerHTML = "Please select at least one option before evaluating.";
+        return;
+      }
+
+      const correctSet = new Set(item.correctArray);
+      const isExactMatch = correctSet.size === checkedBoxes.length && checkedBoxes.every(function(x) {
+        return correctSet.has(x);
+      });
+
+      if (isExactMatch) {
+        fb.className = "feedback-box correct";
+        fb.innerHTML = "<strong>Completely Correct! (2/2 pts)</strong> " + item.rationale;
+        recordScore(pageKey, 'ms', 2);
+      } else {
+        const correctCount = checkedBoxes.filter(function(x) { return correctSet.has(x); }).length;
+        const incorrectCount = checkedBoxes.filter(function(x) { return !correctSet.has(x); }).length;
+        fb.className = "feedback-box incorrect";
+        fb.innerHTML = "<strong>Incomplete / Incorrect (0/2 pts).</strong> You identified " + correctCount + " correct and " + incorrectCount + " incorrect options.<br><em>Rationale:</em> " + item.rationale;
+        recordScore(pageKey, 'ms', 0);
+      }
+    }
+
+    /* Render Activity 3: True / False */
+    function renderTF(pageKey) {
+      const container = document.getElementById("container-" + pageKey + "-tf");
+      const item = appState.sampledItems[pageKey].tf;
+      if (!container || !item) return;
+
+      container.innerHTML = `
+        <div class="q-card">
+          <div class="q-meta">
+            <span class="q-type-tag">True / False</span>
+            <span style="font-size:0.75rem; font-weight:700; color:#64748b;">Worth 2 pts</span>
+          </div>
+          <div class="q-title">${item.q}</div>
+          <div class="options-grid">
+            <label class="opt-label">
+              <input type="radio" name="${pageKey}-tf-opt" value="true" onchange="handleTFSelection('${pageKey}', true)">
+              <span>True</span>
+            </label>
+            <label class="opt-label">
+              <input type="radio" name="${pageKey}-tf-opt" value="false" onchange="handleTFSelection('${pageKey}', false)">
+              <span>False</span>
+            </label>
+          </div>
+          <div class="feedback-box" id="fb-${pageKey}-tf"></div>
+        </div>
+      `;
+    }
+
+    function handleTFSelection(pageKey, userBool) {
+      const item = appState.sampledItems[pageKey].tf;
+      const fb = document.getElementById("fb-" + pageKey + "-tf");
+      if (!fb) return;
+      fb.style.display = "block";
+
+      if (userBool === item.ans) {
+        fb.className = "feedback-box correct";
+        fb.innerHTML = "<strong>Correct! (2/2 pts)</strong> " + item.feedback;
+        recordScore(pageKey, 'tf', 2);
+      } else {
+        fb.className = "feedback-box incorrect";
+        fb.innerHTML = "<strong>Incorrect (0/2 pts).</strong> " + item.feedback;
+        recordScore(pageKey, 'tf', 0);
+      }
+    }
+
+    /* Render Activity 4: Precision Cloze */
+    function renderCloze(pageKey) {
+      const container = document.getElementById("container-" + pageKey + "-cloze");
+      const item = appState.sampledItems[pageKey].cloze;
+      if (!container || !item) return;
+
+      let statementHtml = item.statement;
+      item.targets.forEach(function(target, i) {
+        const selectId = "cloze-" + pageKey + "-" + i;
+        const optionsHtml = `<option value="">-- Select Term --</option>` +
+          item.optionsBank.map(function(opt) {
+            return `<option value="${opt}">${opt}</option>`;
+          }).join('');
+        const selectHtml = `<select class="cloze-dropdown" id="${selectId}">${optionsHtml}</select>`;
+        statementHtml = statementHtml.replace(`**${target}**`, selectHtml);
+      });
+
+      container.innerHTML = `
+        <div class="q-card">
+          <div class="q-meta">
+            <span class="q-type-tag">Precision Cloze</span>
+            <span style="font-size:0.75rem; font-weight:700; color:#64748b;">Worth 2 pts</span>
+          </div>
+          <div class="q-title" style="line-height:2.3;">${statementHtml}</div>
+          <div class="cloze-hint-text"><strong>Clue:</strong> ${item.hint}</div>
+          <div style="margin-top:12px;">
+            <button class="btn-action" onclick="handleClozeSelection('${pageKey}')">Verify Selections</button>
+          </div>
+          <div class="feedback-box" id="fb-${pageKey}-cloze"></div>
+        </div>
+      `;
+    }
+
+    function handleClozeSelection(pageKey) {
+      const item = appState.sampledItems[pageKey].cloze;
+      const fb = document.getElementById("fb-" + pageKey + "-cloze");
+      if (!fb) return;
+      fb.style.display = "block";
+
+      let allCorrect = true;
+      let anyEmpty = false;
+
+      item.targets.forEach(function(target, i) {
+        const sel = document.getElementById("cloze-" + pageKey + "-" + i);
+        if (!sel || !sel.value) anyEmpty = true;
+        if (sel && sel.value !== target) allCorrect = false;
+      });
+
+      if (anyEmpty) {
+        fb.className = "feedback-box warning";
+        fb.innerHTML = "Please select an answer for all dropdown blanks before submitting.";
+        return;
+      }
+
+      if (allCorrect) {
+        fb.className = "feedback-box correct";
+        fb.innerHTML = "<strong>Exact Match! (2/2 pts)</strong> All physiological targets correctly assigned.";
+        recordScore(pageKey, 'cloze', 2);
+      } else {
+        fb.className = "feedback-box incorrect";
+        fb.innerHTML = "<strong>Incorrect (0/2 pts).</strong> One or more terminology selections are inaccurate. Targets: <em>" + item.targets.join(', ') + "</em>.";
+        recordScore(pageKey, 'cloze', 0);
+      }
+    }
+
+    /* Render Activity 5: Short Answer */
+    function renderSA(pageKey) {
+      const container = document.getElementById("container-" + pageKey + "-sa");
+      const item = appState.sampledItems[pageKey].sa;
+      if (!container || !item) return;
+
+      container.innerHTML = `
+        <div class="q-card">
+          <div class="q-meta">
+            <span class="q-type-tag">Synthesis Short Answer</span>
+            <span style="font-size:0.75rem; font-weight:700; color:#64748b;">Worth 5 pts</span>
+          </div>
+          <div class="q-title">${item.prompt}</div>
+          <textarea class="sa-textarea" id="sa-input-${pageKey}" oninput="updateSACounters('${pageKey}')" placeholder="Type your structured physiological answer here..."></textarea>
+          <div class="sa-counter" id="sa-count-${pageKey}">Words: 0</div>
+          <div>
+            <button class="btn-action" onclick="revealSARubric('${pageKey}')">Check Optimal Answer &amp; Rubric</button>
+          </div>
+
+          <div class="sa-rubric-box" id="sa-rubric-box-${pageKey}">
+            <h5 style="color:var(--primary); margin-bottom:6px;">Expert Model Answer:</h5>
+            <p style="margin-bottom:10px;">${item.model}</p>
+            <div class="sa-checklist">
+              <h5 style="color:var(--primary); margin-bottom:6px;">Essential Criteria Checklist:</h5>
+              ${item.criteria.map(function(c, i) {
+                return `
+                  <div class="sa-check-row">
+                    <input type="checkbox" id="sa-chk-${pageKey}-${i}">
+                    <label for="sa-chk-${pageKey}-${i}">${c}</label>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+            <h5 style="color:var(--primary); margin-top:8px;">Self-Score via Rubric (Assign 0–5 Points):</h5>
+            <div class="radio-scale-row">
+              ${[0, 1, 2, 3, 4, 5].map(function(pt) {
+                return `
+                  <label class="scale-btn">
+                    <input type="radio" name="sa-pts-${pageKey}" value="${pt}" onchange="setSAScore('${pageKey}',${pt})">
+                    <strong>${pt} Pts</strong>
+                    <span style="font-size:0.68rem; color:#64748b;">${item.rubric[pt]}</span>
+                  </label>
+                `;
+              }).join('')}
+            </div>
+          </div>
+          <div class="feedback-box" id="fb-${pageKey}-sa"></div>
+        </div>
+      `;
+    }
+
+    function updateSACounters(pageKey) {
+      const input = document.getElementById("sa-input-" + pageKey);
+      const counter = document.getElementById("sa-count-" + pageKey);
+      if (!input || !counter) return;
+      const text = input.value.trim();
+      const count = text ? text.split(/\s+/).length : 0;
+      counter.innerText = "Words: " + count;
+    }
+
+    function revealSARubric(pageKey) {
+      const input = document.getElementById("sa-input-" + pageKey);
+      const fb = document.getElementById("fb-" + pageKey + "-sa");
+      const rubricBox = document.getElementById("sa-rubric-box-" + pageKey);
+      if (!input || !fb || !rubricBox) return;
+      
+      const text = input.value.trim();
+      if (text.length < 25) {
+        fb.style.display = "block";
+        fb.className = "feedback-box warning";
+        fb.innerHTML = "Please write a comprehensive academic response (at least 2\u20133 full sentences) before reviewing the rubric.";
+        return;
+      }
+      fb.style.display = "none";
+      rubricBox.style.display = "block";
+    }
+
+    function setSAScore(pageKey, pt) {
+      recordScore(pageKey, 'sa', pt);
+      const fb = document.getElementById("fb-" + pageKey + "-sa");
+      if (!fb) return;
+      fb.style.display = "block";
+      fb.className = pt >= 3 ? "feedback-box correct" : "feedback-box warning";
+      fb.innerHTML = "Self-Evaluation recorded: <strong>" + pt + " / 5 pts awarded</strong> for this synthesis activity.";
+    }
+
+    /* Reset Section & Refresh Specific Activity */
+    function resetSection(pageKey, actKey) {
+      const bank = assessmentBanks[pageKey];
+      appState.sampledItems[pageKey][actKey] = getRandomItems(bank[actKey]);
+      appState.scores[pageKey][actKey] = 0;
+      updateSectionScoreBadge(pageKey, actKey);
+      updateGlobalScore();
+
+      if (actKey === 'mcq') renderMCQ(pageKey);
+      if (actKey === 'ms') renderMS(pageKey);
+      if (actKey === 'tf') renderTF(pageKey);
+      if (actKey === 'cloze') renderCloze(pageKey);
+      if (actKey === 'sa') renderSA(pageKey);
+    }
+
+    /* Master Glossary Renderer */
+    function renderGlossary() {
+      const grid = document.getElementById("glossary-grid-container");
+      if (!grid) return;
+      grid.innerHTML = masterGlossary.map(function(item) {
+        return `
+          <div class="glossary-card">
+            <h3>${item.term}</h3>
+            <p>${item.definition}</p>
+            ${item.formula ? `<div class="formula-tag">${item.formula}</div>` : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    /* =========================================================================
+       5. INITIALIZATION ON DOM READY
+       ========================================================================= */
+    document.addEventListener("DOMContentLoaded", function() {
+      // Initialize questions across both pages
+      initPageQuestions("p1");
+      initPageQuestions("p2");
+
+      // Render Glossary
+      renderGlossary();
+
+      // Ensure all accordions start collapsed
+      collapseAllSections();
+
+      // Ensure page 1 is displayed initially
+      navigateToPage("p1");
+
+      // Update Header Score Badge
+      updateGlobalScore();
+    });
+  </script>
+</body>
+</html>

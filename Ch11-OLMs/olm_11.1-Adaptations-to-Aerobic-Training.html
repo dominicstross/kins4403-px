@@ -1,0 +1,2296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PX – KINS 4403 | 11.1 Adaptations to Aerobic Training</title>
+  
+  <style>
+    :root {
+      --primary: #0f172a;
+      --primary-accent: #1e293b;
+      --secondary: #2563eb;
+      --secondary-hover: #1d4ed8;
+      --success: #16a34a;
+      --success-bg: #dcfce7;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --warning: #d97706;
+      --warning-bg: #fef3c7;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #cbd5e1;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --radius: 8px;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* Sticky Dashboard Header */
+    header.sticky-dashboard {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--primary);
+      color: #f8fafc;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      border-bottom: 1px solid #334155;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand-title h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    .brand-title p {
+      font-size: 0.82rem;
+      color: #94a3b8;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .score-badge {
+      background-color: #1e293b;
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      border: 1px solid #475569;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #f8fafc;
+    }
+
+    .score-badge span {
+      color: #38bdf8;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      border-radius: var(--radius);
+      border: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 7px 12px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-ctrl {
+      background-color: #334155;
+      color: #f8fafc;
+    }
+    .btn-ctrl:hover {
+      background-color: #475569;
+    }
+
+    .btn-danger-ctrl {
+      background-color: var(--danger);
+      color: #ffffff;
+    }
+    .btn-danger-ctrl:hover {
+      background-color: #b91c1c;
+    }
+
+    .btn-action {
+      background-color: var(--secondary);
+      color: #ffffff;
+      padding: 8px 16px;
+    }
+    .btn-action:hover {
+      background-color: var(--secondary-hover);
+    }
+
+    /* Dual-Tier TOC Navigation */
+    .header-toc {
+      background-color: var(--primary-accent);
+      padding: 6px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .toc-tier-1, .toc-tier-2 {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 2px 0;
+      font-size: 0.78rem;
+      align-items: center;
+    }
+
+    .toc-tier-label {
+      color: #94a3b8;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    .toc-pill {
+      color: #cbd5e1;
+      text-decoration: none;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.08);
+      transition: all 0.15s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .toc-pill:hover, .toc-pill.active {
+      background: var(--secondary);
+      color: #ffffff;
+      border-color: #60a5fa;
+    }
+
+    .toc-tier-2 a {
+      color: #cbd5e1;
+      text-decoration: none;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      transition: all 0.15s ease;
+    }
+
+    .toc-tier-2 a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 4px;
+      background-color: #334155;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #2563eb);
+      transition: width 0.3s ease;
+    }
+
+    /* Navigation Tab Bar */
+    .tab-bar {
+      display: flex;
+      background-color: #e2e8f0;
+      padding: 8px 24px 0 24px;
+      gap: 8px;
+      border-bottom: 2px solid #cbd5e1;
+    }
+
+    .tab-btn {
+      background-color: #cbd5e1;
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: 6px 6px 0 0;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .tab-btn.active {
+      background-color: var(--surface);
+      color: var(--secondary);
+      border: 2px solid #cbd5e1;
+      border-bottom: 2px solid var(--surface);
+      margin-bottom: -2px;
+    }
+
+    /* Main Container & Page Views */
+    main {
+      max-width: 1060px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+
+    .tab-pane {
+      display: none;
+    }
+    #pane-lesson {
+      display: block;
+    }
+
+    .concept-page-view {
+      display: block;
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    /* Native Accordion Cards */
+    details.accordion-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    summary.accordion-header {
+      padding: 14px 18px;
+      background-color: #f1f5f9;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      transition: background-color 0.2s ease;
+    }
+
+    summary.accordion-header::-webkit-details-marker {
+      display: none;
+    }
+
+    summary.accordion-header:hover {
+      background-color: #e2e8f0;
+    }
+
+    details.accordion-card[open] > summary.accordion-header {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .accordion-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .accordion-chevron {
+      font-size: 0.8rem;
+      display: inline-block;
+      transition: transform 0.2s ease;
+      color: #64748b;
+    }
+
+    details.accordion-card[open] > summary.accordion-header .accordion-chevron {
+      transform: rotate(90deg);
+    }
+
+    .section-score-pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background-color: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+    }
+
+    .accordion-body {
+      padding: 20px 18px;
+    }
+
+    /* Reading Content Styles */
+    .accordion-body h3 {
+      font-size: 1.15rem;
+      color: var(--secondary);
+      margin: 14px 0 8px 0;
+    }
+
+    .accordion-body h4 {
+      font-size: 1rem;
+      color: var(--primary);
+      margin: 12px 0 6px 0;
+    }
+
+    .accordion-body p {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .accordion-body ul {
+      margin: 8px 0 14px 22px;
+      font-size: 0.95rem;
+    }
+
+    .accordion-body li {
+      margin-bottom: 6px;
+    }
+
+    .callout-box {
+      background-color: #eff6ff;
+      border-left: 4px solid var(--secondary);
+      padding: 14px 16px;
+      margin: 16px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: #1e40af;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.88rem;
+    }
+
+    table.data-table th, table.data-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background-color: #f1f5f9;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    hr.assessment-divider {
+      border: none;
+      border-top: 2px dashed #cbd5e1;
+      margin: 24px 0;
+    }
+
+    /* Assessment Items */
+    .q-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .q-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .q-type-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #f1f5f9;
+      color: #64748b;
+    }
+
+    .q-title {
+      font-weight: 600;
+      font-size: 0.93rem;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .opt-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      transition: all 0.15s ease;
+    }
+
+    .opt-label:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .opt-label input {
+      accent-color: var(--secondary);
+    }
+
+    /* Cloze Dropdowns Uniform Anti-Guessing Width */
+    .cloze-dropdown {
+      display: inline-block;
+      min-width: 190px;
+      width: 190px;
+      text-align-last: center;
+      padding: 4px 6px;
+      margin: 0 4px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      background-color: #ffffff;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .cloze-hint-text {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: #64748b;
+      font-style: italic;
+    }
+
+    /* Short Answer Elements */
+    .sa-textarea {
+      width: 100%;
+      min-height: 90px;
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+      resize: vertical;
+    }
+
+    .sa-counter {
+      font-size: 0.75rem;
+      color: #64748b;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    .sa-rubric-box {
+      display: none;
+      background: #f1f5f9;
+      border-left: 4px solid var(--secondary);
+      padding: 14px;
+      margin: 12px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.88rem;
+    }
+
+    .sa-checklist {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 10px;
+      border-radius: 6px;
+      margin: 10px 0;
+    }
+
+    .sa-check-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      font-size: 0.82rem;
+    }
+
+    .radio-scale-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .scale-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #ffffff;
+      padding: 4px 8px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .scale-btn input {
+      margin-bottom: 2px;
+    }
+
+    /* Feedback Panels */
+    .feedback-box {
+      display: none;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .feedback-box.correct {
+      background-color: var(--success-bg);
+      color: var(--success);
+      border: 1px solid #86efac;
+    }
+
+    .feedback-box.incorrect {
+      background-color: var(--danger-bg);
+      color: var(--danger);
+      border: 1px solid #fca5a5;
+    }
+
+    .feedback-box.warning {
+      background-color: var(--warning-bg);
+      color: var(--warning);
+      border: 1px solid #fcd34d;
+    }
+
+    .btn-reset-section {
+      background-color: #e2e8f0;
+      color: #334155;
+      font-size: 0.8rem;
+      margin-top: 14px;
+    }
+    .btn-reset-section:hover {
+      background-color: #cbd5e1;
+      color: #0f172a;
+    }
+
+    .page-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 30px 0 10px 0;
+      padding: 14px 0;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    /* Glossary View */
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .glossary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .glossary-card h3 {
+      color: var(--secondary);
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 4px;
+    }
+
+    .glossary-card p {
+      font-size: 0.88rem;
+      color: #334155;
+    }
+
+    .formula-tag {
+      display: inline-block;
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.82rem;
+      margin-top: 6px;
+      border: 1px solid #cbd5e1;
+    }
+  </style>
+
+  <!-- ISOLATED CORE UI NAVIGATION FUNCTIONS IN HEAD -->
+  <script>
+    function navigateToPage(pageKey) {
+      const page1 = document.getElementById("page-p1");
+      const page2 = document.getElementById("page-p2");
+      const pill1 = document.getElementById("pill-p1");
+      const pill2 = document.getElementById("pill-p2");
+
+      if (!page1 || !page2) return;
+
+      if (pageKey === "p1") {
+        page1.style.display = "block";
+        page2.style.display = "none";
+        if (pill1) pill1.classList.add("active");
+        if (pill2) pill2.classList.remove("active");
+
+        const lReading = document.getElementById("link-t2-reading");
+        const lMcq = document.getElementById("link-t2-mcq");
+        const lMs = document.getElementById("link-t2-ms");
+        const lTf = document.getElementById("link-t2-tf");
+        const lCloze = document.getElementById("link-t2-cloze");
+        const lSa = document.getElementById("link-t2-sa");
+
+        if (lReading) lReading.href = "#sec-reading-p1";
+        if (lMcq) lMcq.href = "#sec-mcq-p1";
+        if (lMs) lMs.href = "#sec-ms-p1";
+        if (lTf) lTf.href = "#sec-tf-p1";
+        if (lCloze) lCloze.href = "#sec-cloze-p1";
+        if (lSa) lSa.href = "#sec-sa-p1";
+      } else {
+        page1.style.display = "none";
+        page2.style.display = "block";
+        if (pill1) pill1.classList.remove("active");
+        if (pill2) pill2.classList.add("active");
+
+        const lReading = document.getElementById("link-t2-reading");
+        const lMcq = document.getElementById("link-t2-mcq");
+        const lMs = document.getElementById("link-t2-ms");
+        const lTf = document.getElementById("link-t2-tf");
+        const lCloze = document.getElementById("link-t2-cloze");
+        const lSa = document.getElementById("link-t2-sa");
+
+        if (lReading) lReading.href = "#sec-reading-p2";
+        if (lMcq) lMcq.href = "#sec-mcq-p2";
+        if (lMs) lMs.href = "#sec-ms-p2";
+        if (lTf) lTf.href = "#sec-tf-p2";
+        if (lCloze) lCloze.href = "#sec-cloze-p2";
+        if (lSa) lSa.href = "#sec-sa-p2";
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchTab(tabId) {
+      const lessonPane = document.getElementById("pane-lesson");
+      const glossaryPane = document.getElementById("pane-glossary");
+      const btnLesson = document.getElementById("tab-lesson-btn");
+      const btnGlossary = document.getElementById("tab-glossary-btn");
+
+      if (!lessonPane || !glossaryPane) return;
+
+      if (tabId === "lesson") {
+        lessonPane.style.display = "block";
+        glossaryPane.style.display = "none";
+        if (btnLesson) btnLesson.classList.add("active");
+        if (btnGlossary) btnGlossary.classList.remove("active");
+      } else {
+        lessonPane.style.display = "none";
+        glossaryPane.style.display = "block";
+        if (btnLesson) btnLesson.classList.remove("active");
+        if (btnGlossary) btnGlossary.classList.add("active");
+      }
+    }
+
+    function expandAllSections() {
+      document.querySelectorAll("details.accordion-card").forEach(function(d) {
+        d.open = true;
+      });
+    }
+
+    function collapseAllSections() {
+      document.querySelectorAll("details.accordion-card").forEach(function(d) {
+        d.open = false;
+      });
+    }
+
+    function restartLesson() {
+      ['p1', 'p2'].forEach(function(p) {
+        ['mcq', 'ms', 'tf', 'cloze', 'sa'].forEach(function(act) {
+          if (typeof resetSection === "function") {
+            resetSection(p, act);
+          }
+        });
+      });
+      collapseAllSections();
+      navigateToPage('p1');
+    }
+  </script>
+</head>
+<body>
+
+  <!-- High-Contrast Sticky Dashboard Header -->
+  <header class="sticky-dashboard">
+    <div class="header-main">
+      <div class="brand-title">
+        <h1>PX – KINS 4403: Physiology of Exercise</h1>
+        <p>Section 11.1: Adaptations to Aerobic Training</p>
+      </div>
+      <div class="header-actions">
+        <div class="score-badge" id="global-score-badge">
+          Total Score: <span id="global-score-text">0 / 26 pts</span>
+        </div>
+        <div class="btn-group">
+          <button class="btn-ctrl" onclick="expandAllSections()">Expand All</button>
+          <button class="btn-ctrl" onclick="collapseAllSections()">Collapse All</button>
+          <button class="btn-danger-ctrl" onclick="resetAllActivities()">Reset All Activities</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dual-Tier Navigation -->
+    <div class="header-toc">
+      <div class="toc-tier-1">
+        <span class="toc-tier-label">Concepts:</span>
+        <button class="toc-pill active" id="pill-p1" onclick="navigateToPage('p1')">Part 1: Cardiovascular &amp; Perfusion</button>
+        <button class="toc-pill" id="pill-p2" onclick="navigateToPage('p2')">Part 2: Respiratory &amp; Cellular Kinetics</button>
+      </div>
+      <div class="toc-tier-2" id="tier-2-links">
+        <span class="toc-tier-label">Jump to Section:</span>
+        <a id="link-t2-reading" href="#sec-reading-p1">Concept Reading</a>
+        <a id="link-t2-mcq" href="#sec-mcq-p1">MCQ</a>
+        <a id="link-t2-ms" href="#sec-ms-p1">Multi-Select</a>
+        <a id="link-t2-tf" href="#sec-tf-p1">True/False</a>
+        <a id="link-t2-cloze" href="#sec-cloze-p1">Precision Cloze</a>
+        <a id="link-t2-sa" href="#sec-sa-p1">Short Answer</a>
+      </div>
+    </div>
+
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="global-progress-bar"></div>
+    </div>
+  </header>
+
+  <!-- Navigation Tab Bar -->
+  <div class="tab-bar">
+    <button class="tab-btn active" id="tab-lesson-btn" onclick="switchTab('lesson')">Interactive Lesson</button>
+    <button class="tab-btn" id="tab-glossary-btn" onclick="switchTab('glossary')">Master Terminology [Reference]</button>
+  </div>
+
+  <main>
+    <!-- TAB PANE 1: LESSON VIEW -->
+    <div class="tab-pane" id="pane-lesson">
+
+      <!-- =========================================================================
+           CONCEPT PAGE 1: CARDIOVASCULAR & PERFUSION ADAPTATIONS (P1)
+           ========================================================================= -->
+      <section id="page-p1" class="concept-page-view">
+        <h1 class="page-title">Part 1: Cardiovascular &amp; Microvascular Perfusion Adaptations</h1>
+
+        <!-- STATIC READING CARD 1 -->
+        <details class="accordion-card" id="sec-reading-p1" open>
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Concept Reading: Central Hemodynamics, Athlete's Heart, and Blood Volume Dynamics</span>
+            </span>
+          </summary>
+          <div class="accordion-body">
+            <h3>Central Hemodynamics &amp; Left Ventricular Remodeling</h3>
+            <p>Cardiorespiratory endurance represents the capacity to sustain prolonged, dynamic whole-body exercise using large muscle groups. The gold-standard benchmark of aerobic fitness is maximal oxygen consumption (VO2max), mathematically governed by the <strong>Fick equation</strong>:</p>
+            
+            <div class="callout-box">
+              <div class="callout-title">The Fick Equation</div>
+              <p><strong>VO2max = HRmax &times; SVmax &times; (a-v)O2 difference max</strong></p>
+              <p>Because maximal heart rate (HRmax) remains unchanged or declines slightly with chronic training, increases in VO2max depend entirely on adaptations in maximal stroke volume (SVmax) and maximal arterial-venous oxygen difference ((a-v)O2 difference max).</p>
+            </div>
+
+            <h4>Morphological Adaptations: Athlete's Heart</h4>
+            <p>Endurance exercise imposes a chronic volume overload on the left ventricle (LV). In response, the myocardium undergoes <strong>eccentric cardiac hypertrophy</strong>, characterized by an expansion of the left ventricular internal diameter (LVID) and a proportional increase in ventricular wall thickness. In contrast, heavy resistance training imposes an acute, high pressure overload (with blood pressures exceeding 480/350 mmHg during heavy straining), inducing <strong>concentric cardiac hypertrophy</strong> characterized by marked wall thickening with little or no change in internal chamber volume.</p>
+
+            <h4>Stroke Volume &amp; Ejection Dynamics</h4>
+            <p>Endurance training increases stroke volume at rest, during submaximal exercise, and at maximal effort. Stroke volume is governed by four integrated factors:</p>
+            <ul>
+              <li><strong>Increased End-Diastolic Volume (Preload):</strong> Marked plasma volume expansion elevates venous return, stretching myocardial sarcomeres toward their optimal length-tension relationship to generate greater contractile force via the <strong>Frank-Starling mechanism</strong>.</li>
+              <li><strong>Prolonged Diastolic Filling Time:</strong> Training-induced bradycardia prolongs diastole, allowing more complete ventricular filling.</li>
+              <li><strong>Increased Contractility:</strong> Morphological hypertrophy and enhanced calcium handling increase myocardial contractile force.</li>
+              <li><strong>Decreased Afterload:</strong> Decreased systemic vascular resistance (reduced peripheral resistance) reduces opposing pressure against the aortic valve, lowering end-systolic volume (ESV) and raising the ejection fraction ((EDV - ESV) / EDV).</li>
+            </ul>
+
+            <h4>Heart Rate Kinetics &amp; Cardiac Output</h4>
+            <p>Resting heart rate decreases substantially (often below 40 bpm in elite athletes) through elevated parasympathetic (vagal) tone and decreased sympathetic drive. At identical absolute submaximal workloads, heart rate is lower. Because stroke volume is proportionately higher, submaximal cardiac output (Q) remains unchanged or decreases slightly due to improved movement economy and peripheral extraction. Maximal cardiac output increases substantially (from 14&ndash;20 L/min in untrained subjects to 25&ndash;40 L/min in elite endurance athletes), driven solely by maximal stroke volume.</p>
+
+            <h4>Hematology &amp; The Sports Pseudoanemia Paradox</h4>
+            <p>Endurance training stimulates rapid hypervolemia. Initial expansion is driven by lymphatic return and hepatic synthesis of <strong>albumin</strong>, elevating intravascular oncotic pressure, accompanied by fluid retention from aldosterone and antidiuretic hormone (ADH).</p>
+            
+            <div class="callout-box">
+              <div class="callout-title">Hematological Dilution &amp; Rheology</div>
+              <p>While erythropoiesis increases absolute red blood cell volume and total hemoglobin mass by 8% to 10%, plasma volume expands to a far greater relative extent (+20% to 25%). This creates a dilutional effect known as <strong>sports pseudoanemia</strong>. Hematocrit and relative hemoglobin concentration per deciliter appear lower on a standard lab profile, but total absolute oxygen transport capacity is enhanced.</p>
+              <p>Reduced hematocrit decreases blood viscosity, lowering peripheral resistance and enhancing microvascular perfusion through active skeletal muscle capillary beds.</p>
+            </div>
+
+            <h4>Microvascular Perfusion &amp; Angiogenesis</h4>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Adaptation Factor</th>
+                  <th>Physiological Mechanism &amp; Consequence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Increased Capillarization</strong></td>
+                  <td>Angiogenesis increases capillary-to-fiber ratio and capillary density by &gt;15%, shortening diffusion distances and expanding gas exchange surface area.</td>
+                </tr>
+                <tr>
+                  <td><strong>Capillary Recruitment</strong></td>
+                  <td>Endothelial autoregulation opens dormant, non-perfused capillaries during exercise, increasing functional microvascular cross-sectional area.</td>
+                </tr>
+                <tr>
+                  <td><strong>Blood Flow Redistribution</strong></td>
+                  <td>Sympathetic vasoconstriction shunts blood away from splanchnic and renal viscera, while metabolic vasodilation preferentially directs flow to active oxidative motor units.</td>
+                </tr>
+                <tr>
+                  <td><strong>Total Blood Volume</strong></td>
+                  <td>Hypervolemia maintains cardiac filling pressure and venous return while perfusing dilated skeletal muscle vascular beds.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <hr class="assessment-divider">
+
+        <!-- ACTIVITY 1: MCQ (P1) -->
+        <details class="accordion-card" id="sec-mcq-p1">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 1: Multiple Choice (Central Hemodynamics)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-mcq">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p1-mcq"></div>
+            <button class="btn-reset-section" onclick="resetSection('p1', 'mcq')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 2: MULTI-SELECT (P1) -->
+        <details class="accordion-card" id="sec-ms-p1">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 2: Multi-Select (Ventricular &amp; Vascular Factors)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-ms">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p1-ms"></div>
+            <button class="btn-reset-section" onclick="resetSection('p1', 'ms')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 3: TRUE/FALSE (P1) -->
+        <details class="accordion-card" id="sec-tf-p1">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 3: True / False (Cardiac &amp; Hematologic Principles)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-tf">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p1-tf"></div>
+            <button class="btn-reset-section" onclick="resetSection('p1', 'tf')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 4: CLOZE (P1) -->
+        <details class="accordion-card" id="sec-cloze-p1">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 4: Precision Cloze (Hemodynamic Terminology)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-cloze">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p1-cloze"></div>
+            <button class="btn-reset-section" onclick="resetSection('p1', 'cloze')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 5: SHORT ANSWER (P1) -->
+        <details class="accordion-card" id="sec-sa-p1">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 5: Analytical Synthesis (Sports Pseudoanemia &amp; Cardiac Output)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-sa">Score: 0 / 5 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p1-sa"></div>
+            <button class="btn-reset-section" onclick="resetSection('p1', 'sa')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- PAGE 1 BOTTOM NAV -->
+        <div class="page-nav-bar">
+          <span style="font-size:0.85rem; color:#64748b;">Step 1 of 2 Complete</span>
+          <button class="btn-action" onclick="navigateToPage('p2')">Continue to Part 2: Respiratory &amp; Cellular Kinetics &rarr;</button>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+           CONCEPT PAGE 2: RESPIRATORY & CELLULAR METABOLIC KINETICS (P2)
+           ========================================================================= -->
+      <section id="page-p2" class="concept-page-view" style="display: none;">
+        <h1 class="page-title">Part 2: Respiratory, Cellular &amp; Metabolic Kinetics</h1>
+
+        <!-- STATIC READING CARD 2 -->
+        <details class="accordion-card" id="sec-reading-p2" open>
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Concept Reading: Pulmonary Dynamics, Oxygen Extraction, Mitochondrial Biogenesis, and Genetics</span>
+            </span>
+          </summary>
+          <div class="accordion-body">
+            <h3>Pulmonary Function &amp; Ventilation Kinetics</h3>
+            <p>Unlike the cardiovascular system and skeletal muscle, the pulmonary system does not undergo structural remodeling in response to aerobic conditioning: lung volume, airway architecture, and alveolar surface area remain physically unchanged. In healthy individuals at sea level, the pulmonary system is "overbuilt" for exercise and rarely serves as the limiting factor for VO2max.</p>
+
+            <h4>Ventilatory Dynamics (VE)</h4>
+            <ul>
+              <li><strong>At Rest:</strong> Pulmonary ventilation remains essentially unaltered post-training.</li>
+              <li><strong>Submaximal Workloads:</strong> VE decreases by 20% to 30% at identical absolute work rates. Because trained skeletal muscle produces less lactic acid, there is less metabolic acidosis requiring bicarbonate buffering, resulting in lower non-metabolic CO2 production. Reduced chemical stimulation of central and peripheral chemoreceptors lowers the ventilatory drive.</li>
+              <li><strong>Maximal Workloads:</strong> Maximal pulmonary ventilation (VEmax) increases dramatically (from 100&ndash;120 L/min to 150&ndash;180+ L/min, exceeding 200 L/min in large athletes). This is driven by concurrent increases in maximal tidal volume (VT) and breathing frequency (fR) to support higher absolute workloads and buffer severe acid-base disturbances.</li>
+            </ul>
+
+            <h4>Pulmonary Diffusion &amp; Arterial Desaturation (EIAH)</h4>
+            <p>Maximal pulmonary diffusion capacity increases following training. At rest, gravity limits perfusion to the upper lung zones (apex). During maximal exercise, elevated right ventricular output and pulmonary artery pressure perfuse previously underperfused apical alveoli, maximizing the functional alveolar-capillary exchange surface.</p>
+
+            <div class="callout-box">
+              <div class="callout-title">Exercise-Induced Arterial Hypoxemia (EIAH)</div>
+              <p>In a subset of elite endurance athletes possessing massive maximal cardiac outputs (&gt;35&ndash;40 L/min), red blood cells transit the pulmonary capillaries at extreme velocities. When red cell transit time drops below approximately 0.25 to 0.30 seconds, diffusion limitation occurs: red blood cells leave the pulmonary capillaries before reaching full diffusive equilibration with alveolar PO2. This causes arterial oxygen desaturation (SaO2 &lt; 96%), demonstrating that central cardiac pumping capacity can outstrip pulmonary diffusion kinetics in world-class performers.</p>
+            </div>
+
+            <h4>Arterial-Venous Oxygen Difference ((a-v)O2 diff)</h4>
+            <p>Maximal (a-v)O2 difference widens considerably following endurance training. Because arterial oxygen content (CaO2) is already 96% to 98% saturated and hemodilution stabilizes hemoglobin concentration per deciliter, CaO2 remains constant. Therefore, the widening of the (a-v)O2 difference is driven almost entirely by a reduction in mixed venous oxygen content (CvO2), reflecting enhanced tissue extraction and selective redistribution of cardiac output away from inactive viscera toward contracting oxidative myocytes.</p>
+
+            <h3>Cellular &amp; Metabolic Adaptations in Muscle</h3>
+            <p>Chronic aerobic exercise selectively recruits slow-twitch Type I muscle fibers, expanding their cross-sectional area by up to 25%. Fast-twitch glycolytic Type IIx fibers transition toward more oxidative Type IIa characteristics. Intramuscular <strong>myoglobin</strong> content increases by 75% to 80%, expanding oxygen storage and accelerating cytoplasmic oxygen diffusion from the sarcolemma to the mitochondrial matrix.</p>
+
+            <h4>Mitochondrial Biogenesis &amp; Oxidative Enzymes</h4>
+            <p>Endurance training induces substantial mitochondrial remodeling, increasing total mitochondrial number by ~15% and individual mitochondrial size by ~35%. Krebs cycle and electron transport marker enzymes, particularly <strong>succinate dehydrogenase (SDH)</strong> and <strong>citrate synthase</strong>, increase multi-fold.</p>
+
+            <div class="callout-box">
+              <div class="callout-title">The Oxygen Delivery Limitation Consensus</div>
+              <p>The historical "utilization theory" claimed that VO2max is limited by the concentration of muscle mitochondrial enzymes. This was conclusively disproven by three empirical paradigms:</p>
+              <ul>
+                <li><strong>Blood Manipulations:</strong> Withdrawing blood lowers VO2max; reinfusing packed red blood cells immediately increases VO2max above baseline without changing muscle mitochondrial enzymes.</li>
+                <li><strong>Carbon Monoxide (CO) Inhalation:</strong> Binding hemoglobin with CO causes a direct, proportional 1:1 drop in VO2max.</li>
+                <li><strong>Dissociated Time Courses:</strong> SDH enzyme activity continues to climb for months after VO2max reaches an asymptotic plateau.</li>
+              </ul>
+              <p>These findings prove that central cardiovascular delivery of oxygen, not mitochondrial enzyme capacity, limits VO2max.</p>
+            </div>
+
+            <h4>Substrate Shifts, Lactate Threshold, and Genetics</h4>
+            <p>Expanded mitochondrial density enhances beta-oxidation of free fatty acids at submaximal work rates, lowering the submaximal Respiratory Exchange Ratio (RER). This preserves intramuscular glycogen reserves, a phenomenon known as <strong>glycogen sparing</strong>.</p>
+            <p>The <strong>lactate threshold (LT)</strong> shifts rightward to higher absolute workloads and higher percentages of VO2max (advancing from 55&ndash;60% to 75&ndash;85% VO2max). This is mediated by both reduced lactate appearance (spared glycogen / lower glycolytic flux) and accelerated lactate clearance (capillarization and monocarboxylate transporter upregulation). Because VO2max plateaus within 8 to 18 months, competitive performance gains in subsequent years are driven by improved fractional utilization of VO2max, enhanced running economy, and glycogen sparing.</p>
+            <p>Bouchard and colleagues demonstrated in the <strong>HERITAGE Family Study</strong> that heredity accounts for 25% to 50% of the variance in baseline VO2max and ~47% of the variance in training responsiveness (trainability). Given identical training compliance, individuals segregate into genetically clustered "high responders" (gaining &gt;40% in VO2max) and "low responders" (gaining &lt;5%).</p>
+          </div>
+        </details>
+
+        <hr class="assessment-divider">
+
+        <!-- ACTIVITY 1: MCQ (P2) -->
+        <details class="accordion-card" id="sec-mcq-p2">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 1: Multiple Choice (Pulmonary &amp; Metabolic Kinetics)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-mcq">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p2-mcq"></div>
+            <button class="btn-reset-section" onclick="resetSection('p2', 'mcq')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 2: MULTI-SELECT (P2) -->
+        <details class="accordion-card" id="sec-ms-p2">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 2: Multi-Select (Cellular &amp; Limitation Factors)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-ms">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p2-ms"></div>
+            <button class="btn-reset-section" onclick="resetSection('p2', 'ms')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 3: TRUE/FALSE (P2) -->
+        <details class="accordion-card" id="sec-tf-p2">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 3: True / False (Ventilation, Diffusion &amp; Enzymes)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-tf">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p2-tf"></div>
+            <button class="btn-reset-section" onclick="resetSection('p2', 'tf')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 4: CLOZE (P2) -->
+        <details class="accordion-card" id="sec-cloze-p2">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 4: Precision Cloze (Metabolic &amp; Pulmonary Terminology)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-cloze">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p2-cloze"></div>
+            <button class="btn-reset-section" onclick="resetSection('p2', 'cloze')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- ACTIVITY 5: SHORT ANSWER (P2) -->
+        <details class="accordion-card" id="sec-sa-p2">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Activity 5: Analytical Synthesis (Delivery Theory &amp; Fractional Utilization)</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-sa">Score: 0 / 5 pts</span>
+          </summary>
+          <div class="accordion-body">
+            <div id="container-p2-sa"></div>
+            <button class="btn-reset-section" onclick="resetSection('p2', 'sa')">Reset Section &amp; Refresh Questions</button>
+          </div>
+        </details>
+
+        <!-- PAGE 2 BOTTOM NAV -->
+        <div class="page-nav-bar">
+          <button class="btn-ctrl" onclick="navigateToPage('p1')">&larr; Return to Part 1: Cardiovascular &amp; Perfusion</button>
+          <button class="btn-action" onclick="alert('Congratulations! You have completed Module 11.1: Adaptations to Aerobic Training.')">Complete Module 11.1 &check;</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- TAB PANE 2: MASTER GLOSSARY VIEW -->
+    <div class="tab-pane" id="pane-glossary">
+      <h2 style="margin-bottom: 16px; color: var(--primary);">Master Terminology &amp; Clinical Definitions</h2>
+      <div class="glossary-grid" id="glossary-grid-container"></div>
+    </div>
+  </main>
+
+  <!-- External Bottom Navigation Bar -->
+     <!-- PASTE THE CODE BLOCK HERE -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px auto; max-width: 1060px; padding: 0 20px; text-align: center;">
+      <span style="flex: 1;">
+        <a href="index.html">Main Menu</a>
+      </span>
+      <span style="flex: 1; text-align: right;">
+        <a href="olm_11.2-Adaptations-to-Anaerobic-Training.html">Next Section →</a>
+      </span>
+    </div>
+
+  </body>
+</html>
+
+  </div>
+
+  <!-- JAVASCRIPT ENGINE & DATA BINDING -->
+  <script>
+    /* =========================================================================
+       1. MASTER QUESTION BANK (p1 and p2 Data Branches)
+       Strict Unquoted Object Identifiers & Fully Escaped Strings
+       ========================================================================= */
+    const assessmentBanks = {
+      p1: {
+        mcq: [
+          {
+            id: 1,
+            q: "What is the primary morphological adaptation of the left ventricle in response to chronic aerobic endurance training?",
+            opts: [
+              "Concentric hypertrophy characterized by increased wall thickness with reduced internal chamber diameter",
+              "Eccentric hypertrophy characterized by increased internal chamber diameter and proportional wall thickening",
+              "Myocardial hyperplasia without any change in internal ventricular dimensions",
+              "Isolated thinning of the posterior wall accompanied by aortic valve dilation"
+            ],
+            correct: 1,
+            rationale: "Endurance training imposes a chronic volume overload, inducing eccentric hypertrophy where left ventricular internal diameter (LVID) expands alongside a proportional increase in ventricular wall thickness."
+          },
+          {
+            id: 2,
+            q: "Following a 6-month endurance training program, how do resting and submaximal cardiac output at a fixed absolute workload change compared to pre-training values?",
+            opts: [
+              "They increase substantially by 25% to 30%",
+              "They remain essentially unchanged or decrease slightly",
+              "They decrease by over 50% due to dramatic bradycardia",
+              "Resting cardiac output doubles while submaximal cardiac output halves"
+            ],
+            correct: 1,
+            rationale: "Cardiac output matches metabolic oxygen demand. Submaximal VO2 at an absolute workload remains identical; thus, cardiac output is stable or slightly lower due to enhanced extraction and movement economy."
+          },
+          {
+            id: 3,
+            q: "Which factor is solely responsible for the dramatic increase in maximal cardiac output (Qmax) observed after chronic aerobic conditioning?",
+            opts: [
+              "A significant elevation in maximal heart rate",
+              "A substantial increase in maximal stroke volume",
+              "A dramatic decrease in end-diastolic volume",
+              "An increase in mean arterial pressure during diastole"
+            ],
+            correct: 1,
+            rationale: "Because HRmax remains unchanged or slightly decreases after training, any increase in maximal cardiac output (Q = HR x SV) must be driven entirely by maximal stroke volume expansion."
+          },
+          {
+            id: 4,
+            q: "An endurance athlete\'s laboratory panel reveals a hematocrit of 39%, yet their total red blood cell count and absolute hemoglobin mass are elevated. What condition is this athlete exhibiting?",
+            opts: [
+              "Microcytic iron-deficiency anemia",
+              "Sports pseudoanemia (dilutional pseudoanemia)",
+              "Aplastic bone marrow suppression",
+              "Chronic hemolytic sickle-cell trait"
+            ],
+            correct: 1,
+            rationale: "Sports pseudoanemia is an advantageous dilutional state where plasma volume expands (+20-25%) to a greater extent than red cell mass (+8-10%), decreasing hematocrit despite higher total oxygen-carrying capacity."
+          },
+          {
+            id: 5,
+            q: "By which mechanism does an increase in left ventricular end-diastolic volume (EDV) directly enhance stroke volume during exercise?",
+            opts: [
+              "Bohr effect",
+              "Frank-Starling mechanism",
+              "Haldane effect",
+              "Windkessel effect"
+            ],
+            correct: 1,
+            rationale: "The Frank-Starling mechanism dictates that increased ventricular filling stretches myocardial sarcomeres toward optimal overlap, eliciting a more forceful contraction."
+          },
+          {
+            id: 6,
+            q: "Why does resting heart rate decrease significantly (training-induced bradycardia) following endurance conditioning?",
+            opts: [
+              "Downregulation of parasympathetic vagal tone and higher sympathetic outflow",
+              "Elevated parasympathetic (vagal) activity coupled with decreased sympathetic outflow to the SA node",
+              "Permanent structural damage and atrophy of the sinoatrial node",
+              "Excessive blood pooling in the lower extremities causing delayed venous return"
+            ],
+            correct: 1,
+            rationale: "Training bradycardia is mediated by increased parasympathetic (vagal) tone combined with reduced sympathetic outflow acting upon the sinoatrial pacemaker."
+          },
+          {
+            id: 7,
+            q: "A highly trained distance runner exhibits an end-diastolic volume of 180 mL and an end-systolic volume of 45 mL. What is their ejection fraction?",
+            opts: [
+              "25%",
+              "60%",
+              "75%",
+              "82%"
+            ],
+            correct: 2,
+            rationale: "Ejection fraction is [(EDV - ESV) / EDV] * 100 = [(180 - 45) / 180] * 100 = 75%."
+          }
+        ],
+        ms: [
+          {
+            id: 1,
+            q: "Which physiological adaptations directly contribute to the elevation in resting and exercise stroke volume following endurance training? (Select all that apply)",
+            opts: [
+              "Expanded blood plasma volume increasing end-diastolic preload",
+              "Prolonged diastolic filling time secondary to decreased heart rate",
+              "Increased myocardial contractility via physiological left ventricular hypertrophy",
+              "Increased systemic vascular resistance (elevated afterload)",
+              "Decreased end-systolic volume mediated by reduced peripheral resistance"
+            ],
+            correctArray: [0, 1, 2, 4],
+            rationale: "Stroke volume increases via greater preload, increased filling time, enhanced contractility, and decreased afterload. Increased afterload would impede ejection."
+          },
+          {
+            id: 2,
+            q: "What factors account for enhanced blood flow to skeletal muscle following chronic endurance training? (Select all that apply)",
+            opts: [
+              "Increased capillarization (angiogenesis) around active fibers",
+              "Greater recruitment and opening of existing, dormant capillaries",
+              "More effective blood flow redistribution away from inactive tissues",
+              "Increased total blood volume",
+              "Severe systemic vasoconstriction in active muscle beds"
+            ],
+            correctArray: [0, 1, 2, 3],
+            rationale: "The 4 key factors are: capillarization, capillary recruitment, blood flow redistribution, and increased total blood volume. Active muscles vasodilate rather than vasoconstrict."
+          },
+          {
+            id: 3,
+            q: "Which statements accurately differentiate the cardiac remodeling of elite resistance athletes from elite endurance athletes? (Select all that apply)",
+            opts: [
+              "Endurance athletes develop marked chamber dilation (eccentric hypertrophy) driven by volume overload",
+              "Resistance athletes develop increased left ventricular wall thickness with minimal chamber dilation in response to high afterload",
+              "Resistance athletes exhibit pathological heart failure with depressed ejection fraction",
+              "Endurance athletes experience both internal diameter dilation and wall thickening",
+              "Both groups experience identical reductions in resting heart rate below 35 bpm"
+            ],
+            correctArray: [0, 1, 3],
+            rationale: "Endurance training causes eccentric hypertrophy (chamber dilation + wall thickening). Resistance training causes concentric hypertrophy (isolated wall thickening). Neither is pathological."
+          },
+          {
+            id: 4,
+            q: "Which variables in the Fick equation directly undergo training-induced adaptations that permit an increase in maximal oxygen consumption (VO2max)? (Select all that apply)",
+            opts: [
+              "Maximal stroke volume",
+              "Maximal heart rate",
+              "Maximal arterial-venous oxygen difference",
+              "Resting heart rate"
+            ],
+            correctArray: [0, 2],
+            rationale: "In the Fick equation, HRmax does not increase. VO2max increases are driven entirely by increases in maximal SV and maximal (a-v)O2 difference."
+          },
+          {
+            id: 5,
+            q: "What hemodynamic alterations occur during exercise at a given absolute submaximal workload after chronic aerobic conditioning? (Select all that apply)",
+            opts: [
+              "Stroke volume is higher",
+              "Heart rate is lower",
+              "Cardiac output is substantially higher",
+              "Myocardial oxygen demand and work of the heart are reduced",
+              "Blood pressure is drastically elevated"
+            ],
+            correctArray: [0, 1, 3],
+            rationale: "At matched submaximal workloads, higher SV and lower HR maintain a stable cardiac output, reducing myocardial work and oxygen demand."
+          },
+          {
+            id: 6,
+            q: "Which characteristics distinguish athletic pseudoanemia from pathological iron-deficiency anemia? (Select all that apply)",
+            opts: [
+              "Total red blood cell mass is normal or elevated in athletic pseudoanemia",
+              "Athletic pseudoanemia is caused by plasma volume expansion rather than red blood cell deficiency",
+              "Total absolute hemoglobin in the body is typically elevated in pseudoanemia",
+              "Athletic pseudoanemia causes severe decrements in VO2max and athletic performance",
+              "Serum ferritin and iron saturation markers remain within normal clinical limits in pseudoanemia"
+            ],
+            correctArray: [0, 1, 2, 4],
+            rationale: "Pseudoanemia is a hypervolemic, dilutional state where absolute hemoglobin mass and ferritin are preserved or elevated, supporting performance."
+          }
+        ],
+        tf: [
+          {
+            id: 1,
+            q: "Maximal heart rate typically increases by 10 to 15 beats per minute following 6 months of vigorous aerobic conditioning.",
+            ans: false,
+            feedback: "False. HRmax remains unchanged or decreases slightly (2\u20135 bpm) following endurance training."
+          },
+          {
+            id: 2,
+            q: "Nearly all of the increase in total blood volume observed during the first two weeks of endurance training is attributable to an expansion of plasma volume.",
+            ans: true,
+            feedback: "True. Plasma volume expands rapidly within days, whereas red cell mass expands more slowly over weeks."
+          },
+          {
+            id: 3,
+            q: "Exercise-induced cardiac hypertrophy in endurance athletes is a benign physiological adaptation characterized by preserved or enhanced systolic and diastolic function.",
+            ans: true,
+            feedback: "True. \'Athlete\'s heart\' is a physiological adaptation with normal or enhanced systolic emptying and diastolic relaxation."
+          },
+          {
+            id: 4,
+            q: "Resting blood pressure decreases by an average of 15 to 20 mmHg in healthy, normotensive young adults after aerobic training.",
+            ans: false,
+            feedback: "False. Normotensive individuals show little or no change in resting blood pressure."
+          },
+          {
+            id: 5,
+            q: "Endurance-trained athletes with pseudoanemia have a reduced total oxygen-carrying capacity compared to sedentary individuals.",
+            ans: false,
+            feedback: "False. Because total blood volume and absolute hemoglobin mass are elevated, their overall oxygen-carrying capacity is substantially higher."
+          },
+          {
+            id: 6,
+            q: "Albumin is the major plasma protein responsible for generating vascular oncotic pressure to retain fluid within the vascular space.",
+            ans: true,
+            feedback: "True. Albumin generates the colloid osmotic pressure required to maintain expanded plasma volume."
+          }
+        ],
+        cloze: [
+          {
+            id: 1,
+            statement: "The mathematical relationship determining oxygen consumption is known as the **Fick equation**, which states that VO2 equals **cardiac output** multiplied by the **arterial-venous oxygen difference**.",
+            targets: ["Fick equation", "cardiac output", "arterial-venous oxygen difference"],
+            optionsBank: ["Fick equation", "cardiac output", "arterial-venous oxygen difference", "Frank-Starling law", "stroke volume", "pulmonary ventilation"],
+            hint: "The fundamental governing equation of whole-body aerobic metabolism."
+          },
+          {
+            id: 2,
+            statement: "Endurance training leads to **eccentric hypertrophy** of the left ventricle driven by chronic **volume overload**, whereas heavy resistance training induces **concentric hypertrophy** driven by chronic **pressure overload**.",
+            targets: ["eccentric hypertrophy", "volume overload", "concentric hypertrophy", "pressure overload"],
+            optionsBank: ["eccentric hypertrophy", "volume overload", "concentric hypertrophy", "pressure overload", "pathological remodeling"],
+            hint: "Contrasting morphological patterns of athletic cardiac remodeling."
+          },
+          {
+            id: 3,
+            statement: "The initial rapid expansion of plasma volume following training is driven by an increase in the plasma protein **albumin**, which elevates vascular **oncotic pressure** to reabsorb fluid from interstitial spaces.",
+            targets: ["albumin", "oncotic pressure"],
+            optionsBank: ["albumin", "oncotic pressure", "fibrinogen", "hydrostatic pressure", "hemoglobin"],
+            hint: "Primary vascular protein and its colloid fluid-pulling force."
+          },
+          {
+            id: 4,
+            statement: "An increase in resting and submaximal stroke volume is enabled by an increase in **end-diastolic volume**, which stretches myocardial fibers and increases contractility via the **Frank-Starling mechanism**.",
+            targets: ["end-diastolic volume", "Frank-Starling mechanism"],
+            optionsBank: ["end-diastolic volume", "Frank-Starling mechanism", "end-systolic volume", "Bohr effect"],
+            hint: "Venous filling volume and intrinsic length-tension relationship."
+          },
+          {
+            id: 5,
+            statement: "Angiogenesis in skeletal muscle results in an increase in the **capillary-to-fiber ratio**, which shortens the **diffusion distance** for oxygen between the vascular space and the mitochondria.",
+            targets: ["capillary-to-fiber ratio", "diffusion distance"],
+            optionsBank: ["capillary-to-fiber ratio", "diffusion distance", "arteriolar wall thickness", "filtration fraction"],
+            hint: "Microvascular density metric and its spatial diffusion benefit."
+          },
+          {
+            id: 6,
+            statement: "Reduced blood viscosity facilitates microvascular blood flow by decreasing **systemic vascular resistance**, which allows for a reduction in left ventricular **afterload**.",
+            targets: ["systemic vascular resistance", "afterload"],
+            optionsBank: ["systemic vascular resistance", "afterload", "preload", "end-diastolic volume"],
+            hint: "Vascular resistance opposing left ventricular blood ejection."
+          }
+        ],
+        sa: [
+          {
+            id: 1,
+            prompt: "Explain the physiological paradox known as \'sports pseudoanemia.\' Detail its underlying mechanisms, why it does not impair oxygen delivery, and how it differs from true clinical anemia.",
+            model: "Sports pseudoanemia is a dilutional reduction in hematocrit and hemoglobin concentration per unit volume of blood. Training rapidly expands plasma volume by 20\u201325% via increased albumin and fluid-retaining hormones. Although absolute red blood cell mass also increases by 8\u201310%, plasma volume expands disproportionately, lowering hematocrit. It does not impair oxygen delivery because total absolute hemoglobin mass is elevated, and the lower viscosity reduces vascular resistance and afterload, facilitating microvascular perfusion. Unlike true clinical anemia, ferritin and iron stores are normal.",
+            criteria: [
+              "Explains hemodilution via disproportionate plasma volume expansion vs. RBC mass",
+              "Contrasts relative concentration with total absolute hemoglobin mass",
+              "Details viscosity reduction and microvascular perfusion benefits",
+              "Differentiates from true anemia (normal iron/ferritin stores)"
+            ],
+            rubric: {
+              0: "Unsatisfactory / Inaccurate",
+              1: "Superficial mention of dilute blood",
+              2: "Identifies plasma expansion but omits absolute hemoglobin mass",
+              3: "Accurately details hemodilution and viscosity benefits",
+              4: "Thorough comparison of relative vs. absolute values and clinical anemia",
+              5: "Masterful integration of Starling forces, rheology, and hematological diagnostics"
+            }
+          },
+          {
+            id: 2,
+            prompt: "Explain why resting and submaximal cardiac output at a given absolute workload do not significantly increase after a 6-month endurance training program, despite dramatic structural remodeling of the left ventricle and significant increases in stroke volume.",
+            model: "Cardiac output (Q) is tightly coupled to metabolic oxygen demand. At a fixed absolute submaximal workload, whole-body VO2 requirements remain constant. While eccentric hypertrophy significantly increases stroke volume (SV), the autonomic nervous system downregulates heart rate (HR) via elevated parasympathetic tone and reduced sympathetic drive. Because HR declines in direct proportion to SV increases (Q = HR x SV), cardiac output remains stable or decreases slightly due to enhanced peripheral extraction ((a-v)O2 difference) and movement economy.",
+            criteria: [
+              "Connects cardiac output directly to systemic metabolic oxygen demand",
+              "Explains reciprocal relationship between increased SV and decreased HR (Q = HR x SV)",
+              "Cites neuroautonomic mechanisms (vagal tone elevation)",
+              "Mentions tissue extraction ((a-v)O2 difference) or movement economy"
+            ],
+            rubric: {
+              0: "Unsatisfactory / Inaccurate",
+              1: "Minimal understanding of reciprocal adjustments",
+              2: "Basic identification of Q = HR x SV without autonomic context",
+              3: "Accurately explains reciprocal SV/HR balancing",
+              4: "Detailed synthesis of hemodynamics, autonomic tone, and metabolic demand",
+              5: "Masterful integration of Fick equation, energetic cost, and extraction efficiency"
+            }
+          },
+          {
+            id: 3,
+            prompt: "Compare and contrast the hemodynamic stimuli and resultant left ventricular morphological remodeling patterns observed in competitive endurance runners versus competitive weightlifters.",
+            model: "Endurance runners experience chronic volume overload (sustained venous return and high preload), eliciting eccentric cardiac hypertrophy with chamber dilation (increased LVID) and proportional wall thickening to pump large blood volumes. In contrast, weightlifters experience transient, extreme pressure overload (afterload exceeding 480/350 mmHg during straining), inducing concentric hypertrophy with increased wall thickness but preserved or slightly reduced chamber dimensions to overcome high arterial resistance.",
+            criteria: [
+              "Contrasts volume overload (endurance) with pressure overload (resistance)",
+              "Identifies eccentric hypertrophy (chamber dilation + wall thickening) in endurance athletes",
+              "Identifies concentric hypertrophy (wall thickening without chamber dilation) in resistance athletes",
+              "Relates preload vs. afterload to sarcomere geometry"
+            ],
+            rubric: {
+              0: "Unsatisfactory / Inaccurate",
+              1: "Superficial descriptions of heart enlargement",
+              2: "Identifies eccentric vs. concentric without hemodynamic loads",
+              3: "Accurately descriptions of preload vs. afterload and structural patterns",
+              4: "Thorough comparison of mechanical stimuli, wall thickness, and cavity diameter",
+              5: "Masterful clinical and morphological analysis with functional hemodynamics"
+            }
+          }
+        ]
+      },
+      p2: {
+        mcq: [
+          {
+            id: 1,
+            q: "What happens to pulmonary ventilation (VE) during submaximal exercise at a standardized absolute workload after endurance training?",
+            opts: [
+              "It increases by 50% to bring in excess oxygen",
+              "It decreases by approximately 20% to 30%",
+              "It remains perfectly fixed at maximal levels",
+              "It fluctuates uncontrollably due to respiratory muscle fatigue"
+            ],
+            correct: 1,
+            rationale: "At a given submaximal intensity, ventilation decreases by 20\u201330% due to reduced chemical drive (less arterial PCO2 and lactate accumulation) and improved ventilatory economy."
+          },
+          {
+            id: 2,
+            q: "What is the primary intracellular physiological function of myoglobin in skeletal muscle?",
+            opts: [
+              "Catalyzing the breakdown of glycogen into lactate during anaerobic bursts",
+              "Binding and shuttling oxygen from the sarcolemma through the cytoplasm to the mitochondria",
+              "Pumping calcium back into the sarcoplasmic reticulum during muscular relaxation",
+              "Synthesizing albumin to maintain intracellular oncotic pressure"
+            ],
+            correct: 1,
+            rationale: "Myoglobin binds and stores oxygen at the sarcolemma and shuttles it through the cytoplasm directly to the mitochondria."
+          },
+          {
+            id: 3,
+            q: "What happens to the Respiratory Exchange Ratio (RER) at a standardized absolute submaximal running speed after 6 months of endurance training?",
+            opts: [
+              "It increases toward 1.00, reflecting pure carbohydrate utilization",
+              "It decreases, reflecting an increased proportional reliance on fat oxidation",
+              "It rises above 1.15 due to massive hyperventilation",
+              "It remains entirely fixed at 0.70 at all exercise intensities"
+            ],
+            correct: 1,
+            rationale: "A lower RER at matched submaximal work rates reflects an increased reliance on free fatty acids for ATP production and sparing of carbohydrates."
+          },
+          {
+            id: 4,
+            q: "What is Exercise-Induced Arterial Hypoxemia (EIAH), observed in a subset of elite endurance athletes?",
+            opts: [
+              "A drop in arterial oxygen saturation below 96% caused by extremely rapid pulmonary capillary transit times",
+              "A toxic accumulation of oxygen in the cerebral cortex causing syncope",
+              "An allergic bronchospasm triggered exclusively by swimming pool chlorine",
+              "A genetic absence of pulmonary surfactant leading to total alveolar collapse"
+            ],
+            correct: 0,
+            rationale: "In elite athletes with massive Qmax, red blood cell transit time through pulmonary capillaries is truncated (<0.25 s), causing diffusion limitation and desaturation (SaO2 < 96%)."
+          },
+          {
+            id: 5,
+            q: "Which skeletal muscle fiber type adaptation is most characteristic of chronic aerobic endurance conditioning?",
+            opts: [
+              "Selective hypertrophy of Type IIx fibers with total atrophy of Type I fibers",
+              "Selective hypertrophy of Type I fibers and transition of Type IIx fibers toward more oxidative Type IIa characteristics",
+              "Complete conversion of 100% of all skeletal muscle fibers into Type IIx fibers",
+              "Loss of all myoglobin and mitochondria within Type I motor units"
+            ],
+            correct: 1,
+            rationale: "Endurance training primarily recruits Type I fibers, increasing their cross-sectional area, while stimulating Type IIx fibers to adopt more oxidative Type IIa characteristics."
+          },
+          {
+            id: 6,
+            q: "Which pair of mitochondrial oxidative enzymes exhibits dramatic, multi-fold increases in activity following regular aerobic training?",
+            opts: [
+              "Creatine kinase and myokinase",
+              "Succinate dehydrogenase (SDH) and citrate synthase",
+              "Phosphofructokinase (PFK) and lactate dehydrogenase (LDH)",
+              "Pancreatic amylase and pepsin"
+            ],
+            correct: 1,
+            rationale: "Succinate dehydrogenase (SDH) and citrate synthase are key Krebs cycle enzymes that increase multi-fold with aerobic training."
+          },
+          {
+            id: 7,
+            q: "How does chronic endurance training alter the blood lactate threshold / OBLA?",
+            opts: [
+              "It shifts the threshold to the left, causing lactate accumulation at lower absolute workloads",
+              "It shifts the threshold to the right, allowing an individual to sustain a higher percentage of VO2max without accumulating blood lactate",
+              "It completely eliminates all lactate production in human cells forever",
+              "It converts the lactate threshold into an anaerobic power measurement"
+            ],
+            correct: 1,
+            rationale: "Training shifts the lactate threshold rightward, enabling the athlete to sustain a higher percentage of VO2max (e.g., 75\u201385% vs. 55\u201360%) without accumulating lactate."
+          }
+        ],
+        ms: [
+          {
+            id: 1,
+            q: "Which lines of scientific evidence directly refute the historical \'utilization theory\' and demonstrate that VO2max is primarily limited by central oxygen delivery? (Select all that apply)",
+            opts: [
+              "Breathing carbon monoxide reduces VO2max in direct proportion to the percentage of bound hemoglobin",
+              "Phlebotomy of 15% to 20% of blood volume decreases VO2max, while reinfusion of packed red blood cells elevates it above baseline",
+              "Mitochondrial enzyme activity (e.g., SDH) continues to increase for months after VO2max has plateaued",
+              "Breathing hyperoxic gas mixtures (high PO2) increases maximal oxygen consumption and endurance capacity",
+              "Sedentary individuals have zero mitochondria in their skeletal muscle fibers"
+            ],
+            correctArray: [0, 1, 2, 3],
+            rationale: "Manipulating oxygen delivery (CO, blood phlebotomy/reinfusion, hyperoxia) directly alters VO2max. In addition, SDH activity continues to climb long after VO2max plateaus."
+          },
+          {
+            id: 2,
+            q: "By what mechanisms does chronic aerobic training shift the lactate threshold to a higher absolute workload? (Select all that apply)",
+            opts: [
+              "Reduced rate of lactate production due to enhanced fat oxidation and attenuated glycolytic flux",
+              "Increased rate of blood lactate clearance and utilization by cardiac muscle, liver (gluconeogenesis), and inactive tissues",
+              "Increased capillary density allowing more rapid washout of lactate from interstitial fluid",
+              "Complete genetic silencing of the enzyme lactate dehydrogenase (LDH)",
+              "Enhanced intracellular buffering capacity and monocarboxylate transporter (MCT) expression"
+            ],
+            correctArray: [0, 1, 2, 4],
+            rationale: "Lactate threshold shifts via both reduced production (glycogen sparing) and accelerated clearance (capillaries, MCTs, organ clearance). LDH is never eliminated."
+          },
+          {
+            id: 3,
+            q: "How can an athlete\'s competitive endurance race performance continue to improve for years after their VO2max has reached its genetically predetermined plateau? (Select all that apply)",
+            opts: [
+              "Continued improvements in the lactate threshold, permitting performance at a higher percentage of VO2max",
+              "Enhancements in running economy (lower VO2 cost at a given running velocity)",
+              "Enhanced muscle oxidative capacity and glycogen sparing",
+              "Gradual transformation of all skeletal muscle into smooth muscle",
+              "Improved psychological pacing, pain tolerance, and buffering capacity"
+            ],
+            correctArray: [0, 1, 2, 4],
+            rationale: "Performance continues improving via higher fractional utilization of VO2max, superior running economy, glycogen sparing, and buffering capacity."
+          },
+          {
+            id: 4,
+            q: "Which adaptations contribute to the reduction in pulmonary ventilation during standardized submaximal exercise after endurance training? (Select all that apply)",
+            opts: [
+              "Reduced blood lactate accumulation mitigating chemical buffering drive",
+              "Lower arterial carbon dioxide production reducing central chemoreceptor stimulation",
+              "Improved mechanical movement economy requiring less oxygen consumption",
+              "Permanent anatomical reduction in thoracic cavity volume",
+              "Enhanced respiratory muscle efficiency and oxidative capacity"
+            ],
+            correctArray: [0, 1, 2, 4],
+            rationale: "Submaximal ventilation declines due to reduced chemical drive (less lactate/CO2), improved movement economy, and enhanced respiratory muscle efficiency."
+          },
+          {
+            id: 5,
+            q: "Which mechanisms explain the substantial widening of the maximal (a-v)O2 difference after endurance training? (Select all that apply)",
+            opts: [
+              "Increased capillary density allowing longer transit time and greater surface area for diffusion",
+              "Increased mitochondrial volume and oxidative enzyme activity extracting more oxygen inside myocytes",
+              "More effective redistribution of cardiac output away from non-active viscera toward active skeletal muscle",
+              "A 50% increase in arterial oxygen saturation (SaO2) above 150%",
+              "Elevated intramuscular myoglobin content facilitating cytoplasmic oxygen flux"
+            ],
+            correctArray: [0, 1, 2, 4],
+            rationale: "Widening of the (a-v)O2 difference is driven by capillarization, mitochondrial enzymes, vascular shunting, and myoglobin shuttling. Arterial saturation cannot exceed 100%."
+          },
+          {
+            id: 6,
+            q: "Which mitochondrial adaptations occur within skeletal muscle myocytes following chronic aerobic endurance training? (Select all that apply)",
+            opts: [
+              "Increase in total mitochondrial number (biogenesis) by ~15%",
+              "Increase in average mitochondrial surface area and size by ~35%",
+              "Significant elevation in Krebs cycle and electron transport enzyme activities (e.g., SDH, citrate synthase)",
+              "Selective destruction and phagocytosis of all mitochondrial cristae",
+              "Complete cessation of ATP resynthesis via oxidative phosphorylation"
+            ],
+            correctArray: [0, 1, 2],
+            rationale: "Endurance training expands mitochondrial number (~15%) and size (~35%), accompanied by multi-fold increases in oxidative enzymes."
+          }
+        ],
+        tf: [
+          {
+            id: 1,
+            q: "Pulmonary diffusion capacity increases significantly at rest following an endurance training program.",
+            ans: false,
+            feedback: "False. Diffusion capacity is unchanged at rest; it increases only during maximal exercise."
+          },
+          {
+            id: 2,
+            q: "Succinate dehydrogenase (SDH) enzyme activity can continue to increase for months after an individual\'s VO2max has plateaued.",
+            ans: true,
+            feedback: "True. SDH enzyme levels continue to rise with ongoing training volume long after VO2max has leveled off."
+          },
+          {
+            id: 3,
+            q: "The widening of the maximal (a-v)O2 difference is primarily driven by a substantial increase in arterial oxygen content.",
+            ans: false,
+            feedback: "False. It is driven primarily by a decrease in mixed venous oxygen content (CvO2)."
+          },
+          {
+            id: 4,
+            q: "Genetics accounts for between 25% and 50% of the total variance in VO2max among individuals.",
+            ans: true,
+            feedback: "True. Bouchard and colleagues demonstrated that heredity accounts for 25% to 50% of VO2max variance."
+          },
+          {
+            id: 5,
+            q: "Resting metabolic oxygen consumption (resting VO2) increases by over 30% after an individual completes 20 weeks of aerobic training.",
+            ans: false,
+            feedback: "False. Studies like HERITAGE confirm that resting VO2 and basal metabolic rate remain essentially unchanged after training."
+          },
+          {
+            id: 6,
+            q: "In the Fick equation, whole-body oxygen consumption is limited primarily by the concentration of oxidative enzymes within skeletal muscle mitochondria.",
+            ans: false,
+            feedback: "False. Oxygen delivery (cardiac output and capillarization), not mitochondrial enzyme content, limits VO2max."
+          }
+        ],
+        cloze: [
+          {
+            id: 1,
+            statement: "The adaptation whereby an endurance-trained athlete oxidizes more free fatty acids and spares intramuscular glycogen at a given submaximal exercise intensity is termed **glycogen sparing**.",
+            targets: ["glycogen sparing"],
+            optionsBank: ["glycogen sparing", "glycolytic priming", "protein wasting", "creatine depletion"],
+            hint: "Carbohydrate-preserving metabolic phenomenon."
+          },
+          {
+            id: 2,
+            statement: "The historical hypothesis that VO2max is limited by the concentration of mitochondrial enzymes is known as the **utilization theory**, which has been refuted in favor of the **oxygen delivery limitation theory**.",
+            targets: ["utilization theory", "oxygen delivery limitation theory"],
+            optionsBank: ["utilization theory", "oxygen delivery limitation theory", "sliding filament theory", "chemiosmotic hypothesis"],
+            hint: "Historical intracellular enzyme theory vs. modern cardiovascular delivery consensus."
+          },
+          {
+            id: 3,
+            statement: "Even after an athlete\'s VO2max reaches a plateau, competitive race performance can continue to improve through an elevated **lactate threshold** and improved **running economy**.",
+            targets: ["lactate threshold", "running economy"],
+            optionsBank: ["lactate threshold", "running economy", "maximal heart rate", "pulmonary dead space"],
+            hint: "Metabolic threshold shift and biomechanical oxygen cost."
+          },
+          {
+            id: 4,
+            statement: "At a standardized submaximal workload, pulmonary ventilation is **decreased** by 20% to 30%, whereas during exhaustive maximal exercise, ventilation is substantially **increased**.",
+            targets: ["decreased", "increased"],
+            optionsBank: ["decreased", "increased", "eliminated", "unchanged"],
+            hint: "Directional changes in submaximal vs. maximal pulmonary ventilation."
+          },
+          {
+            id: 5,
+            statement: "Skeletal muscle oxidative capacity is enhanced through an increase in mitochondrial **number** by ~15% and an increase in mitochondrial **size** by ~35%.",
+            targets: ["number", "size"],
+            optionsBank: ["number", "size", "destruction", "atrophy"],
+            hint: "Dual morphological changes in mitochondrial biogenesis."
+          },
+          {
+            id: 6,
+            statement: "During submaximal exercise, the **Respiratory Exchange Ratio** decreases following endurance training, indicating an increased reliance on **free fatty acids** as an energetic substrate.",
+            targets: ["Respiratory Exchange Ratio", "free fatty acids"],
+            optionsBank: ["Respiratory Exchange Ratio", "free fatty acids", "blood urea nitrogen", "amino acids"],
+            hint: "Gas exchange ratio (VCO2/VO2) and lipid fuel source."
+          }
+        ],
+        sa: [
+          {
+            id: 1,
+            prompt: "Critique the historical \'utilization theory\' versus the modern \'oxygen delivery limitation theory\' regarding what limits VO2max. Provide at least three pieces of empirical physiological evidence that resolved this debate.",
+            model: "The utilization theory posited that VO2max is limited by the concentration of mitochondrial oxidative enzymes. In contrast, the oxygen delivery limitation theory states that central and peripheral cardiovascular oxygen transport limits VO2max. Three key lines of evidence disproved the utilization theory: (1) Blood manipulations: Phlebotomy immediately reduces VO2max, while reinfusion of packed red cells increases VO2max above baseline without changing muscle enzymes; (2) Carbon monoxide inhalation: Binding hemoglobin with CO reduces VO2max in direct 1:1 proportion; and (3) Dissociated time courses: Mitochondrial enzymes (SDH, citrate synthase) continue to increase for months after VO2max plateaus. These confirm that mitochondrial capacity exceeds circulatory delivery at VO2max.",
+            criteria: [
+              "Contrasts utilization theory with oxygen delivery limitation theory",
+              "Explains blood withdrawal/reinfusion experiments",
+              "Explains carbon monoxide binding experiments",
+              "Explains the dissociation between the VO2max plateau and ongoing enzyme increases"
+            ],
+            rubric: {
+              0: "Unsatisfactory / Inaccurate",
+              1: "States delivery limits VO2max without evidence",
+              2: "Defines theories and cites 1 study superficially",
+              3: "Contrasts theories and explains 2 experimental paradigms",
+              4: "Thoroughly details all 3 empirical paradigms proving delivery limitation",
+              5: "Masterful critique integrating Fick equation, Saltin & Rowell findings, and respiratory gas kinetics"
+            }
+          },
+          {
+            id: 2,
+            prompt: "Explain how an elite distance runner can continue to dramatically improve competitive 10 km race times over a three-year period despite their VO2max remaining unchanged at 71 mL/kg/min.",
+            model: "Even after VO2max plateaus (typically within 8\u201318 months), performance improves via: (1) Rightward shift in the lactate threshold (fractional utilization): Mitochondrial biogenesis and capillary density allow the runner to sustain a higher percentage of VO2max (e.g., advancing from 75% to 88% of VO2max, or 53.3 to 62.5 mL/kg/min) without lactate accumulation; (2) Enhanced running economy: Improved biomechanics, motor unit recruitment, and tendon elastic recoil reduce the VO2 cost of running at a given speed; and (3) Enhanced glycogen sparing: Greater fat oxidation at race pace spares glycogen for late-race surges.",
+            criteria: [
+              "Explains that VO2max is a ceiling, but performance is governed by fractional utilization",
+              "Explains the rightward shift in lactate threshold (e.g., sustaining 88% vs. 75% VO2max)",
+              "Explains improvements in running economy (lower VO2 at a given pace)",
+              "Identifies metabolic glycogen sparing"
+            ],
+            rubric: {
+              0: "Unsatisfactory / Inaccurate",
+              1: "States the runner gets faster through willpower alone",
+              2: "Identifies lactate threshold or economy without fractional utilization",
+              3: "Accurately details fractional utilization of VO2max and running economy",
+              4: "Thoroughly breaks down threshold shift, economy, and substrate kinetics",
+              5: "Masterful physiological and biomechanical analysis linking bioenergetics and neuromuscular efficiency"
+            }
+          },
+          {
+            id: 3,
+            prompt: "Evaluate the role of genetics in determining both baseline cardiorespiratory endurance and the magnitude of adaptation to a standardized aerobic training program. Reference findings from the HERITAGE Family Study.",
+            model: "The HERITAGE Family Study demonstrated that genetics plays a major role in both baseline cardiorespiratory fitness and trainability. Bouchard and colleagues showed that heredity accounts for 25% to 50% of the variance in baseline VO2max. Furthermore, when sedentary biological families completed an identical, fully compliant 20-week training protocol, VO2max increases averaged ~17% but ranged from 0% (low responders) to >50% (high responders). Crucially, high and low responders clustered within biological families, with the heritability of training responsiveness estimated at ~47%.",
+            criteria: [
+              "Cites HERITAGE Family Study and its standardized 20-week protocol",
+              "States that genetics accounts for 25% to 50% of baseline VO2max variance",
+              "Explains the range of trainability (0% to >50% improvement) despite compliance",
+              "Highlights familial clustering of high vs. low responders (~47% heritability)"
+            ],
+            rubric: {
+              0: "Unsatisfactory / Inaccurate",
+              1: "States that training outcomes depend 100% on compliance",
+              2: "Mentions genetics plays a role but lacks HERITAGE study data",
+              3: "Accurately summarizes 25-50% baseline variance and identifies high/low responders",
+              4: "Thoroughly details baseline vs. trainability heritability and familial clustering",
+              5: "Masterful critique evaluating polygenic inheritance, gene-environment interactions, and talent identification"
+            }
+          }
+        ]
+      }
+    };
+
+    /* =========================================================================
+       2. MASTER GLOSSARY DEFINITIONS
+       ========================================================================= */
+    const masterGlossary = [
+      {
+        term: "Athlete\'s Heart",
+        definition: "Non-pathological structural and functional remodeling of the myocardium in response to chronic exercise training, featuring chamber enlargement (eccentric) and/or wall thickening (concentric) with normal or enhanced systolic and diastolic function.",
+        formula: null
+      },
+      {
+        term: "Capillary-to-Fiber Ratio",
+        definition: "Quantitative morphological index of skeletal muscle microvascularity, calculated as the average number of capillaries in direct contact with or surrounding an individual muscle fiber cross-section.",
+        formula: "Capillaries / Muscle Fiber"
+      },
+      {
+        term: "Cardiorespiratory Endurance",
+        definition: "The ability of the integrated cardiovascular, pulmonary, and muscular systems to maintain prolonged, continuous, dynamic exercise involving large muscle groups.",
+        formula: null
+      },
+      {
+        term: "Eccentric Cardiac Hypertrophy",
+        definition: "Cardiovascular remodeling pattern characterized by an increase in left ventricular internal diameter (chamber volume) with proportional wall thickening, induced by chronic volume overload (preload) during endurance training.",
+        formula: "Increased LVID + Proportional Wall Thickness"
+      },
+      {
+        term: "Concentric Cardiac Hypertrophy",
+        definition: "Cardiac remodeling pattern characterized by an increase in ventricular wall thickness with minimal or no change in internal chamber volume, induced by chronic pressure overload (afterload) during resistance training.",
+        formula: "Increased Wall Thickness / Unchanged LVID"
+      },
+      {
+        term: "Ejection Fraction (EF)",
+        definition: "The percentage of end-diastolic blood volume pumped out of the ventricle during a single contraction.",
+        formula: "EF = [(EDV - ESV) / EDV] * 100"
+      },
+      {
+        term: "End-Diastolic Volume (EDV)",
+        definition: "The total volume of blood in the ventricle at the completion of ventricular filling (end of diastole), directly determining cardiac preload.",
+        formula: "Preload Indicator (mL)"
+      },
+      {
+        term: "End-Systolic Volume (ESV)",
+        definition: "The residual volume of blood remaining in the ventricle following the completion of ventricular contraction and ejection (end of systole).",
+        formula: "Residual Volume (mL)"
+      },
+      {
+        term: "Exercise-Induced Arterial Hypoxemia (EIAH)",
+        definition: "A condition in a subset of elite endurance athletes during maximal exercise where arterial oxygen saturation drops below 96%, primarily caused by extremely fast pulmonary capillary transit times (<0.25 s) causing diffusion limitation.",
+        formula: "SaO2 < 96% at Maximal Exertion"
+      },
+      {
+        term: "Fick Equation",
+        definition: "The governing mathematical relationship of whole-body oxygen uptake, stating that VO2 equals cardiac output multiplied by the arterial-venous oxygen difference.",
+        formula: "VO2 = (HR * SV) * (CaO2 - CvO2)"
+      },
+      {
+        term: "Frank-Starling Mechanism",
+        definition: "Intrinsic property of cardiac muscle where increased end-diastolic filling stretches myocardial sarcomeres toward optimal length, producing a more forceful contraction and elevated stroke volume.",
+        formula: "Increased Preload -> Increased Stroke Volume"
+      },
+      {
+        term: "Glycogen Sparing",
+        definition: "Metabolic adaptation where increased mitochondrial density and oxidative enzymes lead to greater reliance on beta-oxidation of fatty acids at submaximal workloads, delaying intramuscular glycogen depletion.",
+        formula: "Increased Lipid Oxidation -> Reduced Glycogenolysis"
+      },
+      {
+        term: "High Responders vs. Low Responders",
+        definition: "The genetically determined distribution of individual variance in physiological adaptations (e.g., Delta VO2max) to a standardized exercise program, with heritability estimated at ~47%.",
+        formula: "HERITAGE Family Study Distribution"
+      },
+      {
+        term: "Lactate Threshold (LT)",
+        definition: "The exercise intensity or workload at which blood lactate concentration abruptly begins to accumulate systematically above resting baseline, as production exceeds clearance.",
+        formula: "Inflection point in blood [lactate]"
+      },
+      {
+        term: "Mitochondrial Biogenesis",
+        definition: "The cellular synthesis of new mitochondrial components, increasing both the physical volume, surface area, and total number of mitochondria within skeletal muscle myocytes.",
+        formula: "Increased Mitochondrial Number & Size"
+      },
+      {
+        term: "Myoglobin",
+        definition: "An iron-containing intracellular protein in skeletal muscle that stores oxygen and shuttles it from the sarcolemma through the cytoplasm directly to the mitochondria.",
+        formula: "Intracellular Oxygen Carrier (+75-80% Post-Training)"
+      },
+      {
+        term: "Oncotic Pressure",
+        definition: "Colloid osmotic pressure exerted by proteins (primarily albumin) in vascular plasma that pulls fluid from interstitial spaces into the blood vessels.",
+        formula: "Primary Driver of Plasma Volume Expansion"
+      },
+      {
+        term: "Oxygen Delivery Limitation Theory",
+        definition: "The physiological consensus stating that VO2max is primarily limited by the cardiovascular system\'s capacity to deliver oxygen to working muscles, rather than the mitochondria\'s capacity to consume it.",
+        formula: "Cardiovascular Delivery Limits VO2max"
+      },
+      {
+        term: "Running Economy",
+        definition: "The oxygen cost (VO2) required to maintain a given submaximal running velocity, reflecting biomechanical efficiency and neuromuscular coordination.",
+        formula: "VO2 (mL/kg/min) at fixed velocity"
+      },
+      {
+        term: "Sports Pseudoanemia",
+        definition: "An apparent, dilutional drop in hematocrit and hemoglobin concentration caused by a disproportionate expansion of plasma volume (+20-25%) relative to red blood cell volume (+8-10%).",
+        formula: "Hypervolemic Hemodilution"
+      },
+      {
+        term: "Stroke Volume (SV)",
+        definition: "The volume of blood pumped from the left ventricle per beat.",
+        formula: "SV = EDV - ESV"
+      },
+      {
+        term: "Succinate Dehydrogenase (SDH)",
+        definition: "A key Krebs cycle and electron transport marker enzyme that increases multi-fold with aerobic training and continues rising even after VO2max plateaus.",
+        formula: "Mitochondrial Marker Enzyme"
+      },
+      {
+        term: "Systemic Vascular Resistance (Afterload)",
+        definition: "The opposing resistance against which the left ventricle must pump to eject blood into systemic circulation, determined by arterial tone and diameter.",
+        formula: "Decreases with aerobic conditioning"
+      },
+      {
+        term: "VO2max",
+        definition: "The maximum rate of whole-body oxygen consumption achievable during exhaustive, maximal, multi-joint exercise.",
+        formula: "VO2max = Qmax * (a-v)O2diff max"
+      }
+    ];
+
+    /* =========================================================================
+       3. ENGINE STATE & DATA STRUCTURES
+       ========================================================================= */
+    const appState = {
+      currentPage: "p1",
+      scores: {
+        p1: { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 },
+        p2: { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 }
+      },
+      sampledItems: {
+        p1: { mcq: null, ms: null, tf: null, cloze: null, sa: null },
+        p2: { mcq: null, ms: null, tf: null, cloze: null, sa: null }
+      }
+    };
+
+    /* Utility Functions */
+    function getRandomItems(array, count) {
+      if (!count) count = 1;
+      const shuffled = [...array].sort(function() { return 0.5 - Math.random(); });
+      return count === 1 ? shuffled[0] : shuffled.slice(0, count);
+    }
+
+    function recordScore(pageKey, actKey, score) {
+      appState.scores[pageKey][actKey] = score;
+      updateSectionScoreBadge(pageKey, actKey);
+      updateGlobalScore();
+    }
+
+    function updateSectionScoreBadge(pageKey, actKey) {
+      const badge = document.getElementById("score-badge-" + pageKey + "-" + actKey);
+      if (!badge) return;
+      const score = appState.scores[pageKey][actKey];
+      const maxPts = actKey === 'sa' ? 5 : 2;
+      badge.innerText = "Score: " + score + " / " + maxPts + " pts";
+    }
+
+    function updateGlobalScore() {
+      const p1 = appState.scores.p1;
+      const p2 = appState.scores.p2;
+      const earned = p1.mcq + p1.ms + p1.tf + p1.cloze + p1.sa +
+                     p2.mcq + p2.ms + p2.tf + p2.cloze + p2.sa;
+      const totalPossible = 26;
+
+      const badgeText = document.getElementById("global-score-text");
+      const progressBar = document.getElementById("global-progress-bar");
+      
+      const pct = Math.round((earned / totalPossible) * 100);
+      if (badgeText) badgeText.innerText = earned + " / " + totalPossible + " pts (" + pct + "%)";
+      if (progressBar) progressBar.style.width = pct + "%";
+    }
+
+    function resetAllActivities() {
+      if (confirm("Reset all assessment activities across both concept pages? This will refresh all questions and reset your running score.")) {
+        restartLesson();
+      }
+    }
+
+    /* =========================================================================
+       4. ACTIVITY RENDERERS & EVENT HANDLERS
+       ========================================================================= */
+    function initPageQuestions(pageKey) {
+      const bank = assessmentBanks[pageKey];
+      appState.sampledItems[pageKey].mcq = getRandomItems(bank.mcq);
+      appState.sampledItems[pageKey].ms = getRandomItems(bank.ms);
+      appState.sampledItems[pageKey].tf = getRandomItems(bank.tf);
+      appState.sampledItems[pageKey].cloze = getRandomItems(bank.cloze);
+      appState.sampledItems[pageKey].sa = getRandomItems(bank.sa);
+
+      renderMCQ(pageKey);
+      renderMS(pageKey);
+      renderTF(pageKey);
+      renderCloze(pageKey);
+      renderSA(pageKey);
+    }
+
+    /* Render Activity 1: MCQ */
+    function renderMCQ(pageKey) {
+      const container = document.getElementById("container-" + pageKey + "-mcq");
+      const item = appState.sampledItems[pageKey].mcq;
+      if (!container || !item) return;
+
+      container.innerHTML = `
+        <div class="q-card">
+          <div class="q-meta">
+            <span class="q-type-tag">Multiple Choice</span>
+            <span style="font-size:0.75rem; font-weight:700; color:#64748b;">Worth 2 pts</span>
+          </div>
+          <div class="q-title">${item.q}</div>
+          <div class="options-grid">
+            ${item.opts.map(function(opt, i) {
+              return `
+                <label class="opt-label">
+                  <input type="radio" name="${pageKey}-mcq-opt" value="${i}" onchange="handleMCQSelection('${pageKey}',${i})">
+                  <span>${opt}</span>
+                </label>
+              `;
+            }).join('')}
+          </div>
+          <div class="feedback-box" id="fb-${pageKey}-mcq"></div>
+        </div>
+      `;
+    }
+
+    function handleMCQSelection(pageKey, selectedIndex) {
+      const item = appState.sampledItems[pageKey].mcq;
+      const fb = document.getElementById("fb-" + pageKey + "-mcq");
+      if (!fb) return;
+      fb.style.display = "block";
+
+      if (selectedIndex === item.correct) {
+        fb.className = "feedback-box correct";
+        fb.innerHTML = "<strong>Correct! (2/2 pts)</strong> " + item.rationale;
+        recordScore(pageKey, 'mcq', 2);
+      } else {
+        fb.className = "feedback-box incorrect";
+        fb.innerHTML = "<strong>Incorrect (0/2 pts).</strong> " + item.rationale;
+        recordScore(pageKey, 'mcq', 0);
+      }
+    }
+
+    /* Render Activity 2: Multi-Select */
+    function renderMS(pageKey) {
+      const container = document.getElementById("container-" + pageKey + "-ms");
+      const item = appState.sampledItems[pageKey].ms;
+      if (!container || !item) return;
+
+      container.innerHTML = `
+        <div class="q-card">
+          <div class="q-meta">
+            <span class="q-type-tag">Multi-Select</span>
+            <span style="font-size:0.75rem; font-weight:700; color:#64748b;">Worth 2 pts</span>
+          </div>
+          <div class="q-title">${item.q}</div>
+          <div class="options-grid">
+            ${item.opts.map(function(opt, i) {
+              return `
+                <label class="opt-label">
+                  <input type="checkbox" name="${pageKey}-ms-opt" value="${i}">
+                  <span>${opt}</span>
+                </label>
+              `;
+            }).join('')}
+          </div>
+          <button class="btn-action" onclick="handleMSCheck('${pageKey}')">Check Selections</button>
+          <div class="feedback-box" id="fb-${pageKey}-ms"></div>
+        </div>
+      `;
+    }
+
+    function handleMSCheck(pageKey) {
+      const item = appState.sampledItems[pageKey].ms;
+      const fb = document.getElementById("fb-" + pageKey + "-ms");
+      const checkedBoxes = Array.from(document.querySelectorAll("input[name=\"" + pageKey + "-ms-opt\"]:checked")).map(function(c) {
+        return parseInt(c.value);
+      });
+      if (!fb) return;
+      fb.style.display = "block";
+
+      if (checkedBoxes.length === 0) {
+        fb.className = "feedback-box warning";
+        fb.innerHTML = "Please select at least one option before evaluating.";
+        return;
+      }
+
+      const correctSet = new Set(item.correctArray);
+      const isExactMatch = correctSet.size === checkedBoxes.length && checkedBoxes.every(function(x) {
+        return correctSet.has(x);
+      });
+
+      if (isExactMatch) {
+        fb.className = "feedback-box correct";
+        fb.innerHTML = "<strong>Completely Correct! (2/2 pts)</strong> " + item.rationale;
+        recordScore(pageKey, 'ms', 2);
+      } else {
+        const correctCount = checkedBoxes.filter(function(x) { return correctSet.has(x); }).length;
+        const incorrectCount = checkedBoxes.filter(function(x) { return !correctSet.has(x); }).length;
+        fb.className = "feedback-box incorrect";
+        fb.innerHTML = "<strong>Incomplete / Incorrect (0/2 pts).</strong> You identified " + correctCount + " correct and " + incorrectCount + " incorrect options.<br><em>Rationale:</em> " + item.rationale;
+        recordScore(pageKey, 'ms', 0);
+      }
+    }
+
+    /* Render Activity 3: True / False */
+    function renderTF(pageKey) {
+      const container = document.getElementById("container-" + pageKey + "-tf");
+      const item = appState.sampledItems[pageKey].tf;
+      if (!container || !item) return;
+
+      container.innerHTML = `
+        <div class="q-card">
+          <div class="q-meta">
+            <span class="q-type-tag">True / False</span>
+            <span style="font-size:0.75rem; font-weight:700; color:#64748b;">Worth 2 pts</span>
+          </div>
+          <div class="q-title">${item.q}</div>
+          <div class="options-grid">
+            <label class="opt-label">
+              <input type="radio" name="${pageKey}-tf-opt" value="true" onchange="handleTFSelection('${pageKey}', true)">
+              <span>True</span>
+            </label>
+            <label class="opt-label">
+              <input type="radio" name="${pageKey}-tf-opt" value="false" onchange="handleTFSelection('${pageKey}', false)">
+              <span>False</span>
+            </label>
+          </div>
+          <div class="feedback-box" id="fb-${pageKey}-tf"></div>
+        </div>
+      `;
+    }
+
+    function handleTFSelection(pageKey, userBool) {
+      const item = appState.sampledItems[pageKey].tf;
+      const fb = document.getElementById("fb-" + pageKey + "-tf");
+      if (!fb) return;
+      fb.style.display = "block";
+
+      if (userBool === item.ans) {
+        fb.className = "feedback-box correct";
+        fb.innerHTML = "<strong>Correct! (2/2 pts)</strong> " + item.feedback;
+        recordScore(pageKey, 'tf', 2);
+      } else {
+        fb.className = "feedback-box incorrect";
+        fb.innerHTML = "<strong>Incorrect (0/2 pts).</strong> " + item.feedback;
+        recordScore(pageKey, 'tf', 0);
+      }
+    }
+
+    /* Render Activity 4: Precision Cloze */
+    function renderCloze(pageKey) {
+      const container = document.getElementById("container-" + pageKey + "-cloze");
+      const item = appState.sampledItems[pageKey].cloze;
+      if (!container || !item) return;
+
+      let statementHtml = item.statement;
+      item.targets.forEach(function(target, i) {
+        const selectId = "cloze-" + pageKey + "-" + i;
+        const optionsHtml = `<option value="">-- Select Term --</option>` +
+          item.optionsBank.map(function(opt) {
+            return `<option value="${opt}">${opt}</option>`;
+          }).join('');
+        const selectHtml = `<select class="cloze-dropdown" id="${selectId}">${optionsHtml}</select>`;
+        statementHtml = statementHtml.replace(`**${target}**`, selectHtml);
+      });
+
+      container.innerHTML = `
+        <div class="q-card">
+          <div class="q-meta">
+            <span class="q-type-tag">Precision Cloze</span>
+            <span style="font-size:0.75rem; font-weight:700; color:#64748b;">Worth 2 pts</span>
+          </div>
+          <div class="q-title" style="line-height:2.3;">${statementHtml}</div>
+          <div class="cloze-hint-text"><strong>Clue:</strong> ${item.hint}</div>
+          <div style="margin-top:12px;">
+            <button class="btn-action" onclick="handleClozeSelection('${pageKey}')">Verify Selections</button>
+          </div>
+          <div class="feedback-box" id="fb-${pageKey}-cloze"></div>
+        </div>
+      `;
+    }
+
+    function handleClozeSelection(pageKey) {
+      const item = appState.sampledItems[pageKey].cloze;
+      const fb = document.getElementById("fb-" + pageKey + "-cloze");
+      if (!fb) return;
+      fb.style.display = "block";
+
+      let allCorrect = true;
+      let anyEmpty = false;
+
+      item.targets.forEach(function(target, i) {
+        const sel = document.getElementById("cloze-" + pageKey + "-" + i);
+        if (!sel || !sel.value) anyEmpty = true;
+        if (sel && sel.value !== target) allCorrect = false;
+      });
+
+      if (anyEmpty) {
+        fb.className = "feedback-box warning";
+        fb.innerHTML = "Please select an answer for all dropdown blanks before submitting.";
+        return;
+      }
+
+      if (allCorrect) {
+        fb.className = "feedback-box correct";
+        fb.innerHTML = "<strong>Exact Match! (2/2 pts)</strong> All physiological targets correctly assigned.";
+        recordScore(pageKey, 'cloze', 2);
+      } else {
+        fb.className = "feedback-box incorrect";
+        fb.innerHTML = "<strong>Incorrect (0/2 pts).</strong> One or more terminology selections are inaccurate. Targets: <em>" + item.targets.join(', ') + "</em>.";
+        recordScore(pageKey, 'cloze', 0);
+      }
+    }
+
+    /* Render Activity 5: Short Answer */
+    function renderSA(pageKey) {
+      const container = document.getElementById("container-" + pageKey + "-sa");
+      const item = appState.sampledItems[pageKey].sa;
+      if (!container || !item) return;
+
+      container.innerHTML = `
+        <div class="q-card">
+          <div class="q-meta">
+            <span class="q-type-tag">Synthesis Short Answer</span>
+            <span style="font-size:0.75rem; font-weight:700; color:#64748b;">Worth 5 pts</span>
+          </div>
+          <div class="q-title">${item.prompt}</div>
+          <textarea class="sa-textarea" id="sa-input-${pageKey}" oninput="updateSACounters('${pageKey}')" placeholder="Type your structured physiological answer here..."></textarea>
+          <div class="sa-counter" id="sa-count-${pageKey}">Words: 0</div>
+          <div>
+            <button class="btn-action" onclick="revealSARubric('${pageKey}')">Check Optimal Answer &amp; Rubric</button>
+          </div>
+
+          <div class="sa-rubric-box" id="sa-rubric-box-${pageKey}">
+            <h5 style="color:var(--primary); margin-bottom:6px;">Expert Model Answer:</h5>
+            <p style="margin-bottom:10px;">${item.model}</p>
+            <div class="sa-checklist">
+              <h5 style="color:var(--primary); margin-bottom:6px;">Essential Criteria Checklist:</h5>
+              ${item.criteria.map(function(c, i) {
+                return `
+                  <div class="sa-check-row">
+                    <input type="checkbox" id="sa-chk-${pageKey}-${i}">
+                    <label for="sa-chk-${pageKey}-${i}">${c}</label>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+            <h5 style="color:var(--primary); margin-top:8px;">Self-Score via Rubric (Assign 0–5 Points):</h5>
+            <div class="radio-scale-row">
+              ${[0, 1, 2, 3, 4, 5].map(function(pt) {
+                return `
+                  <label class="scale-btn">
+                    <input type="radio" name="sa-pts-${pageKey}" value="${pt}" onchange="setSAScore('${pageKey}',${pt})">
+                    <strong>${pt} Pts</strong>
+                    <span style="font-size:0.68rem; color:#64748b;">${item.rubric[pt]}</span>
+                  </label>
+                `;
+              }).join('')}
+            </div>
+          </div>
+          <div class="feedback-box" id="fb-${pageKey}-sa"></div>
+        </div>
+      `;
+    }
+
+    function updateSACounters(pageKey) {
+      const input = document.getElementById("sa-input-" + pageKey);
+      const counter = document.getElementById("sa-count-" + pageKey);
+      if (!input || !counter) return;
+      const text = input.value.trim();
+      const count = text ? text.split(/\s+/).length : 0;
+      counter.innerText = "Words: " + count;
+    }
+
+    function revealSARubric(pageKey) {
+      const input = document.getElementById("sa-input-" + pageKey);
+      const fb = document.getElementById("fb-" + pageKey + "-sa");
+      const rubricBox = document.getElementById("sa-rubric-box-" + pageKey);
+      if (!input || !fb || !rubricBox) return;
+      
+      const text = input.value.trim();
+      if (text.length < 25) {
+        fb.style.display = "block";
+        fb.className = "feedback-box warning";
+        fb.innerHTML = "Please write a comprehensive academic response (at least 2–3 full sentences) before reviewing the rubric.";
+        return;
+      }
+      fb.style.display = "none";
+      rubricBox.style.display = "block";
+    }
+
+    function setSAScore(pageKey, pt) {
+      recordScore(pageKey, 'sa', pt);
+      const fb = document.getElementById("fb-" + pageKey + "-sa");
+      if (!fb) return;
+      fb.style.display = "block";
+      fb.className = pt >= 3 ? "feedback-box correct" : "feedback-box warning";
+      fb.innerHTML = "Self-Evaluation recorded: <strong>" + pt + " / 5 pts awarded</strong> for this synthesis activity.";
+    }
+
+    /* Reset Section & Refresh Specific Activity */
+    function resetSection(pageKey, actKey) {
+      const bank = assessmentBanks[pageKey];
+      appState.sampledItems[pageKey][actKey] = getRandomItems(bank[actKey]);
+      appState.scores[pageKey][actKey] = 0;
+      updateSectionScoreBadge(pageKey, actKey);
+      updateGlobalScore();
+
+      if (actKey === 'mcq') renderMCQ(pageKey);
+      if (actKey === 'ms') renderMS(pageKey);
+      if (actKey === 'tf') renderTF(pageKey);
+      if (actKey === 'cloze') renderCloze(pageKey);
+      if (actKey === 'sa') renderSA(pageKey);
+    }
+
+    /* Master Glossary Renderer */
+    function renderGlossary() {
+      const grid = document.getElementById("glossary-grid-container");
+      if (!grid) return;
+      grid.innerHTML = masterGlossary.map(function(item) {
+        return `
+          <div class="glossary-card">
+            <h3>${item.term}</h3>
+            <p>${item.definition}</p>
+            ${item.formula ? `<div class="formula-tag">${item.formula}</div>` : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    /* =========================================================================
+       5. INITIALIZATION ON DOM READY
+       ========================================================================= */
+    document.addEventListener("DOMContentLoaded", function() {
+      initPageQuestions("p1");
+      initPageQuestions("p2");
+
+      renderGlossary();
+
+      collapseAllSections();
+
+      navigateToPage("p1");
+
+      updateGlobalScore();
+    });
+  </script>
+</body>
+</html>
