@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KINS 4403: Resistance Training and Gains in Muscular Fitness</title>
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-dark-surface: #1e293b;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --bg-body: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #0f172a;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --success: #16a34a;
+      --success-bg: #dcfce7;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --warning: #d97706;
+      --warning-bg: #fef3c7;
+      --info: #0284c7;
+      --info-bg: #e0f2fe;
+      --focus-ring: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* Top Sticky High-Contrast Dashboard */
+    header.sticky-dashboard {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 0.75rem 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .dashboard-top-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .course-meta {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .module-heading {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .dashboard-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--text-muted);
+      color: var(--text-light);
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-ghost:hover, .btn-ghost:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #fff;
+      outline: none;
+    }
+
+    .btn-reset-global {
+      background: #be123c;
+      border: 1px solid #fda4af;
+      color: #fff;
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-reset-global:hover {
+      background: #9f1239;
+    }
+
+    .score-indicator-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 250px;
+    }
+
+    .score-badge {
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: var(--bg-dark-surface);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid #334155;
+      white-space: nowrap;
+    }
+
+    .progress-bar-bg {
+      flex: 1;
+      height: 8px;
+      background: #334155;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: #10b981;
+      transition: width 0.3s ease;
+    }
+
+    /* Navigation Tiers */
+    .toc-tier-1 {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding-top: 0.35rem;
+      border-top: 1px solid #334155;
+    }
+
+    .toc-pill {
+      background: #1e293b;
+      color: #cbd5e1;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid #475569;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .toc-pill:hover, .toc-pill.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: #60a5fa;
+    }
+
+    .toc-tier-2 {
+      display: flex;
+      gap: 0.75rem;
+      padding-top: 0.35rem;
+      font-size: 0.75rem;
+      overflow-x: auto;
+    }
+
+    .toc-quicklink {
+      color: var(--text-muted);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .toc-quicklink:hover {
+      color: var(--focus-ring);
+      text-decoration: underline;
+    }
+
+    /* Tab Switcher */
+    .tab-bar {
+      display: flex;
+      background: #e2e8f0;
+      border-bottom: 2px solid #cbd5e1;
+      max-width: 980px;
+      margin: 1rem auto 0;
+      border-radius: 6px 6px 0 0;
+      overflow: hidden;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: none;
+      background: #e2e8f0;
+      color: #475569;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .tab-btn.active {
+      background: #fff;
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+
+    /* Main Container */
+    main.workspace-container {
+      max-width: 980px;
+      margin: 0 auto 3rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 0 0 8px 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .tab-content-pane {
+      display: none;
+    }
+
+    .tab-content-pane.active {
+      display: block;
+    }
+
+    /* Accordions & Sections */
+    details.accordion-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      background: #fff;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    details.accordion-card[open] {
+      border-color: #94a3b8;
+    }
+
+    summary.accordion-header {
+      padding: 0.85rem 1.25rem;
+      background: #f1f5f9;
+      cursor: pointer;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      list-style: none;
+      color: #1e293b;
+    }
+
+    summary.accordion-header::-webkit-details-marker {
+      display: none;
+    }
+
+    .accordion-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .accordion-chevron {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      font-size: 0.75rem;
+    }
+
+    details[open] summary .accordion-chevron {
+      transform: rotate(90deg);
+    }
+
+    .section-score-pill {
+      font-size: 0.75rem;
+      background: #e2e8f0;
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+      color: #334155;
+      font-weight: 600;
+    }
+
+    .accordion-body {
+      padding: 1.25rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Content Typography & Callouts */
+    h1.page-title {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: var(--bg-dark);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin: 1rem 0 0.5rem;
+      color: #1e293b;
+    }
+
+    p {
+      margin-bottom: 0.85rem;
+    }
+
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .callout-box {
+      border-left: 4px solid var(--info);
+      background: var(--info-bg);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: #0369a1;
+      margin-bottom: 0.25rem;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    table.data-table th, table.data-table td {
+      border: 1px solid var(--border-color);
+      padding: 0.6rem 0.8rem;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .assessment-divider {
+      border: none;
+      height: 2px;
+      background: #e2e8f0;
+      margin: 2rem 0;
+    }
+
+    /* Question Cards & Form Controls */
+    .question-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .question-prompt {
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #1e293b;
+    }
+
+    .options-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .option-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.65rem 1rem;
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+    }
+
+    .option-btn.state-correct {
+      background: var(--success-bg) !important;
+      border-color: var(--success) !important;
+      color: #14532d;
+      font-weight: 600;
+    }
+
+    .option-btn.state-incorrect {
+      background: var(--danger-bg) !important;
+      border-color: var(--danger) !important;
+      color: #7f1d1d;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .checkbox-label.state-correct {
+      background: var(--success-bg);
+      border-color: var(--success);
+    }
+
+    .checkbox-label.state-missed {
+      background: var(--warning-bg);
+      border-color: var(--warning);
+    }
+
+    .checkbox-label.state-incorrect {
+      background: var(--danger-bg);
+      border-color: var(--danger);
+    }
+
+    .feedback-box {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .feedback-box.active {
+      display: block;
+    }
+
+    .feedback-correct {
+      background: var(--success-bg);
+      border-left: 4px solid var(--success);
+      color: #14532d;
+    }
+
+    .feedback-incorrect {
+      background: var(--danger-bg);
+      border-left: 4px solid var(--danger);
+      color: #7f1d1d;
+    }
+
+    /* Cloze Dropdowns (Uniform Anti-Guessing Sizing) */
+    .cloze-select {
+      display: inline-block;
+      min-width: 190px;
+      width: 190px;
+      text-align-last: center;
+      padding: 0.25rem 0.5rem;
+      margin: 0 0.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+
+    .cloze-select.state-correct {
+      border-color: var(--success);
+      background-color: var(--success-bg);
+      color: #14532d;
+    }
+
+    .cloze-select.state-incorrect {
+      border-color: var(--danger);
+      background-color: var(--danger-bg);
+      color: #7f1d1d;
+    }
+
+    /* Short Answer Writing & Rubric Engine */
+    .sa-textarea {
+      width: 100%;
+      height: 120px;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    .sa-meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .rubric-panel {
+      display: none;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .rubric-panel.active {
+      display: block;
+    }
+
+    .expert-model-box {
+      background: #eff6ff;
+      border-left: 4px solid var(--primary);
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.85rem;
+    }
+
+    .checklist-group {
+      margin: 0.75rem 0;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.85rem;
+    }
+
+    .rubric-points-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .rubric-point-option {
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      padding: 0.35rem 0.65rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .rubric-point-option:hover {
+      background: #e2e8f0;
+    }
+
+    .rubric-point-option.selected {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary-hover);
+    }
+
+    /* Bottom Reset & Nav */
+    .btn-reset-section {
+      display: block;
+      margin: 1.25rem auto 0;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      padding: 0.45rem 1rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-reset-section:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .btn-nav {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .btn-nav:hover {
+      background: var(--primary-hover);
+    }
+
+    footer.context-footer {
+      max-width: 980px;
+      margin: 1rem auto 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .btn-link {
+      background: none;
+      border: none;
+      color: var(--primary);
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: inherit;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky High-Contrast Dashboard -->
+  <header class="sticky-dashboard" role="banner">
+    <div class="dashboard-top-row">
+      <div>
+        <div class="course-meta">PX – KINS 4403 Physiology of Exercise</div>
+        <div class="module-heading">10.1 Resistance Training and Gains in Muscular Fitness</div>
+      </div>
+      <div class="score-indicator-wrap">
+        <div class="score-badge" id="global-score-badge">Total Score: 0 / 15 pts (0%)</div>
+        <div class="progress-bar-bg" aria-hidden="true">
+          <div class="progress-bar-fill" id="global-progress-bar"></div>
+        </div>
+      </div>
+      <div class="dashboard-controls">
+        <button class="btn-ghost" onclick="expandAllSections()" aria-label="Expand all accordion containers">Expand All</button>
+        <button class="btn-ghost" onclick="collapseAllSections()" aria-label="Collapse all accordion containers">Collapse All</button>
+        <button class="btn-reset-global" onclick="resetAllActivities()" aria-label="Reset all activities and refresh question bank">Reset All Activities</button>
+      </div>
+    </div>
+    
+    <!-- Tier 1: Concept Navigation -->
+    <div class="toc-tier-1" role="navigation" aria-label="Concept Pages">
+      <button class="toc-pill active" id="pill-concept-1" onclick="navigateToPage('neuromuscular-plasticity')">Neuromuscular Plasticity & Historical Paradigms</button>
+      <button class="toc-pill" id="pill-concept-2" onclick="navigateToPage('strength-gain-dynamics')">Mechanisms of Strength Gain & Demographic Comparisons</button>
+    </div>
+
+    <!-- Tier 2: Current Page Quick-Links -->
+    <div class="toc-tier-2" id="tier-2-links" role="navigation" aria-label="Page Sections">
+      <a class="toc-quicklink" href="#sec-reading">Reading & Core Concepts</a>
+      <a class="toc-quicklink" href="#sec-mcq">Single-Select MCQ</a>
+      <a class="toc-quicklink" href="#sec-ms-mcq">Multi-Select MCQ</a>
+      <a class="toc-quicklink" href="#sec-tf">True / False</a>
+      <a class="toc-quicklink" href="#sec-cloze">Cloze Assessments</a>
+      <a class="toc-quicklink" href="#sec-short-answer">Short Answer Defense</a>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <div class="tab-bar" role="tablist">
+    <button class="tab-btn active" id="tab-lesson-btn" role="tab" aria-selected="true" onclick="switchTab('lesson')">Interactive Lesson</button>
+    <button class="tab-btn" id="tab-glossary-btn" role="tab" aria-selected="false" onclick="switchTab('glossary')">Master Terminology [Reference]</button>
+  </div>
+
+  <!-- Workspace Container -->
+  <main class="workspace-container">
+    
+    <!-- TAB PANE: LESSON -->
+    <div class="tab-content-pane active" id="pane-lesson">
+      
+      <!-- PAGE 1: Neuromuscular Plasticity & Historical Paradigms -->
+      <section id="page-neuromuscular-plasticity" class="concept-page-view">
+        <h1 class="page-title">Neuromuscular Plasticity &amp; Historical Paradigms</h1>
+        
+        <!-- Accordion 0: Reading -->
+        <details class="accordion-card" id="sec-reading" open>
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Concept Reading: Evolutionary Perspectives on Resistance Training</span>
+            </span>
+          </summary>
+          <div class="accordion-body">
+            <p>Chronic physical exercise induces profound morphological and regulatory adaptations within the human neuromuscular system. However, the biological architecture of skeletal muscle demonstrates profound specificity: <strong>aerobic endurance training</strong> (such as distance running or swimming) generates significant cardiovascular, metabolic, and mitochondrial adaptations but results in little to no gain in muscular strength or absolute contractile power. Conversely, high-load <strong>resistance training</strong> initiates pronounced neuromuscular remodeling.</p>
+            
+            <div class="callout-box">
+              <div class="callout-title">Historical Evolution of Resistance Exercise Prescription</div>
+              <p>Historically, resistance exercise was viewed with heavy skepticism. Up through the mid-20th century, formal strength training was considered inappropriate for mainstream athletic conditioning, restricted narrowly to competitive Olympic weightlifters, track-and-field throwing athletes, and occasionally collision athletes (football, boxing, wrestling). Sociocultural and pseudoscientific fallacies actively excluded women from strength training facilities.</p>
+            </div>
+
+            <p>A paradigm shift occurred during the late 1960s and early 1970s when clinical exercise scientists and elite athletic coaches demonstrated that strength and power adaptations confer universal functional and biomechanical advantages across virtually all sports, benefiting female and male competitors alike. By the late 1980s and early 1990s, major public health organizations formally recognized resistance training not merely as an adjunct for competitive sports, but as an indispensable pillar of preventative medicine, musculoskeletal integrity, and metabolic health across the lifespan.</p>
+            
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Modality</th>
+                  <th>Primary Adaptations</th>
+                  <th>Impact on Muscular Strength &amp; Power</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Aerobic Endurance Training</strong></td>
+                  <td>Mitochondrial biogenesis, capillary densification, oxidative enzyme upregulation</td>
+                  <td>Negligible to minimal gains; potential attenuation of maximal rate of force development</td>
+                </tr>
+                <tr>
+                  <td><strong>Resistance Training</strong></td>
+                  <td>Motor unit recruitment, high-threshold firing rate, muscular hypertrophy, cross-bridge density</td>
+                  <td>Substantial increases in peak isometric, concentric, and eccentric force and peak mechanical power</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <hr class="assessment-divider">
+
+        <!-- Formative Assessment 1: Single-Select MCQ -->
+        <details class="accordion-card" id="sec-mcq">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 1: Single-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-mcq">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-mcq">
+            <!-- Dynamically injected questions -->
+          </div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'mcq')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 2: Multi-Select MCQ -->
+        <details class="accordion-card" id="sec-ms-mcq">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 2: Multi-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-ms">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-ms">
+            <!-- Dynamically injected questions -->
+          </div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'ms')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 3: True / False -->
+        <details class="accordion-card" id="sec-tf">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 3: True / False Analysis</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-tf">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-tf">
+            <!-- Dynamically injected questions -->
+          </div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'tf')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 4: Cloze Fill-in-the-Blank -->
+        <details class="accordion-card" id="sec-cloze">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 4: Cloze Terminology Fill-in-the-Blank</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-cloze">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-cloze">
+            <!-- Dynamically injected questions -->
+          </div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'cloze')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 5: Short Answer & Rubric -->
+        <details class="accordion-card" id="sec-short-answer">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 5: Conceptual Defense &amp; Self-Scoring Rubric</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-sa">Score: 0 / 5 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-sa">
+            <!-- Dynamically injected question -->
+          </div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'sa')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <div class="nav-bar">
+          <div></div>
+          <button class="btn-nav" onclick="navigateToPage('strength-gain-dynamics')">Continue to Mechanisms of Strength Gain &amp; Demographic Comparisons →</button>
+        </div>
+      </section>
+
+      <!-- PAGE 2: Mechanisms of Strength Gain & Demographic Comparisons -->
+      <section id="page-strength-gain-dynamics" class="concept-page-view" style="display: none;">
+        <h1 class="page-title">Mechanisms of Strength Gain &amp; Demographic Comparisons</h1>
+        
+        <!-- Accordion 0: Reading -->
+        <details class="accordion-card" open>
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Concept Reading: Neuromuscular Plasticity, Learning Effects, and Demographic Relative Gains</span>
+            </span>
+          </summary>
+          <div class="accordion-body">
+            <p>The neuromuscular system is exceptionally responsive to overload stimuli. Untrained individuals who participate in a structured resistance training regimen for 3 to 6 months commonly achieve strength improvements ranging from <strong>25% to 100%</strong>, and in some naive populations, even greater.</p>
+
+            <div class="callout-box">
+              <div class="callout-title">The Motor Learning Effect in Untrained Cohorts</div>
+              <p>While an improvement of 50% to 100% appears staggering, scientific interpretation requires caution. Most participants enrolled in exercise physiology research are baseline-naive lifters. Consequently, up to <strong>50% of initial strength gains</strong> do not stem from skeletal muscle hypertrophy or increased myofibrillar protein synthesis, but rather from neurological motor learning—coordinating agonist motor unit recruitment, firing rate synchronization, rate coding, antagonist co-activation reduction, and mastering complex multi-joint movement mechanics (such as the eccentric-to-concentric transition in a bench press or squat).</p>
+            </div>
+
+            <h2>Comparative Demographics: Relative vs. Absolute Adaptation</h2>
+            <p>When strength adaptations are quantified as a <strong>relative percentage</strong> of pre-training baseline (1RM), the neuromuscular capacity for improvement is strikingly uniform across demographics:</p>
+            <ul>
+              <li><strong>Women vs. Men:</strong> Demonstrate virtually identical percentage increases in relative strength over standardized 12-to-20-week training periods.</li>
+              <li><strong>Children vs. Adults:</strong> Exhibit comparable relative percentages of strength progression.</li>
+              <li><strong>Older Adults vs. Young Adults:</strong> Retain robust neuromuscular plasticity, achieving similar relative percentage improvements.</li>
+            </ul>
+
+            <p>However, when evaluated in <strong>absolute terms</strong> (net kilograms or pounds lifted), profound differences emerge due to baseline differences in initial skeletal muscle cross-sectional area (CSA) and endocrine profiles:</p>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Demographic Cohort</th>
+                  <th>Pre-Training 1RM</th>
+                  <th>Relative Improvement (%)</th>
+                  <th>Post-Training 1RM</th>
+                  <th>Absolute Gain</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Adult Male (25 yrs)</strong></td>
+                  <td>50.0 kg (110 lb)</td>
+                  <td>+50%</td>
+                  <td>75.0 kg (165 lb)</td>
+                  <td><strong>+25.0 kg (55 lb)</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Youth Male (12 yrs)</strong></td>
+                  <td>25.0 kg (55 lb)</td>
+                  <td>+50%</td>
+                  <td>37.5 kg (83 lb)</td>
+                  <td><strong>+12.5 kg (28 lb)</strong></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>Skeletal muscle exhibits high <strong>biological plasticity</strong>: it expands in cross-sectional diameter and force-generating capacity under chronic mechanical tension, yet rapidly undergoes disuse atrophy and detraining-induced weakness following limb immobilization or sedentary detraining.</p>
+          </div>
+        </details>
+
+        <hr class="assessment-divider">
+
+        <!-- Formative Assessment 1: Single-Select MCQ -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 1: Single-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-mcq">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-mcq">
+            <!-- Dynamically injected questions -->
+          </div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'mcq')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 2: Multi-Select MCQ -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 2: Multi-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-ms">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-ms">
+            <!-- Dynamically injected questions -->
+          </div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'ms')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 3: True / False -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 3: True / False Analysis</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-tf">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-tf">
+            <!-- Dynamically injected questions -->
+          </div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'tf')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 4: Cloze Fill-in-the-Blank -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 4: Cloze Terminology Fill-in-the-Blank</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-cloze">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-cloze">
+            <!-- Dynamically injected questions -->
+          </div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'cloze')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 5: Short Answer & Rubric -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 5: Conceptual Defense &amp; Self-Scoring Rubric</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-sa">Score: 0 / 5 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-sa">
+            <!-- Dynamically injected question -->
+          </div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'sa')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <div class="nav-bar">
+          <button class="btn-nav" onclick="navigateToPage('neuromuscular-plasticity')">← Return to Neuromuscular Plasticity &amp; Historical Paradigms</button>
+          <button class="btn-nav" style="background: #059669;" onclick="alert('Congratulations! You have completed all interactive sections of Module 10.1.')">Complete Resistance Training Module ✓</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- TAB PANE: GLOSSARY REFERENCE -->
+    <div class="tab-content-pane" id="pane-glossary">
+      <h1 class="page-title">Master Terminology Reference</h1>
+      <p>This persistent reference lexicon defines core exercise physiology terms utilized across this module:</p>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Scientific Term</th>
+            <th>Physiological Definition &amp; Contextual Application</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Muscular Strength</strong></td>
+            <td>The maximal force that a muscle or muscle group can generate at a specified velocity and joint angle, typically evaluated in clinical settings via a 1-repetition maximum (1RM) protocol.</td>
+          </tr>
+          <tr>
+            <td><strong>Muscular Power</strong></td>
+            <td>The explosive product of contractile force generation and movement velocity ($Power = \text{Force} \times \text{Velocity}$). Reflects the maximal rate at which mechanical work is performed.</td>
+          </tr>
+          <tr>
+            <td><strong>Muscular Endurance</strong></td>
+            <td>The capacity of a muscle group to perform repeated submaximal contractions against a resistance, or maintain a sustained isometric contraction, over an extended time interval.</td>
+          </tr>
+          <tr>
+            <td><strong>Neuromuscular Plasticity</strong></td>
+            <td>The capacity of the motor nervous system and skeletal muscle fibers to undergo structural, functional, and biochemical remodeling in response to mechanical tension or chronic physical activity.</td>
+          </tr>
+          <tr>
+            <td><strong>Motor Learning Effect</strong></td>
+            <td>Neural coordination, rate coding, agonist motor unit recruitment, and antagonist inhibition adaptations occurring during early-phase training that account for up to 50% of initial strength gains in naive individuals.</td>
+          </tr>
+          <tr>
+            <td><strong>1-Repetition Maximum (1RM)</strong></td>
+            <td>The greatest absolute mass of external resistance that can be successfully moved through the entire functional range of motion in a controlled manner for exactly one complete repetition.</td>
+          </tr>
+          <tr>
+            <td><strong>Relative Strength</strong></td>
+            <td>Strength performance normalized to an individual's total body mass, lean body mass, or expressed as a percentage change relative to baseline functional levels.</td>
+          </tr>
+          <tr>
+            <td><strong>Absolute Strength</strong></td>
+            <td>The total, unnormalized mechanical external load (kilograms or pounds) successfully moved or sustained by a muscle group regardless of body weight or cross-sectional area.</td>
+          </tr>
+          <tr>
+            <td><strong>Muscle Plasticity</strong></td>
+            <td>The biological property enabling skeletal muscle tissue to hyper-trophy (increase cross-sectional area) under chronic mechanical overload and atrophy under disuse or immobilization.</td>
+          </tr>
+          <tr>
+            <td><strong>Delayed-Onset Muscle Soreness (DOMS)</strong></td>
+            <td>Acute structural disruption, micro-tears in the sarcolemma and Z-discs, and inflammatory cascade occurring 24–72 hours following novel, unaccustomed eccentric muscle actions.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="context-footer">
+    <div id="page-indicator">Current Module Topic: Neuromuscular Plasticity &amp; Historical Paradigms</div>
+    <div style="margin-top: 0.5rem;">
+      <button class="btn-link" onclick="restartLesson()">Restart Lesson from Beginning</button>
+    </div>
+  </footer>
+
+  <script>
+    /* =========================================================================
+       MASTER ASSESSMENT DATA STORE
+       ========================================================================= */
+    const assessmentBanks = {
+      p1: {
+        mcq: [
+          {
+            id: "p1_mcq_1",
+            q: "Which training modality induces substantial structural hypertrophy and increases in maximal force production, while aerobic training results in minimal strength improvements?",
+            opts: ["Continuous low-intensity swimming", "High-load resistance training", "Moderate-intensity cross-country running", "Low-load rhythmic cycling"],
+            correct: 1,
+            rationale: "Resistance training exposes skeletal muscle fibers to high mechanical tension, activating intracellular signaling cascades that lead to myofibrillar protein accretion and neural recruitment. In contrast, aerobic endurance training induces mitochondrial and enzymatic adaptations with negligible impact on peak muscle strength or power."
+          },
+          {
+            id: "p1_mcq_2",
+            q: "Prior to the late 1960s, resistance training was largely restricted to which of the following athlete populations?",
+            opts: ["Marathon runners and road cyclists", "Competitive weightlifters and throwing event athletes", "Tennis players and soccer midfielders", "Figure skaters and swimmers"],
+            correct: 1,
+            rationale: "Historically, resistance exercise was viewed with skepticism and thought to cause 'muscle boundness' or decrease flexibility. Consequently, it was almost exclusively restricted to Olympic weightlifters, track and field throwing athletes, and selected collision sports (football, boxing, wrestling)."
+          },
+          {
+            id: "p1_mcq_3",
+            q: "During which historical timeframe did mainstream health organizations begin prescribing resistance exercise as a foundational component of preventative health for the general public?",
+            opts: ["Early 1900s", "Late 1960s to early 1970s", "Late 1980s to early 1990s", "Mid-2010s"],
+            correct: 2,
+            rationale: "While coaches recognized strength benefits for sports in the late 1960s/1970s, major medical and health organizations only formally integrated resistance training into standard public health exercise prescriptions in the late 1980s and early 1990s."
+          },
+          {
+            id: "p1_mcq_4",
+            q: "What historical misconception regarding female physiology was prevalent in athletic training prior to the late 1960s?",
+            opts: ["Women possessed identical circulating testosterone levels as men", "Strength training was inappropriate or harmful for women, leading to bans from weight rooms", "Women exhibited greater early muscular hypertrophy than men", "Resistance training improved female endurance while eliminating cardiovascular adaptations"],
+            correct: 1,
+            rationale: "Culturally and medically, women were historically discouraged or actively banned from weight training facilities due to unfounded dogmas regarding loss of femininity, uterine displacement, or physical fragility."
+          },
+          {
+            id: "p1_mcq_5",
+            q: "Which physiological principle dictates that cardiovascular adaptations from running do not translate into enhanced bench press 1RM performance?",
+            opts: ["The Overload Principle", "The SAID Principle (Specific Adaptations to Imposed Demands)", "The Size Principle of Henneman", "The Principle of Reversibility"],
+            correct: 1,
+            rationale: "The Specific Adaptation to Imposed Demands (SAID) principle dictates that neuromuscular adaptations mirror the exact mechanical, metabolic, and neural characteristics of the stimulus applied."
+          },
+          {
+            id: "p1_mcq_6",
+            q: "Modern exercise science views resistance exercise as essential for which of the following non-athletic outcomes?",
+            opts: ["Enhancement of maximal lung diffusion capacity", "Preservation of bone mineral density, metabolic rate, and functional independence", "Elimination of all cellular aging pathways", "Permanent suppression of blood lactate accumulation"],
+            correct: 1,
+            rationale: "Clinical resistance training preserves metabolic homeostasis, maintains lean muscle mass (countering sarcopenia), enhances bone mineral density, and preserves functional independence across aging populations."
+          }
+        ],
+        ms: [
+          {
+            id: "p1_ms_1",
+            q: "Which of the following athletic cohorts were historically among the few permitted or encouraged to participate in heavy resistance training prior to 1960? (Select all that apply)",
+            opts: ["Track and field shot-put and discus throwers", "Competitive Olympic weightlifters", "Female distance runners", "Collegiate wrestling and boxing competitors"],
+            correctArray: [0, 1, 3],
+            rationale: "Prior to the 1960s paradigm shift, resistance training was confined to strength-specific athletes (weightlifters, throwers) and combat/collision sports (wrestlers, boxers). Women and endurance athletes were discouraged or excluded."
+          },
+          {
+            id: "p1_ms_2",
+            q: "Which factors contributed directly to the shift in attitude regarding resistance training across the general population during the 1980s and 1990s? (Select all that apply)",
+            opts: ["Rigorous empirical research demonstrating health-related benefits", "Innovations in biomechanically designed training equipment", "Evidence refuting myths regarding excessive bulk and loss of flexibility", "Scientific consensus that resistance training completely replaces the need for aerobic training"],
+            correctArray: [0, 1, 2],
+            rationale: "Attitude shifts were driven by scientific evidence of health benefits, ergonomic/safe equipment design, and debunking of myths. Resistance training does not eliminate the need for cardiovascular exercise."
+          },
+          {
+            id: "p1_ms_3",
+            q: "Which of the following physiological changes are characteristic of chronic aerobic endurance training rather than resistance training? (Select all that apply)",
+            opts: ["Elevated mitochondrial density in Type I muscle fibers", "Marked increases in muscle cross-sectional area (CSA)", "Enhanced capillary-to-fiber ratio", "Significant upregulation of peak mechanical power production"],
+            correctArray: [0, 2],
+            rationale: "Aerobic training elevates mitochondrial enzymes and capillary density without stimulating marked myofibrillar protein synthesis or peak mechanical power."
+          },
+          {
+            id: "p1_ms_4",
+            q: "Which statements accurately reflect current scientific guidelines regarding resistance exercise prescription? (Select all that apply)",
+            opts: ["It is an integral component of preventative exercise prescriptions for adults", "Both men and women experience substantial functional benefits from participation", "It should be avoided in elderly populations due to vascular brittleness", "Athletes in endurance disciplines incorporate strength training to improve movement economy"],
+            correctArray: [0, 1, 3],
+            rationale: "Resistance exercise is recommended across the lifespan (including frail elderly populations to mitigate sarcopenia and fall risks) and improves movement economy in endurance athletes."
+          }
+        ],
+        tf: [
+          {
+            id: "p1_tf_1",
+            q: "Chronic low-intensity aerobic endurance training produces substantial gains in skeletal muscle maximal force production and explosive power.",
+            ans: false,
+            feedback: "False. Aerobic endurance training elicits minimal gains in muscular strength or power due to the absence of high mechanical load and lack of high-threshold motor unit recruitment."
+          },
+          {
+            id: "p1_tf_2",
+            q: "In the 1950s, women were widely encouraged by coaches and clinicians to participate in heavy progressive resistance training.",
+            ans: false,
+            feedback: "False. Women were virtually excluded or actively banned from weight rooms during this era due to cultural dogmas and unfounded medical myths."
+          },
+          {
+            id: "p1_tf_3",
+            q: "The neuromuscular system is one of the most plastic and responsive physiological systems in the human body when subjected to mechanical loading.",
+            ans: true,
+            feedback: "True. Skeletal muscle and the motor nervous system demonstrate remarkable plasticity, rapidly remodeling in response to overload or disuse."
+          },
+          {
+            id: "p1_tf_4",
+            q: "Major medical and public health organizations did not formally recognize resistance training as essential to overall health until the late 1980s and early 1990s.",
+            ans: true,
+            feedback: "True. It took until the late 1980s and early 1990s for organizations like the ACSM and AHA to codify resistance training into official public health guidelines."
+          },
+          {
+            id: "p1_tf_5",
+            q: "Resistance training improves athletic performance only in sports that require absolute maximum body mass and direct physical collisions.",
+            ans: false,
+            feedback: "False. Research demonstrates that strength and rate-of-force-development adaptations benefit agility, sprint speed, running economy, and injury prevention across virtually all sports."
+          }
+        ],
+        cloze: [
+          {
+            id: "p1_clz_1",
+            statement: "While aerobic exercise produces metabolic adaptations, major neuromuscular adaptations require **resistance training**.",
+            target: "resistance training",
+            optionsBank: ["aerobic training", "resistance training", "static stretching", "bed rest"]
+          },
+          {
+            id: "p1_clz_2",
+            statement: "In the late 1960s and early 1970s, researchers discovered that strength and power training were beneficial for **almost all sports**.",
+            target: "almost all sports",
+            optionsBank: ["almost all sports", "only weightlifting", "strictly collision sports", "endurance runners only"]
+          },
+          {
+            id: "p1_clz_3",
+            statement: "During the late 1980s and early 1990s, health professionals recognized resistance exercise as a core component of **overall health and fitness**.",
+            target: "overall health and fitness",
+            optionsBank: ["overall health and fitness", "competitive body building", "pediatric athletic tests", "extreme endurance sports"]
+          },
+          {
+            id: "p1_clz_4",
+            statement: "Historical resistance training dogmas actively excluded **women** from weight rooms due to unscientific assumptions regarding female physiology.",
+            target: "women",
+            optionsBank: ["women", "adolescent males", "collision athletes", "weightlifters"]
+          }
+        ],
+        sa: [
+          {
+            id: "p1_sa_1",
+            q: "Contrast the physiological adaptations resulting from chronic aerobic endurance training versus high-load resistance training. Why does aerobic training fail to produce significant gains in muscular strength and peak power?",
+            model: "Aerobic endurance training primarily challenges mitochondrial enzyme activity, capillarization, cardiac output, and oxidative substrate utilization, relying almost exclusively on low-threshold Type I motor units without delivering the high mechanical tension necessary to stimulate myofibrillar protein synthesis. Conversely, high-load resistance training recruits high-threshold Type II motor units and imposes intense mechanical strain on the sarcomeres. This mechanical tension triggers intracellular mechanotransduction signaling cascades (e.g., mTOR pathway activation), leading to myofibrillar hypertrophy, elevated cross-bridge density, and enhanced neurological motor drive.",
+            criteria: [
+              "Identifies mitochondrial and capillarization adaptations in aerobic training vs. myofibrillar hypertrophy in resistance training.",
+              "Contrasts low-threshold Type I motor unit recruitment in endurance training with high-threshold Type II recruitment in resistance exercise.",
+              "Explains that aerobic training lacks the requisite mechanical tension/overload to stimulate cross-bridge protein accretion or increase maximal force."
+            ]
+          }
+        ]
+      },
+      p2: {
+        mcq: [
+          {
+            id: "p2_mcq_1",
+            q: "Over an initial 3- to 6-month period of structured resistance training in previously untrained individuals, typical strength improvements range from:",
+            opts: ["2% to 5%", "10% to 15%", "25% to 100%", "200% to 500%"],
+            correct: 2,
+            rationale: "Untrained participants commonly exhibit strength increases of 25% to 100% (or more) within 3 to 6 months of starting a structured resistance training program."
+          },
+          {
+            id: "p2_mcq_2",
+            q: "In research studies involving novice lifters, approximately what percentage of early strength gains can be attributed to the neurological 'learning effect' rather than muscle hypertrophy?",
+            opts: ["Less than 5%", "Up to 50%", "Exactly 75%", "100%"],
+            correct: 1,
+            rationale: "Up to 50% of initial strength improvements in baseline-naive subjects stem from neural adaptations and motor learning—such as motor unit synchronization, rate coding, and movement coordination—rather than structural hypertrophy."
+          },
+          {
+            id: "p2_mcq_3",
+            q: "When comparing relative percentage strength gains between women and men following a 20-week resistance program, research shows that:",
+            opts: ["Men gain twice the relative percentage as women", "Women achieve negligible relative improvements", "Gains in strength are very similar when expressed as a percentage of initial strength", "Children outperform adults by over 300% relative strength"],
+            correct: 2,
+            rationale: "Relative percentage increases in strength are remarkably similar across sexes and age groups when normalized to initial pre-training strength levels."
+          },
+          {
+            id: "p2_mcq_4",
+            q: "If a 25-year-old adult man (initial 1RM = 50 kg) and a 12-year-old boy (initial 1RM = 25 kg) both improve their 1RM bench press by 50%, what are their respective absolute improvements?",
+            opts: ["Man: 50 kg; Boy: 25 kg", "Man: 25 kg; Boy: 12.5 kg", "Man: 12.5 kg; Boy: 25 kg", "Man: 75 kg; Boy: 37.5 kg"],
+            correct: 1,
+            rationale: "50% of 50 kg is 25 kg (new 1RM = 75 kg). 50% of 25 kg is 12.5 kg (new 1RM = 37.5 kg). Thus, their absolute improvements are 25 kg and 12.5 kg, respectively."
+          },
+          {
+            id: "p2_mcq_5",
+            q: "Which biological property describes skeletal muscle tissue's capacity to hypertrophy with training and rapidly atrophy when immobilized?",
+            opts: ["Muscle Elasticity", "Muscle Viscosity", "Muscle Plasticity", "Muscle Contractility"],
+            correct: 2,
+            rationale: "Muscle plasticity refers to the morphological and functional adaptability of skeletal muscle to structural remodeling in response to mechanical loading or disuse."
+          },
+          {
+            id: "p2_mcq_6",
+            q: "Which neural mechanism directly contributes to early-phase motor learning strength improvements in a novice performing the bench press?",
+            opts: ["Increased mitochondrial surface area", "Decreased antagonist muscle co-activation and optimized motor unit recruitment", "Rapid longitudinal addition of new sarcomeres in series", "Hyperplasia of skeletal muscle fibers"],
+            correct: 1,
+            rationale: "Early neural adaptations include enhanced agonist motor unit synchronization, increased high-threshold recruitment, higher firing frequencies, and reduced co-contraction of opposing antagonist muscle groups."
+          }
+        ],
+        ms: [
+          {
+            id: "p2_ms_1",
+            q: "Which of the following demographic comparisons demonstrate similar relative percentage strength gains following identical resistance training interventions? (Select all that apply)",
+            opts: ["Women compared to men", "Children compared to adults", "Elderly adults compared to young and middle-aged adults", "Immobilized limbs compared to active limbs"],
+            correctArray: [0, 1, 2],
+            rationale: "When calculated as a percentage of initial baseline strength, women vs. men, children vs. adults, and older vs. younger adults all demonstrate comparable relative responsiveness."
+          },
+          {
+            id: "p2_ms_2",
+            q: "Which of the following explain why absolute strength gains (net kilograms lifted) are typically greater in adult males than in children or females? (Select all that apply)",
+            opts: ["Greater initial baseline muscle cross-sectional area (CSA)", "Higher baseline circulating anabolic hormonal concentrations (e.g., testosterone)", "Children possess zero neuromuscular plasticity", "Adult males exhibit greater absolute leverage and pre-existing myofibrillar mass"],
+            correctArray: [0, 1, 3],
+            rationale: "Greater absolute gains in adult males reflect larger baseline muscle mass, hormonal milieu, and structural size. Children possess high neuromuscular plasticity, making option 3 false."
+          },
+          {
+            id: "p2_ms_3",
+            q: "Which factors are primarily responsible for the rapid 25% to 100% strength gains observed during the first few weeks of training in naive subjects? (Select all that apply)",
+            opts: ["Motor skill acquisition and improved coordination", "Extensive de novo formation of new muscle fibers (hyperplasia)", "Increased voluntary motor unit recruitment and firing frequency", "Reduced antagonist muscle co-activation"],
+            correctArray: [0, 2, 3],
+            rationale: "Early strength increases are driven by neural mechanisms: motor skill learning, increased recruitment, rate coding, and antagonist inhibition. Muscle hyperplasia is not a confirmed contributor in humans."
+          },
+          {
+            id: "p2_ms_4",
+            q: "Which of the following statements accurately characterize skeletal muscle plasticity? (Select all that apply)",
+            opts: ["It increases in cross-sectional area and force output under chronic mechanical overload", "It decreases in size and contractile protein content during casting or immobilization", "Its structural adaptations remain permanently fixed once acquired, resisting detraining", "Its regulatory responsiveness is mediated by mechanical tension and metabolic signaling"],
+            correctArray: [0, 1, 3],
+            rationale: "Muscle tissue is dynamically plastic—it hypertrophies under tension and atrophies during disuse. It does not remain permanently fixed (principle of reversibility)."
+          }
+        ],
+        tf: [
+          {
+            id: "p2_tf_1",
+            q: "A reported 100% increase in bench press 1RM in an untrained subject reflects a doubling of the physical size of their pectoral muscles.",
+            ans: false,
+            feedback: "False. A large portion (up to 50%) of initial strength gains in novice lifters is neurological and motor-learning-based; hypertrophy accounts for only a fraction of early 1RM increases."
+          },
+          {
+            id: "p2_tf_2",
+            q: "Elderly individuals exhibit an impaired capacity for relative percentage strength improvements compared to younger cohorts.",
+            ans: false,
+            feedback: "False. When evaluated as a relative percentage of their starting baseline, older adults make strength gains comparable to young adults."
+          },
+          {
+            id: "p2_tf_3",
+            q: "An adult male who increases his bench press from 50 kg to 75 kg achieves the exact same relative gain (50%) as a youth who improves from 25 kg to 37.5 kg.",
+            ans: true,
+            feedback: "True. Both achieved a 50% relative gain, though the adult achieved a greater absolute increase (25 kg vs. 12.5 kg)."
+          },
+          {
+            id: "p2_tf_4",
+            q: "Limb immobilization causes rapid reductions in skeletal muscle cross-sectional area and force-generating capacity due to muscle plasticity.",
+            ans: true,
+            feedback: "True. Muscle plasticity operates bi-directionally: mechanical unloading causes rapid muscle protein breakdown and disuse atrophy."
+          },
+          {
+            id: "p2_tf_5",
+            q: "Women typically gain less absolute muscle mass than men because their muscle fibers are biologically incapable of protein synthesis.",
+            ans: false,
+            feedback: "False. Female muscle fibers possess identical cellular mechanisms for protein synthesis and hypertrophy; lower absolute gains are due to smaller baseline muscle mass and differing endocrine profiles."
+          }
+        ],
+        cloze: [
+          {
+            id: "p2_clz_1",
+            statement: "In untrained individuals, resistance training programs can produce strength improvements of **25% to 100%** within three to six months.",
+            target: "25% to 100%",
+            optionsBank: ["5% to 10%", "25% to 100%", "200% to 300%", "negligible amounts"]
+          },
+          {
+            id: "p2_clz_2",
+            statement: "The neurological **learning effect** can account for as much as 50% of the overall initial strength gain in novice lifters.",
+            target: "learning effect",
+            optionsBank: ["hyperplasia rate", "learning effect", "glycogen depletion", "mitochondrial growth"]
+          },
+          {
+            id: "p2_clz_3",
+            statement: "Skeletal muscle demonstrates marked **plasticity**, increasing in size with overload and decreasing in size when immobilized.",
+            target: "plasticity",
+            optionsBank: ["plasticity", "rigidity", "crystallization", "calcification"]
+          },
+          {
+            id: "p2_clz_4",
+            statement: "While relative percentage gains are similar across populations, **absolute weight lifted** is generally greater in men compared to women.",
+            target: "absolute weight lifted",
+            optionsBank: ["absolute weight lifted", "relative motor learning", "percentage improvement", "metabolic fatigue"]
+          }
+        ],
+        sa: [
+          {
+            id: "p2_sa_1",
+            q: "A personal trainer claims that an untrained client who increased their leg press 1RM by 60% in 6 weeks doubled their quadriceps muscle mass. Evaluate this claim from an exercise physiology perspective, addressing neural vs. hypertrophic adaptations and demographic relative vs. absolute gains.",
+            model: "The trainer's claim is physiologically inaccurate. In previously untrained individuals, up to 50% or more of early strength improvements (first 4 to 8 weeks) are mediated by neural adaptations rather than muscle hypertrophy. These neurological adaptations include improved motor unit recruitment, increased motor unit firing synchronization, enhanced rate coding, and reduced antagonist co-activation, alongside motor skill learning of the multi-joint movement. While structural hypertrophy begins early, it cannot account for a doubling of muscle mass over 6 weeks. Furthermore, high relative percentage improvements are common in novices due to low baseline strength, but absolute gains in muscle cross-sectional area develop progressively over months and years.",
+            criteria: [
+              "Refutes the claim that a 60% 1RM gain equates to a doubling of muscle cross-sectional area.",
+              "Identifies neural adaptations (recruitment, synchronization, rate coding, antagonist inhibition, motor learning) as the primary driver of early strength gains.",
+              "Differentiates between relative percentage gains (which are inflated by low baseline values) and absolute muscle tissue accretion."
+            ]
+          }
+        ]
+      }
+    };
+
+    /* =========================================================================
+       ACTIVE STATE & RUNTIME SAMPLING
+       ========================================================================= */
+    const state = {
+      activePage: 'p1', // 'p1' or 'p2'
+      activeQuestions: {
+        p1: { mcq: [], ms: [], tf: [], cloze: [], sa: [] },
+        p2: { mcq: [], ms: [], tf: [], cloze: [], sa: [] }
+      },
+      scores: {
+        p1: { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 },
+        p2: { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 }
+      },
+      maxScores: {
+        p1: { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 5 },
+        p2: { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 5 }
+      }
+    };
+
+    function getRandomItems(array, count) {
+      const shuffled = [...array].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+
+    /* Initialize or Resample Questions */
+    function initPageQuestions(pageId) {
+      state.activeQuestions[pageId].mcq = getRandomItems(assessmentBanks[pageId].mcq, 2);
+      state.activeQuestions[pageId].ms = getRandomItems(assessmentBanks[pageId].ms, 2);
+      state.activeQuestions[pageId].tf = getRandomItems(assessmentBanks[pageId].tf, 2);
+      state.activeQuestions[pageId].cloze = getRandomItems(assessmentBanks[pageId].cloze, 2);
+      state.activeQuestions[pageId].sa = getRandomItems(assessmentBanks[pageId].sa, 1);
+    }
+
+    /* =========================================================================
+       DOM RENDERING ENGINES
+       ========================================================================= */
+    function renderMCQ(pageId) {
+      const container = document.getElementById(`container-${pageId}-mcq`);
+      if (!container) return;
+      container.innerHTML = '';
+      
+      state.activeQuestions[pageId].mcq.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+        
+        let html = `<div class="question-prompt">${qIdx + 1}. ${item.q}</div><div class="options-group">`;
+        item.opts.forEach((opt, oIdx) => {
+          html += `<button class="option-btn" onclick="handleMCQSelection('${pageId}', '${item.id}', ${oIdx}, ${item.correct})">${String.fromCharCode(65 + oIdx)}. ${opt}</button>`;
+        });
+        html += `</div><div class="feedback-box" id="feedback-${item.id}"></div>`;
+        card.innerHTML = html;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'mcq');
+    }
+
+    function renderMS(pageId) {
+      const container = document.getElementById(`container-${pageId}-ms`);
+      if (!container) return;
+      container.innerHTML = '';
+
+      state.activeQuestions[pageId].ms.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+
+        let html = `<div class="question-prompt">${qIdx + 1}. ${item.q}</div><div class="options-group">`;
+        item.opts.forEach((opt, oIdx) => {
+          html += `
+            <label class="checkbox-label" id="label-${item.id}-${oIdx}">
+              <input type="checkbox" name="${item.id}" value="${oIdx}">
+              <span>${opt}</span>
+            </label>
+          `;
+        });
+        html += `</div>
+          <button class="btn-ghost" style="color:#0f172a; border-color:#94a3b8; margin-top:0.75rem;" onclick="handleMSCheck('${pageId}', '${item.id}')">Submit Selections</button>
+          <div class="feedback-box" id="feedback-${item.id}"></div>`;
+        card.innerHTML = html;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'ms');
+    }
+
+    function renderTF(pageId) {
+      const container = document.getElementById(`container-${pageId}-tf`);
+      if (!container) return;
+      container.innerHTML = '';
+
+      state.activeQuestions[pageId].tf.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+
+        let html = `
+          <div class="question-prompt">${qIdx + 1}. ${item.q}</div>
+          <div class="options-group" style="flex-direction: row; gap: 1rem;">
+            <button class="option-btn" style="text-align:center;" onclick="handleTFSelection('${pageId}', '${item.id}', true, ${item.ans})">True</button>
+            <button class="option-btn" style="text-align:center;" onclick="handleTFSelection('${pageId}', '${item.id}', false, ${item.ans})">False</button>
+          </div>
+          <div class="feedback-box" id="feedback-${item.id}"></div>
+        `;
+        card.innerHTML = html;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'tf');
+    }
+
+    function renderCloze(pageId) {
+      const container = document.getElementById(`container-${pageId}-cloze`);
+      if (!container) return;
+      container.innerHTML = '';
+
+      state.activeQuestions[pageId].cloze.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+
+        // Create options with uniform sizing
+        let selectHtml = `<select class="cloze-select" id="select-${item.id}" onchange="handleClozeSelection('${pageId}', '${item.id}')">
+          <option value="">-- Select Term --</option>`;
+        
+        // Shuffle optionsBank
+        const shuffledOpts = [...item.optionsBank].sort(() => 0.5 - Math.random());
+        shuffledOpts.forEach(opt => {
+          selectHtml += `<option value="${opt}">${opt}</option>`;
+        });
+        selectHtml += `</select>`;
+
+        // Replace bold placeholder with select box
+        const parsedStatement = item.statement.replace(/\*\*(.*?)\*\*/g, selectHtml);
+
+        card.innerHTML = `
+          <div class="question-prompt">${qIdx + 1}. ${parsedStatement}</div>
+          <div class="feedback-box" id="feedback-${item.id}"></div>
+        `;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'cloze');
+    }
+
+    function renderSA(pageId) {
+      const container = document.getElementById(`container-${pageId}-sa`);
+      if (!container) return;
+      container.innerHTML = '';
+
+      state.activeQuestions[pageId].sa.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+
+        card.innerHTML = `
+          <div class="question-prompt">${qIdx + 1}. ${item.q}</div>
+          <textarea class="sa-textarea" id="textarea-${item.id}" placeholder="Compose your physiological explanation here..." oninput="updateSACounters('${item.id}')"></textarea>
+          <div class="sa-meta-row">
+            <span id="counter-${item.id}">Words: 0 | Characters: 0</span>
+            <span>Recommended: 50–150 words</span>
+          </div>
+          <button class="btn-ghost" style="color:#0f172a; border-color:#94a3b8;" id="btn-sa-submit-${item.id}" onclick="revealSARubric('${item.id}')">Check Optimal Answer &amp; Rubric</button>
+          
+          <div class="rubric-panel" id="rubric-panel-${item.id}">
+            <div class="expert-model-box">
+              <strong>Optimal Expert Model Answer:</strong>
+              <p style="margin-top:0.35rem;">${item.model}</p>
+            </div>
+            
+            <div style="font-weight:700; font-size:0.85rem; color:#1e293b;">Self-Assessment Evaluation Checklist:</div>
+            <div class="checklist-group">
+              ${item.criteria.map((c, i) => `
+                <label class="checklist-item">
+                  <input type="checkbox" id="sa-chk-${item.id}-${i}">
+                  <span>${c}</span>
+                </label>
+              `).join('')}
+            </div>
+
+            <div style="font-weight:700; font-size:0.85rem; color:#1e293b; margin-top:0.75rem;">Award Your Self-Assessed Score:</div>
+            <div class="rubric-points-row">
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 0)">0 / 5 (Needs Revision)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 1)">1 / 5 (Minimal)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 2)">2 / 5 (Partial)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 3)">3 / 5 (Satisfactory)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 4)">4 / 5 (Good)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 5)">5 / 5 (Exemplary)</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'sa');
+    }
+
+    /* =========================================================================
+       ASSESSMENT EVALUATION LOGIC
+       ========================================================================= */
+    function handleMCQSelection(pageId, qId, selectedIdx, correctIdx) {
+      const card = document.getElementById(`card-${qId}`);
+      const buttons = card.querySelectorAll('.option-btn');
+      const feedback = document.getElementById(`feedback-${qId}`);
+      const qData = assessmentBanks[pageId].mcq.find(q => q.id === qId);
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (selectedIdx === correctIdx) {
+        buttons[selectedIdx].classList.add('state-correct');
+        feedback.className = 'feedback-box active feedback-correct';
+        feedback.innerHTML = `<strong>Correct:</strong> ${qData.rationale}`;
+        recordScore(pageId, 'mcq', qId, 1);
+      } else {
+        buttons[selectedIdx].classList.add('state-incorrect');
+        buttons[correctIdx].classList.add('state-correct');
+        feedback.className = 'feedback-box active feedback-incorrect';
+        feedback.innerHTML = `<strong>Incorrect.</strong> Option ${String.fromCharCode(65 + correctIdx)} is correct. ${qData.rationale}`;
+        recordScore(pageId, 'mcq', qId, 0);
+      }
+    }
+
+    function handleMSCheck(pageId, qId) {
+      const card = document.getElementById(`card-${qId}`);
+      const checkboxes = card.querySelectorAll(`input[name="${qId}"]`);
+      const feedback = document.getElementById(`feedback-${qId}`);
+      const qData = assessmentBanks[pageId].ms.find(q => q.id === qId);
+
+      const selected = [];
+      checkboxes.forEach((cb, idx) => {
+        if (cb.checked) selected.push(idx);
+        cb.disabled = true;
+      });
+
+      const correct = qData.correctArray;
+      const isPerfect = selected.length === correct.length && selected.every(v => correct.includes(v));
+
+      checkboxes.forEach((cb, idx) => {
+        const label = document.getElementById(`label-${qId}-${idx}`);
+        if (correct.includes(idx)) {
+          if (cb.checked) {
+            label.classList.add('state-correct');
+          } else {
+            label.classList.add('state-missed');
+          }
+        } else {
+          if (cb.checked) {
+            label.classList.add('state-incorrect');
+          }
+        }
+      });
+
+      if (isPerfect) {
+        feedback.className = 'feedback-box active feedback-correct';
+        feedback.innerHTML = `<strong>Correct! All criteria met:</strong> ${qData.rationale}`;
+        recordScore(pageId, 'ms', qId, 1);
+      } else {
+        feedback.className = 'feedback-box active feedback-incorrect';
+        feedback.innerHTML = `<strong>Incomplete or Incorrect.</strong> Missed/incorrect choices highlighted. <em>Rationale:</em> ${qData.rationale}`;
+        recordScore(pageId, 'ms', qId, 0);
+      }
+    }
+
+    function handleTFSelection(pageId, qId, userAns, actualAns) {
+      const card = document.getElementById(`card-${qId}`);
+      const buttons = card.querySelectorAll('.option-btn');
+      const feedback = document.getElementById(`feedback-${qId}`);
+      const qData = assessmentBanks[pageId].tf.find(q => q.id === qId);
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (userAns === actualAns) {
+        if (userAns === true) buttons[0].classList.add('state-correct');
+        else buttons[1].classList.add('state-correct');
+        feedback.className = 'feedback-box active feedback-correct';
+        feedback.innerHTML = `<strong>Correct:</strong> ${qData.feedback}`;
+        recordScore(pageId, 'tf', qId, 1);
+      } else {
+        if (userAns === true) {
+          buttons[0].classList.add('state-incorrect');
+          buttons[1].classList.add('state-correct');
+        } else {
+          buttons[1].classList.add('state-incorrect');
+          buttons[0].classList.add('state-correct');
+        }
+        feedback.className = 'feedback-box active feedback-incorrect';
+        feedback.innerHTML = `<strong>Incorrect.</strong> ${qData.feedback}`;
+        recordScore(pageId, 'tf', qId, 0);
+      }
+    }
+
+    function handleClozeSelection(pageId, qId) {
+      const select = document.getElementById(`select-${qId}`);
+      const feedback = document.getElementById(`feedback-${qId}`);
+      const qData = assessmentBanks[pageId].cloze.find(q => q.id === qId);
+      const val = select.value;
+
+      if (!val) {
+        select.classList.remove('state-correct', 'state-incorrect');
+        feedback.className = 'feedback-box';
+        return;
+      }
+
+      select.disabled = true;
+      if (val === qData.target) {
+        select.classList.add('state-correct');
+        feedback.className = 'feedback-box active feedback-correct';
+        feedback.innerHTML = `<strong>Correct!</strong> The physiological term is "${qData.target}".`;
+        recordScore(pageId, 'cloze', qId, 1);
+      } else {
+        select.classList.add('state-incorrect');
+        feedback.className = 'feedback-box active feedback-incorrect';
+        feedback.innerHTML = `<strong>Incorrect.</strong> Selected "${val}". The correct physiological term is: <strong>${qData.target}</strong>.`;
+        recordScore(pageId, 'cloze', qId, 0);
+      }
+    }
+
+    function updateSACounters(qId) {
+      const text = document.getElementById(`textarea-${qId}`).value.trim();
+      const words = text.length > 0 ? text.split(/\s+/).length : 0;
+      const chars = text.length;
+      document.getElementById(`counter-${qId}`).innerText = `Words: ${words} | Characters: ${chars}`;
+    }
+
+    function revealSARubric(qId) {
+      document.getElementById(`textarea-${qId}`).disabled = true;
+      document.getElementById(`btn-sa-submit-${qId}`).style.display = 'none';
+      document.getElementById(`rubric-panel-${qId}`).classList.add('active');
+    }
+
+    function setSAScore(pageId, qId, pts) {
+      const panel = document.getElementById(`rubric-panel-${qId}`);
+      const buttons = panel.querySelectorAll('.rubric-point-option');
+      buttons.forEach((btn, idx) => {
+        if (idx === pts) btn.classList.add('selected');
+        else btn.classList.remove('selected');
+      });
+
+      state.scores[pageId].sa = pts;
+      updateSectionScoreBadge(pageId, 'sa');
+      updateGlobalScore();
+    }
+
+    /* Score tracking helpers */
+    const itemScores = {
+      p1: { mcq: {}, ms: {}, tf: {}, cloze: {} },
+      p2: { mcq: {}, ms: {}, tf: {}, cloze: {} }
+    };
+
+    function recordScore(pageId, secType, qId, pts) {
+      itemScores[pageId][secType][qId] = pts;
+      let total = 0;
+      for (const k in itemScores[pageId][secType]) {
+        total += itemScores[pageId][secType][k];
+      }
+      state.scores[pageId][secType] = total;
+      updateSectionScoreBadge(pageId, secType);
+      updateGlobalScore();
+    }
+
+    function updateSectionScoreBadge(pageId, secType) {
+      const badge = document.getElementById(`score-badge-${pageId}-${secType}`);
+      if (!badge) return;
+      const cur = state.scores[pageId][secType];
+      const max = state.maxScores[pageId][secType];
+      badge.innerText = `Score: ${cur} / ${max} pts`;
+    }
+
+    function updateGlobalScore() {
+      const pageId = state.activePage;
+      const s = state.scores[pageId];
+      const m = state.maxScores[pageId];
+      const cur = s.mcq + s.ms + s.tf + s.cloze + s.sa;
+      const max = m.mcq + m.ms + m.tf + m.cloze + m.sa;
+      const pct = max > 0 ? Math.round((cur / max) * 100) : 0;
+
+      document.getElementById('global-score-badge').innerText = `Total Score: ${cur} / ${max} pts (${pct}%)`;
+      document.getElementById('global-progress-bar').style.width = `${pct}%`;
+    }
+
+    /* =========================================================================
+       RESET & ACCORDION CONTROL
+       ========================================================================= */
+    function resetSection(pageId, secType) {
+      if (secType === 'mcq') {
+        state.activeQuestions[pageId].mcq = getRandomItems(assessmentBanks[pageId].mcq, 2);
+        itemScores[pageId].mcq = {};
+        state.scores[pageId].mcq = 0;
+        renderMCQ(pageId);
+      } else if (secType === 'ms') {
+        state.activeQuestions[pageId].ms = getRandomItems(assessmentBanks[pageId].ms, 2);
+        itemScores[pageId].ms = {};
+        state.scores[pageId].ms = 0;
+        renderMS(pageId);
+      } else if (secType === 'tf') {
+        state.activeQuestions[pageId].tf = getRandomItems(assessmentBanks[pageId].tf, 2);
+        itemScores[pageId].tf = {};
+        state.scores[pageId].tf = 0;
+        renderTF(pageId);
+      } else if (secType === 'cloze') {
+        state.activeQuestions[pageId].cloze = getRandomItems(assessmentBanks[pageId].cloze, 2);
+        itemScores[pageId].cloze = {};
+        state.scores[pageId].cloze = 0;
+        renderCloze(pageId);
+      } else if (secType === 'sa') {
+        state.activeQuestions[pageId].sa = getRandomItems(assessmentBanks[pageId].sa, 1);
+        state.scores[pageId].sa = 0;
+        renderSA(pageId);
+      }
+      updateGlobalScore();
+    }
+
+    function resetAllActivities() {
+      const p = state.activePage;
+      initPageQuestions(p);
+      itemScores[p] = { mcq: {}, ms: {}, tf: {}, cloze: {} };
+      state.scores[p] = { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 };
+
+      renderMCQ(p);
+      renderMS(p);
+      renderTF(p);
+      renderCloze(p);
+      renderSA(p);
+      updateGlobalScore();
+      collapseAllSections();
+    }
+
+    function expandAllSections() {
+      const activeContainer = document.getElementById(`page-${state.activePage === 'p1' ? 'neuromuscular-plasticity' : 'strength-gain-dynamics'}`);
+      const accordions = activeContainer.querySelectorAll('details.accordion-card');
+      accordions.forEach(a => a.open = true);
+    }
+
+    function collapseAllSections() {
+      const activeContainer = document.getElementById(`page-${state.activePage === 'p1' ? 'neuromuscular-plasticity' : 'strength-gain-dynamics'}`);
+      const accordions = activeContainer.querySelectorAll('details.accordion-card');
+      accordions.forEach(a => a.open = false);
+    }
+
+    /* =========================================================================
+       NAVIGATION & TABS
+       ========================================================================= */
+    function navigateToPage(pageKey) {
+      if (pageKey === 'neuromuscular-plasticity') {
+        state.activePage = 'p1';
+        document.getElementById('page-neuromuscular-plasticity').style.display = 'block';
+        document.getElementById('page-strength-gain-dynamics').style.display = 'none';
+        document.getElementById('pill-concept-1').classList.add('active');
+        document.getElementById('pill-concept-2').classList.remove('active');
+        document.getElementById('page-indicator').innerText = 'Current Module Topic: Neuromuscular Plasticity & Historical Paradigms';
+      } else {
+        state.activePage = 'p2';
+        document.getElementById('page-neuromuscular-plasticity').style.display = 'none';
+        document.getElementById('page-strength-gain-dynamics').style.display = 'block';
+        document.getElementById('pill-concept-1').classList.remove('active');
+        document.getElementById('pill-concept-2').classList.add('active');
+        document.getElementById('page-indicator').innerText = 'Current Module Topic: Mechanisms of Strength Gain & Demographic Comparisons';
+      }
+      collapseAllSections();
+      updateGlobalScore();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchTab(tabKey) {
+      const lessonPane = document.getElementById('pane-lesson');
+      const glossaryPane = document.getElementById('pane-glossary');
+      const lessonBtn = document.getElementById('tab-lesson-btn');
+      const glossaryBtn = document.getElementById('tab-glossary-btn');
+
+      if (tabKey === 'lesson') {
+        lessonPane.classList.add('active');
+        glossaryPane.classList.remove('active');
+        lessonBtn.classList.add('active');
+        glossaryBtn.classList.remove('active');
+        lessonBtn.setAttribute('aria-selected', 'true');
+        glossaryBtn.setAttribute('aria-selected', 'false');
+      } else {
+        lessonPane.classList.remove('active');
+        glossaryPane.classList.add('active');
+        lessonBtn.classList.remove('active');
+        glossaryBtn.classList.add('active');
+        lessonBtn.setAttribute('aria-selected', 'false');
+        glossaryBtn.setAttribute('aria-selected', 'true');
+      }
+    }
+
+    function restartLesson() {
+      navigateToPage('neuromuscular-plasticity');
+      resetAllActivities();
+      switchTab('lesson');
+    }
+
+    /* Initialize Application on DOM Ready */
+    document.addEventListener('DOMContentLoaded', () => {
+      initPageQuestions('p1');
+      initPageQuestions('p2');
+
+      renderMCQ('p1');
+      renderMS('p1');
+      renderTF('p1');
+      renderCloze('p1');
+      renderSA('p1');
+
+      renderMCQ('p2');
+      renderMS('p2');
+      renderTF('p2');
+      renderCloze('p2');
+      renderSA('p2');
+
+      collapseAllSections();
+      updateGlobalScore();
+    });
+  </script>
+  <!-- ... Previous module content, main tag, or scripts ... -->
+
+    <!-- PASTE THE CODE BLOCK HERE -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px auto; max-width: 1060px; padding: 0 20px; text-align: center;">
+            <span style="flex: 1;">
+        <a href="index.html">Main Menu</a>
+      </span>
+      <span style="flex: 1; text-align: right;">
+        <a href="OLM - 10.2 Mechanisms of Gains in Muscle Strength.html">Next Section →</a>
+      </span>
+    </div>
+
+  </body>
+</html>
+</body>
+</html>

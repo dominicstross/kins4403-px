@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KINS 4403: Mechanisms of Gains in Muscle Strength</title>
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-dark-surface: #1e293b;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --bg-body: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #0f172a;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --success: #16a34a;
+      --success-bg: #dcfce7;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --warning: #d97706;
+      --warning-bg: #fef3c7;
+      --info: #0284c7;
+      --info-bg: #e0f2fe;
+      --focus-ring: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* Top Sticky High-Contrast Dashboard */
+    header.sticky-dashboard {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 0.75rem 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .dashboard-top-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .course-meta {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .module-heading {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .dashboard-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--text-muted);
+      color: var(--text-light);
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-ghost:hover, .btn-ghost:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #fff;
+      outline: none;
+    }
+
+    .btn-reset-global {
+      background: #be123c;
+      border: 1px solid #fda4af;
+      color: #fff;
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-reset-global:hover {
+      background: #9f1239;
+    }
+
+    .score-indicator-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 250px;
+    }
+
+    .score-badge {
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: var(--bg-dark-surface);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid #334155;
+      white-space: nowrap;
+    }
+
+    .progress-bar-bg {
+      flex: 1;
+      height: 8px;
+      background: #334155;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: #10b981;
+      transition: width 0.3s ease;
+    }
+
+    /* Dynamic TOC */
+    .toc-tier-1 {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding-top: 0.35rem;
+      border-top: 1px solid #334155;
+    }
+
+    .toc-pill {
+      background: #1e293b;
+      color: #cbd5e1;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid #475569;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .toc-pill:hover, .toc-pill.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: #60a5fa;
+    }
+
+    .toc-tier-2 {
+      display: flex;
+      gap: 0.75rem;
+      padding-top: 0.35rem;
+      font-size: 0.75rem;
+      overflow-x: auto;
+    }
+
+    .toc-quicklink {
+      color: var(--text-muted);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .toc-quicklink:hover {
+      color: var(--focus-ring);
+      text-decoration: underline;
+    }
+
+    /* Tab Switcher */
+    .tab-bar {
+      display: flex;
+      background: #e2e8f0;
+      border-bottom: 2px solid #cbd5e1;
+      max-width: 980px;
+      margin: 1rem auto 0;
+      border-radius: 6px 6px 0 0;
+      overflow: hidden;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: none;
+      background: #e2e8f0;
+      color: #475569;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .tab-btn.active {
+      background: #fff;
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+
+    /* Main Container */
+    main.workspace-container {
+      max-width: 980px;
+      margin: 0 auto 3rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 0 0 8px 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .tab-content-pane {
+      display: none;
+    }
+
+    .tab-content-pane.active {
+      display: block;
+    }
+
+    /* Accordions & Sections */
+    details.accordion-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      background: #fff;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    details.accordion-card[open] {
+      border-color: #94a3b8;
+    }
+
+    summary.accordion-header {
+      padding: 0.85rem 1.25rem;
+      background: #f1f5f9;
+      cursor: pointer;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      list-style: none;
+      color: #1e293b;
+    }
+
+    summary.accordion-header::-webkit-details-marker {
+      display: none;
+    }
+
+    .accordion-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .accordion-chevron {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      font-size: 0.75rem;
+    }
+
+    details[open] summary .accordion-chevron {
+      transform: rotate(90deg);
+    }
+
+    .section-score-pill {
+      font-size: 0.75rem;
+      background: #e2e8f0;
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+      color: #334155;
+      font-weight: 600;
+    }
+
+    .accordion-body {
+      padding: 1.25rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Content Typography & Callouts */
+    h1.page-title {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: var(--bg-dark);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin: 1.2rem 0 0.5rem;
+      color: #1e293b;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 1rem 0 0.4rem;
+      color: #334155;
+    }
+
+    p {
+      margin-bottom: 0.85rem;
+    }
+
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .callout-box {
+      border-left: 4px solid var(--info);
+      background: var(--info-bg);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: #0369a1;
+      margin-bottom: 0.25rem;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    table.data-table th, table.data-table td {
+      border: 1px solid var(--border-color);
+      padding: 0.6rem 0.8rem;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .assessment-divider {
+      border: none;
+      height: 2px;
+      background: #e2e8f0;
+      margin: 2rem 0;
+    }
+
+    /* Question Cards & Form Controls */
+    .question-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .question-prompt {
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #1e293b;
+    }
+
+    .options-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .option-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.65rem 1rem;
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+    }
+
+    .option-btn.state-correct {
+      background: var(--success-bg) !important;
+      border-color: var(--success) !important;
+      color: #14532d;
+      font-weight: 600;
+    }
+
+    .option-btn.state-incorrect {
+      background: var(--danger-bg) !important;
+      border-color: var(--danger) !important;
+      color: #7f1d1d;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .checkbox-label.state-correct {
+      background: var(--success-bg);
+      border-color: var(--success);
+    }
+
+    .checkbox-label.state-missed {
+      background: var(--warning-bg);
+      border-color: var(--warning);
+    }
+
+    .checkbox-label.state-incorrect {
+      background: var(--danger-bg);
+      border-color: var(--danger);
+    }
+
+    .feedback-box {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .feedback-box.active {
+      display: block;
+    }
+
+    .feedback-correct {
+      background: var(--success-bg);
+      border-left: 4px solid var(--success);
+      color: #14532d;
+    }
+
+    .feedback-incorrect {
+      background: var(--danger-bg);
+      border-left: 4px solid var(--danger);
+      color: #7f1d1d;
+    }
+
+    /* Cloze Dropdowns: Uniform Width Constraint */
+    .cloze-select {
+      display: inline-block;
+      min-width: 190px;
+      width: 190px;
+      text-align-last: center;
+      padding: 0.25rem 0.5rem;
+      margin: 0 0.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+
+    .cloze-select.state-correct {
+      border-color: var(--success);
+      background-color: var(--success-bg);
+      color: #14532d;
+    }
+
+    .cloze-select.state-incorrect {
+      border-color: var(--danger);
+      background-color: var(--danger-bg);
+      color: #7f1d1d;
+    }
+
+    /* Short Answer Writing & Rubric Engine */
+    .sa-textarea {
+      width: 100%;
+      height: 120px;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    .sa-meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .rubric-panel {
+      display: none;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .rubric-panel.active {
+      display: block;
+    }
+
+    .expert-model-box {
+      background: #eff6ff;
+      border-left: 4px solid var(--primary);
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.85rem;
+    }
+
+    .checklist-group {
+      margin: 0.75rem 0;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.85rem;
+    }
+
+    .rubric-points-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .rubric-point-option {
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      padding: 0.35rem 0.65rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .rubric-point-option:hover {
+      background: #e2e8f0;
+    }
+
+    .rubric-point-option.selected {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary-hover);
+    }
+
+    /* Bottom Reset & Nav */
+    .btn-reset-section {
+      display: block;
+      margin: 1.25rem auto 0;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      padding: 0.45rem 1rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-reset-section:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .btn-nav {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .btn-nav:hover {
+      background: var(--primary-hover);
+    }
+
+    footer.context-footer {
+      max-width: 980px;
+      margin: 1rem auto 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .btn-link {
+      background: none;
+      border: none;
+      color: var(--primary);
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: inherit;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky High-Contrast Dashboard -->
+  <header class="sticky-dashboard" role="banner">
+    <div class="dashboard-top-row">
+      <div>
+        <div class="course-meta">PX – KINS 4403 Physiology of Exercise</div>
+        <div class="module-heading">10.2 Mechanisms of Gains in Muscle Strength</div>
+      </div>
+      <div class="score-indicator-wrap">
+        <div class="score-badge" id="global-score-badge">Total Score: 0 / 13 pts (0%)</div>
+        <div class="progress-bar-bg" aria-hidden="true">
+          <div class="progress-bar-fill" id="global-progress-bar"></div>
+        </div>
+      </div>
+      <div class="dashboard-controls">
+        <button class="btn-ghost" onclick="expandAllSections()" aria-label="Expand all accordion containers">Expand All</button>
+        <button class="btn-ghost" onclick="collapseAllSections()" aria-label="Collapse all accordion containers">Collapse All</button>
+        <button class="btn-reset-global" onclick="resetAllActivities()" aria-label="Reset all activities and refresh question bank">Reset All Activities</button>
+      </div>
+    </div>
+    
+    <!-- Tier 1: Concept Navigation -->
+    <div class="toc-tier-1" role="navigation" aria-label="Concept Pages">
+      <button class="toc-pill active" id="pill-concept-1" onclick="navigateToPage('neural-control')">Neural Control of Strength Gains</button>
+      <button class="toc-pill" id="pill-concept-2" onclick="navigateToPage('muscle-hypertrophy-hyperplasia')">Muscle Hypertrophy &amp; Hyperplasia</button>
+      <button class="toc-pill" id="pill-concept-3" onclick="navigateToPage('atrophy-detraining-fiber-types')">Atrophy, Detraining, &amp; Fiber Type Transitions</button>
+    </div>
+
+    <!-- Tier 2: Current Page Quick-Links -->
+    <div class="toc-tier-2" id="tier-2-links" role="navigation" aria-label="Page Sections">
+      <a class="toc-quicklink" href="#sec-reading">Reading &amp; Core Concepts</a>
+      <a class="toc-quicklink" href="#sec-mcq">Single-Select MCQ</a>
+      <a class="toc-quicklink" href="#sec-ms-mcq">Multi-Select MCQ</a>
+      <a class="toc-quicklink" href="#sec-tf">True / False</a>
+      <a class="toc-quicklink" href="#sec-cloze">Cloze Assessments</a>
+      <a class="toc-quicklink" href="#sec-short-answer">Short Answer Defense</a>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <div class="tab-bar" role="tablist">
+    <button class="tab-btn active" id="tab-lesson-btn" role="tab" aria-selected="true" onclick="switchTab('lesson')">Interactive Lesson</button>
+    <button class="tab-btn" id="tab-glossary-btn" role="tab" aria-selected="false" onclick="switchTab('glossary')">Master Terminology [Reference]</button>
+  </div>
+
+  <!-- Workspace Container -->
+  <main class="workspace-container">
+    
+    <!-- TAB PANE: LESSON -->
+    <div class="tab-content-pane active" id="pane-lesson">
+      
+      <!-- PAGE 1: Neural Control of Strength Gains -->
+      <section id="page-neural-control" class="concept-page-view">
+        <h1 class="page-title">Neural Control of Strength Gains</h1>
+        
+        <!-- Accordion 0: Reading -->
+        <details class="accordion-card" id="sec-reading">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Concept Reading: Neuromuscular Coordination, Motor Units, and Disinhibition</span>
+            </span>
+          </summary>
+          <div class="accordion-body">
+            <p>For decades, gains in muscle strength were assumed to result almost exclusively from structural enlargement (hypertrophy). However, Enoka and contemporary neurophysiologists have demonstrated that strength is not merely a biological property of muscle tissue—it is fundamentally a functional property of the <strong>motor system</strong>. Substantial strength gains can occur without structural muscular changes, but they cannot occur without <strong>neural adaptations</strong>.</p>
+            
+            <div class="callout-box">
+              <div class="callout-title">Motor Unit Synchronization &amp; Additional Recruitment</div>
+              <p>Under unconditioned conditions, motor units are recruited <em>asynchronously</em>. Skeletal muscle fibers contract only when incoming excitatory impulses surpass inhibitory thresholds. Resistance training induces spinal motor neuronal adaptations that promote <strong>motor unit synchronization</strong>. While debate exists regarding whether synchronization elevates absolute peak force, it unambiguously enhances the <strong>rate of force development (RFD)</strong> and force steadiness. Concurrently, increased central neural drive to $\alpha$-motor neurons recruits higher-threshold motor units and increases motor discharge frequency (rate coding).</p>
+            </div>
+
+            <h2>Mechanisms of Neuromuscular Force Amplification</h2>
+            <ul>
+              <li><strong>Increased Rate Coding:</strong> Elevated $\alpha$-motor neuron firing frequencies drive muscle fibers toward complete mechanical tetanus, maximizing actin-myosin cross-bridge kinetics. Ballistic and rapid-velocity training are especially potent triggers of elevated rate coding.</li>
+              <li><strong>Autogenic Inhibition (Golgi Tendon Organs):</strong> Embedded Golgi tendon organs (GTOs) serve as proprioceptive force limiters, inhibiting motor neuron pools when tension threatens musculoskeletal structures. Chronic resistance training downregulates or overrides these inhibitory feedback loops, enabling higher voluntary force output.</li>
+              <li><strong>Reduction in Antagonist Coactivation:</strong> Simultaneous contraction of opposing muscle groups (e.g., triceps contracting during a maximal biceps curl) impedes net torque. Resistance training optimizes agonist drive while selectively reducing antagonist coactivation.</li>
+              <li><strong>Neuromuscular Junction Remodeling:</strong> Structural adaptations at the motor endplate, including expanded acetylcholine receptor dispersal and terminal arborization, enhance neuromuscular transmission efficiency.</li>
+            </ul>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Neural Factor</th>
+                  <th>Primary Neuromuscular Mechanism</th>
+                  <th>Functional Manifestation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Motor Unit Synchronization</strong></td>
+                  <td>Coordinated concurrent discharge of active motor units via spinal interneuronal pathways</td>
+                  <td>Increased rate of force development (RFD) and force steadiness</td>
+                </tr>
+                <tr>
+                  <td><strong>Rate Coding</strong></td>
+                  <td>Increased discharge frequency of active $\alpha$-motor neurons</td>
+                  <td>Induction of tetanic muscular contractions and peak dynamic force</td>
+                </tr>
+                <tr>
+                  <td><strong>Autogenic Disinhibition</strong></td>
+                  <td>Downregulation of protective inhibitory afferent feedback from Golgi tendon organs</td>
+                  <td>Release of neurological safety brakes; enhanced maximal voluntary strength</td>
+                </tr>
+                <tr>
+                  <td><strong>Reduced Coactivation</strong></td>
+                  <td>Reciprocal inhibition and decreased antagonist muscle activation during agonist effort</td>
+                  <td>Maximized net joint torque without opposing muscular resistance</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <hr class="assessment-divider">
+
+        <!-- Formative Assessment 1: Single-Select MCQ -->
+        <details class="accordion-card" id="sec-mcq">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 1: Single-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-mcq">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-mcq"></div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'mcq')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 2: Multi-Select MCQ -->
+        <details class="accordion-card" id="sec-ms-mcq">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 2: Multi-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-ms">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-ms"></div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'ms')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 3: True / False -->
+        <details class="accordion-card" id="sec-tf">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 3: True / False Analysis</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-tf">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-tf"></div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'tf')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 4: Cloze Fill-in-the-Blank -->
+        <details class="accordion-card" id="sec-cloze">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 4: Cloze Terminology Fill-in-the-Blank</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-cloze">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-cloze"></div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'cloze')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 5: Short Answer & Rubric -->
+        <details class="accordion-card" id="sec-short-answer">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 5: Conceptual Defense &amp; Self-Scoring Rubric</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-sa">Score: 0 / 5 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-sa"></div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'sa')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <div class="nav-bar">
+          <div></div>
+          <button class="btn-nav" onclick="navigateToPage('muscle-hypertrophy-hyperplasia')">Continue to Muscle Hypertrophy &amp; Hyperplasia →</button>
+        </div>
+      </section>
+
+      <!-- PAGE 2: Muscle Hypertrophy & Hyperplasia -->
+      <section id="page-muscle-hypertrophy-hyperplasia" class="concept-page-view" style="display: none;">
+        <h1 class="page-title">Muscle Hypertrophy &amp; Hyperplasia</h1>
+        
+        <!-- Accordion 0: Reading -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Concept Reading: Transient vs. Chronic Hypertrophy, Myofibrillar Protein Synthesis, and Myogenic Stem Cells</span>
+            </span>
+          </summary>
+          <div class="accordion-body">
+            <p>Whole-muscle enlargement manifests in two distinct physiological states: <strong>transient hypertrophy</strong> and <strong>chronic hypertrophy</strong>.</p>
+            <ul>
+              <li><strong>Transient Hypertrophy:</strong> The acute "pump" observed immediately following an exercise bout, resulting from blood plasma shifting into interstitial and intracellular muscular compartments (edema). Fluid re-enters circulation within hours.</li>
+              <li><strong>Chronic Hypertrophy:</strong> Long-term structural remodeling driven by an increase in the cross-sectional area of individual fibers (<strong>fiber hypertrophy</strong>), an increase in total fiber number (<strong>fiber hyperplasia</strong>), or both.</li>
+            </ul>
+
+            <div class="callout-box">
+              <div class="callout-title">The Mechanical Primacy of Eccentric Loading</div>
+              <p>The eccentric (muscle lengthening under tension) phase of resistance exercise is critical for maximizing structural hypertrophy. High-velocity eccentric loading induces mechanical micro-disruptions at the sarcomeric <strong>Z-disks</strong>. Rather than mere passive injury, Z-disk disruptions serve as mechanical triggers for myofibrillar protein remodeling and muscle protein synthesis (MPS).</p>
+            </div>
+
+            <h2>Fiber Hypertrophy &amp; Net Protein Balance</h2>
+            <p>During exercise, muscle protein synthesis decreases while protein degradation accelerates. In recovery, this dynamic reverses into a net positive nitrogen balance, especially when supported by timely post-exercise protein and carbohydrate feeding. The hormone <strong>testosterone</strong> promotes this anabolic cascade by augmenting muscle protein accretion.</p>
+
+            <h2>Fiber Hyperplasia &amp; Satellite Cell Dynamics</h2>
+            <p>While individual fiber hypertrophy explains the overwhelming majority of human whole-muscle enlargement, animal models (such as heavy forepaw-trained cats and chronically stretched chicken latissimus dorsi) demonstrate that longitudinal <strong>fiber splitting</strong> can occur. In humans, cadaveric tibial asymmetries and extreme athletic cohorts (bodybuilders, kayakers) suggest that hyperplasia may occur under extreme mechanical loading.</p>
+            <p>The primary cellular mechanism mediating new myofiber formation involves <strong>satellite cells</strong>—myogenic stem cells located between the basal lamina and sarcolemma. Mechanical strain and eccentric micro-trauma stimulate satellite cells to activate, proliferate, migrate to injured sites, and either fuse to existing damaged fibers (donating myonuclei to sustain transcription) or fuse together to generate de novo myofibers.</p>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Biological Adaptation</th>
+                  <th>Primary Cellular Location</th>
+                  <th>Key Mechanistic Features</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Fiber Hypertrophy</strong></td>
+                  <td>Intra-fiber myofibrillar matrix</td>
+                  <td>Accretion of actin, myosin, titin, and sarcoplasm; driven by net protein synthesis and myonuclear addition.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fiber Hyperplasia</strong></td>
+                  <td>Interstitial / basal lamina zone</td>
+                  <td>Longitudinal fiber splitting or satellite cell de novo fusion creating brand new mature myofibers.</td>
+                </tr>
+                <tr>
+                  <td><strong>Satellite Cell Activation</strong></td>
+                  <td>Sub-sarcolemmal niche</td>
+                  <td>Quiescent myogenic stem cells stimulated by eccentric strain to proliferate and donate myonuclei.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <hr class="assessment-divider">
+
+        <!-- Formative Assessment 1: Single-Select MCQ -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 1: Single-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-mcq">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-mcq"></div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'mcq')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 2: Multi-Select MCQ -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 2: Multi-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-ms">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-ms"></div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'ms')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 3: True / False -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 3: True / False Analysis</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-tf">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-tf"></div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'tf')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 4: Cloze Fill-in-the-Blank -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 4: Cloze Terminology Fill-in-the-Blank</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-cloze">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-cloze"></div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'cloze')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 5: Short Answer & Rubric -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 5: Conceptual Defense &amp; Self-Scoring Rubric</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-sa">Score: 0 / 5 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-sa"></div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'sa')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <div class="nav-bar">
+          <button class="btn-nav" onclick="navigateToPage('neural-control')">← Return to Neural Control of Strength Gains</button>
+          <button class="btn-nav" onclick="navigateToPage('atrophy-detraining-fiber-types')">Continue to Atrophy, Detraining, &amp; Fiber Type Transitions →</button>
+        </div>
+      </section>
+
+      <!-- PAGE 3: Atrophy, Detraining, & Fiber Type Transitions -->
+      <section id="page-atrophy-detraining-fiber-types" class="concept-page-view" style="display: none;">
+        <h1 class="page-title">Atrophy, Detraining, &amp; Fiber Type Transitions</h1>
+        
+        <!-- Accordion 0: Reading -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Concept Reading: Temporal Integration of Neural vs. Hypertrophic Adaptations, Disuse Atrophy, and Phenotypic Shifts</span>
+            </span>
+          </summary>
+          <div class="accordion-body">
+            <h2>Temporal Integration of Strength Adaptations</h2>
+            <p>The timeline of strength progression involves an integrated shift from neural mastery to structural remodeling. During the initial <strong>8 to 10 weeks</strong> of resistance training, strength gains are driven primarily by neural adaptations with negligible increases in fiber cross-sectional area. Hypertrophy contributes little in the opening weeks but progressively expands, becoming the dominant driver of strength increases after 10 weeks of continuous loading.</p>
+
+            <div class="callout-box">
+              <div class="callout-title">The Acute Pathophysiology of Immobilization</div>
+              <p>When skeletal muscle is immobilized (e.g., casting or splinting), catabolic adaptations initiate within hours. Protein synthesis rates plummet within the <strong>first 6 hours</strong>. Muscle strength decreases by an average of <strong>3% to 4% per day</strong> during the first week of complete disuse, mediated by both rapid neuromuscular silence and myofibrillar protein degradation. Histological analysis reveals streaming Z-disks, disintegrated myofibrils, and preferential atrophy of Type I oxidative fibers.</p>
+            </div>
+
+            <h2>Detraining, Maintenance, and Fiber Type Transitions</h2>
+            <p>Complete cessation of resistance training results in significant strength loss. For example, in trained subjects detraining for 30–32 weeks, 1RM strength declines markedly, accompanied by a regression in fiber CSA and a re-emergence of fast-glycolytic Type IIx fibers. However, muscle strength can be preserved for up to <strong>12 weeks</strong> with a reduced maintenance frequency (e.g., tapering from 3 sessions per week to 1 or 2), provided training intensity is maintained.</p>
+            <p>Chronic resistance exercise induces consistent phenotypic fiber transitions. Specifically, training drives a conversion from <strong>Type IIx to Type IIa fibers</strong>, enhancing fatigue resistance while preserving high force capacity. When high-intensity resistance loading is combined with short-interval sprint training, evidence shows transitions from Type I toward Type IIa fibers.</p>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Condition</th>
+                  <th>Impact on Muscle Size &amp; CSA</th>
+                  <th>Impact on Neuromuscular Function</th>
+                  <th>Fiber Shift Tendency</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Early Training (0–8 Wks)</strong></td>
+                  <td>Minimal to slight increase in CSA</td>
+                  <td>Significant gains via motor unit recruitment and firing frequency</td>
+                  <td>Type IIx $\rightarrow$ Type IIa</td>
+                </tr>
+                <tr>
+                  <td><strong>Late Training (>10 Wks)</strong></td>
+                  <td>Marked chronic fiber hypertrophy</td>
+                  <td>Consolidated neural drive with large structural cross-bridge mass</td>
+                  <td>Consolidated Type IIa predominance</td>
+                </tr>
+                <tr>
+                  <td><strong>Limb Immobilization</strong></td>
+                  <td>Rapid atrophy; protein synthesis drops within 6 hrs</td>
+                  <td>Strength declines 3%–4% per day during the first week</td>
+                  <td>Disproportionate Type I fiber area reduction</td>
+                </tr>
+                <tr>
+                  <td><strong>Reduced Training (Maintenance)</strong></td>
+                  <td>Preservation of cross-sectional area</td>
+                  <td>Strength maintained up to 12 weeks on 1–2 days/wk</td>
+                  <td>Maintains trained Type IIa phenotype</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <hr class="assessment-divider">
+
+        <!-- Formative Assessment 1: Single-Select MCQ -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 1: Single-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p3-mcq">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p3-mcq"></div>
+          <button class="btn-reset-section" onclick="resetSection('p3', 'mcq')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 2: Multi-Select MCQ -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 2: Multi-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p3-ms">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p3-ms"></div>
+          <button class="btn-reset-section" onclick="resetSection('p3', 'ms')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 3: True / False -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 3: True / False Analysis</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p3-tf">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p3-tf"></div>
+          <button class="btn-reset-section" onclick="resetSection('p3', 'tf')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 4: Cloze Fill-in-the-Blank -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 4: Cloze Terminology Fill-in-the-Blank</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p3-cloze">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p3-cloze"></div>
+          <button class="btn-reset-section" onclick="resetSection('p3', 'cloze')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 5: Short Answer & Rubric -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 5: Conceptual Defense &amp; Self-Scoring Rubric</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p3-sa">Score: 0 / 5 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p3-sa"></div>
+          <button class="btn-reset-section" onclick="resetSection('p3', 'sa')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <div class="nav-bar">
+          <button class="btn-nav" onclick="navigateToPage('muscle-hypertrophy-hyperplasia')">← Return to Muscle Hypertrophy &amp; Hyperplasia</button>
+          <button class="btn-nav" style="background: #059669;" onclick="alert('Congratulations! You have completed all interactive sections of Module 10.2.')">Complete Resistance Training Module ✓</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- TAB PANE: GLOSSARY REFERENCE -->
+    <div class="tab-content-pane" id="pane-glossary">
+      <h1 class="page-title">Master Terminology Reference</h1>
+      <p>This persistent reference lexicon defines core exercise physiology terms utilized across this module:</p>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Scientific Term</th>
+            <th>Physiological Definition &amp; Contextual Application</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Transient Hypertrophy</strong></td>
+            <td>The acute, short-term enlargement of muscle tissue during and immediately following an exercise bout, driven by interstitial and intracellular fluid accumulation (edema) filtered from blood plasma.</td>
+          </tr>
+          <tr>
+            <td><strong>Chronic Hypertrophy</strong></td>
+            <td>The long-term increase in muscle size resulting from structural changes in tissue architecture, primarily via individual fiber cross-sectional area expansion (fiber hypertrophy) and potentially fiber splitting (hyperplasia).</td>
+          </tr>
+          <tr>
+            <td><strong>Fiber Hypertrophy</strong></td>
+            <td>Enlargement of existing individual muscle fibers through the accretion of additional myofibrils, actin and myosin protein filaments, sarcoplasm, and supportive connective tissue.</td>
+          </tr>
+          <tr>
+            <td><strong>Fiber Hyperplasia</strong></td>
+            <td>An increase in the total number of muscle fibers within a whole muscle, documented in animal models via longitudinal fiber splitting and myogenic satellite cell fusion.</td>
+          </tr>
+          <tr>
+            <td><strong>Autogenic Inhibition</strong></td>
+            <td>A protective neuromuscular reflex mediated by Golgi tendon organs that inhibits agonist motor neuron pools when mechanical tension exceeds musculoskeletal safety thresholds.</td>
+          </tr>
+          <tr>
+            <td><strong>Rate Coding</strong></td>
+            <td>The firing discharge frequency of activated $\alpha$-motor neurons; higher rates summate contractile twitches into fused tetanus to produce peak muscular tension.</td>
+          </tr>
+          <tr>
+            <td><strong>Motor Unit Synchronization</strong></td>
+            <td>The coordinated, simultaneous discharge of multiple motor units; primarily improves the neuromuscular rate of force development (RFD) and force steadiness.</td>
+          </tr>
+          <tr>
+            <td><strong>Antagonist Coactivation</strong></td>
+            <td>The concurrent activation of opposing muscle groups during an agonist movement; reduction in antagonist coactivation minimizes opposing joint torque to maximize net force.</td>
+          </tr>
+          <tr>
+            <td><strong>Satellite Cells</strong></td>
+            <td>Myogenic stem cells residing between the sarcolemma and basal lamina that proliferate and fuse to repair damaged myofibers or donate myonuclei to facilitate hypertrophy.</td>
+          </tr>
+          <tr>
+            <td><strong>Muscular Atrophy</strong></td>
+            <td>The wasting or structural decrease in muscle cross-sectional area and protein mass resulting from disuse, limb casting, or motor denervation.</td>
+          </tr>
+          <tr>
+            <td><strong>Z-Disk Streaming</strong></td>
+            <td>Microscopic structural disruption and loss of linear alignment of sarcomere Z-lines following unaccustomed eccentric contractions, serving as a mechanical stimulus for remodeling.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="context-footer">
+    <div id="page-indicator">Current Module Topic: Neural Control of Strength Gains</div>
+    <div style="margin-top: 0.5rem;">
+      <button class="btn-link" onclick="restartLesson()">Restart Lesson from Beginning</button>
+    </div>
+  </footer>
+
+  <script>
+    /* =========================================================================
+       MASTER ASSESSMENT DATA STORE (10.2 MECHANISMS OF GAINS IN MUSCLE STRENGTH)
+       ========================================================================= */
+    const assessmentBanks = {
+      p1: {
+        mcq: [
+          {
+            id: "p1_mcq_1",
+            q: "According to neurophysiologist Enoka, which of the following is an absolute prerequisite for strength gains resulting from resistance training?",
+            opts: ["Structural changes in muscle fiber dimensions", "Neural adaptations within the motor system", "Massive myofibrillar hyperplasia", "Total suppression of all sensory reflexes"],
+            correct: 1,
+            rationale: "Enoka established that while strength gains can occur in the complete absence of muscle structural changes (such as early-phase training or in naively trained individuals), they cannot occur without neural adaptations."
+          },
+          {
+            id: "p1_mcq_2",
+            q: "Motor unit synchronization primarily confers which functional biomechanical benefit during voluntary contractions?",
+            opts: ["Tripling the baseline cross-sectional area of Type I fibers", "Improving the rate of force development and force steadiness", "Permanently silencing the central nervous system", "Eliminating all cellular energy requirements during lifting"],
+            correct: 1,
+            rationale: "Although controversy remains regarding whether motor unit synchronization increases absolute peak static force, strong empirical evidence demonstrates that synchronization improves the rate of force development (RFD) and the ability to exert steady muscular forces."
+          },
+          {
+            id: "p1_mcq_3",
+            q: "Which sensory receptor mediates autogenic inhibition by monitoring mechanical tension and inhibiting agonist motor neurons?",
+            opts: ["Muscle spindle", "Golgi tendon organ", "Pacinian corpuscle", "Ruffini ending"],
+            correct: 1,
+            rationale: "Golgi tendon organs (GTOs) are encapsulated sensory receptors located at musculotendinous junctions that monitor tension and initiate autogenic inhibition to prevent structural tissue damage."
+          },
+          {
+            id: "p1_mcq_4",
+            q: "What type of resistance training stimulus has been shown to be particularly potent in elevating motor unit rate coding?",
+            opts: ["Slow eccentric negative repetitions", "Rapid-velocity or ballistic-type movement training", "Prolonged low-intensity isometric holds", "Static passive stretching protocols"],
+            correct: 1,
+            rationale: "Rapid, ballistic movements require near-instantaneous motor unit firing frequencies, making explosive training especially effective at stimulating increases in rate coding."
+          },
+          {
+            id: "p1_mcq_5",
+            q: "How does a reduction in antagonist coactivation contribute to increased net joint torque during an elbow flexion movement?",
+            opts: ["It increases the size of the triceps brachii", "It minimizes opposing braking force exerted by the triceps against the biceps", "It blocks all sensory feedback from the muscle spindles", "It converts slow-twitch motor units into fast-twitch motor units"],
+            correct: 1,
+            rationale: "If antagonist muscles contract forcefully while the agonist contracts, they exert counter-torque. Reducing antagonist coactivation minimizes this opposing resistance, maximizing net force production."
+          },
+          {
+            id: "p1_mcq_6",
+            q: "Under normal resting or unconditioned conditions, how are motor units typically activated across a muscle pool?",
+            opts: ["Synchronously", "Asynchronously", "In random retrograde sequence", "Exclusively in reverse size order"],
+            correct: 1,
+            rationale: "Motor units are generally recruited asynchronously to ensure smooth force production; resistance training allows them to act more synchronously when rapid force is required."
+          },
+          {
+            id: "p1_mcq_7",
+            q: "When the rate of stimulation to a motor unit increases sufficiently, contractile twitches summate until the muscle fiber reaches which state of maximal tension?",
+            opts: ["Complete relaxation", "Mechanical tetanus", "Metabolic exhaustion", "Transient denervation"],
+            correct: 1,
+            rationale: "As firing frequency (rate coding) increases, individual twitches fuse into complete tetanus, which produces the absolute peak mechanical force of that motor unit."
+          },
+          {
+            id: "p1_mcq_8",
+            q: "Which central nervous system structures initiate and propagate inhibitory impulses that contribute to autogenic inhibition?",
+            opts: ["Cerebral cortex and brainstem reticular formation", "Hypothalamus and posterior pituitary", "Spinal dorsal root ganglia only", "Cerebellar Purkinje cells exclusively"],
+            correct: 0,
+            rationale: "Both the reticular formation in the brain stem and the cerebral cortex function to initiate and propagate inhibitory impulses that modulate autogenic inhibition."
+          }
+        ],
+        ms: [
+          {
+            id: "p1_ms_1",
+            q: "Which of the following neural adaptations contribute directly to strength gains resulting from resistance training? (Select all that apply)",
+            opts: ["Increased motor unit synchronization", "Elevated discharge rate coding of active alpha-motor neurons", "Downregulation of Golgi tendon organ autogenic inhibition", "Rapid proliferation of de novo sensory nerves"],
+            correctArray: [0, 1, 2],
+            rationale: "Strength gains from neural adaptations are driven by increased synchronization, heightened rate coding, and reduced autogenic inhibition. De novo nerve proliferation does not occur."
+          },
+          {
+            id: "p1_ms_2",
+            q: "Which statements correctly characterize autogenic inhibition in the neuromuscular system? (Select all that apply)",
+            opts: ["It acts as a protective reflex to prevent force from exceeding bone and tendon tolerance", "It can be overridden or downregulated through systematic resistance training", "It is mediated primarily by the intrafusal muscle spindle fibers", "Severe psychological arousal or extreme stress can temporarily override this protective mechanism"],
+            correctArray: [0, 1, 3],
+            rationale: "Autogenic inhibition is mediated by GTOs (not muscle spindles). It protects connective tissue, can be downregulated by training, and can be overridden during extreme stress."
+          },
+          {
+            id: "p1_ms_3",
+            q: "Which physiological changes at the motor unit level explain strength gains achieved in the absence of measurable muscle hypertrophy? (Select all that apply)",
+            opts: ["Enhanced central neural drive to motor neurons", "Reduced coactivation of antagonist musculature", "Increased firing synchronization among motor units", "Loss of all high-threshold Type II motor units"],
+            correctArray: [0, 1, 2],
+            rationale: "Neural strength gains in the absence of hypertrophy stem from elevated neural drive, reduced antagonist coactivation, and synchronized motor unit firing."
+          },
+          {
+            id: "p1_ms_4",
+            q: "Which factors govern whether a specific motor neuron reaches its threshold and discharges an action potential? (Select all that apply)",
+            opts: ["Summation of incoming excitatory postsynaptic potentials (EPSPs)", "Magnitude of concurrent inhibitory postsynaptic potentials (IPSPs)", "Direct circulating estrogen concentrations at the axon terminal", "Net membrane potential surpassing the axon hillock threshold"],
+            correctArray: [0, 1, 3],
+            rationale: "Motor neuron discharge depends on the algebraic summation of EPSPs and IPSPs reaching threshold at the axon hillock."
+          }
+        ],
+        tf: [
+          {
+            id: "p1_tf_1",
+            q: "Muscular strength is exclusively a biological property of skeletal muscle tissue dimensions.",
+            ans: false,
+            feedback: "False. Muscular strength is fundamentally a property of the motor system, relying heavily on neural recruitment, synchronization, and rate coding."
+          },
+          {
+            id: "p1_tf_2",
+            q: "Ballistic and rapid-velocity resistance training movements are particularly effective at stimulating increases in motor unit rate coding.",
+            ans: true,
+            feedback: "True. Rapid-velocity training demands instantaneous motor unit discharge, driving adaptations in firing rates (rate coding)."
+          },
+          {
+            id: "p1_tf_3",
+            q: "Golgi tendon organs stimulate greater muscle contraction when tendon tension reaches dangerous levels.",
+            ans: false,
+            feedback: "False. GTOs discharge inhibitory impulses to relax or shut down the contracting muscle (autogenic inhibition) to prevent structural damage."
+          },
+          {
+            id: "p1_tf_4",
+            q: "Motor units are naturally recruited synchronously in untrained individuals to maximize power.",
+            ans: false,
+            feedback: "False. Motor units are recruited asynchronously in untrained states; synchronization develops as an adaptation to resistance training."
+          },
+          {
+            id: "p1_tf_5",
+            q: "A reduction in antagonist coactivation allows the agonist muscle to express greater net force about a joint.",
+            ans: true,
+            feedback: "True. Lower antagonist counter-torque allows greater net angular force expression by the agonist."
+          },
+          {
+            id: "p1_tf_6",
+            q: "Resistance training has been documented to induce structural remodeling at the neuromuscular junction.",
+            ans: true,
+            feedback: "True. Changes in neuromuscular junction morphology (such as increased endplate area and receptor distribution) occur with altered training volume."
+          },
+          {
+            id: "p1_tf_7",
+            q: "Autogenic inhibition is completely fixed genetically and cannot be altered by physical exercise.",
+            ans: false,
+            feedback: "False. Progressive resistance training gradually reduces or counteracts inhibitory GTO impulses, allowing higher force generation."
+          },
+          {
+            id: "p1_tf_8",
+            q: "Superhuman feats of strength in life-threatening emergencies are thought to involve the sudden override of autogenic inhibition.",
+            ans: true,
+            feedback: "True. Extreme sympathetic arousal can override protective inhibitory reflexes, allowing maximal force recruitment at the risk of tissue damage."
+          }
+        ],
+        cloze: [
+          {
+            id: "p1_clz_1",
+            statement: "Enoka asserted that strength gains can be achieved without structural changes in muscle, but not without **neural adaptations**.",
+            target: "neural adaptations",
+            optionsBank: ["neural adaptations", "fiber hyperplasia", "transient edema", "complete immobilization"]
+          },
+          {
+            id: "p1_clz_2",
+            statement: "The protective reflex in which Golgi tendon organs inhibit motor neurons under extreme tension is termed **autogenic inhibition**.",
+            target: "autogenic inhibition",
+            optionsBank: ["autogenic inhibition", "reciprocal excitation", "myofibrillar splitting", "transient hypertrophy"]
+          },
+          {
+            id: "p1_clz_3",
+            statement: "The discharge frequency of action potentials transmitted down an alpha-motor neuron to its fibers is known as **rate coding**.",
+            target: "rate coding",
+            optionsBank: ["rate coding", "sarcomere genesis", "fiber hyperplasia", "dynamic compliance"]
+          },
+          {
+            id: "p1_clz_4",
+            statement: "To maximize net torque generated by an agonist mover, the nervous system must minimize **coactivation** of the antagonist.",
+            target: "coactivation",
+            optionsBank: ["coactivation", "tetanic fusion", "capillarization", "hypertrophy"]
+          },
+          {
+            id: "p1_clz_5",
+            statement: "Increased motor unit **synchronization** improves the rate of force development and the capability to exert steady forces.",
+            target: "synchronization",
+            optionsBank: ["synchronization", "atrophy", "hyperplasia", "denervation"]
+          },
+          {
+            id: "p1_clz_6",
+            statement: "When incoming motor neuron excitation reaches high frequencies, twitches fuse into **tetanus** to generate peak tension.",
+            target: "tetanus",
+            optionsBank: ["tetanus", "fatigue", "edema", "apoptosis"]
+          },
+          {
+            id: "p1_clz_7",
+            statement: "Strength is not solely a property of muscle; rather, it is a property of the **motor system**.",
+            target: "motor system",
+            optionsBank: ["motor system", "skeletal frame", "vascular tree", "endocrine gland"]
+          },
+          {
+            id: "p1_clz_8",
+            statement: "Motor units are activated only when incoming excitatory impulses surpass **inhibitory impulses** at the motor neuron.",
+            target: "inhibitory impulses",
+            optionsBank: ["inhibitory impulses", "blood lactate", "muscle glycogen", "myoglobin stores"]
+          }
+        ],
+        sa: [
+          {
+            id: "p1_sa_1",
+            q: "Defend Enoka's assertion that 'strength is not solely a property of muscle, but a property of the motor system.' Explain how motor unit recruitment, rate coding, and autogenic disinhibition allow an individual to express dramatic strength gains without structural muscle enlargement.",
+            model: "Enoka's assertion highlights that muscle contractile tissue is entirely dependent on the nervous system for activation. Force expression depends on three primary neural mechanisms independent of muscle size: First, increased central neural drive elevates motor unit recruitment (activating previously dormant high-threshold Type II motor units) and promotes motor unit synchronization, improving force steadiness and rate of force development. Second, increased rate coding elevates motor neuron firing frequencies, fusing twitches into maximal tetanic contractions. Third, resistance training downregulates autogenic inhibition by raising the threshold of Golgi tendon organs, removing the neural 'safety brake.' Together with reduced antagonist coactivation, these adaptations allow untrained individuals to dramatically amplify voluntary force output without measurable myofibrillar hypertrophy.",
+            criteria: [
+              "Explains why strength is a neural motor property rather than purely muscle tissue volume.",
+              "Identifies motor unit recruitment (thresholds, synchronization) and rate coding (firing frequencies/tetanus).",
+              "Articulates how downregulating autogenic inhibition (Golgi tendon organs) and reducing antagonist coactivation removes force limitations."
+            ]
+          }
+        ]
+      },
+      p2: {
+        mcq: [
+          {
+            id: "p2_mcq_1",
+            q: "What is the primary physiological mechanism responsible for transient muscle hypertrophy observed immediately post-exercise?",
+            opts: ["Proliferation of brand-new muscle fibers", "Fluid accumulation (edema) in interstitial and intracellular spaces from plasma", "Massive addition of sarcomeres in series", "Hyperplasia of skeletal myonuclei"],
+            correct: 1,
+            rationale: "Transient hypertrophy (the muscle 'pump') results primarily from edema—blood plasma shifting into the interstitial and intracellular spaces of the active muscle. It resolves within hours."
+          },
+          {
+            id: "p2_mcq_2",
+            q: "Which muscular contraction mode is most critical for maximizing structural disruptions and subsequent chronic fiber hypertrophy?",
+            opts: ["Low-velocity concentric contraction", "High-velocity eccentric contraction", "Prolonged passive stretching", "Submaximal isometric stabilization"],
+            correct: 1,
+            rationale: "Eccentric contractions, especially higher-velocity eccentric loading, generate intense mechanical strain and disruption of sarcomere Z-lines, triggering fiber protein remodeling and hypertrophy."
+          },
+          {
+            id: "p2_mcq_3",
+            q: "What cellular adaptation primarily accounts for the increase in cross-sectional area during individual fiber hypertrophy?",
+            opts: ["Increased numbers of myofibrils and actin/myosin filaments", "Expansion of the sarcoplasmic lipid droplet pool", "Immediate doubling of vascular capillary volume", "Calcification of connective tissue sheaths"],
+            correct: 0,
+            rationale: "Fiber hypertrophy results from a net accretion of contractile proteins—specifically more myofibrils and actin and myosin filaments—creating more cross-bridges for force production."
+          },
+          {
+            id: "p2_mcq_4",
+            q: "During active resistance exercise, what occurs to the balance of muscle protein turnover?",
+            opts: ["Synthesis increases and degradation ceases", "Synthesis decreases while protein degradation increases", "Both synthesis and degradation are permanently halted", "Protein turnover converts entirely to glycogen synthesis"],
+            correct: 1,
+            rationale: "During acute exercise, muscle protein synthesis decreases while protein breakdown increases. This reverses during post-exercise recovery into a net positive protein synthesis balance."
+          },
+          {
+            id: "p2_mcq_5",
+            q: "What type of stem cells reside between the sarcolemma and basal lamina to facilitate muscle regeneration and donate myonuclei?",
+            opts: ["Satellite cells", "Hematopoietic stem cells", "Schwann cells", "Fibroblasts"],
+            correct: 0,
+            rationale: "Satellite cells are myogenic stem cells that activate, proliferate, and fuse with damaged muscle fibers in response to strain and injury, providing new myonuclei to support hypertrophy."
+          },
+          {
+            id: "p2_mcq_6",
+            q: "In animal studies on cats performing high-resistance, low-repetition forepaw lifts, whole-muscle hypertrophy was confirmed to involve:",
+            opts: ["Solely connective tissue thickening", "A 9% increase in total muscle fiber number via hyperplasia", "Complete absence of contractile protein changes", "A conversion of all skeletal fibers into cardiac tissue"],
+            correct: 1,
+            rationale: "In the 101-week high-resistance cat study, researchers verified an 11% increase in muscle weight and a 9% increase in total fiber count, confirming fiber hyperplasia."
+          },
+          {
+            id: "p2_mcq_7",
+            q: "Why did exercise overload studies in chickens, rats, and mice often fail to demonstrate hyperplasia when cat studies succeeded?",
+            opts: ["Cats possess unique genes not present in other animals", "Rats and mice were trained with low-resistance, high-repetition endurance protocols", "Chickens cannot synthesize actin and myosin", "Small rodents cannot tolerate resistance training"],
+            correct: 1,
+            rationale: "The discrepancy was methodological: cats were trained with pure heavy resistance (high load, low reps), whereas earlier rodent models used low-resistance, high-repetition endurance running."
+          },
+          {
+            id: "p2_mcq_8",
+            q: "A post-mortem cadaver study comparing autopsied tibialis anterior muscles revealed that right-side dominance was associated with which structural change in the left leg?",
+            opts: ["A 10% greater number of fibers without a difference in mean fiber size", "A 50% decrease in total fiber number", "Massive fiber hypertrophy with a 20% loss of total fibers", "Complete replacement of skeletal muscle with adipose tissue"],
+            correct: 0,
+            rationale: "The left tibialis anterior had a 7.5% larger cross-sectional area and a 10% greater fiber count with no difference in mean fiber size, providing anatomical evidence of hyperplasia in humans."
+          }
+        ],
+        ms: [
+          {
+            id: "p2_ms_1",
+            q: "Which of the following structural changes explain whole-muscle chronic fiber hypertrophy? (Select all that apply)",
+            opts: ["Increased numbers of myofibrils", "Increased actin and myosin myofilament content", "Increased sarcoplasmic volume and connective tissue", "Loss of all endomysial collagen networks"],
+            correctArray: [0, 1, 2],
+            rationale: "Fiber hypertrophy is caused by an expansion of myofibrils, more actin and myosin filaments, additional sarcoplasm, and supportive connective tissue."
+          },
+          {
+            id: "p2_ms_2",
+            q: "Which physiological roles do myogenic satellite cells perform following eccentric exercise-induced micro-trauma? (Select all that apply)",
+            opts: ["Proliferate and migrate to the site of muscle injury", "Fuse to damaged existing myofibers to donate myonuclei", "Combine and fuse together to generate new muscle fibers", "Differentiate into motor neurons to re-innervate the limb"],
+            correctArray: [0, 1, 2],
+            rationale: "Satellite cells proliferate, migrate, fuse to existing fibers, and can fuse to form new fibers. They are myogenic stem cells, not neuronal progenitors."
+          },
+          {
+            id: "p2_ms_3",
+            q: "Which factors maximize the skeletal muscle hypertrophic response during the post-exercise recovery window? (Select all that apply)",
+            opts: ["Immediate post-exercise consumption of protein and carbohydrate", "Creation of a net positive nitrogen balance", "Sustained elevation of anabolic hormones such as testosterone", "Prolonged complete starvation for 24 hours post-workout"],
+            correctArray: [0, 1, 2],
+            rationale: "Post-exercise protein/carbohydrate provision, a positive nitrogen balance, and anabolic hormonal activity (testosterone) maximize protein accretion. Starvation impairs protein synthesis."
+          },
+          {
+            id: "p2_ms_4",
+            q: "Which experimental evidence supports the biological plausibility of muscle fiber hyperplasia in animals or humans? (Select all that apply)",
+            opts: ["Direct fiber counts in cats trained with heavy forepaw resistance showing a 9% increase in fiber count", "Chronic stretch-weight models in the chicken anterior latissimus dorsi muscle", "Identical fiber size in bodybuilders despite significantly larger whole-muscle volume compared to untrained controls", "Immediate loss of all muscle fibers following high-intensity lifting"],
+            correctArray: [0, 1, 2],
+            rationale: "Direct cat counts, chicken wing-weight models, and bodybuilder muscle volume discrepancies support the existence of hyperplasia under specific loading conditions."
+          }
+        ],
+        tf: [
+          {
+            id: "p2_tf_1",
+            q: "Transient muscle hypertrophy is primarily caused by an acute increase in the number of muscle fibers.",
+            ans: false,
+            feedback: "False. Transient hypertrophy is caused by fluid accumulation (edema) from blood plasma into interstitial spaces."
+          },
+          {
+            id: "p2_tf_2",
+            q: "Training exclusively with concentric actions maximizes muscle fiber cross-sectional area as effectively as combined concentric-eccentric training.",
+            ans: false,
+            feedback: "False. Studies show that eccentric contractions (and high-velocity eccentric actions in particular) are critical for maximizing hypertrophy."
+          },
+          {
+            id: "p2_tf_3",
+            q: "During active resistance exercise, muscle protein synthesis decreases while protein degradation increases.",
+            ans: true,
+            feedback: "True. Exercise is acutely catabolic; net muscle protein synthesis occurs during the post-exercise recovery period."
+          },
+          {
+            id: "p2_tf_4",
+            q: "Z-disk streaming was originally viewed purely as structural damage, but is now recognized as a stimulus for myofibrillar remodeling.",
+            ans: true,
+            feedback: "True. Sarcomeric Z-disk disruptions serve as mechanical triggers initiating protein repair and hypertrophy."
+          },
+          {
+            id: "p2_tf_5",
+            q: "In adult humans, fiber hyperplasia has been conclusively proven to account for greater than 90% of whole-muscle hypertrophy in all individuals.",
+            ans: false,
+            feedback: "False. Most scientific evidence indicates that individual fiber hypertrophy accounts for the vast majority of human muscle enlargement."
+          },
+          {
+            id: "p2_tf_6",
+            q: "Testosterone promotes muscle growth by stimulating protein synthesis, highlighted by the 10-fold surge in male production at puberty.",
+            ans: true,
+            feedback: "True. Testosterone is a potent anabolic steroid hormone that drives myofibrillar protein synthesis."
+          },
+          {
+            id: "p2_tf_7",
+            q: "Providing carbohydrate and protein immediately after exercise facilitates a positive nitrogen balance and protein synthesis.",
+            ans: true,
+            feedback: "True. Nutrient timing post-exercise shifts the muscle into positive net protein balance."
+          },
+          {
+            id: "p2_tf_8",
+            q: "Individual muscle fibers can theoretically split longitudinally into two daughter cells, each growing to the size of the parent fiber.",
+            ans: true,
+            feedback: "True. Fiber splitting has been documented in histological sections of heavily overloaded animal muscle."
+          }
+        ],
+        cloze: [
+          {
+            id: "p2_clz_1",
+            statement: "The acute increase in muscle size immediately following exercise resulting from edema is called **transient hypertrophy**.",
+            target: "transient hypertrophy",
+            optionsBank: ["transient hypertrophy", "chronic hypertrophy", "fiber hyperplasia", "autogenic inhibition"]
+          },
+          {
+            id: "p2_clz_2",
+            statement: "Long-term resistance training induces **chronic hypertrophy**, reflecting structural changes in fiber size or fiber number.",
+            target: "chronic hypertrophy",
+            optionsBank: ["chronic hypertrophy", "transient edema", "ischemic atrophy", "contractile tetanus"]
+          },
+          {
+            id: "p2_clz_3",
+            statement: "The mechanical disruptions in sarcomeric **Z-disks** induced by eccentric actions trigger myofibrillar protein remodeling.",
+            target: "Z-disks",
+            optionsBank: ["Z-disks", "M-lines", "H-zones", "A-bands"]
+          },
+          {
+            id: "p2_clz_4",
+            statement: "Myogenic stem cells that activate, proliferate, and donate myonuclei for fiber repair are known as **satellite cells**.",
+            target: "satellite cells",
+            optionsBank: ["satellite cells", "Schwann cells", "erythrocytes", "astrocytes"]
+          },
+          {
+            id: "p2_clz_5",
+            statement: "An increase in the total number of muscle fibers within a whole muscle is referred to as **fiber hyperplasia**.",
+            target: "fiber hyperplasia",
+            optionsBank: ["fiber hyperplasia", "fiber hypertrophy", "sarcopenia", "motor recruitment"]
+          },
+          {
+            id: "p2_clz_6",
+            statement: "Individual fiber hypertrophy requires a net positive balance where protein synthesis exceeds **protein degradation**.",
+            target: "protein degradation",
+            optionsBank: ["protein degradation", "glycogen storage", "plasma volume", "mitochondrial density"]
+          },
+          {
+            id: "p2_clz_7",
+            statement: "Research shows that the **eccentric** component of resistance training is critical for maximizing fiber cross-sectional area.",
+            target: "eccentric",
+            optionsBank: ["eccentric", "concentric", "isometric", "passive"]
+          },
+          {
+            id: "p2_clz_8",
+            statement: "At puberty in males, a 10-fold increase in **testosterone** production drives substantial increases in muscle mass.",
+            target: "testosterone",
+            optionsBank: ["testosterone", "cortisol", "aldosterone", "insulin"]
+          }
+        ],
+        sa: [
+          {
+            id: "p2_sa_1",
+            q: "Contrast transient hypertrophy with chronic hypertrophy. Then, describe the cellular mechanisms of fiber hypertrophy and explain the proposed role of satellite cells in fiber hyperplasia and muscle remodeling.",
+            model: "Transient hypertrophy is an acute, short-lived increase in muscle volume occurring during and immediately following exercise, caused by edema (plasma shifting into interstitial and intracellular spaces). In contrast, chronic hypertrophy represents actual structural remodeling resulting from long-term resistance training. Fiber hypertrophy occurs when net muscle protein synthesis exceeds protein degradation over time, leading to the accretion of myofibrils, actin and myosin filaments, sarcoplasm, and connective tissue, providing more cross-bridges for force generation. Fiber hyperplasia involves an increase in total fiber number through longitudinal fiber splitting or the activity of satellite cells. Located beneath the basal lamina, satellite cells are activated by mechanical strain and eccentric micro-trauma. They proliferate, migrate to damaged zones, and either fuse to existing fibers—donating new myonuclei to sustain protein transcription—or fuse together to form brand-new myofibers.",
+            criteria: [
+              "Differentiates fluid-based transient edema from structural chronic hypertrophy.",
+              "Details the cellular basis of fiber hypertrophy (net protein synthesis, accretion of myofibrils and actin/myosin cross-bridges).",
+              "Explains satellite cell activation, myonuclear addition to existing fibers, and their theoretical contribution to de novo fiber hyperplasia."
+            ]
+          }
+        ]
+      },
+      p3: {
+        mcq: [
+          {
+            id: "p3_mcq_1",
+            q: "During the first 8 to 10 weeks of a resistance training program, strength gains are primarily mediated by which adaptation?",
+            opts: ["Large increases in muscle fiber cross-sectional area", "Neural adaptations and motor unit activation", "Extensive fiber hyperplasia across all motor units", "Substantial elongation of bone levers"],
+            correct: 1,
+            rationale: "During the initial 8 to 10 weeks, strength gains are driven primarily by neural adaptations. Muscle hypertrophy contributes minimally early on, becoming the dominant factor after 10 weeks."
+          },
+          {
+            id: "p3_mcq_2",
+            q: "Following acute limb immobilization in a cast, how quickly does the rate of muscle protein synthesis begin to decrease?",
+            opts: ["Within 6 hours", "After 14 days", "After exactly 1 month", "Protein synthesis remains unchanged"],
+            correct: 0,
+            rationale: "Catabolic remodeling begins rapidly: within the first 6 hours of immobilization, muscle protein synthesis rates start to decline, initiating disuse atrophy."
+          },
+          {
+            id: "p3_mcq_3",
+            q: "During the first week of complete limb immobilization, muscle strength decreases by an average rate of:",
+            opts: ["0.1% to 0.5% per week", "3% to 4% per day", "15% to 20% per hour", "Strength is permanently preserved"],
+            correct: 1,
+            rationale: "Strength decreases dramatically during the first week of casting, averaging 3% to 4% per day, driven by both rapid neural silence and protein loss."
+          },
+          {
+            id: "p3_mcq_4",
+            q: "Which muscle fiber type is often observed to undergo greater relative atrophy and cross-sectional reduction during limb immobilization?",
+            opts: ["Type I fibers", "Type IIx fibers", "Type IIa fibers", "Cardiac myocytes"],
+            correct: 0,
+            rationale: "Multiple immobilization studies demonstrate preferential atrophy in Type I (slow-twitch oxidative) fibers, decreasing their relative percentage and area."
+          },
+          {
+            id: "p3_mcq_5",
+            q: "What is the most consistent and well-documented muscle fiber type transition observed following chronic heavy resistance training?",
+            opts: ["Type I to Type IIx", "Type IIx to Type IIa", "Type IIa to Type IIx", "Type I to smooth muscle"],
+            correct: 1,
+            rationale: "Chronic resistance training consistently drives a phenotypic shift from Type IIx (fast-glycolytic) fibers to Type IIa (fast oxidative-glycolytic) fibers."
+          },
+          {
+            id: "p3_mcq_6",
+            q: "Research demonstrates that previously gained knee extension strength can be maintained for up to 12 weeks during a reduced training program if frequency is reduced from 3 days/week to:",
+            opts: ["1 or 2 days per week (with intensity maintained)", "0 days per week (complete detraining)", "Twice per month", "Only once every 8 weeks"],
+            correct: 0,
+            rationale: "Studies show that reducing training frequency from 3 days to 2 or 1 day per week maintains strength gains for at least 12 weeks, provided exercise intensity is preserved."
+          },
+          {
+            id: "p3_mcq_7",
+            q: "Following 20 weeks of resistance training and 30 to 32 weeks of complete detraining in women, what was observed regarding fiber characteristics?",
+            opts: ["Complete destruction of all muscle tissue", "Strength declined, accompanied by a tendency for Type II fiber areas to decrease and Type IIx percentage to rise", "Type I fibers completely converted into tendon tissue", "Muscles permanently retained peak 1RM strength without exercise"],
+            correct: 1,
+            rationale: "Detraining caused significant strength loss, fiber CSA regression (especially in Type II fibers), and a reversal of fiber shifts with the re-emergence of Type IIx fibers."
+          },
+          {
+            id: "p3_mcq_8",
+            q: "Under experimental laboratory conditions, cross-innervating a Type II motor unit with a Type I motor neuron results in which adaptation?",
+            opts: ["Immediate apoptosis of the entire muscle", "The muscle fibers transform to express Type I slow-twitch characteristics", "Permanent loss of electrical excitability", "Uncontrolled continuous tetanic spasm"],
+            correct: 1,
+            rationale: "Cross-innervating a Type II unit with a Type I motor neuron transforms the muscle fibers toward Type I physiological, metabolic, and contractile properties."
+          }
+        ],
+        ms: [
+          {
+            id: "p3_ms_1",
+            q: "Which physiological alterations occur in skeletal muscle within the first week of complete cast immobilization? (Select all that apply)",
+            opts: ["Decline in the rate of protein synthesis starting within 6 hours", "Strength losses averaging 3% to 4% per day", "Disintegration of myofibrils and streaming Z-disks", "Immediate proliferation of Type IIx motor units"],
+            correctArray: [0, 1, 2],
+            rationale: "Immobilization rapidly suppresses protein synthesis within 6 hours, induces 3%–4% daily strength loss in week 1, and disrupts sarcomeric Z-disks."
+          },
+          {
+            id: "p3_ms_2",
+            q: "Which factors explain how strength can be successfully preserved during a tapered maintenance resistance program? (Select all that apply)",
+            opts: ["Maintaining high intensity during reduced-frequency sessions", "Sufficient mechanical tension to sustain protein synthesis rates", "Complete cessation of all muscular contractions for 6 months", "Preservation of central neural motor unit recruitment patterns"],
+            correctArray: [0, 1, 3],
+            rationale: "Maintaining load intensity during low-frequency bouts (1–2 days/wk) sustains protein synthesis and motor recruitment patterns. Complete cessation causes detraining."
+          },
+          {
+            id: "p3_ms_3",
+            q: "Which of the following interventions have been scientifically demonstrated to induce muscle fiber type conversions? (Select all that apply)",
+            opts: ["Surgical cross-innervation of motor nerves in animal models", "Chronic low-frequency electrical nerve stimulation", "High-intensity resistance training combined with short-interval speed work", "Passive seated rest for 15 minutes"],
+            correctArray: [0, 1, 2],
+            rationale: "Cross-innervation, chronic low-frequency stimulation, and combined high-intensity resistance/speed training induce measurable fiber type transitions."
+          },
+          {
+            id: "p3_ms_4",
+            q: "Which statements correctly describe the temporal integration of neural and hypertrophic adaptations to resistance training? (Select all that apply)",
+            opts: ["Neural adaptations dominate early strength improvements during weeks 0 to 8", "Hypertrophy progressively increases its contribution and dominates beyond 10 weeks", "Hypertrophy accounts for 100% of strength gains during the first 14 days", "Under intensive training in elite lifters, neural factors can continue to explain major strength gains"],
+            correctArray: [0, 1, 3],
+            rationale: "Early strength is driven by neural adaptations (weeks 0–8), with hypertrophy dominating beyond 10 weeks. Neural drive remains critical even in advanced lifters."
+          }
+        ],
+        tf: [
+          {
+            id: "p3_tf_1",
+            q: "Skeletal muscle protein synthesis rates remain elevated for up to 48 hours following cast immobilization.",
+            ans: false,
+            feedback: "False. Protein synthesis begins to decline within the first 6 hours of immobilization."
+          },
+          {
+            id: "p3_tf_2",
+            q: "Muscular strength can be maintained for at least 12 weeks when training frequency is reduced from 3 days to 1 or 2 days per week, as long as intensity is maintained.",
+            ans: true,
+            feedback: "True. Research confirms that maintenance programs preserving intensity maintain strength despite lower weekly frequency."
+          },
+          {
+            id: "p3_tf_3",
+            q: "Heavy resistance training consistently causes a fiber type shift from Type IIa to Type IIx.",
+            ans: false,
+            feedback: "False. Resistance training shifts fibers in the opposite direction: from Type IIx to Type IIa (enhancing oxidative and fatigue-resistant properties)."
+          },
+          {
+            id: "p3_tf_4",
+            q: "Recovering strength and muscle mass following immobilization takes substantially longer than the period of immobilization itself.",
+            ans: true,
+            feedback: "True. Rehabilitative recovery requires a significantly longer duration than the rapid period of disuse atrophy."
+          },
+          {
+            id: "p3_tf_5",
+            q: "In an 8-week resistance training study with biopsies taken every 2 weeks, massive fiber hypertrophy accounted for the rapid 1RM gains observed in week 2.",
+            ans: false,
+            feedback: "False. Biopsies revealed only small, insignificant changes in fiber CSA at 8 weeks; early 1RM gains were driven by neural activation."
+          },
+          {
+            id: "p3_tf_6",
+            q: "Chronic low-frequency electrical stimulation can transform fast Type II motor units into slow Type I units within weeks.",
+            ans: true,
+            feedback: "True. Chronic low-frequency stimulation drives phenotypic conversion from Type II to Type I fibers."
+          },
+          {
+            id: "p3_tf_7",
+            q: "During complete detraining, subjects who stopped lifting knee extensions lost 68% of their strength gains over 12 weeks.",
+            ans: true,
+            feedback: "True. Complete cessation resulted in a 68% loss of gained knee extension strength in that 12-week study."
+          },
+          {
+            id: "p3_tf_8",
+            q: "Human muscle fiber types are 100% fixed at birth and cannot alter any histochemical or contractile properties with exercise.",
+            ans: false,
+            feedback: "False. While broad genetics provide a baseline, exercise training alters enzymatic properties and drives transitions (e.g., Type IIx to IIa)."
+          }
+        ],
+        cloze: [
+          {
+            id: "p3_clz_1",
+            statement: "During the first 8 to 10 weeks of training, strength gains are primarily driven by **neural activation**.",
+            target: "neural activation",
+            optionsBank: ["neural activation", "fiber hypertrophy", "connective rupture", "metabolic acidosis"]
+          },
+          {
+            id: "p3_clz_2",
+            statement: "Within the first 6 hours of limb immobilization, the rate of **protein synthesis** begins to decrease.",
+            target: "protein synthesis",
+            optionsBank: ["protein synthesis", "mitochondrial growth", "capillary density", "glycogen storage"]
+          },
+          {
+            id: "p3_clz_3",
+            statement: "Muscle strength decreases most dramatically during the first week of immobilization, averaging **3% to 4% per day**.",
+            target: "3% to 4% per day",
+            optionsBank: ["3% to 4% per day", "10% to 15% per hour", "0.5% per month", "25% per week"]
+          },
+          {
+            id: "p3_clz_4",
+            statement: "Chronic resistance training consistently drives a phenotypic conversion of fibers from **Type IIx to Type IIa**.",
+            target: "Type IIx to Type IIa",
+            optionsBank: ["Type IIx to Type IIa", "Type I to Type IIx", "Type IIa to Type IIx", "Type I to cardiac"]
+          },
+          {
+            id: "p3_clz_5",
+            statement: "Muscle strength can be maintained for up to 12 weeks with a **maintenance program** that reduces weekly frequency.",
+            target: "maintenance program",
+            optionsBank: ["maintenance program", "complete bed rest", "detraining protocol", "high-volume overload"]
+          },
+          {
+            id: "p3_clz_6",
+            statement: "Immobilization induces microscopic damage in skeletal muscle, including disintegrated myofibrils and streaming **Z-disks**.",
+            target: "Z-disks",
+            optionsBank: ["Z-disks", "sarcolemma", "T-tubules", "motor endplates"]
+          },
+          {
+            id: "p3_clz_7",
+            statement: "After 10 weeks of progressive training, **hypertrophy** becomes the dominant contributor to long-term strength gains.",
+            target: "hypertrophy",
+            optionsBank: ["hyperphy", "hypertrophy", "inhibition", "detraining"]
+          },
+          {
+            id: "p3_clz_8",
+            statement: "Surgical **cross-innervation** of motor nerves demonstrates that motor neuron firing characteristics determine fiber phenotype.",
+            target: "cross-innervation",
+            optionsBank: ["cross-innervation", "fiber hyperplasia", "transient edema", "autogenic inhibition"]
+          }
+        ],
+        sa: [
+          {
+            id: "p3_sa_1",
+            q: "Analyze the temporal sequence of neuromuscular adaptations during a progressive resistance training program (weeks 0–8 vs. week 10+). Then, explain the acute physiological consequences of limb immobilization on protein turnover, fiber cross-sectional area, and daily strength loss.",
+            model: "The time course of resistance training adaptations involves a two-phase temporal sequence: During the initial 8 to 10 weeks, strength increases are driven almost entirely by neural adaptations—such as elevated motor unit recruitment, increased rate coding, enhanced synchronization, and reduced antagonist coactivation—with minimal, insignificant increases in muscle fiber cross-sectional area (CSA). Beyond 10 weeks of progressive overload, structural hypertrophy becomes the primary driver of strength gains as net protein synthesis leads to significant myofibrillar accretion. Conversely, when a muscle is immobilized, catabolic changes initiate within hours. Protein synthesis rates drop within the first 6 hours. During the first week of immobilization, strength declines by 3% to 4% per day, driven by neural inactivity and rapid muscle protein degradation. Histologically, immobilization causes myofibril disintegration, Z-disk streaming, and marked atrophy, with Type I fibers often experiencing greater relative decreases in cross-sectional area.",
+            criteria: [
+              "Delineates the timeline of adaptations: neural factors dominate weeks 0–8/10, while structural hypertrophy dominates beyond week 10.",
+              "Identifies that protein synthesis begins declining within 6 hours of limb immobilization.",
+              "Details the rapid 3%–4% daily strength loss during the first week of immobilization and associates it with both neural inactivity and structural atrophy (Z-disk streaming, Type I fiber reduction)."
+            ]
+          }
+        ]
+      }
+    };
+
+    /* =========================================================================
+       ACTIVE STATE & RUNTIME SAMPLING
+       ========================================================================= */
+    const state = {
+      activePage: 'p1', // 'p1', 'p2', or 'p3'
+      activeQuestions: {
+        p1: { mcq: [], ms: [], tf: [], cloze: [], sa: [] },
+        p2: { mcq: [], ms: [], tf: [], cloze: [], sa: [] },
+        p3: { mcq: [], ms: [], tf: [], cloze: [], sa: [] }
+      },
+      scores: {
+        p1: { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 },
+        p2: { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 },
+        p3: { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 }
+      },
+      maxScores: {
+        p1: { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 5 },
+        p2: { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 5 },
+        p3: { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 5 }
+      }
+    };
+
+    function getRandomItems(array, count) {
+      const shuffled = [...array].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+
+    function initPageQuestions(pageId) {
+      state.activeQuestions[pageId].mcq = getRandomItems(assessmentBanks[pageId].mcq, 2);
+      state.activeQuestions[pageId].ms = getRandomItems(assessmentBanks[pageId].ms, 2);
+      state.activeQuestions[pageId].tf = getRandomItems(assessmentBanks[pageId].tf, 2);
+      state.activeQuestions[pageId].cloze = getRandomItems(assessmentBanks[pageId].cloze, 2);
+      state.activeQuestions[pageId].sa = getRandomItems(assessmentBanks[pageId].sa, 1);
+    }
+
+    /* =========================================================================
+       DOM RENDERING ENGINES
+       ========================================================================= */
+    function renderMCQ(pageId) {
+      const container = document.getElementById(`container-${pageId}-mcq`);
+      if (!container) return;
+      container.innerHTML = '';
+      
+      state.activeQuestions[pageId].mcq.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+        
+        let html = `<div class="question-prompt">${qIdx + 1}. ${item.q}</div><div class="options-group">`;
+        item.opts.forEach((opt, oIdx) => {
+          html += `<button class="option-btn" onclick="handleMCQSelection('${pageId}', '${item.id}', ${oIdx}, ${item.correct})">${String.fromCharCode(65 + oIdx)}. ${opt}</button>`;
+        });
+        html += `</div><div class="feedback-box" id="feedback-${item.id}"></div>`;
+        card.innerHTML = html;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'mcq');
+    }
+
+    function renderMS(pageId) {
+      const container = document.getElementById(`container-${pageId}-ms`);
+      if (!container) return;
+      container.innerHTML = '';
+
+      state.activeQuestions[pageId].ms.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+
+        let html = `<div class="question-prompt">${qIdx + 1}. ${item.q}</div><div class="options-group">`;
+        item.opts.forEach((opt, oIdx) => {
+          html += `
+            <label class="checkbox-label" id="label-${item.id}-${oIdx}">
+              <input type="checkbox" name="${item.id}" value="${oIdx}">
+              <span>${opt}</span>
+            </label>
+          `;
+        });
+        html += `</div>
+          <button class="btn-ghost" style="color:#0f172a; border-color:#94a3b8; margin-top:0.75rem;" onclick="handleMSCheck('${pageId}', '${item.id}')">Submit Selections</button>
+          <div class="feedback-box" id="feedback-${item.id}"></div>`;
+        card.innerHTML = html;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'ms');
+    }
+
+    function renderTF(pageId) {
+      const container = document.getElementById(`container-${pageId}-tf`);
+      if (!container) return;
+      container.innerHTML = '';
+
+      state.activeQuestions[pageId].tf.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+
+        let html = `
+          <div class="question-prompt">${qIdx + 1}. ${item.q}</div>
+          <div class="options-group" style="flex-direction: row; gap: 1rem;">
+            <button class="option-btn" style="text-align:center;" onclick="handleTFSelection('${pageId}', '${item.id}', true, ${item.ans})">True</button>
+            <button class="option-btn" style="text-align:center;" onclick="handleTFSelection('${pageId}', '${item.id}', false, ${item.ans})">False</button>
+          </div>
+          <div class="feedback-box" id="feedback-${item.id}"></div>
+        `;
+        card.innerHTML = html;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'tf');
+    }
+
+    function renderCloze(pageId) {
+      const container = document.getElementById(`container-${pageId}-cloze`);
+      if (!container) return;
+      container.innerHTML = '';
+
+      state.activeQuestions[pageId].cloze.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+
+        let selectHtml = `<select class="cloze-select" id="select-${item.id}" onchange="handleClozeSelection('${pageId}', '${item.id}')">
+          <option value="">-- Select Term --</option>`;
+        
+        const shuffledOpts = [...item.optionsBank].sort(() => 0.5 - Math.random());
+        shuffledOpts.forEach(opt => {
+          selectHtml += `<option value="${opt}">${opt}</option>`;
+        });
+        selectHtml += `</select>`;
+
+        const parsedStatement = item.statement.replace(/\*\*(.*?)\*\*/g, selectHtml);
+
+        card.innerHTML = `
+          <div class="question-prompt">${qIdx + 1}. ${parsedStatement}</div>
+          <div class="feedback-box" id="feedback-${item.id}"></div>
+        `;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'cloze');
+    }
+
+    function renderSA(pageId) {
+      const container = document.getElementById(`container-${pageId}-sa`);
+      if (!container) return;
+      container.innerHTML = '';
+
+      state.activeQuestions[pageId].sa.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+
+        card.innerHTML = `
+          <div class="question-prompt">${qIdx + 1}. ${item.q}</div>
+          <textarea class="sa-textarea" id="textarea-${item.id}" placeholder="Compose your physiological explanation here..." oninput="updateSACounters('${item.id}')"></textarea>
+          <div class="sa-meta-row">
+            <span id="counter-${item.id}">Words: 0 | Characters: 0</span>
+            <span>Recommended: 60–160 words</span>
+          </div>
+          <button class="btn-ghost" style="color:#0f172a; border-color:#94a3b8;" id="btn-sa-submit-${item.id}" onclick="revealSARubric('${item.id}')">Check Optimal Answer &amp; Rubric</button>
+          
+          <div class="rubric-panel" id="rubric-panel-${item.id}">
+            <div class="expert-model-box">
+              <strong>Optimal Expert Model Answer:</strong>
+              <p style="margin-top:0.35rem;">${item.model}</p>
+            </div>
+            
+            <div style="font-weight:700; font-size:0.85rem; color:#1e293b;">Self-Assessment Evaluation Checklist:</div>
+            <div class="checklist-group">
+              ${item.criteria.map((c, i) => `
+                <label class="checklist-item">
+                  <input type="checkbox" id="sa-chk-${item.id}-${i}">
+                  <span>${c}</span>
+                </label>
+              `).join('')}
+            </div>
+
+            <div style="font-weight:700; font-size:0.85rem; color:#1e293b; margin-top:0.75rem;">Award Your Self-Assessed Score:</div>
+            <div class="rubric-points-row">
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 0)">0 / 5 (Needs Revision)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 1)">1 / 5 (Minimal)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 2)">2 / 5 (Partial)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 3)">3 / 5 (Satisfactory)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 4)">4 / 5 (Good)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 5)">5 / 5 (Exemplary)</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'sa');
+    }
+
+    /* =========================================================================
+       ASSESSMENT EVALUATION LOGIC
+       ========================================================================= */
+    const itemScores = {
+      p1: { mcq: {}, ms: {}, tf: {}, cloze: {} },
+      p2: { mcq: {}, ms: {}, tf: {}, cloze: {} },
+      p3: { mcq: {}, ms: {}, tf: {}, cloze: {} }
+    };
+
+    function handleMCQSelection(pageId, qId, selectedIdx, correctIdx) {
+      const card = document.getElementById(`card-${qId}`);
+      const buttons = card.querySelectorAll('.option-btn');
+      const feedback = document.getElementById(`feedback-${qId}`);
+      const qData = assessmentBanks[pageId].mcq.find(q => q.id === qId);
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (selectedIdx === correctIdx) {
+        buttons[selectedIdx].classList.add('state-correct');
+        feedback.className = 'feedback-box active feedback-correct';
+        feedback.innerHTML = `<strong>Correct:</strong> ${qData.rationale}`;
+        recordScore(pageId, 'mcq', qId, 1);
+      } else {
+        buttons[selectedIdx].classList.add('state-incorrect');
+        buttons[correctIdx].classList.add('state-correct');
+        feedback.className = 'feedback-box active feedback-incorrect';
+        feedback.innerHTML = `<strong>Incorrect.</strong> Option ${String.fromCharCode(65 + correctIdx)} is correct. ${qData.rationale}`;
+        recordScore(pageId, 'mcq', qId, 0);
+      }
+    }
+
+    function handleMSCheck(pageId, qId) {
+      const card = document.getElementById(`card-${qId}`);
+      const checkboxes = card.querySelectorAll(`input[name="${qId}"]`);
+      const feedback = document.getElementById(`feedback-${qId}`);
+      const qData = assessmentBanks[pageId].ms.find(q => q.id === qId);
+
+      const selected = [];
+      checkboxes.forEach((cb, idx) => {
+        if (cb.checked) selected.push(idx);
+        cb.disabled = true;
+      });
+
+      const correct = qData.correctArray;
+      const isPerfect = selected.length === correct.length && selected.every(v => correct.includes(v));
+
+      checkboxes.forEach((cb, idx) => {
+        const label = document.getElementById(`label-${qId}-${idx}`);
+        if (correct.includes(idx)) {
+          if (cb.checked) {
+            label.classList.add('state-correct');
+          } else {
+            label.classList.add('state-missed');
+          }
+        } else {
+          if (cb.checked) {
+            label.classList.add('state-incorrect');
+          }
+        }
+      });
+
+      if (isPerfect) {
+        feedback.className = 'feedback-box active feedback-correct';
+        feedback.innerHTML = `<strong>Correct! All criteria met:</strong> ${qData.rationale}`;
+        recordScore(pageId, 'ms', qId, 1);
+      } else {
+        feedback.className = 'feedback-box active feedback-incorrect';
+        feedback.innerHTML = `<strong>Incomplete or Incorrect.</strong> Missed/incorrect choices highlighted. <em>Rationale:</em> ${qData.rationale}`;
+        recordScore(pageId, 'ms', qId, 0);
+      }
+    }
+
+    function handleTFSelection(pageId, qId, userAns, actualAns) {
+      const card = document.getElementById(`card-${qId}`);
+      const buttons = card.querySelectorAll('.option-btn');
+      const feedback = document.getElementById(`feedback-${qId}`);
+      const qData = assessmentBanks[pageId].tf.find(q => q.id === qId);
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (userAns === actualAns) {
+        if (userAns === true) buttons[0].classList.add('state-correct');
+        else buttons[1].classList.add('state-correct');
+        feedback.className = 'feedback-box active feedback-correct';
+        feedback.innerHTML = `<strong>Correct:</strong> ${qData.feedback}`;
+        recordScore(pageId, 'tf', qId, 1);
+      } else {
+        if (userAns === true) {
+          buttons[0].classList.add('state-incorrect');
+          buttons[1].classList.add('state-correct');
+        } else {
+          buttons[1].classList.add('state-incorrect');
+          buttons[0].classList.add('state-correct');
+        }
+        feedback.className = 'feedback-box active feedback-incorrect';
+        feedback.innerHTML = `<strong>Incorrect.</strong> ${qData.feedback}`;
+        recordScore(pageId, 'tf', qId, 0);
+      }
+    }
+
+    function handleClozeSelection(pageId, qId) {
+      const select = document.getElementById(`select-${qId}`);
+      const feedback = document.getElementById(`feedback-${qId}`);
+      const qData = assessmentBanks[pageId].cloze.find(q => q.id === qId);
+      const val = select.value;
+
+      if (!val) {
+        select.classList.remove('state-correct', 'state-incorrect');
+        feedback.className = 'feedback-box';
+        return;
+      }
+
+      select.disabled = true;
+      if (val === qData.target) {
+        select.classList.add('state-correct');
+        feedback.className = 'feedback-box active feedback-correct';
+        feedback.innerHTML = `<strong>Correct!</strong> The physiological term is "${qData.target}".`;
+        recordScore(pageId, 'cloze', qId, 1);
+      } else {
+        select.classList.add('state-incorrect');
+        feedback.className = 'feedback-box active feedback-incorrect';
+        feedback.innerHTML = `<strong>Incorrect.</strong> Selected "${val}". The correct physiological term is: <strong>${qData.target}</strong>.`;
+        recordScore(pageId, 'cloze', qId, 0);
+      }
+    }
+
+    function updateSACounters(qId) {
+      const text = document.getElementById(`textarea-${qId}`).value.trim();
+      const words = text.length > 0 ? text.split(/\s+/).length : 0;
+      const chars = text.length;
+      document.getElementById(`counter-${qId}`).innerText = `Words: ${words} | Characters: ${chars}`;
+    }
+
+    function revealSARubric(qId) {
+      document.getElementById(`textarea-${qId}`).disabled = true;
+      document.getElementById(`btn-sa-submit-${qId}`).style.display = 'none';
+      document.getElementById(`rubric-panel-${qId}`).classList.add('active');
+    }
+
+    function setSAScore(pageId, qId, pts) {
+      const panel = document.getElementById(`rubric-panel-${qId}`);
+      const buttons = panel.querySelectorAll('.rubric-point-option');
+      buttons.forEach((btn, idx) => {
+        if (idx === pts) btn.classList.add('selected');
+        else btn.classList.remove('selected');
+      });
+
+      state.scores[pageId].sa = pts;
+      updateSectionScoreBadge(pageId, 'sa');
+      updateGlobalScore();
+    }
+
+    function recordScore(pageId, secType, qId, pts) {
+      itemScores[pageId][secType][qId] = pts;
+      let total = 0;
+      for (const k in itemScores[pageId][secType]) {
+        total += itemScores[pageId][secType][k];
+      }
+      state.scores[pageId][secType] = total;
+      updateSectionScoreBadge(pageId, secType);
+      updateGlobalScore();
+    }
+
+    function updateSectionScoreBadge(pageId, secType) {
+      const badge = document.getElementById(`score-badge-${pageId}-${secType}`);
+      if (!badge) return;
+      const cur = state.scores[pageId][secType];
+      const max = state.maxScores[pageId][secType];
+      badge.innerText = `Score: ${cur} / ${max} pts`;
+    }
+
+    function updateGlobalScore() {
+      const pageId = state.activePage;
+      const s = state.scores[pageId];
+      const m = state.maxScores[pageId];
+      const cur = s.mcq + s.ms + s.tf + s.cloze + s.sa;
+      const max = m.mcq + m.ms + m.tf + m.cloze + m.sa;
+      const pct = max > 0 ? Math.round((cur / max) * 100) : 0;
+
+      document.getElementById('global-score-badge').innerText = `Total Score: ${cur} / ${max} pts (${pct}%)`;
+      document.getElementById('global-progress-bar').style.width = `${pct}%`;
+    }
+
+    /* =========================================================================
+       RESET & ACCORDION CONTROL
+       ========================================================================= */
+    function resetSection(pageId, secType) {
+      if (secType === 'mcq') {
+        state.activeQuestions[pageId].mcq = getRandomItems(assessmentBanks[pageId].mcq, 2);
+        itemScores[pageId].mcq = {};
+        state.scores[pageId].mcq = 0;
+        renderMCQ(pageId);
+      } else if (secType === 'ms') {
+        state.activeQuestions[pageId].ms = getRandomItems(assessmentBanks[pageId].ms, 2);
+        itemScores[pageId].ms = {};
+        state.scores[pageId].ms = 0;
+        renderMS(pageId);
+      } else if (secType === 'tf') {
+        state.activeQuestions[pageId].tf = getRandomItems(assessmentBanks[pageId].tf, 2);
+        itemScores[pageId].tf = {};
+        state.scores[pageId].tf = 0;
+        renderTF(pageId);
+      } else if (secType === 'cloze') {
+        state.activeQuestions[pageId].cloze = getRandomItems(assessmentBanks[pageId].cloze, 2);
+        itemScores[pageId].cloze = {};
+        state.scores[pageId].cloze = 0;
+        renderCloze(pageId);
+      } else if (secType === 'sa') {
+        state.activeQuestions[pageId].sa = getRandomItems(assessmentBanks[pageId].sa, 1);
+        state.scores[pageId].sa = 0;
+        renderSA(pageId);
+      }
+      updateGlobalScore();
+    }
+
+    function resetAllActivities() {
+      const p = state.activePage;
+      initPageQuestions(p);
+      itemScores[p] = { mcq: {}, ms: {}, tf: {}, cloze: {} };
+      state.scores[p] = { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 };
+
+      renderMCQ(p);
+      renderMS(p);
+      renderTF(p);
+      renderCloze(p);
+      renderSA(p);
+      updateGlobalScore();
+      collapseAllSections();
+    }
+
+    function expandAllSections() {
+      const activeId = state.activePage === 'p1' ? 'page-neural-control' : (state.activePage === 'p2' ? 'page-muscle-hypertrophy-hyperplasia' : 'page-atrophy-detraining-fiber-types');
+      const activeContainer = document.getElementById(activeId);
+      const accordions = activeContainer.querySelectorAll('details.accordion-card');
+      accordions.forEach(a => a.open = true);
+    }
+
+    function collapseAllSections() {
+      const activeId = state.activePage === 'p1' ? 'page-neural-control' : (state.activePage === 'p2' ? 'page-muscle-hypertrophy-hyperplasia' : 'page-atrophy-detraining-fiber-types');
+      const activeContainer = document.getElementById(activeId);
+      const accordions = activeContainer.querySelectorAll('details.accordion-card');
+      accordions.forEach(a => a.open = false);
+    }
+
+    /* =========================================================================
+       NAVIGATION & TABS
+       ========================================================================= */
+    function navigateToPage(pageKey) {
+      const pages = ['neural-control', 'muscle-hypertrophy-hyperplasia', 'atrophy-detraining-fiber-types'];
+      pages.forEach((p, idx) => {
+        const el = document.getElementById(`page-${p}`);
+        const pill = document.getElementById(`pill-concept-${idx + 1}`);
+        if (p === pageKey) {
+          el.style.display = 'block';
+          pill.classList.add('active');
+          state.activePage = `p${idx + 1}`;
+        } else {
+          el.style.display = 'none';
+          pill.classList.remove('active');
+        }
+      });
+
+      const titles = {
+        'neural-control': 'Current Module Topic: Neural Control of Strength Gains',
+        'muscle-hypertrophy-hyperplasia': 'Current Module Topic: Muscle Hypertrophy & Hyperplasia',
+        'atrophy-detraining-fiber-types': 'Current Module Topic: Atrophy, Detraining, & Fiber Type Transitions'
+      };
+      document.getElementById('page-indicator').innerText = titles[pageKey];
+
+      collapseAllSections();
+      updateGlobalScore();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchTab(tabKey) {
+      const lessonPane = document.getElementById('pane-lesson');
+      const glossaryPane = document.getElementById('pane-glossary');
+      const lessonBtn = document.getElementById('tab-lesson-btn');
+      const glossaryBtn = document.getElementById('tab-glossary-btn');
+
+      if (tabKey === 'lesson') {
+        lessonPane.classList.add('active');
+        glossaryPane.classList.remove('active');
+        lessonBtn.classList.add('active');
+        glossaryBtn.classList.remove('active');
+        lessonBtn.setAttribute('aria-selected', 'true');
+        glossaryBtn.setAttribute('aria-selected', 'false');
+      } else {
+        lessonPane.classList.remove('active');
+        glossaryPane.classList.add('active');
+        lessonBtn.classList.remove('active');
+        glossaryBtn.classList.add('active');
+        lessonBtn.setAttribute('aria-selected', 'false');
+        glossaryBtn.setAttribute('aria-selected', 'true');
+      }
+    }
+
+    function restartLesson() {
+      navigateToPage('neural-control');
+      resetAllActivities();
+      switchTab('lesson');
+    }
+
+    /* Initialize Application on DOM Ready */
+    document.addEventListener('DOMContentLoaded', () => {
+      ['p1', 'p2', 'p3'].forEach(p => {
+        initPageQuestions(p);
+        renderMCQ(p);
+        renderMS(p);
+        renderTF(p);
+        renderCloze(p);
+        renderSA(p);
+      });
+
+      collapseAllSections();
+      updateGlobalScore();
+    });
+  </script>
+  <!-- ... Previous module content, main tag, or scripts ... -->
+
+    <!-- PASTE THE CODE BLOCK HERE -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px auto; max-width: 1060px; padding: 0 20px; text-align: center;">
+      <span style="flex: 1; text-align: left;">
+        <a href="OLM - 10.1 Resistance Training and Gains in Muscular Fitness.html">← Back to Previous Section</a>
+      </span>
+      <span style="flex: 1;">
+        <a href="index.html">Main Menu</a>
+      </span>
+      <span style="flex: 1; text-align: right;">
+        <a href="OLM - 10.3 Interaction Between Resistance Training and Diet.html">Next Section →</a>
+      </span>
+    </div>
+
+  </body>
+</html>
+</body>
+</html>

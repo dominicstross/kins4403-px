@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KINS 4403: Interaction Between Resistance Training and Diet</title>
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-dark-surface: #1e293b;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --bg-body: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #0f172a;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --success: #16a34a;
+      --success-bg: #dcfce7;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --warning: #d97706;
+      --warning-bg: #fef3c7;
+      --info: #0284c7;
+      --info-bg: #e0f2fe;
+      --focus-ring: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* Top Sticky High-Contrast Dashboard */
+    header.sticky-dashboard {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 0.75rem 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .dashboard-top-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .course-meta {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .module-heading {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .dashboard-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--text-muted);
+      color: var(--text-light);
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-ghost:hover, .btn-ghost:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #fff;
+      outline: none;
+    }
+
+    .btn-reset-global {
+      background: #be123c;
+      border: 1px solid #fda4af;
+      color: #fff;
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-reset-global:hover {
+      background: #9f1239;
+    }
+
+    .score-indicator-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 250px;
+    }
+
+    .score-badge {
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: var(--bg-dark-surface);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid #334155;
+      white-space: nowrap;
+    }
+
+    .progress-bar-bg {
+      flex: 1;
+      height: 8px;
+      background: #334155;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: #10b981;
+      transition: width 0.3s ease;
+    }
+
+    /* Dual-Tier Dynamic TOC */
+    .toc-tier-1 {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding-top: 0.35rem;
+      border-top: 1px solid #334155;
+    }
+
+    .toc-pill {
+      background: #1e293b;
+      color: #cbd5e1;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid #475569;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .toc-pill:hover, .toc-pill.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: #60a5fa;
+    }
+
+    .toc-tier-2 {
+      display: flex;
+      gap: 0.75rem;
+      padding-top: 0.35rem;
+      font-size: 0.75rem;
+      overflow-x: auto;
+    }
+
+    .toc-quicklink {
+      color: var(--text-muted);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .toc-quicklink:hover {
+      color: var(--focus-ring);
+      text-decoration: underline;
+    }
+
+    /* Tab Switcher */
+    .tab-bar {
+      display: flex;
+      background: #e2e8f0;
+      border-bottom: 2px solid #cbd5e1;
+      max-width: 980px;
+      margin: 1rem auto 0;
+      border-radius: 6px 6px 0 0;
+      overflow: hidden;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: none;
+      background: #e2e8f0;
+      color: #475569;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .tab-btn.active {
+      background: #fff;
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+
+    /* Main Container */
+    main.workspace-container {
+      max-width: 980px;
+      margin: 0 auto 3rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 0 0 8px 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .tab-content-pane {
+      display: none;
+    }
+
+    .tab-content-pane.active {
+      display: block;
+    }
+
+    /* Accordions & Sections */
+    details.accordion-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      background: #fff;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    details.accordion-card[open] {
+      border-color: #94a3b8;
+    }
+
+    summary.accordion-header {
+      padding: 0.85rem 1.25rem;
+      background: #f1f5f9;
+      cursor: pointer;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      list-style: none;
+      color: #1e293b;
+    }
+
+    summary.accordion-header::-webkit-details-marker {
+      display: none;
+    }
+
+    .accordion-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .accordion-chevron {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      font-size: 0.75rem;
+    }
+
+    details[open] summary .accordion-chevron {
+      transform: rotate(90deg);
+    }
+
+    .section-score-pill {
+      font-size: 0.75rem;
+      background: #e2e8f0;
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+      color: #334155;
+      font-weight: 600;
+    }
+
+    .accordion-body {
+      padding: 1.25rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Typography & Content Elements */
+    h1.page-title {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: var(--bg-dark);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin: 1.2rem 0 0.5rem;
+      color: #1e293b;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 1rem 0 0.4rem;
+      color: #334155;
+    }
+
+    p {
+      margin-bottom: 0.85rem;
+    }
+
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .callout-box {
+      border-left: 4px solid var(--info);
+      background: var(--info-bg);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: #0369a1;
+      margin-bottom: 0.25rem;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    table.data-table th, table.data-table td {
+      border: 1px solid var(--border-color);
+      padding: 0.6rem 0.8rem;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .assessment-divider {
+      border: none;
+      height: 2px;
+      background: #e2e8f0;
+      margin: 2rem 0;
+    }
+
+    /* Question Cards & Controls */
+    .question-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .question-prompt {
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #1e293b;
+    }
+
+    .options-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .option-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.65rem 1rem;
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+    }
+
+    .option-btn.state-correct {
+      background: var(--success-bg) !important;
+      border-color: var(--success) !important;
+      color: #14532d;
+      font-weight: 600;
+    }
+
+    .option-btn.state-incorrect {
+      background: var(--danger-bg) !important;
+      border-color: var(--danger) !important;
+      color: #7f1d1d;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .checkbox-label.state-correct {
+      background: var(--success-bg);
+      border-color: var(--success);
+    }
+
+    .checkbox-label.state-missed {
+      background: var(--warning-bg);
+      border-color: var(--warning);
+    }
+
+    .checkbox-label.state-incorrect {
+      background: var(--danger-bg);
+      border-color: var(--danger);
+    }
+
+    .feedback-box {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .feedback-box.active {
+      display: block;
+    }
+
+    .feedback-correct {
+      background: var(--success-bg);
+      border-left: 4px solid var(--success);
+      color: #14532d;
+    }
+
+    .feedback-incorrect {
+      background: var(--danger-bg);
+      border-left: 4px solid var(--danger);
+      color: #7f1d1d;
+    }
+
+    /* Cloze Dropdowns: Uniform Width Constraint */
+    .cloze-select {
+      display: inline-block;
+      min-width: 190px;
+      width: 190px;
+      text-align-last: center;
+      padding: 0.25rem 0.5rem;
+      margin: 0 0.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+
+    .cloze-select.state-correct {
+      border-color: var(--success);
+      background-color: var(--success-bg);
+      color: #14532d;
+    }
+
+    .cloze-select.state-incorrect {
+      border-color: var(--danger);
+      background-color: var(--danger-bg);
+      color: #7f1d1d;
+    }
+
+    /* Short Answer Writing & Rubric Engine */
+    .sa-textarea {
+      width: 100%;
+      height: 120px;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    .sa-meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .rubric-panel {
+      display: none;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .rubric-panel.active {
+      display: block;
+    }
+
+    .expert-model-box {
+      background: #eff6ff;
+      border-left: 4px solid var(--primary);
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.85rem;
+    }
+
+    .checklist-group {
+      margin: 0.75rem 0;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.85rem;
+    }
+
+    .rubric-points-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .rubric-point-option {
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      padding: 0.35rem 0.65rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .rubric-point-option:hover {
+      background: #e2e8f0;
+    }
+
+    .rubric-point-option.selected {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary-hover);
+    }
+
+    /* Bottom Reset & Nav */
+    .btn-reset-section {
+      display: block;
+      margin: 1.25rem auto 0;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      padding: 0.45rem 1rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-reset-section:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .btn-nav {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .btn-nav:hover {
+      background: var(--primary-hover);
+    }
+
+    footer.context-footer {
+      max-width: 980px;
+      margin: 1rem auto 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .btn-link {
+      background: none;
+      border: none;
+      color: var(--primary);
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: inherit;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky High-Contrast Dashboard -->
+  <header class="sticky-dashboard" role="banner">
+    <div class="dashboard-top-row">
+      <div>
+        <div class="course-meta">PX – KINS 4403 Physiology of Exercise</div>
+        <div class="module-heading">10.3 Interaction Between Resistance Training and Diet</div>
+      </div>
+      <div class="score-indicator-wrap">
+        <div class="score-badge" id="global-score-badge">Total Score: 0 / 13 pts (0%)</div>
+        <div class="progress-bar-bg" aria-hidden="true">
+          <div class="progress-bar-fill" id="global-progress-bar"></div>
+        </div>
+      </div>
+      <div class="dashboard-controls">
+        <button class="btn-ghost" onclick="expandAllSections()" aria-label="Expand all accordion containers">Expand All</button>
+        <button class="btn-ghost" onclick="collapseAllSections()" aria-label="Collapse all accordion containers">Collapse All</button>
+        <button class="btn-reset-global" onclick="resetAllActivities()" aria-label="Reset all activities and refresh question bank">Reset All Activities</button>
+      </div>
+    </div>
+    
+    <!-- Tier 1: Concept Navigation -->
+    <div class="toc-tier-1" role="navigation" aria-label="Concept Pages">
+      <button class="toc-pill active" id="pill-concept-1" onclick="navigateToPage('protein-intake-timing')">Protein Intake Guidelines &amp; Nutrient Timing</button>
+      <button class="toc-pill" id="pill-concept-2" onclick="navigateToPage('mtor-molecular-mechanisms')">Molecular Signaling: mTOR, Leucine &amp; Ribosome Biogenesis</button>
+      <button class="toc-pill" id="pill-concept-3" onclick="navigateToPage('presleep-protein-kinetics')">Circadian Anabolism &amp; Presleep Protein Kinetics</button>
+    </div>
+
+    <!-- Tier 2: Current Page Quick-Links -->
+    <div class="toc-tier-2" id="tier-2-links" role="navigation" aria-label="Page Sections">
+      <a class="toc-quicklink" href="#sec-reading">Reading &amp; Core Concepts</a>
+      <a class="toc-quicklink" href="#sec-mcq">Single-Select MCQ</a>
+      <a class="toc-quicklink" href="#sec-ms-mcq">Multi-Select MCQ</a>
+      <a class="toc-quicklink" href="#sec-tf">True / False</a>
+      <a class="toc-quicklink" href="#sec-cloze">Cloze Assessments</a>
+      <a class="toc-quicklink" href="#sec-short-answer">Short Answer Defense</a>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <div class="tab-bar" role="tablist">
+    <button class="tab-btn active" id="tab-lesson-btn" role="tab" aria-selected="true" onclick="switchTab('lesson')">Interactive Lesson</button>
+    <button class="tab-btn" id="tab-glossary-btn" role="tab" aria-selected="false" onclick="switchTab('glossary')">Master Terminology [Reference]</button>
+  </div>
+
+  <!-- Workspace Container -->
+  <main class="workspace-container">
+    
+    <!-- TAB PANE: LESSON -->
+    <div class="tab-content-pane active" id="pane-lesson">
+      
+      <!-- PAGE 1: Protein Intake Guidelines & Nutrient Timing -->
+      <section id="page-protein-intake-timing" class="concept-page-view">
+        <h1 class="page-title">Protein Intake Guidelines &amp; Nutrient Timing</h1>
+        
+        <!-- Accordion 0: Reading -->
+        <details class="accordion-card" id="sec-reading">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Concept Reading: Protein Dosing, Dietary Saturation, and the Anabolic Window</span>
+            </span>
+          </summary>
+          <div class="accordion-body">
+            <p>Skeletal muscle hypertrophy operates under a fundamental bioenergetic requirement: a <strong>net positive protein balance</strong>, wherein muscle protein synthesis (MPS) exceeds muscle protein breakdown (MPB). Resistance exercise and amino acid ingestion act as synergistic catalysts for muscle protein accretion. Without adequate dietary protein, myofibrillar protein synthesis is compromised, preventing muscle fibers from expanding their cross-sectional area (CSA).</p>
+            
+            <div class="callout-box">
+              <div class="callout-title">The Evidence-Based Supplementation Ceiling</div>
+              <p>A systematic meta-analysis of 49 randomized controlled trials encompassing 1,863 participants demonstrated that dietary protein supplementation significantly augments 1RM strength gains and increases both muscle fiber and whole-muscle cross-sectional area during resistance programs lasting at least 6 weeks. However, this meta-analysis revealed a clear saturation threshold: protein intakes exceeding <strong>~1.6 g/kg of body weight per day</strong> yielded no additional gains in muscle mass or strength.</p>
+            </div>
+
+            <h2>Dietary Standards vs. Athletic Requirements</h2>
+            <p>While the standard U.S. Dietary Reference Intake (DRI) for sedentary adults is <strong>0.8 g/kg/day</strong>, athletes engaged in chronic resistance training require intakes up to <strong>1.6 to 1.7 g/kg/day</strong> to maximize anabolism. Although small doses (5–10 g) can stimulate basal synthesis, achieving maximal post-exercise myofibrillar stimulation requires boluses of <strong>20 to 25 g of high-quality protein</strong> immediately following training.</p>
+
+            <h2>Protein Quality and Carbohydrate Co-Ingestion</h2>
+            <p>The optimal proteins for stimulating hypertrophy are rapidly digested and dense in essential amino acids (EAAs), with particular emphasis on <strong>leucine</strong>. Whey protein derived from milk exemplifies this profile. Co-ingesting carbohydrate with protein does not significantly enhance post-exercise muscle protein balance over protein alone, but serves vital metabolic functions by facilitating muscle glycogen resynthesis and elevating circulating insulin.</p>
+
+            <h2>The Dynamic "Window of Opportunity"</h2>
+            <p>The acute stimulatory effect of a single bolus of amino acids is transient, lasting approximately <strong>1 to 2 hours</strong>. Consequently, consuming repeated moderate doses of protein throughout recovery is more effective for sustaining 24-hour anabolism than consuming a single large meal. The classic "anabolic window of opportunity" is broader than historically believed, extending from just before exercise to several hours post-exercise.</p>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Population / Protocol</th>
+                  <th>Daily Protein Target</th>
+                  <th>Acute Post-Exercise Dose</th>
+                  <th>Key Physiological Objective</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Sedentary Adults (DRI)</strong></td>
+                  <td>0.8 g/kg/day</td>
+                  <td>None specified</td>
+                  <td>Prevention of nitrogen deficiency</td>
+                </tr>
+                <tr>
+                  <td><strong>Resistance-Trained Athletes</strong></td>
+                  <td>1.6 to 1.7 g/kg/day</td>
+                  <td>20 to 25 g high-quality protein</td>
+                  <td>Maximizing MPS, fiber CSA, and 1RM gains</td>
+                </tr>
+                <tr>
+                  <td><strong>High-Quality Protein Sources</strong></td>
+                  <td>Rich in EAAs &amp; Leucine</td>
+                  <td>Rapid digestion kinetics (e.g., Whey)</td>
+                  <td>Rapid aminoacidemia and mTORC1 activation</td>
+                </tr>
+                <tr>
+                  <td><strong>Protein + Carbohydrate</strong></td>
+                  <td>Tailored to training volume</td>
+                  <td>~3:1 or 4:1 Carb-to-Protein</td>
+                  <td>Glycogen replenishment and insulin secretion</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <hr class="assessment-divider">
+
+        <!-- Formative Assessment 1: Single-Select MCQ -->
+        <details class="accordion-card" id="sec-mcq">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 1: Single-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-mcq">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-mcq"></div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'mcq')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 2: Multi-Select MCQ -->
+        <details class="accordion-card" id="sec-ms-mcq">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 2: Multi-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-ms">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-ms"></div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'ms')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 3: True / False -->
+        <details class="accordion-card" id="sec-tf">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 3: True / False Analysis</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-tf">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-tf"></div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'tf')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 4: Cloze Fill-in-the-Blank -->
+        <details class="accordion-card" id="sec-cloze">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 4: Cloze Terminology Fill-in-the-Blank</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-cloze">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-cloze"></div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'cloze')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 5: Short Answer & Rubric -->
+        <details class="accordion-card" id="sec-short-answer">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 5: Conceptual Defense &amp; Self-Scoring Rubric</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p1-sa">Score: 0 / 5 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p1-sa"></div>
+          <button class="btn-reset-section" onclick="resetSection('p1', 'sa')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <div class="nav-bar">
+          <div></div>
+          <button class="btn-nav" onclick="navigateToPage('mtor-molecular-mechanisms')">Continue to Molecular Signaling: mTOR, Leucine &amp; Ribosome Biogenesis →</button>
+        </div>
+      </section>
+
+      <!-- PAGE 2: Molecular Signaling: mTOR, Leucine & Ribosome Biogenesis -->
+      <section id="page-mtor-molecular-mechanisms" class="concept-page-view" style="display: none;">
+        <h1 class="page-title">Molecular Signaling: mTOR, Leucine &amp; Ribosome Biogenesis</h1>
+        
+        <!-- Accordion 0: Reading -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Concept Reading: Intracellular Kinase Activation, Translational Efficiency, and Ribosome Synthesis</span>
+            </span>
+          </summary>
+          <div class="accordion-body">
+            <p>At the intracellular level, the synthesis of myofibrillar proteins is coordinated by a master serine/threonine protein kinase known as <strong>mTOR (mechanistic target of rapamycin)</strong>. mTOR integrates upstream environmental, hormonal, metabolic, and mechanical signals to control the translation of messenger RNA (mRNA) into contractile proteins (actin and myosin).</p>
+            
+            <div class="callout-box">
+              <div class="callout-title">The Primary Mechanical Trigger &amp; Chemical Inhibition</div>
+              <p>The primary stimulus for muscle protein synthesis is the <strong>mechanical stretch and tension</strong> imposed across skeletal muscle fibers during resistance training, which activates mTOR via upstream cascades involving <strong>IGF-1 (insulin-like growth factor 1)</strong>. The pivotal role of this pathway is demonstrated experimentally: when mTOR is blocked pharmacologically (e.g., using rapamycin), resistance exercise completely fails to induce muscle hypertrophy.</p>
+            </div>
+
+            <h2>Leucine Sensing &amp; Amino Acid Availability</h2>
+            <p>In addition to mechanical strain, mTOR acts as an intracellular sensor of cellular nutrient, energy, and oxygen levels. It is directly activated by essential amino acids, with the branched-chain amino acid <strong>leucine</strong> acting as the primary chemical trigger. Delivering leucine-rich protein during the peri-exercise window activates mTOR significantly more than exercise alone, maximizing muscle protein synthesis.</p>
+
+            <h2>Hormonal Anabolism: The Role of Insulin</h2>
+            <p>Dietary amino acid availability stimulates hypertrophy not only by providing building blocks, but also by promoting an anabolic hormonal environment. <strong>Insulin</strong> serves as a potent anabolic stimulus. In the presence of adequate intracellular amino acids, postprandial insulin surges enhance translational efficiency by accelerating the rate at which ribosomes process mRNA codes into polypeptide chains.</p>
+
+            <h2>Ribosome Biogenesis: Expanding Translational Capacity</h2>
+            <p>Translation is carried out by cellular organelles called <strong>ribosomes</strong>. While translation rate (efficiency) can be augmented acutely, long-term hypertrophy requires an increase in total translational capacity through <strong>ribosome biogenesis</strong>—the creation of new ribosomes. When ribosome biogenesis is blocked biochemically, skeletal muscle fails to hypertrophy despite mechanical overload. Notably, mTOR localizes to the cell nucleus to coordinate ribosome biogenesis in addition to controlling cytoplasmic translation.</p>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Molecular Factor</th>
+                  <th>Primary Signal / Stimulus</th>
+                  <th>Role in Hypertrophy Cascade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>mTOR Kinase</strong></td>
+                  <td>Mechanical stretch, IGF-1, leucine, energy charge</td>
+                  <td>Master integrator controlling mRNA translation and nuclear ribosome synthesis</td>
+                </tr>
+                <tr>
+                  <td><strong>Leucine</strong></td>
+                  <td>Intracellular amino acid pool via digestion of EAAs</td>
+                  <td>Direct chemical activator of mTORC1 signaling pathways</td>
+                </tr>
+                <tr>
+                  <td><strong>Insulin</strong></td>
+                  <td>Carbohydrate/protein feeding</td>
+                  <td>Enhances translation efficiency of mRNA in the presence of amino acid substrates</td>
+                </tr>
+                <tr>
+                  <td><strong>Ribosome Biogenesis</strong></td>
+                  <td>Mechanical tension and nuclear mTOR activity</td>
+                  <td>Synthesizes new ribosomes, expanding total protein translational capacity</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <hr class="assessment-divider">
+
+        <!-- Formative Assessment 1: Single-Select MCQ -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 1: Single-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-mcq">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-mcq"></div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'mcq')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 2: Multi-Select MCQ -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 2: Multi-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-ms">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-ms"></div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'ms')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 3: True / False -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 3: True / False Analysis</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-tf">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-tf"></div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'tf')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 4: Cloze Fill-in-the-Blank -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 4: Cloze Terminology Fill-in-the-Blank</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-cloze">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-cloze"></div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'cloze')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 5: Short Answer & Rubric -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 5: Conceptual Defense &amp; Self-Scoring Rubric</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p2-sa">Score: 0 / 5 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p2-sa"></div>
+          <button class="btn-reset-section" onclick="resetSection('p2', 'sa')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <div class="nav-bar">
+          <button class="btn-nav" onclick="navigateToPage('protein-intake-timing')">← Return to Protein Intake Guidelines &amp; Timing</button>
+          <button class="btn-nav" onclick="navigateToPage('presleep-protein-kinetics')">Continue to Circadian Anabolism &amp; Presleep Protein Kinetics →</button>
+        </div>
+      </section>
+
+      <!-- PAGE 3: Circadian Anabolism & Presleep Protein Kinetics -->
+      <section id="page-presleep-protein-kinetics" class="concept-page-view" style="display: none;">
+        <h1 class="page-title">Circadian Anabolism &amp; Presleep Protein Kinetics</h1>
+        
+        <!-- Accordion 0: Reading -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Concept Reading: Overnight Fasting, Presleep Supplementation, and the 2016 Netherlands Exercise Trial</span>
+            </span>
+          </summary>
+          <div class="accordion-body">
+            <p>During normal nocturnal sleep, the human body enters a prolonged fasting state lasting 7 to 9 hours. In the absence of exogenous amino acids, muscle protein breakdown can exceed synthesis, resulting in net negative nitrogen balance across the night. Presleep protein ingestion has emerged as an effective dietary strategy to sustain plasma amino acid availability, stimulate muscle protein synthesis, and support overnight recovery.</p>
+
+            <div class="callout-box">
+              <div class="callout-title">The 2016 Netherlands Presleep Exercise Trial</div>
+              <p>In a landmark 2016 clinical study conducted in the Netherlands, researchers investigated whether performing an acute bout of resistance exercise in the evening could augment the overnight anabolic response to presleep protein ingestion. Twenty-four healthy young men were randomized into two groups: <strong>presleep protein ingestion plus evening exercise (PRO+EX)</strong> or <strong>presleep protein alone (PRO)</strong>.</p>
+            </div>
+
+            <h2>Experimental Methodology &amp; Isotope Tracer Design</h2>
+            <ol>
+              <li>Both cohorts received a standardized baseline meal.</li>
+              <li>The PRO+EX group performed 60 minutes of lower-body resistance exercise, while the PRO group rested.</li>
+              <li>Immediately post-exercise/rest, all subjects ingested a 20 g protein recovery beverage.</li>
+              <li>Continuous infusions of labeled amino acid isotopes were initiated alongside muscle biopsies to measure dynamic protein turnover.</li>
+              <li>Immediately before sleep, all subjects ingested an additional 30 g bolus of labeled protein. Blood samples were drawn at 30, 60, 90, 150, 210, 330, and 450 minutes throughout sleep, followed by a second muscle biopsy upon waking.</li>
+            </ol>
+
+            <h2>Major Findings &amp; Clinical Significance</h2>
+            <p>The results revealed that overnight myofibrillar protein synthesis was <strong>~35% greater</strong> in the PRO+EX group compared to the PRO-alone group. Furthermore, significantly more of the labeled dietary-derived amino acids were incorporated into newly synthesized myofibrils overnight in the PRO+EX cohort. This confirms that evening resistance training enhances the efficiency with which presleep protein is digested, absorbed, and incorporated into skeletal muscle during sleep.</p>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Experimental Cohort</th>
+                  <th>Evening Protocol</th>
+                  <th>Presleep Dose</th>
+                  <th>Overnight Myofibrillar MPS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>PRO Group</strong></td>
+                  <td>Rest (Sedentary)</td>
+                  <td>30 g labeled protein</td>
+                  <td>Baseline overnight stimulation</td>
+                </tr>
+                <tr>
+                  <td><strong>PRO+EX Group</strong></td>
+                  <td>60 min lower-body lifting</td>
+                  <td>30 g labeled protein</td>
+                  <td><strong>~35% greater overnight MPS</strong>; elevated amino acid incorporation</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <hr class="assessment-divider">
+
+        <!-- Formative Assessment 1: Single-Select MCQ -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 1: Single-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p3-mcq">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p3-mcq"></div>
+          <button class="btn-reset-section" onclick="resetSection('p3', 'mcq')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 2: Multi-Select MCQ -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 2: Multi-Select Multiple Choice</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p3-ms">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p3-ms"></div>
+          <button class="btn-reset-section" onclick="resetSection('p3', 'ms')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 3: True / False -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 3: True / False Analysis</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p3-tf">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p3-tf"></div>
+          <button class="btn-reset-section" onclick="resetSection('p3', 'tf')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 4: Cloze Fill-in-the-Blank -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 4: Cloze Terminology Fill-in-the-Blank</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p3-cloze">Score: 0 / 2 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p3-cloze"></div>
+          <button class="btn-reset-section" onclick="resetSection('p3', 'cloze')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <!-- Formative Assessment 5: Short Answer & Rubric -->
+        <details class="accordion-card">
+          <summary class="accordion-header">
+            <span class="accordion-header-left">
+              <span class="accordion-chevron">▶</span>
+              <span>Formative Activity 5: Conceptual Defense &amp; Self-Scoring Rubric</span>
+            </span>
+            <span class="section-score-pill" id="score-badge-p3-sa">Score: 0 / 5 pts</span>
+          </summary>
+          <div class="accordion-body" id="container-p3-sa"></div>
+          <button class="btn-reset-section" onclick="resetSection('p3', 'sa')">Reset Section &amp; Refresh Questions</button>
+        </details>
+
+        <div class="nav-bar">
+          <button class="btn-nav" onclick="navigateToPage('mtor-molecular-mechanisms')">← Return to Molecular Signaling</button>
+          <button class="btn-nav" style="background: #059669;" onclick="alert('Congratulations! You have completed all interactive sections of Module 10.3.')">Complete Module 10.3 ✓</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- TAB PANE: GLOSSARY REFERENCE -->
+    <div class="tab-content-pane" id="pane-glossary">
+      <h1 class="page-title">Master Terminology Reference</h1>
+      <p>This persistent reference lexicon defines core nutritional and molecular exercise physiology concepts utilized across this module:</p>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Scientific Term</th>
+            <th>Physiological Definition &amp; Contextual Application</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Net Protein Balance</strong></td>
+            <td>The mathematical relationship between muscle protein synthesis (MPS) and breakdown (MPB). Hypertrophy requires a net positive balance ($\text{MPS} > \text{MPB}$).</td>
+          </tr>
+          <tr>
+            <td><strong>mTOR (Mechanistic Target of Rapamycin)</strong></td>
+            <td>A master regulatory serine/threonine kinase that integrates upstream mechanical, hormonal, and amino acid cues to control mRNA translation and protein synthesis.</td>
+          </tr>
+          <tr>
+            <td><strong>Leucine</strong></td>
+            <td>An essential branched-chain amino acid that acts as a primary chemical trigger activating the mTOR complex and stimulating postprandial muscle protein synthesis.</td>
+          </tr>
+          <tr>
+            <td><strong>Ribosome Biogenesis</strong></td>
+            <td>The synthesis of new ribosomal RNA and assembly of ribosomal subunits, expanding the total cellular translational capacity required for long-term hypertrophy.</td>
+          </tr>
+          <tr>
+            <td><strong>Translation</strong></td>
+            <td>The biological process wherein ribosomes decode messenger RNA (mRNA) transcripts into specific polypeptide chains to build functional myofibrillar proteins.</td>
+          </tr>
+          <tr>
+            <td><strong>Whey Protein</strong></td>
+            <td>A rapidly digested milk-derived protein fraction characterized by high essential amino acid content and elevated leucine concentrations.</td>
+          </tr>
+          <tr>
+            <td><strong>Anabolic Window of Opportunity</strong></td>
+            <td>The peri-exercise timeframe extending from immediately before training to several hours post-exercise during which muscle is sensitized to amino acid stimulation.</td>
+          </tr>
+          <tr>
+            <td><strong>Dietary Reference Intake (DRI)</strong></td>
+            <td>The baseline nutritional recommendation for protein (0.8 g/kg/day for sedentary adults) established to prevent deficiency rather than optimize athletic adaptation.</td>
+          </tr>
+          <tr>
+            <td><strong>Insulin</strong></td>
+            <td>An anabolic peptide hormone secreted by pancreatic beta cells that enhances translational efficiency and stimulates amino acid uptake in skeletal muscle.</td>
+          </tr>
+          <tr>
+            <td><strong>Presleep Protein Ingestion</strong></td>
+            <td>The consumption of a protein bolus (e.g., 30–40 g) immediately before sleep to sustain plasma amino acid concentrations and elevate overnight muscle protein synthesis.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="context-footer">
+    <div id="page-indicator">Current Module Topic: Protein Intake Guidelines &amp; Nutrient Timing</div>
+    <div style="margin-top: 0.5rem;">
+      <button class="btn-link" onclick="restartLesson()">Restart Lesson from Beginning</button>
+    </div>
+  </footer>
+
+  <script>
+    /* =========================================================================
+       MASTER ASSESSMENT DATA STORE (10.3 INTERACTION BETWEEN RESISTANCE TRAINING & DIET)
+       ========================================================================= */
+    const assessmentBanks = {
+      p1: {
+        mcq: [
+          {
+            id: "p1_mcq_1",
+            q: "According to the systematic meta-analysis of 49 randomized controlled trials (1,863 subjects), at what daily protein intake threshold do additional gains in muscle mass and strength plateau?",
+            opts: ["0.8 g/kg/day", "~1.6 g/kg/day", "2.5 g/kg/day", "3.2 g/kg/day"],
+            correct: 1,
+            rationale: "The meta-analysis concluded that while protein supplementation enhances 1RM strength and fiber CSA, intakes exceeding ~1.6 g/kg of body weight per day do not further contribute to gains in muscle mass or strength."
+          },
+          {
+            id: "p1_mcq_2",
+            q: "What is the baseline U.S. Dietary Reference Intake (DRI) for dietary protein in adults over 18 years of age, regardless of physical activity status?",
+            opts: ["0.4 g/kg/day", "0.8 g/kg/day", "1.2 g/kg/day", "1.7 g/kg/day"],
+            correct: 1,
+            rationale: "The standard U.S. DRI for protein is 0.8 g/kg/day, which is designed to prevent deficiency in sedentary populations, whereas resistance athletes require up to 1.6–1.7 g/kg/day."
+          },
+          {
+            id: "p1_mcq_3",
+            q: "What acute dose of high-quality protein consumed immediately post-exercise is recommended to maximally stimulate muscle protein synthesis in young individuals?",
+            opts: ["2 to 5 g", "10 to 12 g", "20 to 25 g", "50 to 60 g"],
+            correct: 2,
+            rationale: "While 5–10 g can induce measurable synthesis, optimal post-exercise myofibrillar protein synthesis requires larger boluses on the order of 20 to 25 g of high-quality protein."
+          },
+          {
+            id: "p1_mcq_4",
+            q: "Which specific essential branched-chain amino acid serves as the primary chemical trigger for stimulating muscle protein synthesis via mTOR?",
+            opts: ["Valine", "Isoleucine", "Leucine", "Tryptophan"],
+            correct: 2,
+            rationale: "Leucine is the key essential amino acid that directly stimulates mTOR, acting as a molecular nutrient sensor that initiates messenger RNA translation."
+          },
+          {
+            id: "p1_mcq_5",
+            q: "What is the primary metabolic benefit of adding carbohydrates to a post-exercise protein beverage?",
+            opts: ["It doubles the rate of muscle protein synthesis compared to protein alone", "It aids in the resynthesis of depleted muscle glycogen stores", "It permanently suppresses all cortisol secretion", "It prevents amino acid transport into the kidneys"],
+            correct: 1,
+            rationale: "Co-ingesting carbohydrate does not markedly augment muscle protein synthesis beyond high-quality protein alone, but it is critical for replenishing muscle glycogen."
+          },
+          {
+            id: "p1_mcq_6",
+            q: "How long does the protein synthesis-stimulating effect of a single bolus of amino acids typically last in skeletal muscle?",
+            opts: ["10 to 15 minutes", "1 to 2 hours", "8 to 12 hours", "24 to 48 hours"],
+            correct: 1,
+            rationale: "The acute stimulatory effect of a single dose of amino acids on muscle protein synthesis is transient, lasting approximately 1 to 2 hours."
+          },
+          {
+            id: "p1_mcq_7",
+            q: "Why is whey protein considered one of the most effective protein sources for stimulating muscle hypertrophy?",
+            opts: ["It is rapidly digested and exceptionally rich in essential amino acids, especially leucine", "It contains high concentrations of insoluble collagen fibers", "It suppresses insulin secretion to facilitate lipid oxidation", "It requires 8 to 10 hours for gastric emptying"],
+            correct: 0,
+            rationale: "Whey protein derived from milk is rapidly digested and contains high concentrations of essential amino acids and leucine, producing rapid hyperaminoacidemia."
+          },
+          {
+            id: "p1_mcq_8",
+            q: "How is the modern concept of the 'anabolic window of opportunity' best characterized?",
+            opts: ["A strict 15-minute period immediately following the final repetition", "A broad window extending from just before exercise to several hours post-exercise", "A window that opens only after 24 hours of complete fasting", "An anabolic phase that occurs exclusively during sleep"],
+            correct: 1,
+            rationale: "The window of opportunity lasts from just before the onset of resistance exercise to several hours post-exercise, allowing flexible nutrient timing."
+          }
+        ],
+        ms: [
+          {
+            id: "p1_ms_1",
+            q: "Which of the following outcomes were confirmed by the systematic meta-analysis of 49 randomized controlled trials regarding protein supplementation during resistance training? (Select all that apply)",
+            opts: ["Significantly enhanced 1-repetition maximum (1RM) strength gains", "Increased muscle fiber cross-sectional area (CSA)", "Increased whole-muscle cross-sectional area", "Linear, unlimited strength increases at intakes exceeding 3.5 g/kg/day"],
+            correctArray: [0, 1, 2],
+            rationale: "The meta-analysis showed significant improvements in 1RM strength, fiber CSA, and whole-muscle CSA, but benefits plateaued at ~1.6 g/kg/day."
+          },
+          {
+            id: "p1_ms_2",
+            q: "Which practical dietary strategies optimize the skeletal muscle hypertrophic response to chronic resistance training? (Select all that apply)",
+            opts: ["Consuming repeated moderate doses of protein throughout recovery rather than one large meal", "Targeting a total daily intake between 1.6 and 1.7 g/kg of body weight", "Ingesting 20 to 25 g of high-quality protein immediately post-exercise", "Restricting all protein intake for 6 hours post-exercise to promote autophagy"],
+            correctArray: [0, 1, 2],
+            rationale: "Repeated moderate protein boluses, daily intakes of 1.6–1.7 g/kg, and a 20–25 g post-exercise dose optimize 24-hour muscle protein synthesis."
+          },
+          {
+            id: "p1_ms_3",
+            q: "Which characteristics define an optimal protein source for maximizing muscle protein synthesis? (Select all that apply)",
+            opts: ["Rapid digestion and absorption kinetics", "High density of essential amino acids (EAAs)", "High concentration of the branched-chain amino acid leucine", "Absence of all nitrogenous compounds"],
+            correctArray: [0, 1, 2],
+            rationale: "High-quality proteins are rapidly digested, rich in essential amino acids, and high in leucine, which together stimulate the mTOR pathway."
+          },
+          {
+            id: "p1_ms_4",
+            q: "What physiological benefits occur when carbohydrate is co-ingested with protein following a resistance training session? (Select all that apply)",
+            opts: ["Aids in the replenishment and resynthesis of muscle glycogen stores", "Stimulates pancreatic insulin secretion to create an anabolic hormonal environment", "Substantially increases protein synthesis beyond protein alone", "Supports recovery from glycogen-depleting resistance workouts"],
+            correctArray: [0, 1, 3],
+            rationale: "Carbohydrates replenish muscle glycogen and stimulate insulin secretion, but do not markedly increase muscle protein synthesis beyond high-quality protein alone."
+          }
+        ],
+        tf: [
+          {
+            id: "p1_tf_1",
+            q: "Daily dietary protein intakes exceeding 1.6 g/kg of body weight provide continuous, linear increases in muscle size in resistance-trained athletes.",
+            ans: false,
+            feedback: "False. Meta-analytic evidence confirms that muscle mass and strength gains plateau at ~1.6 g/kg/day; higher intakes yield no additional hypertrophy."
+          },
+          {
+            id: "p1_tf_2",
+            q: "A net positive protein balance occurs when skeletal muscle protein synthesis exceeds muscle protein breakdown.",
+            ans: true,
+            feedback: "True. Muscle hypertrophy requires a net positive protein balance over time (synthesis > breakdown)."
+          },
+          {
+            id: "p1_tf_3",
+            q: "The current U.S. Dietary Reference Intake (DRI) for protein is 1.7 g/kg/day for all adults.",
+            ans: false,
+            feedback: "False. The U.S. DRI for adults over 18 years is 0.8 g/kg/day; 1.6 to 1.7 g/kg/day is the athletic recommendation for resistance training."
+          },
+          {
+            id: "p1_tf_4",
+            q: "Consuming protein before or during exercise can stimulate muscle protein synthesis during prolonged or repeated training sessions.",
+            ans: true,
+            feedback: "True. Providing amino acids peri-workout maintains aminoacidemia and elevates protein synthesis during extended training bouts."
+          },
+          {
+            id: "p1_tf_5",
+            q: "The stimulatory effect of a single bolus of amino acids on muscle protein synthesis remains fully elevated for 24 hours.",
+            ans: false,
+            feedback: "False. The synthetic response to a single dose of amino acids is transient, returning to baseline within 1 to 2 hours."
+          },
+          {
+            id: "p1_tf_6",
+            q: "Whey protein is particularly effective for muscle hypertrophy because it digests rapidly and is rich in leucine.",
+            ans: true,
+            feedback: "True. Whey's rapid absorption kinetics and high leucine concentration trigger rapid mTOR activation."
+          },
+          {
+            id: "p1_tf_7",
+            q: "Co-ingesting carbohydrate with protein significantly multiplies the rate of muscle protein synthesis compared to protein alone.",
+            ans: false,
+            feedback: "False. Adding carbohydrate does not markedly alter protein balance over protein alone, though it is essential for glycogen resynthesis."
+          },
+          {
+            id: "p1_tf_8",
+            q: "Ingesting repeated small-to-moderate doses of protein across the day can be more effective for hypertrophy than consuming one large daily protein meal.",
+            ans: true,
+            feedback: "True. Repeated doses repeatedly restimulate muscle protein synthesis across a 24-hour period."
+          }
+        ],
+        cloze: [
+          {
+            id: "p1_clz_1",
+            statement: "In resistance-trained individuals, dietary protein intake beyond **~1.6 g/kg** of body weight per day does not further enhance muscle mass gains.",
+            target: "~1.6 g/kg",
+            optionsBank: ["~1.6 g/kg", "~0.4 g/kg", "~3.5 g/kg", "~5.0 g/kg"]
+          },
+          {
+            id: "p1_clz_2",
+            statement: "The baseline U.S. Dietary Reference Intake for sedentary adults over 18 years of age is **0.8 g/kg per day**.",
+            target: "0.8 g/kg per day",
+            optionsBank: ["0.8 g/kg per day", "1.7 g/kg per day", "2.2 g/kg per day", "0.2 g/kg per day"]
+          },
+          {
+            id: "p1_clz_3",
+            statement: "To maximize muscle protein synthesis after resistance exercise, athletes should consume **20 to 25 g** of high-quality protein.",
+            target: "20 to 25 g",
+            optionsBank: ["20 to 25 g", "2 to 5 g", "75 to 100 g", "150 g"]
+          },
+          {
+            id: "p1_clz_4",
+            statement: "The branched-chain amino acid **leucine** serves as a potent chemical trigger for activating muscle protein synthesis.",
+            target: "leucine",
+            optionsBank: ["leucine", "glycine", "alanine", "glutamate"]
+          },
+          {
+            id: "p1_clz_5",
+            statement: "Muscle hypertrophy requires a condition of **net positive protein balance** where synthesis exceeds breakdown.",
+            target: "net positive protein balance",
+            optionsBank: ["net positive protein balance", "negative nitrogen balance", "glycogen depletion", "transient atrophy"]
+          },
+          {
+            id: "p1_clz_6",
+            statement: "The stimulatory effect of a single dose of amino acids on muscle protein synthesis is transient and lasts **1 to 2 h**.",
+            target: "1 to 2 h",
+            optionsBank: ["1 to 2 h", "8 to 12 h", "24 to 36 h", "5 to 10 minutes"]
+          },
+          {
+            id: "p1_clz_7",
+            statement: "Adding carbohydrate to post-exercise protein ingestion primarily aids in the resynthesis of **muscle glycogen**.",
+            target: "muscle glycogen",
+            optionsBank: ["muscle glycogen", "blood hemoglobin", "collagen fibers", "sarcomere Z-disks"]
+          },
+          {
+            id: "p1_clz_8",
+            statement: "Athletes engaged in intensive resistance training may require daily protein intakes as high as **1.7 g/kg per day**.",
+            target: "1.7 g/kg per day",
+            optionsBank: ["1.7 g/kg per day", "0.5 g/kg per day", "4.0 g/kg per day", "0.8 g/kg per day"]
+          }
+        ],
+        sa: [
+          {
+            id: "p1_sa_1",
+            q: "A collegiate strength athlete weighing 80 kg consumes 240 g of protein daily (3.0 g/kg/day) from supplements and claims this doubles his muscle protein synthesis compared to 1.6 g/kg/day. Based on clinical evidence, evaluate this claim and outline an evidence-based daily intake, acute post-exercise dose, and protein quality recommendation.",
+            model: "The athlete's claim is physiologically and empirically incorrect. A systematic meta-analysis of 49 randomized controlled trials demonstrated that gains in 1RM strength and muscle fiber cross-sectional area plateau at ~1.6 g/kg/day, with no additional hypertrophic benefit observed at higher intakes. Consuming 3.0 g/kg/day simply leads to oxidation of excess amino acids into urea. For an 80 kg athlete, an evidence-based recommendation includes: 1) A daily intake of 1.6 to 1.7 g/kg/day (~128–136 g total protein), distributed across 3–5 meals; 2) An acute post-exercise bolus of 20 to 25 g of high-quality protein (such as whey protein, rich in essential amino acids and leucine) consumed during the peri-workout window; and 3) Inclusion of carbohydrate to replenish depleted muscle glycogen stores.",
+            criteria: [
+              "Refutes the 3.0 g/kg claim citing meta-analytic evidence that hypertrophy plateaus at ~1.6 g/kg/day.",
+              "Calculates or specifies an appropriate daily intake (1.6–1.7 g/kg/day, or ~128–136 g for an 80 kg individual).",
+              "Prescribes an acute post-exercise dose of 20–25 g of high-quality, leucine-rich protein (e.g., whey) and justifies carbohydrate co-ingestion for glycogen resynthesis."
+            ]
+          }
+        ]
+      },
+      p2: {
+        mcq: [
+          {
+            id: "p2_mcq_1",
+            q: "Which master regulatory enzyme controls the rate of protein synthesis within skeletal myofibrils by integrating mechanical, hormonal, and amino acid cues?",
+            opts: ["AMP-activated protein kinase (AMPK)", "Mechanistic target of rapamycin (mTOR)", "Glycogen synthase kinase-3", "Lactate dehydrogenase"],
+            correct: 1,
+            rationale: "mTOR (mechanistic target of rapamycin) is the master serine/threonine kinase that integrates upstream signals to control mRNA translation and protein synthesis."
+          },
+          {
+            id: "p2_mcq_2",
+            q: "What is the primary physiological stimulus that initiates the molecular signaling cascade activating mTOR in resistance-trained muscle?",
+            opts: ["Cellular hypoxia", "Mechanical stretch applied to the muscle", "Glycogen depletion", "Elevated blood lactate"],
+            correct: 1,
+            rationale: "The primary stimulus for muscle protein synthesis is the mechanical stretch and tension applied during resistance exercise, which activates mTOR via IGF-1 pathways."
+          },
+          {
+            id: "p2_mcq_3",
+            q: "What happens to skeletal muscle hypertrophy when mTOR is blocked experimentally using pharmaceutical inhibitors such as rapamycin?",
+            opts: ["Hypertrophy occurs at twice the normal rate", "Resistance exercise fails to produce muscle hypertrophy", "Muscle fibers multiply via rapid hyperplasia", "Skeletal muscle converts into adipose tissue"],
+            correct: 1,
+            rationale: "When mTOR is blocked experimentally, resistance exercise fails to produce muscle hypertrophy, proving that mTOR activation is an obligatory requirement for muscle growth."
+          },
+          {
+            id: "p2_mcq_4",
+            q: "Which hormone acts as a potent anabolic stimulus that enhances translational efficiency of mRNA in the presence of adequate amino acids?",
+            opts: ["Glucagon", "Insulin", "Cortisol", "Epinephrine"],
+            correct: 1,
+            rationale: "Insulin promotes the efficient translation of genetic codes carried by mRNA into functional proteins in the presence of adequate amino acid substrate."
+          },
+          {
+            id: "p2_mcq_5",
+            q: "What term describes the cellular process of synthesizing new ribosomes to expand the translational capacity of skeletal muscle fibers?",
+            opts: ["Mitochondrial fission", "Ribosome biogenesis", "Sarcomere degradation", "Autogenic inhibition"],
+            correct: 1,
+            rationale: "Ribosome biogenesis refers to the creation of new ribosomes, which increases total translational capacity and is essential for long-term hypertrophy."
+          },
+          {
+            id: "p2_mcq_6",
+            q: "What occurs to muscle fiber remodeling if the synthesis of new ribosomes is blocked biochemically during resistance overload?",
+            opts: ["Muscles fail to undergo hypertrophy", "Muscle protein synthesis increases tenfold", "Fibers undergo longitudinal splitting", "Endurance capacity increases by 300%"],
+            correct: 0,
+            rationale: "When the synthesis of new ribosomes is blocked biochemically, skeletal muscle fails to undergo hypertrophy despite mechanical overload."
+          },
+          {
+            id: "p2_mcq_7",
+            q: "In addition to controlling cytoplasmic translation, what critical nuclear role does mTOR perform in the muscle growth process?",
+            opts: ["Regulating the synthesis of ribosomes in the cell nucleus", "Breaking down sarcomeric Z-disks", "Transporting glycogen into the bloodstream", "Inhibiting satellite cell activation"],
+            correct: 0,
+            rationale: "Recent research confirms that mTOR localizes to the cell nucleus to coordinate the synthesis of ribosomes (ribosome biogenesis) in addition to regulating translation."
+          },
+          {
+            id: "p2_mcq_8",
+            q: "Why does ingesting leucine-rich protein during the peri-exercise window produce greater muscle hypertrophy than exercise alone?",
+            opts: ["Leucine directly activates mTOR, adding a chemical stimulus to the mechanical tension stimulus", "Leucine converts directly into testosterone in the bloodstream", "Leucine inhibits all cellular protein degradation permanently", "Leucine eliminates the need for ribosomal translation"],
+            correct: 0,
+            rationale: "Leucine acts as an intracellular nutrient signal that activates mTOR, synergizing with mechanical stretch to induce greater protein synthesis than exercise alone."
+          }
+        ],
+        ms: [
+          {
+            id: "p2_ms_1",
+            q: "Which upstream stimuli and nutrient signals directly activate the mTOR signaling complex in skeletal muscle? (Select all that apply)",
+            opts: ["Mechanical stretch and tension", "Insulin-like growth factor 1 (IGF-1)", "Intracellular amino acid availability, especially leucine", "Severe prolonged intracellular ATP depletion"],
+            correctArray: [0, 1, 2],
+            rationale: "Mechanical stretch, IGF-1, and amino acids (especially leucine) activate mTOR. Severe ATP depletion activates AMPK, which inhibits mTOR."
+          },
+          {
+            id: "p2_ms_2",
+            q: "Which cellular mechanisms explain how insulin promotes muscle hypertrophy in young skeletal muscle? (Select all that apply)",
+            opts: ["Stimulates protein synthesis in the presence of adequate amino acid substrate", "Promotes more efficient conversion of mRNA into proteins (translation)", "Directly degrades existing actin and myosin filaments", "Enhances amino acid uptake into the intracellular compartment"],
+            correctArray: [0, 1, 3],
+            rationale: "Insulin stimulates protein synthesis, improves mRNA translation efficiency, and promotes amino acid uptake; it does not degrade myofibrillar proteins."
+          },
+          {
+            id: "p2_ms_3",
+            q: "Which statements correctly describe the role of ribosome biogenesis in skeletal muscle hypertrophy? (Select all that apply)",
+            opts: ["It expands the muscle fiber's total translational capacity", "It involves the synthesis of new ribosomes", "Blocking ribosome synthesis prevents muscle hypertrophy", "It is regulated in part by mTOR activity in the cell nucleus"],
+            correctArray: [0, 1, 2, 3],
+            rationale: "All four statements are correct: ribosome biogenesis creates new ribosomes to expand translational capacity, is nuclear-regulated by mTOR, and is required for hypertrophy."
+          },
+          {
+            id: "p2_ms_4",
+            q: "Which of the following events occur downstream of mTOR activation during resistance training recovery? (Select all that apply)",
+            opts: ["Accelerated translation of mRNA transcripts into myofibrillar proteins", "Increased synthesis of actin and myosin filaments", "Complete shutdown of all cellular ribosome production", "Coordination of nuclear ribosome biogenesis"],
+            correctArray: [0, 1, 3],
+            rationale: "mTOR accelerates mRNA translation, drives actin and myosin synthesis, and coordinates nuclear ribosome biogenesis; it does not shut down ribosome production."
+          }
+        ],
+        tf: [
+          {
+            id: "p2_tf_1",
+            q: "mTOR controls the translation of messenger RNA (mRNA) into functional proteins within skeletal muscle myofibrils.",
+            ans: true,
+            feedback: "True. mTOR is the primary kinase controlling the translational machinery converting mRNA into protein."
+          },
+          {
+            id: "p2_tf_2",
+            q: "If mTOR is blocked experimentally with inhibitors like rapamycin, resistance exercise still produces normal muscular hypertrophy.",
+            ans: false,
+            feedback: "False. Experimental blockade of mTOR completely prevents resistance training-induced muscle hypertrophy."
+          },
+          {
+            id: "p2_tf_3",
+            q: "Mechanical stretch applied to muscle fibers activates mTOR via an intracellular pathway involving IGF-1.",
+            ans: true,
+            feedback: "True. Mechanical strain triggers mechanotransduction signaling through IGF-1 to activate mTOR."
+          },
+          {
+            id: "p2_tf_4",
+            q: "Ribosomes are cellular organelles responsible for translating genetic codes carried by mRNA into proteins.",
+            ans: true,
+            feedback: "True. Ribosomes execute translation, assembling amino acids into polypeptide chains based on mRNA templates."
+          },
+          {
+            id: "p2_tf_5",
+            q: "Increasing ribosome content in muscle fibers expands the translational capacity of the cell.",
+            ans: true,
+            feedback: "True. More ribosomes provide greater translational machinery, allowing more protein to be synthesized simultaneously."
+          },
+          {
+            id: "p2_tf_6",
+            q: "Insulin can stimulate significant muscle protein synthesis even in the complete absence of intracellular amino acids.",
+            ans: false,
+            feedback: "False. Insulin requires adequate amino acid substrate; in the absence of amino acids, it cannot stimulate protein synthesis."
+          },
+          {
+            id: "p2_tf_7",
+            q: "mTOR operates exclusively within the cytoplasm and has no role in the cell nucleus.",
+            ans: false,
+            feedback: "False. Research demonstrates that mTOR localizes to the nucleus to coordinate ribosome biogenesis in addition to cytoplasmic translation."
+          },
+          {
+            id: "p2_tf_8",
+            q: "Leucine acts as an intracellular nutrient sensor that activates the mTOR signaling pathway.",
+            ans: true,
+            feedback: "True. Leucine is sensed intracellularly to activate mTORC1 and stimulate myofibrillar protein synthesis."
+          }
+        ],
+        cloze: [
+          {
+            id: "p2_clz_1",
+            statement: "The rate of protein synthesis within myofibrils is controlled primarily by the kinase **mTOR**.",
+            target: "mTOR",
+            optionsBank: ["mTOR", "AMPK", "creatine kinase", "hexokinase"]
+          },
+          {
+            id: "p2_clz_2",
+            statement: "The primary mechanical stimulus for protein synthesis is **mechanical stretch** applied to the muscle.",
+            target: "mechanical stretch",
+            optionsBank: ["mechanical stretch", "glycogen depletion", "thermal stress", "transient edema"]
+          },
+          {
+            id: "p2_clz_3",
+            statement: "Mechanical stretch activates mTOR through an intracellular signaling pathway involving **IGF-1**.",
+            target: "IGF-1",
+            optionsBank: ["IGF-1", "cortisol", "aldosterone", "myostatin"]
+          },
+          {
+            id: "p2_clz_4",
+            statement: "Organelles known as **ribosomes** execute the translation of mRNA transcripts into proteins.",
+            target: "ribosomes",
+            optionsBank: ["ribosomes", "lysosomes", "Golgi bodies", "peroxisomes"]
+          },
+          {
+            id: "p2_clz_5",
+            statement: "The creation of new ribosomes to expand translational capacity is termed **ribosome biogenesis**.",
+            target: "ribosome biogenesis",
+            optionsBank: ["ribosome biogenesis", "fiber hyperplasia", "autogenic inhibition", "myofibrillar proteolysis"]
+          },
+          {
+            id: "p2_clz_6",
+            statement: "In the presence of adequate substrate, the hormone **insulin** stimulates muscle protein synthesis and translation.",
+            target: "insulin",
+            optionsBank: ["insulin", "glucagon", "epinephrine", "thyroxine"]
+          },
+          {
+            id: "p2_clz_7",
+            statement: "mTOR is involved in the synthesis of ribosomes in the **cell nucleus** in addition to regulating translation.",
+            target: "cell nucleus",
+            optionsBank: ["cell nucleus", "sarcolemma", "mitochondrial matrix", "sarcoplasmic reticulum"]
+          },
+          {
+            id: "p2_clz_8",
+            statement: "If the master kinase mTOR is blocked **experimentally**, resistance exercise fails to induce hypertrophy.",
+            target: "experimentally",
+            optionsBank: ["experimentally", "physiologically", "spontaneously", "chronically"]
+          }
+        ],
+        sa: [
+          {
+            id: "p2_sa_1",
+            q: "Describe the central role of the master kinase mTOR in regulating skeletal muscle hypertrophy. Explain how mechanical tension and leucine converge on mTOR, and contrast translational efficiency with translational capacity (ribosome biogenesis).",
+            model: "mTOR (mechanistic target of rapamycin) serves as the master intracellular serine/threonine kinase coordinating myofibrillar protein synthesis. It integrates two primary upstream inputs: 1) Mechanical stretch, which triggers mechanotransductive signaling cascades via IGF-1 to activate mTOR; and 2) Chemical nutrient availability, where the essential amino acid leucine is sensed intracellularly to activate the mTOR complex. Once activated, mTOR controls the translation of mRNA into contractile proteins (actin and myosin). Translational efficiency refers to the speed and efficiency with which existing ribosomes translate mRNA transcripts into proteins, an acute process augmented by postprandial insulin surges. Translational capacity, by contrast, refers to the total number of ribosomes available in the muscle fiber. Through ribosome biogenesis—coordinated by nuclear mTOR activity—the cell synthesizes new ribosomes, expanding total protein-synthetic machinery. If either mTOR or ribosome biogenesis is blocked, muscle hypertrophy cannot occur.",
+            criteria: [
+              "Identifies mTOR as the master regulatory kinase integrating mechanical (stretch/IGF-1) and nutritional (leucine) inputs.",
+              "Explains how mechanical stretch and leucine converge to upregulate mRNA translation into myofibrillar proteins.",
+              "Contrasts translational efficiency (rate of mRNA processing by existing ribosomes) with translational capacity (ribosome biogenesis/number of ribosomes), noting nuclear mTOR involvement."
+            ]
+          }
+        ]
+      },
+      p3: {
+        mcq: [
+          {
+            id: "p3_mcq_1",
+            q: "In the 2016 Netherlands study, how much greater was overnight myofibrillar protein synthesis in subjects who performed evening exercise with presleep protein (PRO+EX) compared to presleep protein alone (PRO)?",
+            opts: ["~5% greater", "~15% greater", "~35% greater", "~100% greater"],
+            correct: 2,
+            rationale: "The 2016 Netherlands study demonstrated that overnight myofibrillar protein synthesis was ~35% greater in the PRO+EX group compared to the PRO-alone group."
+          },
+          {
+            id: "p3_mcq_2",
+            q: "What was the specific dose of labeled protein administered immediately before sleep to all subjects in the 2016 Netherlands study?",
+            opts: ["10 g", "20 g", "30 g", "60 g"],
+            correct: 2,
+            rationale: "In the study protocol, each subject ingested an additional 30 g bolus of intrinsically labeled protein immediately before bed."
+          },
+          {
+            id: "p3_mcq_3",
+            q: "What did isotope tracer analysis reveal regarding the fate of dietary protein-derived amino acids in the PRO+EX subjects overnight?",
+            opts: ["They were completely excreted in the urine without absorption", "Significantly more labeled amino acids were incorporated into new myofibrils", "They were converted entirely into adipose tissue", "They caused acute gastrointestinal distress that halted protein synthesis"],
+            correct: 1,
+            rationale: "The PRO+EX group demonstrated significantly greater incorporation of labeled dietary amino acids directly into newly synthesized myofibrils overnight."
+          },
+          {
+            id: "p3_mcq_4",
+            q: "What type and duration of exercise did the PRO+EX cohort perform prior to receiving their post-workout and presleep protein drinks?",
+            opts: ["30 minutes of low-intensity cycling", "60 minutes of lower-body resistance exercise", "90 minutes of upper-body plyometrics", "10 minutes of isometric core holds"],
+            correct: 1,
+            rationale: "The PRO+EX subjects completed a structured 60-minute lower-body resistance exercise bout following a standardized baseline meal."
+          },
+          {
+            id: "p3_mcq_5",
+            q: "Why is presleep protein ingestion an effective nutritional strategy for resistance-trained individuals?",
+            opts: ["It increases overnight plasma amino acid availability and stimulates muscle protein synthesis during sleep", "It permanently halts nocturnal growth hormone secretion", "It converts slow-twitch fibers into fast-twitch fibers overnight", "It eliminates the need for any daytime dietary protein"],
+            correct: 0,
+            rationale: "Presleep protein ingestion sustains plasma amino acid availability across the nocturnal fast, driving elevated muscle protein synthesis throughout sleep."
+          },
+          {
+            id: "p3_mcq_6",
+            q: "What acute dose of protein was consumed by all participants immediately after the 60-minute exercise or rest session, prior to the presleep drink?",
+            opts: ["5 g", "20 g", "50 g", "75 g"],
+            correct: 1,
+            rationale: "Following the 60-minute exercise or rest period, all subjects consumed an immediate post-session beverage containing 20 g of protein."
+          },
+          {
+            id: "p3_mcq_7",
+            q: "What physiological consequence typically occurs during uninterrupted overnight sleep if no presleep protein is ingested?",
+            opts: ["Protein synthesis exceeds breakdown by 500%", "The body enters a prolonged fasting state where protein breakdown can exceed synthesis", "Muscle glycogen stores double spontaneously", "Satellite cells permanently fuse into tendons"],
+            correct: 1,
+            rationale: "During overnight sleep, the absence of exogenous amino acids creates a postabsorptive fasting state in which protein breakdown can exceed synthesis."
+          },
+          {
+            id: "p3_mcq_8",
+            q: "What did the Netherlands researchers conclude regarding the combination of evening resistance exercise and presleep protein ingestion?",
+            opts: ["It causes severe muscle damage that impairs long-term recovery", "It is an effective strategy to maximize skeletal muscle reconditioning overnight", "It produces results identical to resting without food", "It should be avoided due to interference with normal sleep stages"],
+            correct: 1,
+            rationale: "The researchers concluded that combining evening resistance exercise with presleep protein ingestion is a potent strategy to maximize overnight skeletal muscle reconditioning."
+          }
+        ],
+        ms: [
+          {
+            id: "p3_ms_1",
+            q: "Which methodological techniques were utilized in the 2016 Netherlands study to assess overnight muscle protein turnover? (Select all that apply)",
+            opts: ["Continuous infusion of labeled amino acid isotopes", "Pre- and post-sleep skeletal muscle biopsy collections", "Repeated overnight blood sampling across 450 minutes of sleep", "Underwater hydrostatic weighing every 30 minutes during sleep"],
+            correctArray: [0, 1, 2],
+            rationale: "The study utilized labeled amino acid isotope infusions, pre/post-sleep muscle biopsies, and serial nocturnal blood sampling across 450 minutes."
+          },
+          {
+            id: "p3_ms_2",
+            q: "Which key findings were reported from the 2016 Netherlands presleep protein and evening exercise study? (Select all that apply)",
+            opts: ["Overnight myofibrillar protein synthesis was ~35% greater in PRO+EX vs. PRO alone", "Greater incorporation of dietary protein-derived amino acids into new myofibrils in PRO+EX", "Exercise performed earlier in the evening increased the anabolic response to presleep protein", "Presleep protein caused complete cessation of normal digestive enzyme activity"],
+            correctArray: [0, 1, 2],
+            rationale: "The study showed ~35% higher overnight MPS, greater amino acid incorporation into myofibrils, and confirmed that prior exercise augments presleep protein utilization."
+          },
+          {
+            id: "p3_ms_3",
+            q: "Which factors explain why presleep protein supplementation enhances gains in muscle mass and strength over prolonged training? (Select all that apply)",
+            opts: ["Maintains elevated plasma amino acid concentrations across an 8-hour nocturnal fast", "Provides building blocks during peak periods of overnight hormonal recovery", "Stimulates muscle protein synthesis during sleep", "Replaces the requirement for mechanical tension during training"],
+            correctArray: [0, 1, 2],
+            rationale: "Presleep protein sustains nocturnal aminoacidemia, provides substrate during recovery, and stimulates overnight MPS. It does not replace mechanical overload."
+          },
+          {
+            id: "p3_ms_4",
+            q: "In the Netherlands study, which characteristics applied to the subject cohort and standardized controls? (Select all that apply)",
+            opts: ["24 healthy young male subjects", "Administration of a standardized dinner meal prior to testing", "Equal 30 g presleep protein dose administered to both groups", "Requirement that the PRO cohort run a marathon prior to sleeping"],
+            correctArray: [0, 1, 2],
+            rationale: "The trial enrolled 24 healthy young men, provided a standardized dinner meal, and gave an identical 30 g presleep protein bolus to both cohorts."
+          }
+        ],
+        tf: [
+          {
+            id: "p3_tf_1",
+            q: "In the 2016 Netherlands study, performing evening resistance exercise increased overnight myofibrillar protein synthesis by ~35% compared to presleep protein alone.",
+            ans: true,
+            feedback: "True. Overnight myofibrillar protein synthesis was ~35% greater in the PRO+EX cohort compared to PRO alone."
+          },
+          {
+            id: "p3_tf_2",
+            q: "Ingesting protein before sleep fails to stimulate muscle protein synthesis because the digestive tract shuts down during sleep.",
+            ans: false,
+            feedback: "False. Ingested presleep protein is effectively digested and absorbed overnight, maintaining aminoacidemia and stimulating MPS."
+          },
+          {
+            id: "p3_tf_3",
+            q: "In the Netherlands study, both the exercise and resting groups received the same 30 g dose of labeled protein immediately before bed.",
+            ans: true,
+            feedback: "True. Both groups consumed the identical 30 g labeled protein beverage immediately prior to sleep."
+          },
+          {
+            id: "p3_tf_4",
+            q: "Isotope tracer analysis showed that PRO+EX subjects incorporated fewer dietary amino acids into muscle tissue overnight than resting subjects.",
+            ans: false,
+            feedback: "False. The PRO+EX subjects incorporated significantly more dietary-derived amino acids into newly synthesized myofibrils."
+          },
+          {
+            id: "p3_tf_5",
+            q: "Presleep protein supplementation has been demonstrated to increase strength and hypertrophy over prolonged resistance training programs.",
+            ans: true,
+            feedback: "True. Chronic training studies confirm that presleep protein supplementation augments long-term gains in strength and muscle mass."
+          },
+          {
+            id: "p3_tf_6",
+            q: "Serial overnight blood draws were performed at intervals extending across 450 minutes of sleep in the Netherlands trial.",
+            ans: true,
+            feedback: "True. Blood samples were drawn at 30, 60, 90, 150, 210, 330, and 450 minutes throughout sleep."
+          },
+          {
+            id: "p3_tf_7",
+            q: "Resistance exercise performed in the evening blunts the anabolic response to presleep protein ingestion.",
+            ans: false,
+            feedback: "False. Evening resistance exercise enhances the muscle protein synthetic response to presleep protein ingestion."
+          },
+          {
+            id: "p3_tf_8",
+            q: "Combining evening resistance exercise with presleep protein ingestion is a practical strategy to maximize overnight muscle reconditioning.",
+            ans: true,
+            feedback: "True. The study authors concluded this combination is highly effective for maximizing overnight recovery and hypertrophy."
+          }
+        ],
+        cloze: [
+          {
+            id: "p3_clz_1",
+            statement: "In the 2016 Netherlands study, overnight myofibrillar protein synthesis was **~35% greater** in the PRO+EX group compared to PRO alone.",
+            target: "~35% greater",
+            optionsBank: ["~35% greater", "~5% lower", "~150% greater", "identical"]
+          },
+          {
+            id: "p3_clz_2",
+            statement: "Subjects in the Netherlands trial consumed an acute bolus of **30 g** of labeled protein immediately before sleep.",
+            target: "30 g",
+            optionsBank: ["30 g", "5 g", "100 g", "75 g"]
+          },
+          {
+            id: "p3_clz_3",
+            statement: "The exercise cohort in the Netherlands study completed **60 min** of lower-body resistance exercise in the evening.",
+            target: "60 min",
+            optionsBank: ["60 min", "15 min", "180 min", "5 min"]
+          },
+          {
+            id: "p3_clz_4",
+            statement: "Overnight blood sampling in the study was conducted across **450 min** while the subjects slept.",
+            target: "450 min",
+            optionsBank: ["450 min", "60 min", "1200 min", "30 min"]
+          },
+          {
+            id: "p3_clz_5",
+            statement: "Ingesting protein before bed increases overnight **amino acid availability** to support muscle anabolism.",
+            target: "amino acid availability",
+            optionsBank: ["amino acid availability", "lactate accumulation", "glycogen depletion", "urea excretion"]
+          },
+          {
+            id: "p3_clz_6",
+            statement: "Significantly more labeled amino acids were incorporated into new **myofibrils** in the PRO+EX subjects overnight.",
+            target: "myofibrils",
+            optionsBank: ["myofibrils", "adipocytes", "erythrocytes", "chondrocytes"]
+          },
+          {
+            id: "p3_clz_7",
+            statement: "Combining presleep protein with evening exercise is an effective strategy to maximize **skeletal muscle reconditioning** overnight.",
+            target: "skeletal muscle reconditioning",
+            optionsBank: ["skeletal muscle reconditioning", "cardiovascular fatigue", "bone demineralization", "glycogen exhaustion"]
+          },
+          {
+            id: "p3_clz_8",
+            statement: "Immediately after the exercise or rest session, all subjects consumed an intermediate beverage containing **20 g** of protein.",
+            target: "20 g",
+            optionsBank: ["20 g", "5 g", "60 g", "100 g"]
+          }
+        ],
+        sa: [
+          {
+            id: "p3_sa_1",
+            q: "Analyze the methodology, isotope findings, and clinical outcomes of the 2016 Netherlands presleep resistance exercise study. Explain why combining evening resistance exercise with presleep protein ingestion provides a superior overnight anabolic environment compared to presleep protein ingestion alone.",
+            model: "The 2016 Netherlands study investigated whether an acute evening resistance exercise bout enhances the overnight muscle protein synthesis (MPS) response to presleep protein ingestion. Twenty-four healthy young men were randomized to presleep protein alone (PRO) or evening exercise plus presleep protein (PRO+EX). Following a standardized meal, the PRO+EX cohort performed 60 minutes of lower-body resistance exercise while the PRO cohort rested. Both groups consumed a 20 g protein drink post-session, followed by continuous labeled amino acid isotope infusions, serial nocturnal blood sampling across 450 minutes of sleep, and pre/post-sleep muscle biopsies. Just prior to sleep, all subjects ingested a 30 g bolus of labeled protein. The findings demonstrated that overnight myofibrillar MPS was ~35% greater in the PRO+EX group compared to PRO alone. Furthermore, tracer analysis revealed significantly higher incorporation of dietary protein-derived amino acids into newly synthesized myofibrils in the exercised muscle. This demonstrates that prior resistance exercise sensitizes skeletal muscle to hyperaminoacidemia, directing circulating amino acids into contractile protein accretion and mitigating nocturnal fasting catabolism.",
+            criteria: [
+              "Summarizes study design: 24 young men, standardized meal, 60 min lower-body exercise vs. rest, 20 g post-session protein, and 30 g labeled presleep protein.",
+              "Identifies isotopic methods (continuous tracer infusion, 450 min serial blood sampling, pre/post-sleep muscle biopsies).",
+              "Reports core findings (~35% greater overnight myofibrillar MPS and greater dietary amino acid incorporation in PRO+EX) and explains the physiological rationale (exercise sensitizes muscle to utilize nocturnal amino acids)."
+            ]
+          }
+        ]
+      }
+    };
+
+    /* =========================================================================
+       ACTIVE STATE & RUNTIME SAMPLING
+       ========================================================================= */
+    const state = {
+      activePage: 'p1', // 'p1', 'p2', or 'p3'
+      activeQuestions: {
+        p1: { mcq: [], ms: [], tf: [], cloze: [], sa: [] },
+        p2: { mcq: [], ms: [], tf: [], cloze: [], sa: [] },
+        p3: { mcq: [], ms: [], tf: [], cloze: [], sa: [] }
+      },
+      scores: {
+        p1: { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 },
+        p2: { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 },
+        p3: { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 }
+      },
+      maxScores: {
+        p1: { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 5 },
+        p2: { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 5 },
+        p3: { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 5 }
+      }
+    };
+
+    function getRandomItems(array, count) {
+      const shuffled = [...array].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+
+    function initPageQuestions(pageId) {
+      state.activeQuestions[pageId].mcq = getRandomItems(assessmentBanks[pageId].mcq, 2);
+      state.activeQuestions[pageId].ms = getRandomItems(assessmentBanks[pageId].ms, 2);
+      state.activeQuestions[pageId].tf = getRandomItems(assessmentBanks[pageId].tf, 2);
+      state.activeQuestions[pageId].cloze = getRandomItems(assessmentBanks[pageId].cloze, 2);
+      state.activeQuestions[pageId].sa = getRandomItems(assessmentBanks[pageId].sa, 1);
+    }
+
+    /* =========================================================================
+       DOM RENDERING ENGINES
+       ========================================================================= */
+    function renderMCQ(pageId) {
+      const container = document.getElementById(`container-${pageId}-mcq`);
+      if (!container) return;
+      container.innerHTML = '';
+      
+      state.activeQuestions[pageId].mcq.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+        
+        let html = `<div class="question-prompt">${qIdx + 1}. ${item.q}</div><div class="options-group">`;
+        item.opts.forEach((opt, oIdx) => {
+          html += `<button class="option-btn" onclick="handleMCQSelection('${pageId}', '${item.id}', ${oIdx}, ${item.correct})">${String.fromCharCode(65 + oIdx)}. ${opt}</button>`;
+        });
+        html += `</div><div class="feedback-box" id="feedback-${item.id}"></div>`;
+        card.innerHTML = html;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'mcq');
+    }
+
+    function renderMS(pageId) {
+      const container = document.getElementById(`container-${pageId}-ms`);
+      if (!container) return;
+      container.innerHTML = '';
+
+      state.activeQuestions[pageId].ms.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+
+        let html = `<div class="question-prompt">${qIdx + 1}. ${item.q}</div><div class="options-group">`;
+        item.opts.forEach((opt, oIdx) => {
+          html += `
+            <label class="checkbox-label" id="label-${item.id}-${oIdx}">
+              <input type="checkbox" name="${item.id}" value="${oIdx}">
+              <span>${opt}</span>
+            </label>
+          `;
+        });
+        html += `</div>
+          <button class="btn-ghost" style="color:#0f172a; border-color:#94a3b8; margin-top:0.75rem;" onclick="handleMSCheck('${pageId}', '${item.id}')">Submit Selections</button>
+          <div class="feedback-box" id="feedback-${item.id}"></div>`;
+        card.innerHTML = html;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'ms');
+    }
+
+    function renderTF(pageId) {
+      const container = document.getElementById(`container-${pageId}-tf`);
+      if (!container) return;
+      container.innerHTML = '';
+
+      state.activeQuestions[pageId].tf.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+
+        let html = `
+          <div class="question-prompt">${qIdx + 1}. ${item.q}</div>
+          <div class="options-group" style="flex-direction: row; gap: 1rem;">
+            <button class="option-btn" style="text-align:center;" onclick="handleTFSelection('${pageId}', '${item.id}', true, ${item.ans})">True</button>
+            <button class="option-btn" style="text-align:center;" onclick="handleTFSelection('${pageId}', '${item.id}', false, ${item.ans})">False</button>
+          </div>
+          <div class="feedback-box" id="feedback-${item.id}"></div>
+        `;
+        card.innerHTML = html;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'tf');
+    }
+
+    function renderCloze(pageId) {
+      const container = document.getElementById(`container-${pageId}-cloze`);
+      if (!container) return;
+      container.innerHTML = '';
+
+      state.activeQuestions[pageId].cloze.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+
+        let selectHtml = `<select class="cloze-select" id="select-${item.id}" onchange="handleClozeSelection('${pageId}', '${item.id}')">
+          <option value="">-- Select Term --</option>`;
+        
+        const shuffledOpts = [...item.optionsBank].sort(() => 0.5 - Math.random());
+        shuffledOpts.forEach(opt => {
+          selectHtml += `<option value="${opt}">${opt}</option>`;
+        });
+        selectHtml += `</select>`;
+
+        const parsedStatement = item.statement.replace(/\*\*(.*?)\*\*/g, selectHtml);
+
+        card.innerHTML = `
+          <div class="question-prompt">${qIdx + 1}. ${parsedStatement}</div>
+          <div class="feedback-box" id="feedback-${item.id}"></div>
+        `;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'cloze');
+    }
+
+    function renderSA(pageId) {
+      const container = document.getElementById(`container-${pageId}-sa`);
+      if (!container) return;
+      container.innerHTML = '';
+
+      state.activeQuestions[pageId].sa.forEach((item, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+
+        card.innerHTML = `
+          <div class="question-prompt">${qIdx + 1}. ${item.q}</div>
+          <textarea class="sa-textarea" id="textarea-${item.id}" placeholder="Compose your physiological explanation here..." oninput="updateSACounters('${item.id}')"></textarea>
+          <div class="sa-meta-row">
+            <span id="counter-${item.id}">Words: 0 | Characters: 0</span>
+            <span>Recommended: 60–160 words</span>
+          </div>
+          <button class="btn-ghost" style="color:#0f172a; border-color:#94a3b8;" id="btn-sa-submit-${item.id}" onclick="revealSARubric('${item.id}')">Check Optimal Answer &amp; Rubric</button>
+          
+          <div class="rubric-panel" id="rubric-panel-${item.id}">
+            <div class="expert-model-box">
+              <strong>Optimal Expert Model Answer:</strong>
+              <p style="margin-top:0.35rem;">${item.model}</p>
+            </div>
+            
+            <div style="font-weight:700; font-size:0.85rem; color:#1e293b;">Self-Assessment Evaluation Checklist:</div>
+            <div class="checklist-group">
+              ${item.criteria.map((c, i) => `
+                <label class="checklist-item">
+                  <input type="checkbox" id="sa-chk-${item.id}-${i}">
+                  <span>${c}</span>
+                </label>
+              `).join('')}
+            </div>
+
+            <div style="font-weight:700; font-size:0.85rem; color:#1e293b; margin-top:0.75rem;">Award Your Self-Assessed Score:</div>
+            <div class="rubric-points-row">
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 0)">0 / 5 (Needs Revision)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 1)">1 / 5 (Minimal)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 2)">2 / 5 (Partial)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 3)">3 / 5 (Satisfactory)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 4)">4 / 5 (Good)</button>
+              <button class="rubric-point-option" onclick="setSAScore('${pageId}', '${item.id}', 5)">5 / 5 (Exemplary)</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+      updateSectionScoreBadge(pageId, 'sa');
+    }
+
+    /* =========================================================================
+       ASSESSMENT EVALUATION LOGIC
+       ========================================================================= */
+    const itemScores = {
+      p1: { mcq: {}, ms: {}, tf: {}, cloze: {} },
+      p2: { mcq: {}, ms: {}, tf: {}, cloze: {} },
+      p3: { mcq: {}, ms: {}, tf: {}, cloze: {} }
+    };
+
+    function handleMCQSelection(pageId, qId, selectedIdx, correctIdx) {
+      const card = document.getElementById(`card-${qId}`);
+      const buttons = card.querySelectorAll('.option-btn');
+      const feedback = document.getElementById(`feedback-${qId}`);
+      const qData = assessmentBanks[pageId].mcq.find(q => q.id === qId);
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (selectedIdx === correctIdx) {
+        buttons[selectedIdx].classList.add('state-correct');
+        feedback.className = 'feedback-box active feedback-correct';
+        feedback.innerHTML = `<strong>Correct:</strong> ${qData.rationale}`;
+        recordScore(pageId, 'mcq', qId, 1);
+      } else {
+        buttons[selectedIdx].classList.add('state-incorrect');
+        buttons[correctIdx].classList.add('state-correct');
+        feedback.className = 'feedback-box active feedback-incorrect';
+        feedback.innerHTML = `<strong>Incorrect.</strong> Option ${String.fromCharCode(65 + correctIdx)} is correct. ${qData.rationale}`;
+        recordScore(pageId, 'mcq', qId, 0);
+      }
+    }
+
+    function handleMSCheck(pageId, qId) {
+      const card = document.getElementById(`card-${qId}`);
+      const checkboxes = card.querySelectorAll(`input[name="${qId}"]`);
+      const feedback = document.getElementById(`feedback-${qId}`);
+      const qData = assessmentBanks[pageId].ms.find(q => q.id === qId);
+
+      const selected = [];
+      checkboxes.forEach((cb, idx) => {
+        if (cb.checked) selected.push(idx);
+        cb.disabled = true;
+      });
+
+      const correct = qData.correctArray;
+      const isPerfect = selected.length === correct.length && selected.every(v => correct.includes(v));
+
+      checkboxes.forEach((cb, idx) => {
+        const label = document.getElementById(`label-${qId}-${idx}`);
+        if (correct.includes(idx)) {
+          if (cb.checked) {
+            label.classList.add('state-correct');
+          } else {
+            label.classList.add('state-missed');
+          }
+        } else {
+          if (cb.checked) {
+            label.classList.add('state-incorrect');
+          }
+        }
+      });
+
+      if (isPerfect) {
+        feedback.className = 'feedback-box active feedback-correct';
+        feedback.innerHTML = `<strong>Correct! All criteria met:</strong> ${qData.rationale}`;
+        recordScore(pageId, 'ms', qId, 1);
+      } else {
+        feedback.className = 'feedback-box active feedback-incorrect';
+        feedback.innerHTML = `<strong>Incomplete or Incorrect.</strong> Missed/incorrect choices highlighted. <em>Rationale:</em> ${qData.rationale}`;
+        recordScore(pageId, 'ms', qId, 0);
+      }
+    }
+
+    function handleTFSelection(pageId, qId, userAns, actualAns) {
+      const card = document.getElementById(`card-${qId}`);
+      const buttons = card.querySelectorAll('.option-btn');
+      const feedback = document.getElementById(`feedback-${qId}`);
+      const qData = assessmentBanks[pageId].tf.find(q => q.id === qId);
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (userAns === actualAns) {
+        if (userAns === true) buttons[0].classList.add('state-correct');
+        else buttons[1].classList.add('state-correct');
+        feedback.className = 'feedback-box active feedback-correct';
+        feedback.innerHTML = `<strong>Correct:</strong> ${qData.feedback}`;
+        recordScore(pageId, 'tf', qId, 1);
+      } else {
+        if (userAns === true) {
+          buttons[0].classList.add('state-incorrect');
+          buttons[1].classList.add('state-correct');
+        } else {
+          buttons[1].classList.add('state-incorrect');
+          buttons[0].classList.add('state-correct');
+        }
+        feedback.className = 'feedback-box active feedback-incorrect';
+        feedback.innerHTML = `<strong>Incorrect.</strong> ${qData.feedback}`;
+        recordScore(pageId, 'tf', qId, 0);
+      }
+    }
+
+    function handleClozeSelection(pageId, qId) {
+      const select = document.getElementById(`select-${qId}`);
+      const feedback = document.getElementById(`feedback-${qId}`);
+      const qData = assessmentBanks[pageId].cloze.find(q => q.id === qId);
+      const val = select.value;
+
+      if (!val) {
+        select.classList.remove('state-correct', 'state-incorrect');
+        feedback.className = 'feedback-box';
+        return;
+      }
+
+      select.disabled = true;
+      if (val === qData.target) {
+        select.classList.add('state-correct');
+        feedback.className = 'feedback-box active feedback-correct';
+        feedback.innerHTML = `<strong>Correct!</strong> The physiological term is "${qData.target}".`;
+        recordScore(pageId, 'cloze', qId, 1);
+      } else {
+        select.classList.add('state-incorrect');
+        feedback.className = 'feedback-box active feedback-incorrect';
+        feedback.innerHTML = `<strong>Incorrect.</strong> Selected "${val}". The correct physiological term is: <strong>${qData.target}</strong>.`;
+        recordScore(pageId, 'cloze', qId, 0);
+      }
+    }
+
+    function updateSACounters(qId) {
+      const text = document.getElementById(`textarea-${qId}`).value.trim();
+      const words = text.length > 0 ? text.split(/\s+/).length : 0;
+      const chars = text.length;
+      document.getElementById(`counter-${qId}`).innerText = `Words: ${words} | Characters: ${chars}`;
+    }
+
+    function revealSARubric(qId) {
+      document.getElementById(`textarea-${qId}`).disabled = true;
+      document.getElementById(`btn-sa-submit-${qId}`).style.display = 'none';
+      document.getElementById(`rubric-panel-${qId}`).classList.add('active');
+    }
+
+    function setSAScore(pageId, qId, pts) {
+      const panel = document.getElementById(`rubric-panel-${qId}`);
+      const buttons = panel.querySelectorAll('.rubric-point-option');
+      buttons.forEach((btn, idx) => {
+        if (idx === pts) btn.classList.add('selected');
+        else btn.classList.remove('selected');
+      });
+
+      state.scores[pageId].sa = pts;
+      updateSectionScoreBadge(pageId, 'sa');
+      updateGlobalScore();
+    }
+
+    function recordScore(pageId, secType, qId, pts) {
+      itemScores[pageId][secType][qId] = pts;
+      let total = 0;
+      for (const k in itemScores[pageId][secType]) {
+        total += itemScores[pageId][secType][k];
+      }
+      state.scores[pageId][secType] = total;
+      updateSectionScoreBadge(pageId, secType);
+      updateGlobalScore();
+    }
+
+    function updateSectionScoreBadge(pageId, secType) {
+      const badge = document.getElementById(`score-badge-${pageId}-${secType}`);
+      if (!badge) return;
+      const cur = state.scores[pageId][secType];
+      const max = state.maxScores[pageId][secType];
+      badge.innerText = `Score: ${cur} / ${max} pts`;
+    }
+
+    function updateGlobalScore() {
+      const pageId = state.activePage;
+      const s = state.scores[pageId];
+      const m = state.maxScores[pageId];
+      const cur = s.mcq + s.ms + s.tf + s.cloze + s.sa;
+      const max = m.mcq + m.ms + m.tf + m.cloze + m.sa;
+      const pct = max > 0 ? Math.round((cur / max) * 100) : 0;
+
+      document.getElementById('global-score-badge').innerText = `Total Score: ${cur} / ${max} pts (${pct}%)`;
+      document.getElementById('global-progress-bar').style.width = `${pct}%`;
+    }
+
+    /* =========================================================================
+       RESET & ACCORDION CONTROL
+       ========================================================================= */
+    function resetSection(pageId, secType) {
+      if (secType === 'mcq') {
+        state.activeQuestions[pageId].mcq = getRandomItems(assessmentBanks[pageId].mcq, 2);
+        itemScores[pageId].mcq = {};
+        state.scores[pageId].mcq = 0;
+        renderMCQ(pageId);
+      } else if (secType === 'ms') {
+        state.activeQuestions[pageId].ms = getRandomItems(assessmentBanks[pageId].ms, 2);
+        itemScores[pageId].ms = {};
+        state.scores[pageId].ms = 0;
+        renderMS(pageId);
+      } else if (secType === 'tf') {
+        state.activeQuestions[pageId].tf = getRandomItems(assessmentBanks[pageId].tf, 2);
+        itemScores[pageId].tf = {};
+        state.scores[pageId].tf = 0;
+        renderTF(pageId);
+      } else if (secType === 'cloze') {
+        state.activeQuestions[pageId].cloze = getRandomItems(assessmentBanks[pageId].cloze, 2);
+        itemScores[pageId].cloze = {};
+        state.scores[pageId].cloze = 0;
+        renderCloze(pageId);
+      } else if (secType === 'sa') {
+        state.activeQuestions[pageId].sa = getRandomItems(assessmentBanks[pageId].sa, 1);
+        state.scores[pageId].sa = 0;
+        renderSA(pageId);
+      }
+      updateGlobalScore();
+    }
+
+    function resetAllActivities() {
+      const p = state.activePage;
+      initPageQuestions(p);
+      itemScores[p] = { mcq: {}, ms: {}, tf: {}, cloze: {} };
+      state.scores[p] = { mcq: 0, ms: 0, tf: 0, cloze: 0, sa: 0 };
+
+      renderMCQ(p);
+      renderMS(p);
+      renderTF(p);
+      renderCloze(p);
+      renderSA(p);
+      updateGlobalScore();
+      collapseAllSections();
+    }
+
+    function expandAllSections() {
+      const activeId = state.activePage === 'p1' ? 'page-protein-intake-timing' : (state.activePage === 'p2' ? 'page-mtor-molecular-mechanisms' : 'page-presleep-protein-kinetics');
+      const activeContainer = document.getElementById(activeId);
+      const accordions = activeContainer.querySelectorAll('details.accordion-card');
+      accordions.forEach(a => a.open = true);
+    }
+
+    function collapseAllSections() {
+      const activeId = state.activePage === 'p1' ? 'page-protein-intake-timing' : (state.activePage === 'p2' ? 'page-mtor-molecular-mechanisms' : 'page-presleep-protein-kinetics');
+      const activeContainer = document.getElementById(activeId);
+      const accordions = activeContainer.querySelectorAll('details.accordion-card');
+      accordions.forEach(a => a.open = false);
+    }
+
+    /* =========================================================================
+       NAVIGATION & TABS
+       ========================================================================= */
+    function navigateToPage(pageKey) {
+      const pages = ['protein-intake-timing', 'mtor-molecular-mechanisms', 'presleep-protein-kinetics'];
+      pages.forEach((p, idx) => {
+        const el = document.getElementById(`page-${p}`);
+        const pill = document.getElementById(`pill-concept-${idx + 1}`);
+        if (p === pageKey) {
+          el.style.display = 'block';
+          pill.classList.add('active');
+          state.activePage = `p${idx + 1}`;
+        } else {
+          el.style.display = 'none';
+          pill.classList.remove('active');
+        }
+      });
+
+      const titles = {
+        'protein-intake-timing': 'Current Module Topic: Protein Intake Guidelines & Nutrient Timing',
+        'mtor-molecular-mechanisms': 'Current Module Topic: Molecular Signaling: mTOR, Leucine & Ribosome Biogenesis',
+        'presleep-protein-kinetics': 'Current Module Topic: Circadian Anabolism & Presleep Protein Kinetics'
+      };
+      document.getElementById('page-indicator').innerText = titles[pageKey];
+
+      collapseAllSections();
+      updateGlobalScore();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchTab(tabKey) {
+      const lessonPane = document.getElementById('pane-lesson');
+      const glossaryPane = document.getElementById('pane-glossary');
+      const lessonBtn = document.getElementById('tab-lesson-btn');
+      const glossaryBtn = document.getElementById('tab-glossary-btn');
+
+      if (tabKey === 'lesson') {
+        lessonPane.classList.add('active');
+        glossaryPane.classList.remove('active');
+        lessonBtn.classList.add('active');
+        glossaryBtn.classList.remove('active');
+        lessonBtn.setAttribute('aria-selected', 'true');
+        glossaryBtn.setAttribute('aria-selected', 'false');
+      } else {
+        lessonPane.classList.remove('active');
+        glossaryPane.classList.add('active');
+        lessonBtn.classList.remove('active');
+        glossaryBtn.classList.add('active');
+        lessonBtn.setAttribute('aria-selected', 'false');
+        glossaryBtn.setAttribute('aria-selected', 'true');
+      }
+    }
+
+    function restartLesson() {
+      navigateToPage('protein-intake-timing');
+      resetAllActivities();
+      switchTab('lesson');
+    }
+
+    /* Initialize Application on DOM Ready */
+    document.addEventListener('DOMContentLoaded', () => {
+      ['p1', 'p2', 'p3'].forEach(p => {
+        initPageQuestions(p);
+        renderMCQ(p);
+        renderMS(p);
+        renderTF(p);
+        renderCloze(p);
+        renderSA(p);
+      });
+
+      collapseAllSections();
+      updateGlobalScore();
+    });
+  </script>
+  <!-- ... Previous module content, main tag, or scripts ... -->
+
+    <!-- PASTE THE CODE BLOCK HERE -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px auto; max-width: 1060px; padding: 0 20px; text-align: center;">
+      <span style="flex: 1; text-align: left;">
+        <a href="OLM - 10.2 Mechanisms of Gains in Muscle Strength.html">← Back to Previous Section</a>
+      </span>
+      <span style="flex: 1;">
+        <a href="index.html">Main Menu</a>
+      </span>
+      <span style="flex: 1; text-align: right;">
+        <a href="OLM - 10.4 Resistance Training for Special Populations.html">Next Section →</a>
+      </span>
+    </div>
+
+  </body>
+</html>
+</body>
+</html>
