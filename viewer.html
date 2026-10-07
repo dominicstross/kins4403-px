@@ -661,9 +661,29 @@ const dataUrl = `data/OLM_${moduleParam}.json`;
       document.getElementById('course-meta-text').textContent = data.meta.course;
       document.getElementById('module-heading-text').textContent = data.meta.moduleTitle;
 
-      if (data.meta.nextModuleUrl) {
-        document.getElementById('next-module-container').innerHTML = `<a href="${data.meta.nextModuleUrl}">Next Section →</a>`;
-      }
+      // Permanent decoupled navigation:
+const navContainer = document.getElementById('module-nav'); // or whatever your nav element ID is
+
+if (navContainer) {
+  let navHtml = `
+    <div class="bottom-nav-bar" style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
+      <a href="index.html" class="nav-btn btn-secondary" style="text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; background: #64748b; color: #fff; font-weight: 600;">&larr; Main Menu</a>
+  `;
+
+  if (data.meta && data.meta.nextModuleUrl) {
+    navHtml += `
+      <a href="${data.meta.nextModuleUrl}" class="nav-btn btn-primary" style="text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; background: #2563eb; color: #fff; font-weight: 600;">Next Module &rarr;</a>
+    `;
+  } else {
+    // Optional placeholder or Course Hub loop when on the final module
+    navHtml += `
+      <span class="nav-complete" style="color: #64748b; font-size: 0.9rem; font-weight: 500;">Module Complete</span>
+    `;
+  }
+
+  navHtml += `</div>`;
+  navContainer.innerHTML = navHtml;
+}
 
       // Populate Glossary
       const tbody = document.getElementById('glossary-tbody');
