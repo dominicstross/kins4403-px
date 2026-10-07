@@ -198,7 +198,7 @@
     /* Workspace */
     main.workspace-container {
       max-width: 980px;
-      margin: 0 auto 3rem;
+      margin: 0 auto 1.5rem;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: 0 0 8px 8px;
@@ -467,7 +467,7 @@
     .btn-nav:hover { background: var(--primary-hover); }
     footer.context-footer {
       max-width: 980px;
-      margin: 1rem auto 2rem;
+      margin: 1rem auto 1.5rem;
       text-align: center;
       font-size: 0.85rem;
       color: #64748b;
@@ -479,6 +479,71 @@
       text-decoration: underline;
       cursor: pointer;
       font-size: inherit;
+    }
+
+    /* Persistent 3-Way Course Navigation Bar */
+    .module-course-nav {
+      max-width: 980px;
+      margin: 0 auto 3rem;
+      padding: 1.25rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 2px solid var(--border-color);
+      gap: 1rem;
+    }
+    .module-course-nav .nav-col {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+    .module-course-nav .nav-col-left { justify-content: flex-start; }
+    .module-course-nav .nav-col-center { justify-content: center; }
+    .module-course-nav .nav-col-right { justify-content: flex-end; }
+
+    .nav-course-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-course-prev {
+      background-color: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-course-prev:hover {
+      background-color: #e2e8f0;
+      color: #0f172a;
+    }
+    .btn-course-menu {
+      background-color: #334155;
+      color: #ffffff;
+      border: 1px solid #1e293b;
+    }
+    .btn-course-menu:hover {
+      background-color: #1e293b;
+    }
+    .btn-course-next {
+      background-color: var(--primary);
+      color: #ffffff;
+      border: 1px solid var(--primary-hover);
+    }
+    .btn-course-next:hover {
+      background-color: var(--primary-hover);
+    }
+    .btn-course-disabled {
+      background-color: #f8fafc;
+      color: #94a3b8;
+      border: 1px solid #e2e8f0;
+      cursor: not-allowed;
+      opacity: 0.6;
     }
   </style>
 
@@ -568,7 +633,7 @@
 
     <!-- Tier 2: Current Page Quick-Links -->
     <div class="toc-tier-2" role="navigation" aria-label="Page Sections">
-      <a class="toc-quicklink" href="#sec-reading">Reading & Core Concepts</a>
+      <a class="toc-quicklink" href="#sec-reading">Reading &amp; Core Concepts</a>
       <a class="toc-quicklink" href="#sec-mcq">Single-Select MCQ</a>
       <a class="toc-quicklink" href="#sec-ms">Multi-Select MCQ</a>
       <a class="toc-quicklink" href="#sec-tf">True / False</a>
@@ -597,7 +662,7 @@
         <thead>
           <tr>
             <th style="width: 25%;">Scientific Term</th>
-            <th>Physiological Definition & Contextual Application</th>
+            <th>Physiological Definition &amp; Contextual Application</th>
           </tr>
         </thead>
         <tbody id="glossary-tbody">
@@ -614,10 +679,18 @@
     </div>
   </footer>
 
-  <div id="external-bottom-nav" style="display: flex; justify-content: space-between; align-items: center; margin: 30px auto; max-width: 980px; padding: 0 20px; text-align: center;">
-    <span style="flex: 1;"><a href="index.html">Main Menu</a></span>
-    <span style="flex: 1; text-align: right;" id="next-module-container"></span>
-  </div>
+  <!-- Persistent 3-Way Course Navigation Bar -->
+  <nav class="module-course-nav" id="module-bottom-nav" aria-label="Module Course Navigation">
+    <div class="nav-col nav-col-left" id="nav-prev-container">
+      <span class="nav-course-btn btn-course-disabled">&larr; Previous</span>
+    </div>
+    <div class="nav-col nav-col-center">
+      <a href="index.html" class="nav-course-btn btn-course-menu">Main Menu</a>
+    </div>
+    <div class="nav-col nav-col-right" id="nav-next-container">
+      <span class="nav-course-btn btn-course-disabled">Next &rarr;</span>
+    </div>
+  </nav>
 
   <!-- Dynamic Engine Script -->
   <script>
@@ -637,8 +710,8 @@
 
     document.addEventListener('DOMContentLoaded', async () => {
       const urlParams = new URLSearchParams(window.location.search);
-const moduleParam = urlParams.get('module') || '11.1';
-const dataUrl = `data/OLM_${moduleParam}.json`;
+      const moduleParam = urlParams.get('module') || '11.1';
+      const dataUrl = `data/OLM_${moduleParam}.json`;
 
       try {
         const response = await fetch(dataUrl);
@@ -661,29 +734,8 @@ const dataUrl = `data/OLM_${moduleParam}.json`;
       document.getElementById('course-meta-text').textContent = data.meta.course;
       document.getElementById('module-heading-text').textContent = data.meta.moduleTitle;
 
-      // Permanent decoupled navigation:
-const navContainer = document.getElementById('module-nav'); // or whatever your nav element ID is
-
-if (navContainer) {
-  let navHtml = `
-    <div class="bottom-nav-bar" style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
-      <a href="index.html" class="nav-btn btn-secondary" style="text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; background: #64748b; color: #fff; font-weight: 600;">&larr; Main Menu</a>
-  `;
-
-  if (data.meta && data.meta.nextModuleUrl) {
-    navHtml += `
-      <a href="${data.meta.nextModuleUrl}" class="nav-btn btn-primary" style="text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; background: #2563eb; color: #fff; font-weight: 600;">Next Module &rarr;</a>
-    `;
-  } else {
-    // Optional placeholder or Course Hub loop when on the final module
-    navHtml += `
-      <span class="nav-complete" style="color: #64748b; font-size: 0.9rem; font-weight: 500;">Module Complete</span>
-    `;
-  }
-
-  navHtml += `</div>`;
-  navContainer.innerHTML = navHtml;
-}
+      // Render 3-Way Bottom Navigation (Prev, Menu, Next)
+      renderCourseNavigation(data.meta);
 
       // Populate Glossary
       const tbody = document.getElementById('glossary-tbody');
@@ -750,7 +802,7 @@ if (navContainer) {
               <span class="section-score-pill" id="score-badge-${page.id}-mcq">Score: 0 / ${window.appState.maxScores[page.id].mcq} pts</span>
             </summary>
             <div class="accordion-body" id="container-${page.id}-mcq"></div>
-            <button class="btn-reset-section" onclick="resetSection('${page.id}', 'mcq')">Reset Section & Refresh Questions</button>
+            <button class="btn-reset-section" onclick="resetSection('${page.id}', 'mcq')">Reset Section &amp; Refresh Questions</button>
           </details>
 
           <details class="accordion-card" id="sec-ms">
@@ -759,7 +811,7 @@ if (navContainer) {
               <span class="section-score-pill" id="score-badge-${page.id}-ms">Score: 0 / ${window.appState.maxScores[page.id].ms} pts</span>
             </summary>
             <div class="accordion-body" id="container-${page.id}-ms"></div>
-            <button class="btn-reset-section" onclick="resetSection('${page.id}', 'ms')">Reset Section & Refresh Questions</button>
+            <button class="btn-reset-section" onclick="resetSection('${page.id}', 'ms')">Reset Section &amp; Refresh Questions</button>
           </details>
 
           <details class="accordion-card" id="sec-tf">
@@ -768,7 +820,7 @@ if (navContainer) {
               <span class="section-score-pill" id="score-badge-${page.id}-tf">Score: 0 / ${window.appState.maxScores[page.id].tf} pts</span>
             </summary>
             <div class="accordion-body" id="container-${page.id}-tf"></div>
-            <button class="btn-reset-section" onclick="resetSection('${page.id}', 'tf')">Reset Section & Refresh Questions</button>
+            <button class="btn-reset-section" onclick="resetSection('${page.id}', 'tf')">Reset Section &amp; Refresh Questions</button>
           </details>
 
           <details class="accordion-card" id="sec-cloze">
@@ -777,24 +829,24 @@ if (navContainer) {
               <span class="section-score-pill" id="score-badge-${page.id}-cloze">Score: 0 / ${window.appState.maxScores[page.id].cloze} pts</span>
             </summary>
             <div class="accordion-body" id="container-${page.id}-cloze"></div>
-            <button class="btn-reset-section" onclick="resetSection('${page.id}', 'cloze')">Reset Section & Refresh Questions</button>
+            <button class="btn-reset-section" onclick="resetSection('${page.id}', 'cloze')">Reset Section &amp; Refresh Questions</button>
           </details>
 
           <details class="accordion-card" id="sec-sa">
             <summary class="accordion-header">
-              <span class="accordion-header-left"><span class="accordion-chevron">▶</span><span>Formative Activity 5: Conceptual Defense & Self-Scoring Rubric</span></span>
+              <span class="accordion-header-left"><span class="accordion-chevron">▶</span><span>Formative Activity 5: Conceptual Defense &amp; Self-Scoring Rubric</span></span>
               <span class="section-score-pill" id="score-badge-${page.id}-sa">Score: 0 / ${window.appState.maxScores[page.id].sa} pts</span>
             </summary>
             <div class="accordion-body" id="container-${page.id}-sa"></div>
-            <button class="btn-reset-section" onclick="resetSection('${page.id}', 'sa')">Reset Section & Refresh Questions</button>
+            <button class="btn-reset-section" onclick="resetSection('${page.id}', 'sa')">Reset Section &amp; Refresh Questions</button>
           </details>
 
           <div class="nav-bar">
             ${idx > 0 
-              ? `<button class="btn-nav" onclick="navigateToPage('${data.pages[idx - 1].id}')">← Return to ${data.pages[idx - 1].title}</button>` 
+              ? `<button class="btn-nav" onclick="navigateToPage('${data.pages[idx - 1].id}')">&larr; Return to ${data.pages[idx - 1].title}</button>` 
               : '<div></div>'}
             ${idx < data.pages.length - 1 
-              ? `<button class="btn-nav" onclick="navigateToPage('${data.pages[idx + 1].id}')">Continue to ${data.pages[idx + 1].title} →</button>` 
+              ? `<button class="btn-nav" onclick="navigateToPage('${data.pages[idx + 1].id}')">Continue to ${data.pages[idx + 1].title} &rarr;</button>` 
               : `<button class="btn-nav" style="background: #059669;" onclick="alert('Congratulations! You have completed all interactive sections of this module.')">Complete Module ✓</button>`}
           </div>
         `;
@@ -809,6 +861,25 @@ if (navContainer) {
       document.getElementById('page-indicator').textContent = `Current Module Topic: ${data.pages[0].title}`;
       collapseAllSections();
       updateGlobalScore();
+    }
+
+    function renderCourseNavigation(meta) {
+      const prevContainer = document.getElementById('nav-prev-container');
+      const nextContainer = document.getElementById('nav-next-container');
+
+      // Previous Module Button
+      if (meta && meta.prevModuleUrl) {
+        prevContainer.innerHTML = `<a href="${meta.prevModuleUrl}" class="nav-course-btn btn-course-prev">&larr; Previous</a>`;
+      } else {
+        prevContainer.innerHTML = `<span class="nav-course-btn btn-course-disabled">&larr; Previous</span>`;
+      }
+
+      // Next Module Button
+      if (meta && meta.nextModuleUrl) {
+        nextContainer.innerHTML = `<a href="${meta.nextModuleUrl}" class="nav-course-btn btn-course-next">Next &rarr;</a>`;
+      } else {
+        nextContainer.innerHTML = `<span class="nav-course-btn btn-course-disabled">Next &rarr;</span>`;
+      }
     }
 
     function samplePageQuestions(pageId) {
@@ -935,7 +1006,7 @@ if (navContainer) {
             <span id="counter-${item.id}">Words: 0 | Characters: 0</span>
             <span>Recommended: 50–150 words</span>
           </div>
-          <button class="btn-ghost" style="color:#0f172a; border-color:#94a3b8;" id="btn-sa-submit-${item.id}" onclick="revealSARubric('${item.id}')">Check Optimal Answer & Rubric</button>
+          <button class="btn-ghost" style="color:#0f172a; border-color:#94a3b8;" id="btn-sa-submit-${item.id}" onclick="revealSARubric('${item.id}')">Check Optimal Answer &amp; Rubric</button>
           
           <div class="rubric-panel" id="rubric-panel-${item.id}">
             <div class="expert-model-box">
