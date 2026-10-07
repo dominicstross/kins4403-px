@@ -714,7 +714,7 @@
     document.addEventListener('DOMContentLoaded', async () => {
       const urlParams = new URLSearchParams(window.location.search);
       const moduleParam = urlParams.get('module') || '11.1';
-      const dataUrl = `data/OLM_${moduleParam}.json`;
+      const dataUrl = `data/OLM_${moduleParam}.json?v=${new Date().getTime()}`;
 
       try {
         const response = await fetch(dataUrl);
