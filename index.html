@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Hub | PX – KINS 4403 Physiology of Exercise</title>
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-dark-surface: #1e293b;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --bg-body: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #0f172a;
+      --text-subtle: #475569;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --success: #10b981;
+      --success-bg: #dcfce7;
+      --success-text: #166534;
+      --badge-planned-bg: #f1f5f9;
+      --badge-planned-text: #64748b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* Top Sticky Departmental Banner */
+    header.dashboard-header {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 2.5rem 1.5rem;
+      border-bottom: 3px solid #334155;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .header-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .course-code {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+    .course-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+    .course-desc {
+      font-size: 1rem;
+      color: #cbd5e1;
+      max-width: 760px;
+    }
+
+    /* Main Container */
+    main.hub-container {
+      max-width: 1040px;
+      margin: 2rem auto 4rem;
+      padding: 0 1.25rem;
+    }
+
+    .section-title-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--bg-dark);
+    }
+    .section-meta {
+      font-size: 0.85rem;
+      color: var(--text-subtle);
+    }
+
+    /* Module Grid */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Module Cards */
+    .module-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      position: relative;
+    }
+    .module-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      border-color: #cbd5e1;
+    }
+    .module-card.disabled {
+      opacity: 0.7;
+      background: #fdfdfd;
+      transform: none !important;
+      box-shadow: none !important;
+      border-style: dashed;
+    }
+
+    .card-top { margin-bottom: 1.25rem; }
+    .card-tag-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+    .module-number {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .status-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+    }
+    .status-badge.live {
+      background: var(--success-bg);
+      color: var(--success-text);
+      border: 1px solid #86efac;
+    }
+    .status-badge.planned {
+      background: var(--badge-planned-bg);
+      color: var(--badge-planned-text);
+      border: 1px solid #cbd5e1;
+    }
+
+    .card-heading {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--bg-dark);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+    .card-summary {
+      font-size: 0.88rem;
+      color: var(--text-subtle);
+      line-height: 1.5;
+    }
+
+    /* Action Links */
+    .btn-launch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.65rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      color: #fff;
+      background: var(--primary);
+      transition: background 0.15s ease;
+    }
+    .btn-launch:hover { background: var(--primary-hover); }
+    .btn-disabled {
+      background: #e2e8f0;
+      color: #94a3b8;
+      cursor: not-allowed;
+    }
+
+    /* Quick Resources Card */
+    .resource-card {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-left: 5px solid var(--primary);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .resource-card h3 {
+      font-size: 1rem;
+      color: #1e3a8a;
+      margin-bottom: 0.35rem;
+    }
+    .resource-card p {
+      font-size: 0.88rem;
+      color: #1e40af;
+      margin-bottom: 0;
+    }
+
+    footer.dashboard-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Banner -->
+  <header class="dashboard-header" role="banner">
+    <div class="header-inner">
+      <div class="course-code">Department of Kinesiology &bull; Academic Portal</div>
+      <h1 class="course-title">PX – KINS 4403 Physiology of Exercise</h1>
+      <p class="course-desc">Interactive Online Learning Modules (OLMs) featuring dynamic concept explorations, terminology banks, and formative self-assessment defense rubrics.</p>
+    </div>
+  </header>
+
+  <!-- Main Content Hub -->
+  <main class="hub-container" role="main">
+
+    <!-- Overview Note -->
+    <div class="resource-card">
+      <h3>Self-Regulated Learning Architecture</h3>
+      <p>Each module below functions as an interactive study companion. Use the randomized formative checks and self-scoring rubrics to assess conceptual mastery before classroom lab activities and exams.</p>
+    </div>
+
+    <!-- Chapter 11 Grid -->
+    <div class="section-title-wrap">
+      <h2 class="section-title">Chapter 11: Adaptations to Aerobic &amp; Anaerobic Training</h2>
+      <span class="section-meta">Active Modules</span>
+    </div>
+
+    <div class="module-grid">
+      <!-- Module 11.1 (Live) -->
+      <article class="module-card">
+        <div class="card-top">
+          <div class="card-tag-row">
+            <span class="module-number">Section 11.1</span>
+            <span class="status-badge live">&bull; Live</span>
+          </div>
+          <h3 class="card-heading">Adaptations to Aerobic Training</h3>
+          <p class="card-summary">Central hemodynamics, eccentric cardiac hypertrophy, plasma volume expansion, capillarization, sports pseudoanemia, and mitochondrial oxidative limitations.</p>
+        </div>
+        <a class="btn-launch" href="viewer.html?module=11.1">Launch Module &rarr;</a>
+      </article>
+
+      <!-- Module 11.2 (Live) -->
+      <article class="module-card">
+        <div class="card-top">
+          <div class="card-tag-row">
+            <span class="module-number">Section 11.2</span>
+            <span class="status-badge live">&bull; Live</span>
+          </div>
+          <h3 class="card-heading">Adaptations to Anaerobic Training</h3>
+          <p class="card-summary">Wingate test dynamics, peak vs. mean power, Type II fiber cross-sectional shifts, phosphagen vs. glycolytic enzyme kinetics, and training specificity.</p>
+        </div>
+        <a class="btn-launch" href="viewer.html?module=11.2">Launch Module &rarr;</a>
+      </article>
+    </div>
+
+    <!-- Chapter 10 Grid -->
+    <div class="section-title-wrap">
+      <h2 class="section-title">Chapter 10: Principles of Exercise Training</h2>
+      <span class="section-meta">Curriculum Modules</span>
+    </div>
+
+    <div class="module-grid">
+      <!-- Module 10.1 (Placeholder / Future Ready) -->
+      <article class="module-card">
+        <div class="card-top">
+          <div class="card-tag-row">
+            <span class="module-number">Section 10.1</span>
+            <span class="status-badge live">&bull; Live</span>
+          </div>
+          <h3 class="card-heading">Foundations of Conditioning</h3>
+          <p class="card-summary">Overload, progressive resistance, individual differences, specificity, and physiological reversibility.</p>
+        </div>
+        <a class="btn-launch" href="viewer.html?module=10.1">Launch Module &rarr;</a>
+      </article>
+
+      <!-- Module 10.2 (Placeholder / Future Ready) -->
+      <article class="module-card disabled">
+        <div class="card-top">
+          <div class="card-tag-row">
+            <span class="module-number">Section 10.2</span>
+            <span class="status-badge planned">In Development</span>
+          </div>
+          <h3 class="card-heading">Periodization Models</h3>
+          <p class="card-summary">Macrocycle, mesocycle, and microcycle structural design, undulating intensity variations, and planned recovery windows.</p>
+        </div>
+        <button class="btn-launch btn-disabled" disabled>Coming Soon</button>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="dashboard-footer" role="contentinfo">
+    <p>&copy; Department of Kinesiology &bull; Exercise Physiology Program</p>
+    <p style="margin-top: 0.25rem;">Built with decoupled JSON architecture for student accessibility.</p>
+  </footer>
+
+</body>
+</html>
