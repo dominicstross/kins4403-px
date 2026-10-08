@@ -1,2 +1,2 @@
-# px
-PX - KINS 4403 Physiology of Exercise course resources 
+# kins4403-px
+KINS 4403 - PX Physiology of Exercise course resources
