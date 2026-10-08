@@ -552,6 +552,66 @@
 
   <!-- Globally-Safe Core Navigation & UI Functions -->
   <script>
+   // --- Universal Activity Player State & Controller ---
+    let currentPageActivityIndices = {};
+
+    window.openActivity = function(pageId, index) {
+      if (!window.moduleData || !window.moduleData.pages) return;
+      const pageObj = window.moduleData.pages.find(p => p.id === pageId);
+      if (!pageObj || !pageObj.activities || !pageObj.activities[index]) return;
+
+      currentPageActivityIndices[pageId] = index;
+      const act = pageObj.activities[index];
+      const totalActs = pageObj.activities.length;
+
+      const grid = document.getElementById(`activity-card-grid-${pageId}`);
+      const player = document.getElementById(`activity-player-shell-${pageId}`);
+      const iframe = document.getElementById(`activity-iframe-${pageId}`);
+      const titleEl = document.getElementById(`activity-player-title-text-${pageId}`);
+      const fullscreenLink = document.getElementById(`activity-fullscreen-link-${pageId}`);
+      const prevBtn = document.getElementById(`activity-prev-btn-${pageId}`);
+      const nextBtn = document.getElementById(`activity-next-btn-${pageId}`);
+
+      if (grid) grid.style.display = 'none';
+      if (player) player.style.display = 'block';
+
+      if (titleEl) titleEl.textContent = `Activity ${index + 1} of ${totalActs}: ${act.title}`;
+      if (iframe) iframe.src = act.file;
+      if (fullscreenLink) fullscreenLink.href = act.file;
+
+      if (prevBtn) {
+        prevBtn.disabled = (index === 0);
+        prevBtn.style.opacity = (index === 0) ? '0.4' : '1';
+        prevBtn.style.cursor = (index === 0) ? 'not-allowed' : 'pointer';
+      }
+      if (nextBtn) {
+        nextBtn.disabled = (index === totalActs - 1);
+        nextBtn.style.opacity = (index === totalActs - 1) ? '0.4' : '1';
+        nextBtn.style.cursor = (index === totalActs - 1) ? 'not-allowed' : 'pointer';
+      }
+    };
+
+    window.closeActivityPlayer = function(pageId) {
+      const grid = document.getElementById(`activity-card-grid-${pageId}`);
+      const player = document.getElementById(`activity-player-shell-${pageId}`);
+      const iframe = document.getElementById(`activity-iframe-${pageId}`);
+
+      if (iframe) iframe.src = 'about:blank';
+      if (player) player.style.display = 'none';
+      if (grid) grid.style.display = 'grid';
+    };
+
+    window.navigateActivity = function(pageId, direction) {
+      const pageObj = window.moduleData.pages.find(p => p.id === pageId);
+      if (!pageObj || !pageObj.activities) return;
+
+      const currentIdx = currentPageActivityIndices[pageId] || 0;
+      const nextIdx = currentIdx + direction;
+
+      if (nextIdx >= 0 && nextIdx < pageObj.activities.length) {
+        window.openActivity(pageId, nextIdx);
+      }
+    };
     function switchTab(tabKey) {
       const lessonPane = document.getElementById('pane-lesson');
       const glossaryPane = document.getElementById('pane-glossary');
@@ -591,6 +651,11 @@
       });
 
       const pageData = window.moduleData.pages.find(p => p.id === pageId);
+      if (pageData && pageData.activities) {
+     currentActivityList = pageData.activities;
+   } else {
+     currentActivityList = [];
+   }
       if (pageData) {
         document.getElementById('page-indicator').textContent = `Current Module Topic: ${pageData.title}`;
       }
@@ -797,6 +862,47 @@
             </summary>
             <div class="accordion-body">${page.readingHtml}</div>
           </details>
+          ${page.activities && page.activities.length > 0 ? `
+          <hr class="assessment-divider">
+          <details class="accordion-card" id="sec-activities" open>
+            <summary class="accordion-header">
+              <span class="accordion-header-left">
+                <span class="accordion-chevron">▶</span>
+                <span>Interactive Applications &amp; Labs (${page.activities.length})</span>
+              </span>
+            </summary>
+            <div class="accordion-body" style="background: #f8fafc; padding: 1.25rem;">
+              <div id="activity-card-grid-${page.id}" class="activity-grid">
+                ${page.activities.map((act, actIdx) => `
+                  <div class="activity-card">
+                    <div>
+                      <div class="activity-card-title">${actIdx + 1}. ${act.title}</div>
+                      <div class="activity-card-desc">${act.description || 'Interactive practical exercise.'}</div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+                      <a href="${act.file}" target="_blank" class="btn-ghost" style="text-decoration:none; font-size:0.75rem;" title="Open in dedicated tab">Pop-out ↗</a>
+                      <button class="btn-primary" onclick="openActivity('${page.id}', ${actIdx})" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Launch Lab ▶</button>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+              <div id="activity-player-shell-${page.id}" class="activity-player-shell" style="display: none;">
+                <div class="activity-player-toolbar">
+                  <div id="activity-player-title-text-${page.id}" class="activity-player-title">Activity Title</div>
+                  <div class="activity-player-controls">
+                    <button id="activity-prev-btn-${page.id}" class="btn-secondary" onclick="navigateActivity('${page.id}', -1)" style="padding: 0.35rem 0.7rem; font-size: 0.75rem;">&larr; Prev</button>
+                    <button class="btn-secondary" onclick="closeActivityPlayer('${page.id}')" style="padding: 0.35rem 0.7rem; font-size: 0.75rem;">☰ Menu</button>
+                    <button id="activity-next-btn-${page.id}" class="btn-secondary" onclick="navigateActivity('${page.id}', 1)" style="padding: 0.35rem 0.7rem; font-size: 0.75rem;">Next &rarr;</button>
+                    <a id="activity-fullscreen-link-${page.id}" href="#" target="_blank" class="btn-ghost" style="color: #38bdf8; border-color: #0284c7; text-decoration: none; padding: 0.35rem 0.6rem; font-size: 0.75rem;" title="Open in new window">Fullscreen ↗</a>
+                  </div>
+                </div>
+                <div class="activity-iframe-wrapper">
+                  <iframe id="activity-iframe-${page.id}" src="about:blank" allowfullscreen loading="lazy"></iframe>
+                </div>
+              </div>
+            </div>
+          </details>
+          ` : ''}
           <hr class="assessment-divider">
           
           <details class="accordion-card" id="sec-mcq">
