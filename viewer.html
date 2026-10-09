@@ -34,7 +34,7 @@
       background: var(--slate-50);
       color: var(--slate-800);
       line-height: 1.6;
-      padding-bottom: 90px; /* Room for bottom sticky bar */
+      padding-bottom: 90px;
     }
 
     /* TOP PERSISTENT HEADER */
@@ -108,7 +108,7 @@
       padding: 0 16px;
     }
 
-    /* CONCEPT PART TABS (p1, p2, etc.) */
+    /* CONCEPT PART PILLS */
     .concept-part-bar {
       display: flex;
       gap: 8px;
@@ -134,7 +134,7 @@
       border-color: var(--accent);
     }
 
-    /* MAIN WORKSPACE TABS */
+    /* 3 MAIN WORKSPACE TABS */
     .view-tabs {
       display: flex;
       gap: 12px;
@@ -191,7 +191,7 @@
     }
     .accordion-card.open .accordion-body { display: block; }
 
-    /* READING STYLING & CALLOUTS */
+    /* READING STYLING & CLEANUP */
     .reading-content h2 { margin: 24px 0 12px 0; color: var(--primary); font-size: 1.35rem; }
     .reading-content h3 { margin: 18px 0 8px 0; color: var(--primary-light); font-size: 1.15rem; }
     .reading-content p { margin-bottom: 16px; font-size: 1.05rem; }
@@ -215,6 +215,26 @@
     }
     .data-table th, .data-table td { padding: 10px 14px; border: 1px solid var(--slate-200); text-align: left; }
     .data-table th { background: var(--slate-100); font-weight: 700; color: var(--primary); }
+
+    /* ACTIVITIES GRID */
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .activity-card {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .activity-card h4 { color: var(--primary); margin-bottom: 6px; }
+    .activity-card p { font-size: 0.9rem; color: var(--slate-600); margin-bottom: 14px; }
 
     /* ASSESSMENT QUESTION CARDS */
     .q-item {
@@ -272,6 +292,47 @@
       cursor: pointer;
     }
     .action-btn:hover { background: var(--accent-hover); }
+
+    /* MODAL FOR LUMI & CASE STUDIES */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-window {
+      background: #fff;
+      width: 100%;
+      max-width: 1100px;
+      height: 90vh;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+    }
+    .modal-bar {
+      padding: 12px 20px;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-bar button {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+    .modal-iframe { width: 100%; height: 100%; border: none; }
 
     /* BOTTOM STICKY NAVIGATION */
     .bottom-bar {
@@ -341,17 +402,17 @@
 </header>
 
 <div class="container">
-  <!-- CONCEPT PART SWITCHER (For multi-part modules) -->
   <div class="concept-part-bar" id="conceptPartBar"></div>
 
+  <!-- 3 WORKSPACE TABS -->
   <div class="view-tabs">
     <button class="tab-btn active" onclick="switchView('lesson')">Interactive Lesson</button>
+    <button class="tab-btn" onclick="switchView('activities')">Applied Labs &amp; Scenarios (<span id="actCount">0</span>)</button>
     <button class="tab-btn" onclick="switchView('glossary')">Glossary</button>
   </div>
 
-  <!-- LESSON VIEW -->
+  <!-- 1. LESSON PANEL -->
   <main id="pane-lesson" class="panel active">
-    <!-- READING ACCORDION -->
     <div class="accordion-card open" id="sec-reading">
       <div class="accordion-header" onclick="toggleCard('sec-reading')">
         <span>📖 Instructional Reading Content</span>
@@ -360,7 +421,6 @@
       <div class="accordion-body reading-content" id="readingContainer"></div>
     </div>
 
-    <!-- MCQ ACCORDION -->
     <div class="accordion-card open" id="sec-mcq">
       <div class="accordion-header" onclick="toggleCard('sec-mcq')">
         <span>🎯 Multiple Choice Questions</span>
@@ -369,7 +429,6 @@
       <div class="accordion-body" id="container-mcq"></div>
     </div>
 
-    <!-- MULTI-SELECT ACCORDION -->
     <div class="accordion-card open" id="sec-ms">
       <div class="accordion-header" onclick="toggleCard('sec-ms')">
         <span>☑️ Multi-Select Questions</span>
@@ -378,7 +437,6 @@
       <div class="accordion-body" id="container-ms"></div>
     </div>
 
-    <!-- TRUE / FALSE ACCORDION -->
     <div class="accordion-card open" id="sec-tf">
       <div class="accordion-header" onclick="toggleCard('sec-tf')">
         <span>⚖️ True / False Statements</span>
@@ -387,7 +445,6 @@
       <div class="accordion-body" id="container-tf"></div>
     </div>
 
-    <!-- CLOZE ACCORDION -->
     <div class="accordion-card open" id="sec-cloze">
       <div class="accordion-header" onclick="toggleCard('sec-cloze')">
         <span>✏️ Sentence Completion (Cloze)</span>
@@ -396,7 +453,6 @@
       <div class="accordion-body" id="container-cloze"></div>
     </div>
 
-    <!-- SHORT ANSWER ACCORDION -->
     <div class="accordion-card open" id="sec-sa">
       <div class="accordion-header" onclick="toggleCard('sec-sa')">
         <span>💡 Applied Short Answer Prompts</span>
@@ -406,7 +462,14 @@
     </div>
   </main>
 
-  <!-- GLOSSARY VIEW -->
+  <!-- 2. ACTIVITIES TAB -->
+  <section id="pane-activities" class="panel">
+    <h3 style="color: var(--primary); margin-bottom: 8px;">Applied Activities &amp; Interactive Scenarios</h3>
+    <p style="color: var(--slate-600); margin-bottom: 20px;">Engage with hands-on clinical case studies, motor skills labs, and Lumi/H5P modules for this module.</p>
+    <div class="activity-grid" id="activitiesGrid"></div>
+  </section>
+
+  <!-- 3. GLOSSARY TAB -->
   <section id="pane-glossary" class="panel">
     <h3 style="color: var(--primary); margin-bottom: 16px;">Core Terminology Reference</h3>
     <table class="data-table">
@@ -416,7 +479,18 @@
   </section>
 </div>
 
-<!-- BOTTOM PERSISTENT NAVIGATION -->
+<!-- MODAL FOR LUMI & CASE STUDIES -->
+<div class="modal-overlay" id="activityModal">
+  <div class="modal-window">
+    <div class="modal-bar">
+      <span id="modalActivityTitle" style="font-weight: 700;">Activity</span>
+      <button onclick="closeModal()">&times;</button>
+    </div>
+    <iframe id="activityFrame" class="modal-iframe" src=""></iframe>
+  </div>
+</div>
+
+<!-- BOTTOM STICKY NAVIGATION -->
 <footer class="bottom-bar">
   <a class="nav-arrow" id="btnPrev" href="#">&larr; Previous Section</a>
   <a class="menu-link" href="index.html">&#9776; Main Course Menu</a>
@@ -426,10 +500,8 @@
 <script>
   let moduleData = null;
   let quizData = null;
-  let currentPartIndex = 0;
   let answeredStats = { correct: 0, totalAttempted: 0 };
 
-  // Helper: Sequence map for Bottom Navigation
   const courseSequence = [
     { ch: '10', mod: '10.1' }, { ch: '10', mod: '10.2' }, { ch: '10', mod: '10.3' }, { ch: '10', mod: '10.4' },
     { ch: '11', mod: '11.1' }, { ch: '11', mod: '11.2' }, { ch: '11', mod: '11.3' }, { ch: '11', mod: '11.4' }
@@ -470,7 +542,6 @@
     }
   }
 
-  // 1. BOTTOM NAVIGATION LOGIC
   function setupBottomNav(currCh, currMod) {
     const curIdx = courseSequence.findIndex(item => item.ch === currCh && item.mod === currMod);
     const prevBtn = document.getElementById('btnPrev');
@@ -493,7 +564,6 @@
     }
   }
 
-  // 2. CONCEPT PART NAVIGATION
   function buildPartPills() {
     const container = document.getElementById('conceptPartBar');
     container.innerHTML = '';
@@ -511,52 +581,103 @@
     });
   }
 
+  // SANITIZER: Strips legacy empty quiz containers & headers from reading text
+  function sanitizeReadingHtml(rawHtml) {
+    const temp = document.createElement('div');
+    temp.innerHTML = rawHtml || '';
+
+    // Remove legacy question containers and reset buttons
+    const legacySelectors = [
+      '[id^="container-"]',
+      '[id^="sec-reading-p"] > h2:contains("Formative")',
+      '.activity-section',
+      '.reset-btn',
+      'button[onclick*="resetSection"]',
+      'div[id*="-mcq"]',
+      'div[id*="-ms"]',
+      'div[id*="-tf"]',
+      'div[id*="-cloze"]',
+      'div[id*="-sa"]'
+    ];
+
+    temp.querySelectorAll('div, section, p, h2, h3, h4').forEach(el => {
+      const txt = el.textContent || '';
+      if (/Formative Assessment \d+:/i.test(txt) || /Interactive Knowledge Check/i.test(txt)) {
+        el.remove();
+      }
+      if (el.id && (el.id.includes('container-') || el.id.includes('-mcq') || el.id.includes('-cloze'))) {
+        el.remove();
+      }
+    });
+
+    return temp.innerHTML;
+  }
+
   function loadConceptPart(idx) {
-    currentPartIndex = idx;
     document.querySelectorAll('.part-pill').forEach((btn, i) => btn.classList.toggle('active', i === idx));
-    
-    const page = moduleData.pages[idx];
-    document.getElementById('readingContainer').innerHTML = page.readingHtml || '<p>No reading content available.</p>';
-    
-    renderAssessmentsForPart(page.id, idx);
+    const page = moduleData.pages[idx] || moduleData.pages[0];
+
+    document.getElementById('readingContainer').innerHTML = sanitizeReadingHtml(page.readingHtml);
+
+    renderActivities(page.activities || []);
+    renderAssessmentsUniversal(page.id, idx);
 
     if (window.renderMath) window.renderMath();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // 3. ADAPTIVE ASSESSMENT RESOLVER
-  function renderAssessmentsForPart(partId, partIdx) {
-    // Try multiple possible keys from legacy extracts (e.g., "p1", "1", 1, or match by index)
-    let pool = quizData[partId] || quizData[String(partIdx + 1)] || quizData[partIdx];
-    if (!pool && Object.keys(quizData).length > 0) {
+  // UNIVERSAL ASSESSMENT RESOLVER
+  function renderAssessmentsUniversal(partId, partIdx) {
+    let pool = null;
+
+    // 1. Check exact key (e.g., "p1", "p2")
+    if (quizData[partId]) {
+      pool = quizData[partId];
+    } 
+    // 2. Check 1-based index string (e.g., "1", "2")
+    else if (quizData[String(partIdx + 1)]) {
+      pool = quizData[String(partIdx + 1)];
+    }
+    // 3. Check 0-based index or array order
+    else {
       const keys = Object.keys(quizData);
-      pool = quizData[keys[partIdx]] || quizData[keys[0]];
+      if (keys.length > partIdx) {
+        pool = quizData[keys[partIdx]];
+      } else if (keys.length > 0) {
+        pool = quizData[keys[0]];
+      }
     }
 
-    renderMCQs(pool ? pool.mcq : []);
-    renderMSs(pool ? pool.ms : []);
-    renderTFs(pool ? pool.tf : []);
-    renderClozes(pool ? pool.cloze : []);
-    renderSAs(pool ? pool.sa : []);
+    // 4. Flatten check if questions are stored in a root array or object
+    if (!pool && (quizData.mcq || quizData.tf || quizData.cloze)) {
+      pool = quizData;
+    }
+
+    renderMCQs(pool ? (pool.mcq || pool.multipleChoice || []) : []);
+    renderMSs(pool ? (pool.ms || pool.multiSelect || []) : []);
+    renderTFs(pool ? (pool.tf || pool.trueFalse || []) : []);
+    renderClozes(pool ? (pool.cloze || pool.fillBlank || []) : []);
+    renderSAs(pool ? (pool.sa || pool.openEnded || pool.shortAnswer || []) : []);
   }
 
   function renderMCQs(items) {
     const c = document.getElementById('container-mcq');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No multiple choice items for this section.</p>' : '';
-    (items || []).forEach((item, i) => {
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No multiple choice questions in this section.</p>' : '';
+    items.forEach((item, i) => {
+      const qId = item.id || `mcq_${i}`;
       const div = document.createElement('div');
       div.className = 'q-item';
       div.innerHTML = `
-        <div class="q-title">${i + 1}. ${item.q}</div>
+        <div class="q-title">${i + 1}. ${item.q || item.question}</div>
         <div class="option-group">
-          ${item.opts.map((opt, optIdx) => `
-            <label class="opt-label" id="${item.id}_opt_${optIdx}">
-              <input type="radio" name="${item.id}" value="${optIdx}" onchange="gradeMCQ('${item.id}', ${optIdx},${item.correct})">
+          ${(item.opts || item.options || []).map((opt, optIdx) => `
+            <label class="opt-label" id="${qId}_opt_${optIdx}">
+              <input type="radio" name="${qId}" value="${optIdx}" onchange="gradeMCQ('${qId}', ${optIdx},${item.correct})">
               <span>${opt}</span>
             </label>
           `).join('')}
         </div>
-        <div class="feedback-box info" id="${item.id}_fb"><strong>Rationale:</strong> ${item.rationale || ''}</div>
+        <div class="feedback-box info" id="${qId}_fb"><strong>Rationale:</strong> ${item.rationale || item.feedback || ''}</div>
       `;
       c.appendChild(div);
     });
@@ -565,13 +686,13 @@
   window.gradeMCQ = (qId, selected, correct) => {
     document.querySelectorAll(`[id^="${qId}_opt_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
     const chosen = document.getElementById(`${qId}_opt_${selected}`);
-    const isCorrect = (selected === correct);
-    if (isCorrect) {
+    if (selected === correct) {
       chosen.classList.add('correct');
       updateScore(true);
     } else {
       chosen.classList.add('incorrect');
-      document.getElementById(`${qId}_opt_${correct}`).classList.add('correct');
+      const corrLabel = document.getElementById(`${qId}_opt_${correct}`);
+      if (corrLabel) corrLabel.classList.add('correct');
       updateScore(false);
     }
     document.getElementById(`${qId}_fb`).classList.add('visible');
@@ -579,22 +700,24 @@
 
   function renderMSs(items) {
     const c = document.getElementById('container-ms');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No multi-select items for this section.</p>' : '';
-    (items || []).forEach((item, i) => {
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No multi-select questions in this section.</p>' : '';
+    items.forEach((item, i) => {
+      const qId = item.id || `ms_${i}`;
+      const correctArr = item.correctArray || item.correct || [];
       const div = document.createElement('div');
       div.className = 'q-item';
       div.innerHTML = `
-        <div class="q-title">${i + 1}. ${item.q}</div>
+        <div class="q-title">${i + 1}. ${item.q || item.question}</div>
         <div class="option-group">
-          ${item.opts.map((opt, optIdx) => `
-            <label class="opt-label" id="${item.id}_ms_${optIdx}">
-              <input type="checkbox" name="${item.id}" value="${optIdx}">
+          ${(item.opts || item.options || []).map((opt, optIdx) => `
+            <label class="opt-label" id="${qId}_ms_${optIdx}">
+              <input type="checkbox" name="${qId}" value="${optIdx}">
               <span>${opt}</span>
             </label>
           `).join('')}
         </div>
-        <button class="action-btn" onclick="gradeMS('${item.id}', ${JSON.stringify(item.correctArray)})">Check Answer</button>
-        <div class="feedback-box info" id="${item.id}_fb"><strong>Rationale:</strong> ${item.rationale || ''}</div>
+        <button class="action-btn" onclick="gradeMS('${qId}', ${JSON.stringify(correctArr)})">Check Selection</button>
+        <div class="feedback-box info" id="${qId}_fb"><strong>Rationale:</strong> ${item.rationale || item.feedback || ''}</div>
       `;
       c.appendChild(div);
     });
@@ -604,9 +727,15 @@
     const checked = Array.from(document.querySelectorAll(`input[name="${qId}"]:checked`)).map(cb => parseInt(cb.value));
     document.querySelectorAll(`[id^="${qId}_ms_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
     
-    correctArray.forEach(idx => document.getElementById(`${qId}_ms_${idx}`).classList.add('correct'));
+    correctArray.forEach(idx => {
+      const el = document.getElementById(`${qId}_ms_${idx}`);
+      if (el) el.classList.add('correct');
+    });
     checked.forEach(idx => {
-      if (!correctArray.includes(idx)) document.getElementById(`${qId}_ms_${idx}`).classList.add('incorrect');
+      if (!correctArray.includes(idx)) {
+        const el = document.getElementById(`${qId}_ms_${idx}`);
+        if (el) el.classList.add('incorrect');
+      }
     });
 
     const isMatch = (checked.length === correctArray.length && checked.every(v => correctArray.includes(v)));
@@ -616,17 +745,19 @@
 
   function renderTFs(items) {
     const c = document.getElementById('container-tf');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No True/False items for this section.</p>' : '';
-    (items || []).forEach((item, i) => {
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No True/False questions in this section.</p>' : '';
+    items.forEach((item, i) => {
+      const qId = item.id || `tf_${i}`;
+      const answerBool = (item.ans !== undefined) ? item.ans : item.answer;
       const div = document.createElement('div');
       div.className = 'q-item';
       div.innerHTML = `
-        <div class="q-title">${i + 1}. True or False: ${item.q}</div>
+        <div class="q-title">${i + 1}. True or False: ${item.q || item.question}</div>
         <div class="option-group" style="flex-direction:row;">
-          <label class="opt-label" id="${item.id}_true"><input type="radio" name="${item.id}" onchange="gradeTF('${item.id}', true, ${item.ans})"> True</label>
-          <label class="opt-label" id="${item.id}_false"><input type="radio" name="${item.id}" onchange="gradeTF('${item.id}', false, ${item.ans})"> False</label>
+          <label class="opt-label" id="${qId}_true"><input type="radio" name="${qId}" onchange="gradeTF('${qId}', true, ${answerBool})"> True</label>
+          <label class="opt-label" id="${qId}_false"><input type="radio" name="${qId}" onchange="gradeTF('${qId}', false, ${answerBool})"> False</label>
         </div>
-        <div class="feedback-box info" id="${item.id}_fb"><strong>Feedback:</strong> ${item.feedback || ''}</div>
+        <div class="feedback-box info" id="${qId}_fb"><strong>Feedback:</strong> ${item.feedback || item.rationale || ''}</div>
       `;
       c.appendChild(div);
     });
@@ -640,7 +771,8 @@
       updateScore(true);
     } else {
       chosen.classList.add('incorrect');
-      document.getElementById(`${qId}_${correct}`).classList.add('correct');
+      const correctElem = document.getElementById(`${qId}_${correct}`);
+      if (correctElem) correctElem.classList.add('correct');
       updateScore(false);
     }
     document.getElementById(`${qId}_fb`).classList.add('visible');
@@ -648,13 +780,17 @@
 
   function renderClozes(items) {
     const c = document.getElementById('container-cloze');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No sentence completion items for this section.</p>' : '';
-    (items || []).forEach((item, i) => {
-      const cleanStmt = (item.statement || "").replace(/\*\*(.*?)\*\*/g, '___TARGET___');
-      const parts = cleanStmt.split('___TARGET___');
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No sentence completion items in this section.</p>' : '';
+    items.forEach((item, i) => {
+      const qId = item.id || `clz_${i}`;
+      const rawStmt = item.statement || "";
       const target = item.target || ((item.targets && item.targets[0]) ? item.targets[0] : "");
-      const opts = item.optionsBank || [target, "Systolic pressure", "Stroke volume", "Tidal volume"];
-      const shuffled = [...new Set(opts)].sort(() => 0.5 - Math.random());
+      
+      const cleanStmt = rawStmt.replace(/\*\*(.*?)\*\*/g, '___TARGET___');
+      const parts = cleanStmt.includes('___TARGET___') ? cleanStmt.split('___TARGET___') : [cleanStmt, ""];
+      
+      const bank = item.optionsBank || [target, "Systolic pressure", "Stroke volume", "Tidal volume"];
+      const shuffled = [...new Set(bank)].sort(() => 0.5 - Math.random());
 
       const div = document.createElement('div');
       div.className = 'q-item';
@@ -662,13 +798,13 @@
         <div class="q-title">${i + 1}. Sentence Completion</div>
         <p style="font-size:1.05rem;">
           ${parts[0]}
-          <select class="cloze-select" id="${item.id}_sel" onchange="gradeCloze('${item.id}', '${target.replace(/'/g, "\\'")}')">
+          <select class="cloze-select" id="${qId}_sel" onchange="gradeCloze('${qId}', '${target.replace(/'/g, "\\'")}')">
             <option value="">-- select term --</option>
             ${shuffled.map(o => `<option value="${o}">${o}</option>`).join('')}
           </select>
           ${parts[1] || ''}
         </p>
-        <div class="feedback-box success" id="${item.id}_fb">✓ Correct target identified!</div>
+        <div class="feedback-box success" id="${qId}_fb">✓ Correct target identified!</div>
       `;
       c.appendChild(div);
     });
@@ -690,16 +826,17 @@
 
   function renderSAs(items) {
     const c = document.getElementById('container-sa');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No short answer prompts for this section.</p>' : '';
-    (items || []).forEach((item, i) => {
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No short answer prompts in this section.</p>' : '';
+    items.forEach((item, i) => {
+      const qId = item.id || `sa_${i}`;
       const div = document.createElement('div');
       div.className = 'q-item';
       div.innerHTML = `
-        <div class="q-title">${i + 1}. Applied Short Answer: ${item.q}</div>
+        <div class="q-title">${i + 1}. Applied Short Answer: ${item.q || item.prompt}</div>
         <textarea style="width:100%; height:90px; padding:10px; border-radius:6px; border:1px solid var(--slate-300); font-family:inherit; margin-bottom:10px;" placeholder="Draft your answer here..."></textarea>
-        <button class="action-btn" onclick="document.getElementById('${item.id}_model').classList.toggle('visible')">Reveal Model Exemplar &amp; Rubric</button>
-        <div class="feedback-box info" id="${item.id}_model">
-          <p style="margin-bottom:6px;"><strong>Model Answer:</strong> ${item.model || ''}</p>
+        <button class="action-btn" onclick="document.getElementById('${qId}_model').classList.toggle('visible')">Reveal Model Exemplar &amp; Rubric</button>
+        <div class="feedback-box info" id="${qId}_model">
+          <p style="margin-bottom:6px;"><strong>Model Exemplar:</strong> ${item.model || item.modelAnswer || ''}</p>
           ${item.criteria ? `<strong>Criteria:</strong><ul>${item.criteria.map(cr => `<li>${cr}</li>`).join('')}</ul>` : ''}
         </div>
       `;
@@ -707,7 +844,43 @@
     });
   }
 
-  // 4. SCORE TRACKER
+  // ACTIVITIES & MODAL LAUNCHER
+  function renderActivities(list) {
+    const grid = document.getElementById('activitiesGrid');
+    document.getElementById('actCount').textContent = list.length;
+    grid.innerHTML = '';
+
+    if (!list.length) {
+      grid.innerHTML = '<p style="color:var(--slate-600);">No interactive scenarios or Lumi labs attached to this module yet.</p>';
+      return;
+    }
+
+    list.forEach(act => {
+      const card = document.createElement('div');
+      card.className = 'activity-card';
+      card.innerHTML = `
+        <div>
+          <h4>${act.title}</h4>
+          <p style="text-transform:uppercase; font-size:0.75rem; color:var(--accent); font-weight:700;">${act.type || 'Interactive'} Activity</p>
+        </div>
+        <button class="action-btn" onclick="openModal('${act.title}', '${act.path || act.file}')">Launch Activity &rarr;</button>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  window.openModal = (title, path) => {
+    document.getElementById('modalActivityTitle').textContent = title;
+    document.getElementById('activityFrame').src = path;
+    document.getElementById('activityModal').classList.add('active');
+  };
+
+  window.closeModal = () => {
+    document.getElementById('activityFrame').src = '';
+    document.getElementById('activityModal').classList.remove('active');
+  };
+
+  // SCORE, ACCORDIONS & TABS
   function updateScore(isCorrect) {
     answeredStats.totalAttempted++;
     if (isCorrect) answeredStats.correct++;
@@ -715,15 +888,11 @@
     document.getElementById('scoreTracker').textContent = `Score: ${answeredStats.correct} / ${answeredStats.totalAttempted} (${pct}%)`;
   }
 
-  // 5. ACCORDION HELPERS
-  window.toggleCard = (id) => {
-    document.getElementById(id).classList.toggle('open');
-  };
+  window.toggleCard = (id) => document.getElementById(id).classList.toggle('open');
   window.toggleAllAccordions = (open) => {
     document.querySelectorAll('.accordion-card').forEach(c => c.classList.toggle('open', open));
   };
 
-  // 6. GLOSSARY & TAB SWITCHER
   function buildGlossary() {
     const tbody = document.getElementById('glossaryBody');
     tbody.innerHTML = '';
@@ -740,8 +909,11 @@
     if (tab === 'lesson') {
       document.querySelectorAll('.tab-btn')[0].classList.add('active');
       document.getElementById('pane-lesson').classList.add('active');
-    } else {
+    } else if (tab === 'activities') {
       document.querySelectorAll('.tab-btn')[1].classList.add('active');
+      document.getElementById('pane-activities').classList.add('active');
+    } else {
+      document.querySelectorAll('.tab-btn')[2].classList.add('active');
       document.getElementById('pane-glossary').classList.add('active');
     }
   };
