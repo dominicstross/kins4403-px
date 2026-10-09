@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kinesiology OLM Engine</title>
+  <title>Kinesiology Interactive OLM</title>
 
-  <!-- KaTeX for crisp physiological math rendering ($VO2max$, etc.) -->
+  <!-- KaTeX for physiological formulas -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
@@ -19,63 +19,126 @@
       --accent-hover: #1d4ed8;
       --success: #15803d;
       --danger: #b91c1c;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --border: #e2e8f0;
-      --text: #1e293b;
-      --text-muted: #64748b;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-600: #475569;
+      --slate-800: #1e293b;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: var(--slate-50);
+      color: var(--slate-800);
       line-height: 1.6;
+      padding-bottom: 90px; /* Room for bottom sticky bar */
     }
 
-    /* TOP HEADER & NAVIGATION */
+    /* TOP PERSISTENT HEADER */
     header {
       background: var(--primary);
       color: #fff;
-      padding: 16px 24px;
+      padding: 12px 20px;
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 60;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .header-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
+      margin-bottom: 8px;
     }
-    .header-titles h1 { font-size: 1.25rem; font-weight: 700; }
-    .header-titles p { font-size: 0.85rem; color: #94a3b8; }
-    .nav-pills { display: flex; gap: 8px; flex-wrap: wrap; }
-    .pill-btn {
-      background: var(--primary-light);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 6px 14px;
+    .header-titles h1 { font-size: 1.15rem; font-weight: 700; }
+    .header-titles p { font-size: 0.8rem; color: #94a3b8; }
+    
+    .score-badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 4px 12px;
       border-radius: 20px;
       font-size: 0.85rem;
-      cursor: pointer;
-      transition: 0.2s;
+      font-weight: 600;
+      color: #93c5fd;
     }
-    .pill-btn.active, .pill-btn:hover { background: var(--accent); }
+
+    .header-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 8px;
+    }
+    .subnav-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+    .nav-btn {
+      background: var(--primary-light);
+      color: #fff;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .nav-btn:hover { background: var(--accent); }
+    .toggle-all-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #cbd5e1;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+    .toggle-all-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
     /* LAYOUT WRAPPER */
     .container {
       max-width: 1040px;
-      margin: 24px auto;
-      padding: 0 16px 60px 16px;
+      margin: 20px auto;
+      padding: 0 16px;
     }
 
-    /* TABS */
+    /* CONCEPT PART TABS (p1, p2, etc.) */
+    .concept-part-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--slate-200);
+      padding-bottom: 8px;
+      overflow-x: auto;
+    }
+    .part-pill {
+      background: #fff;
+      border: 1px solid var(--slate-300);
+      color: var(--slate-600);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .part-pill.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* MAIN WORKSPACE TABS */
     .view-tabs {
       display: flex;
       gap: 12px;
-      border-bottom: 2px solid var(--border);
+      border-bottom: 2px solid var(--slate-200);
       margin-bottom: 24px;
     }
     .tab-btn {
@@ -84,105 +147,99 @@
       cursor: pointer;
       background: none;
       border: none;
-      color: var(--text-muted);
+      color: var(--slate-600);
       border-bottom: 3px solid transparent;
       margin-bottom: -2px;
+      font-size: 0.95rem;
     }
     .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-    /* PANELS */
     .panel { display: none; }
-    .panel.active { display: block; animation: fadeIn 0.2s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .panel.active { display: block; }
+
+    /* COLLAPSIBLE ACCORDION CARDS */
+    .accordion-card {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      margin-bottom: 18px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .accordion-header {
+      background: #fff;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--primary);
+      border-bottom: 1px solid transparent;
+      user-select: none;
+    }
+    .accordion-header:hover { background: var(--slate-50); }
+    .accordion-card.open .accordion-header {
+      border-bottom-color: var(--slate-200);
+      background: var(--slate-100);
+    }
+    .chevron { transition: transform 0.2s ease; }
+    .accordion-card.open .chevron { transform: rotate(180deg); }
+    .accordion-body {
+      display: none;
+      padding: 20px;
+    }
+    .accordion-card.open .accordion-body { display: block; }
 
     /* READING STYLING & CALLOUTS */
-    .reading-content h2 { margin: 28px 0 12px 0; color: var(--primary); font-size: 1.4rem; }
-    .reading-content h3 { margin: 20px 0 8px 0; color: var(--primary-light); font-size: 1.15rem; }
+    .reading-content h2 { margin: 24px 0 12px 0; color: var(--primary); font-size: 1.35rem; }
+    .reading-content h3 { margin: 18px 0 8px 0; color: var(--primary-light); font-size: 1.15rem; }
     .reading-content p { margin-bottom: 16px; font-size: 1.05rem; }
     .reading-content ul { margin: 0 0 18px 24px; }
     .reading-content li { margin-bottom: 6px; }
-    
+
     .callout-box {
-      background: #f1f5f9;
+      background: #eff6ff;
       border-left: 4px solid var(--accent);
-      padding: 18px;
+      padding: 16px;
       border-radius: 0 8px 8px 0;
-      margin: 24px 0;
+      margin: 20px 0;
     }
-    .callout-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+    .callout-title { font-weight: 700; color: var(--primary); margin-bottom: 4px; }
 
     .data-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 24px 0;
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    .data-table th, .data-table td { padding: 12px 16px; border: 1px solid var(--border); text-align: left; }
-    .data-table th { background: #f8fafc; font-weight: 700; color: var(--primary); }
-
-    /* ACTIVITIES DRAWER / TILES */
-    .activity-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
       margin: 20px 0;
-    }
-    .activity-card {
       background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 18px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
-    .activity-card h4 { color: var(--primary); margin-bottom: 6px; }
-    .activity-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 14px; }
-    .launch-btn {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      align-self: flex-start;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .launch-btn:hover { background: var(--accent-hover); }
+    .data-table th, .data-table td { padding: 10px 14px; border: 1px solid var(--slate-200); text-align: left; }
+    .data-table th { background: var(--slate-100); font-weight: 700; color: var(--primary); }
 
-    /* ASSESSMENT QUESTIONS STYLING */
-    .q-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 22px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    /* ASSESSMENT QUESTION CARDS */
+    .q-item {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
     }
-    .q-header { font-weight: 700; margin-bottom: 14px; color: var(--primary); font-size: 1.05rem; }
-    .option-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+    .q-title { font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+    .option-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
     .opt-label {
       display: flex;
       align-items: center;
       gap: 10px;
       padding: 10px 14px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--slate-300);
       border-radius: 6px;
-      cursor: pointer;
       background: #fff;
-      transition: 0.15s;
+      cursor: pointer;
+      font-size: 0.95rem;
     }
-    .opt-label:hover { background: #f8fafc; border-color: #cbd5e1; }
-    .opt-label.selected { border-color: var(--accent); background: #eff6ff; }
-    .opt-label.correct { border-color: var(--success); background: #dcfce7; }
-    .opt-label.incorrect { border-color: var(--danger); background: #fee2e2; }
+    .opt-label:hover { background: #f8fafc; border-color: #94a3b8; }
+    .opt-label.correct { border-color: var(--success); background: #dcfce7 !important; color: #166534; font-weight: 600; }
+    .opt-label.incorrect { border-color: var(--danger); background: #fee2e2 !important; color: #991b1b; }
 
     .cloze-select {
       font-family: inherit;
@@ -193,93 +250,163 @@
       background: #fff;
       margin: 0 4px;
     }
-
     .feedback-box {
-      margin-top: 14px;
-      padding: 12px 16px;
+      margin-top: 10px;
+      padding: 10px 14px;
       border-radius: 6px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       display: none;
     }
     .feedback-box.visible { display: block; }
-    .feedback-box.success { background: #dcfce7; color: #166534; }
-    .feedback-box.info { background: #eff6ff; color: #1e40af; }
+    .feedback-box.info { background: #e0f2fe; color: #075985; border: 1px solid #bae6fd; }
+    .feedback-box.success { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
 
-    /* MODAL FOR IFRAME LABS & H5P */
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(15, 23, 42, 0.7);
-      backdrop-filter: blur(4px);
-      z-index: 100;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .modal-overlay.active { display: flex; }
-    .modal-window {
-      background: #fff;
-      width: 100%;
-      max-width: 1100px;
-      height: 90vh;
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
-    }
-    .modal-bar {
-      padding: 12px 20px;
-      background: var(--primary);
+    .action-btn {
+      background: var(--accent);
       color: #fff;
+      border: none;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .action-btn:hover { background: var(--accent-hover); }
+
+    /* BOTTOM STICKY NAVIGATION */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #fff;
+      border-top: 1px solid var(--slate-200);
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      z-index: 50;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
     }
-    .modal-bar button {
-      background: transparent;
-      border: none;
+    .nav-arrow {
+      background: var(--primary);
       color: #fff;
-      font-size: 1.4rem;
-      cursor: pointer;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
-    .modal-iframe { width: 100%; height: 100%; border: none; }
+    .nav-arrow:hover { background: var(--primary-light); }
+    .nav-arrow.disabled {
+      background: var(--slate-200);
+      color: var(--slate-600);
+      pointer-events: none;
+    }
+    .menu-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .menu-link:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="header-titles">
-    <h1 id="moduleTitle">Loading Module...</h1>
-    <p id="courseTitle">KINS 4403 Physiology of Exercise</p>
+  <div class="header-top">
+    <div class="header-titles">
+      <h1 id="moduleTitle">Loading Module...</h1>
+      <p id="courseTitle">KINS 4403 Physiology of Exercise</p>
+    </div>
+    <div class="score-badge" id="scoreTracker">Score: 0 / 0 (0%)</div>
   </div>
-  <div class="nav-pills" id="navPills"></div>
+
+  <div class="header-controls">
+    <div class="subnav-pills">
+      <a class="nav-btn" href="#sec-reading">Reading</a>
+      <a class="nav-btn" href="#sec-mcq">Multiple Choice</a>
+      <a class="nav-btn" href="#sec-ms">Multi-Select</a>
+      <a class="nav-btn" href="#sec-tf">True / False</a>
+      <a class="nav-btn" href="#sec-cloze">Sentence Completion</a>
+      <a class="nav-btn" href="#sec-sa">Short Answer</a>
+    </div>
+    <div style="display:flex; gap:6px;">
+      <button class="toggle-all-btn" onclick="toggleAllAccordions(true)">Expand All</button>
+      <button class="toggle-all-btn" onclick="toggleAllAccordions(false)">Collapse All</button>
+    </div>
+  </div>
 </header>
 
 <div class="container">
+  <!-- CONCEPT PART SWITCHER (For multi-part modules) -->
+  <div class="concept-part-bar" id="conceptPartBar"></div>
+
   <div class="view-tabs">
-    <button class="tab-btn active" onclick="switchMainTab('lesson')">Interactive Lesson</button>
-    <button class="tab-btn" onclick="switchMainTab('activities')">Applied Labs &amp; Scenarios (<span id="actCount">0</span>)</button>
-    <button class="tab-btn" onclick="switchMainTab('glossary')">Glossary</button>
+    <button class="tab-btn active" onclick="switchView('lesson')">Interactive Lesson</button>
+    <button class="tab-btn" onclick="switchView('glossary')">Glossary</button>
   </div>
 
-  <!-- LESSON PANEL -->
+  <!-- LESSON VIEW -->
   <main id="pane-lesson" class="panel active">
-    <div id="readingSection" class="reading-content"></div>
-    <hr style="margin: 40px 0; border: 0; border-top: 2px dashed var(--border);">
-    <h3 style="color: var(--primary); margin-bottom: 16px;">Concept Knowledge Check</h3>
-    <div id="quizContainer"></div>
+    <!-- READING ACCORDION -->
+    <div class="accordion-card open" id="sec-reading">
+      <div class="accordion-header" onclick="toggleCard('sec-reading')">
+        <span>📖 Instructional Reading Content</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="accordion-body reading-content" id="readingContainer"></div>
+    </div>
+
+    <!-- MCQ ACCORDION -->
+    <div class="accordion-card open" id="sec-mcq">
+      <div class="accordion-header" onclick="toggleCard('sec-mcq')">
+        <span>🎯 Multiple Choice Questions</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="accordion-body" id="container-mcq"></div>
+    </div>
+
+    <!-- MULTI-SELECT ACCORDION -->
+    <div class="accordion-card open" id="sec-ms">
+      <div class="accordion-header" onclick="toggleCard('sec-ms')">
+        <span>☑️ Multi-Select Questions</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="accordion-body" id="container-ms"></div>
+    </div>
+
+    <!-- TRUE / FALSE ACCORDION -->
+    <div class="accordion-card open" id="sec-tf">
+      <div class="accordion-header" onclick="toggleCard('sec-tf')">
+        <span>⚖️ True / False Statements</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="accordion-body" id="container-tf"></div>
+    </div>
+
+    <!-- CLOZE ACCORDION -->
+    <div class="accordion-card open" id="sec-cloze">
+      <div class="accordion-header" onclick="toggleCard('sec-cloze')">
+        <span>✏️ Sentence Completion (Cloze)</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="accordion-body" id="container-cloze"></div>
+    </div>
+
+    <!-- SHORT ANSWER ACCORDION -->
+    <div class="accordion-card open" id="sec-sa">
+      <div class="accordion-header" onclick="toggleCard('sec-sa')">
+        <span>💡 Applied Short Answer Prompts</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="accordion-body" id="container-sa"></div>
+    </div>
   </main>
 
-  <!-- ACTIVITIES / LUMI / CASE STUDIES PANEL -->
-  <section id="pane-activities" class="panel">
-    <h3 style="color: var(--primary); margin-bottom: 8px;">Applied Activities &amp; Branching Scenarios</h3>
-    <p style="color: var(--text-muted); margin-bottom: 20px;">Engage with hands-on clinical cases, motor skills labs, and Lumi/H5P modules for this concept.</p>
-    <div class="activity-grid" id="activitiesGrid"></div>
-  </section>
-
-  <!-- GLOSSARY PANEL -->
+  <!-- GLOSSARY VIEW -->
   <section id="pane-glossary" class="panel">
     <h3 style="color: var(--primary); margin-bottom: 16px;">Core Terminology Reference</h3>
     <table class="data-table">
@@ -289,27 +416,31 @@
   </section>
 </div>
 
-<!-- EMBEDDED MODAL FOR LUMI & CASE STUDIES -->
-<div class="modal-overlay" id="activityModal">
-  <div class="modal-window">
-    <div class="modal-bar">
-      <span id="modalActivityTitle" style="font-weight: 700;">Activity</span>
-      <button onclick="closeModal()">&times;</button>
-    </div>
-    <iframe id="activityFrame" class="modal-iframe" src=""></iframe>
-  </div>
-</div>
+<!-- BOTTOM PERSISTENT NAVIGATION -->
+<footer class="bottom-bar">
+  <a class="nav-arrow" id="btnPrev" href="#">&larr; Previous Section</a>
+  <a class="menu-link" href="index.html">&#9776; Main Course Menu</a>
+  <a class="nav-arrow" id="btnNext" href="#">Next Section &rarr;</a>
+</footer>
 
 <script>
   let moduleData = null;
   let quizData = null;
-  let currentPageIdx = 0;
+  let currentPartIndex = 0;
+  let answeredStats = { correct: 0, totalAttempted: 0 };
 
-  // 1. ROUTING & PARALLEL FETCH
+  // Helper: Sequence map for Bottom Navigation
+  const courseSequence = [
+    { ch: '10', mod: '10.1' }, { ch: '10', mod: '10.2' }, { ch: '10', mod: '10.3' }, { ch: '10', mod: '10.4' },
+    { ch: '11', mod: '11.1' }, { ch: '11', mod: '11.2' }, { ch: '11', mod: '11.3' }, { ch: '11', mod: '11.4' }
+  ];
+
   async function init() {
     const params = new URLSearchParams(window.location.search);
     const ch = params.get('ch') || '11';
     const mod = params.get('mod') || '11.1';
+
+    setupBottomNav(ch, mod);
 
     try {
       const [resContent, resQuiz] = await Promise.all([
@@ -318,7 +449,7 @@
       ]);
 
       if (!resContent.ok || !resQuiz.ok) {
-        throw new Error(`Could not load module files for Chapter ${ch}, Section ${mod}`);
+        throw new Error(`Could not load files for Ch ${ch}, Module ${mod}`);
       }
 
       moduleData = await resContent.json();
@@ -327,271 +458,272 @@
       document.getElementById('moduleTitle').textContent = moduleData.meta.moduleTitle;
       document.getElementById('courseTitle').textContent = moduleData.meta.course;
 
-      buildNavigation();
+      buildPartPills();
       buildGlossary();
-      loadPage(0);
+      loadConceptPart(0);
     } catch (err) {
       document.querySelector('.container').innerHTML = `
         <div style="background:#fee2e2; border:1px solid #f87171; padding:24px; border-radius:8px; color:#991b1b; margin-top:20px;">
           <h3>Failed to load learning module</h3>
           <p>${err.message}</p>
-          <p style="font-size:0.9rem; margin-top:8px;">Ensure you run a local web server (or load via GitHub Pages) so the browser can read local JSON files.</p>
         </div>`;
     }
   }
 
-  // 2. NAVIGATION PILLS
-  function buildNavigation() {
-    const pills = document.getElementById('navPills');
-    pills.innerHTML = '';
-    moduleData.pages.forEach((page, idx) => {
-      const btn = document.createElement('button');
-      btn.className = `pill-btn ${idx === 0 ? 'active' : ''}`;
-      btn.textContent = `${idx + 1}. ${page.title}`;
-      btn.onclick = () => loadPage(idx);
-      pills.appendChild(btn);
+  // 1. BOTTOM NAVIGATION LOGIC
+  function setupBottomNav(currCh, currMod) {
+    const curIdx = courseSequence.findIndex(item => item.ch === currCh && item.mod === currMod);
+    const prevBtn = document.getElementById('btnPrev');
+    const nextBtn = document.getElementById('btnNext');
+
+    if (curIdx > 0) {
+      const prev = courseSequence[curIdx - 1];
+      prevBtn.href = `viewer.html?ch=${prev.ch}&mod=${prev.mod}`;
+      prevBtn.classList.remove('disabled');
+    } else {
+      prevBtn.classList.add('disabled');
+    }
+
+    if (curIdx >= 0 && curIdx < courseSequence.length - 1) {
+      const next = courseSequence[curIdx + 1];
+      nextBtn.href = `viewer.html?ch=${next.ch}&mod=${next.mod}`;
+      nextBtn.classList.remove('disabled');
+    } else {
+      nextBtn.classList.add('disabled');
+    }
+  }
+
+  // 2. CONCEPT PART NAVIGATION
+  function buildPartPills() {
+    const container = document.getElementById('conceptPartBar');
+    container.innerHTML = '';
+    if (!moduleData.pages || moduleData.pages.length <= 1) {
+      container.style.display = 'none';
+      return;
+    }
+    container.style.display = 'flex';
+    moduleData.pages.forEach((p, idx) => {
+      const pill = document.createElement('button');
+      pill.className = `part-pill ${idx === 0 ? 'active' : ''}`;
+      pill.textContent = p.title || `Part ${idx + 1}`;
+      pill.onclick = () => loadConceptPart(idx);
+      container.appendChild(pill);
     });
   }
 
-  // 3. PAGE LOADER
-  function loadPage(idx) {
-    currentPageIdx = idx;
-    document.querySelectorAll('.pill-btn').forEach((btn, i) => {
-      btn.classList.toggle('active', i === idx);
-    });
-
-    const page = moduleData.pages[idx];
-    document.getElementById('readingSection').innerHTML = page.readingHtml || '<p>No reading content available.</p>';
+  function loadConceptPart(idx) {
+    currentPartIndex = idx;
+    document.querySelectorAll('.part-pill').forEach((btn, i) => btn.classList.toggle('active', i === idx));
     
-    // Render Activities Tab
-    renderActivities(page.activities || []);
+    const page = moduleData.pages[idx];
+    document.getElementById('readingContainer').innerHTML = page.readingHtml || '<p>No reading content available.</p>';
+    
+    renderAssessmentsForPart(page.id, idx);
 
-    // Render Sampled Assessments
-    renderAssessments(page.id, page.sampleCounts || {});
-
-    // Render Math Equations if KaTeX is loaded
     if (window.renderMath) window.renderMath();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // 4. DYNAMIC QUIZ SAMPLING & RENDERING
-  function sampleItems(arr, count) {
-    if (!arr || !arr.length) return [];
-    const shuffled = [...arr].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, Math.min(count, arr.length));
-  }
-
-  function renderAssessments(partId, sampleCounts) {
-    const container = document.getElementById('quizContainer');
-    container.innerHTML = '';
-
-    const partPool = quizData[partId];
-    if (!partPool) {
-      container.innerHTML = '<p style="color:var(--text-muted);">No assessment questions found for this section.</p>';
-      return;
+  // 3. ADAPTIVE ASSESSMENT RESOLVER
+  function renderAssessmentsForPart(partId, partIdx) {
+    // Try multiple possible keys from legacy extracts (e.g., "p1", "1", 1, or match by index)
+    let pool = quizData[partId] || quizData[String(partIdx + 1)] || quizData[partIdx];
+    if (!pool && Object.keys(quizData).length > 0) {
+      const keys = Object.keys(quizData);
+      pool = quizData[keys[partIdx]] || quizData[keys[0]];
     }
 
-    // MCQ
-    const mcqs = sampleItems(partPool.mcq, sampleCounts.mcq || 2);
-    mcqs.forEach((item, i) => renderMCQ(item, container, i + 1));
-
-    // Multi-Select
-    const mss = sampleItems(partPool.ms, sampleCounts.ms || 2);
-    mss.forEach((item, i) => renderMS(item, container, i + 1));
-
-    // True / False
-    const tfs = sampleItems(partPool.tf, sampleCounts.tf || 2);
-    tfs.forEach((item, i) => renderTF(item, container, i + 1));
-
-    // Cloze Dropdowns
-    const clozes = sampleItems(partPool.cloze, sampleCounts.cloze || 2);
-    clozes.forEach((item, i) => renderCloze(item, container, i + 1));
-
-    // Short Answer
-    const sas = sampleItems(partPool.sa, sampleCounts.sa || 1);
-    sas.forEach((item, i) => renderSA(item, container, i + 1));
+    renderMCQs(pool ? pool.mcq : []);
+    renderMSs(pool ? pool.ms : []);
+    renderTFs(pool ? pool.tf : []);
+    renderClozes(pool ? pool.cloze : []);
+    renderSAs(pool ? pool.sa : []);
   }
 
-  function renderMCQ(item, parent, num) {
-    const card = document.createElement('div');
-    card.className = 'q-card';
-    card.innerHTML = `
-      <div class="q-header">${num}. ${item.q}</div>
-      <div class="option-list">
-        ${item.opts.map((opt, optIdx) => `
-          <label class="opt-label" id="${item.id}_opt_${optIdx}">
-            <input type="radio" name="${item.id}" value="${optIdx}" onchange="checkMCQ('${item.id}', ${optIdx},${item.correct})">
-            <span>${opt}</span>
-          </label>
-        `).join('')}
-      </div>
-      <div class="feedback-box info" id="${item.id}_fb"><strong>Rationale:</strong> ${item.rationale || ''}</div>
-    `;
-    parent.appendChild(card);
+  function renderMCQs(items) {
+    const c = document.getElementById('container-mcq');
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No multiple choice items for this section.</p>' : '';
+    (items || []).forEach((item, i) => {
+      const div = document.createElement('div');
+      div.className = 'q-item';
+      div.innerHTML = `
+        <div class="q-title">${i + 1}. ${item.q}</div>
+        <div class="option-group">
+          ${item.opts.map((opt, optIdx) => `
+            <label class="opt-label" id="${item.id}_opt_${optIdx}">
+              <input type="radio" name="${item.id}" value="${optIdx}" onchange="gradeMCQ('${item.id}', ${optIdx},${item.correct})">
+              <span>${opt}</span>
+            </label>
+          `).join('')}
+        </div>
+        <div class="feedback-box info" id="${item.id}_fb"><strong>Rationale:</strong> ${item.rationale || ''}</div>
+      `;
+      c.appendChild(div);
+    });
   }
 
-  window.checkMCQ = (qId, selected, correct) => {
-    document.querySelectorAll(`[id^="${qId}_opt_"]`).forEach(lbl => lbl.classList.remove('correct', 'incorrect'));
+  window.gradeMCQ = (qId, selected, correct) => {
+    document.querySelectorAll(`[id^="${qId}_opt_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
     const chosen = document.getElementById(`${qId}_opt_${selected}`);
-    if (selected === correct) {
+    const isCorrect = (selected === correct);
+    if (isCorrect) {
       chosen.classList.add('correct');
+      updateScore(true);
     } else {
       chosen.classList.add('incorrect');
       document.getElementById(`${qId}_opt_${correct}`).classList.add('correct');
+      updateScore(false);
     }
     document.getElementById(`${qId}_fb`).classList.add('visible');
   };
 
-  function renderMS(item, parent, num) {
-    const card = document.createElement('div');
-    card.className = 'q-card';
-    card.innerHTML = `
-      <div class="q-header">${num}. ${item.q}</div>
-      <div class="option-list">
-        ${item.opts.map((opt, optIdx) => `
-          <label class="opt-label" id="${item.id}_ms_${optIdx}">
-            <input type="checkbox" name="${item.id}" value="${optIdx}">
-            <span>${opt}</span>
-          </label>
-        `).join('')}
-      </div>
-      <button class="launch-btn" style="margin-top:6px;" onclick="checkMS('${item.id}', ${JSON.stringify(item.correctArray)})">Check Selection</button>
-      <div class="feedback-box info" id="${item.id}_fb"><strong>Rationale:</strong> ${item.rationale || ''}</div>
-    `;
-    parent.appendChild(card);
+  function renderMSs(items) {
+    const c = document.getElementById('container-ms');
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No multi-select items for this section.</p>' : '';
+    (items || []).forEach((item, i) => {
+      const div = document.createElement('div');
+      div.className = 'q-item';
+      div.innerHTML = `
+        <div class="q-title">${i + 1}. ${item.q}</div>
+        <div class="option-group">
+          ${item.opts.map((opt, optIdx) => `
+            <label class="opt-label" id="${item.id}_ms_${optIdx}">
+              <input type="checkbox" name="${item.id}" value="${optIdx}">
+              <span>${opt}</span>
+            </label>
+          `).join('')}
+        </div>
+        <button class="action-btn" onclick="gradeMS('${item.id}', ${JSON.stringify(item.correctArray)})">Check Answer</button>
+        <div class="feedback-box info" id="${item.id}_fb"><strong>Rationale:</strong> ${item.rationale || ''}</div>
+      `;
+      c.appendChild(div);
+    });
   }
 
-  window.checkMS = (qId, correctArray) => {
+  window.gradeMS = (qId, correctArray) => {
     const checked = Array.from(document.querySelectorAll(`input[name="${qId}"]:checked`)).map(cb => parseInt(cb.value));
-    document.querySelectorAll(`[id^="${qId}_ms_"]`).forEach(lbl => lbl.classList.remove('correct', 'incorrect'));
+    document.querySelectorAll(`[id^="${qId}_ms_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
     
     correctArray.forEach(idx => document.getElementById(`${qId}_ms_${idx}`).classList.add('correct'));
     checked.forEach(idx => {
       if (!correctArray.includes(idx)) document.getElementById(`${qId}_ms_${idx}`).classList.add('incorrect');
     });
 
+    const isMatch = (checked.length === correctArray.length && checked.every(v => correctArray.includes(v)));
+    updateScore(isMatch);
     document.getElementById(`${qId}_fb`).classList.add('visible');
   };
 
-  function renderTF(item, parent, num) {
-    const card = document.createElement('div');
-    card.className = 'q-card';
-    card.innerHTML = `
-      <div class="q-header">${num}. True or False: ${item.q}</div>
-      <div class="option-list" style="flex-direction:row;">
-        <label class="opt-label" id="${item.id}_true"><input type="radio" name="${item.id}" onchange="checkTF('${item.id}', true, ${item.ans})"> True</label>
-        <label class="opt-label" id="${item.id}_false"><input type="radio" name="${item.id}" onchange="checkTF('${item.id}', false, ${item.ans})"> False</label>
-      </div>
-      <div class="feedback-box info" id="${item.id}_fb"><strong>Feedback:</strong> ${item.feedback || ''}</div>
-    `;
-    parent.appendChild(card);
-  }
-
-  window.checkTF = (qId, selected, correct) => {
-    const chosen = document.getElementById(`${qId}_${selected}`);
-    document.querySelectorAll(`[id^="${qId}_"]`).forEach(lbl => lbl.classList.remove('correct', 'incorrect'));
-    if (selected === correct) {
-      chosen.classList.add('correct');
-    } else {
-      chosen.classList.add('incorrect');
-      document.getElementById(`${qId}_${correct}`).classList.add('correct');
-    }
-    document.getElementById(`${qId}_fb`).classList.add('visible');
-  };
-
-  function renderCloze(item, parent, num) {
-    const card = document.createElement('div');
-    card.className = 'q-card';
-    const cleanStmt = item.statement.replace(/\*\*(.*?)\*\*/g, '___TARGET___');
-    const parts = cleanStmt.split('___TARGET___');
-
-    const options = (item.optionsBank && item.optionsBank.length) 
-      ? item.optionsBank 
-      : [item.target, "Option A", "Option B", "Option C"];
-    const shuffledOpts = [...new Set(options)].sort(() => 0.5 - Math.random());
-
-    card.innerHTML = `
-      <div class="q-header">${num}. Sentence Completion</div>
-      <p style="font-size:1.05rem;">
-        ${parts[0]}
-        <select class="cloze-select" id="${item.id}_sel" onchange="checkCloze('${item.id}', '${item.target}')">
-          <option value="">-- select term --</option>
-          ${shuffledOpts.map(o => `<option value="${o}">${o}</option>`).join('')}
-        </select>
-        ${parts[1] || ''}
-      </p>
-      <div class="feedback-box success" id="${item.id}_fb">✓ Correct target term identified!</div>
-    `;
-    parent.appendChild(card);
-  }
-
-  window.checkCloze = (qId, target) => {
-    const sel = document.getElementById(`${qId}_sel`);
-    const fb = document.getElementById(`${qId}_fb`);
-    if (sel.value.toLowerCase() === target.toLowerCase()) {
-      sel.style.borderColor = 'var(--success)';
-      fb.classList.add('visible');
-    } else {
-      sel.style.borderColor = 'var(--danger)';
-      fb.classList.remove('visible');
-    }
-  };
-
-  function renderSA(item, parent, num) {
-    const card = document.createElement('div');
-    card.className = 'q-card';
-    card.innerHTML = `
-      <div class="q-header">${num}. Applied Short Answer: ${item.q}</div>
-      <textarea style="width:100%; height:100px; padding:10px; border-radius:6px; border:1px solid var(--border); font-family:inherit; margin-bottom:10px;" placeholder="Formulate your response here..."></textarea>
-      <button class="launch-btn" onclick="document.getElementById('${item.id}_model').classList.toggle('visible')">Reveal Model Exemplar &amp; Rubric</button>
-      <div class="feedback-box info" id="${item.id}_model">
-        <p style="margin-bottom:8px;"><strong>Model Exemplar:</strong> ${item.model || ''}</p>
-        <strong>Self-Assessment Criteria:</strong>
-        <ul style="margin:4px 0 0 20px;">
-          ${(item.criteria || []).map(c => `<li>${c}</li>`).join('')}
-        </ul>
-      </div>
-    `;
-    parent.appendChild(card);
-  }
-
-  // 5. ACTIVITIES & LUMI MODAL
-  function renderActivities(list) {
-    const grid = document.getElementById('activitiesGrid');
-    document.getElementById('actCount').textContent = list.length;
-    grid.innerHTML = '';
-
-    if (!list.length) {
-      grid.innerHTML = '<p style="color:var(--text-muted);">No standalone activities or labs for this section.</p>';
-      return;
-    }
-
-    list.forEach(act => {
-      const card = document.createElement('div');
-      card.className = 'activity-card';
-      card.innerHTML = `
-        <div>
-          <h4>${act.title}</h4>
-          <p>${act.type.toUpperCase()} • Interactive applied scenario</p>
+  function renderTFs(items) {
+    const c = document.getElementById('container-tf');
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No True/False items for this section.</p>' : '';
+    (items || []).forEach((item, i) => {
+      const div = document.createElement('div');
+      div.className = 'q-item';
+      div.innerHTML = `
+        <div class="q-title">${i + 1}. True or False: ${item.q}</div>
+        <div class="option-group" style="flex-direction:row;">
+          <label class="opt-label" id="${item.id}_true"><input type="radio" name="${item.id}" onchange="gradeTF('${item.id}', true, ${item.ans})"> True</label>
+          <label class="opt-label" id="${item.id}_false"><input type="radio" name="${item.id}" onchange="gradeTF('${item.id}', false, ${item.ans})"> False</label>
         </div>
-        <button class="launch-btn" onclick="openModal('${act.title}', '${act.path || act.file}')">Launch Activity &rarr;</button>
+        <div class="feedback-box info" id="${item.id}_fb"><strong>Feedback:</strong> ${item.feedback || ''}</div>
       `;
-      grid.appendChild(card);
+      c.appendChild(div);
     });
   }
 
-  window.openModal = (title, path) => {
-    document.getElementById('modalActivityTitle').textContent = title;
-    document.getElementById('activityFrame').src = path;
-    document.getElementById('activityModal').classList.add('active');
+  window.gradeTF = (qId, selected, correct) => {
+    const chosen = document.getElementById(`${qId}_${selected}`);
+    document.querySelectorAll(`[id^="${qId}_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
+    if (selected === correct) {
+      chosen.classList.add('correct');
+      updateScore(true);
+    } else {
+      chosen.classList.add('incorrect');
+      document.getElementById(`${qId}_${correct}`).classList.add('correct');
+      updateScore(false);
+    }
+    document.getElementById(`${qId}_fb`).classList.add('visible');
   };
 
-  window.closeModal = () => {
-    document.getElementById('activityFrame').src = '';
-    document.getElementById('activityModal').classList.remove('active');
+  function renderClozes(items) {
+    const c = document.getElementById('container-cloze');
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No sentence completion items for this section.</p>' : '';
+    (items || []).forEach((item, i) => {
+      const cleanStmt = (item.statement || "").replace(/\*\*(.*?)\*\*/g, '___TARGET___');
+      const parts = cleanStmt.split('___TARGET___');
+      const target = item.target || ((item.targets && item.targets[0]) ? item.targets[0] : "");
+      const opts = item.optionsBank || [target, "Systolic pressure", "Stroke volume", "Tidal volume"];
+      const shuffled = [...new Set(opts)].sort(() => 0.5 - Math.random());
+
+      const div = document.createElement('div');
+      div.className = 'q-item';
+      div.innerHTML = `
+        <div class="q-title">${i + 1}. Sentence Completion</div>
+        <p style="font-size:1.05rem;">
+          ${parts[0]}
+          <select class="cloze-select" id="${item.id}_sel" onchange="gradeCloze('${item.id}', '${target.replace(/'/g, "\\'")}')">
+            <option value="">-- select term --</option>
+            ${shuffled.map(o => `<option value="${o}">${o}</option>`).join('')}
+          </select>
+          ${parts[1] || ''}
+        </p>
+        <div class="feedback-box success" id="${item.id}_fb">✓ Correct target identified!</div>
+      `;
+      c.appendChild(div);
+    });
+  }
+
+  window.gradeCloze = (qId, target) => {
+    const sel = document.getElementById(`${qId}_sel`);
+    const fb = document.getElementById(`${qId}_fb`);
+    if (sel.value.toLowerCase().trim() === target.toLowerCase().trim()) {
+      sel.style.borderColor = 'var(--success)';
+      fb.classList.add('visible');
+      updateScore(true);
+    } else {
+      sel.style.borderColor = 'var(--danger)';
+      fb.classList.remove('visible');
+      updateScore(false);
+    }
   };
 
-  // 6. GLOSSARY
+  function renderSAs(items) {
+    const c = document.getElementById('container-sa');
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No short answer prompts for this section.</p>' : '';
+    (items || []).forEach((item, i) => {
+      const div = document.createElement('div');
+      div.className = 'q-item';
+      div.innerHTML = `
+        <div class="q-title">${i + 1}. Applied Short Answer: ${item.q}</div>
+        <textarea style="width:100%; height:90px; padding:10px; border-radius:6px; border:1px solid var(--slate-300); font-family:inherit; margin-bottom:10px;" placeholder="Draft your answer here..."></textarea>
+        <button class="action-btn" onclick="document.getElementById('${item.id}_model').classList.toggle('visible')">Reveal Model Exemplar &amp; Rubric</button>
+        <div class="feedback-box info" id="${item.id}_model">
+          <p style="margin-bottom:6px;"><strong>Model Answer:</strong> ${item.model || ''}</p>
+          ${item.criteria ? `<strong>Criteria:</strong><ul>${item.criteria.map(cr => `<li>${cr}</li>`).join('')}</ul>` : ''}
+        </div>
+      `;
+      c.appendChild(div);
+    });
+  }
+
+  // 4. SCORE TRACKER
+  function updateScore(isCorrect) {
+    answeredStats.totalAttempted++;
+    if (isCorrect) answeredStats.correct++;
+    const pct = Math.round((answeredStats.correct / answeredStats.totalAttempted) * 100);
+    document.getElementById('scoreTracker').textContent = `Score: ${answeredStats.correct} / ${answeredStats.totalAttempted} (${pct}%)`;
+  }
+
+  // 5. ACCORDION HELPERS
+  window.toggleCard = (id) => {
+    document.getElementById(id).classList.toggle('open');
+  };
+  window.toggleAllAccordions = (open) => {
+    document.querySelectorAll('.accordion-card').forEach(c => c.classList.toggle('open', open));
+  };
+
+  // 6. GLOSSARY & TAB SWITCHER
   function buildGlossary() {
     const tbody = document.getElementById('glossaryBody');
     tbody.innerHTML = '';
@@ -602,24 +734,18 @@
     });
   }
 
-  // 7. TAB TOGGLING
-  window.switchMainTab = (tab) => {
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  window.switchView = (tab) => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    
     if (tab === 'lesson') {
       document.querySelectorAll('.tab-btn')[0].classList.add('active');
       document.getElementById('pane-lesson').classList.add('active');
-    } else if (tab === 'activities') {
+    } else {
       document.querySelectorAll('.tab-btn')[1].classList.add('active');
-      document.getElementById('pane-activities').classList.add('active');
-    } else if (tab === 'glossary') {
-      document.querySelectorAll('.tab-btn')[2].classList.add('active');
       document.getElementById('pane-glossary').classList.add('active');
     }
   };
 
-  // Run on start
   window.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
