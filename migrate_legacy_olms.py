@@ -41,35 +41,39 @@ def extract_assessment_banks_raw(html_text):
                     return html_text[start_pos : idx + 1]
     return None
 
-def extract_clean_reading(sec_soup):
+def extract_clean_reading_block(sec_soup):
     """
-    Extracts pure reading content, checking for <details id="sec-reading">,
-    #sec-reading-pX, or isolating everything before the first question container.
+    Extracts purely the reading body from either Chapter 10 details structure
+    or Chapter 11 section structure.
     """
-    # 1. Direct match: <details id="sec-reading"> or element with sec-reading
-    reading_target = sec_soup.find(['details', 'div', 'section'], id=re.compile(r'sec-reading', re.I))
-    
-    # 2. If found, pull contents inside (strip out summary if it's a details tag)
-    if reading_target:
-        target_clone = BeautifulSoup(str(reading_target), "html.parser")
-        sum_tag = target_clone.find('summary')
+    # Pattern A (Chapter 10): <details ... id="sec-reading"> -> <div class="accordion-body">
+    details_reading = sec_soup.find(['details', 'div'], id="sec-reading")
+    if details_reading:
+        acc_body = details_reading.find(class_="accordion-body")
+        target = acc_body if acc_body else details_reading
+        
+        # Clone so we don't mutate parent
+        clone = BeautifulSoup(str(target), "html.parser")
+        sum_tag = clone.find('summary')
         if sum_tag:
             sum_tag.decompose()
-        # Remove any stray buttons
-        for btn in target_clone.find_all('button'):
-            btn.decompose()
-        return "".join(str(c) for c in target_clone.contents if getattr(c, 'name', None) not in ['script', 'style']).strip()
+        return "".join(str(c) for c in clone.contents if getattr(c, 'name', None) not in ['script', 'style']).strip()
 
-    # 3. Fallback: Take all children before the first assessment container (<details id="sec-mcq"> etc.)
+    # Pattern B (Chapter 11): Look for sec-reading-pX or reading-content
+    ch11_reading = sec_soup.find(id=re.compile(r'sec-reading-p\d+|reading-content', re.I))
+    if ch11_reading:
+        clone = BeautifulSoup(str(ch11_reading), "html.parser")
+        return "".join(str(c) for c in clone.contents if getattr(c, 'name', None) not in ['script', 'style']).strip()
+
+    # Pattern C: Fallback to all content prior to the first quiz card
     body_parts = []
     for child in sec_soup.children:
         if not getattr(child, 'name', None):
             continue
         cid = child.get('id', '')
-        # Stop reading when hitting the assessment cards
         if re.search(r'sec-mcq|sec-ms|sec-tf|sec-cloze|sec-short|container-', cid, re.I):
             break
-        if child.name not in ['script', 'style', 'header']:
+        if child.name not in ['script', 'style', 'header', 'summary']:
             body_parts.append(str(child))
             
     return "".join(body_parts).strip()
@@ -111,24 +115,29 @@ def process_html_file(file_path):
                 if t and d and t.lower() != "term":
                     glossary.append({"term": t, "def": d})
 
-    # Extract Concept Pages using class="concept-page-view"
+    # Extract Concept Pages
     pages = []
     concept_sections = soup.find_all(['section', 'div'], class_=re.compile(r'concept-page-view|concept-page', re.I))
-    
     if not concept_sections:
-        # Fallback to checking IDs with page-
         concept_sections = soup.find_all(['section', 'div'], id=re.compile(r'^page-', re.I))
 
     if concept_sections:
         for idx, sec in enumerate(concept_sections, start=1):
             pid = f"p{idx}"
-            # Extract clean heading
+            
+            # Find title
             h2 = sec.find(['h2', 'h1', 'h3'])
-            ptitle = h2.get_text().strip() if h2 else f"Part {idx}"
-            # Strip out "Concept X:" prefixes if present
+            if not h2:
+                sum_text = sec.find('summary')
+                ptitle = sum_text.get_text().strip() if sum_text else f"Part {idx}"
+            else:
+                ptitle = h2.get_text().strip()
+            
             clean_ptitle = re.sub(r'^(?:Part|Concept|Topic)\s*\d*[:\s-]*', '', ptitle).strip()
+            # Clean off chevron arrows
+            clean_ptitle = clean_ptitle.replace('▶', '').replace('▼', '').strip()
 
-            reading_html = extract_clean_reading(sec)
+            reading_html = extract_clean_reading_block(sec)
 
             pages.append({
                 "id": pid,
@@ -138,8 +147,7 @@ def process_html_file(file_path):
                 "activities": []
             })
     else:
-        # Single page structure fallback
-        reading_html = extract_clean_reading(soup)
+        reading_html = extract_clean_reading_block(soup)
         pages.append({
             "id": "p1",
             "title": clean_title or f"Module {mod_id}",
@@ -160,12 +168,10 @@ def process_html_file(file_path):
     if raw_block:
         try:
             raw_data = demjson3.decode(raw_block)
-            # Normalize keys to p1, p2, p3 if they used named keys
             keys = list(raw_data.keys())
             for idx, k in enumerate(keys):
                 norm_key = f"p{idx+1}"
                 quiz_payload[norm_key] = raw_data[k]
-                # Keep original key as well for compatibility
                 quiz_payload[k] = raw_data[k]
         except Exception as e:
             print(f"  [!] demjson3 decode error on {file_path.name}: {e}")
@@ -180,16 +186,11 @@ def process_html_file(file_path):
     with open(quiz_file, "w", encoding="utf-8") as f:
         json.dump(quiz_payload, f, indent=2, ensure_ascii=False)
 
-    item_count = 0
-    if isinstance(quiz_payload, dict):
-        for part in quiz_payload.values():
-            if isinstance(part, dict):
-                for q_list in part.values():
-                    if isinstance(q_list, list):
-                        item_count += len(q_list)
+    total_reading_len = sum(len(p.get("readingHtml", "")) for p in pages)
+    item_count = sum(len(q_list) for part in quiz_payload.values() if isinstance(part, dict) for q_list in part.values() if isinstance(q_list, list))
 
-    print(f"  [+] Saved {content_file.name} (Pages: {len(pages)}, Glossary: {len(glossary)})")
-    print(f"  [+] Saved {quiz_file.name} (Pool: {item_count} items indexed)")
+    print(f"  [+] Saved {content_file.name} (Pages: {len(pages)}, Reading Chars: {total_reading_len})")
+    print(f"  [+] Saved {quiz_file.name} (Pool: {item_count} items)")
 
 def main():
     for ch in ["ch10", "ch11"]:
@@ -201,7 +202,7 @@ def main():
                 continue
             process_html_file(html_file)
 
-    print("\n✓ Migration complete! All pages and question pools cleanly parsed.")
+    print("\n✓ Migration complete!")
 
 if __name__ == "__main__":
     main()
