@@ -1,0 +1,745 @@
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "Why is a child's performance in explosive activities lasting less than 10 to 15 seconds typically uncompromised compared to adults?",
+        "opts": [
+          "Children possess higher concentrations of phosphofructokinase (PFK)",
+          "Resting muscle stores of ATP and phosphocreatine (PCr) in children are similar to those of adults",
+          "Children produce significantly higher post-exercise blood lactate levels",
+          "Children rely exclusively on hepatic glycogenolysis for high-intensity power"
+        ],
+        "correct": 1,
+        "rationale": "Children's resting stores of adenosine triphosphate (ATP) and phosphocreatine (PCr) are similar to those of adults, meaning activities lasting less than 10 to 15 seconds that rely on the ATP-PCr system are not compromised."
+      },
+      {
+        "id": 2,
+        "q": "What is the approximate muscle glycogen content in children relative to adult baseline levels?",
+        "opts": [
+          "10% to 20%",
+          "30% to 40%",
+          "50% to 60%",
+          "80% to 90%"
+        ],
+        "correct": 2,
+        "rationale": "Muscle glycogen content in children is approximately 50% to 60% that of adults, limiting substrate availability for high-rate anaerobic glycolysis."
+      },
+      {
+        "id": 3,
+        "q": "Which key rate-limiting enzyme of anaerobic glycolysis exhibits reduced concentration and activity in pediatric skeletal muscle?",
+        "opts": [
+          "Isocitrate dehydrogenase",
+          "Phosphofructokinase (PFK)",
+          "Succinate dehydrogenase",
+          "Lipoprotein lipase"
+        ],
+        "correct": 1,
+        "rationale": "Phosphofructokinase (PFK) is the key rate-limiting enzyme of anaerobic glycolysis, and its lower concentration/activity in children limits glycolytic flux."
+      },
+      {
+        "id": 4,
+        "q": "How does lactate dehydrogenase (LDH) activity in pediatric skeletal muscle compare to that in adult skeletal muscle?",
+        "opts": [
+          "Pediatric LDH activity is approximately 3.5-fold lower than in adults",
+          "Pediatric LDH activity is 10-fold higher than in adults",
+          "Pediatric LDH activity is identical to adult levels",
+          "Pediatric LDH activity is 2-fold higher than in adults"
+        ],
+        "correct": 0,
+        "rationale": "Pediatric skeletal muscle exhibits significantly lower (~3.5-fold lower) lactate dehydrogenase (LDH) activity compared to adults, constraining the conversion of pyruvate to lactate."
+      },
+      {
+        "id": 5,
+        "q": "Which time frame of high-intensity exertion is most severely limited in children due to their lower glycolytic capacity?",
+        "opts": [
+          "Explosive bursts lasting 1 to 5 seconds",
+          "Activities taxing the anaerobic glycolytic system from 15 seconds up to 2 minutes",
+          "Steady-state aerobic exercise lasting 30 to 60 minutes",
+          "Ultra-endurance exertion lasting greater than 2 hours"
+        ],
+        "correct": 1,
+        "rationale": "Activities that tax the anaerobic glycolytic system—those from 15 seconds up to 2 minutes in duration—are most limited in children due to lower glycolytic capacity and glycogen stores."
+      },
+      {
+        "id": 6,
+        "q": "Which of the following factors contributes to lower blood lactate concentrations in children following maximal exercise?",
+        "opts": [
+          "Higher total skeletal muscle mass producing greater pyruvate",
+          "Lower relative muscle mass, higher lactate clearance, and greater reliance on aerobic metabolism",
+          "Inability of pediatric tissues to perform oxidative phosphorylation",
+          "Hyperactive hepatic glycogenolysis suppressing blood lactate formation"
+        ],
+        "correct": 1,
+        "rationale": "Lower blood lactate concentrations in children after exhaustive exercise reflect their lower relative muscle mass (less total lactate produced), higher rate of lactate clearance, and greater reliance on aerobic metabolism."
+      },
+      {
+        "id": 7,
+        "q": "Post-exercise muscle and blood lactate concentrations in children following supramaximal exercise are:",
+        "opts": [
+          "Significantly higher than adult concentrations",
+          "Significantly lower than adult concentrations",
+          "Identical to adult concentrations",
+          "Twice the concentration observed in elite adult sprinters"
+        ],
+        "correct": 1,
+        "rationale": "Children do not achieve the same concentrations of lactate in either muscle or blood at maximal or supramaximal exercise intensities as adult counterparts."
+      },
+      {
+        "id": 8,
+        "q": "A coach observes that a 10-year-old child excels at 5-second dash repeats but fatigues rapidly during a 60-second all-out sprint. What metabolic mechanism explains this pattern?",
+        "opts": [
+          "Depletion of intramuscular triglycerides within the first 5 seconds",
+          "Intact ATP-PCr stores supporting short bursts (<10-15s), but lower glycogen stores and glycolytic enzyme activity limiting 60-second exertion",
+          "Complete failure of cardiovascular oxygen transport during short sprints",
+          "Elevated PFK and LDH activity causing rapid acidosis within 5 seconds"
+        ],
+        "correct": 1,
+        "rationale": "Activities under 10-15s rely on ATP-PCr stores (which are adult-like in children), whereas 60s exertion relies heavily on anaerobic glycolysis, which is constrained by lower glycogen stores, PFK, and LDH activity."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which factors account for the lower anaerobic glycolytic capacity observed in pre-pubertal children? (Select all that apply)",
+        "opts": [
+          "Lower muscle glycogen content (~50% to 60% of adult levels)",
+          "Lower activity of the rate-limiting enzyme phosphofructokinase (PFK)",
+          "Significantly lower (~3.5-fold) lactate dehydrogenase (LDH) activity",
+          "Severe depletion of resting ATP and PCr stores at rest"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Lower glycolytic capacity is caused by reduced glycogen stores (50-60% of adult levels), lower PFK activity, and ~3.5-fold lower LDH activity. ATP and PCr stores are similar to adults."
+      },
+      {
+        "id": 2,
+        "q": "Which mechanisms contribute to the lower maximal blood lactate concentrations recorded in children post-exercise? (Select all that apply)",
+        "opts": [
+          "Lower relative muscle mass producing less total lactate",
+          "Higher rate of systemic lactate clearance",
+          "Greater relative reliance on aerobic metabolism during intense exertion",
+          "Complete absence of functional mitochondria in pediatric muscle"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Lower post-exercise lactate reflects lower relative muscle mass, higher lactate clearance rates, and greater reliance on aerobic metabolism."
+      },
+      {
+        "id": 3,
+        "q": "Which duration ranges and energy pathways are correctly matched regarding pediatric exercise performance? (Select all that apply)",
+        "opts": [
+          "Activities < 10–15 s: Dependent on ATP-PCr; uncompromised in children",
+          "Activities 15 s to 2 min: Dependent on anaerobic glycolysis; limited in children",
+          "Activities < 10 s: Constrained by a 3.5-fold lower ATP concentration",
+          "Activities 15 s to 2 min: Enhanced by 10-fold higher PFK enzyme activity"
+        ],
+        "correctArray": [
+          0,
+          1
+        ],
+        "rationale": "ATP-PCr supports <10-15s efforts (uncompromised due to normal resting ATP/PCr stores). Anaerobic glycolysis supports 15s-2min efforts (limited due to lower glycogen, PFK, and LDH)."
+      },
+      {
+        "id": 4,
+        "q": "Which enzymatic characteristics distinguish pediatric skeletal muscle from mature adult skeletal muscle? (Select all that apply)",
+        "opts": [
+          "Lower concentrations/activity of phosphofructokinase (PFK)",
+          "Approximately 3.5-fold lower activity of lactate dehydrogenase (LDH)",
+          "Impaired conversion of fructose-6-phosphate and pyruvate due to enzymatic bottlenecks",
+          "Complete lack of aerobic oxidative enzymes"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Pediatric muscle features lower PFK activity and ~3.5-fold lower LDH activity, creating bottlenecks in glycolytic flux and pyruvate-to-lactate conversion."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Children's resting intramuscular stores of ATP and phosphocreatine (PCr) are significantly lower than those of adults.",
+        "ans": false,
+        "feedback": "False. Children's resting stores of ATP and PCr are similar to those of adults, allowing brief explosive activities (<10–15 s) to remain uncompromised."
+      },
+      {
+        "id": 2,
+        "q": "Intramuscular glycogen content in pre-pubertal children is approximately 50% to 60% of adult values.",
+        "ans": true,
+        "feedback": "True. Children possess lower resting muscle glycogen stores (~50% to 60% of adult levels), limiting substrate availability for high-rate anaerobic glycolysis."
+      },
+      {
+        "id": 3,
+        "q": "Lactate dehydrogenase (LDH) activity in pediatric skeletal muscle is approximately 3.5-fold lower than in adult skeletal muscle.",
+        "ans": true,
+        "feedback": "True. Reduced LDH activity (~3.5-fold lower) in children limits the rate at which pyruvate can be converted to lactate during intense anaerobic exercise."
+      },
+      {
+        "id": 4,
+        "q": "Activities lasting between 15 seconds and 2 minutes are uncompromised in children because of their high glycolytic enzyme activity.",
+        "ans": false,
+        "feedback": "False. Activities lasting 15 seconds to 2 minutes tax the anaerobic glycolytic system and are significantly limited in children due to lower glycogen stores, PFK, and LDH activity."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Children's resting stores of **ATP and PCr** are similar to adult levels, whereas their muscle glycogen stores are only **50% to 60%** of adult values.",
+        "targets": [
+          "ATP and PCr",
+          "50% to 60%"
+        ],
+        "optionsBank": [
+          "ATP and PCr",
+          "50% to 60%",
+          "lactate and pyruvate",
+          "10% to 20%",
+          "90% to 100%"
+        ],
+        "hint": "Identify the high-energy phosphate stores that match adult levels and the percentage range for pediatric muscle glycogen."
+      },
+      {
+        "id": 2,
+        "statement": "Lower post-exercise lactate in children is caused by reduced activity of the glycolytic enzymes **phosphofructokinase** and **lactate dehydrogenase**.",
+        "targets": [
+          "phosphofructokinase",
+          "lactate dehydrogenase"
+        ],
+        "optionsBank": [
+          "phosphofructokinase",
+          "lactate dehydrogenase",
+          "succinate dehydrogenase",
+          "cytochrome oxidase",
+          "lipoprotein lipase"
+        ],
+        "hint": "Identify the rate-limiting glycolytic enzyme and the enzyme that converts pyruvate to lactate."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Compare pediatric and adult high-energy phosphate (ATP-PCr) stores versus glycolytic capacity, and explain how these physiological differences dictate performance during 5-second sprints versus 60-second intense runs.",
+        "model": "Children possess resting intramuscular ATP and PCr stores similar to adult levels. Consequently, short explosive efforts lasting less than 10 to 15 seconds (such as a 5-second sprint) are not compromised in children. Conversely, during high-intensity exertion lasting 15 seconds to 2 minutes (such as a 60-second run), energy re-synthesis depends heavily on anaerobic glycolysis. Children have lower muscle glycogen stores (50%-60% of adult levels) and lower activities of key glycolytic enzymes, specifically phosphofructokinase (PFK) and lactate dehydrogenase (LDH, ~3.5-fold lower). This enzymatic bottleneck restricts glycolytic flux and lactate production, causing rapid fatigue during sustained anaerobic efforts.",
+        "criteria": [
+          "Identify that resting ATP and PCr stores in children are similar to adult levels.",
+          "Explain that 5-second sprints rely on ATP-PCr and are uncompromised in children.",
+          "Identify that 60-second runs rely on anaerobic glycolysis, which is limited by lower glycogen (50-60%) and lower PFK and LDH (~3.5-fold lower) activity."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain three physiological mechanisms responsible for the lower post-exercise blood and muscle lactate concentrations observed in children following maximal exercise.",
+        "model": "Three primary mechanisms account for lower maximal post-exercise lactate concentrations in children: (1) Enzymatic limitations—pediatric skeletal muscle has lower concentration/activity of phosphofructokinase (PFK) and ~3.5-fold lower lactate dehydrogenase (LDH) activity, restricting glycolytic flux and the conversion of pyruvate to lactate. (2) Lower relative muscle mass—children have less total muscle mass engaged during exercise, resulting in a lower absolute volume of pyruvate and lactate produced. (3) Higher systemic lactate clearance and greater reliance on aerobic metabolism—children clear lactate more rapidly and rely more on mitochondrial oxidative phosphorylation during intense work.",
+        "criteria": [
+          "Cite enzymatic bottlenecks: lower PFK and ~3.5-fold lower LDH activity.",
+          "Mention lower relative muscle mass producing less total pyruvate/lactate.",
+          "Explain higher lactate clearance and greater relative reliance on aerobic metabolism."
+        ]
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "Which laboratory assessment is widely used to evaluate peak power output and mean anaerobic power over a 30-second all-out maximal sprint?",
+        "opts": [
+          "Wingate Anaerobic Power Test",
+          "Astrand Treadmill Test",
+          "Margaria Step-Running Test",
+          "Harvard Step Test"
+        ],
+        "correct": 0,
+        "rationale": "The Wingate anaerobic power test is a 30-second, all-out maximal effort on a cycle ergometer used to determine anaerobic mean and peak power output."
+      },
+      {
+        "id": 2,
+        "q": "When peak power output in cycle ergometry is statistically adjusted for body mass (W/kg), how do preteenagers (9–10 years) compare to teenagers (14–15 years) and adults?",
+        "opts": [
+          "Preteenagers show higher relative peak power than both teenagers and adults",
+          "Preteenagers display very low relative peak power outputs compared with both teenagers and adults",
+          "Preteenagers and adults display identical relative peak power outputs",
+          "Teenagers show significantly lower relative power outputs than preteenagers"
+        ],
+        "correct": 1,
+        "rationale": "Even when peak power is statistically adjusted for body mass (Figure 17.8), preteenagers (9-10 years) display very low peak power outputs compared to teenagers (14-15 years) and adults (mean age 21 years)."
+      },
+      {
+        "id": 3,
+        "q": "In Bar-Or's developmental curves (ages 9 to 16), which field test was utilized to represent anaerobic power?",
+        "opts": [
+          "40-yard dash",
+          "Margaria step-running test",
+          "Cooper 12-minute run",
+          "Vertical jump test"
+        ],
+        "correct": 1,
+        "rationale": "In Bar-Or's developmental summary (Figure 17.9), anaerobic power is represented by the child's performance on the Margaria step-running test."
+      },
+      {
+        "id": 4,
+        "q": "According to Bar-Or's developmental data, how does relative aerobic power (VO2max scaled to body weight) change in boys from ages 9 through 16?",
+        "opts": [
+          "It increases by 100%",
+          "It remains virtually constant",
+          "It declines by 50%",
+          "It fluctuates unpredictably every 6 months"
+        ],
+        "correct": 1,
+        "rationale": "Bar-Or's summary indicates that relative aerobic fitness (VO2max scaled to body weight) remains virtually constant for boys from ages 9 through 16."
+      },
+      {
+        "id": 5,
+        "q": "According to Bar-Or's developmental curves, why do 9- to 12-year-old girls reach ~110% of the 18-year-old female reference value for aerobic capacity?",
+        "opts": [
+          "Because relative VO2max declines in girls between ages 12 and 16, making younger girls higher relative to the 18-year-old adult baseline",
+          "Because 9- to 12-year-old girls have twice the hemoglobin concentration of adult females",
+          "Because pre-pubertal girls possess 10-fold higher PFK activity than adult females",
+          "Because 18-year-old females have completely ceased mitochondrial function"
+        ],
+        "correct": 0,
+        "rationale": "Aerobic fitness declines in girls from 12 to 16 years (partly due to fat accumulation at puberty). Consequently, 9- to 12-year-old girls have a higher relative aerobic capacity (~110%) than the 18-year-old reference adult baseline."
+      },
+      {
+        "id": 6,
+        "q": "How does relative anaerobic capacity progress in both boys and girls from ages 9 through 15, according to Bar-Or?",
+        "opts": [
+          "It remains completely static until age 18",
+          "It increases steadily and continuously from age 9 through 15",
+          "It declines rapidly at age 12 in both sexes",
+          "It reaches 200% of adult capacity by age 10"
+        ],
+        "correct": 1,
+        "rationale": "For both boys and girls, relative anaerobic capacity increases steadily and continuously from 9 through 15 years of age."
+      },
+      {
+        "id": 7,
+        "q": "Comparing relative peak power of 14- to 15-year-old teenagers with 21-year-old adults during cycle ergometry reveals that teenagers are:",
+        "opts": [
+          "Much closer to adult values than 9- to 10-year-old preteenagers are",
+          "50% lower than 9- to 10-year-old preteenagers",
+          "Completely identical to 5-year-old infants",
+          "Significantly higher than elite adult sprinters"
+        ],
+        "correct": 0,
+        "rationale": "Figure 17.8 demonstrates that teenagers (14-15 years) achieve relative peak power values much closer to adult reference values (mean age 21) than preteenagers (9-10 years)."
+      },
+      {
+        "id": 8,
+        "q": "What criterion baseline age was used in Bar-Or's developmental model to represent 100% of mature adult capacity for aerobic and anaerobic power?",
+        "opts": [
+          "10 years of age",
+          "14 years of age",
+          "18 years of age",
+          "25 years of age"
+        ],
+        "correct": 2,
+        "rationale": "Bar-Or summarized aerobic and anaerobic development in youth using 18 years of age as the criterion baseline for 100% of the adult value."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which tests are highlighted in the textbook to assess pediatric anaerobic power? (Select all that apply)",
+        "opts": [
+          "Wingate Anaerobic Power Test (30-s cycle ergometer sprint)",
+          "Margaria Step-Running Test (stair-climbing field test)",
+          "Astrand-Ryhming Cycle Submaximal Test",
+          "Hydrostatic Underwater Weighing Test"
+        ],
+        "correctArray": [
+          0,
+          1
+        ],
+        "rationale": "The textbook specifically discusses the 30-s Wingate cycle ergometer test and the Margaria step-running field test for assessing anaerobic power."
+      },
+      {
+        "id": 2,
+        "q": "Which statements accurately reflect Bar-Or's developmental curves for aerobic and anaerobic power (ages 9 to 16)? (Select all that apply)",
+        "opts": [
+          "Aerobic fitness (relative VO2max) remains virtually constant for boys from 9 to 16 years",
+          "Aerobic fitness declines in girls from 12 to 16 years",
+          "Nine- to twelve-year-old girls reach ~110% of the 18-year-old female adult aerobic baseline",
+          "Anaerobic capacity increases for both boys and girls from 9 through 15 years"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "All four statements represent accurate findings from Bar-Or's developmental summary (Figure 17.9)."
+      },
+      {
+        "id": 3,
+        "q": "Why is scaling power output to body mass (W/kg) essential when comparing preteenagers, teenagers, and adults? (Select all that apply)",
+        "opts": [
+          "Absolute power is heavily confounded by body size and total muscle mass differences",
+          "Scaling accounts for body size increases accompanying normal biological growth",
+          "Scaling reveals that preteenagers still have significantly lower relative peak power than adults",
+          "Scaling eliminates the need to measure cycle ergometer resistance"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Scaling to body mass adjusts for size/mass differences. Even after scaling, preteenagers exhibit lower relative peak power than teenagers and adults."
+      },
+      {
+        "id": 4,
+        "q": "Which age groups were evaluated in the cycle ergometer peak power comparison shown in Figure 17.8? (Select all that apply)",
+        "opts": [
+          "Preteenagers (9–10 years of age)",
+          "Teenagers (14–15 years of age)",
+          "Adults (mean age of 21 years)",
+          "Infants (6–12 months of age)"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Figure 17.8 compared relative peak power across preteenagers (9-10y), teenagers (14-15y), and adults (mean age 21y)."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Even when peak power output is statistically adjusted for body mass, preteenagers (9–10 years) generate significantly lower peak power than adults.",
+        "ans": true,
+        "feedback": "True. As shown in Figure 17.8, preteenagers display very low relative peak power outputs compared to teenagers and adults, even after adjusting for body mass."
+      },
+      {
+        "id": 2,
+        "q": "According to Bar-Or, relative aerobic power (VO2max per kg) increases exponentially in girls between ages 12 and 16.",
+        "ans": false,
+        "feedback": "False. Bar-Or's data show that relative aerobic fitness declines in girls from 12 to 16 years of age."
+      },
+      {
+        "id": 3,
+        "q": "Anaerobic capacity increases steadily in both boys and girls from age 9 through age 15.",
+        "ans": true,
+        "feedback": "True. Relative anaerobic capacity increases progressively across youth development in both sexes."
+      },
+      {
+        "id": 4,
+        "q": "The Margaria step-running test is a laboratory cycle ergometer test used to evaluate VO2max.",
+        "ans": false,
+        "feedback": "False. The Margaria step-running test is a field test used to assess anaerobic power."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "The **Wingate anaerobic power test** measures 30-second peak and mean power on a cycle ergometer, while the **Margaria step-running test** is a field test of anaerobic power.",
+        "targets": [
+          "Wingate anaerobic power test",
+          "Margaria step-running test"
+        ],
+        "optionsBank": [
+          "Wingate anaerobic power test",
+          "Margaria step-running test",
+          "Astrand treadmill test",
+          "Harvard step test",
+          "Cooper 12-minute run"
+        ],
+        "hint": "Identify the 30-second cycle test and the stair-climbing field test."
+      },
+      {
+        "id": 2,
+        "statement": "In Bar-Or's model using an **18-year-old** baseline, aerobic fitness remains constant in boys, declines in girls from ages 12 to 16, and **anaerobic capacity** increases in both sexes from ages 9 to 15.",
+        "targets": [
+          "18-year-old",
+          "anaerobic capacity"
+        ],
+        "optionsBank": [
+          "18-year-old",
+          "anaerobic capacity",
+          "25-year-old",
+          "glycogen content",
+          "resting heart rate"
+        ],
+        "hint": "Identify the adult criterion baseline age and the parameter that increases steadily in both sexes from ages 9 to 15."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Describe Bar-Or's developmental curves for aerobic and anaerobic power in boys and girls from ages 9 through 16, explaining how values compare to the 18-year-old reference adult baseline.",
+        "model": "Bar-Or modeled aerobic power (relative VO2max) and anaerobic power (Margaria step-running performance) from ages 9 to 16 using the 18-year-old adult as a 100% criterion baseline. Aerobic fitness remains constant in boys (~100% of adult value) from ages 9 to 16. In girls, relative aerobic fitness declines between ages 12 and 16; 9- to 12-year-old girls actually exceed the 18-year-old female baseline (~110%). In contrast, anaerobic capacity increases steadily in both boys and girls from ages 9 through 15 as muscle mass, glycolytic enzymes, and nervous system maturation progress toward adult levels.",
+        "criteria": [
+          "Identify 18 years of age as the 100% adult criterion baseline.",
+          "State that aerobic fitness remains constant in boys and declines in girls from 12 to 16 years (with 9-12yo girls at ~110%).",
+          "Explain that anaerobic capacity increases continuously in both sexes from ages 9 through 15."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain why absolute anaerobic power output increases with age, and describe what happens to peak power output differences between preteenagers, teenagers, and adults when statistically scaled to body mass.",
+        "model": "Absolute anaerobic power increases with age primarily due to increases in body size, total muscle mass, glycolytic enzyme maturity (PFK, LDH), and neural motor unit recruitment. When peak power is statistically scaled to body mass (W/kg) as in Figure 17.8, preteenagers (9-10 years) still demonstrate very low relative peak power compared to teenagers and adults. Teenagers (14-15 years) achieve relative peak power outputs much closer to adult values (mean age 21), demonstrating that anaerobic development during puberty involves qualitative physiological maturation beyond simple mass gain.",
+        "criteria": [
+          "Explain absolute power increases due to body size, muscle mass, enzyme activity, and neural maturation.",
+          "State that scaling peak power to body mass (W/kg) accounts for size differences.",
+          "Note that even after scaling, 9-10yo preteenagers have very low relative power, whereas 14-15yo teenagers approach adult values."
+        ]
+      }
+    ]
+  },
+  "p3": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "How does acute high-intensity exercise influence the growth hormone (GH) and insulin-like growth factor (IGF-1) axis in children?",
+        "opts": [
+          "Exercise completely suppresses growth hormone secretion for 48 hours",
+          "High-intensity exercise acts as a potent stimulus, causing dramatic transient peaks in circulating GH",
+          "Exercise has zero effect on the endocrine system in pediatric populations",
+          "Exercise destroys IGF-1 receptors in skeletal muscle"
+        ],
+        "correct": 1,
+        "rationale": "Exercise is a potent stimulus for the GH and IGF-1 axis; high-intensity exercise in children causes dramatic peaks in GH and modifies normal daily hormonal cycling."
+      },
+      {
+        "id": 2,
+        "q": "What phenomenon is frequently observed in blood glucose regulation at the immediate onset of acute exercise in children?",
+        "opts": [
+          "Severe hyperosmolar hyperglycemia",
+          "Relative hypoglycemia (a transient drop in blood glucose)",
+          "Complete cessation of peripheral glucose uptake",
+          "Permanent destruction of pancreatic beta cells"
+        ],
+        "correct": 1,
+        "rationale": "At the start of exercise, children experience a relative hypoglycemia due to lower muscle glycogen stores and an immature capacity for hepatic glycogenolysis."
+      },
+      {
+        "id": 3,
+        "q": "Which physiological limitation in children contributes to relative hypoglycemia during acute exercise onset?",
+        "opts": [
+          "Immature capacity for hepatic glycogenolysis and lower muscle glycogen stores",
+          "Excessive liver glycogen breakdown exceeding peripheral glucose demand",
+          "Complete absence of pancreatic alpha cells producing glucagon",
+          "Inability of pediatric adipose tissue to undergo lipolysis"
+        ],
+        "correct": 0,
+        "rationale": "Relative hypoglycemia at exercise onset is attributed to lower muscle glycogen content and an immature capacity for hepatic glycogenolysis (liver glycogen breakdown)."
+      },
+      {
+        "id": 4,
+        "q": "How does submaximal exercise substrate utilization in pre-pubertal children compare to that in adults?",
+        "opts": [
+          "Children rely almost exclusively on carbohydrate oxidation and produce zero fat oxidation",
+          "Children rely more heavily on fat oxidation for fuel during exercise",
+          "Children oxidize protein for 90% of their energy needs",
+          "Children display substrate profiles identical to adult powerlifters"
+        ],
+        "correct": 1,
+        "rationale": "Children rely more heavily on fat oxidation for fuel during submaximal exercise compared to adults, preserving limited carbohydrate stores."
+      },
+      {
+        "id": 5,
+        "q": "How does the capacity for exogenous glucose oxidation in children compare to adults during exercise?",
+        "opts": [
+          "Exogenous glucose oxidation is relatively high in children",
+          "Children are completely unable to oxidize exogenous glucose",
+          "Exogenous glucose oxidation is 10-fold lower in children than in adults",
+          "Exogenous glucose is converted directly into lactate without producing ATP"
+        ],
+        "correct": 0,
+        "rationale": "Exogenous glucose oxidation appears to be relatively high in children, potentially compensating for reduced endogenous glucose production."
+      },
+      {
+        "id": 6,
+        "q": "How does substrate utilization change as children progress through pubertal maturation into adolescence?",
+        "opts": [
+          "Relative rate of fat oxidation increases continuously into adulthood",
+          "Adolescents experience a decreased relative rate of fat oxidation, shifting toward higher carbohydrate reliance like adults",
+          "Protein oxidation becomes the sole energy source during puberty",
+          "Substrate utilization becomes completely static and independent of intensity"
+        ],
+        "correct": 1,
+        "rationale": "The fuel utilization profile changes throughout puberty such that adolescents have a decreased relative rate of fat oxidation, adopting an adult-like metabolic profile."
+      },
+      {
+        "id": 7,
+        "q": "Compared to adults, acute exercise in pediatric populations evokes a stress hormone response that is generally:",
+        "opts": [
+          "Blunted with zero catecholamine release",
+          "Higher (heightened sympathoadrenal stress response)",
+          "Identical in every hormone concentration",
+          "Suppressed by 90% due to immature adrenal glands"
+        ],
+        "correct": 1,
+        "rationale": "Pediatric exercise studies indicate that children have a higher stress response to exercise compared to adults, influencing blood glucose control."
+      },
+      {
+        "id": 8,
+        "q": "Why is consuming supplemental carbohydrate beverages during prolonged exercise particularly beneficial for young athletes?",
+        "opts": [
+          "Children cannot digest fats or proteins under any conditions",
+          "Children have high exogenous glucose oxidation rates that compensate for lower glycogen stores and immature hepatic glycogenolysis",
+          "Carbohydrate drinks increase PFK enzyme concentrations by 500% within 5 minutes",
+          "Carbohydrates prevent growth hormone secretion during practice"
+        ],
+        "correct": 1,
+        "rationale": "Because children have high exogenous glucose oxidation capacity alongside lower glycogen stores and immature hepatic glycogenolysis, supplemental exogenous carbohydrates effectively fuel prolonged performance."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which endocrine and metabolic responses characterize acute exercise in children? (Select all that apply)",
+        "opts": [
+          "Dramatic transient peaks in growth hormone (GH) secretion",
+          "A higher stress hormone response compared to adults",
+          "Variations in insulin response depending on pubertal stage and sex",
+          "Complete shutdown of the pituitary gland"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Exercise causes dramatic GH peaks, a higher stress hormone response, and pubertal/sex-dependent insulin responses in children."
+      },
+      {
+        "id": 2,
+        "q": "Which factors contribute to the substrate utilization profile observed in pre-pubertal children during exercise? (Select all that apply)",
+        "opts": [
+          "Greater reliance on fat oxidation during submaximal work",
+          "Relatively high capacity for exogenous glucose oxidation",
+          "Immature capacity for hepatic glycogenolysis",
+          "Complete inability to metabolize fatty acids"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Pre-pubertal children rely more on fat oxidation, have high exogenous glucose oxidation capacity, and have an immature capacity for hepatic glycogenolysis."
+      },
+      {
+        "id": 3,
+        "q": "Which metabolic changes occur as a child matures through puberty into adulthood? (Select all that apply)",
+        "opts": [
+          "Decreased relative rate of fat oxidation during submaximal exercise",
+          "Increased reliance on carbohydrate oxidation, matching adult fuel profiles",
+          "Maturation of hepatic glycogenolysis pathways",
+          "Permanent loss of all mitochondrial enzymes"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Pubertal maturation brings a decreased relative rate of fat oxidation, increased carbohydrate reliance, and maturation of liver glycogenolysis."
+      },
+      {
+        "id": 4,
+        "q": "Which statements regarding blood glucose control during acute exercise in children are true? (Select all that apply)",
+        "opts": [
+          "Children frequently exhibit relative hypoglycemia at the start of exercise",
+          "Lower muscle glycogen content contributes to early exercise glucose dynamics",
+          "Immature hepatic glycogenolysis limits rapid liver glucose release",
+          "Children maintain higher blood glucose at exercise onset than elite adult marathoners"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Children exhibit relative hypoglycemia at exercise onset due to lower muscle glycogen content and immature hepatic glycogenolysis."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "High-intensity exercise in children acts as a potent stimulus that causes dramatic peaks in circulating growth hormone (GH).",
+        "ans": true,
+        "feedback": "True. Exercise strongly stimulates the GH and IGF-1 axis in children, triggering sharp transient peaks in growth hormone secretion."
+      },
+      {
+        "id": 2,
+        "q": "At the start of exercise, children frequently display relative hypoglycemia.",
+        "ans": true,
+        "feedback": "True. Relative hypoglycemia occurs at exercise onset due to lower muscle glycogen stores and immature hepatic glycogenolysis."
+      },
+      {
+        "id": 3,
+        "q": "Pre-pubertal children rely more heavily on carbohydrate oxidation than adults during submaximal exercise.",
+        "ans": false,
+        "feedback": "False. Pre-pubertal children rely more heavily on fat oxidation during submaximal exercise, shifting toward higher carbohydrate oxidation as they progress through puberty."
+      },
+      {
+        "id": 4,
+        "q": "Children possess a relatively high capacity for oxidizing exogenous glucose consumed during exercise.",
+        "ans": true,
+        "feedback": "True. Children readily oxidize exogenous glucose during exercise, which helps offset reduced endogenous glucose production."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "At exercise onset, children experience relative **hypoglycemia** due to lower muscle glycogen and an immature capacity for **hepatic glycogenolysis**.",
+        "targets": [
+          "hypoglycemia",
+          "hepatic glycogenolysis"
+        ],
+        "optionsBank": [
+          "hypoglycemia",
+          "hepatic glycogenolysis",
+          "hyperglycemia",
+          "protein synthesis",
+          "lipogenesis"
+        ],
+        "hint": "Identify the low blood glucose condition and the immature liver glycogen breakdown pathway."
+      },
+      {
+        "id": 2,
+        "statement": "Pre-pubertal children rely more on **fat oxidation** for fuel, but readily utilize **exogenous glucose** consumed during exercise.",
+        "targets": [
+          "fat oxidation",
+          "exogenous glucose"
+        ],
+        "optionsBank": [
+          "fat oxidation",
+          "exogenous glucose",
+          "protein breakdown",
+          "endogenous lactate",
+          "amino acids"
+        ],
+        "hint": "Identify the primary endogenous fuel source favored by children and the supplemental carbohydrate source they oxidize efficiently."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Explain the metabolic and endocrine mechanisms responsible for relative hypoglycemia at the onset of exercise in children, and describe how substrate utilization compensates for this condition.",
+        "model": "At the onset of acute exercise, children frequently exhibit relative hypoglycemia (a transient drop in blood glucose). This occurs because children have lower resting muscle glycogen stores (~50%-60% of adult levels) and an immature capacity for hepatic glycogenolysis (breakdown of liver glycogen into blood glucose), which restricts endogenous glucose delivery. To compensate, children rely more heavily on fat oxidation as a primary fuel source during submaximal exercise, sparing carbohydrate stores. Additionally, children demonstrate a relatively high capacity for exogenous glucose oxidation, allowing consumed dietary carbohydrates to rapidly supplement energy needs.",
+        "criteria": [
+          "Define relative hypoglycemia as a transient drop in blood glucose at exercise onset.",
+          "Identify lower muscle glycogen stores and immature hepatic glycogenolysis as causes.",
+          "Explain compensation via increased fat oxidation and high exogenous glucose oxidation capacity."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Discuss how substrate utilization and fuel selection profiles change from pre-puberty through pubertal maturation into adulthood, and outline the practical nutritional implications for young athletes.",
+        "model": "Pre-pubertal children favor fat oxidation during submaximal exercise and possess a high capacity for exogenous glucose oxidation, offsetting lower glycogen stores and constrained liver glucose release. As youth progress through puberty into adolescence, substrate utilization shifts: the relative rate of fat oxidation decreases while carbohydrate oxidation increases, adopting an adult-like metabolic fuel profile. Practically, because young athletes have lower glycogen stores and are prone to early exercise hypoglycemia, providing supplemental carbohydrate beverages during prolonged practices or events provides an easily oxidizable energy source that supports performance.",
+        "criteria": [
+          "Describe pre-pubertal reliance on fat oxidation and high exogenous glucose oxidation.",
+          "Explain the pubertal shift toward decreased fat oxidation and increased carbohydrate oxidation.",
+          "Provide practical nutritional advice (supplemental carbohydrates during prolonged exercise)."
+        ]
+      }
+    ]
+  }
+}

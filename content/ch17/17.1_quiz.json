@@ -1,0 +1,1510 @@
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "Which of the following terms specifically describes the biological process of taking on adult form and becoming fully functional within a specific physiological system?",
+        "opts": [
+          "Growth",
+          "Development",
+          "Maturation",
+          "Hypertrophy"
+        ],
+        "correct": 2,
+        "rationale": "Maturation refers strictly to the biological process of taking on adult form and becoming fully functional within a given system (e.g., skeletal maturity or sexual maturity). Growth refers to size increases, and development refers to cellular differentiation."
+      },
+      {
+        "id": 2,
+        "q": "How does exercise physiology define 'development' as distinct from simple physical growth?",
+        "opts": [
+          "An increase in the total height or weight of an individual",
+          "The cellular differentiation along specialized functional lines and organ systems",
+          "The chronological passage of time from birth to adulthood",
+          "The fusion of epiphyseal growth plates in long bones"
+        ],
+        "correct": 1,
+        "rationale": "Development refers specifically to cellular differentiation along specialized functional lines (e.g., organ systems), reflecting the functional changes that accompany growth."
+      },
+      {
+        "id": 3,
+        "q": "Which chronological age range typically defines the period of adolescence for girls and boys, respectively?",
+        "opts": [
+          "Girls: 6 to 12 years; Boys: 8 to 14 years",
+          "Girls: 8 to 19 years; Boys: 10 to 22 years",
+          "Girls: 10 to 14 years; Boys: 12 to 16 years",
+          "Girls: 12 to 18 years; Boys: 12 to 18 years"
+        ],
+        "correct": 1,
+        "rationale": "According to the textbook, adolescence generally ranges from 8 to 19 years in girls and from 10 to 22 years in boys due to variations in onset and termination of pubertal maturation."
+      },
+      {
+        "id": 4,
+        "q": "Infancy is defined chronologically as which specific developmental period?",
+        "opts": [
+          "From birth to 6 months of age",
+          "The first year of life (birth to 1st birthday)",
+          "From birth until the attainment of upright locomotion",
+          "The preschool period from birth to 3 years of age"
+        ],
+        "correct": 1,
+        "rationale": "Infancy is strictly defined as the first year of life (spanning from birth to the first birthday)."
+      },
+      {
+        "id": 5,
+        "q": "Which three criteria are used by exercise physiologists to define the state of a child's or adolescent's maturity?",
+        "opts": [
+          "Chronological age, skeletal age, and stage of sexual maturation",
+          "Standing height, peak weight velocity, and muscle mass percentage",
+          "Body mass index, VO2max, and chronological age",
+          "Resting heart rate, blood pressure, and Tanner pubertal score"
+        ],
+        "correct": 0,
+        "rationale": "A child's or adolescent's state of maturity is defined by chronological age, skeletal age, and stage of sexual maturation."
+      },
+      {
+        "id": 6,
+        "q": "Why is it biologically incorrect to treat children as 'miniature versions of adults' in exercise programming?",
+        "opts": [
+          "Children possess higher concentrations of anaerobic enzymes than adults",
+          "Their physiological and performance capacities are dictated by ongoing growth and development of bones, muscles, nerves, and organs",
+          "Children do not experience increases in functional capacity as their size increases",
+          "Pediatric populations have fully mature neural myelination by 5 years of age"
+        ],
+        "correct": 1,
+        "rationale": "Children are not miniature adults; the growth and development of their bones, muscles, nerves, and organs dictate their physiological and performance capacities."
+      },
+      {
+        "id": 7,
+        "q": "Middle childhood is chronologically categorized as spanning which specific phase?",
+        "opts": [
+          "Birth to the first birthday",
+          "From age 1 to 5 years (preschool years)",
+          "From age 6 (elementary school entry) to the onset of puberty",
+          "From the onset of puberty to 18 years"
+        ],
+        "correct": 2,
+        "rationale": "Childhood is divided into early childhood (preschool years) and middle childhood, which spans from age 6 (elementary school) to the onset of puberty."
+      },
+      {
+        "id": 8,
+        "q": "Which milestone marks the formal physiological onset of adolescence?",
+        "opts": [
+          "Reaching 50% of adult standing height",
+          "The onset of puberty, marked by secondary sex characteristics and capacity for sexual reproduction",
+          "Complete epiphyseal growth plate fusion",
+          "Peak weight velocity"
+        ],
+        "correct": 1,
+        "rationale": "The onset of adolescence is defined by the onset of puberty, when secondary sex characteristics develop and sexual reproduction becomes possible."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which of the following statements correctly distinguish growth, development, and maturation? (Select all that apply)",
+        "opts": [
+          "Growth refers strictly to an increase in total body size or specific anatomical sub-unit size",
+          "Development involves cellular differentiation along specialized functional lines",
+          "Maturation refers to taking on adult form and becoming fully functional within a specific system",
+          "Maturation is measured exclusively by chronological age"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Growth is size increase; development is cellular differentiation and functional change; maturation is achieving adult form and full system functionality. Maturation is evaluated via skeletal and sexual age, not exclusively chronological age."
+      },
+      {
+        "id": 2,
+        "q": "Which life phases constitute the developmental continuum between birth and full adulthood? (Select all that apply)",
+        "opts": [
+          "Infancy (first year of life)",
+          "Early childhood (preschool years)",
+          "Middle childhood (elementary school years)",
+          "Adolescence (puberty onset to complete growth)"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "The continuum from birth to adulthood comprises infancy (1st year), early childhood (preschool), middle childhood (elementary school), and adolescence."
+      },
+      {
+        "id": 3,
+        "q": "Which functional capacities increase in direct proportion to physical size growth in developing children? (Select all that apply)",
+        "opts": [
+          "Motor ability and voluntary strength",
+          "Cardiovascular and respiratory function",
+          "Aerobic and anaerobic power",
+          "Resting basal metabolic rate per kilogram"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "As a child's size increases, almost all functional capacities expand, including motor ability, strength, cardiovascular/respiratory function, and aerobic/anaerobic power."
+      },
+      {
+        "id": 4,
+        "q": "Which factors contribute to the wide chronological age range assigned to adolescence (girls: 8-19y, boys: 10-22y)? (Select all that apply)",
+        "opts": [
+          "Variability in the chronological age at pubertal onset",
+          "Variability in the age of complete growth plate fusion and full height attainment",
+          "Sex differences in pubertal hormone surge timing",
+          "Complete cessation of neural myelination at age 8"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Adolescence varies in both onset (puberty) and termination (attainment of full adult height/epiphyseal fusion), both of which show significant individual and sex-based variation."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Children and adolescents respond and adapt to acute exercise and chronic training identically to mature adults.",
+        "ans": false,
+        "feedback": "False. Pediatric populations possess distinct biological profiles, and their physiological responses/adaptations differ significantly from adults due to ongoing growth and development."
+      },
+      {
+        "id": 2,
+        "q": "Skeletal maturity refers to having a fully developed skeletal system in which all bones have completed normal growth and ossification.",
+        "ans": true,
+        "feedback": "True. Maturation is defined by system; skeletal maturity occurs when bone growth and ossification are complete."
+      },
+      {
+        "id": 3,
+        "q": "Infancy is chronologically defined as the period spanning from birth through the second birthday.",
+        "ans": false,
+        "feedback": "False. Infancy is defined strictly as the first year of life (birth to the first birthday)."
+      },
+      {
+        "id": 4,
+        "q": "Two children of identical chronological age can differ significantly in skeletal age and biological maturity.",
+        "ans": true,
+        "feedback": "True. Chronological age does not always mirror skeletal or sexual maturity, as biological maturation rate varies substantially among individuals."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "While **growth** refers to an increase in total physical body size, **development** refers to cellular differentiation along specialized functional lines, and **maturation** describes taking on adult form and becoming fully functional.",
+        "targets": [
+          "growth",
+          "development",
+          "maturation"
+        ],
+        "optionsBank": [
+          "growth",
+          "development",
+          "maturation",
+          "hypertrophy",
+          "ossification",
+          "myelination"
+        ],
+        "hint": "Recall the textbook definitions for size increase, cellular differentiation, and system adult form."
+      },
+      {
+        "id": 2,
+        "statement": "The onset of adolescence is defined by the onset of **puberty**, while its upper boundary generally ranges from **8 to 19 years** in girls and **10 to 22 years** in boys.",
+        "targets": [
+          "puberty",
+          "8 to 19 years",
+          "10 to 22 years"
+        ],
+        "optionsBank": [
+          "puberty",
+          "8 to 19 years",
+          "10 to 22 years",
+          "ossification",
+          "6 to 12 years",
+          "12 to 18 years"
+        ],
+        "hint": "Identify the biological trigger for adolescence and the textbook chronological ranges for females and males."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "An 11-year-old youth soccer player is categorized as 'late-maturing' compared to peers of identical chronological age. Explain the physiological distinctions between chronological age, skeletal age, and sexual maturation, and describe how these distinctions impact competitive athletic performance.",
+        "model": "Chronological age represents time elapsed since birth, whereas skeletal age evaluates bone ossification and growth plate fusion, and sexual maturation assesses secondary sex characteristics and reproductive development. A late-maturing child may have a skeletal and biological age 2-3 years behind early-maturing peers despite identical chronological age. Because functional capacities (muscle mass, voluntary strength, cardiorespiratory volume, and power) expand directly with organic growth, the early-maturing child possesses significant biological advantages in speed, power, and force production. Coaches must evaluate athletes using biological maturity rather than calendar age to avoid misinterpreting physical potential.",
+        "criteria": [
+          "Define chronological age, skeletal age, and sexual maturation distinctly.",
+          "Explain that functional capacities (strength, power, cardiorespiratory function) expand with biological growth.",
+          "Identify that biological age disparities (up to 2-3 years) affect performance independent of chronological age."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Contrast the terms 'growth', 'development', and 'maturation' using specific anatomical and physiological examples from youth exercise physiology.",
+        "model": "Growth is an increase in physical size, such as the elongation of the femur or increase in total body mass in kilograms. Development refers to cellular differentiation along functional lines, such as the differentiation of cardiac myocytes or maturation of respiratory organ systems to support gas exchange. Maturation is the process of attaining adult form and full functional capacity within a specific system, such as complete epiphyseal plate fusion in the skeletal system or full sexual reproductive capability in the endocrine system.",
+        "criteria": [
+          "Provide exact textbook definitions for growth, development, and maturation.",
+          "Include a concrete physical size example for growth (e.g., bone length, mass).",
+          "Include a cellular/functional example for development and a system completion example for maturation."
+        ]
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "By approximately what age does a child achieve 50% of their ultimate adult standing height?",
+        "opts": [
+          "1 year of age",
+          "2 years of age",
+          "4 years of age",
+          "6 years of age"
+        ],
+        "correct": 1,
+        "rationale": "According to longitudinal growth velocity data, height increases exceptionally fast during the first 2 years of life, with children reaching approximately 50% of adult height by age 2."
+      },
+      {
+        "id": 2,
+        "q": "What is the average age of Peak Height Velocity (PHV) in girls and boys, respectively?",
+        "opts": [
+          "Girls: 10 years; Boys: 12 years",
+          "Girls: 12 years; Boys: 14 years",
+          "Girls: 14 years; Boys: 16 years",
+          "Girls: 12.5 years; Boys: 14.5 years"
+        ],
+        "correct": 1,
+        "rationale": "Peak Height Velocity (PHV), the peak rate of change in height, occurs at an average age of 12 years in girls and 14 years in boys."
+      },
+      {
+        "id": 3,
+        "q": "At what average age does Peak Weight Velocity (PWV) occur in girls and boys, relative to Peak Height Velocity?",
+        "opts": [
+          "Girls: 12 years; Boys: 14 years (simultaneous with PHV)",
+          "Girls: 12.5 years; Boys: 14.5 years (~0.5 years after PHV)",
+          "Girls: 11.5 years; Boys: 13.5 years (~0.5 years before PHV)",
+          "Girls: 14 years; Boys: 16 years (~2 years after PHV)"
+        ],
+        "correct": 1,
+        "rationale": "Peak Weight Velocity occurs at approximately 12.5 years in girls and 14.5 years in boys—occurring roughly 6 months (0.5 years) after peak height velocity."
+      },
+      {
+        "id": 4,
+        "q": "Full adult standing height is typically attained at a mean age of:",
+        "opts": [
+          "14 years in girls and 16 years in boys",
+          "16 years in girls and 18 years in boys",
+          "18 years in girls and 20 years in boys",
+          "21 years in both girls and boys"
+        ],
+        "correct": 1,
+        "rationale": "Full height is attained at a mean age of about 16 years in girls and 18 years in boys (though some males continue growing into their early 20s)."
+      },
+      {
+        "id": 5,
+        "q": "What trajectory does height growth rate follow between age 2 and the onset of puberty?",
+        "opts": [
+          "Height increases at an accelerating exponential rate throughout middle childhood",
+          "Height growth rate remains completely static with zero velocity changes",
+          "Height increases at a progressively slower rate (deceleration) until the pre-pubertal spurt",
+          "Height growth ceases entirely until triggered by pubertal testosterone or estrogen"
+        ],
+        "correct": 2,
+        "rationale": "After age 2, height growth velocity declines progressively throughout middle childhood until immediately before puberty, when a marked pre-pubertal growth spurt occurs."
+      },
+      {
+        "id": 6,
+        "q": "What phenomenon occurs during the temporal lag between Peak Height Velocity and Peak Weight Velocity?",
+        "opts": [
+          "Rapid muscle mass hypertrophy precedes long bone elongation",
+          "Adolescent awkwardness, where bone elongation outpaces muscle mass accrual and neural re-mapping",
+          "Immediate complete fusion of epiphyseal growth plates",
+          "A 50% reduction in bone mineral density"
+        ],
+        "correct": 1,
+        "rationale": "The ~6-month lag between PHV and PWV causes long bones to elongate before soft tissue and muscle mass catch up, creating a temporary window of altered biomechanics and 'adolescent awkwardness'."
+      },
+      {
+        "id": 7,
+        "q": "Growth velocity curves display which of the following post-PHV trends?",
+        "opts": [
+          "A linear continuous increase in growth rate until age 25",
+          "An exponential decrease in growth rate until full height is attained",
+          "A secondary peak in height growth rate at age 20",
+          "Fluctuating bi-monthly growth rate spikes"
+        ],
+        "correct": 1,
+        "rationale": "Following Peak Height Velocity, growth rate undergoes an exponential decrease until full height is reached at ~16y in girls and ~18y in boys."
+      },
+      {
+        "id": 8,
+        "q": "Which growth milestone occurs first during adolescent pubertal maturation?",
+        "opts": [
+          "Peak Weight Velocity",
+          "Peak Height Velocity",
+          "Peak Muscle Mass Attainment",
+          "Peak Bone Mineral Density Plateau"
+        ],
+        "correct": 1,
+        "rationale": "Peak Height Velocity (12y girls, 14y boys) precedes Peak Weight Velocity (12.5y girls, 14.5y boys) by approximately 6 months."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which statements accurately describe height growth dynamics from infancy through adulthood? (Select all that apply)",
+        "opts": [
+          "Height increases rapidly during the first 2 years of life",
+          "Children reach approximately 50% of adult height by age 2",
+          "Peak height velocity occurs at age 12 in girls and age 14 in boys",
+          "Full adult height is typically reached at age 16 in girls and age 18 in boys"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "All listed statements are accurate textbook facts regarding height growth velocity and milestone ages."
+      },
+      {
+        "id": 2,
+        "q": "Which statements correctly characterize body weight growth velocity in adolescents? (Select all that apply)",
+        "opts": [
+          "Weight growth rate follows a trend similar to height growth rate",
+          "Peak rate of weight increase occurs at ~12.5 years in girls and ~14.5 years in boys",
+          "Peak weight velocity occurs approximately 6 months after peak height velocity",
+          "Peak weight velocity occurs 2 years prior to peak height velocity"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Peak weight velocity occurs at 12.5y (girls) and 14.5y (boys), lagging approximately 6 months behind peak height velocity."
+      },
+      {
+        "id": 3,
+        "q": "What biomechanical and coaching considerations arise during Peak Height Velocity (PHV)? (Select all that apply)",
+        "opts": [
+          "Long bone elongation outpaces muscle mass accrual and neural adaptations",
+          "Athletes may experience transient disruption in motor coordination ('adolescent awkwardness')",
+          "Apophyseal muscle-tendon attachment sites are subjected to increased tensile stress",
+          "Growth plates are completely fused and immune to stress fracture"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "PHV causes rapid limb elongation, temporary motor coordination disruption, and heightened stress at apophyses; epiphyseal plates are open and vulnerable, not fused."
+      },
+      {
+        "id": 4,
+        "q": "Which factors account for the cessation of standing height growth in late adolescence? (Select all that apply)",
+        "opts": [
+          "Complete ossification and closure of epiphyseal growth plates",
+          "Hormonal signaling (such as estrogen) prompting growth plate fusion",
+          "Depletion of cartilage lines in long bones",
+          "A 10-fold increase in cerebral cortex myelination"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Height growth terminates when cartilaginous epiphyseal growth plates ossify and fuse under hormonal control (especially estrogen)."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "A child reaches approximately 50% of their ultimate adult height by 2 years of age.",
+        "ans": true,
+        "feedback": "True. Height growth is exceptionally rapid in the first 2 years, reaching 50% of adult stature by age 2."
+      },
+      {
+        "id": 2,
+        "q": "Peak Height Velocity (PHV) occurs at the same chronological age in boys and girls.",
+        "ans": false,
+        "feedback": "False. PHV occurs at an average age of 12 years in girls and 14 years in boys."
+      },
+      {
+        "id": 3,
+        "q": "Peak Weight Velocity occurs approximately 6 months after Peak Height Velocity in both males and females.",
+        "ans": true,
+        "feedback": "True. Peak rate of weight gain lags peak rate of height growth by about 0.5 years (12.5y vs 12y in girls; 14.5y vs 14y in boys)."
+      },
+      {
+        "id": 4,
+        "q": "Most boys attain their full adult standing height by age 14.",
+        "ans": false,
+        "feedback": "False. Full height is reached at a mean age of 18 in boys (and 16 in girls), with some males continuing into their early 20s."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "By **2 years of age**, a child reaches 50% of adult height; Peak Height Velocity occurs at **12 years** in girls and **14 years** in boys.",
+        "targets": [
+          "2 years of age",
+          "12 years",
+          "14 years"
+        ],
+        "optionsBank": [
+          "2 years of age",
+          "12 years",
+          "14 years",
+          "5 years of age",
+          "16 years",
+          "18 years"
+        ],
+        "hint": "Recall the infant 50% stature milestone and average PHV ages for females and males."
+      },
+      {
+        "id": 2,
+        "statement": "Peak Weight Velocity occurs at **12.5 years** in girls and **14.5 years** in boys, lagging approximately **6 months** behind Peak Height Velocity.",
+        "targets": [
+          "12.5 years",
+          "14.5 years",
+          "6 months"
+        ],
+        "optionsBank": [
+          "12.5 years",
+          "14.5 years",
+          "6 months",
+          "10 years",
+          "16 years",
+          "2 years"
+        ],
+        "hint": "Identify PWV ages and the temporal lag behind PHV."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Explain the temporal relationship between Peak Height Velocity (PHV) and Peak Weight Velocity (PWV) during adolescent growth, and discuss the practical coaching implications of this lag for youth training.",
+        "model": "Peak Height Velocity occurs at average ages of 12 years in girls and 14 years in boys, whereas Peak Weight Velocity occurs ~6 months later (12.5y in girls, 14.5y in boys). During this 6-month window, rapid long bone elongation outpaces soft tissue and muscle mass accrual, altering center of mass and lever lengths. This creates a transient phase of 'adolescent awkwardness' where motor coordination and movement efficiency temporarily decline. Strength and conditioning coaches should emphasize movement mechanics, body-weight control, and flexibility while reducing heavy axial loading to protect open epiphyseal plates and apophyses during PHV.",
+        "criteria": [
+          "State exact ages for PHV (12y girls, 14y boys) and PWV (12.5y girls, 14.5y boys).",
+          "Identify the ~6-month temporal lag between PHV and PWV.",
+          "Describe 'adolescent awkwardness' and recommend coaching modifications (emphasize movement mechanics, protect growth plates)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Detail the growth velocity curve of height from birth through full stature attainment, noting specific milestone ages and percentage benchmarks.",
+        "model": "Height growth is most rapid during the first 2 years of life, reaching 50% of adult stature by age 2. Growth rate then decelerates progressively through middle childhood. Just prior to puberty, height velocity accelerates in a pre-pubertal growth spurt, peaking at Peak Height Velocity (age 12 in girls, 14 in boys). Following PHV, growth velocity exponentially decreases until full adult height is attained at a mean age of 16 in girls and 18 in boys (with some males growing into early 20s).",
+        "criteria": [
+          "Note 50% adult stature benchmark at age 2.",
+          "Describe deceleration in middle childhood followed by pre-pubertal acceleration.",
+          "State PHV ages (12y girls, 14y boys) and full stature ages (16y girls, 18y boys)."
+        ]
+      }
+    ]
+  },
+  "p3": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "What is the primary physiological function of epiphyseal growth plates in long bones?",
+        "opts": [
+          "To store subcutaneous adipose tissue during pubertal development",
+          "To allow longitudinal bone elongation through cartilaginous growth prior to complete ossification",
+          "To produce red blood cells via hematopoiesis in mature adults",
+          "To signal muscle fiber hyperplasia at the myotendinous junction"
+        ],
+        "correct": 1,
+        "rationale": "Growth plates (epiphyseal plates) are cartilage lines in long bones where longitudinal bone elongation occurs until complete ossification and fusion occur."
+      },
+      {
+        "id": 2,
+        "q": "Why do females, on average, achieve full skeletal bone maturity several years earlier than males?",
+        "opts": [
+          "Females possess higher concentrations of growth hormone throughout middle childhood",
+          "Estrogen signals the epiphyseal growth plates to close and fuse earlier",
+          "Males experience earlier growth plate closure driven by testosterone surges",
+          "Female bones do not undergo the process of ossification"
+        ],
+        "correct": 1,
+        "rationale": "Girls achieve full bone maturity several years before boys because estrogen plays a primary role in signaling the epiphyseal growth plates to close and fuse."
+      },
+      {
+        "id": 3,
+        "q": "During which decade of life does Bone Mineral Density (BMD) typically reach its peak value before gradually declining?",
+        "opts": [
+          "First decade (ages 1–10)",
+          "Second decade (early 20s)",
+          "Fourth decade (ages 30–40)",
+          "Sixth decade (ages 50–60)"
+        ],
+        "correct": 1,
+        "rationale": "Bone Mineral Density increases significantly throughout childhood and adolescence, generally peaking sometime in the second decade of life (early 20s)."
+      },
+      {
+        "id": 4,
+        "q": "In the longitudinal study of 8- to 9-year-old children performing box jumping, how long were the BMD benefits sustained post-intervention?",
+        "opts": [
+          "Benefits disappeared immediately upon exercise cessation",
+          "Sustained for 6 months",
+          "Sustained for 4 years after the intervention",
+          "Sustained for exactly 10 years"
+        ],
+        "correct": 2,
+        "rationale": "The study showed that increases in BMD resulting from 7 months of box jumping during PE class were sustained for 4 years after the intervention, over and above normal growth."
+      },
+      {
+        "id": 5,
+        "q": "The process of transforming embryonic membranes and cartilage into rigid bone is termed:",
+        "opts": [
+          "Myelination",
+          "Ossification",
+          "Hypertrophy",
+          "Resorption"
+        ],
+        "correct": 1,
+        "rationale": "Ossification (bone formation) is the process by which membranes and cartilage are transformed into bone during fetal development and the first 14 to 22 years of life."
+      },
+      {
+        "id": 6,
+        "q": "By what age range are all epiphyseal growth plates typically fused in humans?",
+        "opts": [
+          "By age 8 to 10",
+          "By age 12 to 14",
+          "By the early 20s",
+          "By age 35 to 40"
+        ],
+        "correct": 2,
+        "rationale": "Bones typically begin to fuse in the preteens, and all epiphyseal plates are fused by the early 20s."
+      },
+      {
+        "id": 7,
+        "q": "Which of the following functions is NOT a primary biological role of the skeletal system?",
+        "opts": [
+          "Serving as a structural support and point of attachment for skeletal muscles",
+          "Acting as a reservoir for essential minerals such as calcium and phosphorus",
+          "Housing marrow involved in blood cell formation (hematopoiesis)",
+          "Secreting high levels of testosterone to trigger muscle fiber hyperplasia"
+        ],
+        "correct": 3,
+        "rationale": "Bones provide structural support, muscle attachments, mineral reservoirs (Ca, P), and blood cell formation, but do not secrete testosterone."
+      },
+      {
+        "id": 8,
+        "q": "Why is adolescence considered a 'prime window' for optimizing lifelong bone health?",
+        "opts": [
+          "Growth plates are fully closed and immune to mechanical strain",
+          "BMD increases significantly during adolescence before peaking in the second decade, allowing weight-bearing exercise to build peak bone mass",
+          "Estrogen levels are at their lowest lifetime concentration during adolescence",
+          "Bone resorption completely ceases during adolescence"
+        ],
+        "correct": 1,
+        "rationale": "Adolescence is a prime window because BMD increases markedly prior to peaking in early adulthood; applying mechanical strain during this window builds a permanent osteogenic reserve."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which physiological roles are fulfilled by the skeletal system? (Select all that apply)",
+        "opts": [
+          "Providing structural support and muscle attachment sites",
+          "Protecting delicate internal organs",
+          "Acting as reservoirs for calcium and phosphorus",
+          "Housing red marrow involved in blood cell formation"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "Bones provide structural support, muscle attachment sites, organ protection, mineral storage (Ca, P), and hematopoiesis."
+      },
+      {
+        "id": 2,
+        "q": "Which factors contribute to skeletal growth and peak bone mineral density accumulation? (Select all that apply)",
+        "opts": [
+          "Process of ossification transforming cartilage into bone",
+          "High-impact weight-bearing exercise (e.g., box jumping)",
+          "Proper nutritional intake of calcium and Vitamin D",
+          "Complete physical inactivity to preserve epiphyseal plates"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Ossification, high-impact weight-bearing exercise, and proper nutrition promote bone growth and peak BMD. Physical inactivity hinders bone mineral accumulation."
+      },
+      {
+        "id": 3,
+        "q": "Which statements regarding epiphyseal growth plate closure are true? (Select all that apply)",
+        "opts": [
+          "The growth plate is a cartilaginous line where longitudinal elongation occurs",
+          "Bones typically begin to fuse in the preteens and complete fusion by the early 20s",
+          "Girls achieve full bone maturity several years before boys",
+          "Estrogen signals the growth plate to close and fuse"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "All listed statements are true regarding epiphyseal plate structure, fusion timeline, sex differences, and estrogen signaling."
+      },
+      {
+        "id": 4,
+        "q": "What were the key outcomes of the longitudinal box-jumping study in 8- to 9-year-old children? (Select all that apply)",
+        "opts": [
+          "Participants demonstrated significant increases in BMD after 7 months of PE box jumping",
+          "BMD increases were above and beyond normal growth and development",
+          "Skeletal benefits were sustained for 4 years post-intervention",
+          "Exercise resulted in premature growth plate fusion in 100% of participants"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Box jumping increased BMD above normal growth, and benefits persisted 4 years post-intervention. No premature fusion occurred."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Ossification refers to the biological process of transforming embryonic membranes and cartilage into rigid bone.",
+        "ans": true,
+        "feedback": "True. Ossification is the process of bone formation from cartilage and membranes from fetal life through early adulthood."
+      },
+      {
+        "id": 2,
+        "q": "On average, boys achieve full skeletal bone maturity several years before girls.",
+        "ans": false,
+        "feedback": "False. Girls achieve full bone maturity several years before boys due to estrogen signaling epiphyseal plate closure."
+      },
+      {
+        "id": 3,
+        "q": "Bone Mineral Density (BMD) generally peaks during the second decade of life (early 20s).",
+        "ans": true,
+        "feedback": "True. BMD increases through childhood/adolescence and reaches its peak in the second decade before declining later in life."
+      },
+      {
+        "id": 4,
+        "q": "High-impact box jumping exercise in 8- to 9-year-old children produces BMD increases that disappear within 1 month after exercise stops.",
+        "ans": false,
+        "feedback": "False. Longitudinal research proved BMD benefits from 7 months of box jumping were sustained for 4 years post-intervention."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "The process of bone formation is called **ossification**, and longitudinal growth occurs at the epiphyseal **growth plate** until closed by **estrogen** signaling.",
+        "targets": [
+          "ossification",
+          "growth plate",
+          "estrogen"
+        ],
+        "optionsBank": [
+          "ossification",
+          "growth plate",
+          "estrogen",
+          "myelination",
+          "testosterone",
+          "hyperplasia"
+        ],
+        "hint": "Identify the bone formation term, cartilaginous elongation line, and hormone promoting closure."
+      },
+      {
+        "id": 2,
+        "statement": "Bone Mineral Density peaks during the **second decade** of life, and short-term **box jumping** exercise builds benefits sustained for **4 years**.",
+        "targets": [
+          "second decade",
+          "box jumping",
+          "4 years"
+        ],
+        "optionsBank": [
+          "second decade",
+          "box jumping",
+          "4 years",
+          "fifth decade",
+          "swimming",
+          "1 month"
+        ],
+        "hint": "Recall the peak BMD timeline, the specific study exercise modality, and benefit duration."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Explain the biological mechanism of epiphyseal growth plate closure, detailing sex differences in timing and the specific hormonal signaling involved.",
+        "model": "Longitudinal bone growth occurs at cartilaginous growth plates (epiphyseal plates). During fetal development through early adulthood (14-22y), membranes and cartilage are transformed into bone via ossification. Growth plate fusion begins in preteens and completes by early 20s. Girls reach skeletal maturity several years earlier than boys because pubertal estrogen signals growth plates to close and fuse. Once fusion is complete, longitudinal bone elongation ceases permanently.",
+        "criteria": [
+          "Explain ossification at the epiphyseal growth plate.",
+          "Identify estrogen as the key hormone signaling growth plate closure.",
+          "Note that girls achieve full skeletal maturity several years earlier than boys."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Discuss the clinical and preventive significance of building peak Bone Mineral Density (BMD) during childhood and adolescence, citing empirical evidence from high-impact exercise studies.",
+        "model": "BMD increases throughout childhood and peaks in early adulthood (second decade) before declining across the lifespan. Building high peak bone mass during adolescence provides an osteogenic reserve that reduces fracture and osteoporosis risk later in life. In an 8-9 year old box-jumping study, 7 months of PE jumping increased BMD significantly above normal growth, and these benefits were sustained for 4 years post-intervention, confirming that high-impact exercise in youth creates lasting skeletal protection.",
+        "criteria": [
+          "State that BMD peaks in the second decade of life.",
+          "Describe how peak bone mass protects against age-related fractures/osteoporosis.",
+          "Cite the 8-9yo box jumping study (7 months intervention, sustained 4 years)."
+        ]
+      }
+    ]
+  },
+  "p4": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "At birth, skeletal muscle mass accounts for approximately what percentage of total body weight in both males and females?",
+        "opts": [
+          "10% to 12%",
+          "25%",
+          "40% to 45%",
+          "50%"
+        ],
+        "correct": 1,
+        "rationale": "In both males and females, skeletal muscle mass accounts for approximately 25% of total body weight at birth."
+      },
+      {
+        "id": 2,
+        "q": "What primary endocrine event drives the rapid acceleration of muscle mass in adolescent males during puberty?",
+        "opts": [
+          "A 10-fold surge in circulating estrogen",
+          "A sudden, almost 10-fold increase in testosterone",
+          "A 50% drop in growth hormone secretion",
+          "Selective activation of thyroid hormone T3 receptors"
+        ],
+        "correct": 1,
+        "rationale": "In adolescent males, peak rate of muscle development corresponds to a sudden, almost 10-fold surge in testosterone production at puberty."
+      },
+      {
+        "id": 3,
+        "q": "In young adults (20–30 years), skeletal muscle mass averages approximately what percentage of total body weight in men and women, respectively?",
+        "opts": [
+          "Men: 25%; Women: 25%",
+          "Men: 40% to 45%+; Women: 30% to 35%",
+          "Men: 50% to 60%; Women: 15% to 20%",
+          "Men: 30% to 35%; Women: 40% to 45%"
+        ],
+        "correct": 1,
+        "rationale": "Skeletal muscle mass expands to 40%–45% or more of total body weight in young adult men, compared to 30%–35% in young adult women."
+      },
+      {
+        "id": 4,
+        "q": "Increases in skeletal muscle mass during growth result primarily from which cellular mechanism?",
+        "opts": [
+          "Muscle fiber hyperplasia (increase in fiber number)",
+          "Fiber hypertrophy (increase in size) via myofilament and myofibril accumulation",
+          "Conversion of adipose cells into skeletal muscle fibers",
+          "Rapid division of satellite cells into new motor units"
+        ],
+        "correct": 1,
+        "rationale": "Muscle mass accrual with growth results primarily from fiber hypertrophy (increase in size of existing fibers due to myofilaments/myofibrils), with little or no hyperplasia."
+      },
+      {
+        "id": 5,
+        "q": "How do skeletal muscles adapt structurally to the longitudinal elongation of growing bones?",
+        "opts": [
+          "By increasing the total number of muscle fibers (hyperplasia)",
+          "By adding new sarcomeres at the muscle-tendon junction and increasing existing sarcomere length",
+          "By replacing contractile proteins with collagen connective tissue",
+          "By converting Type I fibers into Type IIx fibers"
+        ],
+        "correct": 1,
+        "rationale": "As young bones elongate, muscle length increases through the addition of sarcomeres at the junction of the muscle and tendon, as well as increases in sarcomere length."
+      },
+      {
+        "id": 6,
+        "q": "At what age range does muscle mass naturally peak in girls and boys, respectively (without training intervention)?",
+        "opts": [
+          "Girls: 10–12 years; Boys: 12–14 years",
+          "Girls: 16–20 years; Boys: 18–25 years",
+          "Girls: 20–25 years; Boys: 25–30 years",
+          "Girls: 30–35 years; Boys: 30–35 years"
+        ],
+        "correct": 1,
+        "rationale": "Muscle mass peaks in girls between 16 and 20 years of age and in boys between 18 and 25 years of age."
+      },
+      {
+        "id": 7,
+        "q": "Which structural components accumulate inside existing muscle fibers to produce developmental fiber hypertrophy?",
+        "opts": [
+          "Myofilaments and myofibrils",
+          "Adipocytes and triglycerides",
+          "Myelin sheaths and Schwann cells",
+          "Epiphyseal cartilage plates"
+        ],
+        "correct": 0,
+        "rationale": "Muscle fiber hypertrophy results from increases in the intracellular myofilaments (actin, myosin) and myofibrils within existing muscle fibers."
+      },
+      {
+        "id": 8,
+        "q": "What accounts for the difference in muscle mass percentage between young adult men (40-45%) and women (30-35%)?",
+        "opts": [
+          "Females possess 50% fewer muscle fibers at birth",
+          "Hormonal differences at puberty, specifically the male pubertal testosterone surge",
+          "Females undergo complete muscle fiber hyperplasia at age 10",
+          "Males do not experience fiber hypertrophy during growth"
+        ],
+        "correct": 1,
+        "rationale": "The sex difference in adult muscle mass percentage is largely attributed to pubertal hormonal differences, specifically the 10-fold testosterone increase in males."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which statements regarding skeletal muscle mass accrual across development are correct? (Select all that apply)",
+        "opts": [
+          "At birth, muscle mass accounts for ~25% of body weight in both sexes",
+          "Males undergo a ~10-fold surge in testosterone at puberty that drives rapid muscle accrual",
+          "Young adult muscle mass reaches 40-45%+ in men vs 30-35% in women",
+          "Female muscle mass decreases by 50% during puberty"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Muscle is 25% at birth in both sexes; male pubertal testosterone surge drives muscle to 40-45%+ in adult men vs 30-35% in adult women."
+      },
+      {
+        "id": 2,
+        "q": "Which cellular mechanisms explain how muscle length and mass increase in growing youth? (Select all that apply)",
+        "opts": [
+          "Fiber hypertrophy (increase in fiber size) via myofilament/myofibril accumulation",
+          "Addition of new sarcomeres in series at the muscle-tendon junction",
+          "Increase in length of existing sarcomeres",
+          "Massive muscle fiber hyperplasia (doubling of fiber number)"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Muscle grows via fiber hypertrophy (myofilaments/myofibrils) and sarcomere addition/lengthening at the muscle-tendon junction. Hyperplasia is minimal or non-existent."
+      },
+      {
+        "id": 3,
+        "q": "Which factors influence the upper boundary of peak muscle mass attainment? (Select all that apply)",
+        "opts": [
+          "Natural biological maturation (peaks at 16-20y in girls, 18-25y in boys)",
+          "Resistance exercise training",
+          "Nutritional intake and diet",
+          "Complete cessation of protein synthesis at puberty"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Muscle mass naturally peaks at 16-20y in girls and 18-25y in boys, but can be increased further through exercise, diet, or both."
+      },
+      {
+        "id": 4,
+        "q": "How does muscle development differ between adolescent males and females? (Select all that apply)",
+        "opts": [
+          "Males experience a sharp acceleration in muscle growth during puberty",
+          "Females experience a steady, slower increase in muscle mass during puberty",
+          "Sex differences in muscle mass are driven primarily by hormonal differences",
+          "Females lose 90% of their Type II muscle fibers during puberty"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Males experience a sharp testosterone-driven acceleration; females experience a steady but slower increase; differences are hormonally mediated."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Skeletal muscle mass increases during youth growth result primarily from fiber hyperplasia.",
+        "ans": false,
+        "feedback": "False. Muscle mass accrual results almost exclusively from fiber hypertrophy (size increase), with little or no hyperplasia (number increase)."
+      },
+      {
+        "id": 2,
+        "q": "In adolescent males, peak muscle development corresponds to an almost 10-fold increase in circulating testosterone.",
+        "ans": true,
+        "feedback": "True. The male pubertal muscle spurt is driven by a sudden ~10-fold increase in testosterone production."
+      },
+      {
+        "id": 3,
+        "q": "As long bones elongate, new sarcomeres are added at the junction of the muscle and tendon.",
+        "ans": true,
+        "feedback": "True. Muscle lengthening occurs by adding sarcomeres in series at the muscle-tendon junction and lengthening existing sarcomeres."
+      },
+      {
+        "id": 4,
+        "q": "Skeletal muscle mass naturally peaks in boys between 10 and 12 years of age.",
+        "ans": false,
+        "feedback": "False. Muscle mass naturally peaks between 16 and 20 years in girls and 18 and 25 years in boys."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "At birth, muscle is **25%** of body weight; pubertal **testosterone** increases male muscle to **40% to 45%** in young adults.",
+        "targets": [
+          "25%",
+          "testosterone",
+          "40% to 45%"
+        ],
+        "optionsBank": [
+          "25%",
+          "testosterone",
+          "40% to 45%",
+          "10%",
+          "estrogen",
+          "70%"
+        ],
+        "hint": "Identify birth muscle %, male pubertal hormone, and young adult male muscle %."
+      },
+      {
+        "id": 2,
+        "statement": "Muscle growth occurs via fiber **hypertrophy** rather than hyperplasia, with new sarcomeres added at the **muscle-tendon junction** as bones elongate.",
+        "targets": [
+          "hypertrophy",
+          "muscle-tendon junction"
+        ],
+        "optionsBank": [
+          "hypertrophy",
+          "muscle-tendon junction",
+          "hyperplasia",
+          "epiphyseal plate",
+          "myelination"
+        ],
+        "hint": "Recall the primary cell size growth mechanism and the anatomical site for serial sarcomere addition."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Compare muscle mass accrual between males and females from birth through young adulthood, identifying the specific hormonal drivers and mature percentage benchmarks.",
+        "model": "At birth, skeletal muscle accounts for ~25% of total body weight in both males and females. During puberty, adolescent males experience a sudden, ~10-fold surge in testosterone, driving rapid muscle protein synthesis and expanding muscle mass to 40%-45%+ of total body weight in young adulthood (20-30y). Females do not experience this rapid testosterone spurt; their muscle mass increases more gradually alongside somatic growth to ~30%-35% of body weight in young women. Muscle mass peaks at 16-20y in females and 18-25y in males.",
+        "criteria": [
+          "State birth baseline (~25% in both sexes).",
+          "Identify 10-fold testosterone surge as male pubertal driver.",
+          "State young adult benchmarks (40-45%+ men vs 30-35% women) and peak age ranges (16-20y girls, 18-25y boys)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain the cellular and structural mechanisms by which skeletal muscle expands in both cross-sectional size and length as long bones grow.",
+        "model": "Cross-sectional muscle growth occurs primarily through fiber hypertrophy (increase in size of existing fibers) via the intracellular accumulation of myofilaments (actin, myosin) and myofibrils, with little or no hyperplasia (fiber division). Longitudinal muscle growth in response to bone elongation occurs through the addition of new sarcomeres in series at the muscle-tendon junction, alongside increases in the length of existing sarcomeres.",
+        "criteria": [
+          "Differentiate hypertrophy (myofilament/myofibril accumulation) from hyperplasia.",
+          "Explain longitudinal lengthening via serial sarcomere addition at the muscle-tendon junction.",
+          "Note increase in length of existing sarcomeres."
+        ]
+      }
+    ]
+  },
+  "p5": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "When does fat cell (adipocyte) formation and fat deposition begin in human development?",
+        "opts": [
+          "Early fetal development",
+          "At birth",
+          "During middle childhood (age 6)",
+          "At pubertal onset"
+        ],
+        "correct": 0,
+        "rationale": "Fat cells form and fat deposition starts early in fetal development, and this process continues indefinitely thereafter."
+      },
+      {
+        "id": 2,
+        "q": "At birth, body fat accounts for approximately what percentage of total body weight in both males and females?",
+        "opts": [
+          "3% to 5%",
+          "10% to 12%",
+          "20% to 25%",
+          "30%"
+        ],
+        "correct": 1,
+        "rationale": "At birth, 10% to 12% of total body weight is fat in both males and females."
+      },
+      {
+        "id": 3,
+        "q": "At physical maturity, body fat content averages approximately what percentage in young men and young women, respectively?",
+        "opts": [
+          "Men: 5%; Women: 10%",
+          "Men: 15%; Women: 25%",
+          "Men: 25%; Women: 15%",
+          "Men: 30%; Women: 40%"
+        ],
+        "correct": 1,
+        "rationale": "At physical maturity, body fat reaches approximately 15% of total body weight for men and 25% for women."
+      },
+      {
+        "id": 4,
+        "q": "Which hormone promotes increased body fat deposition in females during puberty?",
+        "opts": [
+          "Testosterone",
+          "Estrogen",
+          "Epinephrine",
+          "Thyroxine"
+        ],
+        "correct": 1,
+        "rationale": "When girls reach puberty, their estrogen concentrations and tissue exposure increase, promoting the deposition of body fat."
+      },
+      {
+        "id": 5,
+        "q": "Which three factors govern the total amount of fat accumulated with growth and aging?",
+        "opts": [
+          "Diet, exercise habits, and heredity",
+          "Chronological age, skeletal age, and bone density",
+          "Growth hormone, thyroid hormone, and insulin",
+          "Myelination speed, reaction time, and agility"
+        ],
+        "correct": 0,
+        "rationale": "The textbook explicitly states that fat accumulation depends on diet, exercise habits, and heredity."
+      },
+      {
+        "id": 6,
+        "q": "Why does an increase in absolute fat mass between ages 8 and 20 not automatically cause an increase in relative body fat percentage?",
+        "opts": [
+          "Fat-free mass increases simultaneously alongside fat mass during growth",
+          "Absolute fat mass is converted into bone mineral density during puberty",
+          "Fat cells shrink in volume as total weight increases",
+          "Estrogen destroys adipocytes in adolescent females"
+        ],
+        "correct": 0,
+        "rationale": "Both fat mass and fat-free mass increase between ages 8 and 20, so an increase in absolute fat mass does not necessarily mean an increase in relative body fat percentage."
+      },
+      {
+        "id": 7,
+        "q": "Which of the three determinants of body fat accumulation is biologically unchangeable?",
+        "opts": [
+          "Diet",
+          "Exercise habits",
+          "Heredity",
+          "Caloric intake"
+        ],
+        "correct": 2,
+        "rationale": "Heredity is unchangeable, whereas both diet and exercise habits can be altered to modify fat stores."
+      },
+      {
+        "id": 8,
+        "q": "Individual fat cells (adipocytes) retain the capacity to increase in size (hypertrophy) during which phase of life?",
+        "opts": [
+          "Only during fetal development",
+          "Only during infancy and early childhood",
+          "Only during puberty",
+          "At any age from birth to death"
+        ],
+        "correct": 3,
+        "rationale": "Each fat cell can increase in size at any age from birth to death."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which factors determine the accumulation of body fat throughout growth and aging? (Select all that apply)",
+        "opts": [
+          "Dietary intake and nutrition",
+          "Exercise and physical activity habits",
+          "Unchangeable genetic heredity",
+          "Cerebral cortex myelination speed"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Fat accumulation depends on diet, exercise habits, and heredity."
+      },
+      {
+        "id": 2,
+        "q": "Which statements regarding body fat percentage across development are correct? (Select all that apply)",
+        "opts": [
+          "At birth, fat accounts for 10% to 12% of total body weight in both sexes",
+          "At physical maturity, fat averages ~15% in men and ~25% in women",
+          "Sex differences in mature body fat are driven primarily by pubertal estrogen in females",
+          "Relative body fat percentage is 50% in adult men"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Birth fat is 10-12% in both sexes; mature fat is 15% in men vs 25% in women, driven by pubertal estrogen."
+      },
+      {
+        "id": 3,
+        "q": "Which principles apply to adipocyte dynamics across the human lifespan? (Select all that apply)",
+        "opts": [
+          "Fat cell formation begins early in fetal development",
+          "Fat cells can increase in size at any age from birth to death",
+          "An increase in absolute fat mass always increases relative body fat percentage regardless of fat-free mass",
+          "Diet and exercise can alter fat storage"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "Fat cells form in fetal life, can hypertrophy at any age, and respond to diet/exercise. Absolute fat increase does NOT automatically increase % body fat if FFM increases proportionally."
+      },
+      {
+        "id": 4,
+        "q": "What body composition changes occur in adolescent boys and girls between ages 8 and 20? (Select all that apply)",
+        "opts": [
+          "Both fat mass and fat-free mass increase simultaneously",
+          "Boys experience a greater proportional increase in fat-free mass relative to fat mass",
+          "Girls experience elevated regional fat deposition mediated by estrogen",
+          "Fat-free mass drops to zero in both sexes"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Both fat mass and FFM increase from 8-20y; boys gain proportionally more FFM due to testosterone, while girls gain more regional fat due to estrogen."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Fat cell formation begins early in fetal development.",
+        "ans": true,
+        "feedback": "True. Adipocytes form and fat deposition begins early in fetal development."
+      },
+      {
+        "id": 2,
+        "q": "At birth, female infants possess 25% body fat while male infants possess 10% body fat.",
+        "ans": false,
+        "feedback": "False. At birth, body fat averages 10% to 12% of total body weight in both males and females."
+      },
+      {
+        "id": 3,
+        "q": "Estrogen surges during female puberty promote body fat deposition.",
+        "ans": true,
+        "feedback": "True. Pubertal estrogen increases stimulate adipose deposition in maturing females."
+      },
+      {
+        "id": 4,
+        "q": "An increase in absolute fat mass during adolescent growth always causes an increase in relative body fat percentage.",
+        "ans": false,
+        "feedback": "False. Both fat mass and fat-free mass increase simultaneously, so relative body fat percentage depends on the ratio of both increases."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "At birth, fat is **10% to 12%** of body weight; at maturity, fat averages **15%** in men and **25%** in women.",
+        "targets": [
+          "10% to 12%",
+          "15%",
+          "25%"
+        ],
+        "optionsBank": [
+          "10% to 12%",
+          "15%",
+          "25%",
+          "5%",
+          "40%",
+          "50%"
+        ],
+        "hint": "Recall body fat percentages at birth and at physical maturity for adult men and women."
+      },
+      {
+        "id": 2,
+        "statement": "Fat accumulation depends on diet, exercise, and **heredity**, with pubertal fat deposition in females driven by **estrogen**.",
+        "targets": [
+          "heredity",
+          "estrogen"
+        ],
+        "optionsBank": [
+          "heredity",
+          "estrogen",
+          "testosterone",
+          "myelination",
+          "ossification"
+        ],
+        "hint": "Identify the unchangeable determinant of fat accumulation and the female pubertal hormone."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Detail the changes in body fat percentage and absolute tissue mass (fat mass vs. fat-free mass) from birth through physical maturity in males and females, highlighting the key hormonal drivers.",
+        "model": "At birth, body fat accounts for 10% to 12% of body weight in both males and females. At physical maturity, body fat reaches ~15% in men and ~25% in women. This sex divergence is driven by pubertal hormones: testosterone in males drives rapid fat-free mass accrual (muscle/bone), reducing relative fat %; estrogen in females promotes adipose deposition. Between ages 8 and 20, both fat mass and fat-free mass increase simultaneously, meaning absolute fat gains do not automatically increase relative body fat percentage if fat-free mass grows proportionally.",
+        "criteria": [
+          "State birth body fat % (10-12% both sexes) and mature body fat % (15% men, 25% women).",
+          "Identify pubertal estrogen in females and testosterone in males as primary drivers.",
+          "Explain that simultaneous increases in fat mass and fat-free mass govern relative % body fat."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Identify the three factors governing fat accumulation across the lifespan, noting which factor is unchangeable and how adipocytes alter their size.",
+        "model": "The three factors governing fat accumulation are diet, exercise habits, and heredity. Heredity is unchangeable, whereas diet and exercise can be modified to increase or decrease fat stores. Adipocytes (fat cells) form in early fetal life, and individual fat cells retain the capacity to increase in size (hypertrophy) at any age from birth to death.",
+        "criteria": [
+          "List diet, exercise habits, and heredity.",
+          "Identify heredity as unchangeable.",
+          "State that individual adipocytes can hypertrophy at any age from birth to death."
+        ]
+      }
+    ]
+  },
+  "p6": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "Which structural process in the nervous system is an absolute prerequisite for fast reaction times and complex skilled movement execution?",
+        "opts": [
+          "Ossification",
+          "Nerve fiber myelination",
+          "Muscle fiber hyperplasia",
+          "Epiphyseal plate closure"
+        ],
+        "correct": 1,
+        "rationale": "Myelination of nerve fibers must be completed before fast reactions and skilled movement can occur, as electrical impulse conduction is significantly slower when myelination is absent or incomplete."
+      },
+      {
+        "id": 2,
+        "q": "Why is electrical action potential conduction along a nerve fiber significantly slower in young children?",
+        "opts": [
+          "Children lack acetylcholine neurotransmitters at neuromuscular junctions",
+          "Myelination of nerve fibers is absent or incomplete",
+          "Children possess 50% fewer sensory neurons than adults",
+          "Estrogen inhibits peripheral nerve conduction"
+        ],
+        "correct": 1,
+        "rationale": "Conduction of an impulse along a nerve fiber is considerably slower if myelination is absent or incomplete."
+      },
+      {
+        "id": 3,
+        "q": "Which brain structure undergoes rapid myelination during childhood, with myelination continuing well beyond puberty?",
+        "opts": [
+          "Cerebellum",
+          "Cerebral cortex",
+          "Brainstem",
+          "Hypothalamus"
+        ],
+        "correct": 1,
+        "rationale": "Myelination of the cerebral cortex occurs most rapidly during childhood but continues well beyond puberty."
+      },
+      {
+        "id": 4,
+        "q": "How does nervous system maturation interact with physical practice in the development of motor skills and voluntary strength?",
+        "opts": [
+          "Practice can fully overcome any degree of neural immaturity",
+          "While practice improves performance, full development of skill and voluntary strength depends on complete maturation and myelination of the nervous system",
+          "Neural myelination occurs only if an athlete performs high-impact jumping exercises",
+          "Strength development is entirely independent of neural maturation"
+        ],
+        "correct": 1,
+        "rationale": "Although practicing a skill improves performance to a certain extent, full development of skill mastery and voluntary strength depends on full maturation and myelination of the nervous system."
+      },
+      {
+        "id": 5,
+        "q": "Improvements in which functional movement capabilities occur as a direct result of nervous system development in growing children?",
+        "opts": [
+          "Balance, agility, and coordination",
+          "Peak height velocity and bone length",
+          "Subcutaneous fat deposition",
+          "Estrogen and progesterone secretion"
+        ],
+        "correct": 0,
+        "rationale": "As children grow, they develop better balance, agility, and coordination as their nervous systems develop and myelinates."
+      },
+      {
+        "id": 6,
+        "q": "What is the primary structural composition of the myelin sheath surrounding nerve axons?",
+        "opts": [
+          "Rigid calcium phosphate matrix",
+          "Insulating fatty layer",
+          "Contractile actin and myosin myofilaments",
+          "Epiphyseal cartilage"
+        ],
+        "correct": 1,
+        "rationale": "The myelin sheath is an insulating fatty layer surrounding nerve axons that accelerates electrical impulse conduction."
+      },
+      {
+        "id": 7,
+        "q": "In addition to motor skill coordination and reaction speed, neural myelination strongly influences the development of:",
+        "opts": [
+          "Voluntary muscle strength",
+          "Epiphyseal growth plate fusion",
+          "Adipocyte hypertrophy",
+          "Essential body fat percentage"
+        ],
+        "correct": 0,
+        "rationale": "The textbook explicitly notes that the development of voluntary strength is also likely influenced by neural myelination."
+      },
+      {
+        "id": 8,
+        "q": "What limits a pre-pubertal child's ability to execute extremely rapid, complex tactical sports maneuvers?",
+        "opts": [
+          "Lack of skeletal muscle fibers",
+          "Incomplete myelination of nerve fibers and ongoing cerebral cortex maturation",
+          "Complete closure of epiphyseal growth plates",
+          "Excessive testosterone concentrations"
+        ],
+        "correct": 1,
+        "rationale": "Incomplete myelination slows nerve impulse conduction velocity, constraining reaction speed and complex motor execution until neural maturation progresses."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which movement capabilities improve directly as a result of nervous system maturation and myelination in children? (Select all that apply)",
+        "opts": [
+          "Balance and agility",
+          "Coordination and reaction speed",
+          "Voluntary strength expression",
+          "Bone length elongation"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Balance, agility, coordination, reaction speed, and voluntary strength expression improve as the nervous system develops and myelinates."
+      },
+      {
+        "id": 2,
+        "q": "Which statements regarding nerve fiber myelination are accurate? (Select all that apply)",
+        "opts": [
+          "Myelination speeds the transmission of electrical impulses along nerve fibers",
+          "Impulse conduction is significantly slower when myelination is incomplete",
+          "Cerebral cortex myelination occurs rapidly in childhood and continues beyond puberty",
+          "Myelination is completely finished at 2 years of age"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Myelination speeds impulse conduction, incomplete myelination slows transmission, and cerebral cortex myelination extends well beyond puberty."
+      },
+      {
+        "id": 3,
+        "q": "Which factors constrain full motor skill mastery and maximal strength in young athletes? (Select all that apply)",
+        "opts": [
+          "Biological maturation and myelination of the nervous system",
+          "Extent and quality of deliberate physical practice",
+          "Progressive development of the cerebral cortex",
+          "Complete absence of motor units in childhood"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Skill mastery and strength depend on neural maturation/myelination, practice, and cerebral cortex development. Motor units are present at birth."
+      },
+      {
+        "id": 4,
+        "q": "Why is electrical conduction along unmyelinated or incompletely myelinated axons slower in children? (Select all that apply)",
+        "opts": [
+          "Lack of insulating fatty myelin sheath increases action potential transmission time",
+          "Structural maturation of nerve fibers is incomplete",
+          "Cerebral cortex neural pathways are still undergoing developmental myelination",
+          "Calcium reservoirs in bone inhibit electrical current"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Incomplete fatty myelin sheaths, structural neural immaturity, and ongoing cerebral cortex myelination slow nerve impulse conduction."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Conduction of an electrical impulse along a nerve fiber is significantly faster when myelination is incomplete.",
+        "ans": false,
+        "feedback": "False. Impulse conduction along a nerve fiber is considerably slower if myelination is absent or incomplete."
+      },
+      {
+        "id": 2,
+        "q": "Myelination of the cerebral cortex occurs most rapidly during childhood but continues well beyond puberty.",
+        "ans": true,
+        "feedback": "True. Cerebral cortex myelination develops rapidly in childhood and extends past puberty into early adulthood."
+      },
+      {
+        "id": 3,
+        "q": "Deliberate physical practice can completely overcome incomplete neural myelination to achieve maximal adult reaction speed in a 5-year-old child.",
+        "ans": false,
+        "feedback": "False. Although practice improves performance, full development of skill and voluntary strength is constrained by biological maturation and myelination."
+      },
+      {
+        "id": 4,
+        "q": "The development of voluntary muscle strength in children is influenced by nervous system myelination.",
+        "ans": true,
+        "feedback": "True. Neural myelination enhances motor unit recruitment speed and firing rates, directly impacting voluntary strength expression."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Fast reactions and skilled movements require **myelination** of nerve fibers, which speeds electrical **impulse conduction** along axons.",
+        "targets": [
+          "myelination",
+          "impulse conduction"
+        ],
+        "optionsBank": [
+          "myelination",
+          "impulse conduction",
+          "ossification",
+          "hypertrophy",
+          "resorption"
+        ],
+        "hint": "Identify the fatty sheath formation process and what it accelerates along nerve fibers."
+      },
+      {
+        "id": 2,
+        "statement": "Myelination of the **cerebral cortex** develops rapidly during childhood and continues well beyond **puberty**.",
+        "targets": [
+          "cerebral cortex",
+          "puberty"
+        ],
+        "optionsBank": [
+          "cerebral cortex",
+          "puberty",
+          "growth plate",
+          "infancy",
+          "ossification"
+        ],
+        "hint": "Identify the brain region undergoing rapid childhood myelination and the developmental landmark it extends beyond."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Explain the biological process of nerve fiber myelination, and describe how incomplete myelination in children affects reaction speed, motor coordination, and voluntary strength expression.",
+        "model": "Myelination is the process of forming an insulating fatty myelin sheath around nerve axons. Incomplete or absent myelination significantly reduces action potential conduction velocity along nerve fibers. In children, ongoing myelination of peripheral nerves and the cerebral cortex (which extends well beyond puberty) results in slower reaction times, less precise motor coordination, and limited voluntary muscle strength expression. Although physical practice improves skill, full mastery and maximal force expression are constrained until neural myelination reaches biological maturity.",
+        "criteria": [
+          "Define myelination as forming an insulating fatty sheath around axons.",
+          "Explain that incomplete myelination slows electrical conduction velocity.",
+          "Connect incomplete myelination to delayed reaction time, evolving motor coordination, and constrained voluntary strength."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Discuss why a strength and conditioning coach should focus on foundational movement literacy and coordination rather than maximal strength loading in pre-pubertal children, referencing neural maturation.",
+        "model": "Pre-pubertal children possess incompletely myelinated nerve fibers and an actively developing cerebral cortex. Because high-threshold motor unit recruitment and rapid action potential conduction require mature myelination, pre-pubertal children cannot express maximal voluntary strength or execute highly complex motor schemes at adult levels. Focusing on foundational movement literacy, balance, and agility leverages the ongoing neural development window, allowing skills to refine as myelination matures while avoiding unnecessary physical strain on immature biological systems.",
+        "criteria": [
+          "Reference incomplete neural myelination and cerebral cortex maturation in children.",
+          "Explain that incomplete myelination limits high-threshold motor unit recruitment and maximal strength.",
+          "Advocate for movement literacy, balance, and coordination training as developmentally appropriate."
+        ]
+      }
+    ]
+  }
+}

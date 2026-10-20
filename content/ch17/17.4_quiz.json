@@ -1,0 +1,999 @@
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "What proportion of U.S. youth aged 12 to 15 years achieved the recommended 60 minutes of daily moderate-to-vigorous physical activity (MVPA) according to 2012 survey data?",
+        "opts": [
+          "Approximately 1 in 10 (10%)",
+          "Approximately 1 in 4 (25%)",
+          "Approximately 1 in 2 (50%)",
+          "Nearly 3 in 4 (75%)"
+        ],
+        "correct": 1,
+        "rationale": "National survey data from 2012 indicated that only about 1 in 4 (25%) U.S. youth aged 12 to 15 years met the recommendation of 60 minutes of MVPA per day."
+      },
+      {
+        "id": 2,
+        "q": "How does physical activity participation relate to weight status among surveyed youth?",
+        "opts": [
+          "Physical activity increases linearly as body weight status increases to obese",
+          "Physical activity shows an inverse relationship, declining as body weight status increases from normal weight to overweight and obese",
+          "Physical activity remains identical across all weight status categories",
+          "Obese girls exhibit the highest overall physical activity rates of any demographic"
+        ],
+        "correct": 1,
+        "rationale": "Survey data show an inverse relationship: as body weight status increases from normal weight to overweight and obese, physical activity participation declines in both boys and girls, with obese girls recording the lowest overall activity."
+      },
+      {
+        "id": 3,
+        "q": "Which physical activity was reported as the most popular among active teenage boys?",
+        "opts": [
+          "Running",
+          "Basketball",
+          "Biking",
+          "Football"
+        ],
+        "correct": 1,
+        "rationale": "Among active boys, basketball was the most commonly reported physical activity, followed sequentially by running, football, biking, and walking."
+      },
+      {
+        "id": 4,
+        "q": "Which physical activity was reported as the most popular among active teenage girls?",
+        "opts": [
+          "Dancing",
+          "Basketball",
+          "Running",
+          "Walking"
+        ],
+        "correct": 2,
+        "rationale": "Among active girls, running was the most commonly reported physical activity, followed sequentially by walking, basketball, dancing, and biking."
+      },
+      {
+        "id": 5,
+        "q": "According to the Finnish birth cohort study, what was the impact of a high preschool Body Mass Index (BMI) on adolescent cardiorespiratory fitness (VO2peak) at age 17?",
+        "opts": [
+          "High preschool BMI had no association with adolescent fitness",
+          "High preschool BMI was significantly associated with low adolescent VO2peak, independent of sex and adolescent leisure-time physical activity",
+          "High preschool BMI doubled adolescent VO2peak values",
+          "High preschool BMI only reduced fitness in male participants"
+        ],
+        "correct": 1,
+        "rationale": "The Finnish birth cohort study revealed that a high preschool BMI was significantly associated with low adolescent VO2peak at age 17, independent of sex and regardless of adolescent leisure-time physical activity levels."
+      },
+      {
+        "id": 6,
+        "q": "What happened to adolescent cardiorespiratory fitness in Finnish children who had a high preschool BMI but successfully lost weight as they grew older?",
+        "opts": [
+          "Their adolescent VO2peak remained severely depressed regardless of weight loss",
+          "Their adolescent fitness reached levels equal to peers who maintained consistently low BMIs throughout development",
+          "Their VO2peak dropped to zero",
+          "Their fitness became 50% lower than peers who remained overweight"
+        ],
+        "correct": 1,
+        "rationale": "Children who had a high preschool BMI but lost weight as they grew older achieved adolescent cardiorespiratory fitness levels equal to peers who had maintained a low BMI throughout development, proving fitness detriments are reversible."
+      },
+      {
+        "id": 7,
+        "q": "What longitudinal effect was observed when children increased their leisure-time physical activity (LTPA) between ages 9 and 17 years?",
+        "opts": [
+          "It caused a decline in VO2peak by age 17",
+          "It produced high cardiorespiratory fitness (VO2peak) at age 17, regardless of childhood fitness baseline",
+          "It had zero impact on adolescent fitness",
+          "It reduced bone density by 50%"
+        ],
+        "correct": 1,
+        "rationale": "Increasing LTPA between ages 9 and 17 years resulted in high cardiorespiratory fitness at age 17, regardless of the child's baseline fitness level in middle childhood."
+      },
+      {
+        "id": 8,
+        "q": "Why do overweight children often engage in a self-reinforcing cycle of physical inactivity?",
+        "opts": [
+          "Excess body mass presents social and psychological barriers to movement, leading to activity avoidance, lower fitness, and further reduced movement",
+          "Overweight children possess hyperactive PFK enzymes that prevent physical movement",
+          "Excess weight increases physical activity enjoyment to unsustainable levels",
+          "Overweight children are restricted by law from participating in active play"
+        ],
+        "correct": 0,
+        "rationale": "Overweight children face social and psychological impediments that cause them to avoid active play. This avoidance leads to reduced cardiorespiratory fitness and impaired motor skill development, compounding physical inactivity."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which findings regarding youth physical activity and weight status were demonstrated by survey and epidemiological data? (Select all that apply)",
+        "opts": [
+          "Only 25% of U.S. youth aged 12 to 15 met the 60 min/day MVPA guideline in 2012",
+          "Physical activity rates decline as body weight status increases from normal weight to obese",
+          "Obese girls recorded the lowest overall physical activity participation rates",
+          "Over 90% of U.S. adolescents achieve 120 minutes of daily MVPA"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Survey data established that only 25% of U.S. youth met MVPA guidelines, activity declined as weight status increased, and obese girls had the lowest overall participation."
+      },
+      {
+        "id": 2,
+        "q": "Which physical activities ranked in the top five preferences for active teenage boys and girls? (Select all that apply)",
+        "opts": [
+          "Basketball was #1 for active boys",
+          "Running was #1 for active girls",
+          "Football ranked among the top activities for active boys",
+          "Dancing ranked among the top activities for active girls"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "Top activities for active boys were basketball (#1), running, football, biking, walking. Top activities for active girls were running (#1), walking, basketball, dancing, biking."
+      },
+      {
+        "id": 3,
+        "q": "Which conclusions were established by the longitudinal Finnish birth cohort study? (Select all that apply)",
+        "opts": [
+          "High preschool BMI is associated with low adolescent cardiorespiratory fitness (VO2peak)",
+          "Fitness detriments from high preschool BMI are reversible if weight loss occurs during growth",
+          "Increasing leisure-time physical activity (LTPA) between ages 9 and 17 produces high adolescent fitness",
+          "Preschool BMI has zero relationship with health outcomes later in life"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "The Finnish study showed high preschool BMI predicts low adolescent fitness, weight loss restores fitness to normal levels, and increasing LTPA from ages 9-17 yields high VO2peak at age 17."
+      },
+      {
+        "id": 4,
+        "q": "Which factors contribute to physical activity tracking from childhood to adulthood? (Select all that apply)",
+        "opts": [
+          "Movement habits and exercise behaviors established in childhood persist into later life",
+          "Early motor skill acquisition builds confidence for sustained activity participation",
+          "Low preschool BMI and weight maintenance support optimal cardiorespiratory development",
+          "Pediatric physical activity patterns completely reset every 12 months with zero tracking"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Physical activity habits track across development; early skill building and healthy body weight support lifelong physical activity and fitness."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "National survey data from 2012 indicated that only about 25% of U.S. youth aged 12 to 15 years met the recommended 60 minutes of daily MVPA.",
+        "ans": true,
+        "feedback": "True. Only 1 in 4 (25%) U.S. adolescents aged 12 to 15 achieved the recommended 60 minutes of daily moderate-to-vigorous physical activity."
+      },
+      {
+        "id": 2,
+        "q": "In the Finnish birth cohort study, children with a high preschool BMI who later lost weight maintained permanently reduced VO2peak levels in adolescence.",
+        "ans": false,
+        "feedback": "False. Children with a high preschool BMI who successfully lost weight during growth achieved adolescent cardiorespiratory fitness equal to peers with consistently low BMIs."
+      },
+      {
+        "id": 3,
+        "q": "Among active teenage girls, running was the most frequently reported physical activity.",
+        "ans": true,
+        "feedback": "True. Running ranked as the most popular activity for active girls, followed by walking, basketball, dancing, and biking."
+      },
+      {
+        "id": 4,
+        "q": "Increasing leisure-time physical activity between ages 9 and 17 years yields high cardiorespiratory fitness at age 17 regardless of childhood baseline fitness.",
+        "ans": true,
+        "feedback": "True. Longitudinal tracking confirmed that increasing LTPA during youth leads to high adolescent VO2peak irrespective of early childhood fitness levels."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Only **25%** of U.S. youth aged 12 to 15 meet daily physical activity guidelines, and activity levels show an inverse relationship with **weight status**.",
+        "targets": [
+          "25%",
+          "weight status"
+        ],
+        "optionsBank": [
+          "25%",
+          "weight status",
+          "75%",
+          "blood pressure",
+          "stroke volume"
+        ],
+        "hint": "Identify the percentage of compliant U.S. youth and the body metric inversely related to activity."
+      },
+      {
+        "id": 2,
+        "statement": "High preschool BMI predicts low adolescent **VO2peak**, but this fitness detriment is reversible through **weight loss** during growth.",
+        "targets": [
+          "VO2peak",
+          "weight loss"
+        ],
+        "optionsBank": [
+          "VO2peak",
+          "weight loss",
+          "glycogen depletion",
+          "weight gain",
+          "myelination"
+        ],
+        "hint": "Identify the cardiorespiratory fitness metric and the intervention process that restores fitness."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Explain the longitudinal relationship between preschool BMI, weight management, leisure-time physical activity (LTPA), and adolescent cardiorespiratory fitness based on the Finnish birth cohort study.",
+        "model": "The Finnish birth cohort study demonstrated that a high preschool BMI is significantly associated with low cardiorespiratory fitness (VO2peak) at age 17, independent of sex and adolescent LTPA. However, this fitness deficit is reversible: children with a high preschool BMI who lost weight during childhood/adolescence achieved adolescent VO2peak levels equal to peers who maintained consistently low BMIs. Furthermore, increasing LTPA between ages 9 and 17 years resulted in high adolescent VO2peak regardless of childhood baseline fitness, underscoring the importance of early weight management and sustained activity habits.",
+        "criteria": [
+          "Identify high preschool BMI as a predictor of low adolescent VO2peak.",
+          "Explain that weight loss during growth restores adolescent VO2peak to normal levels.",
+          "State that increasing LTPA from ages 9 to 17 produces high adolescent VO2peak regardless of baseline fitness."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Discuss the physical activity preferences of active adolescent boys and girls, and outline how weight status influences activity participation rates.",
+        "model": "Active adolescent boys prefer basketball (#1), followed by running, football, biking, and walking. Active adolescent girls prefer running (#1), followed by walking, basketball, dancing, and biking. Physical activity participation shows a marked inverse relationship with weight status: as body weight increases from normal weight to overweight and obese, activity rates drop significantly in both sexes, with obese girls recording the lowest overall activity. Excess body mass creates social and psychological barriers that lead to activity avoidance, driving a cycle of reduced fitness and further inactivity.",
+        "criteria": [
+          "List top activity preferences for boys (basketball #1) and girls (running #1).",
+          "Describe the inverse relationship between body weight status and physical activity participation.",
+          "Explain how excess body weight creates social/psychological barriers that reinforce inactivity."
+        ]
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "In the 2013 UK meta-analysis by Metcalf and colleagues (evaluating over 14,000 children across 30 studies), what was the average net increase in daily physical activity produced by interventions?",
+        "opts": [
+          "Approximately 4 minutes per day of additional walking or running",
+          "Approximately 30 minutes per day of additional MVPA",
+          "Approximately 60 minutes per day of intense exercise",
+          "Zero change, with a net decline of 15 minutes per day"
+        ],
+        "correct": 0,
+        "rationale": "The meta-analysis revealed that structured physical activity interventions produced a small, clinically negligible increase averaging approximately 4 minutes per day of additional walking or running."
+      },
+      {
+        "id": 2,
+        "q": "What proportion of the studies in the 2013 Metcalf et al. meta-analysis utilized objective accelerometer tracking to measure daily movement?",
+        "opts": [
+          "0% (all used self-report logs)",
+          "43% of the analyzed studies",
+          "85% of the analyzed studies",
+          "100% of the analyzed studies"
+        ],
+        "correct": 1,
+        "rationale": "To ensure objective measurement and eliminate recall bias, 43% of the 30 studies in the meta-analysis utilized tri-axial accelerometers."
+      },
+      {
+        "id": 3,
+        "q": "How did the effect size of physical activity interventions vary across subgroups in the Metcalf et al. meta-analysis?",
+        "opts": [
+          "Interventions were 10-fold more effective in obese adolescents than normal-weight children",
+          "Effect size did not differ significantly across age groups, baseline BMI categories, intervention durations, or program settings",
+          "School-based programs produced 60 minutes of gain while home-based programs failed completely",
+          "Interventions were effective only in children under 5 years of age"
+        ],
+        "correct": 1,
+        "rationale": "Subgroup analyses confirmed that the small effect size (~4 min/day) did not differ significantly across age, baseline BMI, intervention duration, or program setting (school vs. home)."
+      },
+      {
+        "id": 4,
+        "q": "What is the primary premise of the Activity Replacement Hypothesis (Activity Displacement Theory)?",
+        "opts": [
+          "Time spent in structured activity programs simply replaces discretionary time children would otherwise spend engaged in active free play",
+          "Structured activity programs permanently destroy children's motivation to move",
+          "Physical activity replaces dietary caloric intake during adolescent growth",
+          "Accelerometers replace physical education instructors in public schools"
+        ],
+        "correct": 0,
+        "rationale": "The Activity Replacement Hypothesis asserts that enrolling children in structured activity programs often displaces discretionary active play they would have engaged in during free time, resulting in zero net gain in total 24-hour activity."
+      },
+      {
+        "id": 5,
+        "q": "Why is an average physical activity increase of 4 minutes per day considered clinically ineffective?",
+        "opts": [
+          "Because 4 minutes of walking/running is insufficient to alter body mass index, body fat percentage, or cardiovascular risk markers",
+          "Because 4 minutes of exercise causes severe muscle damage in children",
+          "Because accelerometers cannot detect movements lasting under 10 minutes",
+          "Because 4 minutes of exercise completely suppresses growth hormone release"
+        ],
+        "correct": 0,
+        "rationale": "A 4 min/day increase in movement provides an insignificant metabolic stimulus that is incapable of modifying BMI, body composition, or cardiometabolic risk factors."
+      },
+      {
+        "id": 6,
+        "q": "Which intervention flaw contributes to the failure of public health activity programs to reduce childhood obesity?",
+        "opts": [
+          "Inadequate exercise intensity, insufficient intervention duration, low child compliance, and activity displacement",
+          "Excessive exercise intensity causing instant muscle fiber destruction",
+          "Over-use of accelerometers in classroom settings",
+          "Suppression of growth hormone due to daily walking"
+        ],
+        "correct": 0,
+        "rationale": "Intervention failure stems from design/execution flaws—such as low compliance, brief program duration, and low exercise intensity—combined with activity displacement during leisure hours."
+      },
+      {
+        "id": 7,
+        "q": "A school district spends $100,000 on a new 30-minute after-school exercise club. Based on the Metcalf et al. meta-analysis, what net outcome is most expected if leisure displacement occurs?",
+        "opts": [
+          "A massive 30-minute net gain in daily active time and 5 kg weight loss per child",
+          "A small net increase of ~4 minutes/day in total active time because children reduce unstructured evening play",
+          "A 50% decrease in overall cardiorespiratory fitness",
+          "Complete elimination of childhood obesity within 6 months"
+        ],
+        "correct": 1,
+        "rationale": "Because structured programs displace discretionary active play during free evening hours, the net daily increase in movement remains small (~4 min/day), yielding minimal health changes."
+      },
+      {
+        "id": 8,
+        "q": "Which measurement tool provides objective data on daily physical activity duration and intensity, eliminating self-report recall bias?",
+        "opts": [
+          "Tri-axial accelerometer",
+          "Dietary recall journal",
+          "Resting blood pressure cuff",
+          "Margaria step test"
+        ],
+        "correct": 0,
+        "rationale": "Accelerometers objectively measure bodily movement and acceleration across time, removing recall errors inherent in self-reported physical activity surveys."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which findings were documented in the 2013 Metcalf et al. meta-analysis on youth physical activity interventions? (Select all that apply)",
+        "opts": [
+          "Evaluated 30 studies representing over 14,000 children under 16 years of age",
+          "43% of included studies utilized objective accelerometer tracking",
+          "Interventions yielded a small net increase averaging ~4 minutes/day of additional activity",
+          "Effect sizes did not differ significantly across age, BMI, or program setting"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "The meta-analysis evaluated >14,000 children across 30 studies (43% accelerometer-based), finding a small ~4 min/day increase that was uniform across all subgroups."
+      },
+      {
+        "id": 2,
+        "q": "Which mechanisms explain why physical activity interventions frequently fail to improve youth body composition? (Select all that apply)",
+        "opts": [
+          "Activity displacement (structured activity replaces active discretionary free play)",
+          "Low exercise intensity in intervention sessions that fails to elevate metabolic rate",
+          "Low participant compliance and short intervention duration",
+          "Interventions cause a 10-fold reduction in resting metabolic rate"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Intervention failure is caused by activity displacement, inadequate exercise intensity, brief program duration, and poor participant compliance."
+      },
+      {
+        "id": 3,
+        "q": "Which characteristics describe objective accelerometer measurement in youth activity research? (Select all that apply)",
+        "opts": [
+          "Measures bodily acceleration across time",
+          "Eliminates self-report recall bias and overestimation",
+          "Quantifies time spent in moderate-to-vigorous physical activity (MVPA)",
+          "Requires invasive muscle biopsy sampling"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Accelerometers non-invasively measure bodily acceleration, providing precise, objective counts of daily MVPA without recall bias."
+      },
+      {
+        "id": 4,
+        "q": "How can fitness specialists redesign youth activity interventions to overcome historical failure patterns? (Select all that apply)",
+        "opts": [
+          "Ensure interventions expand total daily active time rather than displacing free play",
+          "Incorporate sufficient exercise intensity to stimulate metabolic adaptations",
+          "Foster autonomous active play habits during leisure hours outside of school",
+          "Eliminate all physical movement from physical education classes"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Effective programs must increase exercise intensity, expand net active time without displacing free play, and build sustained active play habits."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "The 2013 UK meta-analysis by Metcalf et al. found that physical activity interventions increased children's total daily movement by an average of 60 minutes per day.",
+        "ans": false,
+        "feedback": "False. The meta-analysis revealed a small, clinically negligible increase averaging only ~4 minutes per day of additional walking or running."
+      },
+      {
+        "id": 2,
+        "q": "The Activity Replacement Hypothesis states that time spent in organized exercise programs often displaces discretionary active play time in children.",
+        "ans": true,
+        "feedback": "True. The replacement hypothesis explains that structured programs often displace active free play, resulting in minimal net gain in daily activity volume."
+      },
+      {
+        "id": 3,
+        "q": "Accelerometers were used in 43% of the studies analyzed in the Metcalf et al. meta-analysis to provide objective movement tracking.",
+        "ans": true,
+        "feedback": "True. Forty-three percent of the analyzed studies used tri-axial accelerometers for direct, objective activity measurement."
+      },
+      {
+        "id": 4,
+        "q": "Physical activity interventions were found to be highly effective at reducing BMI in school-based settings but completely ineffective in home settings.",
+        "ans": false,
+        "feedback": "False. Subgroup analysis showed no significant difference in intervention effect size across settings (school vs. home) or BMI categories."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "The Metcalf meta-analysis showed interventions produced a net increase of only **4 minutes per day**, measured objectively using **accelerometers** in 43% of studies.",
+        "targets": [
+          "4 minutes per day",
+          "accelerometers"
+        ],
+        "optionsBank": [
+          "4 minutes per day",
+          "accelerometers",
+          "60 minutes per day",
+          "heart rate monitors",
+          "spirometers"
+        ],
+        "hint": "Identify the small average daily activity increase and the objective wearable motion device."
+      },
+      {
+        "id": 2,
+        "statement": "Intervention failure is often explained by the **Activity Replacement Hypothesis**, where structured activity displaces **discretionary free play**.",
+        "targets": [
+          "Activity Replacement Hypothesis",
+          "discretionary free play"
+        ],
+        "optionsBank": [
+          "Activity Replacement Hypothesis",
+          "discretionary free play",
+          "Crossover Concept",
+          "resting metabolic rate",
+          "epiphyseal growth"
+        ],
+        "hint": "Identify the theory explaining displacement and the free time activity it replaces."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Summarize the major findings of the 2013 Metcalf et al. meta-analysis regarding the efficacy of physical activity interventions in youth, including the net activity gain and subgroup findings.",
+        "model": "The 2013 meta-analysis by Metcalf et al. evaluated 30 studies involving over 14,000 children (<16 years), with 43% utilizing objective accelerometers. It revealed that physical activity interventions produced a small, clinically negligible net increase averaging approximately 4 minutes per day of additional walking or running. This small effect size was insufficient to alter BMI, body composition, or cardiometabolic risk. Furthermore, subgroup analyses showed that intervention efficacy did not differ significantly across age groups, baseline BMI categories, program duration, or setting (school vs. home).",
+        "criteria": [
+          "Cite study scope: 30 studies, >14,000 children, 43% using accelerometers.",
+          "State net activity increase (~4 minutes per day of walking/running).",
+          "Explain subgroup invariance (no differences across age, BMI, or school vs. home setting)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Define the Activity Replacement Hypothesis (Activity Displacement Theory) and explain how it accounts for the clinical inefficacy of structured youth physical activity programs.",
+        "model": "The Activity Replacement Hypothesis asserts that time children spend in structured physical activity programs (such as after-school clubs or extra PE classes) simply replaces discretionary time that they would otherwise spend engaged in active free play or outdoor sports. Because structured program time displaces unstructured active play during free hours, the child achieves zero or minimal net gain in total 24-hour physical activity volume and caloric expenditure, rendering the intervention clinically ineffective at altering body weight or cardiorespiratory fitness.",
+        "criteria": [
+          "Define the Activity Replacement Hypothesis (structured activity displaces active free play).",
+          "Explain that total 24-hour activity volume and caloric expenditure remain virtually unchanged.",
+          "Link activity displacement to clinical inefficacy in altering BMI or fitness."
+        ]
+      }
+    ]
+  },
+  "p3": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "What was the primary objective of the prospective iPlay Study conducted in the Netherlands by Bloemers and colleagues?",
+        "opts": [
+          "To evaluate injury incidence and risk factors across physical education classes, sports, and leisure time in primary school children",
+          "To measure maximal oxygen uptake on a cycle ergometer in elite infant sprinters",
+          "To test the effect of anabolic steroids on growth plate fusion in youth",
+          "To quantify dietary glucose absorption during 24-hour fasting"
+        ],
+        "correct": 0,
+        "rationale": "The Dutch iPlay study prospectively monitored ~1,000 children aged 9 to 12 years over a school year to identify injury rates and risk factors across PE, leisure play, and sports."
+      },
+      {
+        "id": 2,
+        "q": "How many total injuries were recorded among the 104 injured children in the iPlay Study over the one-year school curriculum?",
+        "opts": [
+          "12 injuries",
+          "119 injuries",
+          "500 injuries",
+          "1,000 injuries"
+        ],
+        "correct": 1,
+        "rationale": "Over the course of the one-year study, 104 children sustained a total of 119 reported physical activity injuries."
+      },
+      {
+        "id": 3,
+        "q": "Which demographic pattern regarding injury risk was observed in the iPlay Study?",
+        "opts": [
+          "Boys had a significantly higher injury risk than girls",
+          "Girls exhibited a statistically higher risk of activity-related injury compared to boys",
+          "Younger children (9–10 years) had higher injury risk than older children (11–12 years)",
+          "Obese children suffered 10-fold more injuries than normal-weight peers"
+        ],
+        "correct": 1,
+        "rationale": "Epidemiological analysis in the iPlay study demonstrated that girls had a higher risk of activity-related injury than boys, and older children (11-12y) had higher risk than younger children (9-10y)."
+      },
+      {
+        "id": 4,
+        "q": "What relationship was found between Body Mass Index (BMI) and injury risk in the iPlay Study cohort?",
+        "opts": [
+          "High BMI was the single strongest predictor of joint dislocation",
+          "There was no statistically significant relationship between BMI and injury risk",
+          "Low BMI increased fracture risk by 500%",
+          "BMI predicted 100% of physical education injuries"
+        ],
+        "correct": 1,
+        "rationale": "Contrary to common assumptions, the iPlay study found no statistically significant association between a child's BMI and their overall activity injury risk."
+      },
+      {
+        "id": 5,
+        "q": "What counterintuitive finding emerged regarding total physical activity volume and injury risk in the iPlay Study?",
+        "opts": [
+          "The most physically active children demonstrated the lowest overall risk of injury",
+          "The most active children suffered 100% of all recorded fractures",
+          "Activity volume had zero correlation with any health metric",
+          "Sedentary children had complete immunity to muscle sprains"
+        ],
+        "correct": 0,
+        "rationale": "Despite accumulating greater exposure time to movement and sports, the most physically active children had the lowest risk of injury, proving high physical activity is protective."
+      },
+      {
+        "id": 6,
+        "q": "By what physiological mechanisms does high physical activity volume protect children against activity-related injuries?",
+        "opts": [
+          "By enhancing neuromuscular coordination, joint stability, proprioception, and structural tissue loading capacity",
+          "By completely fusing epiphyseal growth plates before age 10",
+          "By eliminating all Type II muscle fibers in the lower extremities",
+          "By reducing heart rate to zero during active play"
+        ],
+        "correct": 0,
+        "rationale": "Frequent physical activity builds superior neuromuscular control, agility, joint stability, proprioception, and musculoskeletal tissue resilience, buffering against injury."
+      },
+      {
+        "id": 7,
+        "q": "A physical education teacher notices that 11- to 12-year-old students suffer more activity injuries than 9- to 10-year-old students. According to the iPlay study, this age gradient is driven by:",
+        "opts": [
+          "Higher movement speeds, greater body mass momentum, and increased sports intensity in older children",
+          "Complete loss of visual acuity in 11-year-olds",
+          "Rapid decline in PFK enzyme activity at age 11",
+          "Inability of older children to perform aerobic oxidation"
+        ],
+        "correct": 0,
+        "rationale": "As children age from 9-10 to 11-12 years, increased movement speed, greater impact forces, and higher competitive intensity increase exposure forces during physical activity."
+      },
+      {
+        "id": 8,
+        "q": "Why is restricting children's physical activity out of fear of injury counterproductive to long-term musculoskeletal health?",
+        "opts": [
+          "Because physical inactivity deprives children of motor skill, balance, and joint stability development, making them more vulnerable to injury when they do move",
+          "Because inactivity causes growth plates to break spontaneously",
+          "Because restricting movement forces children to gain 50 kg of muscle mass",
+          "Because sedentary children develop hyperactive joint reflexes"
+        ],
+        "correct": 0,
+        "rationale": "Inactivity prevents the development of protective motor skills, proprioception, and tissue resilience. Highly active children develop superior movement mechanics that protect them from injury."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which findings were established by the prospective Dutch iPlay Study (Bloemers et al.)? (Select all that apply)",
+        "opts": [
+          "Monitored ~1,000 children aged 9 to 12 years over a full school year",
+          "Recorded 119 activity injuries across 104 children",
+          "Girls experienced a statistically higher injury risk than boys",
+          "The most physically active children had the lowest overall injury risk"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "The iPlay study monitored ~1,000 children (9-12y), recording 119 injuries in 104 kids. Girls had higher risk, older kids had higher risk, and high activity was protective."
+      },
+      {
+        "id": 2,
+        "q": "Which factors were shown to influence injury risk in primary school children during the iPlay Study? (Select all that apply)",
+        "opts": [
+          "Sex (girls had higher risk than boys)",
+          "Age (older 11-12y children had higher risk than 9-10y children)",
+          "Physical activity volume (higher activity volume was protective against injury)",
+          "Body Mass Index (BMI was strongly correlated with injury risk)"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Sex, age, and activity volume significantly influenced injury risk. BMI showed no statistically significant association with injury risk."
+      },
+      {
+        "id": 3,
+        "q": "Which protective physiological adaptations develop in children who engage in high volumes of physical activity? (Select all that apply)",
+        "opts": [
+          "Enhanced neuromuscular coordination and agility",
+          "Improved proprioception and balance",
+          "Greater joint stability and structural connective tissue strength",
+          "Premature calcification of arterial walls"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Frequent physical activity develops motor control, proprioception, joint stability, and connective tissue strength, buffering against mechanical injury."
+      },
+      {
+        "id": 4,
+        "q": "Which practical lessons should sports coaches and educators take from youth injury epidemiology? (Select all that apply)",
+        "opts": [
+          "High physical activity should be encouraged as a protective health mechanism",
+          "Fear of injury should not be used to restrict children's active play",
+          "Neuromuscular skill training and balance drills can help mitigate injury risk",
+          "Children with high BMI should be banned from physical education classes"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Physical activity protects against injury by building motor skills. Restricting movement out of fear is counterproductive, and BMI does not justify exclusion."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "In the iPlay Study, children with a high Body Mass Index (BMI) exhibited a statistically higher risk of activity injury than normal-weight children.",
+        "ans": false,
+        "feedback": "False. The iPlay study found no statistically significant relationship between BMI and injury risk in primary school children."
+      },
+      {
+        "id": 2,
+        "q": "Despite greater exposure time, the most physically active children in the iPlay Study had the lowest overall risk of injury.",
+        "ans": true,
+        "feedback": "True. High physical activity volume exerted a protective effect, as active children possessed superior neuromuscular coordination and tissue resilience."
+      },
+      {
+        "id": 3,
+        "q": "In the iPlay Study, older primary school children (11–12 years) suffered more activity injuries than younger children (9–10 years).",
+        "ans": true,
+        "feedback": "True. Older children experienced higher injury risk, likely due to greater movement speeds, impact forces, and sports intensity."
+      },
+      {
+        "id": 4,
+        "q": "In the iPlay Study, boys experienced a significantly higher rate of physical activity injury than girls.",
+        "ans": false,
+        "feedback": "False. Girls exhibited a statistically higher risk of activity-related injury compared to boys in the iPlay study."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "The Dutch iPlay study showed that **girls** and older children (11–12y) had higher injury risk, but **BMI** showed no correlation with injury.",
+        "targets": [
+          "girls",
+          "BMI"
+        ],
+        "optionsBank": [
+          "girls",
+          "BMI",
+          "boys",
+          "heart rate",
+          "glycogen"
+        ],
+        "hint": "Identify the sex with higher injury risk and the body mass metric that showed zero injury correlation."
+      },
+      {
+        "id": 2,
+        "statement": "The most physically active children had the **lowest risk** of injury because frequent movement enhances **neuromuscular coordination** and joint stability.",
+        "targets": [
+          "lowest risk",
+          "neuromuscular coordination"
+        ],
+        "optionsBank": [
+          "lowest risk",
+          "neuromuscular coordination",
+          "highest risk",
+          "lactate acidosis",
+          "epiphyseal injury"
+        ],
+        "hint": "Identify the injury risk level of active kids and the neural adaptation that protects them."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Detail the study design, key demographic findings, and primary conclusions of the Dutch iPlay Study regarding youth physical activity and injury risk.",
+        "model": "The prospective Dutch iPlay Study (Bloemers et al.) monitored ~1,000 children aged 9 to 12 years over a full school curriculum across PE, leisure play, and sports, recording 119 injuries in 104 children. Demographic analysis revealed that girls had a higher injury risk than boys, and older children (11-12y) had a higher risk than younger children (9-10y). Notably, BMI showed no association with injury risk. Most importantly, the most physically active children demonstrated the lowest overall injury risk despite higher exposure, proving that high activity levels develop protective motor skills and tissue resilience.",
+        "criteria": [
+          "Describe study scope (~1,000 Dutch children aged 9-12 over 1 school year; 119 injuries in 104 kids).",
+          "Identify demographic risk patterns (girls > boys; older > younger; BMI had no effect).",
+          "Explain the protective effect of high physical activity volume."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain why restricting children's physical activity out of fear of injury is physiologically counterproductive, using evidence from the iPlay Study.",
+        "model": "Restricting children's physical activity out of fear of injury is counterproductive because the iPlay study proved that the most active children actually have the lowest risk of injury. Frequent physical activity stimulates adaptations that protect against injury—including enhanced neuromuscular coordination, improved balance and proprioception, superior joint stability, and stronger connective tissue loading capacity. Restricting activity deprives children of these protective movement skills, leaving them biomechanically less coordinated and more susceptible to injury when they do participate in sports.",
+        "criteria": [
+          "State that the iPlay study proved high physical activity is protective against injury.",
+          "List protective mechanisms of activity (neuromuscular coordination, proprioception, joint stability, tissue strength).",
+          "Explain how restricting movement impairs motor skill development, increasing injury vulnerability."
+        ]
+      }
+    ]
+  },
+  "p4": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "In the 2013 Norwegian Young-HUNT Study (570 teenagers aged 13 to 18 years), what were the normative mean relative VO2peak values for teenage boys and girls?",
+        "opts": [
+          "60 mL/kg/min in boys and 49 mL/kg/min in girls",
+          "30 mL/kg/min in boys and 30 mL/kg/min in girls",
+          "80 mL/kg/min in boys and 75 mL/kg/min in girls",
+          "45 mL/kg/min in boys and 55 mL/kg/min in girls"
+        ],
+        "correct": 0,
+        "rationale": "Direct maximal treadmill testing in the Young-HUNT study established normative relative VO2peak values of 60 mL/kg/min for teenage boys and 49 mL/kg/min for teenage girls."
+      },
+      {
+        "id": 2,
+        "q": "Which cardiovascular risk marker showed a strong, statistically significant inverse association with VO2peak in both boys and girls in the Young-HUNT Study?",
+        "opts": [
+          "Resting heart rate",
+          "Standing height",
+          "Systolic blood pressure during maximal exertion",
+          "Subcutaneous fat thickness on the earlobe"
+        ],
+        "correct": 0,
+        "rationale": "High VO2peak was strongly associated with low resting heart rate in both male and female adolescents, reflecting superior parasympathetic tone and stroke volume."
+      },
+      {
+        "id": 3,
+        "q": "In the Young-HUNT Study, high VO2peak was significantly associated with lower BMI and reduced waist circumference in:",
+        "opts": [
+          "Boys only",
+          "Girls only",
+          "Both boys and girls equally",
+          "Neither boys nor girls"
+        ],
+        "correct": 0,
+        "rationale": "While high VO2peak correlated with low resting heart rate in both sexes, high VO2peak was associated with lower BMI and waist circumference exclusively in adolescent boys."
+      },
+      {
+        "id": 4,
+        "q": "Based on meta-analyses of longitudinal studies, what happens to daily physical activity during the transition from adolescence into young adulthood?",
+        "opts": [
+          "Daily physical activity declines by ~5 min/day (self-report) to ~7.5 min/day (accelerometer)",
+          "Daily physical activity increases by 120 minutes per day in all young adults",
+          "Daily physical activity remains completely constant from age 15 to 30",
+          "Daily physical activity doubles immediately upon entering college"
+        ],
+        "correct": 0,
+        "rationale": "Meta-analyses confirm a systematic decline in physical activity during early adulthood, averaging ~5 min/day in self-report studies (49 studies) and ~7.5 min/day in accelerometer studies (9 studies)."
+      },
+      {
+        "id": 5,
+        "q": "Why is the absolute decline in daily physical activity during the transition to young adulthood slightly larger in males than in females?",
+        "opts": [
+          "Because males maintain higher baseline physical activity levels during adolescence, leaving a larger magnitude available to decline",
+          "Because males lose 90% of their muscle fibers upon turning age 18",
+          "Because females increase their activity by 60 minutes per day in adulthood",
+          "Because male accelerometers record data at half the speed of female devices"
+        ],
+        "correct": 0,
+        "rationale": "Both sexes experience physical activity reductions in young adulthood, but the total decline is larger in males because adolescent boys start from a higher baseline activity level."
+      },
+      {
+        "id": 6,
+        "q": "Why is establishing high cardiorespiratory fitness (VO2peak) during adolescence critical for long-term population health?",
+        "opts": [
+          "Low adolescent VO2peak is an independent risk factor for cardiovascular disease, metabolic syndrome, type 2 diabetes, and premature mortality in adulthood",
+          "Adolescent VO2peak determines 100% of adult eye color and height",
+          "High adolescent fitness guarantees immunity to viral infections in old age",
+          "Adolescent VO2peak prevents growth plate ossification"
+        ],
+        "correct": 0,
+        "rationale": "Low adolescent VO2peak and inactivity independently predict adult cardiometabolic disease, type 2 diabetes, metabolic syndrome, and early mortality."
+      },
+      {
+        "id": 7,
+        "q": "How does absolute VO2peak (expressed in L/min) change across adolescence (ages 13 to 18) in boys and girls?",
+        "opts": [
+          "Absolute VO2peak increases with age in both sexes due to physical growth and body mass accrual",
+          "Absolute VO2peak declines by 50% in both sexes between ages 13 and 18",
+          "Absolute VO2peak remains static at 1.0 L/min across all ages",
+          "Absolute VO2peak increases in girls but drops to zero in boys"
+        ],
+        "correct": 0,
+        "rationale": "Because total body mass, heart size, and muscle mass expand during adolescent growth, absolute VO2peak (L/min) increases progressively with age in both boys and girls."
+      },
+      {
+        "id": 8,
+        "q": "A college health center measures a 7.5 min/day drop in accelerometer-measured active time among first-year students. This finding aligns with national meta-analyses showing that early adulthood transitions are characterized by:",
+        "opts": [
+          "An objective, longitudinal reduction in daily physical activity volume",
+          "A rapid surge in maximal aerobic capacity",
+          "Spontaneous doubling of muscle cross-sectional area",
+          "Elimination of all cardiovascular disease risk factors"
+        ],
+        "correct": 0,
+        "rationale": "Accelerometer meta-analysis confirms an objective daily activity reduction of ~7.5 min/day as youth transition into young adulthood, highlighting a vulnerable window for lifestyle intervention."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which normative values and correlations were established by the 2013 Norwegian Young-HUNT Study (ages 13–18)? (Select all that apply)",
+        "opts": [
+          "Mean relative VO2peak was 60 mL/kg/min in boys and 49 mL/kg/min in girls",
+          "Self-reported physical activity was positively correlated with VO2peak across the cohort",
+          "High VO2peak was strongly associated with low resting heart rate in both sexes",
+          "High VO2peak was associated with lower BMI and waist circumference in boys"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "The Young-HUNT study established normative VO2peak (60 boys / 49 girls mL/kg/min) and linked high VO2peak to low resting HR in both sexes and lower BMI/waist circumference in boys."
+      },
+      {
+        "id": 2,
+        "q": "Which findings characterize the physical activity transition from adolescence into young adulthood? (Select all that apply)",
+        "opts": [
+          "Self-reported activity declines by an average of ~5 min/day (49 studies)",
+          "Accelerometer-measured activity declines by an average of ~7.5 min/day (9 studies)",
+          "Both men and women experience reductions in daily physical activity",
+          "Total activity decline is slightly larger in males due to higher adolescent baseline activity"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "Meta-analyses confirm longitudinal declines in activity during young adulthood (~5 min/day self-report, ~7.5 min/day accelerometer) in both sexes, with larger absolute drops in males."
+      },
+      {
+        "id": 3,
+        "q": "Which adult health conditions are linked to low cardiorespiratory fitness (VO2peak) and physical inactivity during adolescence? (Select all that apply)",
+        "opts": [
+          "Cardiovascular morbidity and premature mortality",
+          "Metabolic syndrome and insulin resistance",
+          "Type 2 diabetes mellitus",
+          "Acute epiphyseal growth plate expansion"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Low adolescent VO2peak and inactivity are established independent risk factors for adult cardiovascular disease, metabolic syndrome, type 2 diabetes, and mortality."
+      },
+      {
+        "id": 4,
+        "q": "Why do teenage boys display higher relative VO2peak (60 mL/kg/min) than teenage girls (49 mL/kg/min)? (Select all that apply)",
+        "opts": [
+          "Higher circulating testosterone during pubertal development driving muscle mass growth",
+          "Lower average percentage body fat in males compared to females",
+          "Higher hemoglobin concentration in males supporting blood oxygen carrying capacity",
+          "Complete absence of functional mitochondria in female skeletal muscle"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Sex differences in relative VO2peak stem from higher male testosterone (greater muscle mass), lower male essential fat, and higher male hemoglobin concentrations."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "In the Young-HUNT Study, mean relative VO2peak was 60 mL/kg/min in teenage boys and 49 mL/kg/min in teenage girls.",
+        "ans": true,
+        "feedback": "True. Maximal treadmill testing established normative relative VO2peak averages of 60 mL/kg/min in boys and 49 mL/kg/min in girls."
+      },
+      {
+        "id": 2,
+        "q": "In the Young-HUNT Study, high VO2peak was strongly associated with low resting heart rate in both boys and girls.",
+        "ans": true,
+        "feedback": "True. High cardiorespiratory fitness was strongly correlated with a lower resting heart rate in both male and female adolescents."
+      },
+      {
+        "id": 3,
+        "q": "Meta-analyses show that daily physical activity increases by 30 minutes per day during the transition into young adulthood.",
+        "ans": false,
+        "feedback": "False. Meta-analyses demonstrate an objective decline in physical activity during early adulthood (~5 to 7.5 min/day reduction)."
+      },
+      {
+        "id": 4,
+        "q": "In the Young-HUNT study, high VO2peak was associated with lower BMI and waist circumference in girls, but not in boys.",
+        "ans": false,
+        "feedback": "False. High VO2peak was associated with lower BMI and waist circumference exclusively in boys."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "The Young-HUNT Study established normative relative VO2peak values of **60 mL/kg/min** in teenage boys and **49 mL/kg/min** in teenage girls.",
+        "targets": [
+          "60 mL/kg/min",
+          "49 mL/kg/min"
+        ],
+        "optionsBank": [
+          "60 mL/kg/min",
+          "49 mL/kg/min",
+          "20 mL/kg/min",
+          "90 mL/kg/min",
+          "15 mL/kg/min"
+        ],
+        "hint": "Identify the normative relative VO2peak values for adolescent males and females."
+      },
+      {
+        "id": 2,
+        "statement": "As youth transition into young adulthood, daily physical activity declines by **5 min/day** in self-report studies and **7.5 min/day** in accelerometer studies.",
+        "targets": [
+          "5 min/day",
+          "7.5 min/day"
+        ],
+        "optionsBank": [
+          "5 min/day",
+          "7.5 min/day",
+          "60 min/day",
+          "120 min/day",
+          "0 min/day"
+        ],
+        "hint": "Identify the daily activity decline values from self-report and accelerometer meta-analyses."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Summarize the normative cardiorespiratory fitness (VO2peak) values and key cardiovascular health associations established by the Norwegian Young-HUNT Study in adolescents.",
+        "model": "The Young-HUNT Study evaluated 570 teenagers aged 13 to 18 years using maximal treadmill testing, establishing mean relative VO2peak values of 60 mL/kg/min in boys and 49 mL/kg/min in girls. Self-reported physical activity correlated positively with VO2peak in both sexes. High VO2peak was strongly associated with low resting heart rate in both boys and girls, indicating superior cardiorespiratory function. However, high VO2peak was significantly associated with lower BMI and reduced waist circumference exclusively in boys.",
+        "criteria": [
+          "State normative VO2peak values (60 mL/kg/min in boys, 49 mL/kg/min in girls).",
+          "Identify strong inverse association between VO2peak and resting heart rate in both sexes.",
+          "Note that high VO2peak correlated with lower BMI and waist circumference in boys only."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Describe the longitudinal changes in physical activity that occur during the transition from adolescence to young adulthood, citing meta-analytic evidence and explaining sex differences.",
+        "model": "Meta-analyses demonstrate a systematic, objective decline in daily physical activity as youth transition into young adulthood. Self-report studies (49 studies) document an average decline of ~5 minutes per day, while accelerometer studies (9 studies) reveal a larger objective decline of ~7.5 minutes per day. While both men and women reduce daily activity during early adulthood, the total absolute decline is slightly larger in males because adolescent boys start from higher baseline activity levels.",
+        "criteria": [
+          "Cite meta-analysis decline figures (~5 min/day self-report, ~7.5 min/day accelerometer).",
+          "State that physical activity declines in both men and women during the transition to young adulthood.",
+          "Explain that males experience a larger absolute drop because they maintain higher baseline activity during adolescence."
+        ]
+      }
+    ]
+  }
+}

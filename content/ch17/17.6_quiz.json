@@ -1,0 +1,746 @@
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "What specific pattern characterizes the change in physical activity from childhood through adolescence?",
+        "opts": [
+          "Physical activity increases exponentially during puberty",
+          "Physical activity systematically declines, with a more rapid and pronounced drop occurring during adolescence",
+          "Physical activity remains perfectly constant across all age groups",
+          "Physical activity increases in girls while declining in boys"
+        ],
+        "correct": 1,
+        "rationale": "Epidemiological data confirm that physical activity systematically declines from childhood through adulthood, with the reduction being most rapid and pronounced during adolescence, particularly among girls."
+      },
+      {
+        "id": 2,
+        "q": "In the Physical Health Activity Study Team (PHAST) project, what variable accounted for the sex differences observed in the rate of adolescent physical activity decline?",
+        "opts": [
+          "Chronological age calculated from birth date",
+          "Biological age assessed via sexual maturity stages",
+          "Dietary sodium intake",
+          "Absolute standing height"
+        ],
+        "correct": 1,
+        "rationale": "When PHAST project researchers controlled for biological age (sexual maturity status) rather than chronological age, biological age fully accounted for sex differences in the rate of physical activity decline."
+      },
+      {
+        "id": 3,
+        "q": "At what age did accelerometry tracking in the EarlyBird study demonstrate that the age-related decline in physical activity begins?",
+        "opts": [
+          "Age 18 years",
+          "Age 9 years",
+          "Age 15 years",
+          "Age 3 years"
+        ],
+        "correct": 1,
+        "rationale": "Accelerometer tracking in the prospective EarlyBird study revealed that the age-related decline in physical activity begins as early as age 9 years."
+      },
+      {
+        "id": 4,
+        "q": "According to the EarlyBird study, the childhood decline in daily physical activity is driven primarily by a reduction in which category of activity?",
+        "opts": [
+          "Moderate-to-vigorous physical activity (MVPA)",
+          "Light-intensity physical activity (habitual, spontaneous movement)",
+          "Competitive varsity sports participation",
+          "Maximal resistance training"
+        ],
+        "correct": 1,
+        "rationale": "Accelerometry data from the EarlyBird study proved that the decline in daily activity is driven primarily by a loss of light-intensity physical activity (spontaneous habitual movement) rather than MVPA."
+      },
+      {
+        "id": 5,
+        "q": "What tracking phenomenon regarding physical activity behaviors was established by the EarlyBird study?",
+        "opts": [
+          "Physical activity habits completely reset every 6 months",
+          "Inactive young children are significantly more likely to remain physically inactive as adolescents",
+          "Early childhood physical inactivity guarantees elite athletic performance in college",
+          "Accelerometers alter children's metabolic rate"
+        ],
+        "correct": 1,
+        "rationale": "The EarlyBird study demonstrated physical activity tracking, proving that children who are inactive in early childhood tend to remain physically inactive during adolescence."
+      },
+      {
+        "id": 6,
+        "q": "How does pubertal maturation influence the physical activity decline in adolescent girls compared to boys?",
+        "opts": [
+          "Pubertal maturation causes girls to double their MVPA relative to boys",
+          "Pubertal maturation accounts for the steeper rate of physical activity decline observed in girls",
+          "Puberty eliminates all physical activity decline in both sexes",
+          "Pubertal maturation increases light activity while abolishing sleep"
+        ],
+        "correct": 1,
+        "rationale": "While age-related activity decline occurred in both sexes regardless of puberty, pubertal maturation specifically accounted for the steeper decline observed among girls."
+      },
+      {
+        "id": 7,
+        "q": "Why is replacing habitual light-intensity physical activity with sedentary time particularly detrimental to pediatric metabolic health?",
+        "opts": [
+          "Because light-intensity movement accounts for a large portion of total daily energy expenditure and spontaneous caloric burn",
+          "Because light activity causes severe glycogen depletion in Type IIx fibers",
+          "Because light activity inhibits growth hormone secretion",
+          "Because light activity decreases resting bone mineral density"
+        ],
+        "correct": 0,
+        "rationale": "Light-intensity physical activity comprises habitual daily movement. Losing light activity significantly reduces total daily energy expenditure, creating a metabolic deficit."
+      },
+      {
+        "id": 8,
+        "q": "A public health researcher designs an activity intervention for 12-year-old girls. Based on the PHAST project and EarlyBird study, which strategy is most physiologically grounded?",
+        "opts": [
+          "Targeting biological maturation stages and preserving spontaneous light-intensity habitual movement alongside MVPA",
+          "Focusing exclusively on calendar birth dates and ignoring pubertal stage",
+          "Restricting all physical activity until age 18",
+          "Eliminating PE classes to focus on 100% sedentary study time"
+        ],
+        "correct": 0,
+        "rationale": "Interventions must account for biological age (sexual maturity status) and focus on preserving light-intensity habitual activity, as activity decline begins around age 9 and tracks into adolescence."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which findings were documented by the Physical Health Activity Study Team (PHAST) project? (Select all that apply)",
+        "opts": [
+          "Followed Canadian public school children aged ~11 to 14 years over 5 years",
+          "Confirmed that adolescent girls maintain lower overall activity and steeper decline rates than boys",
+          "Proved that controlling for biological age accounts for sex differences in activity decline rate",
+          "Proved that chronological birth date dictates 100% of physical activity trends"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "The PHAST project tracked youth over 5 years, confirming steeper activity declines in girls and proving that biological age accounts for these sex differences."
+      },
+      {
+        "id": 2,
+        "q": "Which conclusions were established by the prospective EarlyBird accelerometry study? (Select all that apply)",
+        "opts": [
+          "Physical activity decline begins around age 9 years",
+          "Activity decline is driven primarily by a reduction in light-intensity physical activity",
+          "Physical activity habits track from early childhood into adolescence",
+          "Children become 10 times more active as they enter high school"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "EarlyBird accelerometry proved activity decline starts at age 9, stems mainly from lost light-intensity activity, and tracks longitudinally."
+      },
+      {
+        "id": 3,
+        "q": "Which factors explain the steeper physical activity decline observed in adolescent females? (Select all that apply)",
+        "opts": [
+          "Advanced biological age and pubertal maturation status",
+          "Loss of spontaneous light-intensity physical activity",
+          "Tracking of early childhood sedentary habits",
+          "Complete loss of function in pulmonary alveoli"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Biological maturation, reduced light activity, and longitudinal tracking of early inactivity explain female activity declines."
+      },
+      {
+        "id": 4,
+        "q": "How can pediatric health specialists mitigate physical activity decline during middle childhood and adolescence? (Select all that apply)",
+        "opts": [
+          "Promote active commuting and spontaneous light movement throughout the school day",
+          "Intervene early in childhood before sedentary habits become established and track",
+          "Account for biological maturity status when designing group exercise initiatives",
+          "Force children into 6 hours of daily high-intensity resistance training to failure"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Effective interventions build spontaneous movement habits early, preserve light activity, and tailor programs to biological maturity."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "In the PHAST project, biological age (sexual maturity status) fully accounted for sex differences in the rate of adolescent physical activity decline.",
+        "ans": true,
+        "feedback": "True. Controlling for biological age eliminated statistical sex differences in the rate of activity decline."
+      },
+      {
+        "id": 2,
+        "q": "Accelerometer data from the EarlyBird study showed that physical activity decline begins around age 9 years.",
+        "ans": true,
+        "feedback": "True. Direct accelerometer tracking revealed that daily activity begins dropping during middle childhood at age 9."
+      },
+      {
+        "id": 3,
+        "q": "The EarlyBird study demonstrated that the age-related decline in physical activity is driven primarily by a loss of moderate-to-vigorous physical activity (MVPA).",
+        "ans": false,
+        "feedback": "False. The decline is driven primarily by a reduction in light-intensity physical activity (spontaneous, habitual movement)."
+      },
+      {
+        "id": 4,
+        "q": "Physical activity habits track throughout childhood, meaning inactive young children are likely to remain inactive during adolescence.",
+        "ans": true,
+        "feedback": "True. The EarlyBird study confirmed longitudinal tracking of physical activity behaviors."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "In the PHAST project, **biological age** accounted for sex differences in activity decline, while the EarlyBird study proved decline begins at age **9 years**.",
+        "targets": [
+          "biological age",
+          "9 years"
+        ],
+        "optionsBank": [
+          "biological age",
+          "9 years",
+          "chronological age",
+          "18 years",
+          "blood pressure"
+        ],
+        "hint": "Identify the maturation metric and the specific age at which activity decline initiates."
+      },
+      {
+        "id": 2,
+        "statement": "The Childhood activity decline is driven primarily by a loss of **light-intensity physical activity** rather than a reduction in **MVPA**.",
+        "targets": [
+          "light-intensity physical activity",
+          "MVPA"
+        ],
+        "optionsBank": [
+          "light-intensity physical activity",
+          "MVPA",
+          "heart rate",
+          "glycogen stores",
+          "stroke volume"
+        ],
+        "hint": "Identify the spontaneous movement category that declines and the structured intensity category."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Compare the findings of the PHAST project and the EarlyBird study regarding the onset, drivers, and biological mechanisms of physical activity decline in youth.",
+        "model": "The PHAST project tracked youth aged 11–14 over 5 years, demonstrating that physical activity declines more steeply in girls, but proving that biological age (sexual maturity) fully accounts for these sex differences. The prospective EarlyBird study used accelerometers in children aged 5–15, revealing that activity decline begins as early as age 9 years. EarlyBird proved that the decline is driven primarily by a loss of light-intensity physical activity (spontaneous habitual movement) rather than MVPA, and established that activity habits track longitudinally from childhood into adolescence.",
+        "criteria": [
+          "Cite PHAST findings (biological age accounts for sex differences in activity decline).",
+          "Cite EarlyBird findings (decline begins at age 9; driven by loss of light-intensity activity).",
+          "Explain physical activity tracking from early childhood into adolescence."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Why must public health interventions focus on preserving light-intensity physical activity in middle childhood (ages 9–12) rather than focusing solely on structured sports or MVPA?",
+        "model": "Public health interventions must target light-intensity physical activity because the EarlyBird accelerometry study proved that the daily activity drop beginning at age 9 is driven primarily by a loss of spontaneous, habitual light movement rather than MVPA. Light activity contributes significantly to daily total energy expenditure. Furthermore, because physical activity habits track from middle childhood into adolescence, preserving habitual light movement during early development prevents established sedentary routines in later adolescence.",
+        "criteria": [
+          "Explain that accelerometry proves daily activity drop stems mainly from lost light-intensity movement.",
+          "Highlight the metabolic contribution of habitual light movement to daily energy expenditure.",
+          "Reference activity tracking as the rationale for early intervention at age 9."
+        ]
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "What is the primary anatomical characteristic governing pediatric thermoregulation compared to adults?",
+        "opts": [
+          "Higher body surface area to mass ratio (BSA/mass)",
+          "Lower skin surface area per unit mass",
+          "Doubled sweat gland density per square centimeter",
+          "Complete absence of subcutaneous fat"
+        ],
+        "correct": 0,
+        "rationale": "Children possess a higher body surface area to mass ratio (BSA/mass) than adults, meaning they have more skin surface area per kilogram of body weight."
+      },
+      {
+        "id": 2,
+        "q": "In temperate environments where ambient temperature is lower than skin temperature (T_env < T_skin), how does a child's high BSA/mass ratio affect heat exchange?",
+        "opts": [
+          "It accelerates dry heat dissipation via radiation, convection, and conduction",
+          "It causes rapid heat absorption from cooler air",
+          "It completely blocks all heat loss mechanisms",
+          "It forces instantaneous maximum sweating"
+        ],
+        "correct": 0,
+        "rationale": "When ambient temperature is lower than skin temperature, a large BSA/mass ratio accelerates non-evaporative (dry) heat loss through radiation, convection, and conduction."
+      },
+      {
+        "id": 3,
+        "q": "In extreme hot environments where ambient temperature exceeds skin temperature (T_env > T_skin), what happens to heat flow in children?",
+        "opts": [
+          "Heat flow reverses, causing children to gain environmental heat more rapidly than adults due to their high BSA/mass ratio",
+          "Heat flow stops completely",
+          "Children lose heat twice as fast as in cold water",
+          "Children sweat 5 liters per hour to stay cool"
+        ],
+        "correct": 0,
+        "rationale": "When environmental temperature exceeds skin temperature, radiant and convective heat flow reverses, causing children to gain heat from the environment faster than adults due to their higher BSA/mass ratio."
+      },
+      {
+        "id": 4,
+        "q": "How does a child's sweating rate compare to an adult's during thermal stress?",
+        "opts": [
+          "Children produce less sweat per active gland and have lower thermal sensitivity",
+          "Children sweat at twice the rate of adults per gland",
+          "Children possess no active sweat glands",
+          "Children sweat excessively, causing immediate hyponatremia within 2 minutes"
+        ],
+        "correct": 0,
+        "rationale": "Children have a lower sweating rate because individual sweat glands produce sweat at a slower rate and are less sensitive to elevated core temperature compared to adults."
+      },
+      {
+        "id": 5,
+        "q": "How does the rate of heat acclimatization in young boys compare to adult men?",
+        "opts": [
+          "Young boys undergo heat acclimatization at a slower rate than adult men",
+          "Young boys acclimatize instantaneously within 10 minutes",
+          "Young boys are incapable of adapting to heat under any condition",
+          "Adult men acclimatize 10 times slower than boys"
+        ],
+        "correct": 0,
+        "rationale": "Textbook data indicate that young boys acclimatize to hot environments at a slower rate than adult men, requiring longer exposure periods."
+      },
+      {
+        "id": 6,
+        "q": "Why are children at elevated risk for hypothermia during exercise in cold ambient air or cold water?",
+        "opts": [
+          "Their high BSA/mass ratio accelerates conductive and convective heat loss to the surrounding cold environment",
+          "Their muscles are incapable of shivering",
+          "Their blood vessels undergo severe vasodilation in cold water",
+          "Their thyroid gland stops functioning in winter"
+        ],
+        "correct": 0,
+        "rationale": "A high BSA/mass ratio accelerates heat transfer from the body to cold air or water via radiation, convection, and conduction, increasing hypothermia risk."
+      },
+      {
+        "id": 7,
+        "q": "Despite laboratory findings indicating higher physiological susceptibility to thermal stress in children, what do epidemiological data show regarding clinical heat illness in active youth?",
+        "opts": [
+          "Reported clinical cases of severe heat/cold illness in active children are surprisingly minimal",
+          "100% of child athletes experience heat stroke every summer",
+          "Cold injuries are 50 times more common than sprains in youth sports",
+          "Epidemiological data do not exist for pediatric populations"
+        ],
+        "correct": 0,
+        "rationale": "While laboratory tests highlight thermoregulatory limitations (lower sweat rate, high BSA/mass in extreme heat), epidemiological reports show a surprisingly low incidence of clinical heat/cold casualties in active children."
+      },
+      {
+        "id": 8,
+        "q": "A youth soccer coach schedules a tournament in 95°F (35°C) heat. What physiological constraint requires mandatory fluid breaks and shaded rest for child athletes?",
+        "opts": [
+          "Rapid environmental heat gain (high BSA/mass ratio) combined with lower sweating capacity per gland and slower heat acclimatization",
+          "Hyperactive sweat glands causing instant dehydration",
+          "Complete loss of muscle glycogen within 30 seconds",
+          "Inability to perform oxidative phosphorylation above 90°F"
+        ],
+        "correct": 0,
+        "rationale": "In extreme heat (T_env > T_skin), children absorb heat rapidly due to their high BSA/mass ratio and dissipate less heat via evaporation due to lower sweat gland output."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which characteristics describe thermoregulation in children compared to adults? (Select all that apply)",
+        "opts": [
+          "Higher body surface area to mass ratio (BSA/mass)",
+          "Lower sweating rate per active gland",
+          "Slower rate of heat acclimatization (in boys)",
+          "Tenfold higher sweat production during submaximal exercise"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Children have a higher BSA/mass ratio, lower sweating rates per gland, and slower heat acclimatization rates."
+      },
+      {
+        "id": 2,
+        "q": "How does a high BSA/mass ratio affect pediatric heat exchange across different ambient temperatures? (Select all that apply)",
+        "opts": [
+          "Accelerates dry heat loss when ambient temperature is cooler than skin temperature",
+          "Accelerates environmental heat gain when ambient temperature exceeds skin temperature",
+          "Increases convective/conductive heat loss in cold air or water",
+          "Prevents all radiant heat exchange in sunlight"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "A large BSA/mass ratio enhances heat dissipation in cool environments, heat absorption in hot environments (T_env > T_skin), and rapid heat loss in the cold."
+      },
+      {
+        "id": 3,
+        "q": "Which physiological factors limit pediatric evaporative cooling in hot environments? (Select all that apply)",
+        "opts": [
+          "Individual sweat glands produce less sweat per unit time",
+          "Sweat glands exhibit lower sensitivity to increases in core body temperature",
+          "Lower overall sweat volume per unit body mass",
+          "Hyper-active sweating that depletes plasma volume instantly"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Blunted evaporative cooling in children results from lower sweat output per gland, reduced thermal sensitivity, and lower total sweat volume."
+      },
+      {
+        "id": 4,
+        "q": "Which practical guidelines protect child athletes exercising in environmental extremes? (Select all that apply)",
+        "opts": [
+          "Provide frequent fluid breaks during hot weather training",
+          "Allow extended acclimatization periods when transitioning to warm climates",
+          "Enforce extra insulating clothing layers during cold weather sports",
+          "Ban children from drinking water during exercise to force acclimatization"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Frequent hydration, conservative heat acclimatization, and protective clothing in cold weather compensate for pediatric thermoregulatory limits."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Children possess a higher body surface area to mass ratio (BSA/mass) than adults.",
+        "ans": true,
+        "feedback": "True. Children have more skin surface area relative to body weight than adults."
+      },
+      {
+        "id": 2,
+        "q": "When ambient temperature exceeds skin temperature, a child's high BSA/mass ratio causes them to gain heat from the environment more rapidly than an adult.",
+        "ans": true,
+        "feedback": "True. Heat flow reverses in extreme heat (T_env > T_skin), accelerating environmental heat absorption in children."
+      },
+      {
+        "id": 3,
+        "q": "Children produce more sweat per active gland than adults during maximal exercise in hot environments.",
+        "ans": false,
+        "feedback": "False. Children have a lower sweating rate per active gland and lower thermal sensitivity than adults."
+      },
+      {
+        "id": 4,
+        "q": "Young boys acclimatize to hot environments at a faster rate than adult men.",
+        "ans": false,
+        "feedback": "False. Textbook evidence indicates that young boys undergo heat acclimatization at a slower rate than adult men."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Children have a higher **BSA/mass ratio** than adults, which increases dry heat loss when cool, but accelerates heat gain when **ambient temperature** exceeds skin temperature.",
+        "targets": [
+          "BSA/mass ratio",
+          "ambient temperature"
+        ],
+        "optionsBank": [
+          "BSA/mass ratio",
+          "ambient temperature",
+          "sweat gland count",
+          "blood glucose",
+          "stroke volume"
+        ],
+        "hint": "Identify the surface area metric and the environmental condition that reverses heat flow."
+      },
+      {
+        "id": 2,
+        "statement": "Pediatric evaporative cooling is constrained by a lower **sweating rate** per gland and a slower rate of **heat acclimatization** in boys.",
+        "targets": [
+          "sweating rate",
+          "heat acclimatization"
+        ],
+        "optionsBank": [
+          "sweating rate",
+          "heat acclimatization",
+          "glycolysis rate",
+          "heart rate",
+          "oxygen deficit"
+        ],
+        "hint": "Identify the fluid dissipation output and the environmental adaptation process."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Explain how a child's high body surface area to mass ratio (BSA/mass) affects thermoregulation differently in cool/temperate environments versus extremely hot environments.",
+        "model": "A child's higher BSA/mass ratio means they have more skin surface area per unit of body weight than adults. In cool or temperate environments where ambient temperature is lower than skin temperature (T_env < T_skin), this high ratio accelerates dry heat dissipation via radiation, convection, and conduction, allowing effective cooling without heavy sweating. However, in extremely hot environments where ambient temperature exceeds skin temperature (T_env > T_skin), heat flow reverses. The high BSA/mass ratio causes children to gain environmental heat via radiation and convection significantly faster than adults.",
+        "criteria": [
+          "Define BSA/mass ratio differences in children vs adults.",
+          "Explain heat dissipation in cool/temperate conditions (accelerated dry heat loss).",
+          "Explain heat absorption in extreme heat (reversed heat flow when T_env > T_skin)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Detail the physiological limitations of pediatric evaporative cooling in hot environments and outline practical coaching precautions.",
+        "model": "Children suffer a physiological disadvantage in evaporative cooling because their individual sweat glands produce sweat at a slower rate and are less thermally sensitive to elevated core body temperature compared to adults. Furthermore, young boys acclimatize to heat more slowly than adult men. Coaches must implement mandatory fluid breaks, shorten practice durations in high heat, provide shaded rest, and allow gradual extended acclimatization over several days when training in warm environments.",
+        "criteria": [
+          "Identify lower sweating rate per gland and reduced thermal sensitivity in children.",
+          "Mention slower rate of heat acclimatization in youth.",
+          "Detail practical coaching precautions (fluid breaks, shortened practices, extended acclimatization)."
+        ]
+      }
+    ]
+  },
+  "p3": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "What effect does regular, intensive physical training during childhood and adolescence have on adult height (stature)?",
+        "opts": [
+          "Physical training has no negative effect on growth in terms of height",
+          "Physical training stunts adult height by 10 to 15 centimeters",
+          "Physical training doubles linear bone growth rates",
+          "Physical training causes premature growth plate closure in 100% of youth"
+        ],
+        "correct": 0,
+        "rationale": "Comprehensive physiological reviews (e.g., Malina) confirm that regular physical training has no apparent negative effect on growth in terms of height."
+      },
+      {
+        "id": 2,
+        "q": "How does regular physical training during youth influence body weight and soft tissue body composition?",
+        "opts": [
+          "It reduces total fat mass and relative body fat percentage while increasing fat-free mass (FFM) and bone density",
+          "It causes massive fat accumulation while destroying lean muscle tissue",
+          "It completely stops muscle growth until age 21",
+          "It has zero impact on body fat or lean mass"
+        ],
+        "correct": 0,
+        "rationale": "While training does not alter height, it favorably modifies body composition by reducing body fat mass and increasing fat-free mass and bone mineral density."
+      },
+      {
+        "id": 3,
+        "q": "What impact does regular physical training have on the age at which peak height velocity (PHV) occurs?",
+        "opts": [
+          "The timing of peak height velocity (PHV) is not altered by regular physical training",
+          "Physical training delays PHV by 5 full years",
+          "Physical training causes PHV to occur in infancy",
+          "Physical training abolishes the adolescent growth spurt entirely"
+        ],
+        "correct": 0,
+        "rationale": "Scientific evidence demonstrates that regular physical training does not alter the age at which peak height velocity (PHV)—the adolescent growth spurt—occurs."
+      },
+      {
+        "id": 4,
+        "q": "How does regular physical training affect the overall rate of somatic (biological) maturation in growing youth?",
+        "opts": [
+          "The rate of somatic maturation proceeds normally along its genetically predetermined trajectory",
+          "Training accelerates biological maturation by 10 years",
+          "Training permanently arrests somatic maturation at stage 1",
+          "Training reverses somatic maturation back to childhood status"
+        ],
+        "correct": 0,
+        "rationale": "Physical training does not alter the rate of somatic maturation; biological development proceeds along its genetically governed trajectory."
+      },
+      {
+        "id": 5,
+        "q": "Observational studies frequently report that highly trained female athletes (e.g., gymnasts, runners) experience menarche at a later age than non-athletes. Why do exercise physiologists caution against declaring training as the direct cause?",
+        "opts": [
+          "The relationship is heavily confounded by genetic selection bias, low energy availability, restricted diet, stress, and body composition shifts",
+          "Because female athletes never undergo menarche under any circumstances",
+          "Because gymnasts possess no circulating hormones",
+          "Because menarche is governed entirely by daily water intake"
+        ],
+        "correct": 0,
+        "rationale": "Observational data linking training to delayed menarche are confounded by selection bias (late maturers naturally succeeding in sports like gymnastics), dietary energy restriction, low body fat, and psychological stress."
+      },
+      {
+        "id": 6,
+        "q": "What are the primary determinants of adult standing height (stature) in healthy individuals?",
+        "opts": [
+          "Genetic factors and adequate nutritional status",
+          "Weekly bench press volume in middle childhood",
+          "Daily distance run on a treadmill",
+          "Number of soccer matches played per year"
+        ],
+        "correct": 0,
+        "rationale": "Adult standing height is governed primarily by genetic potential and adequate nutrition during growth, rather than physical activity volume."
+      },
+      {
+        "id": 7,
+        "q": "A parent worries that their 11-year-old child's intensive gymnastics training will stunt their growth and prevent them from reaching their full height. Based on textbook evidence, how should a clinician respond?",
+        "opts": [
+          "Reassure the parent that exercise training does not stunt height growth or alter the timing of the growth spurt (PHV)",
+          "Advise immediate complete bed rest to prevent epiphyseal destruction",
+          "Confirm that gymnastics reduces height by 2 inches per year",
+          "Recommend growth hormone injections for all active youth"
+        ],
+        "correct": 0,
+        "rationale": "Evidence confirms that physical training does not stunt height or alter the timing of PHV; standing height is governed by genetics and nutrition."
+      },
+      {
+        "id": 8,
+        "q": "When evaluating a 15-year-old female distance runner with delayed menarche, what primary physiological factors should a sports physician assess before attributing the delay to exercise training alone?",
+        "opts": [
+          "Energy availability, total caloric intake, body composition (fat mass), and familial/genetic maturation history",
+          "Total number of running shoes owned",
+          "Skeletal muscle fiber type proportion in the deltoid",
+          "Resting respiratory exchange ratio during sleep"
+        ],
+        "correct": 0,
+        "rationale": "Delayed menarche in athletes is multifactorial. Clinicians must evaluate energy availability, diet, body fat, and genetic selection bias rather than assuming exercise alone is responsible."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which growth and developmental parameters are NOT altered by regular physical training in children and adolescents? (Select all that apply)",
+        "opts": [
+          "Adult standing height (stature)",
+          "Age at peak height velocity (PHV)",
+          "Overall rate of somatic biological maturation",
+          "Body fat mass and fat-free mass proportions"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Physical training does not alter adult height, age at PHV, or somatic maturation rate. It DOES alter body composition (fat mass and FFM)."
+      },
+      {
+        "id": 2,
+        "q": "Which favorable body composition modifications occur in youth who participate in regular exercise training? (Select all that apply)",
+        "opts": [
+          "Reduction in total body fat mass and body fat percentage",
+          "Increase in fat-free mass (FFM)",
+          "Increase in bone mineral density",
+          "Loss of skeletal muscle fiber nuclei"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Exercise training in youth reduces body fat while increasing fat-free mass and bone mineral accretion."
+      },
+      {
+        "id": 3,
+        "q": "Which confounding factors complicate observational research linking intensive sport training to delayed menarche in female athletes? (Select all that apply)",
+        "opts": [
+          "Genetic selection bias (late maturers favored in sports like gymnastics)",
+          "Low energy availability and restricted dietary caloric intake",
+          "Psychological stress and altered body composition (low body fat)",
+          "Complete absence of estrogen receptors in athletic females"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Delayed menarche in female athletes is confounded by genetic selection bias, low energy intake/availability, low body fat, and stress."
+      },
+      {
+        "id": 4,
+        "q": "Which statements reflect evidence-based conclusions regarding physical training during childhood and adolescence? (Select all that apply)",
+        "opts": [
+          "Training does not stunt linear bone growth or injure growth plates under proper supervision",
+          "Genetics and nutrition are the primary drivers of adult height",
+          "Training favorably alters soft tissue composition without disrupting biological maturation",
+          "Resistance training permanently stops longitudinal bone growth in pre-puberty"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Properly supervised training is safe, does not stunt height, is governed by genetics/nutrition, and favorably alters body composition."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Regular physical training during childhood and adolescence has no apparent negative effect on adult standing height.",
+        "ans": true,
+        "feedback": "True. Scientific evidence confirms that exercise training does not stunt linear bone growth or adult stature."
+      },
+      {
+        "id": 2,
+        "q": "Intense physical training delays the age at which peak height velocity (PHV) occurs in adolescent boys.",
+        "ans": false,
+        "feedback": "False. Research proves that regular physical training does not alter the age at which peak height velocity (PHV) occurs."
+      },
+      {
+        "id": 3,
+        "q": "Regular exercise training in youth increases fat-free mass and bone mineral density while reducing fat mass.",
+        "ans": true,
+        "feedback": "True. Training favorably alters body composition by enhancing lean tissue and bone density while decreasing adiposity."
+      },
+      {
+        "id": 4,
+        "q": "Observational evidence of delayed menarche in female gymnasts proves that exercise training directly suppresses ovarian function.",
+        "ans": false,
+        "feedback": "False. The association is heavily confounded by genetic selection bias, low energy availability, diet, and body composition."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Physical training does not alter adult **height** or the timing of **peak height velocity**, which are governed by genetics and nutrition.",
+        "targets": [
+          "height",
+          "peak height velocity"
+        ],
+        "optionsBank": [
+          "height",
+          "peak height velocity",
+          "fat mass",
+          "blood lactate",
+          "heart rate"
+        ],
+        "hint": "Identify the linear growth metric and the adolescent growth spurt marker."
+      },
+      {
+        "id": 2,
+        "statement": "Delayed **menarche** in highly trained female athletes is heavily confounded by **energy availability** and genetic selection bias.",
+        "targets": [
+          "menarche",
+          "energy availability"
+        ],
+        "optionsBank": [
+          "menarche",
+          "energy availability",
+          "stroke volume",
+          "hyperplasia",
+          "myelination"
+        ],
+        "hint": "Identify the onset of menstruation and the nutritional energy balance metric."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Summarize textbook evidence regarding the effects of regular physical training on linear height (stature), body composition, age at peak height velocity (PHV), and somatic maturation rate in youth.",
+        "model": "Comprehensive physiological evidence (Malina review) establishes that regular physical training has no apparent negative effect on growth in terms of height, nor does it alter the age at peak height velocity (PHV) or the rate of somatic biological maturation. Standing height is determined primarily by genetics and adequate nutrition. However, physical training exerts strong, favorable effects on body composition by reducing total body fat mass while increasing fat-free mass (FFM) and bone mineral density.",
+        "criteria": [
+          "State that physical training does not impair height or stunt linear growth.",
+          "Confirm that age at PHV and somatic maturation rate are unchanged by training.",
+          "Detail favorable body composition shifts (decreased fat mass, increased FFM and bone density)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain why observational data showing delayed menarche in young female athletes cannot be interpreted as proof that physical exercise directly causes menstrual delay.",
+        "model": "Observational data showing delayed menarche in young female athletes (e.g., gymnasts, runners) cannot prove direct causation because the relationship is heavily confounded by multiple uncontrolled variables. These include genetic selection bias (late-maturing girls naturally possess physical traits suited for gymnastics and distance running), low energy availability from restricted dietary caloric intake, altered body composition (low body fat mass), and psychological stress. Exercise training alone cannot be isolated as the direct cause.",
+        "criteria": [
+          "Identify genetic selection bias (late maturers selected into specific sports).",
+          "Detail confounding physiological/nutritional factors (low energy availability, low body fat, stress).",
+          "Conclude that exercise training alone is not isolated as the direct cause."
+        ]
+      }
+    ]
+  }
+}

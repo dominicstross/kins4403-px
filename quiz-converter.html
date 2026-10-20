@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KINS 4403 - Quiz to Word (.docx) Converter</title>
+  <!-- docx.js library for direct client-side Word document generation -->
+  <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+  <style>
+    :root {
+      --primary: #17324d;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-700: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--slate-50);
+      color: var(--slate-700);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      max-width: 680px;
+      width: 100%;
+      padding: 32px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      text-align: center;
+    }
+    h1 { font-size: 1.5rem; color: var(--primary); margin-bottom: 8px; }
+    p { font-size: 0.95rem; color: #64748b; margin-bottom: 24px; }
+    
+    .drop-zone {
+      border: 2px dashed #94a3b8;
+      border-radius: 8px;
+      padding: 40px 20px;
+      background: var(--slate-100);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 24px;
+    }
+    .drop-zone.dragover {
+      border-color: var(--accent);
+      background: #eff6ff;
+    }
+    .drop-zone p { margin-bottom: 0; font-weight: 600; color: #475569; }
+    
+    .file-input { display: none; }
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      display: none;
+    }
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn:hover { background: var(--accent-hover); }
+    .btn-key { background: #0f766e; }
+    .btn-key:hover { background: #115e59; }
+    
+    .status-box {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: #0f766e;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Quiz Pool &rarr; .DOCX Exam Generator</h1>
+  <p>Drop any module <code>_quiz.json</code> file below to generate formatted Word documents for in-class print assessments.</p>
+
+  <div class="drop-zone" id="dropZone">
+    <div style="font-size: 2.5rem; margin-bottom: 8px;">📄</div>
+    <p>Drag &amp; drop <code>_quiz.json</code> here, or <span style="color:var(--accent);">browse</span></p>
+    <input type="file" id="fileInput" class="file-input" accept=".json">
+  </div>
+
+  <div class="btn-row" id="btnRow">
+    <button class="btn" onclick="generateDocx(false)">Download Student Test (.docx)</button>
+    <button class="btn btn-key" onclick="generateDocx(true)">Download Instructor Key (.docx)</button>
+  </div>
+
+  <div class="status-box" id="statusBox"></div>
+</div>
+
+<script>
+  let loadedQuizData = null;
+  let loadedFileName = "Assessment";
+
+  const dropZone = document.getElementById('dropZone');
+  const fileInput = document.getElementById('fileInput');
+  const btnRow = document.getElementById('btnRow');
+  const statusBox = document.getElementById('statusBox');
+
+  dropZone.addEventListener('click', () => fileInput.click());
+  dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+  dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+  dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', (e) => {
+    if (e.target.files.length) handleFile(e.target.files[0]);
+  });
+
+  function handleFile(file) {
+    loadedFileName = file.name.replace(/\.json$/i, '');
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        loadedQuizData = JSON.parse(e.target.result);
+        btnRow.style.display = 'flex';
+        statusBox.textContent = `Loaded: ${file.name} successfully. Choose a format to export:`;
+      } catch (err) {
+        alert("Invalid JSON file: " + err.message);
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  async function generateDocx(isKey) {
+    if (!loadedQuizData) return;
+    const { Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType } = docx;
+
+    const sections = [];
+    const titleText = isKey ? "INSTRUCTOR ANSWER KEY & RUBRIC" : "IN-CLASS ASSESSMENT";
+
+    // Header info
+    sections.push(
+      new Paragraph({
+        text: "KINS 4403 Physiology of Exercise",
+        heading: HeadingLevel.HEADING_2,
+        alignment: AlignmentType.CENTER
+      }),
+      new Paragraph({
+        children: [
+          new TextRun({ text: `${loadedFileName.toUpperCase()} — ${titleText}`, bold: true, size: 28 })
+        ],
+        alignment: AlignmentType.CENTER,
+        spacing: { after: 200 }
+      })
+    );
+
+    if (!isKey) {
+      sections.push(
+        new Paragraph({
+          children: [
+            new TextRun({ text: "Name: _________________________________________    Date: ______________", bold: true })
+          ],
+          spacing: { after: 300 }
+        })
+      );
+    }
+
+    let qCounter = 1;
+
+    for (const [partId, pool] of Object.entries(loadedQuizData)) {
+      if (typeof pool !== 'object' || !pool) continue;
+
+      sections.push(
+        new Paragraph({
+          text: `Section / Concept Part: ${partId.toUpperCase()}`,
+          heading: HeadingLevel.HEADING_3,
+          spacing: { before: 200, after: 150 }
+        })
+      );
+
+      // 1. Multiple Choice
+      const mcqs = pool.mcq || pool.multipleChoice || [];
+      if (mcqs.length) {
+        sections.push(new Paragraph({ text: "Part A: Multiple Choice", heading: HeadingLevel.HEADING_4, spacing: { before: 100, after: 100 } }));
+        mcqs.forEach((item) => {
+          sections.push(new Paragraph({
+            children: [new TextRun({ text: `${qCounter++}. ${item.q || item.question}`, bold: true })],
+            spacing: { before: 100, after: 60 }
+          }));
+          (item.opts || item.options || []).forEach((opt, idx) => {
+            const isCorrect = (idx === item.correct);
+            const prefix = String.fromCharCode(65 + idx);
+            sections.push(new Paragraph({
+              children: [
+                new TextRun({
+                  text: `   [  ] ${prefix}. ${opt}`,
+                  bold: (isKey && isCorrect),
+                  color: (isKey && isCorrect) ? "15803d" : "000000"
+                })
+              ],
+              spacing: { after: 40 }
+            }));
+          });
+          if (isKey && (item.rationale || item.feedback)) {
+            sections.push(new Paragraph({
+              children: [new TextRun({ text: `   Rationale: ${item.rationale || item.feedback}`, italics: true, color: "075985" })],
+              spacing: { after: 120 }
+            }));
+          }
+        });
+      }
+
+      // 2. Multi-Select
+      const mss = pool.ms || pool.multiSelect || [];
+      if (mss.length) {
+        sections.push(new Paragraph({ text: "Part B: Multi-Select (Select All That Apply)", heading: HeadingLevel.HEADING_4, spacing: { before: 150, after: 100 } }));
+        mss.forEach((item) => {
+          sections.push(new Paragraph({
+            children: [new TextRun({ text: `${qCounter++}. ${item.q || item.question}`, bold: true })],
+            spacing: { before: 100, after: 60 }
+          }));
+          const correctArr = item.correctArray || item.correct || [];
+          (item.opts || item.options || []).forEach((opt, idx) => {
+            const isCorrect = correctArr.includes(idx);
+            const prefix = String.fromCharCode(65 + idx);
+            sections.push(new Paragraph({
+              children: [
+                new TextRun({
+                  text: `   [  ] ${prefix}. ${opt}`,
+                  bold: (isKey && isCorrect),
+                  color: (isKey && isCorrect) ? "15803d" : "000000"
+                })
+              ],
+              spacing: { after: 40 }
+            }));
+          });
+          if (isKey && (item.rationale || item.feedback)) {
+            sections.push(new Paragraph({
+              children: [new TextRun({ text: `   Rationale: ${item.rationale || item.feedback}`, italics: true, color: "075985" })],
+              spacing: { after: 120 }
+            }));
+          }
+        });
+      }
+
+      // 3. True / False
+      const tfs = pool.tf || pool.trueFalse || [];
+      if (tfs.length) {
+        sections.push(new Paragraph({ text: "Part C: True / False", heading: HeadingLevel.HEADING_4, spacing: { before: 150, after: 100 } }));
+        tfs.forEach((item) => {
+          const ansBool = (item.ans !== undefined) ? Boolean(item.ans) : Boolean(item.answer);
+          sections.push(new Paragraph({
+            children: [
+              new TextRun({ text: `${qCounter++}. [ TRUE  /  FALSE ]  ${item.q || item.question}`, bold: true })
+            ],
+            spacing: { before: 80, after: 40 }
+          }));
+          if (isKey) {
+            sections.push(new Paragraph({
+              children: [
+                new TextRun({ text: `   Answer: ${ansBool ? "TRUE" : "FALSE"}`, bold: true, color: "15803d" }),
+                new TextRun({ text: ` — Rationale: ${item.feedback || item.rationale || ""}`, italics: true, color: "075985" })
+              ],
+              spacing: { after: 100 }
+            }));
+          }
+        });
+      }
+
+      // 4. Cloze / Sentence Completion
+      const clozes = pool.cloze || pool.fillBlank || [];
+      if (clozes.length) {
+        sections.push(new Paragraph({ text: "Part D: Sentence Completion", heading: HeadingLevel.HEADING_4, spacing: { before: 150, after: 100 } }));
+        clozes.forEach((item) => {
+          let stmt = item.statement || "";
+          let keyAnswer = (item.targets || []).join(", ");
+          if (!isKey) {
+            stmt = stmt.replace(/\*\*(.*?)\*\*/g, "___________________");
+          }
+          sections.push(new Paragraph({
+            children: [new TextRun({ text: `${qCounter++}. ${stmt}`, bold: true })],
+            spacing: { before: 80, after: 40 }
+          }));
+          if (item.optionsBank && !isKey) {
+            sections.push(new Paragraph({
+              children: [new TextRun({ text: `   Word Bank: [ ${item.optionsBank.join("  |  ")} ]`, italics: true, size: 18 })],
+              spacing: { after: 80 }
+            }));
+          }
+          if (isKey) {
+            sections.push(new Paragraph({
+              children: [new TextRun({ text: `   Expected Target Terms: ${keyAnswer}`, bold: true, color: "15803d" })],
+              spacing: { after: 100 }
+            }));
+          }
+        });
+      }
+
+      // 5. Short Answer
+      const sas = pool.sa || pool.shortAnswer || [];
+      if (sas.length) {
+        sections.push(new Paragraph({ text: "Part E: Applied Short Answer", heading: HeadingLevel.HEADING_4, spacing: { before: 150, after: 100 } }));
+        sas.forEach((item) => {
+          sections.push(new Paragraph({
+            children: [new TextRun({ text: `${qCounter++}. ${item.prompt || item.q}`, bold: true })],
+            spacing: { before: 100, after: 60 }
+          }));
+          if (!isKey) {
+            sections.push(
+              new Paragraph({ text: "_________________________________________________________________________________", spacing: { after: 60 } }),
+              new Paragraph({ text: "_________________________________________________________________________________", spacing: { after: 60 } }),
+              new Paragraph({ text: "_________________________________________________________________________________", spacing: { after: 120 } })
+            );
+          } else {
+            sections.push(
+              new Paragraph({
+                children: [
+                  new TextRun({ text: "   Model Exemplar: ", bold: true, color: "15803d" }),
+                  new TextRun({ text: item.model || item.modelAnswer || "" })
+                ],
+                spacing: { after: 60 }
+              })
+            );
+            if (item.criteria && item.criteria.length) {
+              sections.push(new Paragraph({ text: "   Evaluation Rubric:", bold: true, color: "075985" }));
+              item.criteria.forEach(cr => {
+                sections.push(new Paragraph({ text: `     • ${cr}`, spacing: { after: 30 } }));
+              });
+            }
+          }
+        });
+      }
+    }
+
+    const doc = new Document({ sections: [{ properties: {}, children: sections }] });
+    Packer.toBlob(doc).then(blob => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${loadedFileName}_${isKey ? 'InstructorKey' : 'StudentExam'}.docx`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+  }
+</script>
+</body>
+</html>

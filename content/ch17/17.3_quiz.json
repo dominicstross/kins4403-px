@@ -1,0 +1,995 @@
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "How do total body weight and fat mass change in children and adolescents following structured exercise training?",
+        "opts": [
+          "Total body weight and fat mass both increase significantly",
+          "Total body weight and fat mass decrease, while fat-free mass increases",
+          "Fat mass increases while fat-free mass decreases",
+          "Body weight decreases with zero change in fat mass or fat-free mass"
+        ],
+        "correct": 1,
+        "rationale": "In response to physical training (both resistance and aerobic), boys and girls decrease body weight and fat mass while increasing fat-free mass, mirroring adult responses."
+      },
+      {
+        "id": 2,
+        "q": "Why is the absolute increase in fat-free mass following exercise training less pronounced in prepubescent children compared to adults?",
+        "opts": [
+          "Prepubescent children lack functioning skeletal muscle fibers",
+          "Prepubescent youth possess low circulating concentrations of androgenic hormones like testosterone",
+          "Children experience complete suppression of growth hormone secretion during exercise",
+          "Prepubescent muscle tissue is completely resistant to mechanical overload"
+        ],
+        "correct": 1,
+        "rationale": "The increase in fat-free mass is less in prepubescent children than adults primarily because prepubescent youth have low circulating androgen (testosterone) concentrations required for major muscle hypertrophy."
+      },
+      {
+        "id": 3,
+        "q": "What specific skeletal adaptation is observed when prepubescent children engage in high-impact weight-bearing exercise training?",
+        "opts": [
+          "Premature closure of epiphyseal growth plates in 100% of cases",
+          "Significant bone growth and mineral accretion up to 10% above normal growth baselines",
+          "Complete cessation of longitudinal bone lengthening",
+          "Loss of bone mineral density due to mechanical stress"
+        ],
+        "correct": 1,
+        "rationale": "High-impact weight-bearing exercise serves as a potent osteogenic stimulus, resulting in significant bone growth up to 10% above baseline values seen with normal growth."
+      },
+      {
+        "id": 4,
+        "q": "How does the body composition response of children compare to adults when participating in aerobic or resistance training?",
+        "opts": [
+          "Children adapt in an opposite direction, gaining fat mass and losing fat-free mass",
+          "Children respond similarly to adults by decreasing weight and fat mass and increasing fat-free mass",
+          "Children exhibit no body composition changes regardless of training duration",
+          "Children experience fat loss only if circulating testosterone is artificially elevated"
+        ],
+        "correct": 1,
+        "rationale": "Children and adolescents respond to physical training similarly to adults regarding body composition—decreasing weight and fat mass while increasing fat-free mass."
+      },
+      {
+        "id": 5,
+        "q": "Which exercise modality serves as the primary osteogenic stimulus for increasing bone mineral density above normal growth baselines in youth?",
+        "opts": [
+          "Non-weight-bearing swimming drills",
+          "High-impact weight-bearing physical activity",
+          "Low-intensity seated cycling",
+          "Static passive stretching exercises"
+        ],
+        "correct": 1,
+        "rationale": "High-impact weight-bearing exercise training provides the mechanical loading needed to stimulate osteoblasts and increase bone mineral density above normal growth levels."
+      },
+      {
+        "id": 6,
+        "q": "What happens to fat-free mass (FFM) in prepubescent youth following structured resistance or aerobic training?",
+        "opts": [
+          "FFM decreases due to protein catabolism",
+          "FFM increases, though the absolute increase is less than in adolescents and adults",
+          "FFM increases by 200% due to massive muscle fiber hyperplasia",
+          "FFM remains completely unchanged under all training conditions"
+        ],
+        "correct": 1,
+        "rationale": "Fat-free mass increases with training in children, but the magnitude of increase is less than that observed in adolescents or adults due to low pubertal androgen levels."
+      },
+      {
+        "id": 7,
+        "q": "A 10-year-old child completes a 12-week aerobic and resistance conditioning program. Which body composition shift is most physiologically expected?",
+        "opts": [
+          "Increased total body weight, increased fat mass, decreased bone density",
+          "Decreased fat mass, decreased body weight, modest increase in fat-free mass, increased bone mineral density",
+          "Massive muscle hypertrophy equivalent to an adult bodybuilder",
+          "Zero change in fat mass or soft tissue composition"
+        ],
+        "correct": 1,
+        "rationale": "Expected adaptations in children include reductions in body weight and fat mass, a modest increase in fat-free mass, and enhanced bone mineral accretion from weight-bearing exercise."
+      },
+      {
+        "id": 8,
+        "q": "Building peak bone mass through high-impact exercise during prepubertal growth provides what long-term health benefit?",
+        "opts": [
+          "Guaranteed prevention of all soft tissue sports injuries",
+          "A permanent osteogenic reserve that helps protect against osteoporosis and fractures later in life",
+          "Inhibition of pubertal testosterone production",
+          "Permanent reduction in resting blood pressure"
+        ],
+        "correct": 1,
+        "rationale": "Accumulating higher bone mineral density during childhood creates an osteogenic reserve that mitigates age-related bone loss and fracture risk in adulthood."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which body composition adaptations occur in children and adolescents following physical exercise training? (Select all that apply)",
+        "opts": [
+          "Decrease in total body weight",
+          "Decrease in total fat mass",
+          "Increase in fat-free mass (FFM)",
+          "Increase in bone mineral density from high-impact weight-bearing exercise"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "Training in youth leads to reduced body weight, decreased fat mass, increased fat-free mass, and elevated bone growth/density from weight-bearing impact."
+      },
+      {
+        "id": 2,
+        "q": "Which factors explain why fat-free mass gains are less pronounced in prepubescent youth than in mature adults? (Select all that apply)",
+        "opts": [
+          "Low circulating concentrations of androgenic hormones (testosterone)",
+          "Minimal structural muscle fiber hypertrophy in the absence of pubertal surges",
+          "Complete absence of functional motor units in children",
+          "Higher rates of protein breakdown during childhood"
+        ],
+        "correctArray": [
+          0,
+          1
+        ],
+        "rationale": "Prepubescent youth have low circulating testosterones and androgenic hormones, resulting in minimal structural muscle hypertrophy compared to post-pubertal populations."
+      },
+      {
+        "id": 3,
+        "q": "Which characteristics apply to skeletal bone adaptations in children participating in high-impact training? (Select all that apply)",
+        "opts": [
+          "Bone mineral growth can increase up to 10% above normal growth baselines",
+          "High-impact weight-bearing exercise acts as an osteogenic stimulus",
+          "Mechanically loaded bones undergo increased osteoblast activity",
+          "Skeletal bone density decreases rapidly during exercise"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "High-impact weight-bearing exercise loads the skeleton, stimulating osteoblast activity and increasing bone growth up to 10% above baseline growth levels."
+      },
+      {
+        "id": 4,
+        "q": "Which statements correctly compare youth and adult body composition training responses? (Select all that apply)",
+        "opts": [
+          "Both youth and adults decrease fat mass with training",
+          "Both youth and adults increase fat-free mass with training",
+          "The relative increase in fat-free mass is smaller in prepubescent children than in adults",
+          "Prepubescent children gain 10-fold more muscle mass than adult males"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Youth and adults share similar direction of body composition adaptations (fat loss, FFM gain), but prepubescent FFM gains are smaller due to low androgen levels."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Children and adolescents respond to physical training similarly to adults with respect to changes in body weight and composition.",
+        "ans": true,
+        "feedback": "True. Both youth and adults experience reductions in total body weight and fat mass alongside increases in fat-free mass following structured training."
+      },
+      {
+        "id": 2,
+        "q": "Prepubescent children experience greater increases in fat-free mass following resistance training than mature young adults.",
+        "ans": false,
+        "feedback": "False. The increase in fat-free mass is significantly less in prepubescent children than in adults due to low circulating androgen (testosterone) levels."
+      },
+      {
+        "id": 3,
+        "q": "High-impact weight-bearing exercise training can increase bone mineral growth in children up to 10% above normal growth baselines.",
+        "ans": true,
+        "feedback": "True. Mechanical strain from high-impact activities stimulates osteoblast activity, enhancing bone mineral density above normal growth levels."
+      },
+      {
+        "id": 4,
+        "q": "Aerobic and resistance training cause an increase in absolute fat mass in prepubescent girls.",
+        "ans": false,
+        "feedback": "False. Physical training induces a decrease in fat mass in both boys and girls."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Physical training in children reduces body weight and **fat mass** while increasing **fat-free mass**.",
+        "targets": [
+          "fat mass",
+          "fat-free mass"
+        ],
+        "optionsBank": [
+          "fat mass",
+          "fat-free mass",
+          "epiphyseal plates",
+          "blood pressure",
+          "myelin"
+        ],
+        "hint": "Identify the soft tissue components that decrease and increase, respectively, with training."
+      },
+      {
+        "id": 2,
+        "statement": "High-impact weight-bearing exercise stimulates bone growth up to **10%** above normal growth baselines due to low prepubescent **testosterone** levels limiting muscle hypertrophy.",
+        "targets": [
+          "10%",
+          "testosterone"
+        ],
+        "optionsBank": [
+          "10%",
+          "testosterone",
+          "50%",
+          "estrogen",
+          "lactate"
+        ],
+        "hint": "Recall the percentage bone increase above baseline and the primary androgen limited in pre-puberty."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Explain the body composition adaptations observed in prepubescent children following exercise training, highlighting how fat-free mass changes differ from adults and detailing the skeletal benefits of high-impact loading.",
+        "model": "Following structured resistance or aerobic training, prepubescent boys and girls demonstrate body composition adaptations similar to adults: reductions in total body weight and fat mass, accompanied by an increase in fat-free mass (FFM). However, the absolute and relative increase in FFM is significantly less in prepubescent children because they possess low circulating concentrations of androgenic hormones (testosterone), preventing major structural muscle hypertrophy. Additionally, high-impact weight-bearing exercise acts as a powerful osteogenic stimulus, increasing bone mineral density up to 10% above normal growth baselines, creating a lasting skeletal reserve.",
+        "criteria": [
+          "State that training decreases body weight and fat mass while increasing fat-free mass.",
+          "Explain that FFM gains are smaller in children due to low circulating androgen (testosterone) concentrations.",
+          "Identify high-impact weight-bearing exercise as an osteogenic stimulus that increases bone growth up to 10% above baseline."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "A parent expresses concern that exercise will cause their 9-year-old child to lose bone density or fail to build lean mass. How would an exercise physiologist address these concerns based on textbook evidence?",
+        "model": "An exercise physiologist would reassure the parent that exercise training safely improves body composition in youth. Physical training leads to healthy fat mass reduction and modest lean fat-free mass gains. Although pre-pubertal children do not build massive muscle bulk due to naturally low testosterone levels, weight-bearing exercise serves as a potent stimulus for skeleton development. Studies prove that high-impact activities increase bone mineral density up to 10% above normal growth baselines, building strong bones and providing lifelong protection against fractures.",
+        "criteria": [
+          "Reassure safety and explain expected soft tissue changes (fat loss, modest FFM gain).",
+          "Note low androgen levels prevent excessive muscle bulk in pre-puberty.",
+          "Cite evidence showing high-impact exercise increases bone mineral density up to 10% above normal growth."
+        ]
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "Historically, why was resistance training controversial for prepubescent boys and girls?",
+        "opts": [
+          "Fears of epiphyseal growth plate injury and speculation that low androgen levels rendered training ineffective",
+          "Concerns that resistance exercise would cause premature cardiac hypertrophy",
+          "Evidence that youth strength training caused permanent loss of motor skills",
+          "Fears that resistance training suppressed growth hormone secretion"
+        ],
+        "correct": 0,
+        "rationale": "Historically, youth resistance training was discouraged due to fear of injury/growth plate damage and speculation that low circulating androgen concentrations would prevent strength gains."
+      },
+      {
+        "id": 2,
+        "q": "What is the primary physiological mechanism enabling strength gains in prepubescent children following resistance training?",
+        "opts": [
+          "Massive structural muscle fiber hypertrophy",
+          "Neurological adaptations, including improved motor coordination and increased motor unit activation",
+          "Muscle fiber hyperplasia (doubling total fiber count)",
+          "A 10-fold increase in resting testosterone concentration"
+        ],
+        "correct": 1,
+        "rationale": "Prepubescent strength gains occur largely without changes in muscle size and are driven by neurological adaptations, including improved motor skill coordination, increased motor unit activation, and recruitment."
+      },
+      {
+        "id": 3,
+        "q": "How do percentage strength increases in children and adolescents following resistance training compare to those in young adults?",
+        "opts": [
+          "Children experience zero percentage increase in strength",
+          "Percentage strength increases in children and adolescents are generally similar to those observed in young adults",
+          "Children gain 500% more relative strength than adults under identical loading",
+          "Adults gain strength while children consistently lose strength"
+        ],
+        "correct": 1,
+        "rationale": "In general, percentage strength increases for children and adolescents following structured resistance training are similar to those for young adults."
+      },
+      {
+        "id": 4,
+        "q": "How do the mechanisms of strength gain differ between prepubescent children and post-pubertal adolescents?",
+        "opts": [
+          "Prepubescent gains rely on neural adaptations without muscle size changes; adolescent gains result from both neural adaptations and muscle hypertrophy",
+          "Prepubescent gains rely entirely on muscle hypertrophy; adolescent gains rely on bone elongation",
+          "Adolescents gain strength solely through motor skill loss",
+          "Both age groups gain strength through identical massive muscle hypertrophy"
+        ],
+        "correct": 0,
+        "rationale": "Prepubescent strength gains occur largely without muscle hypertrophy via neural mechanisms, whereas adolescent strength gains stem from both neural adaptations and increases in muscle size/hypertrophy."
+      },
+      {
+        "id": 5,
+        "q": "Which of the following is an established neurological adaptation responsible for strength gains in trained pre-pubertal children?",
+        "opts": [
+          "Improved motor skill coordination and increased motor unit activation",
+          "Intramuscular fatty acid conversion",
+          "Growth plate ossification and epiphyseal fusion",
+          "Reduction in motor unit firing frequency"
+        ],
+        "correct": 0,
+        "rationale": "Textbook evidence highlights improved motor skill coordination, increased motor unit activation, and undetermined neurological adaptations as drivers of prepubescent strength gains."
+      },
+      {
+        "id": 6,
+        "q": "Current scientific consensus regarding properly designed youth resistance training programs states that they are:",
+        "opts": [
+          "Dangerous and highly likely to cause growth plate micro-trauma",
+          "Safe and effective for youth and adolescents, with a very low risk of injury",
+          "Completely ineffective for increasing force production in females",
+          "Banned by all major exercise physiology and pediatric medical organizations"
+        ],
+        "correct": 1,
+        "rationale": "It is widely accepted that properly designed youth resistance training programs are safe, effective, and carry a very low risk of injury."
+      },
+      {
+        "id": 7,
+        "q": "What role does muscle hypertrophy play in strength increases observed in prepubescent children?",
+        "opts": [
+          "It is the sole driver of all strength gains",
+          "It plays a minor to negligible role; strength increases occur largely without changes in muscle size",
+          "It occurs only in Type I slow-twitch fibers",
+          "It causes rapid reduction in specific tension"
+        ],
+        "correct": 1,
+        "rationale": "Prepubescent strength gains are accomplished largely without any changes in muscle size (hypertrophy), relying instead on neural mechanisms."
+      },
+      {
+        "id": 8,
+        "q": "A strength coach implements a supervised resistance program for a 10-year-old child. What primary change accounts for the child's 20% increase in chest press strength?",
+        "opts": [
+          "A 20% increase in pectoral muscle cross-sectional area",
+          "Improved motor unit activation, synchronization, and motor skill coordination",
+          "Profound hyperplasia doubling the number of skeletal muscle fibers",
+          "Rapid elevation of circulating estrogen levels"
+        ],
+        "correct": 1,
+        "rationale": "Because prepubescent children experience minimal muscle hypertrophy due to low androgen levels, early strength gains stem from neural re-mapping, motor coordination, and increased motor unit recruitment."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which neurological mechanisms contribute to prepubescent strength gains following resistance training? (Select all that apply)",
+        "opts": [
+          "Improved motor skill coordination",
+          "Increased motor unit activation",
+          "Other undetermined neurological adaptations",
+          "Massive structural hypertrophy of myofibrils"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Prepubescent strength gains rely on neural mechanisms: motor skill coordination, increased motor unit activation, and neurological adaptations, without significant muscle hypertrophy."
+      },
+      {
+        "id": 2,
+        "q": "Which statements reflect current scientific consensus on youth resistance training? (Select all that apply)",
+        "opts": [
+          "Properly designed resistance programs are safe and effective for youth",
+          "The risk of injury in supervised youth resistance training is very low",
+          "Percentage strength gains in children are similar to those in young adults",
+          "Youth should never lift weights because it stops bone growth"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Current consensus establishes that youth resistance training is safe, effective, carries low injury risk, and yields relative percentage strength gains similar to adults."
+      },
+      {
+        "id": 3,
+        "q": "How do mechanisms of strength gains differ across developmental stages? (Select all that apply)",
+        "opts": [
+          "Prepubescent children gain strength primarily through neural adaptations without muscle size changes",
+          "Adolescents gain strength through both neural adaptations and increases in muscle size",
+          "Adult gains involve both neural drive and muscle hypertrophy",
+          "Prepubescent gains are driven exclusively by massive testosterone surges"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Prepubescent strength gains are neural (no muscle size change); adolescent and adult gains combine neural factors with structural muscle hypertrophy."
+      },
+      {
+        "id": 4,
+        "q": "Which historical myths regarding youth resistance training have been disproved by modern research? (Select all that apply)",
+        "opts": [
+          "Resistance training inevitability causes growth plate injuries in children",
+          "Low androgen levels prevent prepubescent children from increasing strength",
+          "Free weight training is inherently unsafe for youth regardless of supervision",
+          "Neurological motor unit activation can improve with practice in children"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Historical fears of growth plate injury, speculation that low androgens prevent strength gains, and claims that free weights are inherently unsafe have all been disproved."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Properly designed resistance training programs are safe and effective for youth and adolescents, with a very low risk of injury.",
+        "ans": true,
+        "feedback": "True. Modern scientific consensus confirms that supervised youth resistance training is safe, effective, and carries minimal injury risk."
+      },
+      {
+        "id": 2,
+        "q": "Prepubescent children achieve strength gains primarily through significant increases in skeletal muscle cross-sectional area (hypertrophy).",
+        "ans": false,
+        "feedback": "False. Prepubescent strength gains occur largely without changes in muscle size, relying instead on neurological adaptations."
+      },
+      {
+        "id": 3,
+        "q": "The percentage increases in strength for children following resistance training are generally similar to those for young adults.",
+        "ans": true,
+        "feedback": "True. Relative (%) strength improvements in children match or approximate those seen in young adults under similar training protocols."
+      },
+      {
+        "id": 4,
+        "q": "Strength gains in post-pubertal adolescents result from both neural adaptations and increases in muscle size.",
+        "ans": true,
+        "feedback": "True. Post-pubertal strength gains combine neurological motor drive enhancements with structural muscle fiber hypertrophy."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Strength gains in prepubescent youth occur largely without increases in **muscle size** and are driven primarily by **neurological adaptations**.",
+        "targets": [
+          "muscle size",
+          "neurological adaptations"
+        ],
+        "optionsBank": [
+          "muscle size",
+          "neurological adaptations",
+          "growth plate fusion",
+          "lactate accumulation",
+          "hyperplasia"
+        ],
+        "hint": "Identify the structural parameter that does NOT change and the primary neural driver."
+      },
+      {
+        "id": 2,
+        "statement": "Prepubescent strength gains rely on improved **motor skill coordination** and increased **motor unit activation**.",
+        "targets": [
+          "motor skill coordination",
+          "motor unit activation"
+        ],
+        "optionsBank": [
+          "motor skill coordination",
+          "motor unit activation",
+          "testosterone surges",
+          "epiphyseal injury",
+          "glycogen depletion"
+        ],
+        "hint": "Identify the two specific neural adaptations listed in the textbook."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Contrast the physiological mechanisms responsible for strength gains in prepubescent children versus post-pubertal adolescents following a 10-week resistance training program.",
+        "model": "In prepubescent children, strength gains occur largely without significant changes in muscle size (cross-sectional area). Because circulating androgen (testosterone) concentrations are low, children adapt primarily through neurological mechanisms, including improved motor skill coordination, increased motor unit activation, higher firing rates, and better synchronization. In contrast, strength gains in post-pubertal adolescents result from a combination of neural adaptations and structural muscle hypertrophy (increased fiber size and specific tension) driven by pubertal surges in anabolic hormones.",
+        "criteria": [
+          "State that prepubescent gains occur without significant muscle size increase (hypertrophy).",
+          "Identify neural factors (motor skill coordination, motor unit activation) as the driver in prepubescence.",
+          "Explain that adolescent gains combine neural adaptations with structural muscle hypertrophy driven by pubertal hormones."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Refute the historical myth that resistance training is ineffective and dangerous for pre-pubertal youth, citing textbook evidence on safety, efficacy, and percentage strength gains.",
+        "model": "Historical concerns that resistance training injures growth plates or is ineffective due to low prepubescent testosterone have been thoroughly disproved. Current scientific consensus confirms that properly designed, supervised youth resistance training programs are safe, effective, and carry a very low risk of injury. Furthermore, studies demonstrate that children achieve relative percentage strength increases similar to those of young adults, driven by neural re-mapping and motor unit recruitment.",
+        "criteria": [
+          "Address historical safety fears (growth plate injury) and state that risk is actually very low.",
+          "Refute claims of ineffectiveness by noting children achieve percentage strength gains similar to young adults.",
+          "Highlight that gains are safely achieved via neural adaptations."
+        ]
+      }
+    ]
+  },
+  "p3": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "How do relative VO2max adaptations in prepubescent children compare to those in adolescents and adults following aerobic endurance training?",
+        "opts": [
+          "Children experience zero improvement in endurance performance or VO2max",
+          "Children experience modest VO2max increases (5% to 15%) compared to larger increases in adolescents and adults (15% to 25%)",
+          "Children experience a 100% increase in VO2max while adults experience 5%",
+          "Children and adults show identical 50% increases in VO2max"
+        ],
+        "correct": 1,
+        "rationale": "Aerobic training increases VO2max by about 5% to 15% in prepubescent children, compared with about 15% to 25% in adolescents and adults."
+      },
+      {
+        "id": 2,
+        "q": "What interesting finding emerged from early studies investigating aerobic training in prepubescent children?",
+        "opts": [
+          "Children's VO2max doubled while running performance declined",
+          "Children's running performance improved substantially even without significant increases in VO2max",
+          "Children experienced severe cardiac atrophy during aerobic training",
+          "Children lost 50% of their mitochondrial density"
+        ],
+        "correct": 1,
+        "rationale": "Early studies noted that even when prepubescent children showed little or no change in VO2max values, their running performance improved substantially."
+      },
+      {
+        "id": 3,
+        "q": "What cardiorespiratory parameter is considered the major physiological limitation to aerobic performance and VO2max expansion in children?",
+        "opts": [
+          "Maximal heart rate",
+          "Stroke volume (and heart size)",
+          "Resting arterial oxygen saturation",
+          "Pulmonary surfactant concentration"
+        ],
+        "correct": 1,
+        "rationale": "Stroke volume appears to be the major limitation to aerobic performance in children, making further increases in VO2max dependent on heart growth."
+      },
+      {
+        "id": 4,
+        "q": "When do more substantial, adult-like increases in VO2max (15% to 25%) typically begin to occur in response to aerobic training?",
+        "opts": [
+          "During early infancy",
+          "Once children have reached puberty",
+          "Only after age 30",
+          "During middle childhood before age 8"
+        ],
+        "correct": 1,
+        "rationale": "More substantial changes in VO2max appear to occur once children have reached puberty, likely linked to heart growth and hormonal maturation."
+      },
+      {
+        "id": 5,
+        "q": "Why does endurance running performance improve in prepubescent children following aerobic training despite blunted VO2max gains?",
+        "opts": [
+          "Improvements in submaximal running economy, movement coordination, and peripheral muscle adaptations",
+          "Instantaneous doubling of left ventricular volume within 24 hours",
+          "Complete conversion of Type I fibers into Type IIx fibers",
+          "Permanent suppression of ventilation during maximal exertion"
+        ],
+        "correct": 0,
+        "rationale": "Performance gains without large VO2max increases are driven by improved exercise economy, motor coordination, peripheral capillary density, and muscle oxidative capacity."
+      },
+      {
+        "id": 6,
+        "q": "An 8-year-old child completes an 8-week endurance running program. What VO2max increase is most realistic based on exercise physiology research?",
+        "opts": [
+          "0% to 5% decrease",
+          "5% to 15% increase",
+          "30% to 40% increase",
+          "75% increase"
+        ],
+        "correct": 1,
+        "rationale": "Prepubescent aerobic training typically yields modest VO2max improvements in the range of 5% to 15%."
+      },
+      {
+        "id": 7,
+        "q": "How does stroke volume limit aerobic capacity expansion in prepubescent youth?",
+        "opts": [
+          "Children have excessively large heart chambers that cause blood pooling",
+          "Smaller left ventricular heart size limits maximal stroke volume, constraining maximal cardiac output until pubertal heart growth occurs",
+          "Children cannot increase heart rate above 100 beats per minute",
+          "Stroke volume decreases linearly during exercise in youth"
+        ],
+        "correct": 1,
+        "rationale": "Because stroke volume is limited by smaller heart size in children, maximal cardiac output and VO2max expansion are constrained until heart growth occurs at puberty."
+      },
+      {
+        "id": 8,
+        "q": "Comparing cardiorespiratory training adaptations between prepubescent children and adolescents reveals that adolescents:",
+        "opts": [
+          "Exhibit blunted VO2max gains of only 2%",
+          "Are similar to adults in their VO2max improvements (15% to 25%)",
+          "Lose endurance capacity when training",
+          "Are incapable of increasing stroke volume"
+        ],
+        "correct": 1,
+        "rationale": "Adolescents respond similarly to adults, achieving 15% to 25% increases in VO2max following structured aerobic training."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which statements accurately describe aerobic training adaptations in prepubescent children? (Select all that apply)",
+        "opts": [
+          "VO2max increases modestly (5% to 15%)",
+          "Running performance improves substantially regardless of VO2max changes",
+          "Stroke volume is a primary limitation to VO2max expansion",
+          "Prepubescent children achieve 50% VO2max increases easily"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Prepubescent aerobic training increases VO2max modestly (5-15%), improves running performance significantly, and is constrained by stroke volume/heart size."
+      },
+      {
+        "id": 2,
+        "q": "Which factors explain why VO2max increases are smaller in children than in adults? (Select all that apply)",
+        "opts": [
+          "Smaller left ventricular chamber size limiting stroke volume",
+          "Requirement for developmental heart growth during puberty",
+          "Scaling issues associated with body size variables",
+          "Complete absence of alveoli in pediatric lungs"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Blunted VO2max gains in pre-puberty stem from stroke volume limits (smaller heart size), the need for pubertal heart growth, and body size scaling factors."
+      },
+      {
+        "id": 3,
+        "q": "Which cardiorespiratory adaptations occur when youth transition into puberty? (Select all that apply)",
+        "opts": [
+          "VO2max responsiveness increases to adult levels (15% to 25%)",
+          "Heart size and stroke volume capacity expand",
+          "Aerobic training gains closely resemble adult adaptations",
+          "Cardiorespiratory performance completely ceases"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "During puberty, heart growth and physiological maturation allow VO2max gains to reach adult levels (15-25%)."
+      },
+      {
+        "id": 4,
+        "q": "How does endurance performance improve in children following aerobic training? (Select all that apply)",
+        "opts": [
+          "Improved submaximal running economy",
+          "Peripheral muscle metabolic adaptations",
+          "Modest expansions in VO2max (5% to 15%)",
+          "Reductions in motor unit recruitment"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Endurance gains in children result from better movement economy, peripheral muscle metabolic adaptations, and modest (5-15%) VO2max improvements."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Aerobic endurance training in prepubescent children typically produces VO2max increases of 5% to 15%.",
+        "ans": true,
+        "feedback": "True. Prepubescent children show modest VO2max gains (5% to 15%), compared to 15% to 25% in adolescents and adults."
+      },
+      {
+        "id": 2,
+        "q": "Prepubescent children cannot improve running performance unless their VO2max increases by at least 20%.",
+        "ans": false,
+        "feedback": "False. Early studies demonstrated that children's running performance improves substantially even without significant changes in VO2max."
+      },
+      {
+        "id": 3,
+        "q": "Stroke volume appears to be the major physiological limitation to aerobic performance and VO2max in prepubescent children.",
+        "ans": true,
+        "feedback": "True. Limited heart chamber size constrains maximal stroke volume and cardiac output in pre-pubertal children."
+      },
+      {
+        "id": 4,
+        "q": "Substantial expansions in VO2max following aerobic training appear once children reach puberty.",
+        "ans": true,
+        "feedback": "True. Pubertal maturation and developmental heart growth enable larger, adult-like VO2max increases (15% to 25%)."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Aerobic training increases VO2max by **5% to 15%** in prepubescent children compared to **15% to 25%** in adolescents and adults.",
+        "targets": [
+          "5% to 15%",
+          "15% to 25%"
+        ],
+        "optionsBank": [
+          "5% to 15%",
+          "15% to 25%",
+          "50% to 60%",
+          "0%",
+          "100%"
+        ],
+        "hint": "Identify the expected percentage VO2max increase ranges for pre-pubertal children versus adults."
+      },
+      {
+        "id": 2,
+        "statement": "The primary cardiorespiratory factor limiting VO2max in prepubescent children is **stroke volume**, which depends on **heart growth** during puberty.",
+        "targets": [
+          "stroke volume",
+          "heart growth"
+        ],
+        "optionsBank": [
+          "stroke volume",
+          "heart growth",
+          "maximal heart rate",
+          "glycogen depletion",
+          "myelination"
+        ],
+        "hint": "Identify the cardiac output component and the structural organ development needed for larger aerobic gains."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Explain the 'VO2max paradox' in prepubescent aerobic training, contrasting the magnitude of VO2max improvements in children versus adults and detailing the primary physiological limitation involved.",
+        "model": "The 'VO2max paradox' refers to the finding that prepubescent children experience substantial improvements in endurance running performance following aerobic training despite showing blunted increases in VO2max (only 5% to 15% in children versus 15% to 25% in adolescents and adults). Exercise physiologists attribute this blunted VO2max response to stroke volume limitations caused by smaller left ventricular heart size. Substantial expansions in VO2max require developmental heart growth during puberty. Children improve running performance primarily through enhanced submaximal running economy, better motor coordination, and peripheral muscle adaptations rather than large central cardiac output increases.",
+        "criteria": [
+          "State VO2max increase ranges (5-15% in children vs 15-25% in adults).",
+          "Identify stroke volume and heart size as the major cardiorespiratory limitation in children.",
+          "Explain that performance gains in children occur via running economy and peripheral muscle adaptations."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Why should a track coach evaluate youth aerobic endurance adaptations using field performance tests rather than relying solely on VO2max measurements?",
+        "model": "A track coach should use field performance tests (like timed distance runs) because prepubescent children adapt to aerobic training primarily through non-VO2max mechanisms. Research shows children make major gains in endurance performance even with small VO2max changes (5-15%). Because stroke volume and heart size constrain central oxygen transport in pre-puberty, training gains manifest as improved submaximal running economy, reduced oxygen cost, and peripheral muscle adaptations. Field tests accurately capture these functional performance gains.",
+        "criteria": [
+          "Explain that VO2max increases are blunted in pre-puberty (5-15%) due to stroke volume limits.",
+          "Note that functional running performance improves substantially regardless of VO2max.",
+          "Highlight submaximal running economy and peripheral muscle adaptations as key drivers of field test gains."
+        ]
+      }
+    ]
+  },
+  "p4": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "What specific intramuscular energy stores increase in children following structured anaerobic training?",
+        "opts": [
+          "Resting levels of PCr, ATP, and glycogen",
+          "Adipose triglycerides only",
+          "Intramuscular blood urea nitrogen",
+          "Lactic acid stores at rest"
+        ],
+        "correct": 0,
+        "rationale": "Following anaerobic training, children exhibit increased resting levels of phosphocreatine (PCr), adenosine triphosphate (ATP), and glycogen."
+      },
+      {
+        "id": 2,
+        "q": "Which rate-limiting glycolytic enzyme shows increased activity in children following anaerobic training?",
+        "opts": [
+          "Phosphofructokinase (PFK)",
+          "Isocitrate dehydrogenase",
+          "Creatine kinase only",
+          "Lipoprotein lipase"
+        ],
+        "correct": 0,
+        "rationale": "Anaerobic training in children results in increased phosphofructokinase (PFK) activity, enhancing glycolytic capacity."
+      },
+      {
+        "id": 3,
+        "q": "How do maximal blood lactate concentrations change in children following structured anaerobic training?",
+        "opts": [
+          "Maximal blood lactate concentrations decrease to zero",
+          "Maximal blood lactate concentrations increase following training",
+          "Maximal blood lactate remains completely static under all conditions",
+          "Blood lactate is converted into hemoglobin during sprint training"
+        ],
+        "correct": 1,
+        "rationale": "Following anaerobic training, children demonstrate increased maximal blood lactate concentrations after exhaustive exertion, reflecting higher glycolytic flux."
+      },
+      {
+        "id": 4,
+        "q": "What happens to the ventilatory threshold (VT) in children following anaerobic exercise training?",
+        "opts": [
+          "Ventilatory threshold shifts to higher exercise workloads",
+          "Ventilatory threshold drops to resting baseline",
+          "Ventilatory threshold is permanently abolished",
+          "Ventilatory threshold occurs immediately upon standing"
+        ],
+        "correct": 0,
+        "rationale": "Anaerobic training improves children's metabolic capacity, resulting in higher ventilatory thresholds."
+      },
+      {
+        "id": 5,
+        "q": "When designing aerobic and anaerobic training programs for children and adolescents, standard adult training principles can be applied provided that:",
+        "opts": [
+          "Programs are conservative to reduce the risk of injury, overtraining, and loss of interest",
+          "Children are forced to lift maximal 1RM loads daily",
+          "Rest intervals are completely eliminated",
+          "Training volume is doubled every week regardless of fatigue"
+        ],
+        "correct": 0,
+        "rationale": "While standard adult training principles apply, it is prudent to be conservative when designing youth programs to reduce injury risk, overtraining, and loss of sport interest."
+      },
+      {
+        "id": 6,
+        "q": "Which metabolic adaptation demonstrates that anaerobic training enhances glycolytic flux in children?",
+        "opts": [
+          "Increased PFK activity and higher maximal blood lactate concentrations",
+          "Decreased muscle glycogen stores",
+          "Complete cessation of ATP re-synthesis",
+          "Loss of phosphocreatine stores"
+        ],
+        "correct": 0,
+        "rationale": "Increased phosphofructokinase (PFK) activity and higher maximal post-exercise blood lactate concentrations directly indicate enhanced anaerobic glycolytic capacity."
+      },
+      {
+        "id": 7,
+        "q": "A 12-year-old sprinter completes a 6-week anaerobic interval program. Which physiological adaptation is expected in their skeletal muscle?",
+        "opts": [
+          "Increased resting PCr, ATP, and glycogen stores, alongside elevated PFK activity",
+          "50% reduction in resting glycogen stores",
+          "Complete inhibition of anaerobic energy systems",
+          "Lower post-exercise lactate concentrations"
+        ],
+        "correct": 0,
+        "rationale": "Anaerobic interval training in youth increases high-energy phosphate (PCr, ATP) stores, glycogen saturation, and PFK enzyme activity."
+      },
+      {
+        "id": 8,
+        "q": "Why is a conservative approach recommended when applying overload principles to youth training programs?",
+        "opts": [
+          "To prevent growth plate micro-trauma, overtraining syndrome, and burnout",
+          "Because children are physiologically incapable of adapting to exercise",
+          "To ensure children never experience elevated heart rates",
+          "Because adult training principles are completely invalid for adolescents"
+        ],
+        "correct": 0,
+        "rationale": "Conservative progression protects young athletes from overuse injury, overtraining, and psychological burnout while allowing safe physiological adaptation."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which physiological adaptations occur in children following structured anaerobic training? (Select all that apply)",
+        "opts": [
+          "Increased resting levels of PCr and ATP",
+          "Increased resting muscle glycogen stores",
+          "Increased phosphofructokinase (PFK) activity",
+          "Increased maximal blood lactate concentrations"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "Anaerobic training in youth increases resting PCr, ATP, and glycogen, elevates PFK enzyme activity, increases maximal blood lactate, and shifts the ventilatory threshold."
+      },
+      {
+        "id": 2,
+        "q": "Which guidelines should govern the design of youth training programs? (Select all that apply)",
+        "opts": [
+          "Standard adult principles of overload and specificity can be applied",
+          "Progression should be conservative to mitigate injury risk",
+          "Programs must guard against overtraining and loss of sport interest",
+          "Children should be trained to failure on every set without rest"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Adult training principles apply to youth, but conservative progression is necessary to prevent injury, overtraining, and sport dropout."
+      },
+      {
+        "id": 3,
+        "q": "Which metabolic markers indicate improved anaerobic capacity in trained children post-exercise? (Select all that apply)",
+        "opts": [
+          "Higher maximal blood lactate concentrations following exhaustive exertion",
+          "Higher ventilatory threshold workload",
+          "Increased PFK enzyme catalytic rate",
+          "Reduction of resting ATP stores to zero"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Higher post-exercise lactate, elevated ventilatory threshold, and increased PFK activity demonstrate enhanced anaerobic capacity in trained children."
+      },
+      {
+        "id": 4,
+        "q": "Which high-energy substrates show elevated resting concentrations in pediatric skeletal muscle following anaerobic conditioning? (Select all that apply)",
+        "opts": [
+          "Adenosine triphosphate (ATP)",
+          "Phosphocreatine (PCr)",
+          "Intramuscular Glycogen",
+          "Lactic acid"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Anaerobic conditioning increases resting intramuscular stores of ATP, PCr, and glycogen in children."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Anaerobic training in children increases resting intramuscular levels of PCr, ATP, and glycogen.",
+        "ans": true,
+        "feedback": "True. Structured anaerobic training enhances high-energy phosphate and glycogen substrate storage in pediatric skeletal muscle."
+      },
+      {
+        "id": 2,
+        "q": "Phosphofructokinase (PFK) activity remains unchanged in children following high-intensity anaerobic training.",
+        "ans": false,
+        "feedback": "False. PFK activity increases in children following anaerobic training, reducing glycolytic bottlenecks."
+      },
+      {
+        "id": 3,
+        "q": "Following anaerobic training, children demonstrate higher maximal blood lactate concentrations and higher ventilatory thresholds.",
+        "ans": true,
+        "feedback": "True. Enhanced glycolytic flux elevates maximal post-exercise blood lactate and shifts the ventilatory threshold to higher workloads."
+      },
+      {
+        "id": 4,
+        "q": "Standard adult training principles cannot be applied under any circumstances when designing exercise programs for children.",
+        "ans": false,
+        "feedback": "False. Standard training principles (overload, specificity) apply to youth, provided program design is conservative to prevent injury and overtraining."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Anaerobic training in children increases resting levels of PCr, ATP, and **glycogen**, alongside increased activity of **phosphofructokinase**.",
+        "targets": [
+          "glycogen",
+          "phosphofructokinase"
+        ],
+        "optionsBank": [
+          "glycogen",
+          "phosphofructokinase",
+          "myosin",
+          "epinephrine",
+          "hemoglobin"
+        ],
+        "hint": "Identify the stored carbohydrate substrate and the rate-limiting glycolytic enzyme."
+      },
+      {
+        "id": 2,
+        "statement": "Trained children display higher maximal **blood lactate** concentrations and a higher **ventilatory threshold** following anaerobic conditioning.",
+        "targets": [
+          "blood lactate",
+          "ventilatory threshold"
+        ],
+        "optionsBank": [
+          "blood lactate",
+          "ventilatory threshold",
+          "growth plate",
+          "stroke volume",
+          "heart rate"
+        ],
+        "hint": "Identify the metabolic byproduct measured post-exercise and the respiratory threshold marker."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Detail the metabolic and enzymatic adaptations that occur in pediatric skeletal muscle following structured anaerobic training.",
+        "model": "Following anaerobic training, children exhibit key metabolic and enzymatic enhancements: (1) Increased resting intramuscular concentrations of phosphocreatine (PCr), adenosine triphosphate (ATP), and glycogen; (2) Increased activity of phosphofructokinase (PFK), the rate-limiting enzyme of anaerobic glycolysis; (3) Higher maximal blood lactate concentrations following exhaustive exercise, reflecting enhanced glycolytic energy contribution; and (4) Higher ventilatory thresholds, allowing sustained higher relative work intensities.",
+        "criteria": [
+          "List increased resting stores of PCr, ATP, and glycogen.",
+          "Identify increased activity of phosphofructokinase (PFK).",
+          "Mention higher maximal blood lactate concentrations and elevated ventilatory thresholds."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain how adult training principles should be adapted when designing conditioning programs for children to optimize adaptations while minimizing physiological and psychological risks.",
+        "model": "Standard adult training principles—such as progressive overload, specificity, and adaptation—apply directly to youth program design. However, coaches must apply these principles conservatively. Progression must be carefully monitored to protect developing bones and growth plates from overuse injury. Furthermore, conservative loading prevents overtraining syndrome, chronic fatigue, and psychological burnout, ensuring long-term athletic development and sustained interest in sports.",
+        "criteria": [
+          "State that standard adult training principles (overload, specificity) apply to youth.",
+          "Advocate for conservative progression to avoid overuse injury and growth plate strain.",
+          "Highlight the importance of preventing overtraining and psychological burnout/loss of interest in sports."
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,498 @@
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "How does athletic performance in short-duration, high-intensity events (such as the 100 m swim or 100 m sprint) change across age groups from childhood through adolescence?",
+        "opts": [
+          "Performance remains completely static until adulthood",
+          "Performance improves continuously with age due to physical growth and maturation",
+          "Performance declines significantly after age 10 in both sexes",
+          "Performance improves in boys but declines by 50% in girls at age 12"
+        ],
+        "correct": 1,
+        "rationale": "Age-group records demonstrate that performance in short-duration, high-intensity anaerobic events improves continuously from childhood through adolescence as physical growth, muscle mass, and nervous system maturation progress."
+      },
+      {
+        "id": 2,
+        "q": "In endurance events such as the 1,500 m run, what performance trend is uniquely observed in 17- to 18-year-old adolescent females compared to younger female age brackets (15–16 years)?",
+        "opts": [
+          "A dramatic 50% increase in running speed",
+          "A plateau or lack of continued performance improvement",
+          "A complete loss of aerobic capacity (VO2max drops to zero)",
+          "An instantaneous doubling of stride length"
+        ],
+        "correct": 1,
+        "rationale": "National age-group records (Figure 17.11) reveal that while boys' 1,500 m running times continue to improve through late adolescence, 17- to 18-year-old girls demonstrate a performance plateau compared to 15- to 16-year-old girls."
+      },
+      {
+        "id": 3,
+        "q": "Which physiological and anatomical changes occurring during female pubertal maturation contribute to the performance plateau observed in the adolescent female 1,500 m run?",
+        "opts": [
+          "Increased relative fat mass accretion (essential fat) and increased pelvic width (Q-angle)",
+          "Complete destruction of Type I slow-twitch muscle fibers",
+          "Massive surge in testosterone causing excessive muscle bulk",
+          "Reduction of cardiac stroke volume to zero"
+        ],
+        "correct": 0,
+        "rationale": "During pubertal maturation, elevated estrogen levels increase essential fat deposition and broaden the pelvis, which increases the metabolic oxygen cost of transport and alters running biomechanics in adolescent females."
+      },
+      {
+        "id": 4,
+        "q": "How are national and world age-group performance records organized in strength sports such as weightlifting?",
+        "opts": [
+          "By single-year age increments only, ignoring body weight",
+          "By body weight classes within broad age divisions (e.g., 16 and under, 17–20 years)",
+          "By standing height regardless of age or mass",
+          "By resting heart rate categories"
+        ],
+        "correct": 1,
+        "rationale": "Weightlifting records are organized by body weight classes within broad age divisions (such as 16 and under, 17–20 years, and adult categories) rather than single-year age increments."
+      },
+      {
+        "id": 5,
+        "q": "What primary anabolic hormone surge drives the rapid acceleration in muscular strength and weightlifting performance in adolescent males compared to females?",
+        "opts": [
+          "Estrogen",
+          "Testosterone",
+          "Cortisol",
+          "Parathyroid hormone"
+        ],
+        "correct": 1,
+        "rationale": "During puberty, circulating testosterone concentrations surge nearly 10-fold in males, stimulating protein synthesis and skeletal muscle hypertrophy, which drives rapid strength increases."
+      },
+      {
+        "id": 6,
+        "q": "Performance in the 400 m swim and 1,500 m run relies primarily on which metabolic energy system?",
+        "opts": [
+          "ATP-PCr system exclusively",
+          "Aerobic oxidative phosphorylation",
+          "Hepatic gluconeogenesis alone",
+          "Myokinase reaction"
+        ],
+        "correct": 1,
+        "rationale": "Events lasting several minutes, such as the 400 m swim and 1,500 m run, are predominantly aerobic events relying on mitochondrial oxidative phosphorylation."
+      },
+      {
+        "id": 7,
+        "q": "Comparing the performance trajectories of adolescent males and females in the 100 m swim across age groups shows that:",
+        "opts": [
+          "Both males and females demonstrate progressive performance improvements across age brackets",
+          "Females regress to childhood performance levels at age 16",
+          "Males experience zero performance improvement after age 10",
+          "Females outperform males by 50% in all power events post-puberty"
+        ],
+        "correct": 0,
+        "rationale": "In swimming events like the 100 m and 400 m, performance records show continuous improvement across successive age groups in both boys and girls."
+      },
+      {
+        "id": 8,
+        "q": "A high school track coach notes that a 17-year-old female distance runner has not improved her 1,500 m time over the past two years despite consistent training. What physiological explanation applies?",
+        "opts": [
+          "Normal pubertal body composition shifts (increased relative body fat) increase the metabolic cost of running, creating a natural performance plateau",
+          "The athlete has lost all mitochondrial enzymes in her leg muscles",
+          "The athlete's stroke volume has decreased by 90%",
+          "Female distance runners cannot perform aerobic exercise past age 16"
+        ],
+        "correct": 0,
+        "rationale": "Pubertal shifts in female body composition—specifically increased relative essential fat mass—increase the energy cost of moving body mass over distance, explaining the 1,500 m performance plateau in 17- to 18-year-old females."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which factors contribute to performance improvements in short-duration anaerobic events (e.g., 100 m sprint) as children mature into adolescents? (Select all that apply)",
+        "opts": [
+          "Increased skeletal muscle mass",
+          "Increased activity of glycolytic enzymes such as PFK",
+          "Improved motor unit recruitment and nervous system maturation",
+          "Complete loss of Type II fast-twitch muscle fibers"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Anaerobic performance advances with age due to muscle mass gains, elevated glycolytic enzyme activity (PFK), and improved neuromuscular coordination/motor unit recruitment."
+      },
+      {
+        "id": 2,
+        "q": "Which biological factors explain the 1,500 m running performance plateau observed in 17- to 18-year-old female athletes? (Select all that apply)",
+        "opts": [
+          "Estrogen-stimulated increase in relative essential body fat mass",
+          "Changes in pelvic structure and Q-angle altering running biomechanics",
+          "Increased metabolic oxygen cost of transporting non-contractile mass",
+          "Massive 10-fold surge in circulating testosterone"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "The female distance running plateau at ages 17–18 stems from pubertal estrogen-driven body fat accretion and pelvic widening, increasing the oxygen cost of movement."
+      },
+      {
+        "id": 3,
+        "q": "Which structural characteristics distinguish age-group categorization in weightlifting from track and field or swimming? (Select all that apply)",
+        "opts": [
+          "Organized primarily by body weight classes",
+          "Divided into broad age brackets (e.g., 16 & under, 17–20 years)",
+          "Evaluated solely by lung volume regardless of weight",
+          "Organized without any age or mass limits"
+        ],
+        "correctArray": [
+          0,
+          1
+        ],
+        "rationale": "Weightlifting records are categorized by body weight classes within broad age divisions rather than single-year age increments."
+      },
+      {
+        "id": 4,
+        "q": "Which energy pathways support sport performance in the 100 m swim versus the 400 m swim? (Select all that apply)",
+        "opts": [
+          "100 m swim relies heavily on anaerobic ATP-PCr and glycolytic systems",
+          "400 m swim relies primarily on aerobic oxidative phosphorylation",
+          "100 m swim performance improves with increased glycolytic enzyme capacity",
+          "400 m swim requires zero oxygen consumption"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "The 100 m swim is predominantly anaerobic (ATP-PCr/glycolytic), whereas the 400 m swim is predominantly aerobic (oxidative phosphorylation)."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "National age-group records demonstrate that performance in short-duration anaerobic events improves continuously from childhood through adolescence.",
+        "ans": true,
+        "feedback": "True. Biological growth, muscle mass expansion, and neuromuscular maturation drive continuous performance gains in short-duration events across youth development."
+      },
+      {
+        "id": 2,
+        "q": "Adolescent females aged 17 to 18 years demonstrate a continuous, rapid improvement in 1,500 m running performance that exceeds male performance gains.",
+        "ans": false,
+        "feedback": "False. Unlike males, 17- to 18-year-old females exhibit a performance plateau or leveling off in the 1,500 m run compared to 15- to 16-year-old females."
+      },
+      {
+        "id": 3,
+        "q": "Pubertal increases in relative essential body fat in females increase the metabolic oxygen cost of distance running.",
+        "ans": true,
+        "feedback": "True. Increased adiposity adds non-contractile mass, elevating the energy expenditure required to move body weight over distance."
+      },
+      {
+        "id": 4,
+        "q": "Age-group world records in weightlifting are categorized by single-year age increments without regard to body mass.",
+        "ans": false,
+        "feedback": "False. Weightlifting records are categorized primarily by body weight classes within broad age divisions."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "While boys show continuous performance gains, 17- to 18-year-old girls demonstrate a **performance plateau** in the 1,500 m run due to pubertal gains in **essential fat mass**.",
+        "targets": [
+          "performance plateau",
+          "essential fat mass"
+        ],
+        "optionsBank": [
+          "performance plateau",
+          "essential fat mass",
+          "testosterone surge",
+          "stroke volume loss",
+          "bone resorption"
+        ],
+        "hint": "Identify the performance trend in female distance runners and the soft tissue shift driving it."
+      },
+      {
+        "id": 2,
+        "statement": "Weightlifting age-group records are structured by **body weight** classes within broad age categories, with male strength surges driven by **testosterone**.",
+        "targets": [
+          "body weight",
+          "testosterone"
+        ],
+        "optionsBank": [
+          "body weight",
+          "testosterone",
+          "standing height",
+          "estrogen",
+          "hemoglobin"
+        ],
+        "hint": "Identify the primary categorization metric for weightlifting and the anabolic hormone driving male muscle growth."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Explain the physiological and biomechanical mechanisms responsible for the 1,500 m running performance plateau observed in 17- to 18-year-old adolescent females compared to younger female age groups.",
+        "model": "The performance plateau in the 1,500 m run observed in 17- to 18-year-old females stems from biological shifts accompanying pubertal maturation. Elevated estrogen levels cause an increase in relative essential body fat mass (adiposity) and a widening of the pelvis (increasing the Q-angle). Added body fat increases non-contractile mass, elevating the metabolic oxygen cost of transporting body weight over distance. Simultaneously, altered pelvic mechanics affect stride efficiency. These factors offset improvements in absolute aerobic capacity, resulting in a performance leveling off compared to 15- to 16-year-old females.",
+        "criteria": [
+          "Identify pubertal estrogen surges as the driver of increased essential body fat and pelvic widening.",
+          "Explain that increased fat mass elevates the metabolic oxygen cost of transport.",
+          "Describe how these structural/biomechanical changes create a performance plateau in the 1,500 m run at ages 17-18."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Contrast the age-group performance trends and energy system reliance between a short-duration anaerobic event (100 m swim) and a long-duration aerobic event (400 m swim) across youth development.",
+        "model": "The 100 m swim relies primarily on short-term anaerobic energy systems (ATP-PCr and anaerobic glycolysis). Performance improves continuously from childhood through adolescence as muscle cross-sectional area expands, glycolytic enzyme activity (PFK) increases, and motor unit recruitment matures. The 400 m swim relies predominantly on aerobic oxidative phosphorylation. Performance also improves continuously with age, driven by cardiac growth, expanding stroke volume, increased total blood volume, and mitochondrial enzyme development. Both show steady age-group progression, but rely on distinct metabolic machinery.",
+        "criteria": [
+          "Identify energy systems: 100 m swim = anaerobic (ATP-PCr/glycolysis); 400 m swim = aerobic (oxidative phosphorylation).",
+          "Detail anaerobic mechanisms of improvement (muscle mass, PFK activity, motor unit recruitment).",
+          "Detail aerobic mechanisms of improvement (heart growth, stroke volume, blood volume, mitochondrial enzymes)."
+        ]
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "What is defined as intense, year-round training in a single sport to the exclusion of other sports and physical activities from an early age?",
+        "opts": [
+          "Early sport specialization",
+          "Delayed sport specialization",
+          "Periodized multi-sport conditioning",
+          "Active recovery training"
+        ],
+        "correct": 0,
+        "rationale": "Early sport specialization refers to year-round training in a single sport to the exclusion of all other sports and physical activities from an early age."
+      },
+      {
+        "id": 2,
+        "q": "Which national professional organization strongly advocates for delayed sport specialization and multi-sport participation in youth?",
+        "opts": [
+          "National Association for Sport and Physical Education (NASPE)",
+          "International Weightlifting Federation (IWF)",
+          "American Association of Bodybuilders (AAB)",
+          "World Chess Federation (FIDE)"
+        ],
+        "correct": 0,
+        "rationale": "The National Association for Sport and Physical Education (NASPE) strongly encourages delayed sport specialization and multi-sport participation for youth."
+      },
+      {
+        "id": 3,
+        "q": "What physical health risk is significantly elevated in children who engage in early single-sport specialization?",
+        "opts": [
+          "Overuse injuries and chronic growth plate micro-trauma",
+          "Spontaneous muscle fiber destruction",
+          "Complete paralysis of sensory nerves",
+          "Loss of all Type I slow-twitch muscle fibers"
+        ],
+        "correct": 0,
+        "rationale": "Subjecting a child's developing skeleton to repetitive, single-sport mechanical strain without movement variation significantly increases the risk of overuse injuries."
+      },
+      {
+        "id": 4,
+        "q": "How does early sport specialization impact a child's overall motor skill development?",
+        "opts": [
+          "It restricts movement exposure, resulting in narrow motor skill acquisition and impaired fundamental physical literacy",
+          "It guarantees 100% mastery of all human movement patterns",
+          "It doubles reaction speed in every unrelated physical activity",
+          "It has zero impact on motor skill development"
+        ],
+        "correct": 0,
+        "rationale": "Restricting physical activity to a single sport limits exposure to diverse movement mechanics (jumping, throwing, dodging), leading to restricted motor skill development."
+      },
+      {
+        "id": 5,
+        "q": "What retrospective finding has been documented regarding the childhood sports backgrounds of elite professional and Olympic athletes?",
+        "opts": [
+          "The majority participated in multiple sports during childhood and delayed single-sport specialization until late adolescence",
+          "100% of elite athletes specialized in a single sport before age 5",
+          "Elite athletes never participated in physical activity until age 20",
+          "Multi-sport athletes were universally banned from Olympic competition"
+        ],
+        "correct": 0,
+        "rationale": "Studies of world-class and elite professional athletes consistently reveal that the majority played multiple sports in childhood and delayed single-sport specialization until late adolescence or young adulthood."
+      },
+      {
+        "id": 6,
+        "q": "Which psychological outcome is commonly associated with early sport specialization in young athletes?",
+        "opts": [
+          "Psychological burnout, chronic stress, and premature sports dropout",
+          "Permanent immunity to academic stress",
+          "Complete elimination of competitive anxiety",
+          "Immediate mastery of adult coping strategies"
+        ],
+        "correct": 0,
+        "rationale": "Intense year-round single-sport pressure frequently triggers psychological burnout, stress, and loss of enjoyment, driving children to quit sports entirely."
+      },
+      {
+        "id": 7,
+        "q": "According to sports medicine specialists, when is the most appropriate developmental period for an athlete to transition into single-sport specialization?",
+        "opts": [
+          "Before 6 years of age",
+          "Between 8 and 10 years of age",
+          "Late adolescence (16 to 18 years of age) or young adulthood",
+          "Specialization should never occur at any age"
+        ],
+        "correct": 2,
+        "rationale": "Specialists recommend delayed specialization, advising that athletes wait until late adolescence (16–18 years of age) or young adulthood before narrowing focus to a single sport."
+      },
+      {
+        "id": 8,
+        "q": "A parent wants to enroll their 8-year-old child in a year-round single-sport soccer academy to maximize future athletic success. Based on NASPE guidelines, what advice should a youth coach provide?",
+        "opts": [
+          "Encourage multi-sport participation and active play to build diverse motor skills, reduce overuse injury risk, and delay specialization until late adolescence",
+          "Approve the decision and add 4 hours of daily weightlifting",
+          "Advise the child to quit all physical activity immediately",
+          "Recommend specializing in two identical single-sport academies simultaneously"
+        ],
+        "correct": 0,
+        "rationale": "NASPE guidelines recommend multi-sport participation during middle childhood to develop versatile motor skills, reduce overuse injuries/burnout, and optimize long-term athletic potential."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which negative consequences are associated with early single-sport specialization in children under 12 years of age? (Select all that apply)",
+        "opts": [
+          "Increased risk of repetitive overuse injuries",
+          "Restricted motor skill acquisition and movement vocabulary",
+          "Psychological burnout and premature sport dropout",
+          "Guaranteed professional sports contract by age 15"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Early sport specialization increases overuse injury risk, restricts overall motor skill acquisition, and causes psychological burnout and dropout."
+      },
+      {
+        "id": 2,
+        "q": "Which benefits are associated with delayed sport specialization and multi-sport participation during childhood? (Select all that apply)",
+        "opts": [
+          "Development of a broad, versatile motor skill repertoire",
+          "Reduced risk of chronic overuse injury due to varied tissue loading",
+          "Broader social development through diverse peer and coaching interactions",
+          "Higher statistical likelihood of long-term elite athletic achievement"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "Multi-sport participation builds broad motor skills, protects against overuse injury, fosters social adaptability, and aligns with the childhood backgrounds of elite adult athletes."
+      },
+      {
+        "id": 3,
+        "q": "Which statements accurately reflect NASPE guidelines regarding youth sports participation? (Select all that apply)",
+        "opts": [
+          "NASPE strongly encourages delayed sport specialization",
+          "Children should engage in a variety of sports and physical activities",
+          "Single-sport specialization should be delayed until late adolescence",
+          "Children under age 10 should be forced into year-round single-sport contracts"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "NASPE guidelines advocate for multi-sport participation during childhood and recommend delaying single-sport specialization until late adolescence."
+      },
+      {
+        "id": 4,
+        "q": "Why does multi-sport participation reduce overuse injury risk compared to early single-sport specialization? (Select all that apply)",
+        "opts": [
+          "It distributes mechanical loads across different joint structures and muscle groups",
+          "It provides seasonal variation that allows overworked tissues time to rest and repair",
+          "It avoids continuous repetitive strain on developing growth plates",
+          "It permanently eliminates gravity's effect on skeletal tissue"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Playing multiple sports varies mechanical loading patterns across different anatomical structures, providing rest periods for tissues and preventing chronic strain."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "The National Association for Sport and Physical Education (NASPE) recommends that children specialize in a single sport before 10 years of age.",
+        "ans": false,
+        "feedback": "False. NASPE strongly encourages multi-sport participation and advises delaying single-sport specialization until late adolescence."
+      },
+      {
+        "id": 2,
+        "q": "Retrospective studies show that the majority of elite adult athletes participated in multiple sports during childhood rather than specializing early.",
+        "ans": true,
+        "feedback": "True. World-class and professional athletes consistently report multi-sport childhood backgrounds, having delayed single-sport focus until late adolescence."
+      },
+      {
+        "id": 3,
+        "q": "Early single-sport specialization increases the incidence of overuse injuries in developing children.",
+        "ans": true,
+        "feedback": "True. Repetitive mechanical strain on specific joints without movement variation significantly elevates overuse injury risk in growing youth."
+      },
+      {
+        "id": 4,
+        "q": "Multi-sport participation restricts a child's social development by exposing them to too many different peers.",
+        "ans": false,
+        "feedback": "False. Multi-sport participation enhances social development by giving children diverse peer, coaching, and team experiences."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Early single-sport specialization increases the risk of **overuse injuries** and psychological **burnout**, leading to premature sport dropout.",
+        "targets": [
+          "overuse injuries",
+          "burnout"
+        ],
+        "optionsBank": [
+          "overuse injuries",
+          "burnout",
+          "muscle hypertrophy",
+          "testosterone surges",
+          "hyperplasia"
+        ],
+        "hint": "Identify the physical tissue injury risk and the psychological state that causes children to quit sports."
+      },
+      {
+        "id": 2,
+        "statement": "Organizations such as **NASPE** advocate for **delayed specialization**, encouraging children to participate in multiple sports through early adolescence.",
+        "targets": [
+          "NASPE",
+          "delayed specialization"
+        ],
+        "optionsBank": [
+          "NASPE",
+          "delayed specialization",
+          "IWF",
+          "early specialization",
+          "anaerobic threshold"
+        ],
+        "hint": "Identify the national physical education organization and the athletic development approach they endorse."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Compare the physical, psychological, and athletic performance outcomes of early single-sport specialization versus delayed sport specialization (multi-sport participation) in youth.",
+        "model": "Early single-sport specialization (<12 years) subjects developing children to repetitive mechanical strain, increasing the risk of overuse injuries and growth plate micro-trauma. It restricts motor skill acquisition to a narrow set of movements and frequently causes psychological burnout, stress, and premature sport dropout. In contrast, delayed sport specialization (multi-sport participation) develops a broad, adaptable movement repertoire, distributes mechanical loading across joints to reduce injury, enhances social adaptability, and reduces burnout. Furthermore, retrospective studies confirm that the majority of elite professional and Olympic athletes participated in multiple sports during childhood and delayed specialization until late adolescence.",
+        "criteria": [
+          "Detail risks of early specialization (overuse injuries, restricted motor skills, burnout, sport dropout).",
+          "Detail benefits of delayed specialization (broad movement repertoire, reduced injury, social adaptability, less burnout).",
+          "Cite evidence showing elite adult athletes typically followed a multi-sport, delayed specialization pathway."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Outline the official position of the National Association for Sport and Physical Education (NASPE) regarding youth sport specialization, and explain why this approach benefits long-term athletic development.",
+        "model": "The National Association for Sport and Physical Education (NASPE) strongly advocates for delayed sport specialization. NASPE recommends that children engage in a wide variety of sports and unstructured physical activities throughout childhood and early adolescence, delaying single-sport focus until late adolescence (16–18 years) or young adulthood. This approach optimizes long-term athletic development by building versatile physical literacy, preserving joint health through varied movement loading, preventing psychological fatigue and burnout, and fostering a lifelong commitment to physical activity.",
+        "criteria": [
+          "State NASPE's position advocating for delayed specialization and multi-sport childhood participation.",
+          "Identify the recommended age for specialization (late adolescence, 16-18 years, or young adulthood).",
+          "Explain benefits: versatile movement skills, joint preservation, burnout prevention, lifelong physical activity."
+        ]
+      }
+    ]
+  }
+}

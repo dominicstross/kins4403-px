@@ -89,7 +89,12 @@
           "Increased systemic vascular resistance (elevated afterload)",
           "Decreased end-systolic volume mediated by reduced peripheral resistance"
         ],
-        "correctArray": [0, 1, 2, 4],
+        "correctArray": [
+          0,
+          1,
+          2,
+          4
+        ],
         "rationale": "Stroke volume increases via greater preload (plasma expansion), greater filling time (bradycardia), increased contractility (hypertrophy/Frank-Starling), and decreased afterload (reduced peripheral resistance yielding lower ESV). Increased afterload would impede ejection."
       },
       {
@@ -101,7 +106,11 @@
           "Endurance athletes experience both internal diameter dilation and wall thickening",
           "Both groups experience identical reductions in resting heart rate below 35 bpm"
         ],
-        "correctArray": [0, 1, 3],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
         "rationale": "Endurance training induces eccentric remodeling (chamber dilation + wall thickening) from volume overload. Resistance training induces concentric remodeling (thickened walls without chamber enlargement) to withstand systemic pressure spikes during lifting. Neither represents heart failure."
       },
       {
@@ -112,7 +121,10 @@
           "Maximal arterial-venous oxygen difference",
           "Resting heart rate"
         ],
-        "correctArray": [0, 2],
+        "correctArray": [
+          0,
+          2
+        ],
         "rationale": "In the Fick equation (VO2max = HRmax * SVmax * (a-v)O2diff max), HRmax does not increase (it stays flat or decreases slightly). Therefore, increases in VO2max depend entirely on adaptations in maximal stroke volume and maximal (a-v)O2 difference."
       },
       {
@@ -124,7 +136,11 @@
           "Myocardial oxygen demand and work of the heart are reduced",
           "Blood pressure is drastically elevated"
         ],
-        "correctArray": [0, 1, 3],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
         "rationale": "At the same absolute submaximal workload, stroke volume is elevated and heart rate is lower. Cardiac output is unchanged or slightly lower, allowing the myocardium to perform the same systemic perfusion work at a lower metabolic and energetic cost."
       },
       {
@@ -136,7 +152,12 @@
           "Expanded blood plasma volume",
           "Dehydration"
         ],
-        "correctArray": [0, 1, 2, 4],
+        "correctArray": [
+          0,
+          1,
+          2,
+          4
+        ],
         "rationale": "Elevated core temperature, sympathetic stimulation/catecholamines, stimulants, and dehydration all keep post-exercise heart rate elevated independently of aerobic fitness. Plasma volume expansion is a beneficial adaptation, not an acute confounding stressor."
       },
       {
@@ -148,7 +169,11 @@
           "Aortic valve stenosis immediately develops",
           "Systemic vascular resistance increases to infinite levels"
         ],
-        "correctArray": [0, 1, 2],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
         "rationale": "At extreme heart rates, the shortening of diastole compromises the time window for venous filling, reducing EDV and subsequent stroke volume. Valvular stenosis and infinite vascular resistance do not occur."
       }
     ],
@@ -192,38 +217,97 @@
     "fillBlank": [
       {
         "statement": "The mathematical relationship determining oxygen consumption is known as the **Fick equation**, which states that VO2 equals **cardiac output** multiplied by the **arterial-venous oxygen difference**.",
-        "targets": ["Fick equation", "cardiac output", "arterial-venous oxygen difference"],
-        "optionsBank": ["Fick equation", "cardiac output", "arterial-venous oxygen difference", "Frank-Starling law", "stroke volume", "total peripheral resistance", "pulmonary ventilation"],
+        "targets": [
+          "Fick equation",
+          "cardiac output",
+          "arterial-venous oxygen difference"
+        ],
+        "optionsBank": [
+          "Fick equation",
+          "cardiac output",
+          "arterial-venous oxygen difference",
+          "Frank-Starling law",
+          "stroke volume",
+          "total peripheral resistance",
+          "pulmonary ventilation"
+        ],
         "hint": "Identifies the core governing equation of cardiovascular oxygen transport."
       },
       {
         "statement": "Endurance training leads to **eccentric hypertrophy** of the left ventricle driven by chronic **volume overload**, whereas heavy resistance training induces **concentric hypertrophy** driven by chronic **pressure overload**.",
-        "targets": ["eccentric hypertrophy", "volume overload", "concentric hypertrophy", "pressure overload"],
-        "optionsBank": ["eccentric hypertrophy", "volume overload", "concentric hypertrophy", "pressure overload", "pathological remodeling", "afterload failure"],
+        "targets": [
+          "eccentric hypertrophy",
+          "volume overload",
+          "concentric hypertrophy",
+          "pressure overload"
+        ],
+        "optionsBank": [
+          "eccentric hypertrophy",
+          "volume overload",
+          "concentric hypertrophy",
+          "pressure overload",
+          "pathological remodeling",
+          "afterload failure"
+        ],
         "hint": "Contrast the structural adaptations of endurance vs. strength athletes."
       },
       {
         "statement": "An increase in resting and submaximal stroke volume is enabled by an increase in **end-diastolic volume**, which stretches myocardial fibers and increases contractility via the **Frank-Starling mechanism**.",
-        "targets": ["end-diastolic volume", "Frank-Starling mechanism"],
-        "optionsBank": ["end-diastolic volume", "Frank-Starling mechanism", "end-systolic volume", "Bohr effect", "vagal withdrawal"],
+        "targets": [
+          "end-diastolic volume",
+          "Frank-Starling mechanism"
+        ],
+        "optionsBank": [
+          "end-diastolic volume",
+          "Frank-Starling mechanism",
+          "end-systolic volume",
+          "Bohr effect",
+          "vagal withdrawal"
+        ],
         "hint": "Refers to venous filling volume and the intrinsic length-tension relationship of the myocardium."
       },
       {
         "statement": "Resting bradycardia in endurance-trained athletes is primarily mediated by an increase in **parasympathetic activity** and a concomitant decrease in **sympathetic activity** to the sinoatrial node.",
-        "targets": ["parasympathetic activity", "sympathetic activity"],
-        "optionsBank": ["parasympathetic activity", "sympathetic activity", "somatic innervation", "cortisol release", "thyroid secretion"],
+        "targets": [
+          "parasympathetic activity",
+          "sympathetic activity"
+        ],
+        "optionsBank": [
+          "parasympathetic activity",
+          "sympathetic activity",
+          "somatic innervation",
+          "cortisol release",
+          "thyroid secretion"
+        ],
         "hint": "Autonomic nervous system branches controlling intrinsic nodal pacemaking."
       },
       {
         "statement": "Maximal cardiac output increases after aerobic training exclusively due to an increased **stroke volume**, because maximal **heart rate** remains unchanged or slightly decreases.",
-        "targets": ["stroke volume", "heart rate"],
-        "optionsBank": ["stroke volume", "heart rate", "blood pressure", "a-vO2 difference", "systemic vascular resistance"],
+        "targets": [
+          "stroke volume",
+          "heart rate"
+        ],
+        "optionsBank": [
+          "stroke volume",
+          "heart rate",
+          "blood pressure",
+          "a-vO2 difference",
+          "systemic vascular resistance"
+        ],
         "hint": "Components of the cardiac output equation."
       },
       {
         "statement": "Ejection fraction is defined as the percentage of **end-diastolic volume** that is pumped out with each heartbeat and is mathematically represented as (EDV minus **end-systolic volume**) divided by EDV.",
-        "targets": ["end-diastolic volume", "end-systolic volume"],
-        "optionsBank": ["end-diastolic volume", "end-systolic volume", "total blood volume", "tidal volume"],
+        "targets": [
+          "end-diastolic volume",
+          "end-systolic volume"
+        ],
+        "optionsBank": [
+          "end-diastolic volume",
+          "end-systolic volume",
+          "total blood volume",
+          "tidal volume"
+        ],
         "hint": "Ventricular blood volumes at maximal filling versus post-ejection."
       }
     ],
@@ -374,7 +458,12 @@
           "Increased total blood volume",
           "Severe systemic vasoconstriction in active muscle beds"
         ],
-        "correctArray": [0, 1, 2, 3],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
         "rationale": "The four primary factors are: increased capillarization, greater capillary recruitment, effective redistribution of cardiac output, and increased total blood volume. Active muscle undergoes vasodilation, not severe vasoconstriction."
       },
       {
@@ -386,7 +475,12 @@
           "Athletic pseudoanemia causes severe decrements in VO2max and athletic performance",
           "Serum ferritin and iron saturation markers remain within normal clinical limits in pseudoanemia"
         ],
-        "correctArray": [0, 1, 2, 4],
+        "correctArray": [
+          0,
+          1,
+          2,
+          4
+        ],
         "rationale": "Sports pseudoanemia is an advantageous, dilutional condition with elevated absolute RBC and hemoglobin mass and preserved iron stores. It supports rather than impairs endurance performance."
       },
       {
@@ -398,7 +492,11 @@
           "Dramatic elevation in systemic peripheral resistance",
           "Decreased rate of heat dissipation from contracting muscles"
         ],
-        "correctArray": [0, 1, 2],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
         "rationale": "Higher capillary density shortens diffusion distance, expands exchange surface area, and slows transit velocity at given flows, preserving equilibration time. It reduces (not elevates) peripheral resistance and aids heat dissipation."
       },
       {
@@ -410,7 +508,11 @@
           "Chronic heavy resistance training consistently elevates resting blood pressure into severe hypertensive stages",
           "Reductions in sympathetic tone and total peripheral resistance contribute to blood pressure lowering in hypertensive individuals"
         ],
-        "correctArray": [0, 1, 4],
+        "correctArray": [
+          0,
+          1,
+          4
+        ],
         "rationale": "Endurance training elicits modest reductions (6-7 mmHg) in hypertensive individuals while having minimal impact on normotensives. Resistance training does not cause chronic resting hypertension."
       },
       {
@@ -422,7 +524,11 @@
           "Destruction of circulating erythrocytes to liberate free water",
           "Complete cessation of sweat production during exercise bouts"
         ],
-        "correctArray": [0, 1, 2],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
         "rationale": "Initial expansion is driven by lymphatic albumin return and hormonal fluid conservation, followed by chronic hepatic protein synthesis. Sweating and erythrocyte destruction do not drive plasma expansion."
       },
       {
@@ -434,7 +540,11 @@
           "It completely eliminates the need for cardiac output during exercise",
           "It prevents blood clotting during intense endurance events"
         ],
-        "correctArray": [0, 1, 2],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
         "rationale": "Reduced viscosity lowers afterload, facilitates microvascular perfusion, and does not compromise delivery because absolute hemoglobin is elevated and cardiac output is increased."
       }
     ],
@@ -478,38 +588,88 @@
     "fillBlank": [
       {
         "statement": "The training-induced condition characterized by a reduced hematocrit despite an elevated total red blood cell volume is termed **sports pseudoanemia**.",
-        "targets": ["sports pseudoanemia"],
-        "optionsBank": ["sports pseudoanemia", "aplastic anemia", "hemolytic jaundice", "polycythemia vera"],
+        "targets": [
+          "sports pseudoanemia"
+        ],
+        "optionsBank": [
+          "sports pseudoanemia",
+          "aplastic anemia",
+          "hemolytic jaundice",
+          "polycythemia vera"
+        ],
         "hint": "The clinical paradox of dilutional low hematocrit in endurance athletes."
       },
       {
         "statement": "The initial rapid expansion of plasma volume following training is driven by an increase in the plasma protein **albumin**, which elevates vascular **oncotic pressure** to reabsorb fluid from interstitial spaces.",
-        "targets": ["albumin", "oncotic pressure"],
-        "optionsBank": ["albumin", "oncotic pressure", "fibrinogen", "hydrostatic pressure", "hemoglobin", "osmotic fragility"],
+        "targets": [
+          "albumin",
+          "oncotic pressure"
+        ],
+        "optionsBank": [
+          "albumin",
+          "oncotic pressure",
+          "fibrinogen",
+          "hydrostatic pressure",
+          "hemoglobin",
+          "osmotic fragility"
+        ],
         "hint": "Primary serum protein and the colloid osmotic force it exerts."
       },
       {
         "statement": "Angiogenesis in skeletal muscle results in an increase in the **capillary-to-fiber ratio**, which shortens the **diffusion distance** for oxygen between the vascular space and the mitochondria.",
-        "targets": ["capillary-to-fiber ratio", "diffusion distance"],
-        "optionsBank": ["capillary-to-fiber ratio", "diffusion distance", "arteriolar wall thickness", "filtration fraction"],
+        "targets": [
+          "capillary-to-fiber ratio",
+          "diffusion distance"
+        ],
+        "optionsBank": [
+          "capillary-to-fiber ratio",
+          "diffusion distance",
+          "arteriolar wall thickness",
+          "filtration fraction"
+        ],
         "hint": "Index of microvascular density and its spatial consequence for gas diffusion."
       },
       {
         "statement": "Reduced blood viscosity facilitates microvascular blood flow by decreasing **systemic vascular resistance**, which allows for a reduction in left ventricular **afterload**.",
-        "targets": ["systemic vascular resistance", "afterload"],
-        "optionsBank": ["systemic vascular resistance", "afterload", "preload", "end-diastolic volume"],
+        "targets": [
+          "systemic vascular resistance",
+          "afterload"
+        ],
+        "optionsBank": [
+          "systemic vascular resistance",
+          "afterload",
+          "preload",
+          "end-diastolic volume"
+        ],
         "hint": "Opposing resistance to arterial ejection."
       },
       {
         "statement": "Water reabsorption in the kidneys is supported post-exercise by the endocrine actions of **aldosterone**, which promotes sodium retention, and **antidiuretic hormone**, which promotes water retention.",
-        "targets": ["aldosterone", "antidiuretic hormone"],
-        "optionsBank": ["aldosterone", "antidiuretic hormone", "atrial natriuretic peptide", "cortisol", "insulin"],
+        "targets": [
+          "aldosterone",
+          "antidiuretic hormone"
+        ],
+        "optionsBank": [
+          "aldosterone",
+          "antidiuretic hormone",
+          "atrial natriuretic peptide",
+          "cortisol",
+          "insulin"
+        ],
         "hint": "Mineralocorticoid and posterior pituitary peptide governing fluid balance."
       },
       {
         "statement": "Following endurance training, blood pressure is **reduced** at a given submaximal exercise intensity, but at maximal exertion, systolic pressure is **increased** while diastolic pressure is slightly decreased.",
-        "targets": ["reduced", "increased"],
-        "optionsBank": ["reduced", "increased", "elevated", "eliminated"],
+        "targets": [
+          "reduced",
+          "increased"
+        ],
+        "optionsBank": [
+          "reduced",
+          "increased",
+          "elevated",
+          "eliminated"
+        ],
         "hint": "Directional changes in submaximal versus maximal systolic blood pressure."
       }
     ],
@@ -660,7 +820,12 @@
           "Permanent anatomical reduction in thoracic cavity volume",
           "Enhanced respiratory muscle efficiency and oxidative capacity"
         ],
-        "correctArray": [0, 1, 2, 4],
+        "correctArray": [
+          0,
+          1,
+          2,
+          4
+        ],
         "rationale": "Submaximal ventilation drops because less lactate and H+ are produced (reducing ventilatory drive via peripheral chemoreceptors), CO2 production is lower at given intensities, economy improves, and respiratory muscles are more efficient."
       },
       {
@@ -672,7 +837,12 @@
           "A 50% increase in arterial oxygen saturation (SaO2) above 150%",
           "Elevated intramuscular myoglobin content facilitating cytoplasmic oxygen flux"
         ],
-        "correctArray": [0, 1, 2, 4],
+        "correctArray": [
+          0,
+          1,
+          2,
+          4
+        ],
         "rationale": "Greater extraction (dropping mixed venous O2 content) is driven by capillarization, mitochondrial density/enzymes, myoglobin, and effective shunting. Arterial saturation cannot exceed 100%."
       },
       {
@@ -684,7 +854,11 @@
           "Diffusion capacity increases at maximal effort because more alveoli become active in gas exchange",
           "Tidal volume decreases during maximal exercise to protect the lungs"
         ],
-        "correctArray": [0, 1, 3],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
         "rationale": "Resting apical perfusion is limited by hydrostatic pressure gradients. Maximal exercise increases pulmonary perfusion pressure, opening apical capillaries, expanding functional alveolar exchange area, and elevating diffusion capacity."
       },
       {
@@ -696,7 +870,11 @@
           "In healthy, untrained recreationally active college students running a 5k at sea level",
           "In weightlifters performing a single repetition bench press"
         ],
-        "correctArray": [0, 1, 2],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
         "rationale": "Pulmonary limitation occurs in elite athletes with extreme cardiac outputs (EIAH), high altitude (low environmental driving pressure), or clinical pulmonary pathology. It does not limit healthy untrained individuals at sea level."
       },
       {
@@ -708,7 +886,11 @@
           "Very large, elite athletes can exceed 200 L/min of pulmonary ventilation",
           "Tidal volume plateau is avoided entirely by breathing exclusively through the skin"
         ],
-        "correctArray": [0, 1, 3],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
         "rationale": "Trained VEmax ranges from 130 to 180+ L/min (exceeding 200 L/min in large athletes), driven by maximal tidal volume and breathing frequency."
       },
       {
@@ -720,7 +902,11 @@
           "Pulmonary capillaries permanently fuse shut during exercise",
           "The partial pressure of alveolar oxygen drops to zero"
         ],
-        "correctArray": [0, 1, 2],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
         "rationale": "Arterial saturation is already near ceiling (98%), and hemodilution from plasma expansion means hemoglobin per dL of blood is stable or slightly lower. Thus, oxygen content per dL of arterial blood (CaO2) changes very little."
       }
     ],
@@ -764,38 +950,88 @@
     "fillBlank": [
       {
         "statement": "At a standardized submaximal workload, pulmonary ventilation is **decreased** by 20% to 30%, whereas during exhaustive maximal exercise, ventilation is substantially **increased**.",
-        "targets": ["decreased", "increased"],
-        "optionsBank": ["decreased", "increased", "eliminated", "unchanged"],
+        "targets": [
+          "decreased",
+          "increased"
+        ],
+        "optionsBank": [
+          "decreased",
+          "increased",
+          "eliminated",
+          "unchanged"
+        ],
         "hint": "Contrast submaximal efficiency with maximal ventilatory capacity."
       },
       {
         "statement": "Maximal pulmonary diffusion increases after aerobic training because elevated cardiac output increases blood flow to the **upper regions** of the lungs, recruiting previously underperfused **alveoli**.",
-        "targets": ["upper regions", "alveoli"],
-        "optionsBank": ["upper regions", "alveoli", "lower regions", "bronchioles", "pleural spaces"],
+        "targets": [
+          "upper regions",
+          "alveoli"
+        ],
+        "optionsBank": [
+          "upper regions",
+          "alveoli",
+          "lower regions",
+          "bronchioles",
+          "pleural spaces"
+        ],
         "hint": "Anatomical zone of the lung underperfused at rest and the microscopic gas exchange units."
       },
       {
         "statement": "The maximal (a-v)O2 difference widens after endurance training primarily due to a reduction in **mixed venous oxygen content**, which reflects enhanced **oxygen extraction** by working muscle fibers.",
-        "targets": ["mixed venous oxygen content", "oxygen extraction"],
-        "optionsBank": ["mixed venous oxygen content", "oxygen extraction", "arterial oxygen content", "pulmonary compliance"],
+        "targets": [
+          "mixed venous oxygen content",
+          "oxygen extraction"
+        ],
+        "optionsBank": [
+          "mixed venous oxygen content",
+          "oxygen extraction",
+          "arterial oxygen content",
+          "pulmonary compliance"
+        ],
         "hint": "The venous blood parameter in the pulmonary artery and the cellular process in myocytes."
       },
       {
         "statement": "In elite endurance athletes, **Exercise-Induced Arterial Hypoxemia** can occur when red blood cell transit time through the **pulmonary capillaries** becomes too short for complete gas equilibration.",
-        "targets": ["Exercise-Induced Arterial Hypoxemia", "pulmonary capillaries"],
-        "optionsBank": ["Exercise-Induced Arterial Hypoxemia", "pulmonary capillaries", "respiratory alkalosis", "systemic arterioles", "alveolar collapse"],
+        "targets": [
+          "Exercise-Induced Arterial Hypoxemia",
+          "pulmonary capillaries"
+        ],
+        "optionsBank": [
+          "Exercise-Induced Arterial Hypoxemia",
+          "pulmonary capillaries",
+          "respiratory alkalosis",
+          "systemic arterioles",
+          "alveolar collapse"
+        ],
         "hint": "Clinical desaturation phenomenon and the microvascular exchange site in the lungs."
       },
       {
         "statement": "Maximal pulmonary ventilation increases through concurrent elevations in **tidal volume** (depth of breath) and **respiratory frequency** (breathing rate).",
-        "targets": ["tidal volume", "respiratory frequency"],
-        "optionsBank": ["tidal volume", "respiratory frequency", "dead space volume", "residual volume"],
+        "targets": [
+          "tidal volume",
+          "respiratory frequency"
+        ],
+        "optionsBank": [
+          "tidal volume",
+          "respiratory frequency",
+          "dead space volume",
+          "residual volume"
+        ],
         "hint": "The volume of air per breath and the number of breaths per minute."
       },
       {
         "statement": "Pulmonary gas exchange rarely limits performance in healthy individuals because the respiratory system's capacity for **ventilation** and diffusion far exceeds the cardiovascular system's capacity for **oxygen transport**.",
-        "targets": ["ventilation", "oxygen transport"],
-        "optionsBank": ["ventilation", "oxygen transport", "glycolysis", "lactate clearance"],
+        "targets": [
+          "ventilation",
+          "oxygen transport"
+        ],
+        "optionsBank": [
+          "ventilation",
+          "oxygen transport",
+          "glycolysis",
+          "lactate clearance"
+        ],
         "hint": "Respiratory air movement versus circulatory blood delivery."
       }
     ],
@@ -957,7 +1193,11 @@
           "Selective destruction and phagocytosis of all mitochondrial cristae",
           "Complete cessation of ATP resynthesis via oxidative phosphorylation"
         ],
-        "correctArray": [0, 1, 2],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
         "rationale": "Endurance training enhances oxidative capacity by increasing both mitochondrial number (~15%) and size (~35%), alongside substantial upregulation of oxidative enzymes like SDH and citrate synthase."
       },
       {
@@ -969,7 +1209,12 @@
           "Breathing hyperoxic gas mixtures (high PO2) increases maximal oxygen consumption and endurance capacity",
           "Sedentary individuals have zero mitochondria in their skeletal muscle fibers"
         ],
-        "correctArray": [0, 1, 2, 3],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
         "rationale": "Manipulating oxygen delivery (CO poisoning, blood withdrawal/reinfusion, hyperoxia) directly alters VO2max in lockstep. Furthermore, SDH enzyme levels continue rising long after VO2max plateaus, proving mitochondrial oxidative enzymes are not the rate-limiting ceiling."
       },
       {
@@ -981,7 +1226,12 @@
           "Complete genetic silencing of the enzyme lactate dehydrogenase (LDH)",
           "Enhanced intracellular buffering capacity and monocarboxylate transporter (MCT) expression"
         ],
-        "correctArray": [0, 1, 2, 4],
+        "correctArray": [
+          0,
+          1,
+          2,
+          4
+        ],
         "rationale": "Lactate threshold improves through both decreased production (glycogen sparing, lower glycolytic flux) and accelerated clearance (enhanced perfusion, MCT transport, and organ clearance). LDH is never genetically eliminated."
       },
       {
@@ -993,7 +1243,12 @@
           "Gradual transformation of all skeletal muscle into smooth muscle",
           "Improved psychological pacing, pain tolerance, and buffering capacity"
         ],
-        "correctArray": [0, 1, 2, 4],
+        "correctArray": [
+          0,
+          1,
+          2,
+          4
+        ],
         "rationale": "Once VO2max plateaus (typically within 8-18 months), race pace continues improving via higher fractional utilization (% of VO2max sustained at lactate threshold), superior movement economy, and cellular metabolic efficiency."
       },
       {
@@ -1005,7 +1260,12 @@
           "Carbohydrate oxidation becomes the sole source of ATP production at 50% VO2max",
           "Blood lactate concentrations are lower at the conclusion of a standardized submaximal work bout"
         ],
-        "correctArray": [0, 1, 2, 4],
+        "correctArray": [
+          0,
+          1,
+          2,
+          4
+        ],
         "rationale": "Training shifts substrate selection toward fat oxidation, resulting in lower RER, spared muscle glycogen, enhanced free fatty acid utilization, and lower post-exercise blood lactate concentrations."
       },
       {
@@ -1017,7 +1277,11 @@
           "HIT can induce adaptations in carbohydrate and fat transport capacity comparable to long, slow distance training",
           "HIT produces zero cardiovascular adaptations in healthy subjects"
         ],
-        "correctArray": [0, 1, 3],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
         "rationale": "McMaster University studies demonstrated that brief, sprint-interval HIT (e.g., Wingate bursts) stimulates mitochondrial biogenesis, oxidative enzyme upregulation, and performance gains comparable to traditional high-volume endurance training in a fraction of the exercise time."
       }
     ],
@@ -1061,38 +1325,87 @@
     "fillBlank": [
       {
         "statement": "The adaptation whereby an endurance-trained athlete oxidizes more free fatty acids and spares intramuscular glycogen at a given submaximal exercise intensity is termed **glycogen sparing**.",
-        "targets": ["glycogen sparing"],
-        "optionsBank": ["glycogen sparing", "glycolytic priming", "protein wasting", "creatine depletion"],
+        "targets": [
+          "glycogen sparing"
+        ],
+        "optionsBank": [
+          "glycogen sparing",
+          "glycolytic priming",
+          "protein wasting",
+          "creatine depletion"
+        ],
         "hint": "Metabolic phenomenon preserving muscle carbohydrate reserves."
       },
       {
         "statement": "The historical hypothesis that VO2max is limited by the concentration of mitochondrial enzymes is known as the **utilization theory**, which has been refuted in favor of the **oxygen delivery limitation theory**.",
-        "targets": ["utilization theory", "oxygen delivery limitation theory"],
-        "optionsBank": ["utilization theory", "oxygen delivery limitation theory", "sliding filament theory", "chemiosmotic hypothesis"],
+        "targets": [
+          "utilization theory",
+          "oxygen delivery limitation theory"
+        ],
+        "optionsBank": [
+          "utilization theory",
+          "oxygen delivery limitation theory",
+          "sliding filament theory",
+          "chemiosmotic hypothesis"
+        ],
         "hint": "Contrast the disproven intracellular enzyme theory with the central circulatory delivery consensus."
       },
       {
         "statement": "Skeletal muscle oxidative capacity is enhanced through an increase in mitochondrial **number** by ~15% and an increase in mitochondrial **size** by ~35%.",
-        "targets": ["number", "size"],
-        "optionsBank": ["number", "size", "destruction", "atrophy"],
+        "targets": [
+          "number",
+          "size"
+        ],
+        "optionsBank": [
+          "number",
+          "size",
+          "destruction",
+          "atrophy"
+        ],
         "hint": "The dual structural parameters of mitochondrial biogenesis."
       },
       {
         "statement": "Two critical mitochondrial oxidative enzymes that increase significantly with endurance training are **succinate dehydrogenase** and **citrate synthase**.",
-        "targets": ["succinate dehydrogenase", "citrate synthase"],
-        "optionsBank": ["succinate dehydrogenase", "citrate synthase", "phosphofructokinase", "lactate dehydrogenase", "creatine kinase"],
+        "targets": [
+          "succinate dehydrogenase",
+          "citrate synthase"
+        ],
+        "optionsBank": [
+          "succinate dehydrogenase",
+          "citrate synthase",
+          "phosphofructokinase",
+          "lactate dehydrogenase",
+          "creatine kinase"
+        ],
         "hint": "Key marker enzymes of the citric acid (Krebs) cycle."
       },
       {
         "statement": "During submaximal exercise, the **Respiratory Exchange Ratio** decreases following endurance training, indicating an increased reliance on **free fatty acids** as an energetic substrate.",
-        "targets": ["Respiratory Exchange Ratio", "free fatty acids"],
-        "optionsBank": ["Respiratory Exchange Ratio", "free fatty acids", "blood urea nitrogen", "amino acids", "glycogen stores"],
+        "targets": [
+          "Respiratory Exchange Ratio",
+          "free fatty acids"
+        ],
+        "optionsBank": [
+          "Respiratory Exchange Ratio",
+          "free fatty acids",
+          "blood urea nitrogen",
+          "amino acids",
+          "glycogen stores"
+        ],
         "hint": "Gas ratio (VCO2/VO2) and the lipid fuel source."
       },
       {
         "statement": "Even after an athlete's VO2max reaches a plateau, competitive race performance can continue to improve through an elevated **lactate threshold** and improved **running economy**.",
-        "targets": ["lactate threshold", "running economy"],
-        "optionsBank": ["lactate threshold", "running economy", "maximal heart rate", "pulmonary dead space"],
+        "targets": [
+          "lactate threshold",
+          "running economy"
+        ],
+        "optionsBank": [
+          "lactate threshold",
+          "running economy",
+          "maximal heart rate",
+          "pulmonary dead space"
+        ],
         "hint": "Submaximal metabolic inflection point and biomechanical oxygen efficiency."
       }
     ],
