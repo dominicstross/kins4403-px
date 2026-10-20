@@ -46,20 +46,29 @@ def extract_clean_reading_block(sec_soup):
     Extracts purely the reading body from either Chapter 10 details structure
     or Chapter 11 section structure.
     """
-    # Pattern A (Chapter 10): <details ... id="sec-reading"> -> <div class="accordion-body">
-    details_reading = sec_soup.find(['details', 'div'], id="sec-reading")
-    if details_reading:
-        acc_body = details_reading.find(class_="accordion-body")
-        target = acc_body if acc_body else details_reading
-        
-        # Clone so we don't mutate parent
-        clone = BeautifulSoup(str(target), "html.parser")
-        sum_tag = clone.find('summary')
-        if sum_tag:
-            sum_tag.decompose()
-        return "".join(str(c) for c in clone.contents if getattr(c, 'name', None) not in ['script', 'style']).strip()
+    # Pattern A: Any <details> card whose summary mentions "Reading" OR the very first <details> card
+    details_cards = sec_soup.find_all('details', class_=re.compile(r'accordion-card', re.I))
+    for card in details_cards:
+        sum_el = card.find('summary')
+        sum_txt = sum_el.get_text() if sum_el else ''
+        if 'reading' in sum_txt.lower() or card.get('id') == 'sec-reading':
+            clone = BeautifulSoup(str(card), "html.parser")
+            if clone.find('summary'):
+                clone.find('summary').decompose()
+            acc_body = clone.find(class_="accordion-body")
+            target = acc_body if acc_body else clone
+            return "".join(str(c) for c in target.contents if getattr(c, 'name', None) not in ['script', 'style']).strip()
 
-    # Pattern B (Chapter 11): Look for sec-reading-pX or reading-content
+    # If details cards exist but summary didn't match 'reading', the first card is always the reading
+    if details_cards:
+        clone = BeautifulSoup(str(details_cards[0]), "html.parser")
+        if clone.find('summary'):
+            clone.find('summary').decompose()
+        acc_body = clone.find(class_="accordion-body")
+        target = acc_body if acc_body else clone
+        return "".join(str(c) for c in target.contents if getattr(c, 'name', None) not in ['script', 'style']).strip()
+
+    # Pattern B: Chapter 11 format with id="sec-reading-pX" or class="reading-content"
     ch11_reading = sec_soup.find(id=re.compile(r'sec-reading-p\d+|reading-content', re.I))
     if ch11_reading:
         clone = BeautifulSoup(str(ch11_reading), "html.parser")
@@ -134,7 +143,6 @@ def process_html_file(file_path):
                 ptitle = h2.get_text().strip()
             
             clean_ptitle = re.sub(r'^(?:Part|Concept|Topic)\s*\d*[:\s-]*', '', ptitle).strip()
-            # Clean off chevron arrows
             clean_ptitle = clean_ptitle.replace('▶', '').replace('▼', '').strip()
 
             reading_html = extract_clean_reading_block(sec)

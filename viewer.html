@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KINS 4403 Interactive OLM Engine</title>
 
+  <!-- KaTeX for physiological formulas -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
@@ -36,6 +37,7 @@
       padding-bottom: 90px;
     }
 
+    /* TOP PERSISTENT HEADER */
     header {
       background: var(--primary);
       color: #fff;
@@ -287,6 +289,7 @@
     .score-btn:hover { border-color: var(--accent); background: #eff6ff; }
     .score-btn.selected { background: var(--accent); color: #fff; border-color: var(--accent); }
 
+    /* BOTTOM STICKY BAR */
     .bottom-bar {
       position: fixed;
       bottom: 0; left: 0; right: 0;
@@ -503,9 +506,22 @@
   }
 
   function sample(arr, count) {
-    if (!arr || !arr.length) return [];
+    if (!arr || !Array.isArray(arr) || arr.length === 0) return [];
+    const limit = (typeof count === 'number' && count > 0) ? count : 2;
     const shuffled = [...arr].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, Math.min(count, arr.length));
+    return shuffled.slice(0, Math.min(limit, shuffled.length));
+  }
+
+  function resolvePartPool(partId, partIdx) {
+    if (!quizData) return null;
+    if (quizData[partId]) return quizData[partId];
+    if (quizData[String(partIdx + 1)]) return quizData[String(partIdx + 1)];
+    
+    const pools = Object.values(quizData).filter(v => typeof v === 'object' && v !== null && (v.mcq || v.tf || v.ms || v.cloze));
+    if (pools.length > partIdx) return pools[partIdx];
+    if (pools.length > 0) return pools[0];
+    
+    return quizData;
   }
 
   function loadConceptPart(idx) {
@@ -522,17 +538,18 @@
   }
 
   function renderSampledAssessments(partId, partIdx, counts) {
-    let pool = quizData[partId] || quizData[String(partIdx + 1)] || quizData[partIdx];
-    if (!pool && Object.keys(quizData).length > 0) {
-      const keys = Object.keys(quizData);
-      pool = quizData[keys[partIdx]] || quizData[keys[0]];
-    }
+    const pool = resolvePartPool(partId, partIdx);
+    const mcqLimit = counts.mcq !== undefined ? counts.mcq : 2;
+    const msLimit = counts.ms !== undefined ? counts.ms : 2;
+    const tfLimit = counts.tf !== undefined ? counts.tf : 2;
+    const clozeLimit = counts.cloze !== undefined ? counts.cloze : 2;
+    const saLimit = counts.sa !== undefined ? counts.sa : 1;
 
-    renderMCQs(sample(pool ? (pool.mcq || pool.multipleChoice) : [], counts.mcq || 2));
-    renderMSs(sample(pool ? (pool.ms || pool.multiSelect) : [], counts.ms || 2));
-    renderTFs(sample(pool ? (pool.tf || pool.trueFalse) : [], counts.tf || 2));
-    renderClozes(sample(pool ? (pool.cloze || pool.fillBlank) : [], counts.cloze || 2));
-    renderSAs(sample(pool ? (pool.sa || pool.shortAnswer || pool.openEnded) : [], counts.sa || 1));
+    renderMCQs(sample(pool ? (pool.mcq || pool.multipleChoice) : [], mcqLimit));
+    renderMSs(sample(pool ? (pool.ms || pool.multiSelect) : [], msLimit));
+    renderTFs(sample(pool ? (pool.tf || pool.trueFalse) : [], tfLimit));
+    renderClozes(sample(pool ? (pool.cloze || pool.fillBlank) : [], clozeLimit));
+    renderSAs(sample(pool ? (pool.sa || pool.shortAnswer || pool.openEnded) : [], saLimit));
   }
 
   function renderMCQs(items) {
