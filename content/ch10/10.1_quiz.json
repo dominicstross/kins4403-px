@@ -1,1 +1,465 @@
-{}
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": "p1_mcq_1",
+        "q": "Which training modality induces substantial structural hypertrophy and increases in maximal force production, while aerobic training results in minimal strength improvements?",
+        "opts": [
+          "Continuous low-intensity swimming",
+          "High-load resistance training",
+          "Moderate-intensity cross-country running",
+          "Low-load rhythmic cycling"
+        ],
+        "correct": 1,
+        "rationale": "Resistance training exposes skeletal muscle fibers to high mechanical tension, activating intracellular signaling cascades that lead to myofibrillar protein accretion and neural recruitment. In contrast, aerobic endurance training induces mitochondrial and enzymatic adaptations with negligible impact on peak muscle strength or power."
+      },
+      {
+        "id": "p1_mcq_2",
+        "q": "Prior to the late 1960s, resistance training was largely restricted to which of the following athlete populations?",
+        "opts": [
+          "Marathon runners and road cyclists",
+          "Competitive weightlifters and throwing event athletes",
+          "Tennis players and soccer midfielders",
+          "Figure skaters and swimmers"
+        ],
+        "correct": 1,
+        "rationale": "Historically, resistance exercise was viewed with skepticism and thought to cause 'muscle boundness' or decrease flexibility. Consequently, it was almost exclusively restricted to Olympic weightlifters, track and field throwing athletes, and selected collision sports (football, boxing, wrestling)."
+      },
+      {
+        "id": "p1_mcq_3",
+        "q": "During which historical timeframe did mainstream health organizations begin prescribing resistance exercise as a foundational component of preventative health for the general public?",
+        "opts": [
+          "Early 1900s",
+          "Late 1960s to early 1970s",
+          "Late 1980s to early 1990s",
+          "Mid-2010s"
+        ],
+        "correct": 2,
+        "rationale": "While coaches recognized strength benefits for sports in the late 1960s/1970s, major medical and health organizations only formally integrated resistance training into standard public health exercise prescriptions in the late 1980s and early 1990s."
+      },
+      {
+        "id": "p1_mcq_4",
+        "q": "What historical misconception regarding female physiology was prevalent in athletic training prior to the late 1960s?",
+        "opts": [
+          "Women possessed identical circulating testosterone levels as men",
+          "Strength training was inappropriate or harmful for women, leading to bans from weight rooms",
+          "Women exhibited greater early muscular hypertrophy than men",
+          "Resistance training improved female endurance while eliminating cardiovascular adaptations"
+        ],
+        "correct": 1,
+        "rationale": "Culturally and medically, women were historically discouraged or actively banned from weight training facilities due to unfounded dogmas regarding loss of femininity, uterine displacement, or physical fragility."
+      },
+      {
+        "id": "p1_mcq_5",
+        "q": "Which physiological principle dictates that cardiovascular adaptations from running do not translate into enhanced bench press 1RM performance?",
+        "opts": [
+          "The Overload Principle",
+          "The SAID Principle (Specific Adaptations to Imposed Demands)",
+          "The Size Principle of Henneman",
+          "The Principle of Reversibility"
+        ],
+        "correct": 1,
+        "rationale": "The Specific Adaptation to Imposed Demands (SAID) principle dictates that neuromuscular adaptations mirror the exact mechanical, metabolic, and neural characteristics of the stimulus applied."
+      },
+      {
+        "id": "p1_mcq_6",
+        "q": "Modern exercise science views resistance exercise as essential for which of the following non-athletic outcomes?",
+        "opts": [
+          "Enhancement of maximal lung diffusion capacity",
+          "Preservation of bone mineral density, metabolic rate, and functional independence",
+          "Elimination of all cellular aging pathways",
+          "Permanent suppression of blood lactate accumulation"
+        ],
+        "correct": 1,
+        "rationale": "Clinical resistance training preserves metabolic homeostasis, maintains lean muscle mass (countering sarcopenia), enhances bone mineral density, and preserves functional independence across aging populations."
+      }
+    ],
+    "ms": [
+      {
+        "id": "p1_ms_1",
+        "q": "Which of the following athletic cohorts were historically among the few permitted or encouraged to participate in heavy resistance training prior to 1960? (Select all that apply)",
+        "opts": [
+          "Track and field shot-put and discus throwers",
+          "Competitive Olympic weightlifters",
+          "Female distance runners",
+          "Collegiate wrestling and boxing competitors"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "Prior to the 1960s paradigm shift, resistance training was confined to strength-specific athletes (weightlifters, throwers) and combat/collision sports (wrestlers, boxers). Women and endurance athletes were discouraged or excluded."
+      },
+      {
+        "id": "p1_ms_2",
+        "q": "Which factors contributed directly to the shift in attitude regarding resistance training across the general population during the 1980s and 1990s? (Select all that apply)",
+        "opts": [
+          "Rigorous empirical research demonstrating health-related benefits",
+          "Innovations in biomechanically designed training equipment",
+          "Evidence refuting myths regarding excessive bulk and loss of flexibility",
+          "Scientific consensus that resistance training completely replaces the need for aerobic training"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Attitude shifts were driven by scientific evidence of health benefits, ergonomic/safe equipment design, and debunking of myths. Resistance training does not eliminate the need for cardiovascular exercise."
+      },
+      {
+        "id": "p1_ms_3",
+        "q": "Which of the following physiological changes are characteristic of chronic aerobic endurance training rather than resistance training? (Select all that apply)",
+        "opts": [
+          "Elevated mitochondrial density in Type I muscle fibers",
+          "Marked increases in muscle cross-sectional area (CSA)",
+          "Enhanced capillary-to-fiber ratio",
+          "Significant upregulation of peak mechanical power production"
+        ],
+        "correctArray": [
+          0,
+          2
+        ],
+        "rationale": "Aerobic training elevates mitochondrial enzymes and capillary density without stimulating marked myofibrillar protein synthesis or peak mechanical power."
+      },
+      {
+        "id": "p1_ms_4",
+        "q": "Which statements accurately reflect current scientific guidelines regarding resistance exercise prescription? (Select all that apply)",
+        "opts": [
+          "It is an integral component of preventative exercise prescriptions for adults",
+          "Both men and women experience substantial functional benefits from participation",
+          "It should be avoided in elderly populations due to vascular brittleness",
+          "Athletes in endurance disciplines incorporate strength training to improve movement economy"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "Resistance exercise is recommended across the lifespan (including frail elderly populations to mitigate sarcopenia and fall risks) and improves movement economy in endurance athletes."
+      }
+    ],
+    "tf": [
+      {
+        "id": "p1_tf_1",
+        "q": "Chronic low-intensity aerobic endurance training produces substantial gains in skeletal muscle maximal force production and explosive power.",
+        "ans": false,
+        "feedback": "False. Aerobic endurance training elicits minimal gains in muscular strength or power due to the absence of high mechanical load and lack of high-threshold motor unit recruitment."
+      },
+      {
+        "id": "p1_tf_2",
+        "q": "In the 1950s, women were widely encouraged by coaches and clinicians to participate in heavy progressive resistance training.",
+        "ans": false,
+        "feedback": "False. Women were virtually excluded or actively banned from weight rooms during this era due to cultural dogmas and unfounded medical myths."
+      },
+      {
+        "id": "p1_tf_3",
+        "q": "The neuromuscular system is one of the most plastic and responsive physiological systems in the human body when subjected to mechanical loading.",
+        "ans": true,
+        "feedback": "True. Skeletal muscle and the motor nervous system demonstrate remarkable plasticity, rapidly remodeling in response to overload or disuse."
+      },
+      {
+        "id": "p1_tf_4",
+        "q": "Major medical and public health organizations did not formally recognize resistance training as essential to overall health until the late 1980s and early 1990s.",
+        "ans": true,
+        "feedback": "True. It took until the late 1980s and early 1990s for organizations like the ACSM and AHA to codify resistance training into official public health guidelines."
+      },
+      {
+        "id": "p1_tf_5",
+        "q": "Resistance training improves athletic performance only in sports that require absolute maximum body mass and direct physical collisions.",
+        "ans": false,
+        "feedback": "False. Research demonstrates that strength and rate-of-force-development adaptations benefit agility, sprint speed, running economy, and injury prevention across virtually all sports."
+      }
+    ],
+    "cloze": [
+      {
+        "id": "p1_clz_1",
+        "statement": "While aerobic exercise produces metabolic adaptations, major neuromuscular adaptations require **resistance training**.",
+        "target": "resistance training",
+        "optionsBank": [
+          "aerobic training",
+          "resistance training",
+          "static stretching",
+          "bed rest"
+        ]
+      },
+      {
+        "id": "p1_clz_2",
+        "statement": "In the late 1960s and early 1970s, researchers discovered that strength and power training were beneficial for **almost all sports**.",
+        "target": "almost all sports",
+        "optionsBank": [
+          "almost all sports",
+          "only weightlifting",
+          "strictly collision sports",
+          "endurance runners only"
+        ]
+      },
+      {
+        "id": "p1_clz_3",
+        "statement": "During the late 1980s and early 1990s, health professionals recognized resistance exercise as a core component of **overall health and fitness**.",
+        "target": "overall health and fitness",
+        "optionsBank": [
+          "overall health and fitness",
+          "competitive body building",
+          "pediatric athletic tests",
+          "extreme endurance sports"
+        ]
+      },
+      {
+        "id": "p1_clz_4",
+        "statement": "Historical resistance training dogmas actively excluded **women** from weight rooms due to unscientific assumptions regarding female physiology.",
+        "target": "women",
+        "optionsBank": [
+          "women",
+          "adolescent males",
+          "collision athletes",
+          "weightlifters"
+        ]
+      }
+    ],
+    "sa": [
+      {
+        "id": "p1_sa_1",
+        "q": "Contrast the physiological adaptations resulting from chronic aerobic endurance training versus high-load resistance training. Why does aerobic training fail to produce significant gains in muscular strength and peak power?",
+        "model": "Aerobic endurance training primarily challenges mitochondrial enzyme activity, capillarization, cardiac output, and oxidative substrate utilization, relying almost exclusively on low-threshold Type I motor units without delivering the high mechanical tension necessary to stimulate myofibrillar protein synthesis. Conversely, high-load resistance training recruits high-threshold Type II motor units and imposes intense mechanical strain on the sarcomeres. This mechanical tension triggers intracellular mechanotransduction signaling cascades (e.g., mTOR pathway activation), leading to myofibrillar hypertrophy, elevated cross-bridge density, and enhanced neurological motor drive.",
+        "criteria": [
+          "Identifies mitochondrial and capillarization adaptations in aerobic training vs. myofibrillar hypertrophy in resistance training.",
+          "Contrasts low-threshold Type I motor unit recruitment in endurance training with high-threshold Type II recruitment in resistance exercise.",
+          "Explains that aerobic training lacks the requisite mechanical tension/overload to stimulate cross-bridge protein accretion or increase maximal force."
+        ]
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": "p2_mcq_1",
+        "q": "Over an initial 3- to 6-month period of structured resistance training in previously untrained individuals, typical strength improvements range from:",
+        "opts": [
+          "2% to 5%",
+          "10% to 15%",
+          "25% to 100%",
+          "200% to 500%"
+        ],
+        "correct": 2,
+        "rationale": "Untrained participants commonly exhibit strength increases of 25% to 100% (or more) within 3 to 6 months of starting a structured resistance training program."
+      },
+      {
+        "id": "p2_mcq_2",
+        "q": "In research studies involving novice lifters, approximately what percentage of early strength gains can be attributed to the neurological 'learning effect' rather than muscle hypertrophy?",
+        "opts": [
+          "Less than 5%",
+          "Up to 50%",
+          "Exactly 75%",
+          "100%"
+        ],
+        "correct": 1,
+        "rationale": "Up to 50% of initial strength improvements in baseline-naive subjects stem from neural adaptations and motor learning—such as motor unit synchronization, rate coding, and movement coordination—rather than structural hypertrophy."
+      },
+      {
+        "id": "p2_mcq_3",
+        "q": "When comparing relative percentage strength gains between women and men following a 20-week resistance program, research shows that:",
+        "opts": [
+          "Men gain twice the relative percentage as women",
+          "Women achieve negligible relative improvements",
+          "Gains in strength are very similar when expressed as a percentage of initial strength",
+          "Children outperform adults by over 300% relative strength"
+        ],
+        "correct": 2,
+        "rationale": "Relative percentage increases in strength are remarkably similar across sexes and age groups when normalized to initial pre-training strength levels."
+      },
+      {
+        "id": "p2_mcq_4",
+        "q": "If a 25-year-old adult man (initial 1RM = 50 kg) and a 12-year-old boy (initial 1RM = 25 kg) both improve their 1RM bench press by 50%, what are their respective absolute improvements?",
+        "opts": [
+          "Man: 50 kg; Boy: 25 kg",
+          "Man: 25 kg; Boy: 12.5 kg",
+          "Man: 12.5 kg; Boy: 25 kg",
+          "Man: 75 kg; Boy: 37.5 kg"
+        ],
+        "correct": 1,
+        "rationale": "50% of 50 kg is 25 kg (new 1RM = 75 kg). 50% of 25 kg is 12.5 kg (new 1RM = 37.5 kg). Thus, their absolute improvements are 25 kg and 12.5 kg, respectively."
+      },
+      {
+        "id": "p2_mcq_5",
+        "q": "Which biological property describes skeletal muscle tissue's capacity to hypertrophy with training and rapidly atrophy when immobilized?",
+        "opts": [
+          "Muscle Elasticity",
+          "Muscle Viscosity",
+          "Muscle Plasticity",
+          "Muscle Contractility"
+        ],
+        "correct": 2,
+        "rationale": "Muscle plasticity refers to the morphological and functional adaptability of skeletal muscle to structural remodeling in response to mechanical loading or disuse."
+      },
+      {
+        "id": "p2_mcq_6",
+        "q": "Which neural mechanism directly contributes to early-phase motor learning strength improvements in a novice performing the bench press?",
+        "opts": [
+          "Increased mitochondrial surface area",
+          "Decreased antagonist muscle co-activation and optimized motor unit recruitment",
+          "Rapid longitudinal addition of new sarcomeres in series",
+          "Hyperplasia of skeletal muscle fibers"
+        ],
+        "correct": 1,
+        "rationale": "Early neural adaptations include enhanced agonist motor unit synchronization, increased high-threshold recruitment, higher firing frequencies, and reduced co-contraction of opposing antagonist muscle groups."
+      }
+    ],
+    "ms": [
+      {
+        "id": "p2_ms_1",
+        "q": "Which of the following demographic comparisons demonstrate similar relative percentage strength gains following identical resistance training interventions? (Select all that apply)",
+        "opts": [
+          "Women compared to men",
+          "Children compared to adults",
+          "Elderly adults compared to young and middle-aged adults",
+          "Immobilized limbs compared to active limbs"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "When calculated as a percentage of initial baseline strength, women vs. men, children vs. adults, and older vs. younger adults all demonstrate comparable relative responsiveness."
+      },
+      {
+        "id": "p2_ms_2",
+        "q": "Which of the following explain why absolute strength gains (net kilograms lifted) are typically greater in adult males than in children or females? (Select all that apply)",
+        "opts": [
+          "Greater initial baseline muscle cross-sectional area (CSA)",
+          "Higher baseline circulating anabolic hormonal concentrations (e.g., testosterone)",
+          "Children possess zero neuromuscular plasticity",
+          "Adult males exhibit greater absolute leverage and pre-existing myofibrillar mass"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "Greater absolute gains in adult males reflect larger baseline muscle mass, hormonal milieu, and structural size. Children possess high neuromuscular plasticity, making option 3 false."
+      },
+      {
+        "id": "p2_ms_3",
+        "q": "Which factors are primarily responsible for the rapid 25% to 100% strength gains observed during the first few weeks of training in naive subjects? (Select all that apply)",
+        "opts": [
+          "Motor skill acquisition and improved coordination",
+          "Extensive de novo formation of new muscle fibers (hyperplasia)",
+          "Increased voluntary motor unit recruitment and firing frequency",
+          "Reduced antagonist muscle co-activation"
+        ],
+        "correctArray": [
+          0,
+          2,
+          3
+        ],
+        "rationale": "Early strength increases are driven by neural mechanisms: motor skill learning, increased recruitment, rate coding, and antagonist inhibition. Muscle hyperplasia is not a confirmed contributor in humans."
+      },
+      {
+        "id": "p2_ms_4",
+        "q": "Which of the following statements accurately characterize skeletal muscle plasticity? (Select all that apply)",
+        "opts": [
+          "It increases in cross-sectional area and force output under chronic mechanical overload",
+          "It decreases in size and contractile protein content during casting or immobilization",
+          "Its structural adaptations remain permanently fixed once acquired, resisting detraining",
+          "Its regulatory responsiveness is mediated by mechanical tension and metabolic signaling"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "Muscle tissue is dynamically plastic—it hypertrophies under tension and atrophies during disuse. It does not remain permanently fixed (principle of reversibility)."
+      }
+    ],
+    "tf": [
+      {
+        "id": "p2_tf_1",
+        "q": "A reported 100% increase in bench press 1RM in an untrained subject reflects a doubling of the physical size of their pectoral muscles.",
+        "ans": false,
+        "feedback": "False. A large portion (up to 50%) of initial strength gains in novice lifters is neurological and motor-learning-based; hypertrophy accounts for only a fraction of early 1RM increases."
+      },
+      {
+        "id": "p2_tf_2",
+        "q": "Elderly individuals exhibit an impaired capacity for relative percentage strength improvements compared to younger cohorts.",
+        "ans": false,
+        "feedback": "False. When evaluated as a relative percentage of their starting baseline, older adults make strength gains comparable to young adults."
+      },
+      {
+        "id": "p2_tf_3",
+        "q": "An adult male who increases his bench press from 50 kg to 75 kg achieves the exact same relative gain (50%) as a youth who improves from 25 kg to 37.5 kg.",
+        "ans": true,
+        "feedback": "True. Both achieved a 50% relative gain, though the adult achieved a greater absolute increase (25 kg vs. 12.5 kg)."
+      },
+      {
+        "id": "p2_tf_4",
+        "q": "Limb immobilization causes rapid reductions in skeletal muscle cross-sectional area and force-generating capacity due to muscle plasticity.",
+        "ans": true,
+        "feedback": "True. Muscle plasticity operates bi-directionally: mechanical unloading causes rapid muscle protein breakdown and disuse atrophy."
+      },
+      {
+        "id": "p2_tf_5",
+        "q": "Women typically gain less absolute muscle mass than men because their muscle fibers are biologically incapable of protein synthesis.",
+        "ans": false,
+        "feedback": "False. Female muscle fibers possess identical cellular mechanisms for protein synthesis and hypertrophy; lower absolute gains are due to smaller baseline muscle mass and differing endocrine profiles."
+      }
+    ],
+    "cloze": [
+      {
+        "id": "p2_clz_1",
+        "statement": "In untrained individuals, resistance training programs can produce strength improvements of **25% to 100%** within three to six months.",
+        "target": "25% to 100%",
+        "optionsBank": [
+          "5% to 10%",
+          "25% to 100%",
+          "200% to 300%",
+          "negligible amounts"
+        ]
+      },
+      {
+        "id": "p2_clz_2",
+        "statement": "The neurological **learning effect** can account for as much as 50% of the overall initial strength gain in novice lifters.",
+        "target": "learning effect",
+        "optionsBank": [
+          "hyperplasia rate",
+          "learning effect",
+          "glycogen depletion",
+          "mitochondrial growth"
+        ]
+      },
+      {
+        "id": "p2_clz_3",
+        "statement": "Skeletal muscle demonstrates marked **plasticity**, increasing in size with overload and decreasing in size when immobilized.",
+        "target": "plasticity",
+        "optionsBank": [
+          "plasticity",
+          "rigidity",
+          "crystallization",
+          "calcification"
+        ]
+      },
+      {
+        "id": "p2_clz_4",
+        "statement": "While relative percentage gains are similar across populations, **absolute weight lifted** is generally greater in men compared to women.",
+        "target": "absolute weight lifted",
+        "optionsBank": [
+          "absolute weight lifted",
+          "relative motor learning",
+          "percentage improvement",
+          "metabolic fatigue"
+        ]
+      }
+    ],
+    "sa": [
+      {
+        "id": "p2_sa_1",
+        "q": "A personal trainer claims that an untrained client who increased their leg press 1RM by 60% in 6 weeks doubled their quadriceps muscle mass. Evaluate this claim from an exercise physiology perspective, addressing neural vs. hypertrophic adaptations and demographic relative vs. absolute gains.",
+        "model": "The trainer's claim is physiologically inaccurate. In previously untrained individuals, up to 50% or more of early strength improvements (first 4 to 8 weeks) are mediated by neural adaptations rather than muscle hypertrophy. These neurological adaptations include improved motor unit recruitment, increased motor unit firing synchronization, enhanced rate coding, and reduced antagonist co-activation, alongside motor skill learning of the multi-joint movement. While structural hypertrophy begins early, it cannot account for a doubling of muscle mass over 6 weeks. Furthermore, high relative percentage improvements are common in novices due to low baseline strength, but absolute gains in muscle cross-sectional area develop progressively over months and years.",
+        "criteria": [
+          "Refutes the claim that a 60% 1RM gain equates to a doubling of muscle cross-sectional area.",
+          "Identifies neural adaptations (recruitment, synchronization, rate coding, antagonist inhibition, motor learning) as the primary driver of early strength gains.",
+          "Differentiates between relative percentage gains (which are inflated by low baseline values) and absolute muscle tissue accretion."
+        ]
+      }
+    ]
+  }
+}

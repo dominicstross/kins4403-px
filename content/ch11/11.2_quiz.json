@@ -1,1 +1,786 @@
-{}
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "What physiological parameter does Peak Power Output (PPO) on a 30-second Wingate test primarily represent?",
+        "opts": [
+          "Maximal aerobic capacity and pulmonary diffusion efficiency",
+          "An index of anaerobic power, reflecting immediate phosphagen energy release",
+          "The total anaerobic capacity over extended high-intensity exercise",
+          "The rate of hepatic gluconeogenesis and lactate clearance"
+        ],
+        "correct": 1,
+        "rationale": "Peak power output is the highest mechanical power achieved during the first 5 to 10 seconds of the Wingate test and represents anaerobic power driven by the intramuscular ATP-PCr system."
+      },
+      {
+        "id": 2,
+        "q": "How is anaerobic capacity operationally quantified during a standardized 30-second Wingate anaerobic test?",
+        "opts": [
+          "The single highest instantaneous crank velocity recorded in the first 2 seconds",
+          "Mean power output averaged over the total 30-second period, or total work performed",
+          "The post-exercise blood lactate concentration sampled after 3 minutes",
+          "The time required for heart rate to return to resting baseline"
+        ],
+        "correct": 1,
+        "rationale": "Anaerobic capacity is operationally quantified as the mean power output maintained over the entire 30-second duration or the total work performed (Mean Power x 30 s)."
+      },
+      {
+        "id": 3,
+        "q": "Which three laboratory tests are most commonly utilized by exercise scientists to evaluate anaerobic power, anaerobic capacity, or both?",
+        "opts": [
+          "Bruce treadmill test, Harvard step test, and 12-minute Cooper run",
+          "Wingate anaerobic test, critical power test, and maximal accumulated oxygen deficit test",
+          "Lactate threshold test, hydrostatic weighing, and DXA scan",
+          "Continuous ramp test, spirometry, and resting metabolic rate test"
+        ],
+        "correct": 1,
+        "rationale": "The three primary research protocols used to evaluate anaerobic power and capacity are the Wingate test, the critical power test, and the maximal accumulated oxygen deficit (MAOD) test."
+      },
+      {
+        "id": 4,
+        "q": "During a 30-second Wingate cycle ergometer test, how is the braking resistance typically determined?",
+        "opts": [
+          "A fixed resistance of 10.0 kg is applied uniformly to all human subjects",
+          "It is calculated based on individual characteristics including body weight, sex, age, and training level",
+          "The subject self-selects their preferred resistance using an electronic dial",
+          "It increases automatically by 25 Watts every 5 seconds until exhaustion"
+        ],
+        "correct": 1,
+        "rationale": "Wingate braking force is determined proportionally based on the subject's body mass (typically 0.075 kg/kg body weight in standard protocols), sex, age, and training status."
+      },
+      {
+        "id": 5,
+        "q": "What magnitude of improvement in peak anaerobic power and capacity is typically reported following chronic sprint training?",
+        "opts": [
+          "Exactly 50% across all trained individuals regardless of protocol",
+          "Results vary widely across studies, ranging from minimal increases up to 25%",
+          "No measurable changes occur in power output or capacity",
+          "Improvements are strictly limited to less than 2% due to genetic caps"
+        ],
+        "correct": 1,
+        "rationale": "Literature demonstrates wide variance in adaptations to anaerobic training, showing improvements ranging from minimal adaptations up to approximately 25%."
+      },
+      {
+        "id": 6,
+        "q": "When does Peak Power Output typically occur during a standardized 30-second Wingate test?",
+        "opts": [
+          "During the final 5 seconds as the subject attempts a finishing sprint",
+          "Within the first 5 to 10 seconds of all-out exertion",
+          "Exactly at the 15-second midpoint of the test",
+          "Continuously throughout the entire 30-second duration without declining"
+        ],
+        "correct": 1,
+        "rationale": "Peak mechanical power is achieved almost immediately within the first 5 to 10 seconds, after which power progressively declines due to phosphocreatine depletion and metabolite accumulation."
+      },
+      {
+        "id": 7,
+        "q": "Total work completed during a 30-second Wingate test is mathematically calculated as which of the following?",
+        "opts": [
+          "Peak power output divided by body weight in kilograms",
+          "Mean power output multiplied by 30 seconds",
+          "Fatigue index multiplied by resting heart rate",
+          "Braking force divided by maximal pedaling cadence"
+        ],
+        "correct": 1,
+        "rationale": "Total mechanical work equals the average power generated across the test multiplied by the duration: Total Work (Joules) = Mean Power (Watts) x 30 seconds."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which physiological variables and performance indices are directly obtained from a 30-second Wingate test? (Select all that apply)",
+        "opts": [
+          "Peak power output (anaerobic power)",
+          "Mean power output (anaerobic capacity)",
+          "Maximal oxygen uptake (VO2max)",
+          "Total mechanical work performed",
+          "Alveolar-capillary diffusion capacity"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "The Wingate test provides peak power, mean power, and total work. It does not measure VO2max or pulmonary diffusion capacity."
+      },
+      {
+        "id": 2,
+        "q": "Which testing paradigms are established in exercise physiology literature for evaluating anaerobic capacity and/or power? (Select all that apply)",
+        "opts": [
+          "Wingate anaerobic cycle ergometer test",
+          "Critical power test",
+          "Maximal accumulated oxygen deficit (MAOD) test",
+          "Hydrostatic underwater weighing test",
+          "Graded maximal treadmill Bruce protocol"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "The Wingate test, critical power model, and MAOD are established anaerobic assessment protocols. Hydrostatic weighing measures body composition, and the Bruce protocol measures aerobic capacity."
+      },
+      {
+        "id": 3,
+        "q": "Why is anaerobic power more difficult to standardize and measure than aerobic power (VO2max)? (Select all that apply)",
+        "opts": [
+          "No single laboratory test completely isolates and captures anaerobic energy production",
+          "Anaerobic efforts involve multiple interacting energy systems (ATP-PCr and fast glycolysis)",
+          "Supramaximal efforts are heavily influenced by motivation, pacing, and mechanical resistance settings",
+          "Anaerobic exercise consumes zero ATP in active skeletal muscle",
+          "Human muscles only rely on oxidative phosphorylation for all high-intensity movements"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "The lack of a single gold standard, complex overlapping bioenergetics, and sensitivity to resistance/cadence make anaerobic testing harder to standardize. Anaerobic contractions consume vast amounts of ATP."
+      },
+      {
+        "id": 4,
+        "q": "What factors explain why Peak Power Output drops significantly during the final 20 seconds of a Wingate test? (Select all that apply)",
+        "opts": [
+          "Near-complete depletion of intramuscular phosphocreatine (PCr) stores",
+          "Accumulation of metabolic by-products inhibiting contractile cross-bridge cycling",
+          "Sudden shift to exclusive beta-oxidation of adipose tissue",
+          "Inability of fast glycolysis alone to match the rapid ATP turnover of the phosphagen system",
+          "Permanent morphological atrophy of Type IIx muscle fibers"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "Power declines as PCr is depleted, intracellular hydrogen ions and inorganic phosphates accumulate, and fast glycolysis cannot match the peak rate of ATP resynthesis of the ATP-PCr system."
+      },
+      {
+        "id": 5,
+        "q": "Which adaptations contribute to an increase in Mean Power Output following 8 weeks of sprint interval training? (Select all that apply)",
+        "opts": [
+          "Increased buffering capacity of skeletal muscle against intracellular acidosis",
+          "Hypertrophy of fast-twitch Type II muscle fibers",
+          "Increased activity of key regulatory glycolytic enzymes",
+          "Total destruction of all muscle glycogen stores",
+          "Complete cessation of cardiac output during high-intensity cycling"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Mean power improves via cellular buffering, Type II fiber hypertrophy (greater cross-bridge force), and upregulated glycolytic enzyme activity."
+      },
+      {
+        "id": 6,
+        "q": "Which statements regarding the calculation and interpretation of the Wingate test are accurate? (Select all that apply)",
+        "opts": [
+          "Power output is commonly sampled and averaged over 3- to 5-second intervals",
+          "Peak power is usually generated between 25 and 30 seconds into the test",
+          "The braking force must be adjusted to the subject's body weight to elicit true maximal power",
+          "Mean power multiplied by 30 seconds equals total work",
+          "Anaerobic power and aerobic capacity represent identical bioenergetic pathways"
+        ],
+        "correctArray": [
+          0,
+          2,
+          3
+        ],
+        "rationale": "Wingate data are sampled over 3–5 s intervals, braking force is normalized to mass, and mean power x 30 s yields total work. Peak power occurs in the first 5–10 s."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Unlike aerobic power, which has VO2max as an agreed-upon gold standard, exercise science has no single universally accepted test to measure anaerobic power.",
+        "ans": true,
+        "feedback": "True. There is no single universal gold standard for anaerobic power analogous to VO2max for aerobic power."
+      },
+      {
+        "id": 2,
+        "q": "Peak power output during a 30-second Wingate test is typically achieved in the final 5 seconds due to accumulated kinetic momentum.",
+        "ans": false,
+        "feedback": "False. Peak power output is generated during the first 5 to 10 seconds of all-out pedaling, after which power declines rapidly."
+      },
+      {
+        "id": 3,
+        "q": "Total work performed during a Wingate test is calculated by multiplying mean power output by 30 seconds.",
+        "ans": true,
+        "feedback": "True. Multiplying the mean power output (Joules/sec) by 30 seconds yields total mechanical work in Joules."
+      },
+      {
+        "id": 4,
+        "q": "Chronic anaerobic sprint training consistently produces a 100% increase in anaerobic capacity in all individuals.",
+        "ans": false,
+        "feedback": "False. Research demonstrates substantial variance in anaerobic improvements, ranging from minimal gains up to approximately 25%."
+      },
+      {
+        "id": 5,
+        "q": "The braking force on a Wingate cycle ergometer is determined exclusively by the subject's resting heart rate.",
+        "ans": false,
+        "feedback": "False. Braking resistance is determined based on body mass, sex, age, and training level."
+      },
+      {
+        "id": 6,
+        "q": "Anaerobic capacity refers to the ability to sustain high-intensity effort using both the ATP-PCr and anaerobic glycolytic systems.",
+        "ans": true,
+        "feedback": "True. Anaerobic capacity reflects the total energy yield across both the phosphagen and fast glycolytic pathways."
+      },
+      {
+        "id": 7,
+        "q": "Mean power output during a Wingate test serves as an operational index of anaerobic power rather than anaerobic capacity.",
+        "ans": false,
+        "feedback": "False. Peak power represents anaerobic power, whereas mean power represents anaerobic capacity."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "On a Wingate anaerobic cycle test, the highest mechanical power achieved during the first 5 to 10 seconds is the **peak power output**, which serves as an index of **anaerobic power**.",
+        "targets": [
+          "peak power output",
+          "anaerobic power"
+        ],
+        "optionsBank": [
+          "anaerobic capacity",
+          "anaerobic power",
+          "mean power output",
+          "oxidative power",
+          "peak power output"
+        ],
+        "hint": "The maximum mechanical output reached in the opening seconds of the test."
+      },
+      {
+        "id": 2,
+        "statement": "The average mechanical power generated over the full 30 seconds is the **mean power output**, and multiplying this value by 30 seconds yields the **total work**.",
+        "targets": [
+          "mean power output",
+          "total work"
+        ],
+        "optionsBank": [
+          "fatigue index",
+          "mean power output",
+          "peak power output",
+          "total work",
+          "ventilatory threshold"
+        ],
+        "hint": "The 30-second average power and its cumulative mechanical product."
+      },
+      {
+        "id": 3,
+        "statement": "Three primary laboratory tests used to evaluate anaerobic power and capacity are the **Wingate anaerobic test**, the **critical power test**, and the **maximal accumulated oxygen deficit test**.",
+        "targets": [
+          "Wingate anaerobic test",
+          "critical power test",
+          "maximal accumulated oxygen deficit test"
+        ],
+        "optionsBank": [
+          "Bruce treadmill protocol",
+          "critical power test",
+          "hydrostatic test",
+          "maximal accumulated oxygen deficit test",
+          "Wingate anaerobic test"
+        ],
+        "hint": "The three primary research protocols used in anaerobic exercise science."
+      },
+      {
+        "id": 4,
+        "statement": "The mechanical resistance applied to the cycle ergometer during a Wingate test is termed the **braking force**, which is calculated based on the subject's **weight**.",
+        "targets": [
+          "braking force",
+          "weight"
+        ],
+        "optionsBank": [
+          "aerobic ceiling",
+          "braking force",
+          "heart rate",
+          "pulmonary compliance",
+          "weight"
+        ],
+        "hint": "The resistance load on the flywheel and the primary physical characteristic used to calculate it."
+      },
+      {
+        "id": 5,
+        "statement": "Following chronic anaerobic sprint training, improvements in peak power and capacity typically range from minimal increases up to **25%**.",
+        "targets": [
+          "25%"
+        ],
+        "optionsBank": [
+          "100%",
+          "25%",
+          "5%",
+          "75%"
+        ],
+        "hint": "The upper percentage range of anaerobic improvements cited in textbook research."
+      },
+      {
+        "id": 6,
+        "statement": "While **anaerobic power** reflects the maximal rate of energy release by the ATP-PCr system, **anaerobic capacity** reflects the combined energy yield of the ATP-PCr and glycolytic systems.",
+        "targets": [
+          "anaerobic power",
+          "anaerobic capacity"
+        ],
+        "optionsBank": [
+          "aerobic power",
+          "anaerobic capacity",
+          "anaerobic power",
+          "stroke volume"
+        ],
+        "hint": "The rate of instantaneous phosphagen release versus total high-intensity work capacity."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Differentiate between anaerobic power and anaerobic capacity. Explain how each parameter is operationally quantified on a 30-second Wingate anaerobic test, identifying the primary bioenergetic systems supporting each phase.",
+        "model": "Anaerobic power and anaerobic capacity represent distinct functional qualities. Anaerobic power is the maximal instantaneous rate of mechanical work or energy release, reflecting the peak rate of ATP hydrolysis and resynthesis via the intramuscular ATP-PCr system and high-threshold neuromuscular recruitment. On a 30-second Wingate test, anaerobic power is operationally quantified as Peak Power Output (PPO), which is the highest mechanical power achieved (typically averaged over a 3- to 5-second interval within the first 5 to 10 seconds). In contrast, anaerobic capacity represents the total energy yield that can be sustained across an exhaustive supramaximal effort, supported by the combination of the ATP-PCr system and anaerobic (fast) glycolysis. On the Wingate test, anaerobic capacity is operationally quantified as Mean Power Output (MPO) averaged across the entire 30-second duration, or as Total Work (Mean Power x 30 s). While the first 5 to 10 seconds rely heavily on the immediate breakdown of phosphocreatine and stored ATP, the remaining 20 to 25 seconds rely progressively on rapid glycogenolysis and fast glycolysis, resulting in metabolic by-product accumulation and a steep fatigue curve.",
+        "criteria": [
+          "Defines anaerobic power as the maximal instantaneous rate of energy release, supported primarily by the ATP-PCr system",
+          "Defines anaerobic capacity as the total energy yield across extended maximal effort, supported by both the ATP-PCr and fast glycolytic systems",
+          "Identifies Peak Power Output (first 5–10 s) as the Wingate operational index for anaerobic power",
+          "Identifies Mean Power Output or Total Work (across 30 s) as the Wingate operational index for anaerobic capacity"
+        ],
+        "rubric": {
+          "0": "Unsatisfactory / Inaccurate",
+          "1": "Mentions power and capacity but cannot explain Wingate operational metrics or bioenergetics",
+          "2": "Correctly identifies PPO and MPO but provides vague or incorrect bioenergetic explanations",
+          "3": "Accurately defines both constructs, associates them with PPO and MPO, and correctly matches ATP-PCr vs. glycolysis",
+          "4": "Thorough comparative breakdown of mechanical power metrics, temporal profiles (5–10 s vs. 30 s), and underlying metabolic pathways",
+          "5": "Masterful physiological synthesis detailing rate vs. capacity kinetics, Wingate sampling intervals, ATP turnover rates, and metabolic fatigue mechanisms"
+        }
+      },
+      {
+        "id": 2,
+        "prompt": "Analyze the methodology of the Wingate Anaerobic Test. Explain how braking force is determined, why power drops over the 30-second bout, and why this test is widely used despite lacking universal gold-standard status.",
+        "model": "The Wingate Anaerobic Test (WAnT) is a 30-second all-out cycle ergometer test designed to assess supramaximal mechanical performance. Before testing, a standardized braking force (resistance load) is applied to the ergometer flywheel, calculated proportionally to the subject's body mass (typically 0.075 to 0.085 kg per kg of body weight in standard Monark protocols), while accounting for sex, age, and training background to ensure optimal force-velocity relationships. The subject pedals all-out from a stationary or rolling start against this high resistance for 30 seconds. Power output drops significantly over the test duration (often exhibiting a fatigue index of 40% to 60%) due to two physiological factors: (1) near-complete depletion of intramuscular phosphocreatine (PCr) stores within the first 10 to 15 seconds, and (2) intracellular acidosis (accumulation of hydrogen ions [H+] and inorganic phosphate [Pi]), which inhibits key glycolytic enzymes like phosphofructokinase and impairs cross-bridge cycling. Despite not being a perfect gold standard (since it does not directly capture oxygen deficit or isolated cellular ATP hydrolysis), the Wingate test remains the most widely used protocol because it is non-invasive, objective, highly reproducible, cost-effective, and provides reliable indices of both peak explosive power and sustained anaerobic work capacity.",
+        "criteria": [
+          "Explains that braking force is calculated based on body mass, sex, age, and training status",
+          "Identifies phosphocreatine depletion as the initial cause of power decline",
+          "Explains metabolic by-product accumulation (H+, Pi, acidosis) and glycolytic rate limitations in ongoing fatigue",
+          "Justifies why the Wingate test remains the research standard (reproducibility, accessibility, objective peak and mean indices)"
+        ],
+        "rubric": {
+          "0": "Unsatisfactory / Inaccurate",
+          "1": "Superficial description of pedaling a bike hard with no physiological depth",
+          "2": "Mentions body weight braking and fatigue, but lacks biochemical and bioenergetic explanation",
+          "3": "Accurately explains braking force calculation, PCr/acidosis fatigue mechanisms, and practical research utility",
+          "4": "Detailed critique of force-velocity optimization, bioenergetic depletion time courses, and operational strengths/limitations",
+          "5": "Exemplary assessment synthesis detailing mechanical resistance mechanics, cross-bridge inhibition kinetics, and comparative laboratory validity"
+        }
+      },
+      {
+        "id": 3,
+        "prompt": "A coach claims an athlete's 30-second all-out sprint test improved by 25% solely because of enhanced cardiovascular oxygen delivery. Critique this assertion based on anaerobic bioenergetics and training adaptations.",
+        "model": "The coach's assertion is physiologically inaccurate. A 30-second all-out sprint test (such as a Wingate test) is predominantly supported by anaerobic energy systems—specifically the intramuscular phosphagen (ATP-PCr) system during the opening 5 to 10 seconds, followed by fast (anaerobic) glycolysis during the remaining 20 seconds. Central cardiovascular oxygen delivery (cardiac output, stroke volume, arterial oxygen content) plays a minimal role in directly fueling ATP turnover during an acute 30-second supramaximal effort, as the oxidative phosphorylation pathway responds with an inherent metabolic inertia and contributes less than 15% to 25% of the total energy during this brief duration. An observed 25% improvement in peak anaerobic power and capacity is driven by neuromuscular and peripheral muscular adaptations, including: (1) enhanced motor unit recruitment, firing frequency, and synchronization; (2) selective hypertrophy of fast-twitch Type IIa and Type IIx muscle fibers; (3) upregulated activities of glycolytic enzymes such as PFK, hexokinase, and phosphorylase; (4) improved intracellular buffering capacity (buffering hydrogen ions to delay contractile fatigue); and (5) substantial gains in maximal muscular strength. Therefore, the performance gain reflects neuromuscular and anaerobic bioenergetic remodeling, not improved cardiovascular oxygen delivery.",
+        "criteria": [
+          "Refutes the coach's claim by identifying the 30-second sprint as primarily anaerobic (ATP-PCr and fast glycolysis)",
+          "Explains that oxidative phosphorylation contributes minimally during acute 30-second maximal exertion due to metabolic lag",
+          "Identifies neuromuscular adaptations (motor unit recruitment, firing rate, synchronization) as drivers of performance gains",
+          "Details peripheral muscular adaptations (Type II fiber hypertrophy, glycolytic enzyme upregulation, buffering capacity)"
+        ],
+        "rubric": {
+          "0": "Unsatisfactory / Agrees with the coach's claim",
+          "1": "States the test is anaerobic, but fails to explain underlying bioenergetics or specific adaptations",
+          "2": "Correctly notes that oxygen delivery is not the primary driver, but provides limited discussion of neuromuscular or muscular factors",
+          "3": "Accurately refutes the claim using bioenergetic time courses and details at least two neuromuscular/muscular adaptations",
+          "4": "Thorough physiological critique contrasting oxidative lag against ATP-PCr/glycolytic flux, citing specific muscular and neural adaptations",
+          "5": "Masterful academic rebuttal integrating energy system fractionations, Henneman's Size Principle, intracellular buffering kinetics, and enzymatic upregulation"
+        }
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "Which skeletal muscle fiber populations undergo significant hypertrophy (increased cross-sectional area) in response to chronic anaerobic training?",
+        "opts": [
+          "Exclusively Type I slow-twitch fibers, with total atrophy of Type II fibers",
+          "Both Type IIa and Type IIx fibers, along with a lesser increase in Type I fiber area",
+          "Exclusively smooth muscle and cardiac muscle fibers",
+          "Only Type I fibers, because Type II fibers are never recruited in sprint activities"
+        ],
+        "correct": 1,
+        "rationale": "Anaerobic training heavily recruits Type II motor units. Consequently, both Type IIa and Type IIx fibers exhibit marked hypertrophy, while Type I fibers also increase in cross-sectional area, but to a lesser degree."
+      },
+      {
+        "id": 2,
+        "q": "What unique shift in skeletal muscle fiber type distribution has been observed following all-out sprint training (e.g., repeated 15–30 s sprints) that is not typically seen with heavy resistance training?",
+        "opts": [
+          "Complete conversion of all skeletal muscle fibers into cardiac tissue",
+          "A decrease in Type I percentage and an increase in Type II fibers, particularly Type IIa",
+          "An increase in Type I fibers from 30% to over 85%",
+          "Total elimination of all Type IIa fibers in favor of Type IIx fibers"
+        ],
+        "correct": 1,
+        "rationale": "Studies employing 15 to 30 s all-out sprint protocols have demonstrated a reduction in Type I fiber percentage (e.g., 57% to 48%) accompanied by an increase in Type IIa fibers (e.g., 32% to 38%), an adaptation not typically seen in standard resistance training."
+      },
+      {
+        "id": 3,
+        "q": "In the landmark study by Costill and coworkers, how did repeated 6-second maximal knee extension training affect creatine kinase and myokinase activities?",
+        "opts": [
+          "Enzyme activities increased by over 400%",
+          "Enzyme activities were almost unchanged compared to pre-training values",
+          "Enzyme activities dropped to zero, permanently impairing the muscle",
+          "Enzymes converted completely into oxidative citrate synthase"
+        ],
+        "correct": 1,
+        "rationale": "Costill et al. found that repeated 6-second maximal work bouts produced significant strength gains but left the activities of ATP-PCr enzymes (creatine kinase and myokinase) almost unchanged."
+      },
+      {
+        "id": 4,
+        "q": "Which training duration was shown by Costill et al. to significantly increase the activities of creatine kinase and myokinase in skeletal muscle?",
+        "opts": [
+          "Repeated 6-second maximal work bouts",
+          "Repeated 30-second maximal work bouts",
+          "Continuous 60-minute low-intensity cycling bouts",
+          "Static isometric holds lasting 2 seconds"
+        ],
+        "correct": 1,
+        "rationale": "Repeated 30-second maximal bouts significantly increased creatine kinase and myokinase activities, whereas 6-second maximal bouts produced little to no change in these enzyme activities."
+      },
+      {
+        "id": 5,
+        "q": "What happens to key glycolytic enzymes (such as PFK, phosphorylase, and LDH) following repeated 30-second maximal anaerobic sprint training?",
+        "opts": [
+          "Their activities decrease by 50% due to acid damage",
+          "Their activities increase by 10% to 25% (with PFK increasing up to 49%)",
+          "Their activities remain completely unchanged at all times",
+          "They are converted directly into myoglobin molecules"
+        ],
+        "correct": 1,
+        "rationale": "Anaerobic training consisting of repeated 30-second bouts increases the activities of key glycolytic enzymes—including PFK, phosphorylase, hexokinase, and LDH—by 10% to 25% or more."
+      },
+      {
+        "id": 6,
+        "q": "When Costill and coworkers tested both 6-second and 30-second trained legs using a 60-second sprint performance test, what did they discover regarding power output and fatigue rates?",
+        "opts": [
+          "The 30-second trained leg produced 10 times more power and never fatigued",
+          "Power output and fatigue rates were affected to the same degree in both legs",
+          "The 6-second trained leg could not perform any muscle contractions",
+          "Fatigue was completely eliminated in both legs"
+        ],
+        "correct": 1,
+        "rationale": "Both the 6-second and 30-second training protocols improved muscular strength equally (~14%) and showed the same power output and rate of fatigue on a 60-second performance test, demonstrating that performance gains stemmed from strength improvements rather than greater anaerobic ATP yield."
+      },
+      {
+        "id": 7,
+        "q": "According to the principle of training specificity (SAID), how do oxidative enzymes (e.g., SDH) respond to chronic anaerobic sprint training?",
+        "opts": [
+          "They increase multi-fold to compensate for lack of oxygen",
+          "They undergo no significant change in activity",
+          "They completely replace all glycolytic enzymes in the cytoplasm",
+          "They permanently relocate to the cell membrane"
+        ],
+        "correct": 1,
+        "rationale": "Training adaptations are highly specific. Anaerobic training increases phosphagen and glycolytic enzymes without altering oxidative enzymes, whereas aerobic training increases oxidative enzymes without affecting anaerobic enzymes."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which glycolytic enzymes have been shown to increase in activity following repeated 30-second maximal sprint training? (Select all that apply)",
+        "opts": [
+          "Phosphofructokinase (PFK)",
+          "Glycogen phosphorylase",
+          "Hexokinase",
+          "Lactate dehydrogenase (LDH)",
+          "Succinate dehydrogenase (SDH)"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "PFK, phosphorylase, hexokinase, and LDH are glycolytic enzymes that increase with 30-second sprint training. Succinate dehydrogenase (SDH) is an oxidative mitochondrial enzyme that does not increase with anaerobic training."
+      },
+      {
+        "id": 2,
+        "q": "Which adaptations in skeletal muscle fiber morphology and distribution typically occur with chronic high-intensity sprint training? (Select all that apply)",
+        "opts": [
+          "Hypertrophy of Type IIa muscle fibers",
+          "Hypertrophy of Type IIx muscle fibers",
+          "A modest hypertrophy of Type I muscle fibers",
+          "A reduction in the percentage of Type I fibers with an increase in Type IIa fibers",
+          "Total conversion of 100% of all muscle fibers into slow-twitch Type I fibers"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "Sprint training causes hypertrophy across Type IIa, Type IIx, and to a lesser extent Type I fibers, while also inducing a phenotypic shift from Type I toward Type IIa fibers."
+      },
+      {
+        "id": 3,
+        "q": "What findings from the Costill et al. study challenge the idea that sprint performance gains are caused by an increased anaerobic yield of ATP? (Select all that apply)",
+        "opts": [
+          "6-second maximal training produced the same 14% strength gain as 30-second training",
+          "6-second training produced negligible changes in phosphagen enzyme activities",
+          "Both 6-second and 30-second trained legs fatigued at the identical rate during a 60-second test",
+          "The 30-second trained leg generated zero muscular force during testing",
+          "6-second sprint training caused massive mitochondrial biogenesis"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Both protocols produced identical strength gains and identical fatigue profiles on a 60-second test despite divergent enzyme responses, indicating that strength and neuromuscular adaptations—not elevated ATP yield—drove the performance gains."
+      },
+      {
+        "id": 4,
+        "q": "Why do strength gains from sprint training reduce an athlete's susceptibility to fatigue during repeated high-intensity efforts? (Select all that apply)",
+        "opts": [
+          "A higher maximal strength allows a given submaximal force to be produced at a lower relative percentage of maximal capacity",
+          "Fewer total motor units need to be recruited simultaneously to produce a given workload",
+          "Skeletal muscle no longer requires ATP for cross-bridge cycling",
+          "Motor unit rotation can occur more effectively, sparing muscle fibers from early exhaustion",
+          "Lactate production is completely eliminated from human metabolism"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "Increased strength reduces the relative intensity of a given task, requiring fewer motor units and enabling more effective motor unit rotation, which delays fatigue. ATP is always required, and lactate is still produced."
+      },
+      {
+        "id": 5,
+        "q": "Which statements correctly contrast the enzyme adaptations of aerobic endurance training versus anaerobic sprint training? (Select all that apply)",
+        "opts": [
+          "Aerobic training increases mitochondrial oxidative enzymes (e.g., SDH, citrate synthase)",
+          "Anaerobic training increases phosphagen and glycolytic enzymes (e.g., CK, PFK)",
+          "Aerobic training causes multi-fold increases in creatine kinase and myokinase",
+          "Anaerobic training has no significant effect on oxidative enzyme activities",
+          "Both forms of training elicit identical biochemical enzyme profiles"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "Adaptations are highly specific: aerobic training upregulates oxidative enzymes without affecting anaerobic enzymes, while anaerobic training upregulates phosphagen and glycolytic enzymes without altering oxidative enzymes."
+      },
+      {
+        "id": 6,
+        "q": "Which cellular enzymes belong to the ATP-PCr phosphagen energy system? (Select all that apply)",
+        "opts": [
+          "Creatine kinase",
+          "Myokinase (adenylate kinase)",
+          "Phosphofructokinase",
+          "Citrate synthase",
+          "Hexokinase"
+        ],
+        "correctArray": [
+          0,
+          1
+        ],
+        "rationale": "Creatine kinase and myokinase are phosphagen enzymes. PFK and hexokinase belong to glycolysis, and citrate synthase belongs to the Krebs cycle."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Anaerobic sprint training increases the cross-sectional area of both Type IIa and Type IIx muscle fibers.",
+        "ans": true,
+        "feedback": "True. Because Type II fibers are heavily recruited during anaerobic exercise, both Type IIa and Type IIx fibers undergo significant hypertrophy."
+      },
+      {
+        "id": 2,
+        "q": "Repeated 6-second all-out sprint bouts are the most potent training stimulus for increasing the activities of creatine kinase and myokinase.",
+        "ans": false,
+        "feedback": "False. Research by Costill et al. demonstrated that 6-second maximal bouts produced minimal change in creatine kinase and myokinase, whereas 30-second bouts increased their activities."
+      },
+      {
+        "id": 3,
+        "q": "All-out sprint training lasting 15 to 30 seconds can decrease the percentage of Type I fibers while increasing the percentage of Type IIa fibers.",
+        "ans": true,
+        "feedback": "True. Studies have shown Type I fiber percentages declining (e.g., 57% to 48%) and Type IIa fibers increasing (32% to 38%) following all-out sprint training."
+      },
+      {
+        "id": 4,
+        "q": "Performance improvements from anaerobic sprint training appear to result primarily from muscular strength gains rather than an increased anaerobic ATP yield.",
+        "ans": true,
+        "feedback": "True. Evidence from sprint-fatigue testing demonstrates that performance gains stem from neuromuscular strength improvements rather than elevated anaerobic ATP turnover."
+      },
+      {
+        "id": 5,
+        "q": "Chronic anaerobic sprint training leads to substantial multi-fold increases in mitochondrial oxidative enzymes like succinate dehydrogenase.",
+        "ans": false,
+        "feedback": "False. Anaerobic training has no significant effect on oxidative enzymes; enzymatic adaptations are highly specific to the training stimulus."
+      },
+      {
+        "id": 6,
+        "q": "Phosphofructokinase (PFK) is the key rate-limiting enzyme of the anaerobic glycolytic pathway.",
+        "ans": true,
+        "feedback": "True. PFK controls the primary rate-limiting step of glycolysis, phosphorylating fructose-6-phosphate to fructose-1,6-bisphosphate."
+      },
+      {
+        "id": 7,
+        "q": "Type I slow-twitch muscle fibers are completely de-recruited and inactive during high-intensity sprint running.",
+        "ans": false,
+        "feedback": "False. Per Henneman's Size Principle, Type I motor units remain recruited alongside high-threshold Type II motor units during maximal contractions."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Following high-intensity sprint training, both **Type IIa** and **Type IIx** muscle fibers undergo marked increases in their cross-sectional areas.",
+        "targets": [
+          "Type IIa",
+          "Type IIx"
+        ],
+        "optionsBank": [
+          "Type I",
+          "Type IIa",
+          "Type IIx",
+          "cardiac myocyte",
+          "smooth muscle"
+        ],
+        "hint": "The two primary fast-twitch muscle fiber subtypes."
+      },
+      {
+        "id": 2,
+        "statement": "In all-out sprint training studies (15 to 30 s), the percentage of **Type I** fibers decreased from 57% to 48%, while the percentage of **Type IIa** fibers increased from 32% to 38%.",
+        "targets": [
+          "Type I",
+          "Type IIa"
+        ],
+        "optionsBank": [
+          "Type I",
+          "Type IIa",
+          "Type IIx",
+          "connective tissue"
+        ],
+        "hint": "The slow-twitch fiber population and the fatigue-resistant fast-twitch fiber population."
+      },
+      {
+        "id": 3,
+        "statement": "In the study by Costill et al., repeated 6-second maximal knee extension bouts increased **muscular strength** by 14% but produced almost no change in the activities of the enzymes **creatine kinase** and myokinase.",
+        "targets": [
+          "muscular strength",
+          "creatine kinase"
+        ],
+        "optionsBank": [
+          "creatine kinase",
+          "glycogen stores",
+          "muscular strength",
+          "succinate dehydrogenase",
+          "VO2max"
+        ],
+        "hint": "The functional mechanical gain and the primary phosphagen enzyme that breaks down PCr."
+      },
+      {
+        "id": 4,
+        "statement": "Repeated 30-second training bouts increased the activities of key glycolytic enzymes, including **phosphofructokinase**, phosphorylase, and **lactate dehydrogenase** by 10% to 25%.",
+        "targets": [
+          "phosphofructokinase",
+          "lactate dehydrogenase"
+        ],
+        "optionsBank": [
+          "citrate synthase",
+          "lactate dehydrogenase",
+          "myoglobin",
+          "phosphofructokinase",
+          "succinate dehydrogenase"
+        ],
+        "hint": "The primary rate-limiting glycolytic enzyme and the enzyme that reduces pyruvate to lactate."
+      },
+      {
+        "id": 5,
+        "statement": "Anaerobic training increases phosphagen and glycolytic enzymes but has no effect on **oxidative enzymes**, demonstrating the principle of **training specificity**.",
+        "targets": [
+          "oxidative enzymes",
+          "training specificity"
+        ],
+        "optionsBank": [
+          "hypertrophy",
+          "oxidative enzymes",
+          "overload",
+          "phosphagen enzymes",
+          "training specificity"
+        ],
+        "hint": "Mitochondrial enzymes and the core exercise physiology concept (SAID principle)."
+      },
+      {
+        "id": 6,
+        "statement": "The enzyme **myokinase** transfers a high-energy phosphate between two ADP molecules to regenerate ATP and form **AMP**.",
+        "targets": [
+          "myokinase",
+          "AMP"
+        ],
+        "optionsBank": [
+          "AMP",
+          "creatine kinase",
+          "glucose",
+          "myokinase",
+          "pyruvate"
+        ],
+        "hint": "Also known as adenylate kinase, and the resulting monophosphate product."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Analyze the findings of the landmark study by Costill and coworkers regarding adaptations to 6-second versus 30-second maximal work bouts. What did the results reveal about enzyme trainability and the true mechanism underlying sprint performance improvements?",
+        "model": "Costill and coworkers examined the bioenergetic and functional adaptations to anaerobic training by having participants train one leg with repeated 6-second maximal knee extension bouts (preferentially stressing the ATP-PCr system) and the other leg with repeated 30-second maximal bouts (preferentially stressing the anaerobic glycolytic system). The findings produced two key conclusions: First, the activities of the phosphagen enzymes creatine kinase and myokinase, as well as glycolytic enzymes (PFK, phosphorylase, LDH), increased by 10% to 25% in the 30-second trained leg, but remained virtually unchanged in the 6-second trained leg. Second, despite this major difference in cellular enzyme adaptations, both training regimens produced the identical gain in muscular strength (~14%) and the identical rate of power decline on a 60-second sprint fatigue test. These results demonstrate that short sprint training bouts (≤6 s) contribute minimally to the enzymatic mechanisms governing ATP-PCr breakdown. Instead, performance gains from sprint training stem primarily from neuromuscular strength improvements, which allow the muscle to perform a given absolute workload with fewer recruited motor units and reduced relative effort, rather than from an expanded anaerobic ATP yield.",
+        "criteria": [
+          "Contrasts the protocols: 6-second bouts (ATP-PCr target) vs. 30-second bouts (glycolytic target)",
+          "Reports enzymatic findings: 30-second bouts increased CK, myokinase, and glycolytic enzymes by 10%–25%, whereas 6-second bouts produced almost no enzyme changes",
+          "Reports performance findings: both protocols produced identical 14% strength gains and identical power/fatigue profiles on a 60-second test",
+          "Concludes that performance improvements result primarily from neuromuscular strength gains rather than an increased anaerobic yield of ATP"
+        ],
+        "rubric": {
+          "0": "Unsatisfactory / Inaccurate",
+          "1": "Mentions 6-second and 30-second sprints, but cannot recall enzyme findings or study conclusions",
+          "2": "Correctly states that enzymes changed in 30 s and not 6 s, but fails to explain the performance test results or strength mechanism",
+          "3": "Accurately details the divergent enzyme findings, cites the identical strength/fatigue outcomes, and states the strength conclusion",
+          "4": "Thorough comparative analysis of phosphagen/glycolytic enzyme kinetics, the 60-second test protocol, and relative motor unit recruitment efficiency",
+          "5": "Masterful academic evaluation integrating bioenergetic fractionations, neuromuscular motor unit rotation, rate of force development, and the SAID principle"
+        }
+      },
+      {
+        "id": 2,
+        "prompt": "Compare and contrast the skeletal muscle fiber adaptations (hypertrophy and phenotypic transitions) resulting from high-intensity sprint training versus traditional heavy resistance training.",
+        "model": "High-intensity sprint training and heavy resistance training both place high mechanical loads on skeletal muscle, recruiting high-threshold motor units per Henneman's Size Principle, but they elicit distinct phenotypic adaptations. In terms of muscle fiber hypertrophy, both modalities cause substantial increases in the cross-sectional area (CSA) of fast-twitch Type IIa and Type IIx fibers, as well as modest hypertrophy of slow-twitch Type I fibers. However, their effects on fiber type distribution diverge significantly. Traditional heavy resistance training primarily induces shifts within the fast-twitch fiber pool, causing low-oxidative Type IIx fibers to transition toward the more fatigue-resistant Type IIa phenotype, with little to no shift in the percentage of Type I fibers. In contrast, all-out sprint training (involving repeated 15- to 30-second maximal sprints) induces a phenotypic shift from slow-twitch to fast-twitch fibers: studies demonstrate a reduction in the percentage of Type I fibers (e.g., from 57% down to 48%) with a concurrent increase in Type IIa fibers (from 32% up to 38%). This Type I to Type IIa phenotypic conversion appears unique to maximal, high-velocity sprint training where extreme contraction velocities and high glycolytic flux drive muscular remodeling.",
+        "criteria": [
+          "Identifies fast-twitch hypertrophy: both sprint and resistance training increase Type IIa and Type IIx cross-sectional area, with lesser Type I hypertrophy",
+          "Identifies resistance training fiber shifts: primarily transitions within fast-twitch pools (Type IIx to Type IIa), without significant changes in Type I percentage",
+          "Identifies sprint training fiber shifts: unique reduction in Type I fiber percentage with an increase in Type IIa fibers (citing the ~57% to 48% Type I drop)",
+          "Contrasts contraction velocity and mechanical stimuli between high-velocity sprinting and heavy resistance training"
+        ],
+        "rubric": {
+          "0": "Unsatisfactory / Inaccurate",
+          "1": "Mentions muscle growth but cannot identify fiber types or distribution shifts",
+          "2": "Identifies Type II hypertrophy in both, but confuses or omits the phenotypic shift differences",
+          "3": "Accurately details Type II hypertrophy and correctly contrasts the Type I to IIa shift in sprinting against the IIx to IIa shift in resistance training",
+          "4": "Detailed comparative breakdown including quantitative data (57% to 48%), motor unit recruitment mechanics, and contraction velocity dynamics",
+          "5": "Masterful neuromuscular synthesis integrating myosin heavy chain isoform expression, high-velocity recruitment kinetics, and functional power implications"
+        }
+      },
+      {
+        "id": 3,
+        "prompt": "Explain the physiological principle of training specificity (SAID) with respect to bioenergetic enzyme adaptations. Contrast the enzymatic profile of an elite 400m sprinter with that of an elite marathon runner.",
+        "model": "The Specific Adaptations to Imposed Demands (SAID) principle states that the physiological and biochemical adaptations elicited by exercise training are specific to the metabolic systems, muscle fiber types, and motor patterns recruited. With respect to bioenergetic enzymes, training produces distinct adaptations with minimal crossover: (1) Anaerobic sprint training (such as that performed by an elite 400m sprinter) places demands on non-oxidative energy pathways. This training upregulates phosphagen enzymes (creatine kinase and myokinase) and key glycolytic enzymes (phosphofructokinase [PFK], glycogen phosphorylase, hexokinase, and lactate dehydrogenase [LDH]) by 10% to 50%, expanding the rate of non-oxidative ATP resynthesis and lactate buffering capacity, while producing zero change in mitochondrial oxidative enzymes. (2) Aerobic endurance training (such as that performed by an elite marathon runner) places continuous demands on oxidative phosphorylation. This training stimulates mitochondrial biogenesis and causes multi-fold increases in Krebs cycle and electron transport enzymes (succinate dehydrogenase [SDH], citrate synthase, cytochrome c oxidase), alongside enhanced beta-oxidation enzyme activity, while producing negligible changes in phosphagen or fast-glycolytic enzymes. Thus, the 400m sprinter possesses high PFK, LDH, and CK activities with low oxidative enzyme concentrations, optimizing power and glycolytic flux, whereas the marathon runner exhibits high SDH and citrate synthase activities with baseline glycolytic enzyme levels, optimizing glycogen sparing and lipid oxidation.",
+        "criteria": [
+          "Defines the SAID principle regarding bioenergetic enzymatic specificity",
+          "Details the sprinter's enzyme profile: upregulated phosphagen (CK, myokinase) and glycolytic enzymes (PFK, LDH, hexokinase) with unchanged oxidative enzymes",
+          "Details the marathoner's enzyme profile: upregulated mitochondrial oxidative enzymes (SDH, citrate synthase) with negligible phosphagen/glycolytic enzyme changes",
+          "Explains the functional outcome: non-oxidative power and glycolytic flux for the sprinter versus mitochondrial efficiency and glycogen sparing for the marathoner"
+        ],
+        "rubric": {
+          "0": "Unsatisfactory / Inaccurate",
+          "1": "Mentions that sprinters and marathoners are different, but names no specific enzymes",
+          "2": "Names some enzymes but confuses which belong to aerobic versus anaerobic pathways",
+          "3": "Accurately defines the SAID principle, details specific enzyme adaptations for both athletes (PFK/CK vs. SDH/citrate synthase), and links them to performance",
+          "4": "Thorough biochemical analysis contrasting cytoplasmic non-oxidative flux against mitochondrial electron transport kinetics in both athletic models",
+          "5": "Exemplary bioenergetic critique integrating allosteric regulation, cellular compartmentation, fiber recruitment patterns, and metabolic substrate kinetics"
+        }
+      }
+    ]
+  }
+}
