@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kinesiology Interactive OLM</title>
+  <title>KINS 4403 Interactive OLM Engine</title>
 
-  <!-- KaTeX for physiological formulas -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
@@ -37,7 +36,6 @@
       padding-bottom: 90px;
     }
 
-    /* TOP PERSISTENT HEADER */
     header {
       background: var(--primary);
       color: #fff;
@@ -101,14 +99,12 @@
     }
     .toggle-all-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
-    /* LAYOUT WRAPPER */
     .container {
       max-width: 1040px;
       margin: 20px auto;
       padding: 0 16px;
     }
 
-    /* CONCEPT PART PILLS */
     .concept-part-bar {
       display: flex;
       gap: 8px;
@@ -134,7 +130,6 @@
       border-color: var(--accent);
     }
 
-    /* 3 MAIN WORKSPACE TABS */
     .view-tabs {
       display: flex;
       gap: 12px;
@@ -157,7 +152,7 @@
     .panel { display: none; }
     .panel.active { display: block; }
 
-    /* COLLAPSIBLE ACCORDION CARDS */
+    /* ACCORDIONS */
     .accordion-card {
       background: #fff;
       border: 1px solid var(--slate-200);
@@ -191,7 +186,6 @@
     }
     .accordion-card.open .accordion-body { display: block; }
 
-    /* READING STYLING & CLEANUP */
     .reading-content h2 { margin: 24px 0 12px 0; color: var(--primary); font-size: 1.35rem; }
     .reading-content h3 { margin: 18px 0 8px 0; color: var(--primary-light); font-size: 1.15rem; }
     .reading-content p { margin-bottom: 16px; font-size: 1.05rem; }
@@ -216,27 +210,7 @@
     .data-table th, .data-table td { padding: 10px 14px; border: 1px solid var(--slate-200); text-align: left; }
     .data-table th { background: var(--slate-100); font-weight: 700; color: var(--primary); }
 
-    /* ACTIVITIES GRID */
-    .activity-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      margin: 20px 0;
-    }
-    .activity-card {
-      background: #fff;
-      border: 1px solid var(--slate-200);
-      border-radius: 8px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-    }
-    .activity-card h4 { color: var(--primary); margin-bottom: 6px; }
-    .activity-card p { font-size: 0.9rem; color: var(--slate-600); margin-bottom: 14px; }
-
-    /* ASSESSMENT QUESTION CARDS */
+    /* QUESTION CARDS */
     .q-item {
       background: var(--slate-50);
       border: 1px solid var(--slate-200);
@@ -293,48 +267,26 @@
     }
     .action-btn:hover { background: var(--accent-hover); }
 
-    /* MODAL FOR LUMI & CASE STUDIES */
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(15, 23, 42, 0.7);
-      backdrop-filter: blur(4px);
-      z-index: 100;
-      display: none;
+    /* RUBRIC PILLS FOR SHORT ANSWER */
+    .rubric-scores {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
       align-items: center;
-      justify-content: center;
-      padding: 20px;
+      flex-wrap: wrap;
     }
-    .modal-overlay.active { display: flex; }
-    .modal-window {
+    .score-btn {
       background: #fff;
-      width: 100%;
-      max-width: 1100px;
-      height: 90vh;
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
-    }
-    .modal-bar {
-      padding: 12px 20px;
-      background: var(--primary);
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .modal-bar button {
-      background: transparent;
-      border: none;
-      color: #fff;
-      font-size: 1.4rem;
+      border: 1.5px solid var(--slate-300);
+      padding: 4px 10px;
+      border-radius: 16px;
+      font-size: 0.85rem;
       cursor: pointer;
+      font-weight: 600;
     }
-    .modal-iframe { width: 100%; height: 100%; border: none; }
+    .score-btn:hover { border-color: var(--accent); background: #eff6ff; }
+    .score-btn.selected { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    /* BOTTOM STICKY NAVIGATION */
     .bottom-bar {
       position: fixed;
       bottom: 0; left: 0; right: 0;
@@ -355,23 +307,10 @@
       border-radius: 6px;
       font-weight: 600;
       font-size: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
     }
     .nav-arrow:hover { background: var(--primary-light); }
-    .nav-arrow.disabled {
-      background: var(--slate-200);
-      color: var(--slate-600);
-      pointer-events: none;
-    }
-    .menu-link {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-    .menu-link:hover { text-decoration: underline; }
+    .nav-arrow.disabled { background: var(--slate-200); color: var(--slate-600); pointer-events: none; }
+    .menu-link { color: var(--accent); text-decoration: none; font-weight: 700; }
   </style>
 </head>
 <body>
@@ -382,21 +321,21 @@
       <h1 id="moduleTitle">Loading Module...</h1>
       <p id="courseTitle">KINS 4403 Physiology of Exercise</p>
     </div>
-    <div class="score-badge" id="scoreTracker">Score: 0 / 0 (0%)</div>
+    <div class="score-badge" id="scoreTracker">Score: 0 / 0 pts (0%)</div>
   </div>
 
   <div class="header-controls">
     <div class="subnav-pills">
-      <a class="nav-btn" href="#sec-reading">Reading</a>
-      <a class="nav-btn" href="#sec-mcq">Multiple Choice</a>
-      <a class="nav-btn" href="#sec-ms">Multi-Select</a>
-      <a class="nav-btn" href="#sec-tf">True / False</a>
-      <a class="nav-btn" href="#sec-cloze">Sentence Completion</a>
-      <a class="nav-btn" href="#sec-sa">Short Answer</a>
+      <a class="nav-btn" href="#acc-reading">Reading</a>
+      <a class="nav-btn" href="#acc-mcq">Multiple Choice</a>
+      <a class="nav-btn" href="#acc-ms">Multi-Select</a>
+      <a class="nav-btn" href="#acc-tf">True / False</a>
+      <a class="nav-btn" href="#acc-cloze">Sentence Completion</a>
+      <a class="nav-btn" href="#acc-sa">Short Answer</a>
     </div>
     <div style="display:flex; gap:6px;">
-      <button class="toggle-all-btn" onclick="toggleAllAccordions(true)">Expand All</button>
-      <button class="toggle-all-btn" onclick="toggleAllAccordions(false)">Collapse All</button>
+      <button class="toggle-all-btn" onclick="toggleAll(true)">Expand All</button>
+      <button class="toggle-all-btn" onclick="toggleAll(false)">Collapse All</button>
     </div>
   </div>
 </header>
@@ -404,57 +343,56 @@
 <div class="container">
   <div class="concept-part-bar" id="conceptPartBar"></div>
 
-  <!-- 3 WORKSPACE TABS -->
   <div class="view-tabs">
     <button class="tab-btn active" onclick="switchView('lesson')">Interactive Lesson</button>
     <button class="tab-btn" onclick="switchView('activities')">Applied Labs &amp; Scenarios (<span id="actCount">0</span>)</button>
     <button class="tab-btn" onclick="switchView('glossary')">Glossary</button>
   </div>
 
-  <!-- 1. LESSON PANEL -->
   <main id="pane-lesson" class="panel active">
-    <div class="accordion-card open" id="sec-reading">
-      <div class="accordion-header" onclick="toggleCard('sec-reading')">
+    <!-- Distinct acc- IDs guarantee no collisions with reading content -->
+    <div class="accordion-card open" id="acc-reading">
+      <div class="accordion-header" onclick="toggleCard(this)">
         <span>📖 Instructional Reading Content</span>
         <span class="chevron">▼</span>
       </div>
       <div class="accordion-body reading-content" id="readingContainer"></div>
     </div>
 
-    <div class="accordion-card open" id="sec-mcq">
-      <div class="accordion-header" onclick="toggleCard('sec-mcq')">
+    <div class="accordion-card open" id="acc-mcq">
+      <div class="accordion-header" onclick="toggleCard(this)">
         <span>🎯 Multiple Choice Questions</span>
         <span class="chevron">▼</span>
       </div>
       <div class="accordion-body" id="container-mcq"></div>
     </div>
 
-    <div class="accordion-card open" id="sec-ms">
-      <div class="accordion-header" onclick="toggleCard('sec-ms')">
+    <div class="accordion-card open" id="acc-ms">
+      <div class="accordion-header" onclick="toggleCard(this)">
         <span>☑️ Multi-Select Questions</span>
         <span class="chevron">▼</span>
       </div>
       <div class="accordion-body" id="container-ms"></div>
     </div>
 
-    <div class="accordion-card open" id="sec-tf">
-      <div class="accordion-header" onclick="toggleCard('sec-tf')">
+    <div class="accordion-card open" id="acc-tf">
+      <div class="accordion-header" onclick="toggleCard(this)">
         <span>⚖️ True / False Statements</span>
         <span class="chevron">▼</span>
       </div>
       <div class="accordion-body" id="container-tf"></div>
     </div>
 
-    <div class="accordion-card open" id="sec-cloze">
-      <div class="accordion-header" onclick="toggleCard('sec-cloze')">
+    <div class="accordion-card open" id="acc-cloze">
+      <div class="accordion-header" onclick="toggleCard(this)">
         <span>✏️ Sentence Completion (Cloze)</span>
         <span class="chevron">▼</span>
       </div>
       <div class="accordion-body" id="container-cloze"></div>
     </div>
 
-    <div class="accordion-card open" id="sec-sa">
-      <div class="accordion-header" onclick="toggleCard('sec-sa')">
+    <div class="accordion-card open" id="acc-sa">
+      <div class="accordion-header" onclick="toggleCard(this)">
         <span>💡 Applied Short Answer Prompts</span>
         <span class="chevron">▼</span>
       </div>
@@ -462,14 +400,11 @@
     </div>
   </main>
 
-  <!-- 2. ACTIVITIES TAB -->
   <section id="pane-activities" class="panel">
     <h3 style="color: var(--primary); margin-bottom: 8px;">Applied Activities &amp; Interactive Scenarios</h3>
-    <p style="color: var(--slate-600); margin-bottom: 20px;">Engage with hands-on clinical case studies, motor skills labs, and Lumi/H5P modules for this module.</p>
-    <div class="activity-grid" id="activitiesGrid"></div>
+    <div id="activitiesGrid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top:16px;"></div>
   </section>
 
-  <!-- 3. GLOSSARY TAB -->
   <section id="pane-glossary" class="panel">
     <h3 style="color: var(--primary); margin-bottom: 16px;">Core Terminology Reference</h3>
     <table class="data-table">
@@ -479,18 +414,6 @@
   </section>
 </div>
 
-<!-- MODAL FOR LUMI & CASE STUDIES -->
-<div class="modal-overlay" id="activityModal">
-  <div class="modal-window">
-    <div class="modal-bar">
-      <span id="modalActivityTitle" style="font-weight: 700;">Activity</span>
-      <button onclick="closeModal()">&times;</button>
-    </div>
-    <iframe id="activityFrame" class="modal-iframe" src=""></iframe>
-  </div>
-</div>
-
-<!-- BOTTOM STICKY NAVIGATION -->
 <footer class="bottom-bar">
   <a class="nav-arrow" id="btnPrev" href="#">&larr; Previous Section</a>
   <a class="menu-link" href="index.html">&#9776; Main Course Menu</a>
@@ -500,7 +423,7 @@
 <script>
   let moduleData = null;
   let quizData = null;
-  let answeredStats = { correct: 0, totalAttempted: 0 };
+  let gradedMap = {};
 
   const courseSequence = [
     { ch: '10', mod: '10.1' }, { ch: '10', mod: '10.2' }, { ch: '10', mod: '10.3' }, { ch: '10', mod: '10.4' },
@@ -516,13 +439,11 @@
 
     try {
       const [resContent, resQuiz] = await Promise.all([
-        fetch(`content/ch${ch}/${mod}_content.json`),
-        fetch(`content/ch${ch}/${mod}_quiz.json`)
+        fetch(`content/ch${ch}/${mod}_content.json?t=${Date.now()}`),
+        fetch(`content/ch${ch}/${mod}_quiz.json?t=${Date.now()}`)
       ]);
 
-      if (!resContent.ok || !resQuiz.ok) {
-        throw new Error(`Could not load files for Ch ${ch}, Module ${mod}`);
-      }
+      if (!resContent.ok || !resQuiz.ok) throw new Error(`Could not load files for Ch ${ch}, Module ${mod}`);
 
       moduleData = await resContent.json();
       quizData = await resQuiz.json();
@@ -581,88 +502,42 @@
     });
   }
 
-  // SANITIZER: Strips legacy empty quiz containers & headers from reading text
-  function sanitizeReadingHtml(rawHtml) {
-    const temp = document.createElement('div');
-    temp.innerHTML = rawHtml || '';
-
-    // Remove legacy question containers and reset buttons
-    const legacySelectors = [
-      '[id^="container-"]',
-      '[id^="sec-reading-p"] > h2:contains("Formative")',
-      '.activity-section',
-      '.reset-btn',
-      'button[onclick*="resetSection"]',
-      'div[id*="-mcq"]',
-      'div[id*="-ms"]',
-      'div[id*="-tf"]',
-      'div[id*="-cloze"]',
-      'div[id*="-sa"]'
-    ];
-
-    temp.querySelectorAll('div, section, p, h2, h3, h4').forEach(el => {
-      const txt = el.textContent || '';
-      if (/Formative Assessment \d+:/i.test(txt) || /Interactive Knowledge Check/i.test(txt)) {
-        el.remove();
-      }
-      if (el.id && (el.id.includes('container-') || el.id.includes('-mcq') || el.id.includes('-cloze'))) {
-        el.remove();
-      }
-    });
-
-    return temp.innerHTML;
+  function sample(arr, count) {
+    if (!arr || !arr.length) return [];
+    const shuffled = [...arr].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, Math.min(count, arr.length));
   }
 
   function loadConceptPart(idx) {
     document.querySelectorAll('.part-pill').forEach((btn, i) => btn.classList.toggle('active', i === idx));
     const page = moduleData.pages[idx] || moduleData.pages[0];
 
-    document.getElementById('readingContainer').innerHTML = sanitizeReadingHtml(page.readingHtml);
+    document.getElementById('readingContainer').innerHTML = page.readingHtml || '<p>No reading content available.</p>';
 
-    renderActivities(page.activities || []);
-    renderAssessmentsUniversal(page.id, idx);
+    const counts = page.sampleCounts || { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 1 };
+    renderSampledAssessments(page.id, idx, counts);
 
     if (window.renderMath) window.renderMath();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // UNIVERSAL ASSESSMENT RESOLVER
-  function renderAssessmentsUniversal(partId, partIdx) {
-    let pool = null;
-
-    // 1. Check exact key (e.g., "p1", "p2")
-    if (quizData[partId]) {
-      pool = quizData[partId];
-    } 
-    // 2. Check 1-based index string (e.g., "1", "2")
-    else if (quizData[String(partIdx + 1)]) {
-      pool = quizData[String(partIdx + 1)];
-    }
-    // 3. Check 0-based index or array order
-    else {
+  function renderSampledAssessments(partId, partIdx, counts) {
+    let pool = quizData[partId] || quizData[String(partIdx + 1)] || quizData[partIdx];
+    if (!pool && Object.keys(quizData).length > 0) {
       const keys = Object.keys(quizData);
-      if (keys.length > partIdx) {
-        pool = quizData[keys[partIdx]];
-      } else if (keys.length > 0) {
-        pool = quizData[keys[0]];
-      }
+      pool = quizData[keys[partIdx]] || quizData[keys[0]];
     }
 
-    // 4. Flatten check if questions are stored in a root array or object
-    if (!pool && (quizData.mcq || quizData.tf || quizData.cloze)) {
-      pool = quizData;
-    }
-
-    renderMCQs(pool ? (pool.mcq || pool.multipleChoice || []) : []);
-    renderMSs(pool ? (pool.ms || pool.multiSelect || []) : []);
-    renderTFs(pool ? (pool.tf || pool.trueFalse || []) : []);
-    renderClozes(pool ? (pool.cloze || pool.fillBlank || []) : []);
-    renderSAs(pool ? (pool.sa || pool.openEnded || pool.shortAnswer || []) : []);
+    renderMCQs(sample(pool ? (pool.mcq || pool.multipleChoice) : [], counts.mcq || 2));
+    renderMSs(sample(pool ? (pool.ms || pool.multiSelect) : [], counts.ms || 2));
+    renderTFs(sample(pool ? (pool.tf || pool.trueFalse) : [], counts.tf || 2));
+    renderClozes(sample(pool ? (pool.cloze || pool.fillBlank) : [], counts.cloze || 2));
+    renderSAs(sample(pool ? (pool.sa || pool.shortAnswer || pool.openEnded) : [], counts.sa || 1));
   }
 
   function renderMCQs(items) {
     const c = document.getElementById('container-mcq');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No multiple choice questions in this section.</p>' : '';
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
     items.forEach((item, i) => {
       const qId = item.id || `mcq_${i}`;
       const div = document.createElement('div');
@@ -686,28 +561,29 @@
   window.gradeMCQ = (qId, selected, correct) => {
     document.querySelectorAll(`[id^="${qId}_opt_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
     const chosen = document.getElementById(`${qId}_opt_${selected}`);
-    if (selected === correct) {
+    const isCorrect = (selected === correct);
+    if (isCorrect) {
       chosen.classList.add('correct');
-      updateScore(true);
+      recordScore(qId, 1, 1);
     } else {
       chosen.classList.add('incorrect');
-      const corrLabel = document.getElementById(`${qId}_opt_${correct}`);
-      if (corrLabel) corrLabel.classList.add('correct');
-      updateScore(false);
+      const corr = document.getElementById(`${qId}_opt_${correct}`);
+      if (corr) corr.classList.add('correct');
+      recordScore(qId, 0, 1);
     }
     document.getElementById(`${qId}_fb`).classList.add('visible');
   };
 
   function renderMSs(items) {
     const c = document.getElementById('container-ms');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No multi-select questions in this section.</p>' : '';
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
     items.forEach((item, i) => {
       const qId = item.id || `ms_${i}`;
       const correctArr = item.correctArray || item.correct || [];
       const div = document.createElement('div');
       div.className = 'q-item';
       div.innerHTML = `
-        <div class="q-title">${i + 1}. ${item.q || item.question}</div>
+        <div class="q-title">${i + 1}. ${item.q || item.question} (Select all that apply)</div>
         <div class="option-group">
           ${(item.opts || item.options || []).map((opt, optIdx) => `
             <label class="opt-label" id="${qId}_ms_${optIdx}">
@@ -739,13 +615,13 @@
     });
 
     const isMatch = (checked.length === correctArray.length && checked.every(v => correctArray.includes(v)));
-    updateScore(isMatch);
+    recordScore(qId, isMatch ? 1 : 0, 1);
     document.getElementById(`${qId}_fb`).classList.add('visible');
   };
 
   function renderTFs(items) {
     const c = document.getElementById('container-tf');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No True/False questions in this section.</p>' : '';
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
     items.forEach((item, i) => {
       const qId = item.id || `tf_${i}`;
       const answerBool = (item.ans !== undefined) ? item.ans : item.answer;
@@ -757,7 +633,7 @@
           <label class="opt-label" id="${qId}_true"><input type="radio" name="${qId}" onchange="gradeTF('${qId}', true, ${answerBool})"> True</label>
           <label class="opt-label" id="${qId}_false"><input type="radio" name="${qId}" onchange="gradeTF('${qId}', false, ${answerBool})"> False</label>
         </div>
-        <div class="feedback-box info" id="${qId}_fb"><strong>Feedback:</strong> ${item.feedback || item.rationale || ''}</div>
+        <div class="feedback-box info" id="${qId}_fb"><strong>Feedback:</strong> ${item.feedback || item.rationale || 'Review key principles.'}</div>
       `;
       c.appendChild(div);
     });
@@ -768,28 +644,26 @@
     document.querySelectorAll(`[id^="${qId}_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
     if (selected === correct) {
       chosen.classList.add('correct');
-      updateScore(true);
+      recordScore(qId, 1, 1);
     } else {
       chosen.classList.add('incorrect');
-      const correctElem = document.getElementById(`${qId}_${correct}`);
-      if (correctElem) correctElem.classList.add('correct');
-      updateScore(false);
+      const corr = document.getElementById(`${qId}_${correct}`);
+      if (corr) corr.classList.add('correct');
+      recordScore(qId, 0, 1);
     }
     document.getElementById(`${qId}_fb`).classList.add('visible');
   };
 
   function renderClozes(items) {
     const c = document.getElementById('container-cloze');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No sentence completion items in this section.</p>' : '';
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
     items.forEach((item, i) => {
       const qId = item.id || `clz_${i}`;
       const rawStmt = item.statement || "";
       const target = item.target || ((item.targets && item.targets[0]) ? item.targets[0] : "");
-      
       const cleanStmt = rawStmt.replace(/\*\*(.*?)\*\*/g, '___TARGET___');
       const parts = cleanStmt.includes('___TARGET___') ? cleanStmt.split('___TARGET___') : [cleanStmt, ""];
-      
-      const bank = item.optionsBank || [target, "Systolic pressure", "Stroke volume", "Tidal volume"];
+      const bank = item.optionsBank || [target, "Option A", "Option B", "Option C"];
       const shuffled = [...new Set(bank)].sort(() => 0.5 - Math.random());
 
       const div = document.createElement('div');
@@ -816,17 +690,17 @@
     if (sel.value.toLowerCase().trim() === target.toLowerCase().trim()) {
       sel.style.borderColor = 'var(--success)';
       fb.classList.add('visible');
-      updateScore(true);
+      recordScore(qId, 1, 1);
     } else {
       sel.style.borderColor = 'var(--danger)';
       fb.classList.remove('visible');
-      updateScore(false);
+      recordScore(qId, 0, 1);
     }
   };
 
   function renderSAs(items) {
     const c = document.getElementById('container-sa');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No short answer prompts in this section.</p>' : '';
+    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No short answer prompts available.</p>' : '';
     items.forEach((item, i) => {
       const qId = item.id || `sa_${i}`;
       const div = document.createElement('div');
@@ -834,62 +708,47 @@
       div.innerHTML = `
         <div class="q-title">${i + 1}. Applied Short Answer: ${item.q || item.prompt}</div>
         <textarea style="width:100%; height:90px; padding:10px; border-radius:6px; border:1px solid var(--slate-300); font-family:inherit; margin-bottom:10px;" placeholder="Draft your answer here..."></textarea>
-        <button class="action-btn" onclick="document.getElementById('${qId}_model').classList.toggle('visible')">Reveal Model Exemplar &amp; Rubric</button>
+        <button class="action-btn" onclick="document.getElementById('${qId}_model').classList.toggle('visible')">Reveal Model Exemplar &amp; Self-Rubric</button>
         <div class="feedback-box info" id="${qId}_model">
-          <p style="margin-bottom:6px;"><strong>Model Exemplar:</strong> ${item.model || item.modelAnswer || ''}</p>
-          ${item.criteria ? `<strong>Criteria:</strong><ul>${item.criteria.map(cr => `<li>${cr}</li>`).join('')}</ul>` : ''}
+          <p style="margin-bottom:8px;"><strong>Model Exemplar:</strong> ${item.model || item.modelAnswer || ''}</p>
+          ${item.criteria ? `<strong>Grading Criteria:</strong><ul>${item.criteria.map(cr => `<li>${cr}</li>`).join('')}</ul>` : ''}
+          <div class="rubric-scores">
+            <span><strong>Self-Grade (0-5 pts):</strong></span>
+            ${[0,1,2,3,4,5].map(pt => `
+              <button class="score-btn" id="${qId}_pt_${pt}" onclick="gradeShortAnswer('${qId}',${pt})">${pt} pt${pt===1?'':'s'}</button>
+            `).join('')}
+          </div>
         </div>
       `;
       c.appendChild(div);
     });
   }
 
-  // ACTIVITIES & MODAL LAUNCHER
-  function renderActivities(list) {
-    const grid = document.getElementById('activitiesGrid');
-    document.getElementById('actCount').textContent = list.length;
-    grid.innerHTML = '';
+  window.gradeShortAnswer = (qId, pts) => {
+    document.querySelectorAll(`[id^="${qId}_pt_"]`).forEach(b => b.classList.remove('selected'));
+    const btn = document.getElementById(`${qId}_pt_${pts}`);
+    if (btn) btn.classList.add('selected');
+    recordScore(qId, pts, 5);
+  };
 
-    if (!list.length) {
-      grid.innerHTML = '<p style="color:var(--slate-600);">No interactive scenarios or Lumi labs attached to this module yet.</p>';
-      return;
-    }
-
-    list.forEach(act => {
-      const card = document.createElement('div');
-      card.className = 'activity-card';
-      card.innerHTML = `
-        <div>
-          <h4>${act.title}</h4>
-          <p style="text-transform:uppercase; font-size:0.75rem; color:var(--accent); font-weight:700;">${act.type || 'Interactive'} Activity</p>
-        </div>
-        <button class="action-btn" onclick="openModal('${act.title}', '${act.path || act.file}')">Launch Activity &rarr;</button>
-      `;
-      grid.appendChild(card);
+  function recordScore(qId, earned, possible) {
+    gradedMap[qId] = { earned, possible };
+    let totalEarned = 0;
+    let totalPoss = 0;
+    Object.values(gradedMap).forEach(v => {
+      totalEarned += v.earned;
+      totalPoss += v.possible;
     });
+    const pct = totalPoss > 0 ? Math.round((totalEarned / totalPoss) * 100) : 0;
+    document.getElementById('scoreTracker').textContent = `Score: ${totalEarned} / ${totalPoss} pts (${pct}%)`;
   }
 
-  window.openModal = (title, path) => {
-    document.getElementById('modalActivityTitle').textContent = title;
-    document.getElementById('activityFrame').src = path;
-    document.getElementById('activityModal').classList.add('active');
+  window.toggleCard = (el) => {
+    const card = el.closest('.accordion-card');
+    if (card) card.classList.toggle('open');
   };
 
-  window.closeModal = () => {
-    document.getElementById('activityFrame').src = '';
-    document.getElementById('activityModal').classList.remove('active');
-  };
-
-  // SCORE, ACCORDIONS & TABS
-  function updateScore(isCorrect) {
-    answeredStats.totalAttempted++;
-    if (isCorrect) answeredStats.correct++;
-    const pct = Math.round((answeredStats.correct / answeredStats.totalAttempted) * 100);
-    document.getElementById('scoreTracker').textContent = `Score: ${answeredStats.correct} / ${answeredStats.totalAttempted} (${pct}%)`;
-  }
-
-  window.toggleCard = (id) => document.getElementById(id).classList.toggle('open');
-  window.toggleAllAccordions = (open) => {
+  window.toggleAll = (open) => {
     document.querySelectorAll('.accordion-card').forEach(c => c.classList.toggle('open', open));
   };
 

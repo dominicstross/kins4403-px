@@ -1,782 +1,207 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kinesiology Interactive OLM</title>
+import os
+import re
+import json
+from pathlib import Path
+from bs4 import BeautifulSoup
+import demjson3
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
-          onload="window.renderMath = () => renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+REPO_ROOT = Path(__file__).parent.resolve()
+CONTENT_DIR = REPO_ROOT / "content"
 
-  <style>
-    :root {
-      --primary: #17324d;
-      --primary-light: #2c4d6f;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --success: #15803d;
-      --danger: #b91c1c;
-      --slate-50: #f8fafc;
-      --slate-100: #f1f5f9;
-      --slate-200: #e2e8f0;
-      --slate-300: #cbd5e1;
-      --slate-600: #475569;
-      --slate-800: #1e293b;
-    }
+def extract_assessment_banks_raw(html_text):
+    match = re.search(r'(?:const|let|var)\s+assessmentBanks\s*=\s*\{', html_text)
+    if not match:
+        return None
+    start_pos = match.end() - 1
+    brace_depth = 0
+    in_str = False
+    quote_char = ''
+    escape = False
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--slate-50);
-      color: var(--slate-800);
-      line-height: 1.6;
-      padding-bottom: 90px;
-    }
+    for idx in range(start_pos, len(html_text)):
+        ch = html_text[idx]
+        if escape:
+            escape = False
+            continue
+        if ch == '\\':
+            escape = True
+            continue
+        if in_str:
+            if ch == quote_char:
+                in_str = False
+        else:
+            if ch in ('"', "'", '`'):
+                in_str = True
+                quote_char = ch
+            elif ch == '{':
+                brace_depth += 1
+            elif ch == '}':
+                brace_depth -= 1
+                if brace_depth == 0:
+                    return html_text[start_pos : idx + 1]
+    return None
 
-    header {
-      background: var(--primary);
-      color: #fff;
-      padding: 12px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    .header-titles h1 { font-size: 1.15rem; font-weight: 700; }
-    .header-titles p { font-size: 0.8rem; color: #94a3b8; }
+def extract_clean_reading(sec_soup):
+    """
+    Extracts pure reading content, checking for <details id="sec-reading">,
+    #sec-reading-pX, or isolating everything before the first question container.
+    """
+    # 1. Direct match: <details id="sec-reading"> or element with sec-reading
+    reading_target = sec_soup.find(['details', 'div', 'section'], id=re.compile(r'sec-reading', re.I))
     
-    .score-badge {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #93c5fd;
+    # 2. If found, pull contents inside (strip out summary if it's a details tag)
+    if reading_target:
+        target_clone = BeautifulSoup(str(reading_target), "html.parser")
+        sum_tag = target_clone.find('summary')
+        if sum_tag:
+            sum_tag.decompose()
+        # Remove any stray buttons
+        for btn in target_clone.find_all('button'):
+            btn.decompose()
+        return "".join(str(c) for c in target_clone.contents if getattr(c, 'name', None) not in ['script', 'style']).strip()
+
+    # 3. Fallback: Take all children before the first assessment container (<details id="sec-mcq"> etc.)
+    body_parts = []
+    for child in sec_soup.children:
+        if not getattr(child, 'name', None):
+            continue
+        cid = child.get('id', '')
+        # Stop reading when hitting the assessment cards
+        if re.search(r'sec-mcq|sec-ms|sec-tf|sec-cloze|sec-short|container-', cid, re.I):
+            break
+        if child.name not in ['script', 'style', 'header']:
+            body_parts.append(str(child))
+            
+    return "".join(body_parts).strip()
+
+def process_html_file(file_path):
+    print(f"\nProcessing: {file_path.name}")
+    with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+        html_text = f.read()
+
+    soup = BeautifulSoup(html_text, "html.parser")
+
+    mod_match = re.search(r'(?:OLM\s*-\s*|olm_)?(\d+\.\d+)', file_path.name)
+    if not mod_match:
+        print(f"  [!] Skipped: {file_path.name}")
+        return
+    mod_id = mod_match.group(1)
+    ch_num = mod_id.split('.')[0]
+
+    title_tag = soup.find("title")
+    doc_title = title_tag.get_text().strip() if title_tag else file_path.stem
+    clean_title = re.sub(r'^(?:OLM\s*-\s*|olm_)?\d+\.\d+[\s\-_:]*', '', doc_title).strip()
+
+    meta = {
+        "course": "PX – KINS 4403 Physiology of Exercise",
+        "moduleTitle": f"{mod_id} {clean_title}",
+        "chapter": ch_num,
+        "section": mod_id
     }
 
-    .header-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 8px;
-    }
-    .subnav-pills { display: flex; gap: 6px; flex-wrap: wrap; }
-    .nav-btn {
-      background: var(--primary-light);
-      color: #fff;
-      border: none;
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.15s;
-    }
-    .nav-btn:hover { background: var(--accent); }
-    .toggle-all-btn {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: #cbd5e1;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      cursor: pointer;
-    }
-    .toggle-all-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    # Extract Glossary
+    glossary = []
+    gloss_pane = soup.find(id="pane-glossary") or soup.find(class_=re.compile(r'glossary', re.I))
+    if gloss_pane:
+        for row in gloss_pane.find_all("tr"):
+            cols = row.find_all("td")
+            if len(cols) >= 2:
+                t = cols[0].get_text().strip()
+                d = cols[1].get_text().strip()
+                if t and d and t.lower() != "term":
+                    glossary.append({"term": t, "def": d})
 
-    .container {
-      max-width: 1040px;
-      margin: 20px auto;
-      padding: 0 16px;
-    }
-
-    .concept-part-bar {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 20px;
-      border-bottom: 2px solid var(--slate-200);
-      padding-bottom: 8px;
-      overflow-x: auto;
-    }
-    .part-pill {
-      background: #fff;
-      border: 1px solid var(--slate-300);
-      color: var(--slate-600);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .part-pill.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
-
-    .view-tabs {
-      display: flex;
-      gap: 12px;
-      border-bottom: 2px solid var(--slate-200);
-      margin-bottom: 24px;
-    }
-    .tab-btn {
-      padding: 10px 18px;
-      font-weight: 600;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: var(--slate-600);
-      border-bottom: 3px solid transparent;
-      margin-bottom: -2px;
-      font-size: 0.95rem;
-    }
-    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
-
-    .panel { display: none; }
-    .panel.active { display: block; }
-
-    /* ACCORDIONS */
-    .accordion-card {
-      background: #fff;
-      border: 1px solid var(--slate-200);
-      border-radius: 8px;
-      margin-bottom: 18px;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-    }
-    .accordion-header {
-      background: #fff;
-      padding: 14px 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      font-weight: 700;
-      color: var(--primary);
-      border-bottom: 1px solid transparent;
-      user-select: none;
-    }
-    .accordion-header:hover { background: var(--slate-50); }
-    .accordion-card.open .accordion-header {
-      border-bottom-color: var(--slate-200);
-      background: var(--slate-100);
-    }
-    .chevron { transition: transform 0.2s ease; }
-    .accordion-card.open .chevron { transform: rotate(180deg); }
-    .accordion-body {
-      display: none;
-      padding: 20px;
-    }
-    .accordion-card.open .accordion-body { display: block; }
-
-    .reading-content h2 { margin: 24px 0 12px 0; color: var(--primary); font-size: 1.35rem; }
-    .reading-content h3 { margin: 18px 0 8px 0; color: var(--primary-light); font-size: 1.15rem; }
-    .reading-content p { margin-bottom: 16px; font-size: 1.05rem; }
-    .reading-content ul { margin: 0 0 18px 24px; }
-    .reading-content li { margin-bottom: 6px; }
-
-    .callout-box {
-      background: #eff6ff;
-      border-left: 4px solid var(--accent);
-      padding: 16px;
-      border-radius: 0 8px 8px 0;
-      margin: 20px 0;
-    }
-    .callout-title { font-weight: 700; color: var(--primary); margin-bottom: 4px; }
-
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-      background: #fff;
-    }
-    .data-table th, .data-table td { padding: 10px 14px; border: 1px solid var(--slate-200); text-align: left; }
-    .data-table th { background: var(--slate-100); font-weight: 700; color: var(--primary); }
-
-    /* QUESTION CARDS */
-    .q-item {
-      background: var(--slate-50);
-      border: 1px solid var(--slate-200);
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 16px;
-    }
-    .q-title { font-weight: 700; color: var(--primary); margin-bottom: 12px; }
-    .option-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
-    .opt-label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border: 1px solid var(--slate-300);
-      border-radius: 6px;
-      background: #fff;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-    .opt-label:hover { background: #f8fafc; border-color: #94a3b8; }
-    .opt-label.correct { border-color: var(--success); background: #dcfce7 !important; color: #166534; font-weight: 600; }
-    .opt-label.incorrect { border-color: var(--danger); background: #fee2e2 !important; color: #991b1b; }
-
-    .cloze-select {
-      font-family: inherit;
-      font-size: 1rem;
-      padding: 4px 8px;
-      border-radius: 6px;
-      border: 1.5px solid var(--accent);
-      background: #fff;
-      margin: 0 4px;
-    }
-    .feedback-box {
-      margin-top: 10px;
-      padding: 10px 14px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      display: none;
-    }
-    .feedback-box.visible { display: block; }
-    .feedback-box.info { background: #e0f2fe; color: #075985; border: 1px solid #bae6fd; }
-    .feedback-box.success { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
-
-    .action-btn {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 7px 14px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-    .action-btn:hover { background: var(--accent-hover); }
-
-    /* RUBRIC PILLS FOR SHORT ANSWER */
-    .rubric-scores {
-      display: flex;
-      gap: 8px;
-      margin-top: 12px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .score-btn {
-      background: #fff;
-      border: 1.5px solid var(--slate-300);
-      padding: 4px 10px;
-      border-radius: 16px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    .score-btn:hover { border-color: var(--accent); background: #eff6ff; }
-    .score-btn.selected { background: var(--accent); color: #fff; border-color: var(--accent); }
-
-    /* BOTTOM STICKY BAR */
-    .bottom-bar {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      background: #fff;
-      border-top: 1px solid var(--slate-200);
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 50;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-    }
-    .nav-arrow {
-      background: var(--primary);
-      color: #fff;
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-    .nav-arrow:hover { background: var(--primary-light); }
-    .nav-arrow.disabled { background: var(--slate-200); color: var(--slate-600); pointer-events: none; }
-    .menu-link { color: var(--accent); text-decoration: none; font-weight: 700; }
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="header-top">
-    <div class="header-titles">
-      <h1 id="moduleTitle">Loading Module...</h1>
-      <p id="courseTitle">KINS 4403 Physiology of Exercise</p>
-    </div>
-    <div class="score-badge" id="scoreTracker">Score: 0 / 0 (0%)</div>
-  </div>
-
-  <div class="header-controls">
-    <div class="subnav-pills">
-      <a class="nav-btn" href="#sec-reading">Reading</a>
-      <a class="nav-btn" href="#sec-mcq">Multiple Choice</a>
-      <a class="nav-btn" href="#sec-ms">Multi-Select</a>
-      <a class="nav-btn" href="#sec-tf">True / False</a>
-      <a class="nav-btn" href="#sec-cloze">Sentence Completion</a>
-      <a class="nav-btn" href="#sec-sa">Short Answer</a>
-    </div>
-    <div style="display:flex; gap:6px;">
-      <button class="toggle-all-btn" onclick="toggleAll(true)">Expand All</button>
-      <button class="toggle-all-btn" onclick="toggleAll(false)">Collapse All</button>
-    </div>
-  </div>
-</header>
-
-<div class="container">
-  <div class="concept-part-bar" id="conceptPartBar"></div>
-
-  <div class="view-tabs">
-    <button class="tab-btn active" onclick="switchView('lesson')">Interactive Lesson</button>
-    <button class="tab-btn" onclick="switchView('activities')">Applied Labs &amp; Scenarios (<span id="actCount">0</span>)</button>
-    <button class="tab-btn" onclick="switchView('glossary')">Glossary</button>
-  </div>
-
-  <main id="pane-lesson" class="panel active">
-    <!-- Clean Accordions with unique IDs -->
-    <div class="accordion-card open" id="sec-reading">
-      <div class="accordion-header" onclick="toggleAccordion('sec-reading')">
-        <span>📖 Instructional Reading Content</span>
-        <span class="chevron">▼</span>
-      </div>
-      <div class="accordion-body reading-content" id="readingContainer"></div>
-    </div>
-
-    <div class="accordion-card open" id="sec-mcq">
-      <div class="accordion-header" onclick="toggleAccordion('sec-mcq')">
-        <span>🎯 Multiple Choice Questions</span>
-        <span class="chevron">▼</span>
-      </div>
-      <div class="accordion-body" id="container-mcq"></div>
-    </div>
-
-    <div class="accordion-card open" id="sec-ms">
-      <div class="accordion-header" onclick="toggleAccordion('sec-ms')">
-        <span>☑️ Multi-Select Questions</span>
-        <span class="chevron">▼</span>
-      </div>
-      <div class="accordion-body" id="container-ms"></div>
-    </div>
-
-    <div class="accordion-card open" id="sec-tf">
-      <div class="accordion-header" onclick="toggleAccordion('sec-tf')">
-        <span>⚖️ True / False Statements</span>
-        <span class="chevron">▼</span>
-      </div>
-      <div class="accordion-body" id="container-tf"></div>
-    </div>
-
-    <div class="accordion-card open" id="sec-cloze">
-      <div class="accordion-header" onclick="toggleAccordion('sec-cloze')">
-        <span>✏️ Sentence Completion (Cloze)</span>
-        <span class="chevron">▼</span>
-      </div>
-      <div class="accordion-body" id="container-cloze"></div>
-    </div>
-
-    <div class="accordion-card open" id="sec-sa">
-      <div class="accordion-header" onclick="toggleAccordion('sec-sa')">
-        <span>💡 Applied Short Answer Prompts</span>
-        <span class="chevron">▼</span>
-      </div>
-      <div class="accordion-body" id="container-sa"></div>
-    </div>
-  </main>
-
-  <section id="pane-activities" class="panel">
-    <h3 style="color: var(--primary); margin-bottom: 8px;">Applied Activities &amp; Interactive Scenarios</h3>
-    <div id="activitiesGrid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top:16px;"></div>
-  </section>
-
-  <section id="pane-glossary" class="panel">
-    <h3 style="color: var(--primary); margin-bottom: 16px;">Core Terminology Reference</h3>
-    <table class="data-table">
-      <thead><tr><th style="width: 28%;">Term</th><th>Physiological Definition</th></tr></thead>
-      <tbody id="glossaryBody"></tbody>
-    </table>
-  </section>
-</div>
-
-<footer class="bottom-bar">
-  <a class="nav-arrow" id="btnPrev" href="#">&larr; Previous Section</a>
-  <a class="menu-link" href="index.html">&#9776; Main Course Menu</a>
-  <a class="nav-arrow" id="btnNext" href="#">Next Section &rarr;</a>
-</footer>
-
-<script>
-  let moduleData = null;
-  let quizData = null;
-  let answeredStats = { pointsEarned: 0, totalPossible: 0 };
-  let gradedMap = {};
-
-  const courseSequence = [
-    { ch: '10', mod: '10.1' }, { ch: '10', mod: '10.2' }, { ch: '10', mod: '10.3' }, { ch: '10', mod: '10.4' },
-    { ch: '11', mod: '11.1' }, { ch: '11', mod: '11.2' }, { ch: '11', mod: '11.3' }, { ch: '11', mod: '11.4' }
-  ];
-
-  async function init() {
-    const params = new URLSearchParams(window.location.search);
-    const ch = params.get('ch') || '11';
-    const mod = params.get('mod') || '11.1';
-
-    setupBottomNav(ch, mod);
-
-    try {
-      const [resContent, resQuiz] = await Promise.all([
-        fetch(`content/ch${ch}/${mod}_content.json`),
-        fetch(`content/ch${ch}/${mod}_quiz.json`)
-      ]);
-
-      if (!resContent.ok || !resQuiz.ok) throw new Error(`Could not load files for Ch ${ch}, Module ${mod}`);
-
-      moduleData = await resContent.json();
-      quizData = await resQuiz.json();
-
-      document.getElementById('moduleTitle').textContent = moduleData.meta.moduleTitle;
-      document.getElementById('courseTitle').textContent = moduleData.meta.course;
-
-      buildPartPills();
-      buildGlossary();
-      loadConceptPart(0);
-    } catch (err) {
-      document.querySelector('.container').innerHTML = `
-        <div style="background:#fee2e2; border:1px solid #f87171; padding:24px; border-radius:8px; color:#991b1b; margin-top:20px;">
-          <h3>Failed to load learning module</h3>
-          <p>${err.message}</p>
-        </div>`;
-    }
-  }
-
-  function setupBottomNav(currCh, currMod) {
-    const curIdx = courseSequence.findIndex(item => item.ch === currCh && item.mod === currMod);
-    const prevBtn = document.getElementById('btnPrev');
-    const nextBtn = document.getElementById('btnNext');
-
-    if (curIdx > 0) {
-      const prev = courseSequence[curIdx - 1];
-      prevBtn.href = `viewer.html?ch=${prev.ch}&mod=${prev.mod}`;
-      prevBtn.classList.remove('disabled');
-    } else {
-      prevBtn.classList.add('disabled');
-    }
-
-    if (curIdx >= 0 && curIdx < courseSequence.length - 1) {
-      const next = courseSequence[curIdx + 1];
-      nextBtn.href = `viewer.html?ch=${next.ch}&mod=${next.mod}`;
-      nextBtn.classList.remove('disabled');
-    } else {
-      nextBtn.classList.add('disabled');
-    }
-  }
-
-  function buildPartPills() {
-    const container = document.getElementById('conceptPartBar');
-    container.innerHTML = '';
-    if (!moduleData.pages || moduleData.pages.length <= 1) {
-      container.style.display = 'none';
-      return;
-    }
-    container.style.display = 'flex';
-    moduleData.pages.forEach((p, idx) => {
-      const pill = document.createElement('button');
-      pill.className = `part-pill ${idx === 0 ? 'active' : ''}`;
-      pill.textContent = p.title || `Part ${idx + 1}`;
-      pill.onclick = () => loadConceptPart(idx);
-      container.appendChild(pill);
-    });
-  }
-
-  // SAMPLE HELPER
-  function sample(arr, count) {
-    if (!arr || !arr.length) return [];
-    if (!count || count <= 0) return arr;
-    const shuffled = [...arr].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, Math.min(count, arr.length));
-  }
-
-  function loadConceptPart(idx) {
-    document.querySelectorAll('.part-pill').forEach((btn, i) => btn.classList.toggle('active', i === idx));
-    const page = moduleData.pages[idx] || moduleData.pages[0];
-
-    document.getElementById('readingContainer').innerHTML = page.readingHtml || '<p>No reading content available.</p>';
-
-    const counts = page.sampleCounts || { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 1 };
-    renderSampledAssessments(page.id, idx, counts);
-
-    if (window.renderMath) window.renderMath();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function renderSampledAssessments(partId, partIdx, counts) {
-    let pool = quizData[partId] || quizData[String(partIdx + 1)] || quizData[partIdx];
-    if (!pool && Object.keys(quizData).length > 0) {
-      const keys = Object.keys(quizData);
-      pool = quizData[keys[partIdx]] || quizData[keys[0]];
-    }
-
-    renderMCQs(sample(pool ? (pool.mcq || pool.multipleChoice) : [], counts.mcq || 2));
-    renderMSs(sample(pool ? (pool.ms || pool.multiSelect) : [], counts.ms || 2));
-    renderTFs(sample(pool ? (pool.tf || pool.trueFalse) : [], counts.tf || 2));
-    renderClozes(sample(pool ? (pool.cloze || pool.fillBlank) : [], counts.cloze || 2));
-    renderSAs(sample(pool ? (pool.sa || pool.shortAnswer || pool.openEnded) : [], counts.sa || 1));
-  }
-
-  function renderMCQs(items) {
-    const c = document.getElementById('container-mcq');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
-    items.forEach((item, i) => {
-      const qId = item.id || `mcq_${i}`;
-      const div = document.createElement('div');
-      div.className = 'q-item';
-      div.innerHTML = `
-        <div class="q-title">${i + 1}. ${item.q || item.question}</div>
-        <div class="option-group">
-          ${(item.opts || item.options || []).map((opt, optIdx) => `
-            <label class="opt-label" id="${qId}_opt_${optIdx}">
-              <input type="radio" name="${qId}" value="${optIdx}" onchange="gradeMCQ('${qId}', ${optIdx},${item.correct})">
-              <span>${opt}</span>
-            </label>
-          `).join('')}
-        </div>
-        <div class="feedback-box info" id="${qId}_fb"><strong>Rationale:</strong> ${item.rationale || item.feedback || ''}</div>
-      `;
-      c.appendChild(div);
-    });
-  }
-
-  window.gradeMCQ = (qId, selected, correct) => {
-    document.querySelectorAll(`[id^="${qId}_opt_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
-    const chosen = document.getElementById(`${qId}_opt_${selected}`);
-    const isCorrect = (selected === correct);
-    if (isCorrect) {
-      chosen.classList.add('correct');
-      recordScore(qId, 1, 1);
-    } else {
-      chosen.classList.add('incorrect');
-      const corr = document.getElementById(`${qId}_opt_${correct}`);
-      if (corr) corr.classList.add('correct');
-      recordScore(qId, 0, 1);
-    }
-    document.getElementById(`${qId}_fb`).classList.add('visible');
-  };
-
-  function renderMSs(items) {
-    const c = document.getElementById('container-ms');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
-    items.forEach((item, i) => {
-      const qId = item.id || `ms_${i}`;
-      const correctArr = item.correctArray || item.correct || [];
-      const div = document.createElement('div');
-      div.className = 'q-item';
-      div.innerHTML = `
-        <div class="q-title">${i + 1}. ${item.q || item.question} (Select all that apply)</div>
-        <div class="option-group">
-          ${(item.opts || item.options || []).map((opt, optIdx) => `
-            <label class="opt-label" id="${qId}_ms_${optIdx}">
-              <input type="checkbox" name="${qId}" value="${optIdx}">
-              <span>${opt}</span>
-            </label>
-          `).join('')}
-        </div>
-        <button class="action-btn" onclick="gradeMS('${qId}', ${JSON.stringify(correctArr)})">Check Selection</button>
-        <div class="feedback-box info" id="${qId}_fb"><strong>Rationale:</strong> ${item.rationale || item.feedback || ''}</div>
-      `;
-      c.appendChild(div);
-    });
-  }
-
-  window.gradeMS = (qId, correctArray) => {
-    const checked = Array.from(document.querySelectorAll(`input[name="${qId}"]:checked`)).map(cb => parseInt(cb.value));
-    document.querySelectorAll(`[id^="${qId}_ms_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
+    # Extract Concept Pages using class="concept-page-view"
+    pages = []
+    concept_sections = soup.find_all(['section', 'div'], class_=re.compile(r'concept-page-view|concept-page', re.I))
     
-    correctArray.forEach(idx => {
-      const el = document.getElementById(`${qId}_ms_${idx}`);
-      if (el) el.classList.add('correct');
-    });
-    checked.forEach(idx => {
-      if (!correctArray.includes(idx)) {
-        const el = document.getElementById(`${qId}_ms_${idx}`);
-        if (el) el.classList.add('incorrect');
-      }
-    });
+    if not concept_sections:
+        # Fallback to checking IDs with page-
+        concept_sections = soup.find_all(['section', 'div'], id=re.compile(r'^page-', re.I))
 
-    const isMatch = (checked.length === correctArray.length && checked.every(v => correctArray.includes(v)));
-    recordScore(qId, isMatch ? 1 : 0, 1);
-    document.getElementById(`${qId}_fb`).classList.add('visible');
-  };
+    if concept_sections:
+        for idx, sec in enumerate(concept_sections, start=1):
+            pid = f"p{idx}"
+            # Extract clean heading
+            h2 = sec.find(['h2', 'h1', 'h3'])
+            ptitle = h2.get_text().strip() if h2 else f"Part {idx}"
+            # Strip out "Concept X:" prefixes if present
+            clean_ptitle = re.sub(r'^(?:Part|Concept|Topic)\s*\d*[:\s-]*', '', ptitle).strip()
 
-  function renderTFs(items) {
-    const c = document.getElementById('container-tf');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
-    items.forEach((item, i) => {
-      const qId = item.id || `tf_${i}`;
-      const answerBool = (item.ans !== undefined) ? item.ans : item.answer;
-      const div = document.createElement('div');
-      div.className = 'q-item';
-      div.innerHTML = `
-        <div class="q-title">${i + 1}. True or False: ${item.q || item.question}</div>
-        <div class="option-group" style="flex-direction:row;">
-          <label class="opt-label" id="${qId}_true"><input type="radio" name="${qId}" onchange="gradeTF('${qId}', true, ${answerBool})"> True</label>
-          <label class="opt-label" id="${qId}_false"><input type="radio" name="${qId}" onchange="gradeTF('${qId}', false, ${answerBool})"> False</label>
-        </div>
-        <div class="feedback-box info" id="${qId}_fb"><strong>Feedback:</strong> ${item.feedback || item.rationale || 'Review key principles.'}</div>
-      `;
-      c.appendChild(div);
-    });
-  }
+            reading_html = extract_clean_reading(sec)
 
-  window.gradeTF = (qId, selected, correct) => {
-    const chosen = document.getElementById(`${qId}_${selected}`);
-    document.querySelectorAll(`[id^="${qId}_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
-    if (selected === correct) {
-      chosen.classList.add('correct');
-      recordScore(qId, 1, 1);
-    } else {
-      chosen.classList.add('incorrect');
-      const corr = document.getElementById(`${qId}_${correct}`);
-      if (corr) corr.classList.add('correct');
-      recordScore(qId, 0, 1);
+            pages.append({
+                "id": pid,
+                "title": clean_ptitle or f"Part {idx}",
+                "sampleCounts": { "mcq": 2, "ms": 2, "tf": 2, "cloze": 2, "sa": 1 },
+                "readingHtml": reading_html,
+                "activities": []
+            })
+    else:
+        # Single page structure fallback
+        reading_html = extract_clean_reading(soup)
+        pages.append({
+            "id": "p1",
+            "title": clean_title or f"Module {mod_id}",
+            "sampleCounts": { "mcq": 2, "ms": 2, "tf": 2, "cloze": 2, "sa": 1 },
+            "readingHtml": reading_html,
+            "activities": []
+        })
+
+    content_payload = {
+        "meta": meta,
+        "glossary": glossary,
+        "pages": pages
     }
-    // Make sure feedback shows immediately
-    document.getElementById(`${qId}_fb`).classList.add('visible');
-  };
 
-  function renderClozes(items) {
-    const c = document.getElementById('container-cloze');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
-    items.forEach((item, i) => {
-      const qId = item.id || `clz_${i}`;
-      const rawStmt = item.statement || "";
-      const target = item.target || ((item.targets && item.targets[0]) ? item.targets[0] : "");
-      const cleanStmt = rawStmt.replace(/\*\*(.*?)\*\*/g, '___TARGET___');
-      const parts = cleanStmt.includes('___TARGET___') ? cleanStmt.split('___TARGET___') : [cleanStmt, ""];
-      const bank = item.optionsBank || [target, "Option A", "Option B", "Option C"];
-      const shuffled = [...new Set(bank)].sort(() => 0.5 - Math.random());
+    # Extract Assessment Bank
+    quiz_payload = {}
+    raw_block = extract_assessment_banks_raw(html_text)
+    if raw_block:
+        try:
+            raw_data = demjson3.decode(raw_block)
+            # Normalize keys to p1, p2, p3 if they used named keys
+            keys = list(raw_data.keys())
+            for idx, k in enumerate(keys):
+                norm_key = f"p{idx+1}"
+                quiz_payload[norm_key] = raw_data[k]
+                # Keep original key as well for compatibility
+                quiz_payload[k] = raw_data[k]
+        except Exception as e:
+            print(f"  [!] demjson3 decode error on {file_path.name}: {e}")
 
-      const div = document.createElement('div');
-      div.className = 'q-item';
-      div.innerHTML = `
-        <div class="q-title">${i + 1}. Sentence Completion</div>
-        <p style="font-size:1.05rem;">
-          ${parts[0]}
-          <select class="cloze-select" id="${qId}_sel" onchange="gradeCloze('${qId}', '${target.replace(/'/g, "\\'")}')">
-            <option value="">-- select term --</option>
-            ${shuffled.map(o => `<option value="${o}">${o}</option>`).join('')}
-          </select>
-          ${parts[1] || ''}
-        </p>
-        <div class="feedback-box success" id="${qId}_fb">✓ Correct target identified!</div>
-      `;
-      c.appendChild(div);
-    });
-  }
+    out_dir = file_path.parent
+    content_file = out_dir / f"{mod_id}_content.json"
+    quiz_file = out_dir / f"{mod_id}_quiz.json"
 
-  window.gradeCloze = (qId, target) => {
-    const sel = document.getElementById(`${qId}_sel`);
-    const fb = document.getElementById(`${qId}_fb`);
-    if (sel.value.toLowerCase().trim() === target.toLowerCase().trim()) {
-      sel.style.borderColor = 'var(--success)';
-      fb.classList.add('visible');
-      recordScore(qId, 1, 1);
-    } else {
-      sel.style.borderColor = 'var(--danger)';
-      fb.classList.remove('visible');
-      recordScore(qId, 0, 1);
-    }
-  };
+    with open(content_file, "w", encoding="utf-8") as f:
+        json.dump(content_payload, f, indent=2, ensure_ascii=False)
 
-  function renderSAs(items) {
-    const c = document.getElementById('container-sa');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No short answer prompts available.</p>' : '';
-    items.forEach((item, i) => {
-      const qId = item.id || `sa_${i}`;
-      const div = document.createElement('div');
-      div.className = 'q-item';
-      div.innerHTML = `
-        <div class="q-title">${i + 1}. Applied Short Answer: ${item.q || item.prompt}</div>
-        <textarea style="width:100%; height:90px; padding:10px; border-radius:6px; border:1px solid var(--slate-300); font-family:inherit; margin-bottom:10px;" placeholder="Draft your answer here..."></textarea>
-        <button class="action-btn" onclick="document.getElementById('${qId}_model').classList.toggle('visible')">Reveal Model Exemplar &amp; Self-Rubric</button>
-        <div class="feedback-box info" id="${qId}_model">
-          <p style="margin-bottom:8px;"><strong>Model Exemplar:</strong> ${item.model || item.modelAnswer || ''}</p>
-          ${item.criteria ? `<strong>Grading Criteria:</strong><ul>${item.criteria.map(cr => `<li>${cr}</li>`).join('')}</ul>` : ''}
-          <div class="rubric-scores">
-            <span><strong>Self-Grade (0-5 pts):</strong></span>
-            ${[0,1,2,3,4,5].map(pt => `
-              <button class="score-btn" id="${qId}_pt_${pt}" onclick="gradeShortAnswer('${qId}',${pt})">${pt} pt${pt===1?'':'s'}</button>
-            `).join('')}
-          </div>
-        </div>
-      `;
-      c.appendChild(div);
-    });
-  }
+    with open(quiz_file, "w", encoding="utf-8") as f:
+        json.dump(quiz_payload, f, indent=2, ensure_ascii=False)
 
-  window.gradeShortAnswer = (qId, pts) => {
-    document.querySelectorAll(`[id^="${qId}_pt_"]`).forEach(b => b.classList.remove('selected'));
-    const btn = document.getElementById(`${qId}_pt_${pts}`);
-    if (btn) btn.classList.add('selected');
-    recordScore(qId, pts, 5);
-  };
+    item_count = 0
+    if isinstance(quiz_payload, dict):
+        for part in quiz_payload.values():
+            if isinstance(part, dict):
+                for q_list in part.values():
+                    if isinstance(q_list, list):
+                        item_count += len(q_list)
 
-  function recordScore(qId, earned, possible) {
-    gradedMap[qId] = { earned, possible };
-    let totalEarned = 0;
-    let totalPoss = 0;
-    Object.values(gradedMap).forEach(v => {
-      totalEarned += v.earned;
-      totalPoss += v.possible;
-    });
-    const pct = totalPoss > 0 ? Math.round((totalEarned / totalPoss) * 100) : 0;
-    document.getElementById('scoreTracker').textContent = `Score: ${totalEarned} / ${totalPoss} pts (${pct}%)`;
-  }
+    print(f"  [+] Saved {content_file.name} (Pages: {len(pages)}, Glossary: {len(glossary)})")
+    print(f"  [+] Saved {quiz_file.name} (Pool: {item_count} items indexed)")
 
-  window.toggleAccordion = (id) => document.getElementById(id).classList.toggle('open');
-  window.toggleAll = (open) => document.querySelectorAll('.accordion-card').forEach(c => c.classList.toggle('open', open));
+def main():
+    for ch in ["ch10", "ch11"]:
+        ch_path = CONTENT_DIR / ch
+        if not ch_path.exists():
+            continue
+        for html_file in sorted(ch_path.glob("*.html")):
+            if html_file.name in ["index.html", "viewer.html"]:
+                continue
+            process_html_file(html_file)
 
-  function buildGlossary() {
-    const tbody = document.getElementById('glossaryBody');
-    tbody.innerHTML = '';
-    (moduleData.glossary || []).forEach(item => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td><strong>${item.term}</strong></td><td>${item.def}</td>`;
-      tbody.appendChild(tr);
-    });
-  }
+    print("\n✓ Migration complete! All pages and question pools cleanly parsed.")
 
-  window.switchView = (tab) => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    if (tab === 'lesson') {
-      document.querySelectorAll('.tab-btn')[0].classList.add('active');
-      document.getElementById('pane-lesson').classList.add('active');
-    } else if (tab === 'activities') {
-      document.querySelectorAll('.tab-btn')[1].classList.add('active');
-      document.getElementById('pane-activities').classList.add('active');
-    } else {
-      document.querySelectorAll('.tab-btn')[2].classList.add('active');
-      document.getElementById('pane-glossary').classList.add('active');
-    }
-  };
-
-  window.addEventListener('DOMContentLoaded', init);
-</script>
-</body>
-</html>
+if __name__ == "__main__":
+    main()
