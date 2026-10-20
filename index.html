@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KINS 4403: Physiology of Exercise — Course Dashboard</title>
+  <title>KINS 4403 Physiology of Exercise - Interactive OLMs</title>
   <style>
     :root {
       --primary: #17324d;
@@ -13,10 +13,11 @@
       --slate-50: #f8fafc;
       --slate-100: #f1f5f9;
       --slate-200: #e2e8f0;
-      --slate-400: #94a3b8;
+      --slate-300: #cbd5e1;
       --slate-600: #475569;
       --slate-800: #1e293b;
-      --success: #15803d;
+      --success-bg: #dcfce7;
+      --success-text: #166534;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,48 +25,35 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--slate-50);
       color: var(--slate-800);
-      line-height: 1.6;
+      line-height: 1.5;
+      padding-bottom: 60px;
     }
 
     header {
       background: var(--primary);
       color: #fff;
-      padding: 36px 20px;
-      border-bottom: 4px solid var(--accent);
+      padding: 32px 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
-    .header-inner {
-      max-width: 1040px;
-      margin: 0 auto;
-    }
-    .course-badge {
-      display: inline-block;
-      background: var(--primary-light);
-      color: #93c5fd;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      padding: 4px 10px;
-      border-radius: 4px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-    h1 { font-size: 1.9rem; font-weight: 800; margin-bottom: 6px; }
-    header p { color: #cbd5e1; font-size: 1.05rem; max-width: 720px; }
+    header h1 { font-size: 1.85rem; font-weight: 800; margin-bottom: 6px; }
+    header p { font-size: 1rem; color: #94a3b8; max-width: 680px; margin: 0 auto; }
 
     .container {
-      max-width: 1040px;
+      max-width: 1100px;
       margin: 32px auto;
-      padding: 0 16px 80px 16px;
+      padding: 0 20px;
     }
 
-    .chapter-section {
+    .chapter-block {
       background: #fff;
       border: 1px solid var(--slate-200);
       border-radius: 10px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
     }
+
     .chapter-header {
       background: var(--slate-100);
       padding: 14px 20px;
@@ -74,221 +62,559 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
-    .chapter-header h2 {
+    .chapter-title {
       font-size: 1.15rem;
+      font-weight: 700;
       color: var(--primary);
-      font-weight: 700;
     }
-    .badge {
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 12px;
-      text-transform: uppercase;
+    .chapter-count {
+      font-size: 0.8rem;
+      color: var(--slate-600);
+      font-weight: 600;
     }
-    .badge.available { background: #dcfce7; color: var(--success); }
-    .badge.upcoming { background: #f1f5f9; color: var(--slate-600); border: 1px solid var(--slate-200); }
 
     .module-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 14px;
       padding: 20px;
     }
 
     .module-card {
-      border: 1px solid var(--slate-200);
+      background: #fff;
+      border: 1.5px solid var(--slate-200);
       border-radius: 8px;
-      padding: 18px;
+      padding: 14px 16px;
+      text-decoration: none;
+      color: inherit;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: #fff;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      transition: all 0.15s ease-in-out;
     }
     .module-card:hover {
+      border-color: var(--accent);
       transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.06);
-      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.08);
     }
-    .module-num {
-      font-size: 0.8rem;
-      font-weight: 700;
+
+    .mod-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .mod-id {
+      font-size: 0.82rem;
+      font-weight: 800;
       color: var(--accent);
-      margin-bottom: 4px;
-      text-transform: uppercase;
+      background: #eff6ff;
+      padding: 2px 8px;
+      border-radius: 4px;
     }
-    .module-card h3 {
-      font-size: 1.05rem;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-    .module-card p {
-      font-size: 0.9rem;
+    .mod-status {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 12px;
+      background: var(--slate-100);
       color: var(--slate-600);
-      margin-bottom: 16px;
-      flex-grow: 1;
+    }
+    .mod-status.ready {
+      background: var(--success-bg);
+      color: var(--success-text);
     }
 
-    .btn-launch {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
+    .mod-title {
+      font-size: 0.98rem;
       font-weight: 600;
-      font-size: 0.9rem;
-      padding: 8px 14px;
-      border-radius: 6px;
-      transition: background 0.15s ease;
+      color: var(--slate-800);
+      line-height: 1.4;
+      margin-bottom: 10px;
     }
-    .btn-launch:hover { background: var(--accent-hover); }
 
-    .empty-state {
-      padding: 24px 20px;
-      color: var(--slate-600);
-      font-style: italic;
-      font-size: 0.95rem;
+    .mod-action {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="course-badge">Online Learning Modules</div>
-    <h1>KINS 4403: Physiology of Exercise</h1>
-    <p>Interactive lecture modules, physiological mechanism walkthroughs, applied clinical scenarios, and formative knowledge checks.</p>
-  </div>
+  <h1>KINS 4403 Physiology of Exercise</h1>
+  <p>Interactive Online Learning Modules (OLMs) &amp; Formative Knowledge Hub</p>
 </header>
 
-<div class="container" id="courseTree"></div>
+<div class="container">
 
-<script>
-  // COURSE CURRICULUM CONFIGURATION
-  // Set "active": true when content is written and ready in content/chXX/
-  const courseData = [
-    {
-      chapterNum: "10",
-      chapterFolder: "10",
-      title: "Adaptations to Resistance Training",
-      active: true,
-      modules: [
-        {
-          id: "10.1",
-          title: "Resistance Training and Gains in Muscular Fitness",
-          desc: "Principles of progressive overload, specificity, muscular adaptations, and strength vs. power training."
-        },
-        {
-          id: "10.2",
-          title: "Mechanisms of Gains in Muscle Strength",
-          desc: "Neural drivers, rate coding, motor unit synchronization, autogenic inhibition, and transient vs. chronic hypertrophy."
-        },
-        {
-          id: "10.3",
-          title: "Interaction Between Resistance Training and Diet",
-          desc: "Protein synthesis, mTOR signaling, leucine thresholds, post-exercise nutrient timing, and glycogen replenishment."
-        },
-        {
-          id: "10.4",
-          title: "Resistance Training for Special Populations",
-          desc: "Sarcopenia in older adults, youth resistance considerations, and programming modifications for clinical populations."
-        }
-      ]
-    },
-    {
-      chapterNum: "11",
-      chapterFolder: "11",
-      title: "Adaptations to Aerobic & Anaerobic Training",
-      active: true,
-      modules: [
-        {
-          id: "11.1",
-          title: "Adaptations to Aerobic Training",
-          desc: "Fick equation mechanics, eccentric cardiac hypertrophy, plasma expansion, capillarization, and glycogen sparing."
-        },
-        {
-          id: "11.2",
-          title: "Adaptations to Anaerobic Training",
-          desc: "ATP-PCr buffering, glycolytic enzyme upregulation, anaerobic capacity, and muscle buffering capacity."
-        },
-        {
-          id: "11.3",
-          title: "Adaptations to High-Intensity Interval Training",
-          desc: "HIIT vs. continuous endurance, mitochondrial biogenesis, PGC-1alpha activation, and cardiovascular efficiency."
-        },
-        {
-          id: "11.4",
-          title: "Specificity of Training and Cross-Training",
-          desc: "Concurrent training interference effect, AMPk vs. mTOR cross-talk, transfer of training, and sport-specific conditioning."
-        }
-      ]
-    },
-    {
-      chapterNum: "12",
-      chapterFolder: "12",
-      title: "Cardiorespiratory Control During Exercise",
-      active: false,
-      modules: []
-    }
-  ];
+  <!-- CHAPTER 9 -->
+  <section class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-title">Chapter 9: Principles of Exercise Training</div>
+      <div class="chapter-count">4 Modules</div>
+    </div>
+    <div class="module-grid">
+      <a class="module-card" href="viewer.html?ch=9&mod=9.1">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">9.1</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Terminology</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
 
-  function renderDashboard() {
-    const root = document.getElementById('courseTree');
-    root.innerHTML = '';
+      <a class="module-card" href="viewer.html?ch=9&mod=9.2">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">9.2</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">General Principles of Training</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
 
-    courseData.forEach(ch => {
-      const section = document.createElement('section');
-      section.className = 'chapter-section';
+      <a class="module-card" href="viewer.html?ch=9&mod=9.3">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">9.3</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Resistance Training Programs</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
 
-      const header = document.createElement('div');
-      header.className = 'chapter-header';
-      header.innerHTML = `
-        <h2>Chapter ${ch.chapterNum}: ${ch.title}</h2>
-        <span class="badge ${ch.active ? 'available' : 'upcoming'}">
-          ${ch.active ? 'Available' : 'Coming Soon'}
-        </span>
-      `;
-      section.appendChild(header);
+      <a class="module-card" href="viewer.html?ch=9&mod=9.4">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">9.4</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Anaerobic and Aerobic Power Training Programs</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+    </div>
+  </section>
 
-      if (ch.active && ch.modules.length > 0) {
-        const grid = document.createElement('div');
-        grid.className = 'module-grid';
+  <!-- CHAPTER 10 (VERIFIED) -->
+  <section class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-title">Chapter 10: Adaptations to Resistance Training</div>
+      <div class="chapter-count">4 Modules</div>
+    </div>
+    <div class="module-grid">
+      <a class="module-card" href="viewer.html?ch=10&mod=10.1">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">10.1</span>
+            <span class="mod-status ready">&#10003; Active</span>
+          </div>
+          <div class="mod-title">Resistance Training and Gains in Muscular Fitness</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
 
-        ch.modules.forEach(m => {
-          const card = document.createElement('div');
-          card.className = 'module-card';
-          card.innerHTML = `
-            <div>
-              <div class="module-num">Module ${m.id}</div>
-              <h3>${m.title}</h3>
-              <p>${m.desc}</p>
-            </div>
-            <a class="btn-launch" href="viewer.html?ch=${ch.chapterFolder}&mod=${m.id}">
-              Launch Module &rarr;
-            </a>
-          `;
-          grid.appendChild(card);
-        });
+      <a class="module-card" href="viewer.html?ch=10&mod=10.2">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">10.2</span>
+            <span class="mod-status ready">&#10003; Active</span>
+          </div>
+          <div class="mod-title">Mechanisms of Muscle Strength Gain</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
 
-        section.appendChild(grid);
-      } else {
-        const empty = document.createElement('div');
-        empty.className = 'empty-state';
-        empty.textContent = 'Module reading and interactive assessments are currently in development.';
-        section.appendChild(empty);
-      }
+      <a class="module-card" href="viewer.html?ch=10&mod=10.3">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">10.3</span>
+            <span class="mod-status ready">&#10003; Active</span>
+          </div>
+          <div class="mod-title">Muscle Soreness and Muscle Cramps</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
 
-      root.appendChild(section);
-    });
-  }
+      <a class="module-card" href="viewer.html?ch=10&mod=10.4">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">10.4</span>
+            <span class="mod-status ready">&#10003; Active</span>
+          </div>
+          <div class="mod-title">Designing Resistance Training Programs</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+    </div>
+  </section>
 
-  window.addEventListener('DOMContentLoaded', renderDashboard);
-</script>
+  <!-- CHAPTER 11 (VERIFIED) -->
+  <section class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-title">Chapter 11: Adaptations to Aerobic and Anaerobic Training</div>
+      <div class="chapter-count">4 Modules</div>
+    </div>
+    <div class="module-grid">
+      <a class="module-card" href="viewer.html?ch=11&mod=11.1">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">11.1</span>
+            <span class="mod-status ready">&#10003; Active</span>
+          </div>
+          <div class="mod-title">Cardiovascular &amp; Respiratory Adaptations to Aerobic Training</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=11&mod=11.2">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">11.2</span>
+            <span class="mod-status ready">&#10003; Active</span>
+          </div>
+          <div class="mod-title">Metabolic Adaptations to Aerobic and Anaerobic Training</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=11&mod=11.3">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">11.3</span>
+            <span class="mod-status ready">&#10003; Active</span>
+          </div>
+          <div class="mod-title">High-Intensity Interval Training Adaptations</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=11&mod=11.4">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">11.4</span>
+            <span class="mod-status ready">&#10003; Active</span>
+          </div>
+          <div class="mod-title">Specificity of Training and Cross-Training</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CHAPTER 14 -->
+  <section class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-title">Chapter 14: Overreaching, Overtraining, and Periodization</div>
+      <div class="chapter-count">5 Modules</div>
+    </div>
+    <div class="module-grid">
+      <a class="module-card" href="viewer.html?ch=14&mod=14.1">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">14.1</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Optimizing Training: A Model</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=14&mod=14.2">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">14.2</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Periodization of Training</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=14&mod=14.3">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">14.3</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Overtraining</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=14&mod=14.4">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">14.4</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Tapering for Peak Performance</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=14&mod=14.5">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">14.5</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Detraining</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CHAPTER 17 -->
+  <section class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-title">Chapter 17: Children and Adolescents in Sport and Exercise</div>
+      <div class="chapter-count">6 Modules</div>
+    </div>
+    <div class="module-grid">
+      <a class="module-card" href="viewer.html?ch=17&mod=17.1">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">17.1</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Growth, Development, and Maturation</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=17&mod=17.2">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">17.2</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Physiological Responses to Acute Exercise</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=17&mod=17.3">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">17.3</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Physiological Adaptations to Exercise Training</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=17&mod=17.4">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">17.4</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Physical Activity Patterns Among Youth</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=17&mod=17.5">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">17.5</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Sport Performance and Specialization</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=17&mod=17.6">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">17.6</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Special Issues</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CHAPTER 19 -->
+  <section class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-title">Chapter 19: Sex Differences in Sport and Exercise</div>
+      <div class="chapter-count">6 Modules</div>
+    </div>
+    <div class="module-grid">
+      <a class="module-card" href="viewer.html?ch=19&mod=19.1">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">19.1</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Sex Versus Gender in Exercise Physiology</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=19&mod=19.2">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">19.2</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Body Size and Composition</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=19&mod=19.3">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">19.3</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Physiological Responses to Acute Exercise</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=19&mod=19.4">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">19.4</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Physiological Adaptations to Exercise Training</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=19&mod=19.5">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">19.5</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Sport Performance</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=19&mod=19.6">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">19.6</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Special Issues</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CHAPTER 20 -->
+  <section class="chapter-block">
+    <div class="chapter-header">
+      <div class="chapter-title">Chapter 20: Prescription of Exercise for Health and Fitness</div>
+      <div class="chapter-count">7 Modules</div>
+    </div>
+    <div class="module-grid">
+      <a class="module-card" href="viewer.html?ch=20&mod=20.1">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">20.1</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Health Benefits of Regular Physical Activity and Exercise</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=20&mod=20.2">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">20.2</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Physical Activity Recommendations</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=20&mod=20.3">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">20.3</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Health Screening</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=20&mod=20.4">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">20.4</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Exercise Prescription</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=20&mod=20.5">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">20.5</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Monitoring Exercise Intensity</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=20&mod=20.6">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">20.6</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Exercise Programming</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+
+      <a class="module-card" href="viewer.html?ch=20&mod=20.7">
+        <div>
+          <div class="mod-top">
+            <span class="mod-id">20.7</span>
+            <span class="mod-status">Upcoming</span>
+          </div>
+          <div class="mod-title">Exercise and Rehabilitation of People with Diseases</div>
+        </div>
+        <span class="mod-action">Open Module &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+</div>
 
 </body>
 </html>
