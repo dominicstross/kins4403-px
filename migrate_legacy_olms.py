@@ -44,9 +44,9 @@ def extract_assessment_banks_raw(html_text):
 def extract_clean_reading_block(sec_soup):
     """
     Extracts purely the reading body from either Chapter 10 details structure
-    or Chapter 11 section structure.
+    or Chapter 11 section structure, stripping any legacy embedded containers.
     """
-    # Pattern A: Any <details> card whose summary mentions "Reading" OR the very first <details> card
+    # Pattern A: Any <details> card whose summary mentions "Reading" OR the first <details> card
     details_cards = sec_soup.find_all('details', class_=re.compile(r'accordion-card', re.I))
     for card in details_cards:
         sum_el = card.find('summary')
@@ -59,7 +59,6 @@ def extract_clean_reading_block(sec_soup):
             target = acc_body if acc_body else clone
             return "".join(str(c) for c in target.contents if getattr(c, 'name', None) not in ['script', 'style']).strip()
 
-    # If details cards exist but summary didn't match 'reading', the first card is always the reading
     if details_cards:
         clone = BeautifulSoup(str(details_cards[0]), "html.parser")
         if clone.find('summary'):
@@ -72,6 +71,16 @@ def extract_clean_reading_block(sec_soup):
     ch11_reading = sec_soup.find(id=re.compile(r'sec-reading-p\d+|reading-content', re.I))
     if ch11_reading:
         clone = BeautifulSoup(str(ch11_reading), "html.parser")
+        # Remove any embedded legacy quiz containers, buttons, or formative headers
+        for el in clone.find_all(['div', 'section', 'button', 'h2', 'h3', 'h4']):
+            el_text = el.get_text() if el.string or el.contents else ''
+            el_id = el.get('id', '')
+            el_cls = " ".join(el.get('class', []))
+            combined = f"{el_id} {el_cls} {el_text}".lower()
+            if any(k in combined for k in ['container-', 'reset-btn', 'formative assessment', 'knowledge check', 'quiz-']):
+                el.decompose()
+        for btn in clone.find_all('button'):
+            btn.decompose()
         return "".join(str(c) for c in clone.contents if getattr(c, 'name', None) not in ['script', 'style']).strip()
 
     # Pattern C: Fallback to all content prior to the first quiz card
@@ -134,7 +143,6 @@ def process_html_file(file_path):
         for idx, sec in enumerate(concept_sections, start=1):
             pid = f"p{idx}"
             
-            # Find title
             h2 = sec.find(['h2', 'h1', 'h3'])
             if not h2:
                 sum_text = sec.find('summary')

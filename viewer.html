@@ -794,11 +794,39 @@
     items.forEach((item, i) => {
       const qId = item.id || `clz_${i}_${Date.now()}`;
       const rawStmt = item.statement || "";
-      const target = item.target || ((item.targets && item.targets[0]) ? item.targets[0] : "");
-      const cleanStmt = rawStmt.replace(/\*\*(.*?)\*\*/g, '___TARGET___');
+      
+      // 1. Detect target term across all generator variants
+      let target = (item.target || (item.targets && item.targets[0]) || "").trim();
+      
+      // If target not explicitly set, extract whatever was inside **bold**
+      if (!target) {
+        const boldMatch = rawStmt.match(/\*\*(.*?)\*\*/);
+        if (boldMatch) target = boldMatch[1].trim();
+      }
+
+      // 2. Format the sentence with a replacement marker
+      let cleanStmt = rawStmt;
+      if (rawStmt.includes('**')) {
+        cleanStmt = rawStmt.replace(/\*\*(.*?)\*\*/g, '___TARGET___');
+      } else if (target && rawStmt.includes(target)) {
+        cleanStmt = rawStmt.replace(target, '___TARGET___');
+      } else if (rawStmt.includes('___')) {
+        cleanStmt = rawStmt.replace(/_{3,}/g, '___TARGET___');
+      }
+
       const parts = cleanStmt.includes('___TARGET___') ? cleanStmt.split('___TARGET___') : [cleanStmt, ""];
-      const bank = item.optionsBank || [target, "Option A", "Option B", "Option C"];
-      const shuffled = [...new Set(bank)].sort(() => 0.5 - Math.random());
+
+      // 3. Guarantee target is ALWAYS in the options bank
+      let bank = Array.isArray(item.optionsBank) ? [...item.optionsBank] : [];
+      if (target && !bank.some(opt => opt.trim().toLowerCase() === target.toLowerCase())) {
+        bank.push(target);
+      }
+      if (bank.length < 3) {
+        bank.push("Left ventricular hypertrophy", "Stroke volume", "Tidal volume");
+      }
+      
+      // De-duplicate and shuffle
+      const uniqueBank = Array.from(new Set(bank.map(b => b.trim()))).sort(() => 0.5 - Math.random());
 
       const div = document.createElement('div');
       div.className = 'q-item';
@@ -808,7 +836,7 @@
           ${parts[0]}
           <select class="cloze-select" id="${qId}_sel" onchange="gradeCloze('${qId}', '${target.replace(/'/g, "\\'")}')">
             <option value="">-- select term --</option>
-            ${shuffled.map(o => `<option value="${o}">${o}</option>`).join('')}
+            ${uniqueBank.map(o => `<option value="${o}">${o}</option>`).join('')}
           </select>
           ${parts[1] || ''}
         </p>
@@ -817,6 +845,26 @@
       c.appendChild(div);
     });
   }
+
+  window.gradeCloze = (qId, target) => {
+    const sel = document.getElementById(`${qId}_sel`);
+    const fb = document.getElementById(`${qId}_fb`);
+    if (!sel) return;
+    
+    // Case-insensitive, trimmed comparison
+    const userVal = sel.value.trim().toLowerCase();
+    const correctVal = (target || "").trim().toLowerCase();
+
+    if (userVal && userVal === correctVal) {
+      sel.style.borderColor = 'var(--success)';
+      fb.classList.add('visible');
+      recordScore(qId, 'cloze', 1, 1);
+    } else {
+      sel.style.borderColor = 'var(--danger)';
+      fb.classList.remove('visible');
+      recordScore(qId, 'cloze', 0, 1);
+    }
+  };
 
   window.gradeCloze = (qId, target) => {
     const sel = document.getElementById(`${qId}_sel`);
