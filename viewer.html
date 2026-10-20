@@ -37,10 +37,11 @@
       padding-bottom: 90px;
     }
 
+    /* PERSISTENT STICKY HEADER WITH PINNED CONCEPT BAR */
     header {
       background: var(--primary);
       color: #fff;
-      padding: 12px 20px;
+      padding: 12px 20px 8px 20px;
       position: sticky;
       top: 0;
       z-index: 60;
@@ -67,6 +68,38 @@
       color: #93c5fd;
     }
 
+    /* PINNED CONCEPT PART PILLS INSIDE STICKY BANNER */
+    .concept-part-bar {
+      display: flex;
+      gap: 8px;
+      padding: 6px 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      margin-top: 4px;
+      overflow-x: auto;
+    }
+    .part-pill {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #cbd5e1;
+      padding: 5px 12px;
+      border-radius: 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .part-pill:hover {
+      background: rgba(255,255,255,0.25);
+      color: #fff;
+    }
+    .part-pill.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 0 8px rgba(37,99,235,0.5);
+    }
+
     .header-controls {
       display: flex;
       justify-content: space-between;
@@ -74,16 +107,17 @@
       flex-wrap: wrap;
       gap: 10px;
       border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 8px;
+      padding-top: 6px;
+      margin-top: 4px;
     }
     .subnav-pills { display: flex; gap: 6px; flex-wrap: wrap; }
     .nav-btn {
       background: var(--primary-light);
       color: #fff;
       border: none;
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: 4px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       cursor: pointer;
       text-decoration: none;
       transition: background 0.15s;
@@ -93,9 +127,9 @@
       background: transparent;
       border: 1px solid rgba(255,255,255,0.3);
       color: #cbd5e1;
-      padding: 3px 8px;
+      padding: 2px 7px;
       border-radius: 4px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       cursor: pointer;
     }
     .toggle-all-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
@@ -104,31 +138,6 @@
       max-width: 1040px;
       margin: 20px auto;
       padding: 0 16px;
-    }
-
-    .concept-part-bar {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 20px;
-      border-bottom: 2px solid var(--slate-200);
-      padding-bottom: 8px;
-      overflow-x: auto;
-    }
-    .part-pill {
-      background: #fff;
-      border: 1px solid var(--slate-300);
-      color: var(--slate-600);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .part-pill.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
     }
 
     .view-tabs {
@@ -153,7 +162,7 @@
     .panel { display: none; }
     .panel.active { display: block; }
 
-    /* ACCORDIONS */
+    /* ACCORDIONS - DEFAULT CLOSED */
     .accordion-card {
       background: #fff;
       border: 1px solid var(--slate-200);
@@ -324,12 +333,13 @@
     .score-btn:hover { border-color: var(--accent); background: #eff6ff; }
     .score-btn.selected { background: var(--accent); color: #fff; border-color: var(--accent); }
 
+    /* SMART BOTTOM NAVIGATION BAR */
     .bottom-bar {
       position: fixed;
       bottom: 0; left: 0; right: 0;
       background: #fff;
       border-top: 1px solid var(--slate-200);
-      padding: 12px 20px;
+      padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -343,11 +353,26 @@
       padding: 8px 16px;
       border-radius: 6px;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s;
     }
     .nav-arrow:hover { background: var(--primary-light); }
     .nav-arrow.disabled { background: var(--slate-200); color: var(--slate-600); pointer-events: none; }
-    .menu-link { color: var(--accent); text-decoration: none; font-weight: 700; }
+    .menu-link { color: var(--accent); text-decoration: none; font-weight: 700; font-size: 0.9rem; }
+    .page-indicator-badge {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--slate-600);
+      background: var(--slate-100);
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--slate-200);
+    }
   </style>
 </head>
 <body>
@@ -361,13 +386,16 @@
     <div class="score-badge" id="scoreTracker">Score: 0 / 0 pts (0%)</div>
   </div>
 
+  <!-- PERSISTENT CONCEPT PART PILLS INSIDE STICKY HEADER -->
+  <div class="concept-part-bar" id="conceptPartBar"></div>
+
   <div class="header-controls">
     <div class="subnav-pills">
       <a class="nav-btn" href="#acc-reading">Reading</a>
-      <a class="nav-btn" href="#acc-mcq">Multiple Choice</a>
-      <a class="nav-btn" href="#acc-ms">Multi-Select</a>
-      <a class="nav-btn" href="#acc-tf">True / False</a>
-      <a class="nav-btn" href="#acc-cloze">Sentence Completion</a>
+      <a class="nav-btn" href="#acc-mcq">MC</a>
+      <a class="nav-btn" href="#acc-ms">MS</a>
+      <a class="nav-btn" href="#acc-tf">T/F</a>
+      <a class="nav-btn" href="#acc-cloze">Cloze</a>
       <a class="nav-btn" href="#acc-sa">Short Answer</a>
     </div>
     <div style="display:flex; gap:6px;">
@@ -378,8 +406,6 @@
 </header>
 
 <div class="container">
-  <div class="concept-part-bar" id="conceptPartBar"></div>
-
   <div class="view-tabs">
     <button class="tab-btn active" onclick="switchView('lesson')">Interactive Lesson</button>
     <button class="tab-btn" onclick="switchView('activities')">Applied Labs &amp; Scenarios (<span id="actCount">0</span>)</button>
@@ -387,8 +413,8 @@
   </div>
 
   <main id="pane-lesson" class="panel active">
-    <!-- READING ACCORDION -->
-    <div class="accordion-card open" id="acc-reading">
+    <!-- DEFAULT COLLAPSED: NO "open" CLASS -->
+    <div class="accordion-card" id="acc-reading">
       <div class="accordion-header" onclick="toggleCard(this)">
         <div class="accordion-header-left">
           <span>📖 Instructional Reading Content</span>
@@ -400,8 +426,7 @@
       <div class="accordion-body reading-content" id="readingContainer"></div>
     </div>
 
-    <!-- MCQ ACCORDION -->
-    <div class="accordion-card open" id="acc-mcq">
+    <div class="accordion-card" id="acc-mcq">
       <div class="accordion-header" onclick="toggleCard(this)">
         <div class="accordion-header-left">
           <span>🎯 Multiple Choice Questions</span>
@@ -415,8 +440,7 @@
       <div class="accordion-body" id="container-mcq"></div>
     </div>
 
-    <!-- MULTI-SELECT ACCORDION -->
-    <div class="accordion-card open" id="acc-ms">
+    <div class="accordion-card" id="acc-ms">
       <div class="accordion-header" onclick="toggleCard(this)">
         <div class="accordion-header-left">
           <span>☑️ Multi-Select Questions</span>
@@ -430,8 +454,7 @@
       <div class="accordion-body" id="container-ms"></div>
     </div>
 
-    <!-- TRUE / FALSE ACCORDION -->
-    <div class="accordion-card open" id="acc-tf">
+    <div class="accordion-card" id="acc-tf">
       <div class="accordion-header" onclick="toggleCard(this)">
         <div class="accordion-header-left">
           <span>⚖️ True / False Statements</span>
@@ -445,8 +468,7 @@
       <div class="accordion-body" id="container-tf"></div>
     </div>
 
-    <!-- CLOZE ACCORDION -->
-    <div class="accordion-card open" id="acc-cloze">
+    <div class="accordion-card" id="acc-cloze">
       <div class="accordion-header" onclick="toggleCard(this)">
         <div class="accordion-header-left">
           <span>✏️ Sentence Completion (Cloze)</span>
@@ -460,8 +482,7 @@
       <div class="accordion-body" id="container-cloze"></div>
     </div>
 
-    <!-- SHORT ANSWER ACCORDION -->
-    <div class="accordion-card open" id="acc-sa">
+    <div class="accordion-card" id="acc-sa">
       <div class="accordion-header" onclick="toggleCard(this)">
         <div class="accordion-header-left">
           <span>💡 Applied Short Answer Prompts</span>
@@ -490,10 +511,14 @@
   </section>
 </div>
 
+<!-- INTELLIGENT STEPPING BOTTOM NAVIGATION -->
 <footer class="bottom-bar">
-  <a class="nav-arrow" id="btnPrev" href="#">&larr; Previous Section</a>
-  <a class="menu-link" href="index.html">&#9776; Main Course Menu</a>
-  <a class="nav-arrow" id="btnNext" href="#">Next Section &rarr;</a>
+  <button class="nav-arrow" id="btnPrev" onclick="navigatePrevious()">&larr; Previous</button>
+  <div style="display:flex; align-items:center; gap:12px;">
+    <span class="page-indicator-badge" id="pageIndicatorBadge">Part 1 of 1</span>
+    <a class="menu-link" href="index.html">&#9776; Main Course Menu</a>
+  </div>
+  <button class="nav-arrow" id="btnNext" onclick="navigateNext()">Next &rarr;</button>
 </footer>
 
 <script>
@@ -503,6 +528,8 @@
   let currentPartCounts = {};
   let currentPool = null;
   let gradedMap = {};
+  let currentCh = '11';
+  let currentMod = '11.1';
 
   const courseSequence = [
     { ch: '10', mod: '10.1' }, { ch: '10', mod: '10.2' }, { ch: '10', mod: '10.3' }, { ch: '10', mod: '10.4' },
@@ -511,19 +538,17 @@
 
   async function init() {
     const params = new URLSearchParams(window.location.search);
-    const ch = params.get('ch') || '11';
-    const mod = params.get('mod') || '11.1';
-
-    setupBottomNav(ch, mod);
+    currentCh = params.get('ch') || '11';
+    currentMod = params.get('mod') || '11.1';
 
     try {
       const cacheBust = Date.now();
       const [resContent, resQuiz] = await Promise.all([
-        fetch(`content/ch${ch}/${mod}_content.json?t=${cacheBust}`),
-        fetch(`content/ch${ch}/${mod}_quiz.json?t=${cacheBust}`)
+        fetch(`content/ch${currentCh}/${currentMod}_content.json?t=${cacheBust}`),
+        fetch(`content/ch${currentCh}/${currentMod}_quiz.json?t=${cacheBust}`)
       ]);
 
-      if (!resContent.ok || !resQuiz.ok) throw new Error(`Could not load files for Ch ${ch}, Module ${mod}`);
+      if (!resContent.ok || !resQuiz.ok) throw new Error(`Could not load files for Ch ${currentCh}, Module ${currentMod}`);
 
       moduleData = await resContent.json();
       quizData = await resQuiz.json();
@@ -543,32 +568,12 @@
     }
   }
 
-  function setupBottomNav(currCh, currMod) {
-    const curIdx = courseSequence.findIndex(item => item.ch === currCh && item.mod === currMod);
-    const prevBtn = document.getElementById('btnPrev');
-    const nextBtn = document.getElementById('btnNext');
-
-    if (curIdx > 0) {
-      const prev = courseSequence[curIdx - 1];
-      prevBtn.href = `viewer.html?ch=${prev.ch}&mod=${prev.mod}`;
-      prevBtn.classList.remove('disabled');
-    } else {
-      prevBtn.classList.add('disabled');
-    }
-
-    if (curIdx >= 0 && curIdx < courseSequence.length - 1) {
-      const next = courseSequence[curIdx + 1];
-      nextBtn.href = `viewer.html?ch=${next.ch}&mod=${next.mod}`;
-      nextBtn.classList.remove('disabled');
-    } else {
-      nextBtn.classList.add('disabled');
-    }
-  }
-
   function buildPartPills() {
     const container = document.getElementById('conceptPartBar');
     container.innerHTML = '';
-    if (!moduleData.pages || moduleData.pages.length <= 1) {
+    const totalPages = (moduleData.pages && moduleData.pages.length) ? moduleData.pages.length : 1;
+    
+    if (totalPages <= 1) {
       container.style.display = 'none';
       return;
     }
@@ -603,6 +608,11 @@
 
   function loadConceptPart(idx) {
     currentPartIndex = idx;
+    
+    // Collapse all accordions by default
+    document.querySelectorAll('.accordion-card').forEach(c => c.classList.remove('open'));
+
+    // Update pinned pills
     document.querySelectorAll('.part-pill').forEach((btn, i) => btn.classList.toggle('active', i === idx));
     const page = moduleData.pages[idx] || moduleData.pages[0];
 
@@ -617,9 +627,73 @@
     resampleCategory(null, 'cloze');
     resampleCategory(null, 'sa');
 
+    updateBottomBarNavigation();
+
     if (window.renderMath) window.renderMath();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  /* STEPPING NAVIGATION LOGIC */
+  function updateBottomBarNavigation() {
+    const totalPages = (moduleData.pages && moduleData.pages.length) ? moduleData.pages.length : 1;
+    const badge = document.getElementById('pageIndicatorBadge');
+    badge.textContent = `Part ${currentPartIndex + 1} of ${totalPages}`;
+
+    const prevBtn = document.getElementById('btnPrev');
+    const nextBtn = document.getElementById('btnNext');
+    const curModIdx = courseSequence.findIndex(item => item.ch === currentCh && item.mod === currentMod);
+
+    // PREVIOUS: Internal page first, else previous module
+    if (currentPartIndex > 0) {
+      prevBtn.innerHTML = `&larr; Part ${currentPartIndex}`;
+      prevBtn.classList.remove('disabled');
+    } else if (curModIdx > 0) {
+      const prevMod = courseSequence[curModIdx - 1];
+      prevBtn.innerHTML = `&larr; Mod ${prevMod.mod}`;
+      prevBtn.classList.remove('disabled');
+    } else {
+      prevBtn.innerHTML = `&larr; Start`;
+      prevBtn.classList.add('disabled');
+    }
+
+    // NEXT: Internal page first, else next module
+    if (currentPartIndex < totalPages - 1) {
+      nextBtn.innerHTML = `Part ${currentPartIndex + 2} &rarr;`;
+      nextBtn.classList.remove('disabled');
+    } else if (curModIdx < courseSequence.length - 1) {
+      const nextMod = courseSequence[curModIdx + 1];
+      nextBtn.innerHTML = `Mod ${nextMod.mod} &rarr;`;
+      nextBtn.classList.remove('disabled');
+    } else {
+      nextBtn.innerHTML = `Complete`;
+      nextBtn.classList.add('disabled');
+    }
+  }
+
+  window.navigatePrevious = () => {
+    if (currentPartIndex > 0) {
+      loadConceptPart(currentPartIndex - 1);
+    } else {
+      const curModIdx = courseSequence.findIndex(item => item.ch === currentCh && item.mod === currentMod);
+      if (curModIdx > 0) {
+        const prev = courseSequence[curModIdx - 1];
+        window.location.href = `viewer.html?ch=${prev.ch}&mod=${prev.mod}`;
+      }
+    }
+  };
+
+  window.navigateNext = () => {
+    const totalPages = (moduleData.pages && moduleData.pages.length) ? moduleData.pages.length : 1;
+    if (currentPartIndex < totalPages - 1) {
+      loadConceptPart(currentPartIndex + 1);
+    } else {
+      const curModIdx = courseSequence.findIndex(item => item.ch === currentCh && item.mod === currentMod);
+      if (curModIdx < courseSequence.length - 1) {
+        const next = courseSequence[curModIdx + 1];
+        window.location.href = `viewer.html?ch=${next.ch}&mod=${next.mod}`;
+      }
+    }
+  };
 
   window.resampleCategory = (event, type) => {
     if (event) event.stopPropagation();
