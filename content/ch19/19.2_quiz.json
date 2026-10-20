@@ -1,0 +1,501 @@
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "Prior to puberty, how do boys and girls compare in standard measurements of body size and composition?",
+        "opts": [
+          "Boys possess significantly higher fat-free mass and lower body fat percentages",
+          "Girls possess twice the muscle mass of boys due to early skeletal growth",
+          "Boys and girls do not differ significantly in body size, fat-free mass, or relative body fat",
+          "Girls possess 30% higher total hemoglobin concentration than boys"
+        ],
+        "correct": 2,
+        "rationale": "Prior to the onset of puberty, boys and girls do not differ significantly in measurements of body size, height, weight, fat-free mass, or body composition."
+      },
+      {
+        "id": 2,
+        "q": "Which hormone surge during male puberty increases bone formation, muscle protein synthesis, and red blood cell production?",
+        "opts": [
+          "Estrogen",
+          "Testosterone",
+          "Progesterone",
+          "Prolactin"
+        ],
+        "correct": 1,
+        "rationale": "The pubertal surge in circulating testosterone in males stimulates muscle protein synthesis (increasing FFM), accelerates bone mineral formation, and stimulates renal erythropoietin production."
+      },
+      {
+        "id": 3,
+        "q": "What primary mechanism explains why mature adult females have an average standing height approximately 13 cm (5 in.) shorter than mature adult males?",
+        "opts": [
+          "Estrogen accelerates long bone growth plate (epiphyseal) closure earlier in females",
+          "Testosterone suppresses growth hormone release in females",
+          "Females experience a complete arrest of osteoblast activity at age 8",
+          "Female skeletal muscle fibers compress long bones vertically"
+        ],
+        "correct": 0,
+        "rationale": "The pubertal surge in estrogen accelerates bone maturation and signals earlier closure and fusion of the epiphyseal growth plates in females, ending linear growth earlier than in males."
+      },
+      {
+        "id": 4,
+        "q": "How does estrogen influence regional fat deposition in adolescent females during pubertal development?",
+        "opts": [
+          "Estrogen selectively destroys visceral fat beds around abdominal organs",
+          "Estrogen enhances lipoprotein lipase (LPL) activity in gluteofemoral (hip and thigh) adipose beds",
+          "Estrogen inhibits lipogenesis across all subcutaneous adipose tissues",
+          "Estrogen converts all fat mass directly into skeletal muscle tissue"
+        ],
+        "correct": 1,
+        "rationale": "Estrogen increases regional fat deposition, particularly in the hips and thighs (gynoid fat pattern), by increasing the activity of lipoprotein lipase (LPL) in gluteofemoral adipose beds."
+      },
+      {
+        "id": 5,
+        "q": "How does pubertal testosterone secretion affect blood oxygen-carrying capacity in males?",
+        "opts": [
+          "Testosterone inhibits renal erythropoietin secretion, reducing hematocrit",
+          "Testosterone stimulates kidney production of erythropoietin (EPO), expanding total red blood cell mass and circulating hemoglobin",
+          "Testosterone converts hemoglobin into myoglobin within cardiac tissue",
+          "Testosterone has zero effect on blood cells or oxygen transport"
+        ],
+        "correct": 1,
+        "rationale": "Testosterone stimulates renal secretion of erythropoietin (EPO), which expands red blood cell mass and circulating hemoglobin concentration (~15.5 g/100 mL in men vs ~13.7 g/100 mL in women)."
+      },
+      {
+        "id": 6,
+        "q": "During late childhood (approximately 9 to 10 years of age) just prior to puberty, what subtle body composition shift occurs?",
+        "opts": [
+          "Young boys accumulate 10 kg of skeletal muscle mass",
+          "Young girls begin accumulating slightly more total body fat than young boys",
+          "Young girls lose 50% of their bone mineral content",
+          "Both sexes experience a 20% drop in total body water"
+        ],
+        "correct": 1,
+        "rationale": "Prior to puberty, body composition is nearly identical, but during late childhood (around 9-10 years of age), girls begin accumulating slightly more body fat than boys."
+      },
+      {
+        "id": 7,
+        "q": "An 11-year-old pre-pubertal girl and an 11-year-old pre-pubertal boy perform a laboratory exercise test. Based on textbook evidence, what baseline body composition difference is expected?",
+        "opts": [
+          "The boy will possess 40% greater fat-free mass than the girl",
+          "No significant differences in standing height, total weight, or fat-free mass will exist between them",
+          "The girl will possess 3 times the hemoglobin concentration of the boy",
+          "The boy's epiphyseal growth plates will already be completely fused"
+        ],
+        "correct": 1,
+        "rationale": "Prior to pubertal endocrine divergence, pre-pubertal boys and girls exhibit no significant differences in standing height, total body mass, or fat-free mass."
+      },
+      {
+        "id": 8,
+        "q": "What enzyme responsible for hydrolyzing plasma triglycerides into fatty acids for storage exhibits increased activity in female gluteofemoral adipocytes under estrogenic influence?",
+        "opts": [
+          "Phosphofructokinase (PFK)",
+          "Lipoprotein lipase (LPL)",
+          "Isocitrate dehydrogenase (IDH)",
+          "Creatine kinase (CK)"
+        ],
+        "correct": 1,
+        "rationale": "Lipoprotein lipase (LPL) is the primary enzyme that breaks down circulating plasma triglycerides for adipocyte storage; estrogen increases LPL activity in femoral and gluteal fat beds."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which physiological adaptations are driven by the pubertal surge of circulating testosterone in males? (Select all that apply)",
+        "opts": [
+          "Increased muscle protein synthesis and skeletal muscle hypertrophy",
+          "Increased bone formation and skeletal tissue mineralization",
+          "Increased renal erythropoietin (EPO) secretion and expanded red blood cell mass",
+          "Accelerated epiphyseal plate closure causing shorter adult stature"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Testosterone stimulates muscle protein synthesis (FFM accrual), bone formation, and renal EPO production (expanding hemoglobin). Estrogen, not testosterone, accelerates earlier growth plate closure."
+      },
+      {
+        "id": 2,
+        "q": "Which body composition and skeletal changes are driven by pubertal estrogen secretion in females? (Select all that apply)",
+        "opts": [
+          "Increased regional adipose deposition in the hips, thighs, and buttocks",
+          "Increased activity of lipoprotein lipase (LPL) in gluteofemoral fat beds",
+          "Earlier fusion and closure of epiphyseal growth plates in long bones",
+          "A tenfold increase in circulating hemoglobin concentration"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Estrogen increases regional fat deposition via gluteofemoral LPL activity and accelerates epiphyseal plate closure. High hemoglobin is driven by male testosterone."
+      },
+      {
+        "id": 3,
+        "q": "Which statements accurately describe pre-pubertal body size and composition in children? (Select all that apply)",
+        "opts": [
+          "Standing height and total body mass do not differ significantly between pre-pubertal boys and girls",
+          "Fat-free mass (FFM) is virtually identical between sexes prior to puberty",
+          "Girls begin accumulating slightly more body fat in late childhood (ages 9–10)",
+          "Pre-pubertal boys carry 15 kg more skeletal muscle mass than pre-pubertal girls"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Prior to puberty, height, weight, and FFM are virtually identical between sexes; girls accumulate slightly more body fat in late childhood (ages 9-10)."
+      },
+      {
+        "id": 4,
+        "q": "Which physiological factors contribute to mature males having a higher blood oxygen-carrying capacity than females? (Select all that apply)",
+        "opts": [
+          "Higher circulating testosterone levels stimulating renal EPO secretion",
+          "Greater total red blood cell mass per unit of blood volume",
+          "Higher circulating hemoglobin concentration (~15.5 g/100 mL vs ~13.7 g/100 mL)",
+          "Higher estrogen concentration stimulating myoglobin synthesis"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Testosterone stimulates renal EPO, raising total red blood cell volume and hemoglobin concentration (~15.5 g/100 mL in men vs ~13.7 g/100 mL in women), increasing oxygen carrying capacity."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Prior to puberty, young boys possess significantly greater fat-free mass and lower body fat percentages than young girls.",
+        "ans": false,
+        "feedback": "False. Prior to puberty, boys and girls do not differ significantly in body size, height, total weight, fat-free mass, or body fat percentage."
+      },
+      {
+        "id": 2,
+        "q": "Testosterone increases bone formation, muscle protein synthesis, and red blood cell production via erythropoietin.",
+        "ans": true,
+        "feedback": "True. Testosterone acts as a potent anabolic hormone driving skeletal mineralization, muscle hypertrophy, and renal EPO release."
+      },
+      {
+        "id": 3,
+        "q": "Estrogen causes long bones in females to continue growing for several years longer than long bones in males.",
+        "ans": false,
+        "feedback": "False. Estrogen accelerates growth plate closure, causing female epiphyseal plates to fuse earlier and leading to a shorter average adult standing height."
+      },
+      {
+        "id": 4,
+        "q": "Estrogen increases the activity of lipoprotein lipase (LPL) in gluteofemoral adipose tissue, promoting fat deposition in the hips and thighs.",
+        "ans": true,
+        "feedback": "True. Estrogen enhances LPL activity specifically in femoral and gluteal adipocytes, driving the gynoid fat deposition pattern."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Prior to **puberty**, boys and girls do not differ significantly in body size, but male puberty surge in **testosterone** increases fat-free mass.",
+        "targets": [
+          "puberty",
+          "testosterone"
+        ],
+        "optionsBank": [
+          "puberty",
+          "testosterone",
+          "estrogen",
+          "menarche",
+          "glycogen"
+        ],
+        "hint": "Identify the developmental transition and the male anabolic hormone."
+      },
+      {
+        "id": 2,
+        "statement": "The female hormone **estrogen** increases regional fat deposition via **lipoprotein lipase** and signals earlier growth plate closure.",
+        "targets": [
+          "estrogen",
+          "lipoprotein lipase"
+        ],
+        "optionsBank": [
+          "estrogen",
+          "lipoprotein lipase",
+          "testosterone",
+          "creatine kinase",
+          "erythropoietin"
+        ],
+        "hint": "Identify the female sex steroid and the fat-storing enzyme."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Compare pre-pubertal morphology between boys and girls, and detail the physiological mechanisms by which pubertal surges of testosterone and estrogen cause body composition to diverge.",
+        "model": "Prior to puberty, young boys and girls do not differ significantly in standing height, total body weight, fat-free mass (FFM), or relative body fat percentage (though girls accumulate slightly more fat in late childhood around ages 9–10). During puberty, endocrine divergence alters body composition: testosterone surges in males, binding to muscle androgen receptors to stimulate protein synthesis, satellite cell activation, and FFM accrual, while also accelerating bone formation and renal erythropoietin (EPO) secretion (increasing hemoglobin). In females, estrogen surges, increasing lipoprotein lipase (LPL) activity in gluteofemoral adipocytes to promote regional fat deposition (hips/thighs) and accelerating epiphyseal growth plate closure, resulting in shorter average adult standing height.",
+        "criteria": [
+          "State that pre-pubertal boys and girls show no significant differences in height, mass, FFM, or body fat.",
+          "Explain male testosterone effects (muscle protein synthesis/FFM accrual, bone formation, renal EPO release/hemoglobin).",
+          "Explain female estrogen effects (gluteofemoral LPL activity/fat deposition, earlier epiphyseal plate closure)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain why mature adult males possess a higher blood oxygen-carrying capacity than mature adult females, identifying the primary hormone and physiological target involved.",
+        "model": "Mature adult males possess a higher blood oxygen-carrying capacity because the pubertal surge in circulating testosterone directly stimulates the kidneys to produce and secrete higher levels of the hormone erythropoietin (EPO). Erythropoietin acts on bone marrow progenitor cells to stimulate erythropoiesis, expanding total red blood cell volume and circulating hemoglobin concentration (~15.5 g Hb/100 mL blood in men vs ~13.7 g Hb/100 mL blood in women). This higher hemoglobin pool increases the arterial blood oxygen content in males.",
+        "criteria": [
+          "Identify testosterone as the primary hormone driving expanded red blood cell mass.",
+          "Explain that testosterone stimulates kidney production of erythropoietin (EPO).",
+          "Cite representative hemoglobin concentrations (~15.5 g/100 mL in men vs ~13.7 g/100 mL in women)."
+        ]
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "On average, how do fully mature adult females compare to fully mature adult males across primary body size benchmarks?",
+        "opts": [
+          "Females are 13 cm shorter in standing height, 14–18 kg lighter in total mass, 3–6 kg heavier in fat mass, and 6%–10% higher in body fat percentage",
+          "Females are 25 cm taller in standing height, 10 kg heavier in total mass, and possess identical body fat percentages",
+          "Females possess 50% greater fat-free mass and are 20 kg heavier in skeletal mass",
+          "Females are 5 cm shorter in standing height but possess 15 kg lighter fat mass"
+        ],
+        "correct": 0,
+        "rationale": "At physical maturity, adult females are on average ~13 cm shorter in stature, 14 to 18 kg lighter in total body mass, 3 to 6 kg heavier in total fat mass, and 6% to 10% higher in relative body fat percentage."
+      },
+      {
+        "id": 2,
+        "q": "How does skeletal muscle tissue force production per unit of muscle cross-sectional area (specific force) compare between males and females?",
+        "opts": [
+          "Female muscle tissue produces 50% less force per cm² due to inferior myofibrillar protein quality",
+          "Male muscle tissue contains twice as many actin-myosin cross-bridges per sarcomere",
+          "Specific force production (~30 N/cm²) and muscle tissue quality are biologically identical between males and females",
+          "Female muscle tissue produces force only during eccentric contractions"
+        ],
+        "correct": 2,
+        "rationale": "Skeletal muscle contractile tissue quality, fiber types, ultrastructure, and specific force production per unit cross-sectional area (~30 N/cm²) are biologically identical between males and females."
+      },
+      {
+        "id": 3,
+        "q": "In terms of absolute strength, why is female lower body strength closer to male lower body strength compared to upper body strength?",
+        "opts": [
+          "Females possess a higher relative proportion of their total skeletal muscle mass in their lower bodies compared to their upper bodies",
+          "Female lower body muscles contain 100% fast-twitch Type IIx fibers",
+          "Male upper body muscles lack actin and myosin filaments",
+          "Female upper body muscles do not receive motor neuron innervation"
+        ],
+        "correct": 0,
+        "rationale": "Females carry a larger proportion of their total skeletal muscle mass in their lower bodies. Consequently, female upper body absolute strength is 40% to 60% lower than male strength, whereas lower body absolute strength is only 25% to 30% lower."
+      },
+      {
+        "id": 4,
+        "q": "By approximately what percentage is female upper body absolute strength lower than male upper body absolute strength?",
+        "opts": [
+          "5% to 10%",
+          "25% to 30%",
+          "40% to 60%",
+          "80% to 90%"
+        ],
+        "correct": 2,
+        "rationale": "In upper body exercises (e.g., bench press), female absolute strength is 40% to 60% lower than male strength due to significant differences in upper torso and shoulder girdle muscle cross-sectional area."
+      },
+      {
+        "id": 5,
+        "q": "What happens to the lower body strength gap between men and women when force output is normalized relative to fat-free mass (FFM) or muscle cross-sectional area?",
+        "opts": [
+          "The lower body strength difference between men and women is virtually eliminated",
+          "The strength gap widens, showing men are 80% stronger per unit FFM",
+          "Women become 3 times stronger than men in absolute force production",
+          "The comparison becomes statistically invalid"
+        ],
+        "correct": 0,
+        "rationale": "When lower body force output is expressed relative to fat-free mass (FFM) or specific quadriceps muscle cross-sectional area, lower body strength differences between men and women are virtually eliminated."
+      },
+      {
+        "id": 6,
+        "q": "What is the average relative body fat percentage range for young, sedentary adult females compared to young, sedentary adult males at physical maturity?",
+        "opts": [
+          "Females average ~20%–25% body fat vs ~12%–15% in males",
+          "Females average ~5%–8% body fat vs ~25%–30% in males",
+          "Females and males both average exactly 15% body fat",
+          "Females average ~40%–50% body fat vs ~2%–4% in males"
+        ],
+        "correct": 0,
+        "rationale": "At maturity, young sedentary adult females average ~20% to 25% relative body fat compared to ~12% to 15% in young sedentary adult males (a 6% to 10% difference)."
+      },
+      {
+        "id": 7,
+        "q": "If a female athlete and a male athlete have identical quadriceps muscle cross-sectional area (e.g., 80 cm²), what is expected regarding their maximum specific force production in a leg extension exercise?",
+        "opts": [
+          "Their force production per unit area (~30 N/cm²) will be virtually identical",
+          "The male athlete will produce 4 times more force due to superior fiber quality",
+          "The female athlete will produce zero force because female muscle cannot hypertrophy",
+          "The male athlete will exhibit a 90% lower rate of force development"
+        ],
+        "correct": 0,
+        "rationale": "Because specific force production (~30 N/cm²) and intrinsic muscle tissue quality are identical between sexes, force output per unit of muscle cross-sectional area is equal."
+      },
+      {
+        "id": 8,
+        "q": "By approximately what percentage is female lower body absolute strength lower than male lower body absolute strength?",
+        "opts": [
+          "5% to 10%",
+          "25% to 30%",
+          "40% to 60%",
+          "70% to 80%"
+        ],
+        "correct": 1,
+        "rationale": "In lower body exercises (e.g., leg press, squat), female absolute strength is 25% to 30% lower than male strength."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which morphological benchmark differences characterize fully mature adult females compared to fully mature adult males? (Select all that apply)",
+        "opts": [
+          "Approximately 13 cm (5 in.) shorter in standing stature",
+          "Approximately 14 to 18 kg (30 to 40 lb) lighter in total body mass",
+          "Approximately 3 to 6 kg (7 to 13 lb) heavier in total fat mass",
+          "Approximately 6% to 10% higher in relative body fat percentage"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "All four benchmarks are textbook facts: mature women average ~13 cm shorter, 14-18 kg lighter in total mass, 3-6 kg heavier in fat mass, and 6-10% higher in relative body fat."
+      },
+      {
+        "id": 2,
+        "q": "Which statements accurately reflect muscle tissue quality and specific force production between men and women? (Select all that apply)",
+        "opts": [
+          "Skeletal muscle contractile tissue quality and specific force (~30 N/cm²) are biologically identical between sexes",
+          "Differences in absolute force production are driven by total muscle cross-sectional area (quantity), not tissue quality",
+          "Female skeletal muscle contains inferior contractile proteins that produce half the force per cross-bridge",
+          "Muscle fiber type distribution and ultrastructure do not differ inherently by sex"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "Muscle quality, specific force (~30 N/cm²), fiber type distribution, and ultrastructure are identical between sexes; absolute force gaps reflect total muscle cross-sectional area (quantity)."
+      },
+      {
+        "id": 3,
+        "q": "Which statements correctly describe regional muscle mass distribution and strength differences between adult men and women? (Select all that apply)",
+        "opts": [
+          "Females carry a larger relative proportion of their total muscle mass in their lower body",
+          "Female upper body absolute strength is 40% to 60% lower than male upper body strength",
+          "Female lower body absolute strength is 25% to 30% lower than male lower body strength",
+          "Normalizing lower body strength to fat-free mass (FFM) virtually eliminates lower body strength differences"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "All four statements are textbook facts regarding regional muscle mass distribution, upper body strength gaps (40-60%), lower body strength gaps (25-30%), and normalized strength equality."
+      },
+      {
+        "id": 4,
+        "q": "Which relative body fat percentage ranges reflect mature adult averages in sedentary and athletic populations? (Select all that apply)",
+        "opts": [
+          "Young sedentary females average ~20%–25% body fat",
+          "Young sedentary males average ~12%–15% body fat",
+          "Elite female athletes average ~14%–20% body fat",
+          "Elite male athletes average ~6%–12% body fat"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "All four percentage ranges match textbook normative data for sedentary and elite male and female populations."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Fully mature adult women average 3 to 6 kg heavier fat mass and 6% to 10% higher relative body fat than adult men.",
+        "ans": true,
+        "feedback": "True. Estrogen-driven adipose deposition results in adult women carrying 3-6 kg greater fat mass and 6-10% higher body fat percentage."
+      },
+      {
+        "id": 2,
+        "q": "Skeletal muscle contractile tissue in females is fundamentally inferior in force production capability per unit of cross-sectional area.",
+        "ans": false,
+        "feedback": "False. Skeletal muscle tissue quality, fiber types, and specific force production (~30 N/cm²) are biologically identical between sexes."
+      },
+      {
+        "id": 3,
+        "q": "Upper body absolute strength in women is 40% to 60% lower than in men, whereas lower body absolute strength is 25% to 30% lower.",
+        "ans": true,
+        "feedback": "True. Regional muscle distribution accounts for this difference, as females carry a higher proportion of muscle mass in their lower body."
+      },
+      {
+        "id": 4,
+        "q": "When lower body strength is expressed relative to fat-free mass, lower body strength differences between men and women remain greater than 50%.",
+        "ans": false,
+        "feedback": "False. Normalizing lower body force production to fat-free mass or muscle cross-sectional area virtually eliminates lower body strength differences between sexes."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Adult women average **13 cm** shorter in stature and **6% to 10%** higher in relative body fat percentage than adult men.",
+        "targets": [
+          "13 cm",
+          "6% to 10%"
+        ],
+        "optionsBank": [
+          "13 cm",
+          "6% to 10%",
+          "50 cm",
+          "25% to 30%",
+          "0%"
+        ],
+        "hint": "Identify the adult height difference and relative body fat percentage difference."
+      },
+      {
+        "id": 2,
+        "statement": "Skeletal muscle specific force production is **identical** between sexes, but upper body absolute strength in women is **40% to 60%** lower than in men.",
+        "targets": [
+          "identical",
+          "40% to 60%"
+        ],
+        "optionsBank": [
+          "identical",
+          "40% to 60%",
+          "50% lower",
+          "25% to 30%",
+          "doubled"
+        ],
+        "hint": "Identify muscle tissue quality comparison and the upper body strength gap."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Outline the four primary benchmark differences in body size and composition between fully mature adult women and men, and explain why muscle tissue quality is considered biologically identical between sexes.",
+        "model": "The four primary mature adult benchmarks are: (1) Standing height: women average ~13 cm (5 in.) shorter; (2) Total body mass: women average 14 to 18 kg (30 to 40 lb) lighter; (3) Absolute fat mass: women carry 3 to 6 kg (7 to 13 lb) heavier total fat mass; (4) Relative body fat percentage: women average 6% to 10% higher body fat (~20%–25% vs ~12%–15% in sedentary adults). Muscle tissue quality is considered biologically identical because specific force production per unit of muscle cross-sectional area (~30 N/cm²), fiber type distribution, myofibrillar ultrastructure, and contractile mechanisms do not differ inherently between sexes. Force differences reflect muscle mass quantity, not tissue quality.",
+        "criteria": [
+          "State all 4 benchmark differences (height ~13 cm shorter, mass 14-18 kg lighter, fat mass 3-6 kg heavier, body fat 6-10% higher).",
+          "State that muscle tissue quality and specific force (~30 N/cm²) are biologically identical between sexes.",
+          "Explain that force differences reflect total muscle cross-sectional area (quantity) rather than tissue weakness (quality)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain the physiological and anatomical reasons why female absolute strength is closer to male absolute strength in lower body exercises compared to upper body exercises, and describe the effect of normalizing strength to fat-free mass.",
+        "model": "Female absolute strength is closer to male strength in lower body exercises because females carry a larger relative proportion of their total skeletal muscle mass in their lower bodies compared to their upper bodies. In upper body exercises, female absolute strength is 40% to 60% lower than male strength due to significant differences in upper torso and shoulder girdle muscle cross-sectional area. In lower body exercises, female absolute strength is only 25% to 30% lower. When lower body force output is normalized relative to fat-free mass (FFM) or quadriceps cross-sectional area, the lower body strength difference between men and women is virtually eliminated.",
+        "criteria": [
+          "Explain regional muscle distribution (females carry higher relative proportion of muscle in lower body).",
+          "Cite upper body strength gap (40-60% lower in females) vs lower body strength gap (25-30% lower in females).",
+          "Explain that normalizing lower body strength to FFM or cross-sectional area virtually eliminates sex differences."
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,500 @@
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "Historically, what misconception contributed to restricting female participation in endurance sports and physical education?",
+        "opts": [
+          "The belief that female athletes lacked Type II muscle fibers entirely",
+          "Paternalistic societal beliefs regarding female physical frailty and reproductive vulnerability",
+          "Scientific proof that exercise suppressed thyroid hormone secretion in women",
+          "The observation that women possessed higher absolute muscle power than men"
+        ],
+        "correct": 1,
+        "rationale": "Historically, female participation in strenuous sports and endurance events was restricted due to paternalistic societal misconceptions regarding physical frailty and reproductive vulnerability."
+      },
+      {
+        "id": 2,
+        "q": "Prior to 1972, how was basketball structured for female athletes in school programs to limit physical exertion?",
+        "opts": [
+          "Full-court play with 12-minute quarters and mandatory 5-minute time-outs",
+          "Half-court play with 6 players per team (3 offensive, 3 defensive) who could not cross mid-court",
+          "Single-player shooting drills without defense or running",
+          "Outdoor play only on grass fields with a 10-pound weighted ball"
+        ],
+        "correct": 1,
+        "rationale": "To limit physical strain, female basketball was restricted to half-court play with six players per team (three offensive and three defensive) who were prohibited from crossing the mid-court line."
+      },
+      {
+        "id": 3,
+        "q": "Which landmark 1972 U.S. legislation mandated equal athletic and educational opportunities regardless of sex, leading to dramatic increases in female sports participation?",
+        "opts": [
+          "Title IX of the Educational Amendments",
+          "The Amateur Sports Act",
+          "The Equal Rights Amendment",
+          "The Olympic Opportunity Act"
+        ],
+        "correct": 0,
+        "rationale": "Title IX of the Educational Amendments of 1972 required federally funded educational programs and athletics to provide equal opportunity regardless of sex."
+      },
+      {
+        "id": 4,
+        "q": "In elite world record comparisons, what is the approximate relative performance gap between men and women across most representative track and swimming events?",
+        "opts": [
+          "50% or greater across all events",
+          "15% to 17% or less",
+          "0% (male and female world records are identical in all events)",
+          "35% in swimming and 5% in track and field"
+        ],
+        "correct": 1,
+        "rationale": "Physiological comparisons of elite world records demonstrate that male-female performance differences are approximately 15% to 17% or less across track and field and swimming events."
+      },
+      {
+        "id": 5,
+        "q": "Why is the relative performance gap between men and women substantially narrower in long-distance swimming events (3%–5.5%) compared to track running or jumping events (9%–17%)?",
+        "opts": [
+          "Female athletes possess higher fast-twitch glycolytic power in water",
+          "Higher female essential body fat percentage enhances buoyancy and hydrodynamic economy in aquatic environments",
+          "Men experience a 50% reduction in cardiac output while swimming",
+          "Female swimmers possess 40% higher hemoglobin concentrations than male swimmers"
+        ],
+        "correct": 1,
+        "rationale": "Higher essential body fat percentage in females provides hydrodynamic lift and buoyancy in aquatic environments, reducing the energy cost of transport and narrowing the performance gap in swimming."
+      },
+      {
+        "id": 6,
+        "q": "In explosive jump events such as the high jump and long jump, by what relative percentage do men's world records exceed women's world records?",
+        "opts": [
+          "3% and 5%, respectively",
+          "16% and 17%, respectively",
+          "30% and 40%, respectively",
+          "0% and 1%, respectively"
+        ],
+        "correct": 1,
+        "rationale": "In high-power jumping events requiring vertical impulse and horizontal approach speed, men's world records exceed women's world records by 16% (high jump) and 17% (long jump)."
+      },
+      {
+        "id": 7,
+        "q": "Which runner completed the Chicago Marathon in 2011 while nearly 39 weeks pregnant in under 6.5 hours?",
+        "opts": [
+          "Amber Miller",
+          "Paula Radcliffe",
+          "Alysia Montaño",
+          "Amy Keil"
+        ],
+        "correct": 0,
+        "rationale": "In October 2011, 27-year-old Amber Miller completed the Chicago Marathon while nearly 39 weeks pregnant, finishing in under 6.5 hours before giving birth hours later."
+      },
+      {
+        "id": 8,
+        "q": "What historical restriction applied to women in marathon running prior to 1972?",
+        "opts": [
+          "Women were required to wear 10 kg weighted vests while running",
+          "Women were strictly banned from official participation in mainstream marathons, including the Boston Marathon",
+          "Women were permitted to run marathons only if accompanied by a physician",
+          "Women were restricted to running marathons on indoor tracks"
+        ],
+        "correct": 1,
+        "rationale": "Prior to 1972, female runners were officially banned from participating in mainstream marathons, including the Boston Marathon."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which historical examples demonstrate female physiological resilience during pregnancy and endurance performance? (Select all that apply)",
+        "opts": [
+          "Amber Miller completing the 2011 Chicago Marathon at 39 weeks pregnant",
+          "Alysia Montaño competing in the 800 m national championships nearly 8 months pregnant",
+          "Paula Radcliffe training 14 miles per day while pregnant and winning the NYC Marathon 10 months post-partum",
+          "Amy Keil running marathons while nearly 8 months pregnant"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "All four athletes demonstrated exceptional physiological resilience: Amber Miller (Chicago Marathon at 39w), Alysia Montaño (800 m at 8m), Paula Radcliffe (trained 14 mi/day pregnant & won NYC Marathon post-partum), and Amy Keil (marathon at 8m)."
+      },
+      {
+        "id": 2,
+        "q": "Which physiological and biomechanical factors explain sex gaps in athletic performance across track, field, and swimming? (Select all that apply)",
+        "opts": [
+          "Greater male muscle cross-sectional area and fast-twitch fiber glycolytic power",
+          "Higher male hemoglobin concentration and stroke volume supporting aerobic capacity",
+          "Female hydrodynamic buoyancy and insulation advantages in long-distance swimming",
+          "Total absence of Type I slow-twitch muscle fibers in male endurance athletes"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Sex gaps reflect male advantages in muscle mass, fast-twitch fiber area, hemoglobin, and cardiac stroke volume, alongside female buoyancy advantages in water. Type I fibers are present in both sexes."
+      },
+      {
+        "id": 3,
+        "q": "Which relative male-female world record performance gaps are correctly matched to their sports discipline? (Select all that apply)",
+        "opts": [
+          "High Jump: ~16% gap",
+          "Long Jump: ~17% gap",
+          "400 m Freestyle Swim: ~3% gap",
+          "1,500 m Freestyle Swim: ~5.5% gap"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "All four world record gaps are textbook-grounded: High Jump (~16%), Long Jump (~17%), 400 m Swim (~3%), and 1,500 m Swim (~5.5%)."
+      },
+      {
+        "id": 4,
+        "q": "How did Title IX influence female athletic participation and sports performance trends post-1972? (Select all that apply)",
+        "opts": [
+          "Mandated equal access and opportunity in educational and athletic programs",
+          "Dramatically expanded participation rates and coaching infrastructure for female sports",
+          "Narrowed historical male-female performance gaps across competitive disciplines",
+          "Banned female participation in all international Olympic competitions"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Title IX expanded access, coaching, and participation, causing female athletic performance to improve rapidly and narrowing performance gaps across sports."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Prior to 1972, female basketball in school curricula was restricted to half-court play with six players per team who could not cross the mid-court line.",
+        "ans": true,
+        "feedback": "True. Paternalistic rules restricted female basketball to half-court play to limit physical strain."
+      },
+      {
+        "id": 2,
+        "q": "Elite world record comparisons show that male-female performance gaps exceed 50% across all track and swimming events.",
+        "ans": false,
+        "feedback": "False. World record performance gaps between men and women are approximately 15% to 17% or less across representative events."
+      },
+      {
+        "id": 3,
+        "q": "Higher essential body fat percentage in female athletes provides a hydrodynamic buoyancy advantage that narrows the male-female performance gap in swimming.",
+        "ans": true,
+        "feedback": "True. Adiposity enhances buoyancy and hydrodynamic lift in water, lowering the oxygen cost of transport and narrowing the gap in 400 m and 1,500 m swim events."
+      },
+      {
+        "id": 4,
+        "q": "Amber Miller was disqualified from the 2011 Chicago Marathon because she gave birth at mile 13 on the course.",
+        "ans": false,
+        "feedback": "False. Amber Miller completed the entire 26.2-mile course in under 6.5 hours before delivering a healthy baby girl hours later in the hospital."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "The passage of **Title IX** in 1972 mandated equal opportunity in athletics, dramatically expanding female participation and narrowing the male-female **performance gap**.",
+        "targets": [
+          "Title IX",
+          "performance gap"
+        ],
+        "optionsBank": [
+          "Title IX",
+          "performance gap",
+          "Title V",
+          "lactate threshold",
+          "stroke volume"
+        ],
+        "hint": "Identify the 1972 federal legislation and the athletic disparity metric that subsequently narrowed."
+      },
+      {
+        "id": 2,
+        "statement": "In explosive field events like the long jump, the male-female record gap is **17%**, whereas in the 400 m freestyle swim, the gap narrows to **3%**.",
+        "targets": [
+          "17%",
+          "3%"
+        ],
+        "optionsBank": [
+          "17%",
+          "3%",
+          "50%",
+          "0%",
+          "85%"
+        ],
+        "hint": "Identify the relative performance gap percentages for long jump versus 400 m freestyle swimming."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Discuss the historical societal misconceptions regarding female athletic participation prior to 1972, and explain how Title IX transformed female sports performance trends.",
+        "model": "Prior to 1972, female athletic participation was severely restricted by paternalistic societal misconceptions that vigorous exertion posed reproductive hazards and exceeded female physical capacity. Girls were excluded from endurance events, restricted in basketball to half-court play, and banned from official marathon participation. The enactment of Title IX in 1972 federally mandated equal educational and athletic opportunities regardless of sex. This legislative shift expanded female participation, coaching support, and athletic infrastructure, leading to rapid performance improvements that dramatically narrowed historical performance gaps between male and female world records across sporting disciplines.",
+        "criteria": [
+          "Describe historical restrictions and misconceptions (paternalistic frailty myths, half-court basketball, marathon bans).",
+          "Identify Title IX of 1972 as the legislative mandate ensuring equal athletic access.",
+          "Explain how expanding infrastructure and participation narrowed male-female performance gaps."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Compare the male-female world record performance gaps between explosive track/field events (e.g., high jump, long jump) and long-distance swimming events (e.g., 400 m, 1,500 m freestyle), detailing the physiological mechanisms responsible for these differences.",
+        "model": "In explosive track and field events, men's world records exceed women's by 16% (high jump) and 17% (long jump) due to greater male muscle cross-sectional area, fast-twitch fiber area, and peak power development. In contrast, long-distance swimming exhibits much narrower gaps of 3% (400 m freestyle) and 5.5% (1,500 m freestyle). This narrowing occurs because higher essential body fat percentages in females enhance hydrodynamic buoyancy and body position in aquatic environments, reducing the energy cost of drag and transport in water and partially offsetting lower absolute muscle power.",
+        "criteria": [
+          "Cite world record gaps: track/field jumps (~16%-17%) vs long-distance swimming (~3%-5.5%).",
+          "Explain male advantages in explosive events (muscle cross-sectional area, glycolytic power, rate of force development).",
+          "Detail female hydrodynamic advantages in swimming (essential fat mass, buoyancy, reduced aquatic drag)."
+        ]
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "In exercise physiology research, how is 'biological sex' formally distinguished from 'gender identity'?",
+        "opts": [
+          "Sex refers to biologically determined genetic, anatomical, and hormonal traits, whereas gender identity refers to culturally and psychologically determined self-representation",
+          "Sex refers strictly to clothing choices, whereas gender identity refers to chromosome composition",
+          "Sex and gender identity are exact synonyms in medical research and can be used interchangeably",
+          "Sex is determined by athletic performance, whereas gender identity is determined by dietary intake"
+        ],
+        "correct": 0,
+        "rationale": "Biological sex is rooted in chromosomal, anatomical, and endocrine attributes (e.g., XX/XY, testosterone levels), whereas gender identity encompasses cultural, social, and psychological self-representation."
+      },
+      {
+        "id": 2,
+        "q": "Why should exercise physiology studies evaluating variables like VO2max, cardiac output, or muscle hypertrophy report 'sex differences' rather than 'gender differences'?",
+        "opts": [
+          "Because physiological data reflect biological attributes (chromosomes, hormones, anatomy) rather than cultural or psychological self-representation",
+          "Because journal editors prefer shorter words in article titles",
+          "Because gender does not exist in human populations",
+          "Because VO2max is governed entirely by social media usage"
+        ],
+        "correct": 0,
+        "rationale": "Scientific evaluations of physiological capacities assess biological traits (e.g., cardiac size, hemoglobin, muscle mass), which are properly classified as sex differences rather than gender differences."
+      },
+      {
+        "id": 3,
+        "q": "Which term describes individuals born with congenital variations in chromosomal, gonadal, or anatomical traits that diverge from binary male or female classifications?",
+        "opts": [
+          "Intersex characteristics",
+          "Hyperandrogenism",
+          "Sexual dimorphism",
+          "Acromegaly"
+        ],
+        "correct": 0,
+        "rationale": "Individuals possessing congenital variations in genetic, chromosomal, or anatomical traits that diverge from standard binary male or female classifications are recognized as having intersex characteristics."
+      },
+      {
+        "id": 4,
+        "q": "What clinical condition characterized by excessive endogenous production of testosterone in females became the subject of sports governing body eligibility policies?",
+        "opts": [
+          "Hyperandrogenism",
+          "Hyperthyroidism",
+          "Hypcortisolemia",
+          "Hyperinsulinemia"
+        ],
+        "correct": 0,
+        "rationale": "Hyperandrogenism refers to excessive endogenous production of androgenic hormones (such as testosterone) in females, which led to eligibility regulations by sports federations."
+      },
+      {
+        "id": 5,
+        "q": "In 2011, what policy did the IAAF (now World Athletics) implement regarding female athletes with hyperandrogenism?",
+        "opts": [
+          "Required female athletes with elevated endogenous testosterone above threshold limits to undergo medical treatment to lower serum testosterone to compete",
+          "Banned all female athletes from competing in events over 100 meters",
+          "Required all male athletes to take estrogen supplements",
+          "Abolished all female athletic categories in favor of open competition"
+        ],
+        "correct": 0,
+        "rationale": "The IAAF hyperandrogenism regulations required female athletes with naturally elevated testosterone levels above threshold limits to medically suppress their serum testosterone to remain eligible for female competition."
+      },
+      {
+        "id": 6,
+        "q": "Which South African 800 m runner's 2009 World Championship victory brought international focus to hyperandrogenism policies and sex verification in elite sports?",
+        "opts": [
+          "Caster Semenya",
+          "Paula Radcliffe",
+          "Amber Miller",
+          "Alysia Montaño"
+        ],
+        "correct": 0,
+        "rationale": "Caster Semenya's 800 m world championship victory in 2009 became the focal point of international debate regarding sex verification, hyperandrogenism, and sports federation eligibility rules."
+      },
+      {
+        "id": 7,
+        "q": "Why did hyperandrogenism policies face significant scientific and ethical criticism from medical specialists?",
+        "opts": [
+          "Due to the difficulty of separating biological sex traits from gender identity and ethical concerns over forcing healthy female athletes to undergo medical treatment",
+          "Because testosterone was proven to have zero effect on muscle protein synthesis",
+          "Because serum testosterone cannot be measured in blood samples",
+          "Because the policy required all athletes to move to Switzerland"
+        ],
+        "correct": 0,
+        "rationale": "Critics highlighted ethical concerns regarding forced medical suppression of natural hormones in healthy athletes and the scientific difficulty of defining binary biological eligibility boundaries."
+      },
+      {
+        "id": 8,
+        "q": "Which biological markers are primary determinants of biological sex?",
+        "opts": [
+          "Sex chromosome composition (XX vs XY), gonadal differentiation, and serum testosterone/estrogen levels",
+          "Hairstyle preferences, clothing choices, and social career choices",
+          "Preferred athletic footwear and indoor vs outdoor sports preference",
+          "Caloric intake and daily sleep duration"
+        ],
+        "correct": 0,
+        "rationale": "Biological sex is determined by genetic karyotype (XX vs XY), gonadal structure, reproductive anatomy, and endogenous sex steroid levels."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which statements accurately reflect the distinction between biological sex and gender identity? (Select all that apply)",
+        "opts": [
+          "Biological sex is rooted in genetics, chromosomes, hormones, and physiological traits",
+          "Gender identity represents culturally and psychologically determined self-representation and social roles",
+          "Physiological research evaluating cardiorespiratory capacity assesses biological sex differences",
+          "Sex and gender identity are identical terms with no clinical or scientific distinction"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Biological sex reflects physiological/chromosomal traits; gender identity reflects cultural/psychological self-representation. Physiological studies evaluate sex differences. They are not identical terms."
+      },
+      {
+        "id": 2,
+        "q": "Which biological markers define biological sex classifications? (Select all that apply)",
+        "opts": [
+          "Karyotype (sex chromosomes XX vs XY)",
+          "Gonadal differentiation (ovaries vs testes)",
+          "Serum concentrations of endogenous sex steroids (estrogen vs testosterone)",
+          "Cultural adherence to traditional occupational roles"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Biological sex is established by chromosomal karyotype, gonadal anatomy, and endogenous hormone profiles. Cultural roles reflect gender, not biological sex."
+      },
+      {
+        "id": 3,
+        "q": "Which issues were raised by medical experts regarding IAAF hyperandrogenism policies in female athletics? (Select all that apply)",
+        "opts": [
+          "Ethical concerns regarding forced medical intervention on healthy, asymptomatic female athletes",
+          "Scientific challenges in isolating single biological markers to define athletic eligibility boundaries",
+          "Potential blurring of biological sex traits with gender identity in sports regulations",
+          "Proof that testosterone plays zero role in muscle hypertrophy"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Critics flagged ethical issues regarding forced medical treatment, the complexity of setting biological thresholds, and conflation of sex with gender identity. Testosterone's role in hypertrophy is well established."
+      },
+      {
+        "id": 4,
+        "q": "Which physiological traits are categorized as biological sex differences in exercise physiology literature? (Select all that apply)",
+        "opts": [
+          "Differences in maximal oxygen uptake (VO2max) per unit body weight",
+          "Differences in cardiac left ventricular cavity size and stroke volume",
+          "Differences in hemoglobin concentrations and arterial blood oxygen content",
+          "Differences in cultural preferences for specific team sports"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "VO2max, cardiac cavity size, stroke volume, and hemoglobin are biological traits (sex differences). Cultural preferences reflect gender/societal influences."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "In scientific exercise physiology literature, the terms 'sex differences' and 'gender differences' refer to the exact same biological concept and may be used interchangeably.",
+        "ans": false,
+        "feedback": "False. Sex refers to biological, physiological, and genetic traits, whereas gender refers to cultural, social, and psychological self-representation."
+      },
+      {
+        "id": 2,
+        "q": "Individuals possessing congenital variations in chromosomal or gonadal development that diverge from binary male or female classifications have intersex characteristics.",
+        "ans": true,
+        "feedback": "True. Congenital variations in chromosomal or anatomical traits represent intersex characteristics across the biological spectrum."
+      },
+      {
+        "id": 3,
+        "q": "Hyperandrogenism is characterized by abnormally low testosterone production in male power athletes.",
+        "ans": false,
+        "feedback": "False. Hyperandrogenism refers to excessive endogenous production of androgenic hormones (testosterone) in females."
+      },
+      {
+        "id": 4,
+        "q": "Research investigating physiological variables such as cardiac output, muscle fiber area, and VO2max evaluates biological sex differences.",
+        "ans": true,
+        "feedback": "True. Physiological capacities are rooted in biological traits (genetics, anatomy, hormones) and are properly classified as sex differences."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Biological **sex** is defined by chromosomal genetics and hormones, whereas **gender identity** reflects cultural and psychological self-representation.",
+        "targets": [
+          "sex",
+          "gender identity"
+        ],
+        "optionsBank": [
+          "sex",
+          "gender identity",
+          "glycolysis",
+          "hypertrophy",
+          "hematocrit"
+        ],
+        "hint": "Identify the biological construct rooted in genetics and the social/psychological self-representation construct."
+      },
+      {
+        "id": 2,
+        "statement": "Medical regulations targeting **hyperandrogenism** required female athletes with elevated **testosterone** to undergo pharmacological suppression.",
+        "targets": [
+          "hyperandrogenism",
+          "testosterone"
+        ],
+        "optionsBank": [
+          "hyperandrogenism",
+          "testosterone",
+          "hypothyroidism",
+          "estrogen",
+          "cortisol"
+        ],
+        "hint": "Identify the clinical condition of excessive androgen production and the primary male hormone involved."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Precisely define 'biological sex' and 'gender identity' as used in exercise physiology, and explain why research examining physiological capacities (e.g., VO2max, muscle cross-sectional area) must report 'sex differences'.",
+        "model": "Biological sex refers to biological attributes rooted in genetics, chromosomes (XX vs XY), gonadal differentiation, anatomy, and endogenous sex hormones (testosterone vs estrogen). Gender identity refers to culturally, socially, and psychologically determined self-representation and behavioral roles as male or female. Research evaluating physiological capacities such as VO2max, stroke volume, or muscle cross-sectional area must report 'sex differences' because these variables are governed by biological traits (e.g., hemoglobin concentrations, heart size, androgenic protein synthesis) rather than cultural or social roles.",
+        "criteria": [
+          "Define biological sex (chromosomes, gonads, hormones, anatomical traits).",
+          "Define gender identity (cultural, social, psychological self-representation).",
+          "Explain why physiological data (VO2max, muscle mass) reflect biological sex differences rather than gender."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain the concept of hyperandrogenism in female athletes, outline the eligibility policy enacted by sports federations, and summarize the primary scientific and ethical criticisms of this policy.",
+        "model": "Hyperandrogenism is a clinical condition characterized by excessive endogenous production of androgenic hormones (testosterone) in females. In 2011, sports federations (IAAF/World Athletics) established medical regulations requiring female athletes with naturally elevated serum testosterone above threshold limits to undergo medical/pharmacological suppression to remain eligible for female competition (e.g., Caster Semenya). The policy faced intense criticism because forcing healthy, asymptomatic athletes to undergo medical intervention raises severe ethical concerns, and setting binary hormone thresholds oversimplifies the complex biological spectrum of human sex determination.",
+        "criteria": [
+          "Define hyperandrogenism (excessive natural endogenous testosterone production in females).",
+          "Describe the sports federation policy (mandatory medical/pharmacological suppression of testosterone to compete).",
+          "Summarize ethical and scientific criticisms (forced medical treatment of healthy athletes, difficulty establishing binary biological boundaries)."
+        ]
+      }
+    ]
+  }
+}

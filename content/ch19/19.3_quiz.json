@@ -1,0 +1,746 @@
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "In unconditioned adults, by approximately what percentage is female upper body absolute strength lower than male upper body absolute strength?",
+        "opts": [
+          "10% to 15%",
+          "25% to 30%",
+          "40% to 60%",
+          "75% to 85%"
+        ],
+        "correct": 2,
+        "rationale": "In unconditioned adults, absolute upper body strength in women is approximately 40% to 60% lower than in men due to significant differences in upper torso and shoulder girdle muscle cross-sectional area."
+      },
+      {
+        "id": 2,
+        "q": "By approximately what percentage is female lower body absolute strength lower than male lower body absolute strength?",
+        "opts": [
+          "5% to 10%",
+          "25% to 30%",
+          "40% to 60%",
+          "70% to 80%"
+        ],
+        "correct": 1,
+        "rationale": "In lower body exercises (e.g., knee extension, leg press), female absolute strength is only 25% to 30% lower than male absolute strength."
+      },
+      {
+        "id": 3,
+        "q": "What happens to sex differences in maximal force production when strength is normalized per unit of skeletal muscle cross-sectional area (N/cm\\text{^2})?",
+        "opts": [
+          "Sex differences in force production disappear completely",
+          "Women demonstrate 50% higher force production per unit area than men",
+          "Men demonstrate 30% higher force production per unit area due to superior cross-bridge mechanics",
+          "The comparison becomes statistically invalid"
+        ],
+        "correct": 0,
+        "rationale": "When strength is normalized per unit of skeletal muscle cross-sectional area (N/cm\\text{^2}), all sex differences in force production disappear completely, proving that innate muscle tissue quality is identical between sexes."
+      },
+      {
+        "id": 4,
+        "q": "Why is female absolute strength closer to male absolute strength in lower body movements compared to upper body movements?",
+        "opts": [
+          "Females possess a higher relative proportion of total skeletal muscle mass distributed in the lower body",
+          "Female upper body muscles contain 100% Type IIx fibers",
+          "Male lower body muscles lack myosin ATPase enzymes",
+          "Female lower body motor units fire at twice the frequency of male motor units"
+        ],
+        "correct": 0,
+        "rationale": "Females carry a higher proportion of their total skeletal muscle mass in their lower extremities compared to their upper body, bringing relative lower body force production closer to male values."
+      },
+      {
+        "id": 5,
+        "q": "According to Schantz et al., when maximal isometric torque is plotted against muscle cross-sectional area for men and women, what pattern is observed?",
+        "opts": [
+          "Data points for men and women fall along the exact same linear regression line",
+          "Data points for men form a line with twice the slope of the female regression line",
+          "Data points for women form a horizontal line with zero slope",
+          "Data points form two completely isolated, non-overlapping clusters"
+        ],
+        "correct": 0,
+        "rationale": "Schantz et al. demonstrated that when maximal torque is plotted against muscle cross-sectional area, data points for men and women fall along the exact same linear regression line."
+      },
+      {
+        "id": 6,
+        "q": "What primary mechanism accounts for male advantages in absolute force production?",
+        "opts": [
+          "Greater total muscle cross-sectional area (quantity) driven by pubertal testosterone",
+          "Superior specific tension and actin-myosin force per cross-bridge (quality)",
+          "Higher density of sarcoplasmic reticulum calcium pumps per sarcomere",
+          "Inability of female motor neurons to recruit high-threshold motor units"
+        ],
+        "correct": 0,
+        "rationale": "Absolute strength differences are entirely driven by total muscle cross-sectional area (quantity) resulting from pubertal testosterone stimulation, rather than superior contractile function (quality)."
+      },
+      {
+        "id": 7,
+        "q": "When lower body strength is expressed relative to fat-free mass (FFM), how do lower body strength values compare between men and women?",
+        "opts": [
+          "Lower body strength values become virtually equal between men and women",
+          "Women become 60% weaker per kg of FFM",
+          "Men become 40% weaker per kg of FFM",
+          "The lower body strength gap widens to 80%"
+        ],
+        "correct": 0,
+        "rationale": "Expressing lower body strength relative to fat-free mass (FFM) eliminates fat mass variance and reveals that lower body strength per unit of active lean tissue is virtually equal between sexes."
+      },
+      {
+        "id": 8,
+        "q": "Which cellular contractile characteristic is biologically identical between male and female skeletal muscle fibers?",
+        "opts": [
+          "Specific tension generation per unit cross-sectional area (~30 N/cm\\text{^2})",
+          "Total quantity of myonuclei per whole muscle belly",
+          "Absolute anatomical cross-sectional area of the quadriceps",
+          "Total mass of shoulder girdle muscle tissue"
+        ],
+        "correct": 0,
+        "rationale": "Specific tension generation (~30 N/cm\\text{^2}), cross-bridge force mechanics, and myofibrillar density are biologically identical between male and female muscle fibers."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which statements accurately describe absolute upper versus lower body strength differences between unconditioned men and women? (Select all that apply)",
+        "opts": [
+          "Women are approximately 40% to 60% weaker than men in absolute upper body strength",
+          "Women are approximately 25% to 30% weaker than men in absolute lower body strength",
+          "Women possess greater absolute upper body strength than men",
+          "Regional strength gaps reflect differences in total body size and muscle mass distribution"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "Women are 40%-60% weaker in absolute upper body strength and 25%-30% weaker in lower body strength, reflecting anatomical muscle distribution and body size differences."
+      },
+      {
+        "id": 2,
+        "q": "Which physiological factors explain why female lower body strength is closer to male lower body strength than upper body strength? (Select all that apply)",
+        "opts": [
+          "Females distribute a higher proportion of total muscle mass in the lower extremities",
+          "Females utilize lower body musculature more frequently in daily occupational activities",
+          "Female lower body muscle tissue produces 5 times more force per cm\\text{^2} than upper body muscle",
+          "Expressing lower body strength per unit of FFM virtually eliminates sex differences"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "Anatomical muscle distribution, daily lower extremity muscle use, and FFM normalization explain why female lower body strength approaches male values."
+      },
+      {
+        "id": 3,
+        "q": "Which parameters demonstrate that skeletal muscle tissue quality is biologically identical between sexes? (Select all that apply)",
+        "opts": [
+          "Force output normalized per unit of muscle cross-sectional area (N/cm\\text{^2})",
+          "Regression line alignment when maximal torque is plotted against muscle CSA",
+          "Actin-myosin cross-bridge force mechanics and specific tension generation",
+          "Total anatomical cross-sectional area of the biceps brachii"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Normalized force (N/cm\\text{^2}), shared torque-CSA regression slopes, and identical cross-bridge mechanics prove muscle tissue quality is equal. Total cross-sectional area is a quantity metric."
+      },
+      {
+        "id": 4,
+        "q": "Which strength expressions significantly narrow or eliminate sex differences in lower body force production? (Select all that apply)",
+        "opts": [
+          "Strength expressed relative to fat-free mass (FFM)",
+          "Strength normalized per unit of quadriceps muscle cross-sectional area (N/cm\\text{^2})",
+          "Absolute force output without body mass adjustments",
+          "Torque relative to specific muscle cross-sectional area"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "Expressing strength relative to FFM, N/cm\\text{^2}, or specific muscle cross-sectional area eliminates lower body strength differences between sexes."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "When knee extension force is normalized per unit of muscle cross-sectional area (N/cm\\text{^2}), strength differences between men and women disappear completely.",
+        "ans": true,
+        "feedback": "True. Specific tension and muscle tissue force-generating capacity (N/cm\\text{^2}) are biologically identical between sexes."
+      },
+      {
+        "id": 2,
+        "q": "Female upper body absolute strength is only 5% lower than male upper body absolute strength.",
+        "ans": false,
+        "feedback": "False. Female upper body absolute strength is 40% to 60% lower than male upper body strength due to regional muscle distribution differences."
+      },
+      {
+        "id": 3,
+        "q": "Females possess a higher relative proportion of their total skeletal muscle mass distributed in their lower bodies compared to their upper bodies.",
+        "ans": true,
+        "feedback": "True. Anatomical muscle distribution in females favors the lower extremities relative to the shoulder girdle and upper limbs."
+      },
+      {
+        "id": 4,
+        "q": "Male advantages in absolute strength are driven by superior intrinsic quality of male actin and myosin contractile proteins.",
+        "ans": false,
+        "feedback": "False. Muscle tissue quality is identical between sexes; male strength advantages stem entirely from greater total muscle cross-sectional area (quantity)."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Women are **40% to 60%** weaker than men in upper body absolute strength, but only **25% to 30%** weaker in lower body absolute strength.",
+        "targets": [
+          "40% to 60%",
+          "25% to 30%"
+        ],
+        "optionsBank": [
+          "40% to 60%",
+          "25% to 30%",
+          "5% to 10%",
+          "80% to 90%",
+          "0%"
+        ],
+        "hint": "Identify the percentage range for upper body absolute strength gap versus lower body strength gap."
+      },
+      {
+        "id": 2,
+        "statement": "Sex differences in force production disappear when strength is normalized per unit of muscle **cross-sectional area**, proving muscle tissue **quality** is equal.",
+        "targets": [
+          "cross-sectional area",
+          "quality"
+        ],
+        "optionsBank": [
+          "cross-sectional area",
+          "quality",
+          "total weight",
+          "glycogen",
+          "quantity"
+        ],
+        "hint": "Identify the anatomical area metric and the tissue characteristic proven to be identical."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Compare absolute upper body and lower body strength differences between unconditioned men and women, and explain the anatomical reasons for these regional disparities.",
+        "model": "In unconditioned adults, absolute upper body strength in women is 40% to 60% lower than in men, whereas lower body absolute strength is only 25% to 30% lower. These regional disparities are primarily driven by differences in total body size and regional muscle mass distribution. Females carry a higher relative proportion of their total skeletal muscle mass in their lower extremities compared to males, who possess greater muscle cross-sectional area concentrated in the upper limbs, chest, and shoulder girdle. Furthermore, daily occupational activities involve greater lower extremity muscle loading in women, bringing relative lower body force output closer to male values.",
+        "criteria": [
+          "Cite upper body absolute strength gap (40%-60% lower in women) and lower body gap (25%-30% lower in women).",
+          "Explain anatomical muscle distribution (females carry higher relative muscle proportion in lower body).",
+          "Detail upper body concentration in males (shoulder girdle/upper torso hypertrophy)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain what occurs when muscle force output is normalized per unit of skeletal muscle cross-sectional area (N/cm\\text{^2}), detailing what this reveals about male versus female muscle tissue quality.",
+        "model": "When muscle force output is normalized per unit of skeletal muscle cross-sectional area (N/cm\\text{^2}) or specific torque (N\\cdot m/cm\\text{^2}), all sex differences in strength disappear completely. As demonstrated by Schantz et al., plotting maximal torque against muscle cross-sectional area places male and female data points along the exact same regression line. This proves that innate skeletal muscle tissue quality, specific tension generation (~30 N/cm\\text{^2}), actin-myosin cross-bridge mechanics, and myofibrillar density are biologically identical between sexes. Absolute male strength advantages stem entirely from muscle quantity (greater cross-sectional area driven by testosterone) rather than superior tissue quality.",
+        "criteria": [
+          "State that normalizing strength to muscle cross-sectional area (N/cm\\text{^2}) eliminates all sex differences.",
+          "Reference research showing male and female data fall on the exact same torque-CSA regression line.",
+          "Conclude that muscle tissue quality (~30 N/cm\\text{^2}) is identical between sexes and differences reflect muscle quantity."
+        ]
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "At a fixed submaximal exercise workload (e.g., cycle ergometry at 50 W), how does submaximal cardiac output (Q) compare between men and women?",
+        "opts": [
+          "Cardiac output is equal between men and women",
+          "Cardiac output is 50% lower in women due to heart failure",
+          "Cardiac output is 30% higher in men due to larger lung volume",
+          "Cardiac output drops to zero in women after 2 minutes"
+        ],
+        "correct": 0,
+        "rationale": "At a fixed submaximal workload (50 W), submaximal cardiac output (Q = HR x SV) is equal between men and women because a higher heart rate in women fully compensates for their lower stroke volume."
+      },
+      {
+        "id": 2,
+        "q": "Why do women exhibit a lower submaximal stroke volume (SV) during exercise compared to men?",
+        "opts": [
+          "Smaller left ventricular chamber dimensions and smaller total blood volume",
+          "Complete absence of pericardial fluid around the myocardium",
+          "Inability of female cardiac muscle to contract during systole",
+          "50% lower resting ejection fraction in females"
+        ],
+        "correct": 0,
+        "rationale": "Women have smaller left ventricular chamber dimensions (secondary to smaller body size and lower androgen levels) and a smaller total blood volume, resulting in a lower stroke volume."
+      },
+      {
+        "id": 3,
+        "q": "How do women maintain the required submaximal cardiac output (Q) at a fixed workload of 50 W despite having a lower stroke volume?",
+        "opts": [
+          "By mounting a compensatorily higher submaximal heart rate (HR)",
+          "By increasing stroke volume to 300 mL/beat",
+          "By reducing arterial oxygen extraction to zero",
+          "By doubling resting hematocrit levels during exercise"
+        ],
+        "correct": 0,
+        "rationale": "Because Q = HR x SV, women increase submaximal heart rate to compensate for lower stroke volume, maintaining an equal cardiac output at a given fixed submaximal workload."
+      },
+      {
+        "id": 4,
+        "q": "What is the average circulating hemoglobin concentration range in mature adult females compared to mature adult males?",
+        "opts": [
+          "12 to 14 g/dL in females vs. 14 to 16 g/dL in males",
+          "5 to 7 g/dL in females vs. 20 to 25 g/dL in males",
+          "18 to 20 g/dL in females vs. 10 to 12 g/dL in males",
+          "Identical at exactly 15.5 g/dL in both sexes"
+        ],
+        "correct": 0,
+        "rationale": "Circulating hemoglobin concentration averages 12 to 14 g/dL in mature females compared to 14 to 16 g/dL in mature males, driven by male pubertal testosterone stimulation of erythropoietin."
+      },
+      {
+        "id": 5,
+        "q": "How do women compensate for lower arterial oxygen content (CaO2) during submaximal exercise to deliver sufficient oxygen to active skeletal muscle?",
+        "opts": [
+          "By increasing systemic oxygen extraction at the tissue level, producing a steeper (a-v)O2 difference",
+          "By increasing hemoglobin concentration to 20 g/dL during exercise",
+          "By shifting to 100% anaerobic glycolysis at rest",
+          "By reducing cardiac output by 50%"
+        ],
+        "correct": 0,
+        "rationale": "To compensate for lower hemoglobin and lower CaO2, women extract a higher percentage of oxygen at the tissue level, manifesting as a steeper submaximal arterial-mixed venous oxygen difference ((a-v)O2 diff)."
+      },
+      {
+        "id": 6,
+        "q": "How do maximal ventilatory volume (VEmax) and tidal volume (VT) compare between men and women during maximal exercise?",
+        "opts": [
+          "VEmax and VT are consistently lower in women due to smaller anatomical lung volumes and thoracic dimensions",
+          "VEmax and VT are 40% higher in women due to higher respiratory rate",
+          "VEmax is identical, but VT is doubled in women",
+          "Women achieve higher VEmax because female airways have larger internal diameters"
+        ],
+        "correct": 0,
+        "rationale": "Maximal ventilatory volume and tidal volume are lower in women across all exercise intensities due to smaller anatomical lung volumes, smaller airway diameters, and smaller thoracic cage dimensions."
+      },
+      {
+        "id": 7,
+        "q": "According to the HERITAGE Family Study, when exercise intensity is standardized to the same relative workload (60% VO2max), how do submaximal SV, Q, and VO2 compare in women versus men?",
+        "opts": [
+          "Submaximal SV, Q, and VO2 at 60% VO2max are generally lower in women due to smaller overall body and cardiorespiratory dimensions",
+          "Submaximal SV and Q are 3 times higher in women at 60% VO2max",
+          "VO2 at 60% VO2max is identical in absolute L/min regardless of body mass",
+          "Women display zero cardiac output at 60% VO2max"
+        ],
+        "correct": 0,
+        "rationale": "At identical relative intensities (60% VO2max), submaximal Q, SV, and absolute VO2 are lower in women because women have smaller overall cardiorespiratory dimensions and body mass."
+      },
+      {
+        "id": 8,
+        "q": "What primary hormone stimulates renal erythropoietin (EPO) production, resulting in higher male hemoglobin levels?",
+        "opts": [
+          "Testosterone",
+          "Estrogen",
+          "Progesterone",
+          "Aldosterone"
+        ],
+        "correct": 0,
+        "rationale": "Testosterone stimulates renal secretion of erythropoietin (EPO), which drives higher red blood cell production and hemoglobin levels in males."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which hemodynamic responses occur in women during submaximal exercise at a fixed absolute workload of 50 W? (Select all that apply)",
+        "opts": [
+          "Lower stroke volume (SV) compared to men",
+          "Higher heart rate (HR) compared to men",
+          "Equal submaximal cardiac output (Q) compared to men",
+          "Lower cardiac output (Q) compared to men"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "At a fixed 50 W workload, women have lower SV and higher HR, resulting in an equal submaximal cardiac output (Q = HR x SV) compared to men."
+      },
+      {
+        "id": 2,
+        "q": "Which factors contribute to lower arterial oxygen content (CaO2) and oxygen transport in women? (Select all that apply)",
+        "opts": [
+          "Lower circulating hemoglobin concentration (12-14 g/dL in women vs. 14-16 g/dL in men)",
+          "Lower male androgen levels resulting in lower renal EPO stimulation",
+          "Smaller total blood volume and smaller red blood cell mass",
+          "Complete destruction of arterial myoglobin molecules"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Lower hemoglobin (12-14 g/dL), reduced testosterone/EPO stimulation, and smaller total blood volume reduce female CaO2."
+      },
+      {
+        "id": 3,
+        "q": "How do pulmonary ventilatory responses differ in women compared to men during acute exercise? (Select all that apply)",
+        "opts": [
+          "Lower maximal ventilatory volume (VEmax) in women",
+          "Lower maximal tidal volume (VT) in women",
+          "Smaller anatomical lung volumes and airway diameters in women",
+          "Doubled maximal breathing frequency in women that fully offsets lung size"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Women have lower VEmax, lower VT, and smaller airway/thoracic dimensions. Breathing frequency does not double to fully offset lung size."
+      },
+      {
+        "id": 4,
+        "q": "Which compensatory mechanisms allow female active skeletal muscle to receive adequate oxygen during submaximal exercise despite lower CaO2? (Select all that apply)",
+        "opts": [
+          "Increased submaximal tissue oxygen extraction ((a-v)O2 diff)",
+          "Elevated submaximal heart rate to maintain cardiac output",
+          "Steeper submaximal increase in systemic oxygen extraction",
+          "Complete shutdown of capillary blood flow in non-working tissues"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Women compensate for lower CaO2 during submaximal exercise by elevating heart rate (maintaining Q) and increasing tissue oxygen extraction ((a-v)O2 diff)."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "At a fixed submaximal workload of 50 W, submaximal cardiac output is significantly lower in women than in men.",
+        "ans": false,
+        "feedback": "False. Submaximal cardiac output is equal between sexes at a fixed 50 W workload because women's higher heart rate compensates for lower stroke volume."
+      },
+      {
+        "id": 2,
+        "q": "Circulating hemoglobin concentration in mature women (12-14 g/dL) is approximately 10% to 14% lower than in mature men (14-16 g/dL).",
+        "ans": true,
+        "feedback": "True. Testosterone-driven erythropoiesis gives men higher hemoglobin concentrations (14-16 g/dL) than women (12-14 g/dL)."
+      },
+      {
+        "id": 3,
+        "q": "During submaximal exercise, women compensate for lower arterial oxygen content by increasing oxygen extraction ((a-v)O2 diff) at the tissue level.",
+        "ans": true,
+        "feedback": "True. Steeper tissue oxygen extraction helps maintain oxygen delivery to active muscles despite lower hemoglobin."
+      },
+      {
+        "id": 4,
+        "q": "Maximal ventilatory volume (VEmax) is higher in women than in men because women have larger thoracic cage dimensions.",
+        "ans": false,
+        "feedback": "False. Women have smaller thoracic dimensions, smaller lung volumes, and smaller airway diameters, resulting in lower VEmax."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "At a fixed submaximal workload, women maintain equal **cardiac output** by increasing **heart rate** to compensate for lower stroke volume.",
+        "targets": [
+          "cardiac output",
+          "heart rate"
+        ],
+        "optionsBank": [
+          "cardiac output",
+          "heart rate",
+          "stroke volume",
+          "hemoglobin",
+          "tidal volume"
+        ],
+        "hint": "Identify the total flow metric that remains equal and the pump frequency metric that elevates."
+      },
+      {
+        "id": 2,
+        "statement": "Lower female **hemoglobin** concentration reduces arterial oxygen content, causing women to increase tissue **oxygen extraction** during submaximal exercise.",
+        "targets": [
+          "hemoglobin",
+          "oxygen extraction"
+        ],
+        "optionsBank": [
+          "hemoglobin",
+          "oxygen extraction",
+          "myoglobin",
+          "stroke volume",
+          "glycogen"
+        ],
+        "hint": "Identify the blood oxygen carrier and the tissue uptake mechanism."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Compare submaximal heart rate, stroke volume, and cardiac output between men and women performing cycle ergometry at a fixed absolute workload of 50 W, explaining the physiological compensations involved.",
+        "model": "At a fixed submaximal workload of 50 W, submaximal cardiac output (Q = HR x SV) is statistically equal between men and women. However, the underlying hemodynamic mechanisms differ significantly. Women exhibit a markedly lower stroke volume (SV) than men, driven by smaller left ventricular chamber dimensions and a smaller total blood volume. To compensate for this lower SV and meet the metabolic oxygen demand of 50 W work, women mount a higher submaximal heart rate (HR). This compensatory HR elevation fully offsets the lower SV, maintaining equal submaximal cardiac output.",
+        "criteria": [
+          "State that submaximal cardiac output (Q) is equal between sexes at a fixed 50 W workload.",
+          "Detail lower female stroke volume (driven by smaller left ventricular volume and blood volume).",
+          "Explain compensatory heart rate elevation in women that maintains cardiac output (Q = HR x SV)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain how sex differences in hemoglobin concentration affect arterial oxygen content (CaO2) and submaximal tissue oxygen extraction ((a-v)O2 diff) during acute exercise.",
+        "model": "Circulating hemoglobin (Hb) concentration in mature women (12-14 g/dL) is 10% to 14% lower than in mature men (14-16 g/dL), a difference driven by pubertal testosterone stimulation of erythropoietin in males. Because each gram of Hb carries 1.34 mL of oxygen, lower Hb concentration directly reduces arterial oxygen content (CaO2) in women. During submaximal exercise, female active skeletal muscle compensates for lower CaO2 by increasing systemic oxygen extraction at the tissue level, manifesting as a steeper submaximal increase in arterial-mixed venous oxygen difference ((a-v)O2 diff). At maximal exercise, lower total Hb ultimately constrains peak oxygen delivery.",
+        "criteria": [
+          "Cite female (12-14 g/dL) vs male (14-16 g/dL) hemoglobin concentrations and link to testosterone/EPO.",
+          "Explain that lower Hb directly reduces arterial oxygen content (CaO2).",
+          "Detail the submaximal compensation: increased tissue oxygen extraction ((a-v)O2 diff)."
+        ]
+      }
+    ]
+  },
+  "p3": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "In unconditioned adult populations, how does the average woman's absolute VO2max compare to the average man's absolute VO2max?",
+        "opts": [
+          "The average woman's absolute VO2max is approximately 70% to 75% of the average man's",
+          "The average woman's absolute VO2max is exactly 100% of the average man's",
+          "The average woman's absolute VO2max is 30% higher than the average man's",
+          "The average woman's absolute VO2max is 10% of the average man's"
+        ],
+        "correct": 0,
+        "rationale": "When comparing unconditioned populations, the average woman's absolute VO2max (L/min) is approximately 70% to 75% of the average man's value."
+      },
+      {
+        "id": 2,
+        "q": "What proportion of untrained women demonstrated VO2max values that overlapped with untrained men in classic physiological population cohorts (Hermansen and Andersen)?",
+        "opts": [
+          "76% of untrained women overlapped with 47% of untrained men",
+          "0% of untrained women overlapped with men",
+          "100% of untrained women possessed higher VO2max than elite male athletes",
+          "5% of untrained women overlapped with 95% of untrained men"
+        ],
+        "correct": 0,
+        "rationale": "In classic cohorts, 76% of untrained women demonstrated VO2max values that overlapped with 47% of untrained men, demonstrating substantial population overlap."
+      },
+      {
+        "id": 3,
+        "q": "What happens to sex differences in VO2max when values are expressed relative to fat-free mass (mL/kg FFM/min)?",
+        "opts": [
+          "Sex differences in VO2max are significantly reduced or virtually eliminated",
+          "Sex differences widen to 80%",
+          "Female VO2max drops to zero",
+          "Male VO2max doubles"
+        ],
+        "correct": 0,
+        "rationale": "Scaling VO2max relative to fat-free mass (FFM) removes the confounding effect of essential adipose tissue, significantly reducing or eliminating cardiorespiratory performance gaps between sexes."
+      },
+      {
+        "id": 4,
+        "q": "How does adding torso weights to male runners to match female relative body fat percentage affect submaximal VO2 and VO2max differences between sexes?",
+        "opts": [
+          "It reduces submaximal VO2 and VO2max differences by 38% and 65%, respectively",
+          "It increases VO2max differences by 200%",
+          "It has zero effect on oxygen uptake during running",
+          "It causes immediate cardiac arrest in male runners"
+        ],
+        "correct": 0,
+        "rationale": "Adding external weight to men to simulate female essential fat mass reduces submaximal VO2 differences by 38% and VO2max differences by 65%, proving body fat acts as non-contractile metabolic weight."
+      },
+      {
+        "id": 5,
+        "q": "When lactate threshold is expressed relative to percentage of maximal oxygen uptake (% VO2max), how do men and women compare?",
+        "opts": [
+          "Lactate threshold occurs at identical percentages of VO2max in men and women",
+          "Women reach lactate threshold at 20% VO2max while men reach it at 90% VO2max",
+          "Men reach lactate threshold at rest while women never accumulate blood lactate",
+          "Women possess a 50% higher lactate threshold percentage than male distance runners"
+        ],
+        "correct": 0,
+        "rationale": "When lactate threshold is expressed relative to % VO2max, no sex differences exist; both men and women accumulate blood lactate at identical relative exercise intensities (~50%-60% in untrained; ~75%-85% in elite)."
+      },
+      {
+        "id": 6,
+        "q": "According to the systematic meta-analysis by the University of Leeds and Karolinska Institute (2014), what happens to exercise-induced weight loss when energy expenditure is equalized between men and women?",
+        "opts": [
+          "Weight loss responses are statistically identical between sexes",
+          "Men lose 10 times more weight than women",
+          "Women gain 5 kg of fat mass while men lose 5 kg of fat mass",
+          "Neither sex loses any weight regardless of energy deficit"
+        ],
+        "correct": 0,
+        "rationale": "When exercise-induced energy expenditure is properly equalized between sexes, weight loss responses are statistically identical between men and women."
+      },
+      {
+        "id": 7,
+        "q": "What three primary physiological determinants account for lower average absolute VO2max in women?",
+        "opts": [
+          "Higher relative body fat percentage, lower hemoglobin concentration, and smaller maximal stroke volume/cardiac output",
+          "Lack of Type I muscle fibers, smaller liver size, and lower resting heart rate",
+          "Higher blood pressure, elevated thyroid hormone, and larger spleen volume",
+          "Lower skin temperature, absence of sweat glands, and higher bone density"
+        ],
+        "correct": 0,
+        "rationale": "Lower female VO2max is driven by higher essential body fat (non-contractile mass), lower hemoglobin (lower CaO2), and smaller maximal stroke volume/cardiac output."
+      },
+      {
+        "id": 8,
+        "q": "In elite distance runners, what is the modern relative performance/VO2max gap between male and female athletes?",
+        "opts": [
+          "8% to 12%",
+          "35% to 45%",
+          "50% to 60%",
+          "0% (identical in L/min)"
+        ],
+        "correct": 0,
+        "rationale": "Modern data in elite distance runners show a narrow performance/VO2max gap of only 8% to 12% between top male and female competitors."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which physiological factors account for lower absolute VO2max values in women compared to men? (Select all that apply)",
+        "opts": [
+          "Higher essential body fat percentage acting as non-contractile mass",
+          "Lower circulating hemoglobin concentration reducing arterial oxygen content",
+          "Smaller left ventricular volume constraining maximal stroke volume and cardiac output",
+          "Complete absence of mitochondrial oxidative enzymes in female skeletal muscle"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Higher body fat, lower hemoglobin, and smaller maximal stroke volume/cardiac output drive lower female VO2max. Mitochondrial enzymes are fully present and active in females."
+      },
+      {
+        "id": 2,
+        "q": "Which statements accurately describe population overlap and scaling effects in VO2max between men and women? (Select all that apply)",
+        "opts": [
+          "Substantial overlap exists between untrained male and female VO2max distributions (e.g., 76% of untrained women overlap 47% of untrained men)",
+          "Expressing VO2max relative to fat-free mass (mL/kg FFM/min) significantly reduces or eliminates sex gaps",
+          "Adding external weight to male runners to simulate female body fat reduces VO2max gaps by 65%",
+          "Elite female distance runners exhibit a 70% lower VO2max than untrained men"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Population overlap is substantial, FFM scaling eliminates gaps, and weight-addition studies show fat mass drives 65% of the VO2max gap. Elite women exceed untrained men."
+      },
+      {
+        "id": 3,
+        "q": "Which metabolic features are identical between men and women when evaluated relative to cardiorespiratory capacity? (Select all that apply)",
+        "opts": [
+          "Lactate threshold expressed as a percentage of VO2max (% VO2max)",
+          "Relative exercise intensity at which blood lactate begins to accumulate exponentially",
+          "Exercise-induced weight loss when total exercise energy expenditure is matched",
+          "Absolute VO2max expressed in raw liters per minute without body mass scaling"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Lactate threshold (% VO2max), relative intensity of lactate accumulation, and energy-matched weight loss are identical between sexes. Raw absolute VO2max (L/min) differs."
+      },
+      {
+        "id": 4,
+        "q": "Which findings were established by the 2014 systematic meta-analysis on exercise-induced weight loss in men and women? (Select all that apply)",
+        "opts": [
+          "When exercise energy expenditure is equalized, men and women achieve statistically identical weight loss",
+          "There is no evidence that women compensate for exercise energy expenditure by increasing caloric intake more than men",
+          "Prior studies reporting lower weight loss in women were confounded by unmeasured energy expenditure and poor dietary controls",
+          "Women are biologically incapable of losing fat mass through exercise"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Meta-analysis proved equal weight loss when energy expenditure is matched, refuted female caloric over-compensation myths, and identified flaws in earlier studies."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "There is zero overlap in VO2max values between male and female populations.",
+        "ans": false,
+        "feedback": "False. Substantial population overlap exists; 76% of untrained women overlap 47% of untrained men, and elite female athletes overlap untrained men."
+      },
+      {
+        "id": 2,
+        "q": "Expressing VO2max relative to fat-free mass (mL/kg FFM/min) significantly reduces or eliminates cardiorespiratory performance gaps between men and women.",
+        "ans": true,
+        "feedback": "True. Scaling relative to lean active mass removes the confounding weight of essential adipose tissue."
+      },
+      {
+        "id": 3,
+        "q": "When expressed as a percentage of VO2max, the lactate threshold occurs at a significantly lower relative intensity in women than in men.",
+        "ans": false,
+        "feedback": "False. Lactate threshold occurs at identical percentages of VO2max (~50%-60% in untrained; ~75%-85% in elite) in both sexes."
+      },
+      {
+        "id": 4,
+        "q": "Systematic review data demonstrate that when exercise energy expenditure is equalized, men and women achieve equal weight loss.",
+        "ans": true,
+        "feedback": "True. Meta-analysis evidence confirms statistically identical weight loss when exercise energy expenditure is matched."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "The average woman's absolute VO2max is **70% to 75%** of the average man's, but scaling VO2max to **fat-free mass** virtually eliminates the sex gap.",
+        "targets": [
+          "70% to 75%",
+          "fat-free mass"
+        ],
+        "optionsBank": [
+          "70% to 75%",
+          "fat-free mass",
+          "10% to 15%",
+          "total body weight",
+          "hematocrit"
+        ],
+        "hint": "Identify the unscaled absolute VO2max percentage gap and the lean tissue scaling denominator."
+      },
+      {
+        "id": 2,
+        "statement": "When expressed as a percentage of VO2max, the **lactate threshold** is identical between sexes, and energy-matched exercise produces **equal** weight loss.",
+        "targets": [
+          "lactate threshold",
+          "equal"
+        ],
+        "optionsBank": [
+          "lactate threshold",
+          "equal",
+          "stroke volume",
+          "unequal",
+          "glycogen"
+        ],
+        "hint": "Identify the metabolic threshold metric and the comparative weight loss outcome."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Detail the three primary physiological mechanisms responsible for the lower average absolute VO2max observed in women, and explain the effect of scaling VO2max relative to fat-free mass (FFM).",
+        "model": "The three primary physiological determinants of lower female absolute VO2max (70%-75% of male average) are: (1) Essential body fat percentage: women carry higher essential body fat (~20%-25% vs ~12%-15%), which acts as non-contractile weight during exercise; (2) Hemoglobin concentration: lower female hemoglobin (12-14 g/dL vs 14-16 g/dL) reduces arterial oxygen carrying capacity; (3) Maximal cardiac output: smaller left ventricular chamber dimensions limit maximal stroke volume and maximal cardiac output (~20 L/min in women vs ~25-30 L/min in men). Expressing VO2max relative to fat-free mass (mL/kg FFM/min) removes the non-contractile adipose load, significantly reducing or virtually eliminating sex gaps in cardiorespiratory capacity.",
+        "criteria": [
+          "Detail all 3 determinants: higher essential body fat, lower hemoglobin concentration, smaller maximal cardiac output/stroke volume.",
+          "Explain fat mass as non-contractile metabolic weight.",
+          "Explain that FFM scaling (mL/kg FFM/min) virtually eliminates cardiorespiratory capacity gaps."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Summarize the findings of the 2014 University of Leeds and Karolinska Institute systematic meta-analysis regarding exercise-induced weight loss in men versus women.",
+        "model": "The 2014 systematic meta-analysis evaluated exercise-induced weight loss studies controlling for exercise energy expenditure. The analysis proved that when total exercise energy expenditure is matched between men and women, weight loss responses are statistically identical between sexes. Furthermore, the meta-analysis refuted popular myths suggesting women compensate for exercise by increasing caloric intake more than men. Previous literature reporting lower weight loss in female participants was confounded by failure to measure actual exercise energy expenditure, lower absolute workloads performed by female cohorts, and unmonitored dietary intake.",
+        "criteria": [
+          "State that weight loss is statistically identical between sexes when exercise energy expenditure is matched.",
+          "Refute the myth of sex-specific female caloric over-compensation.",
+          "Identify confounding flaws in earlier studies (unmeasured energy expenditure, lower absolute workloads, lack of dietary controls)."
+        ]
+      }
+    ]
+  }
+}
