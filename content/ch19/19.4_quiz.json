@@ -1,0 +1,747 @@
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "How do relative (%) strength gains compare between men and women following a structured progressive resistance training program?",
+        "opts": [
+          "Men experience 3 times greater relative strength gains due to higher circulating testosterone",
+          "Men and women experience equivalent relative (%) gains in muscle strength",
+          "Women experience zero relative strength gains from resistance training",
+          "Women exhibit 80% lower relative strength gains than men in all exercises"
+        ],
+        "correct": 1,
+        "rationale": "When men and women undergo structured, progressive resistance training of equivalent relative intensity, they experience equivalent relative (%) gains in muscle strength."
+      },
+      {
+        "id": 2,
+        "q": "What primary mechanism accounts for rapid strength improvements during the initial 6 to 8 weeks of resistance training in both sexes?",
+        "opts": [
+          "Massive muscle fiber hyperplasia and myonuclear addition",
+          "Neural adaptations, including enhanced motor unit recruitment, firing rates, and synchronization",
+          "A tenfold increase in circulating growth hormone concentrations",
+          "Conversion of Type I oxidative fibers into cardiac muscle cells"
+        ],
+        "correct": 1,
+        "rationale": "Early strength gains (first 6–8 weeks) stem primarily from central nervous system neural adaptations, such as increased motor unit recruitment, higher discharge rates, improved synchronization, and reduced antagonist co-activation."
+      },
+      {
+        "id": 3,
+        "q": "Following chronic resistance loading beyond 8 weeks, which muscle fiber types undergo hypertrophy in response to mechanical tension?",
+        "opts": [
+          "Type IIx fibers exclusively",
+          "Type I, Type IIa, and Type IIx fibers in both men and women",
+          "Type I fibers in women and Type II fibers in men only",
+          "Smooth muscle fibers surrounding blood vessels only"
+        ],
+        "correct": 1,
+        "rationale": "Chronic resistance training stimulates muscle protein synthesis and hypertrophy across Type I, Type IIa, and Type IIx fibers in both men and women."
+      },
+      {
+        "id": 4,
+        "q": "Why do men generally achieve greater absolute muscle fiber hypertrophy and total muscle volume expansion than women?",
+        "opts": [
+          "Because female muscle fibers lack actin and myosin contractile proteins",
+          "Because males possess substantially higher baseline levels of circulating testosterone",
+          "Because female satellite cells are biologically inactive",
+          "Because female muscle motor units fire at half the speed of male motor units"
+        ],
+        "correct": 1,
+        "rationale": "Sarcoplasmic and myofibrillar growth is amplified in males by higher circulating levels of testosterone, resulting in larger absolute muscle cross-sectional area and volume expansion."
+      },
+      {
+        "id": 5,
+        "q": "In women, through what primary endocrine/autocrine mechanism does skeletal muscle hypertrophy occur in the absence of high circulating testosterone?",
+        "opts": [
+          "Localized autocrine and paracrine secretion of growth factors like IGF-1 and mechanogrow factor (MGF)",
+          "Direct conversion of circulating progesterone into myofibrillar actin",
+          "Thyroid hormone hypersecretion during exercise rest periods",
+          "Renal erythropoietin secretion driving sarcoplasmic swelling"
+        ],
+        "correct": 0,
+        "rationale": "Female skeletal muscle hypertrophy relies primarily on local autocrine and paracrine signaling (e.g., IGF-1 and MGF) within stimulated muscle tissue rather than high systemic testosterone."
+      },
+      {
+        "id": 6,
+        "q": "Which neural adaptation decreases opposing resistive torque during agonist muscle contraction following resistance training?",
+        "opts": [
+          "Increased antagonist co-activation",
+          "Reduced antagonist co-activation",
+          "Complete destruction of sensory muscle spindles",
+          "Hyper-activation of Golgi tendon organ inhibitory signals"
+        ],
+        "correct": 1,
+        "rationale": "Resistance training reduces antagonist co-activation, decreasing opposing torque from antagonist muscles and allowing net joint torque and force output to increase."
+      },
+      {
+        "id": 7,
+        "q": "If a female athlete and a male athlete both complete 12 weeks of identical leg press resistance training, what relative strength outcome is expected?",
+        "opts": [
+          "The female athlete will achieve an equivalent relative (%) percentage increase in leg press 1RM as the male athlete",
+          "The male athlete will gain 500% relative strength while the female athlete gains 0%",
+          "The female athlete will experience a 50% loss of muscle fiber cross-sectional area",
+          "The male athlete's relative gain will be 10 times greater because female muscle cannot adapt"
+        ],
+        "correct": 0,
+        "rationale": "Both male and female athletes demonstrate equivalent relative (%) gains in strength following standardized progressive resistance training programs."
+      },
+      {
+        "id": 8,
+        "q": "What neural factor involves increasing the discharge rate of action potentials from alpha motor neurons to increase rate of force development (RFD)?",
+        "opts": [
+          "Motor unit synchronization",
+          "Motor unit firing frequency (rate coding)",
+          "Antagonist co-activation",
+          "Myofibrillar protein degradation"
+        ],
+        "correct": 1,
+        "rationale": "Motor unit firing frequency, or rate coding, refers to the rate of action potential discharge from motor neurons, which increases with resistance training to enhance rate of force development."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which neural adaptations contribute to early strength gains during the first 6 to 8 weeks of resistance training? (Select all that apply)",
+        "opts": [
+          "Enhanced recruitment of high-threshold motor units",
+          "Increased motor unit firing frequency (rate coding)",
+          "Improved motor unit synchronization",
+          "Decreased antagonist co-activation"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "Early strength gains are driven by central nervous system neural adaptations: motor unit recruitment, higher firing rates, motor unit synchronization, and reduced antagonist co-activation."
+      },
+      {
+        "id": 2,
+        "q": "Which statements accurately reflect muscle fiber hypertrophy in response to chronic resistance training in men and women? (Select all that apply)",
+        "opts": [
+          "Hypertrophy occurs across Type I, Type IIa, and Type IIx fibers in both sexes",
+          "Relative (%) increases in individual muscle fiber cross-sectional area are similar between sexes",
+          "Men achieve larger absolute muscle volume growth due to higher baseline testosterone",
+          "Female skeletal muscle is incapable of undergoing fiber hypertrophy under any training stimulus"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Both sexes experience hypertrophy across Type I, IIa, and IIx fibers with similar relative (%) gains, while males achieve greater absolute growth due to testosterone."
+      },
+      {
+        "id": 3,
+        "q": "Which factors explain why relative (%) strength gains are equivalent between men and women following resistance training? (Select all that apply)",
+        "opts": [
+          "Identical cellular mechanisms of neural adaptation in early training phases",
+          "Biologically identical muscle tissue force production capacity per unit area (~30 N/cm\\text{^2})",
+          "Shared intramuscular hypertrophic pathways involving local growth factors (IGF-1)",
+          "Complete absence of motor units in female skeletal muscle tissue"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Shared neural adaptation mechanics, identical specific tension (~30 N/cm\\text{^2}), and local growth factor pathways (IGF-1) ensure equal relative strength gains between sexes."
+      },
+      {
+        "id": 4,
+        "q": "Which anabolic and growth factor signals drive skeletal muscle hypertrophy following resistance exercise? (Select all that apply)",
+        "opts": [
+          "Circulating systemic testosterone in males",
+          "Local autocrine/paracrine insulin-like growth factor 1 (IGF-1)",
+          "Mechanogrow factor (MGF) released in loaded muscle tissue",
+          "Lactic acid destruction of myofibrillar proteins"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Muscle hypertrophy is regulated by systemic testosterone in males and local autocrine/paracrine growth factors (IGF-1 and MGF) in loaded muscle tissue across both sexes."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Men experience significantly higher relative (%) strength gains than women following structured resistance training.",
+        "ans": false,
+        "feedback": "False. Men and women undergo equivalent relative percentage increases in skeletal muscle strength following resistance training."
+      },
+      {
+        "id": 2,
+        "q": "Early strength gains during the first 6 to 8 weeks of resistance training are driven primarily by neural adaptations rather than muscle hypertrophy.",
+        "ans": true,
+        "feedback": "True. Initial strength improvements stem from central nervous system adaptations, including motor unit recruitment, firing rate, synchronization, and reduced antagonist co-activation."
+      },
+      {
+        "id": 3,
+        "q": "Muscle fiber hypertrophy occurs across Type I, Type IIa, and Type IIx muscle fibers in women following progressive resistance training.",
+        "ans": true,
+        "feedback": "True. Women exhibit muscle fiber hypertrophy across Type I, Type IIa, and Type IIx fibers in response to resistance loading."
+      },
+      {
+        "id": 4,
+        "q": "High levels of circulating testosterone are strictly required for female skeletal muscle to undergo hypertrophy.",
+        "ans": false,
+        "feedback": "False. Female skeletal muscle hypertrophies effectively through localized autocrine and paracrine secretion of growth factors like IGF-1 and MGF."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Men and women experience equivalent **relative strength gains** following resistance training, driven initially by **neural adaptations**.",
+        "targets": [
+          "relative strength gains",
+          "neural adaptations"
+        ],
+        "optionsBank": [
+          "relative strength gains",
+          "neural adaptations",
+          "absolute hypertrophy",
+          "hemoglobin loss",
+          "glycogen depletion"
+        ],
+        "hint": "Identify the comparative strength metric (%) and the early nervous system mechanism."
+      },
+      {
+        "id": 2,
+        "statement": "Resistance training stimulates muscle fiber **hypertrophy** across Type I and Type II fibers, utilizing localized **IGF-1** signaling in women.",
+        "targets": [
+          "hypertrophy",
+          "IGF-1"
+        ],
+        "optionsBank": [
+          "hypertrophy",
+          "IGF-1",
+          "atrophy",
+          "testosterone",
+          "myoglobin"
+        ],
+        "hint": "Identify the muscle growth process and the local autocrine growth factor."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Compare relative (%) versus absolute strength gains between men and women following a 12-week resistance training program, and explain the neural mechanisms responsible for early strength improvements.",
+        "model": "Following a 12-week resistance training program, men and women experience equivalent relative (%) strength gains (typically 20%-40%+ increases over baseline). However, men achieve larger absolute gains in total weight lifted due to their larger initial muscle mass and baseline cross-sectional area. During the early phases (first 6 to 8 weeks), strength gains in both sexes are driven primarily by neural adaptations rather than structural hypertrophy. These neural mechanisms include enhanced motor unit recruitment of high-threshold fibers, increased motor unit firing rates (rate coding), improved motor unit firing synchronization, and reduced antagonist co-activation.",
+        "criteria": [
+          "State that relative (%) strength gains are equivalent between men and women.",
+          "Explain that men achieve greater absolute strength gains due to larger initial muscle mass.",
+          "Detail neural mechanisms driving early strength gains (motor unit recruitment, firing rate/rate coding, synchronization, reduced antagonist co-activation)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Detail the cellular mechanisms of skeletal muscle fiber hypertrophy in response to chronic resistance loading, contrasting the endocrine drive in males with autocrine/paracrine signaling in females.",
+        "model": "Chronic resistance loading beyond 8 weeks induces skeletal muscle fiber hypertrophy across Type I, Type IIa, and Type IIx fibers in both sexes. Mechanically loaded muscle fibers increase muscle protein synthesis, activate satellite cells, and incorporate new myonuclei to expand sarcoplasmic and myofibrillar volume. In males, systemic circulating testosterone acts as a potent anabolic hormone amplifying absolute muscle volume growth. In females, who possess low circulating testosterone, hypertrophy proceeds robustly through localized autocrine and paracrine signaling, specifically the release of local growth factors like insulin-like growth factor 1 (IGF-1) and mechanogrow factor (MGF) within the loaded muscle tissue.",
+        "criteria": [
+          "State that hypertrophy occurs in Type I, IIa, and IIx fibers in both sexes via muscle protein synthesis and myonuclear addition.",
+          "Explain male anabolic drive (systemic circulating testosterone amplifying absolute volume).",
+          "Explain female anabolic drive (localized autocrine/paracrine growth factors like IGF-1 and MGF)."
+        ]
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "By approximately what average relative percentage does cardiorespiratory endurance training increase VO2max in both men and women?",
+        "opts": [
+          "15% to 25%",
+          "50% to 75%",
+          "2% to 5%",
+          "100% to 200%"
+        ],
+        "correct": 0,
+        "rationale": "Chronic cardiorespiratory endurance training increases VO2max by an average of 15% to 25% in both men and women, with the relative magnitude of improvement being independent of biological sex."
+      },
+      {
+        "id": 2,
+        "q": "According to the Fick equation, what hemodynamic adaptation is primarily responsible for the increase in maximal cardiac output (Qmax) after chronic endurance training?",
+        "opts": [
+          "A dramatic increase in maximal heart rate (HRmax)",
+          "An expansion in maximal stroke volume (SVmax)",
+          "A 50% decrease in arterial oxygen saturation",
+          "A complete loss of peripheral vasodilation"
+        ],
+        "correct": 1,
+        "rationale": "Because maximal heart rate remains unchanged or decreases slightly with training, increases in maximal cardiac output (Qmax) are driven almost entirely by an expansion in maximal stroke volume (SVmax)."
+      },
+      {
+        "id": 3,
+        "q": "What morphological remodeling occurs in the heart in response to chronic endurance volume overload?",
+        "opts": [
+          "Concentric ventricular wall thickening with reduced cavity size",
+          "Eccentric cardiac hypertrophy characterized by increased left ventricular end-diastolic chamber diameter and volume",
+          "Atrophy of the left atrium and destruction of cardiac valves",
+          "Fibrotic scarring of the sinoatrial node"
+        ],
+        "correct": 1,
+        "rationale": "Endurance training induces eccentric cardiac hypertrophy, characterized by an increase in left ventricular end-diastolic chamber diameter (LVEDD) and cavity volume."
+      },
+      {
+        "id": 4,
+        "q": "How does chronic endurance training affect resting and submaximal heart rate (HR) and stroke volume (SV) at a fixed submaximal workload?",
+        "opts": [
+          "Submaximal HR increases while submaximal SV decreases",
+          "Submaximal HR decreases (exercise bradycardia) while submaximal SV increases",
+          "Submaximal HR and SV both double simultaneously",
+          "Submaximal HR drops to zero while SV remains unchanged"
+        ],
+        "correct": 1,
+        "rationale": "Endurance training causes exercise bradycardia (lower resting and submaximal HR) accompanied by a proportional increase in submaximal SV, maintaining submaximal cardiac output efficiently."
+      },
+      {
+        "id": 5,
+        "q": "How does chronic plasma volume expansion following endurance training enhance cardiac performance during exercise?",
+        "opts": [
+          "It increases left ventricular end-diastolic volume (EDV) and cardiac preload via the Frank-Starling mechanism",
+          "It reduces stroke volume by diluting cardiac muscle cells",
+          "It blocks coronary artery blood flow during systole",
+          "It decreases venous return to the right atrium"
+        ],
+        "correct": 0,
+        "rationale": "Expanded plasma volume increases venous return and left ventricular end-diastolic filling (preload), enhancing stroke volume via the Frank-Starling mechanism."
+      },
+      {
+        "id": 6,
+        "q": "What happens to rate-pressure product (RPP = HR x SBP) during submaximal exercise after chronic endurance conditioning?",
+        "opts": [
+          "RPP increases dramatically, raising cardiac risk",
+          "RPP decreases, reducing myocardial oxygen consumption and cardiac workload",
+          "RPP remains completely unchanged regardless of fitness",
+          "RPP drops to zero because blood pressure disappears"
+        ],
+        "correct": 1,
+        "rationale": "A lower submaximal heart rate reduces the rate-pressure product (RPP), decreasing myocardial oxygen demand and cardiac workload during submaximal exercise."
+      },
+      {
+        "id": 7,
+        "q": "How does maximal heart rate (HRmax) change following a 16-week endurance training program in healthy adults?",
+        "opts": [
+          "HRmax increases by 50 beats per minute",
+          "HRmax remains unchanged or decreases slightly",
+          "HRmax doubles in women while halving in men",
+          "HRmax becomes completely irregular"
+        ],
+        "correct": 1,
+        "rationale": "Maximal heart rate (HRmax) is age-predicted and remains largely unchanged or decreases slightly following chronic endurance training."
+      },
+      {
+        "id": 8,
+        "q": "How does relative (%) cardiorespiratory endurance adaptation (VO2max increase) compare between men and women following identical endurance training protocols?",
+        "opts": [
+          "Women achieve a 15% to 25% increase, which is identical in relative magnitude to men",
+          "Men achieve a 100% increase while women achieve 0%",
+          "Women achieve 5 times higher VO2max gains than men",
+          "Neither sex shows any change in VO2max"
+        ],
+        "correct": 0,
+        "rationale": "Both men and women demonstrate equivalent relative (%) increases in VO2max (15%-25% average) following standardized cardiorespiratory endurance training."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which cardiovascular adaptations contribute to expanded maximal cardiac output (Qmax) following endurance training? (Select all that apply)",
+        "opts": [
+          "Eccentric left ventricular hypertrophy and expanded end-diastolic cavity volume",
+          "Plasma volume expansion enhancing venous return and cardiac preload",
+          "Increased left ventricular compliance and myocardial contractility",
+          "Doubling of maximal heart rate above 300 bpm"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Expanded Qmax is driven by stroke volume adaptations: eccentric left ventricular remodeling, plasma volume expansion (Frank-Starling mechanism), and enhanced contractility. HRmax does not double."
+      },
+      {
+        "id": 2,
+        "q": "Which hemodynamic shifts occur during fixed submaximal exercise after chronic endurance conditioning? (Select all that apply)",
+        "opts": [
+          "Reduction in submaximal heart rate (exercise bradycardia)",
+          "Increase in submaximal stroke volume",
+          "Decrease in rate-pressure product (RPP) and myocardial oxygen demand",
+          "Complete cessation of cardiac output"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Endurance training improves submaximal cardiovascular efficiency by lowering HR, increasing SV, and reducing myocardial workload (RPP) at fixed submaximal intensities."
+      },
+      {
+        "id": 3,
+        "q": "Which statements accurately describe VO2max adaptations to endurance training across biological sexes? (Select all that apply)",
+        "opts": [
+          "Both men and women experience an average 15% to 25% increase in VO2max",
+          "Relative (%) cardiorespiratory improvement is independent of biological sex",
+          "Baseline fitness status and training volume dictate the relative percentage increase in VO2max",
+          "Female cardiac tissue is biologically incapable of undergoing eccentric remodeling"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Both sexes increase VO2max by 15%-25% on average, independent of sex, governed by initial fitness and training stimulus. Female cardiac tissue remodels eccentrically like male tissue."
+      },
+      {
+        "id": 4,
+        "q": "Which mechanisms account for increased stroke volume via the Frank-Starling mechanism after endurance training? (Select all that apply)",
+        "opts": [
+          "Expansion of total blood plasma volume",
+          "Increased venous return to the heart during diastole",
+          "Greater left ventricular end-diastolic volume (EDV) and stretch",
+          "Severe constriction of the vena cava blocking blood return"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Plasma volume expansion increases venous return, augmenting left ventricular EDV and end-diastolic cardiac muscle stretch (Frank-Starling mechanism)."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Cardiorespiratory endurance training produces a significantly larger relative (%) increase in VO2max in men compared to women.",
+        "ans": false,
+        "feedback": "False. Both men and women experience an average 15% to 25% increase in VO2max following cardiorespiratory endurance training."
+      },
+      {
+        "id": 2,
+        "q": "After chronic endurance training, resting and submaximal heart rates decrease while submaximal stroke volume increases.",
+        "ans": true,
+        "feedback": "True. Cardiovascular efficiency improves, lowering heart rate at any given submaximal workload due to higher stroke volume."
+      },
+      {
+        "id": 3,
+        "q": "Maximal cardiac output increases after endurance training primarily through a large increase in maximal heart rate.",
+        "ans": false,
+        "feedback": "False. Maximal heart rate remains unchanged or decreases slightly; Qmax increases primarily through expanded maximal stroke volume."
+      },
+      {
+        "id": 4,
+        "q": "Endurance training induces eccentric cardiac hypertrophy, expanding left ventricular end-diastolic chamber diameter and volume in both sexes.",
+        "ans": true,
+        "feedback": "True. Left ventricular end-diastolic chamber dimensions expand in response to chronic volume overload in both men and women."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Cardiorespiratory endurance training increases VO2max by an average of **15% to 25%**, driven primarily by expanded **stroke volume**.",
+        "targets": [
+          "15% to 25%",
+          "stroke volume"
+        ],
+        "optionsBank": [
+          "15% to 25%",
+          "stroke volume",
+          "100%",
+          "heart rate",
+          "hemoglobin loss"
+        ],
+        "hint": "Identify the average VO2max percentage gain range and the primary cardiac output component."
+      },
+      {
+        "id": 2,
+        "statement": "Training lowers submaximal heart rate, known as **exercise bradycardia**, and induces **eccentric** left ventricular hypertrophy.",
+        "targets": [
+          "exercise bradycardia",
+          "eccentric"
+        ],
+        "optionsBank": [
+          "exercise bradycardia",
+          "eccentric",
+          "tachycardia",
+          "concentric",
+          "atrophy"
+        ],
+        "hint": "Identify the submaximal heart rate reduction term and the cardiac chamber enlargement pattern."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Explain the cardiorespiratory endurance adaptations (VO2max, maximal cardiac output, stroke volume, heart rate) resulting from chronic endurance training, highlighting sex equity in relative improvement.",
+        "model": "Chronic cardiorespiratory endurance training increases VO2max by an average of 15% to 25% in both men and women, demonstrating that the relative magnitude of adaptation is independent of biological sex. Based on the Fick equation, increases in VO2max are driven primarily by an expansion in maximal cardiac output (Qmax). Because maximal heart rate remains unchanged or decreases slightly, Qmax increases almost entirely due to an expanded maximal stroke volume (SVmax). SVmax expansion is enabled by eccentric left ventricular hypertrophy (larger end-diastolic chamber volume) and plasma volume expansion, which enhances venous return and preload via the Frank-Starling mechanism.",
+        "criteria": [
+          "Cite average VO2max increase (15%-25%) and confirm equal relative adaptation across sexes.",
+          "Explain that Qmax expansion drives VO2max increase via expanded maximal stroke volume (SVmax).",
+          "Detail SVmax mechanisms: eccentric left ventricular chamber remodeling and plasma volume expansion (Frank-Starling mechanism)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Describe the submaximal hemodynamic changes (heart rate, stroke volume, rate-pressure product) that occur at a fixed absolute workload after chronic endurance conditioning.",
+        "model": "Following chronic endurance conditioning, submaximal exercise at a fixed absolute workload (e.g., 100 W cycling) is characterized by improved cardiovascular operating efficiency. Resting and submaximal heart rates decrease significantly, a phenomenon known as exercise bradycardia. To maintain the submaximal cardiac output required for that workload, submaximal stroke volume increases proportionally. Additionally, the lower submaximal heart rate reduces the rate-pressure product (RPP = HR x SBP), which significantly lowers myocardial oxygen demand and cardiac work during daily physical tasks.",
+        "criteria": [
+          "Detail submaximal heart rate reduction (exercise bradycardia) at fixed absolute workloads.",
+          "Explain proportional increase in submaximal stroke volume maintaining required cardiac output.",
+          "Describe reduction in rate-pressure product (RPP) and decreased myocardial oxygen demand."
+        ]
+      }
+    ]
+  },
+  "p3": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "Which microvascular adaptation occurs in skeletal muscle following chronic cardiorespiratory endurance training?",
+        "opts": [
+          "Increased capillary density and capillary-to-fiber ratio surrounding muscle fibers",
+          "50% reduction in skeletal muscle blood flow",
+          "Complete closure of arterial precapillary sphincters",
+          "Destruction of endothelial cell basement membranes"
+        ],
+        "correct": 0,
+        "rationale": "Endurance training stimulates angiogenesis, increasing capillary density and the capillary-to-fiber ratio surrounding skeletal muscle fibers in both men and women."
+      },
+      {
+        "id": 2,
+        "q": "Which key mitochondrial oxidative enzyme exhibits a two- to threefold increase in activity in skeletal muscle following chronic endurance conditioning?",
+        "opts": [
+          "Citrate synthase (CS)",
+          "Creatine kinase (CK)",
+          "Lactate dehydrogenase (LDH-M)",
+          "Myosin ATPase"
+        ],
+        "correct": 0,
+        "rationale": "Mitochondrial oxidative enzymes, including citrate synthase (CS) and succinate dehydrogenase (SDH), double or triple in activity following chronic endurance training."
+      },
+      {
+        "id": 3,
+        "q": "How does enhanced skeletal muscle lipid oxidation during submaximal exercise benefit endurance performance?",
+        "opts": [
+          "It spares endogenous muscle glycogen and delays fatigue",
+          "It accelerates muscle glycogen depletion within 5 minutes",
+          "It converts fatty acids directly into lactic acid",
+          "It suppresses mitochondrial ATP production"
+        ],
+        "correct": 0,
+        "rationale": "Increased reliance on fatty acid oxidation during submaximal exercise decreases glycogenolysis, sparing muscle glycogen stores and delaying fatigue during prolonged performance."
+      },
+      {
+        "id": 4,
+        "q": "What effect does chronic endurance training have on the lactate threshold expressed as a percentage of VO2max (% VO2max)?",
+        "opts": [
+          "It shifts the lactate threshold to a higher relative percentage of VO2max (~70% to 85% VO2max)",
+          "It causes lactate threshold to occur at rest (0% VO2max)",
+          "It lowers the lactate threshold to 20% VO2max",
+          "It eliminates the lactate threshold in men while raising it in women"
+        ],
+        "correct": 0,
+        "rationale": "Increased mitochondrial density and pyruvate oxidative capacity lower glycolytic flux, shifting the lactate threshold to higher relative intensities (~70%-85% VO2max) in both sexes."
+      },
+      {
+        "id": 5,
+        "q": "When total exercise training energy expenditure is matched between men and women, how do body composition modifications (fat loss) compare?",
+        "opts": [
+          "Men and women exhibit equivalent relative and absolute decreases in body fat percentage",
+          "Men lose 10 kg of fat while women gain 10 kg of fat",
+          "Women lose fat only if they restrict water intake to zero",
+          "Neither sex experiences any body composition modification"
+        ],
+        "correct": 0,
+        "rationale": "When exercise energy expenditure is properly equalized, body composition modifications—including reductions in body fat percentage—are equivalent between men and women."
+      },
+      {
+        "id": 6,
+        "q": "How does progressive resistance training affect fat-free mass (FFM) in men and women?",
+        "opts": [
+          "It increases FFM through skeletal muscle fiber hypertrophy in both sexes",
+          "It reduces FFM by 30% in women",
+          "It converts FFM into essential visceral fat mass",
+          "It increases FFM in men while destroying female bone tissue"
+        ],
+        "correct": 0,
+        "rationale": "Progressive resistance training increases fat-free mass (FFM) through skeletal muscle hypertrophy in both men and women."
+      },
+      {
+        "id": 7,
+        "q": "Why does capillary biogenesis around muscle fibers improve muscle oxygen extraction during exercise?",
+        "opts": [
+          "It prolongs transit time for red blood cells flowing through muscle tissue, enhancing oxygen diffusion",
+          "It forces blood to bypass active muscle fibers completely",
+          "It converts red blood cells into white blood cells",
+          "It increases blood flow velocity so fast that oxygen cannot escape"
+        ],
+        "correct": 0,
+        "rationale": "Increased capillary density expands the microvascular surface area and slows transit time, allowing more time for oxygen to diffuse from hemoglobin into myocytes."
+      },
+      {
+        "id": 8,
+        "q": "Are the cellular, enzymatic, and metabolic adaptation mechanisms to structured exercise training inherently sex-specific or non-sex-specific?",
+        "opts": [
+          "Fundamentally non-sex-specific",
+          "100% sex-specific with zero overlapping pathways",
+          "Active only in young males",
+          "Dependent on dietary sodium intake only"
+        ],
+        "correct": 0,
+        "rationale": "Cellular, enzymatic, microvascular, and metabolic training adaptation mechanisms are fundamentally non-sex-specific in human skeletal muscle."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which peripheral skeletal muscle adaptations occur following chronic cardiorespiratory endurance training? (Select all that apply)",
+        "opts": [
+          "Increased capillary density and capillary-to-fiber ratio",
+          "Mitochondrial biogenesis (increased mitochondrial density and surface area)",
+          "Elevated activity of oxidative enzymes (citrate synthase, succinate dehydrogenase)",
+          "Complete destruction of intramuscular myoglobin"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Endurance training enhances capillary density, mitochondrial volume, and oxidative enzyme activity (CS, SDH) in skeletal muscle across both sexes. Myoglobin is preserved/increased."
+      },
+      {
+        "id": 2,
+        "q": "Which metabolic consequences result from increased mitochondrial density and beta-oxidation enzyme activity in trained muscle? (Select all that apply)",
+        "opts": [
+          "Increased rate of fatty acid oxidation during submaximal exercise",
+          "Sparing of endogenous muscle glycogen stores",
+          "Shift of the lactate threshold to a higher percentage of VO2max",
+          "Immediate onset of severe metabolic acidosis at rest"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Mitochondrial expansion enhances submaximal fat oxidation, spares glycogen, and reduces blood lactate accumulation, shifting the lactate threshold to higher workloads."
+      },
+      {
+        "id": 3,
+        "q": "Which body composition adaptations occur in response to structured exercise training? (Select all that apply)",
+        "opts": [
+          "Equivalent relative reductions in body fat percentage when training energy expenditure is matched",
+          "Increased fat-free mass (FFM) following progressive resistance training",
+          "Preservation or slight elevation of FFM during endurance training",
+          "Selective accumulation of 20 kg of abdominal fat during exercise"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "When energy expenditure is matched, fat loss is equivalent between sexes. Resistance training increases FFM, while endurance training preserves/slightly raises FFM."
+      },
+      {
+        "id": 4,
+        "q": "Which mitochondrial oxidative enzymes increase in activity following chronic endurance conditioning? (Select all that apply)",
+        "opts": [
+          "Citrate synthase (CS)",
+          "Succinate dehydrogenase (SDH)",
+          "Cytochrome oxidase",
+          "Phosphofructokinase (PFK) during resting state"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Mitochondrial TCA cycle and electron transport chain enzymes—citrate synthase, succinate dehydrogenase, and cytochrome oxidase—increase two- to threefold with endurance training."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Mitochondrial oxidative enzymes such as citrate synthase increase equally in male and female skeletal muscle after endurance training.",
+        "ans": true,
+        "feedback": "True. Mitochondrial oxidative enzyme expansion (e.g., citrate synthase, SDH) occurs to an equivalent degree in male and female skeletal muscle."
+      },
+      {
+        "id": 2,
+        "q": "Enhanced reliance on lipid oxidation during submaximal exercise spares muscle glycogen and delays fatigue.",
+        "ans": true,
+        "feedback": "True. Greater fat oxidation reduces glycogenolysis, preserving glycogen stores for late-stage exertion."
+      },
+      {
+        "id": 3,
+        "q": "Chronic endurance training reduces submaximal blood lactate accumulation, shifting the lactate threshold to higher relative exercise intensities.",
+        "ans": true,
+        "feedback": "True. Accelerated pyruvate oxidation in expanded mitochondria lowers lactate production and shifts the threshold to ~70%-85% VO2max."
+      },
+      {
+        "id": 4,
+        "q": "When total training energy expenditure is matched, men lose significantly more body fat percentage than women.",
+        "ans": false,
+        "feedback": "False. Decreases in body fat percentage are equivalent between men and women when total exercise energy expenditure and energy balance are matched."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "Endurance training increases muscle **capillary density** and doubles the activity of mitochondrial **citrate synthase**.",
+        "targets": [
+          "capillary density",
+          "citrate synthase"
+        ],
+        "optionsBank": [
+          "capillary density",
+          "citrate synthase",
+          "lactate dehydrogenase",
+          "fat atrophy",
+          "glycogen depletion"
+        ],
+        "hint": "Identify the microvascular adaptation and the primary TCA cycle oxidative enzyme."
+      },
+      {
+        "id": 2,
+        "statement": "Increased fat oxidation leads to muscle **glycogen sparing**, shifting the **lactate threshold** to a higher % VO2max.",
+        "targets": [
+          "glycogen sparing",
+          "lactate threshold"
+        ],
+        "optionsBank": [
+          "glycogen sparing",
+          "lactate threshold",
+          "stroke volume",
+          "protein breakdown",
+          "heart rate"
+        ],
+        "hint": "Identify the carbohydrate preservation phenomenon and the submaximal metabolic threshold."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Detail the skeletal muscle metabolic and microvascular adaptations (capillarization, mitochondrial biogenesis, oxidative enzymes) resulting from chronic endurance training, and explain how these adaptations lead to glycogen sparing and a lactate threshold shift.",
+        "model": "Chronic endurance training induces peripheral microvascular and metabolic adaptations in skeletal muscle: (1) Angiogenesis increases capillary density and capillary-to-fiber ratio, extending blood transit time and enhancing oxygen diffusion into myocytes; (2) Mitochondrial biogenesis expands total mitochondrial volume and surface area; (3) Key oxidative enzymes (citrate synthase, succinate dehydrogenase) double or triple in activity. These combined adaptations accelerate fatty acid beta-oxidation during submaximal exercise. Increased reliance on lipid oxidation decreases glycolytic flux and spares endogenous muscle glycogen stores, delaying fatigue. Furthermore, enhanced mitochondrial pyruvate oxidation reduces blood lactate accumulation, shifting the lactate threshold to a higher relative intensity (~70%-85% VO2max) in both sexes.",
+        "criteria": [
+          "Detail capillarization (increased capillary density/transit time) and mitochondrial biogenesis.",
+          "Cite oxidative enzyme expansion (citrate synthase, SDH doubling/tripling in activity).",
+          "Explain glycogen sparing (enhanced lipid oxidation reduces glycolytic rate) and lactate threshold shift (~70%-85% VO2max)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Summarize textbook evidence regarding body composition adaptations (fat loss and fat-free mass changes) following resistance and endurance training, highlighting energy expenditure controls across biological sexes.",
+        "model": "Textbook evidence demonstrates that chronic training modifications to body composition depend on energy balance and exercise modality rather than biological sex. When total exercise energy expenditure is properly matched between men and women, training induces equivalent absolute and relative decreases in total body fat mass and body fat percentage. Regarding lean tissue, progressive resistance training increases fat-free mass (FFM) through skeletal muscle hypertrophy in both sexes. High-volume endurance training preserves or slightly increases FFM while decreasing adiposity. All cellular, enzymatic, and structural mechanisms governing these adaptations are fundamentally non-sex-specific.",
+        "criteria": [
+          "State that body fat loss is equivalent between men and women when exercise energy expenditure is matched.",
+          "Explain FFM adaptations: resistance training increases FFM; endurance training preserves/slightly raises FFM.",
+          "Conclude that cellular and metabolic training adaptation mechanisms are fundamentally non-sex-specific."
+        ]
+      }
+    ]
+  }
+}

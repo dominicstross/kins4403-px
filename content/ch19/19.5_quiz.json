@@ -1,0 +1,497 @@
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "Following the expansion of athletic access for female athletes in the 1970s, what pattern characterized world record progression in track running events?",
+        "opts": [
+          "Female world records improved rapidly before leveling off parallel to male records at an 8% to 9% performance gap",
+          "Female world records completely surpassed male records across all distance events",
+          "Female performance gaps widened to over 40% in all track disciplines",
+          "Female world records remained completely stagnant with zero measurable improvement"
+        ],
+        "correct": 0,
+        "rationale": "Following the passage of Title IX and global expansion of athletic access in the 1970s, female world records improved rapidly before leveling off to run parallel to male curves at an 8% to 9% gap."
+      },
+      {
+        "id": 2,
+        "q": "In elite swimming events like the 400 m freestyle, how does the male-female performance gap compare to track running and field jumping events?",
+        "opts": [
+          "The swimming gap is significantly narrower (<3% in 400 m freestyle) than running (8%–9%) or jumping (16%–17%)",
+          "The swimming gap is twice as wide as the long jump gap",
+          "The swimming gap is identical at exactly 25% across all events",
+          "Female swimmers are 50% slower than male swimmers due to water resistance"
+        ],
+        "correct": 0,
+        "rationale": "In elite swimming, the performance gap is less than 3% in the 400 m freestyle (Katie Ledecky vs Sun Yang) and ~5.5% in the 1,500 m freestyle, which is significantly narrower than track running (8%–9%) or jumping (16%–17%)."
+      },
+      {
+        "id": 3,
+        "q": "What biomechanical and physiological advantage in water helps narrow the performance gap in female long-distance swimmers?",
+        "opts": [
+          "Higher fast-twitch glycolytic power output in aquatic environments",
+          "Higher relative essential body fat percentage providing advantageous hydrodynamic buoyancy and thermal insulation",
+          "Complete absence of wave drag on female body geometry",
+          "Higher total blood hemoglobin concentration than male swimmers"
+        ],
+        "correct": 1,
+        "rationale": "Higher essential adiposity in females enhances hydrodynamic buoyancy, elevating body position in the water column, reducing drag, and lowering the energy cost of aquatic transport."
+      },
+      {
+        "id": 4,
+        "q": "In explosive jumping events such as the high jump and long jump, by what relative percentage do male world records exceed female world records?",
+        "opts": [
+          "1% to 2%",
+          "8% to 9%",
+          "16% to 17%",
+          "40% to 50%"
+        ],
+        "correct": 2,
+        "rationale": "In high-power jumping events requiring vertical impulse and rapid rate of force development, male world records exceed female records by 16% (high jump) and 17% (long jump)."
+      },
+      {
+        "id": 5,
+        "q": "How have performance gaps evolved in ultra-endurance events (such as 24-hour ultramarathons) over the past 35 years?",
+        "opts": [
+          "The male-female performance gap has steadily decreased",
+          "The gap has widened to over 80%",
+          "Female ultra-endurance athletes have been banned from competing",
+          "The gap has remained completely fixed at 50%"
+        ],
+        "correct": 0,
+        "rationale": "Over the past 35 years, longitudinal data show that the performance gap between top male and female competitors in ultra-endurance events has steadily decreased."
+      },
+      {
+        "id": 6,
+        "q": "Which landmark 1972 U.S. federal legislation mandated equal opportunities in educational and athletic programs, driving explosive growth in female sports participation?",
+        "opts": [
+          "Title IX of the Educational Amendments",
+          "The Amateur Athletic Act",
+          "The Equal Opportunity Sports Bill",
+          "Title V of the Civil Rights Act"
+        ],
+        "correct": 0,
+        "rationale": "Title IX of the Educational Amendments of 1972 required federally funded educational and athletic programs to provide equal opportunity regardless of sex."
+      },
+      {
+        "id": 7,
+        "q": "In 1924, the women's 400 m freestyle Olympic swimming record was 19% slower than the men's record. By 1984, to what percentage had this gap narrowed?",
+        "opts": [
+          "15%",
+          "7%",
+          "2%",
+          "0%"
+        ],
+        "correct": 1,
+        "rationale": "Historical data demonstrate that the 400 m freestyle swimming gap narrowed from 19% in 1924 down to 7% in 1984, before narrowing further to <3% in modern world records."
+      },
+      {
+        "id": 8,
+        "q": "Why do non-uniform trends in performance gaps across athletic disciplines (e.g., narrowing ultra-endurance gaps vs widening sprint gaps) matter in exercise physiology?",
+        "opts": [
+          "They demonstrate that athletic outcomes are mediated by participation opportunity, training access, and metabolic factors alongside biological capacity",
+          "They prove that biological sex has zero influence on athletic performance",
+          "They show that sprinting requires no muscle tissue",
+          "They prove that swimming times are determined solely by water temperature"
+        ],
+        "correct": 0,
+        "rationale": "Non-uniform trends prove that performance disparities are not dictated purely by fixed biological limits, but are also shaped by participation density, societal access, and metabolic fuel dynamics."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which factors explain why male-female performance gaps are narrower in swimming (<3%–5.5%) than in track running (8%–9%) or jumping (16%–17%)? (Select all that apply)",
+        "opts": [
+          "Higher female essential body fat provides hydrodynamic buoyancy in water",
+          "Buoyancy elevates body position in the water column, reducing hydrodynamic drag forces",
+          "Adipose tissue provides thermal insulation in aquatic environments",
+          "Female swimmers possess 50% greater muscle mass than male swimmers"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Female essential fat mass enhances buoyancy, elevates body position, reduces drag, and provides thermal insulation, narrowing the swimming gap. Male swimmers retain greater total muscle mass."
+      },
+      {
+        "id": 2,
+        "q": "Which statements accurately describe world record trends following the 1970s expansion of female sports access? (Select all that apply)",
+        "opts": [
+          "Initial female performance curves showed exceptionally steep improvement rates",
+          "Female world record improvement curves eventually leveled off parallel to male curves",
+          "Track running world record gaps stabilized at approximately 8% to 9%",
+          "Female track running world records became 50% slower than male records"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Post-1970s female records improved rapidly before leveling off parallel to male records at an 8% to 9% gap in track running."
+      },
+      {
+        "id": 3,
+        "q": "Which athletic disciplines demonstrate a world record performance gap of 16% to 17% between men and women? (Select all that apply)",
+        "opts": [
+          "High Jump",
+          "Long Jump",
+          "400 m Freestyle Swim",
+          "Marathon Run"
+        ],
+        "correctArray": [
+          0,
+          1
+        ],
+        "rationale": "High jump (~16%) and long jump (~17%) reflect explosive jump gaps driven by male muscle mass, fast-twitch power, and vertical impulse. 400 m swim is <3% and marathon is ~8.5%."
+      },
+      {
+        "id": 4,
+        "q": "Which biological sex traits contribute to male baseline advantages in absolute running speed and jumping height? (Select all that apply)",
+        "opts": [
+          "Greater total muscle cross-sectional area and fast-twitch fiber glycolytic power",
+          "Higher circulating hemoglobin concentration and maximal cardiac stroke volume",
+          "Larger skeletal leverage and vertical impulse generation",
+          "Higher relative body fat percentage in males"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Male advantages stem from muscle cross-sectional area, fast-twitch power, hemoglobin, stroke volume, and vertical impulse. Females carry higher relative body fat percentage."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Present female world records in track running events (100 m to marathon) are consistently 8% to 9% slower than male world records.",
+        "ans": true,
+        "feedback": "True. Across track running events from 100 m to the marathon, modern female world records consistently run 8% to 9% behind male records."
+      },
+      {
+        "id": 2,
+        "q": "Katie Ledecky's 2016 Olympic 400 m freestyle record is less than 3% behind Sun Yang's men's world record.",
+        "ans": true,
+        "feedback": "True. Katie Ledecky's 400 m freestyle record (3:56.46) is within 2.8% (<3%) of Sun Yang's record (3:40.14)."
+      },
+      {
+        "id": 3,
+        "q": "Higher essential body fat percentage in female athletes increases aquatic drag and widens the performance gap in swimming.",
+        "ans": false,
+        "feedback": "False. In water, higher adiposity provides hydrodynamic buoyancy, raising body position and reducing drag, which narrows the performance gap."
+      },
+      {
+        "id": 4,
+        "q": "Over the past 35 years, the male-female performance gap in ultra-endurance events has steadily decreased.",
+        "ans": true,
+        "feedback": "True. Longitudinal data confirm that the performance gap between top male and female competitors in ultra-endurance events has narrowed over time."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "The passage of **Title IX** in 1972 expanded athletic opportunities, narrowing the track running **performance gap** to 8%–9%.",
+        "targets": [
+          "Title IX",
+          "performance gap"
+        ],
+        "optionsBank": [
+          "Title IX",
+          "performance gap",
+          "Title V",
+          "lactate threshold",
+          "stroke volume"
+        ],
+        "hint": "Identify the 1972 federal legislation and the relative athletic metric."
+      },
+      {
+        "id": 2,
+        "statement": "In elite swimming, female **hydrodynamic buoyancy** reduces water drag, narrowing the 400 m freestyle gap to under **3%**.",
+        "targets": [
+          "hydrodynamic buoyancy",
+          "3%"
+        ],
+        "optionsBank": [
+          "hydrodynamic buoyancy",
+          "3%",
+          "aerobic deficit",
+          "25%",
+          "hypertrophy"
+        ],
+        "hint": "Identify the aquatic lift advantage and the 400 m freestyle percentage gap."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Compare world record performance gaps between track running events (8%–9%), field jumping events (16%–17%), and long-distance swimming (<3%–5.5%), detailing the physiological and biomechanical mechanisms responsible for these differences.",
+        "model": "World record performance gaps vary significantly by sport medium. In track running (100 m to marathon), female records are consistently 8% to 9% slower than male records due to male advantages in muscle cross-sectional area, cardiac stroke volume, and hemoglobin concentration. In explosive field jumping events (high jump, long jump), the gap widens to 16% to 17% because vertical impulse and takeoff power depend heavily on male fast-twitch glycolytic muscle power and low adiposity. Conversely, in long-distance swimming, the gap narrows substantially (<3% in 400 m freestyle, 5.5% in 1,500 m freestyle). Higher essential body fat in females provides hydrodynamic buoyancy and thermal insulation in water, elevating body position in the water column and reducing drag forces, which improves swimming economy and offsets lower absolute muscular power.",
+        "criteria": [
+          "Cite performance gaps across disciplines (track running ~8%-9%, jumping ~16%-17%, distance swimming <3%-5.5%).",
+          "Explain male advantages in terrestrial running and jumping (muscle mass, fast-twitch power, stroke volume, hemoglobin).",
+          "Detail female hydrodynamic advantages in swimming (essential fat mass, buoyancy, elevated water position, reduced drag)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain how the enactment of Title IX in 1972 impacted historical female athletic world record progression, and discuss what non-uniform trends across athletic disciplines reveal about performance limits.",
+        "model": "The enactment of Title IX in 1972 federally mandated equal opportunities in athletics, leading to massive expansion in female sports participation, training infrastructure, and coaching support. Consequently, female world record progression curves showed exceptionally steep gains in the 1970s and 1980s, rapidly closing historical performance gaps that had been artificially inflated by lack of access. In recent decades, these curves have leveled off parallel to male records. Non-uniform performance trends across disciplines—such as narrowing gaps in ultra-endurance events alongside slightly widening gaps in short sprints—demonstrate that athletic outcomes are mediated not only by biological limits (e.g., VO2max, muscle area) but also by participation density, societal opportunity, and metabolic fuel dynamics during prolonged exertion.",
+        "criteria": [
+          "Identify Title IX of 1972 as the legislative driver of expanded athletic access and coaching infrastructure.",
+          "Describe the rapid initial improvement in female world records followed by stabilization parallel to male curves.",
+          "Explain how non-uniform trends across disciplines prove performance is shaped by societal and metabolic factors alongside biology."
+        ]
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "In the landmark 2015 study of 91,921 marathon runners (Deaner et al.), how did second-half pace decay compare between men and women?",
+        "opts": [
+          "Male runners slowed down by an average of 15.6%, whereas female runners slowed down by an average of only 11.7%",
+          "Female runners slowed down by 30%, whereas male runners sped up by 20%",
+          "Male and female runners demonstrated identical 50% pace decay",
+          "Female runners stopped completely while male runners ran negative splits"
+        ],
+        "correct": 0,
+        "rationale": "Evaluating 91,921 runners across 14 marathons, researchers found male runners slowed down by an average of 15.6% in the second half, whereas female runners slowed down by only 11.7%."
+      },
+      {
+        "id": 2,
+        "q": "What metabolic mechanism supports superior pace maintenance and lower pace decay in female distance runners during marathons?",
+        "opts": [
+          "Greater relative reliance on lipid oxidation and muscle glycogen sparing during submaximal exercise",
+          "Complete reliance on anaerobic glycolysis throughout the entire 26.2 miles",
+          "Higher rates of lactate accumulation and metabolic acidosis",
+          "Inability to metabolize intramuscular triglycerides"
+        ],
+        "correct": 0,
+        "rationale": "Under estrogenic influence, females exhibit higher rates of lipid oxidation during submaximal exercise, preserving muscle and liver glycogen stores and delaying fatigue."
+      },
+      {
+        "id": 3,
+        "q": "Why are male distance runners statistically more vulnerable to 'hitting the wall' (severe late-race fatigue and pace decay) during a marathon?",
+        "opts": [
+          "Males rely more heavily on carbohydrate oxidation, making them more susceptible to complete muscle glycogen depletion",
+          "Males possess zero Type I slow-twitch muscle fibers in their legs",
+          "Male cardiac output drops to zero after 13.1 miles",
+          "Males absorb 100% less oxygen at the pulmonary alveoli"
+        ],
+        "correct": 0,
+        "rationale": "Higher male reliance on carbohydrate oxidation at submaximal workloads accelerates muscle glycogen depletion, predisposing male runners to severe late-race slowing when glycogen stores are exhausted."
+      },
+      {
+        "id": 4,
+        "q": "Which behavioral and tactical factor contributes to greater pace decay in male marathon runners compared to female runners?",
+        "opts": [
+          "Male runners are statistically more likely to adopt an overly aggressive early race pace relative to their fitness",
+          "Male runners wear heavier running shoes than female runners",
+          "Female runners consume 10 times more water at fluid stations",
+          "Male runners are forced to start 30 minutes behind female runners"
+        ],
+        "correct": 0,
+        "rationale": "Behavioral analysis shows male runners are more prone to adopting aggressive, risky early race paces, accelerating early glycogen depletion and metabolic strain."
+      },
+      {
+        "id": 5,
+        "q": "In the Deaner et al. (2015) marathon study, how did the incidence of major pace decay (>30% slowing in the second half) compare across sexes?",
+        "opts": [
+          "Female runners were significantly less likely to experience major pace decay across all age groups and finishing time tiers",
+          "Female runners experienced 10 times higher rates of major pace decay than male runners",
+          "Major pace decay occurred exclusively in female runners under age 20",
+          "Rates of major pace decay were identical at 90% in both sexes"
+        ],
+        "correct": 0,
+        "rationale": "Female runners were significantly less likely to experience major pace decay (>30% slowing) across all age groups, finishing time tiers, and course conditions."
+      },
+      {
+        "id": 6,
+        "q": "At what submaximal exercise intensity range (as a percentage of VO2max) do females demonstrate higher relative rates of lipid oxidation compared to males?",
+        "opts": [
+          "50% to 75% VO2max",
+          "10% to 20% VO2max only at rest",
+          "95% to 100% VO2max during maximal sprinting",
+          "0% VO2max"
+        ],
+        "correct": 0,
+        "rationale": "At submaximal aerobic exercise intensities (~50%–75% VO2max), females exhibit higher relative rates of lipid oxidation and lower respiratory exchange ratios (RER) than males."
+      },
+      {
+        "id": 7,
+        "q": "What term describes the phenomenon where intramuscular and hepatic glycogen stores are exhausted during prolonged exertion, forcing a sharp drop in running speed?",
+        "opts": [
+          "Glycogen depletion ('hitting the wall')",
+          "Mitochondrial biogenesis",
+          "Exercise bradycardia",
+          "Hyperandrogenism"
+        ],
+        "correct": 0,
+        "rationale": "Glycogen depletion, commonly termed 'hitting the wall', occurs when endogenous carbohydrate stores are exhausted, forcing reliance on slower fat oxidation and causing severe pace decay."
+      },
+      {
+        "id": 8,
+        "q": "What tactical approach do female runners exhibit during mass-participation marathons that aligns early exertion with metabolic capacity?",
+        "opts": [
+          "Pacing discipline",
+          "Negative cardiac drift",
+          "Hyperventilation strategy",
+          "Anaerobic power surging"
+        ],
+        "correct": 0,
+        "rationale": "Female distance runners demonstrate greater pacing discipline, selecting realistic early workloads that preserve glycogen stores and minimize late-race pace decay."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which findings were established by the 2015 study of 91,921 marathon runners regarding pacing dynamics? (Select all that apply)",
+        "opts": [
+          "Male runners slowed down by an average of 15.6% in the second half of the marathon",
+          "Female runners slowed down by an average of 11.7% in the second half",
+          "Female runners demonstrated superior pace maintenance across age groups and finishing times",
+          "Male runners ran the second half 50% faster than the first half"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "The study proved male runners slowed by 15.6%, female runners slowed by 11.7%, and females demonstrated superior pace consistency across all subgroups."
+      },
+      {
+        "id": 2,
+        "q": "Which physiological mechanisms explain why female distance runners experience less pace decay during marathons? (Select all that apply)",
+        "opts": [
+          "Higher relative rates of lipid oxidation during submaximal exertion",
+          "Sparing of endogenous muscle and liver glycogen stores",
+          "Lower susceptibility to complete glycogen depletion ('hitting the wall')",
+          "Total absence of sweat production during exercise"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Higher fat oxidation and glycogen sparing protect female runners from complete glycogen depletion and fatigue during long exercise."
+      },
+      {
+        "id": 3,
+        "q": "Which behavioral and physiological factors contribute to greater pace decay in male distance runners? (Select all that apply)",
+        "opts": [
+          "Higher likelihood of adopting an overly aggressive initial race pace",
+          "Greater reliance on carbohydrate oxidation accelerating glycogen depletion",
+          "Higher risk of experiencing severe late-race fatigue ('hitting the wall')",
+          "Greater tactical pacing discipline during the first 5 miles"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Aggressive early pacing, reliance on carbohydrate fuel, and rapid glycogen depletion explain greater male pace decay. Pacing discipline is higher in females."
+      },
+      {
+        "id": 4,
+        "q": "Which practical coaching strategies help male marathon runners minimize late-race pace decay? (Select all that apply)",
+        "opts": [
+          "Adopting conservative, disciplined early race splits aligned with fitness",
+          "Consuming targeted intra-race carbohydrates (60–90 g CHO/h) to delay glycogen depletion",
+          "Sprinting the first 5 miles at 100% maximal velocity",
+          "Practicing steady-state pacing during long training runs"
+        ],
+        "correctArray": [
+          0,
+          1,
+          3
+        ],
+        "rationale": "Disciplined early pacing, intra-race carbohydrate ingestion (60-90 g/h), and steady-state training preserve glycogen and prevent major late-race slowing."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "In a study of 91,921 marathoners, male runners slowed down significantly more (15.6%) than female runners (11.7%) in the second half of the race.",
+        "ans": true,
+        "feedback": "True. Empirical data confirm male runners experienced greater second-half pace decay (15.6%) compared to female runners (11.7%)."
+      },
+      {
+        "id": 2,
+        "q": "Greater female pace maintenance during marathons is physiologically supported by higher relative rates of lipid oxidation and glycogen sparing.",
+        "ans": true,
+        "feedback": "True. Enhanced fatty acid oxidation preserves glycogen stores in female distance runners, delaying metabolic fatigue."
+      },
+      {
+        "id": 3,
+        "q": "Male runners are less susceptible to glycogen depletion ('hitting the wall') because males store 10 times more glycogen than females.",
+        "ans": false,
+        "feedback": "False. Males rely more on carbohydrate oxidation at submaximal workloads, making them more susceptible to glycogen depletion and late-race slowing."
+      },
+      {
+        "id": 4,
+        "q": "Female runners are statistically less likely to experience major pace decay (>30% slowing) regardless of finishing time tier or age.",
+        "ans": true,
+        "feedback": "True. Across all age and fitness categories, female runners exhibit lower rates of major pace decay than male runners."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "In marathon racing, male runners slowed by **15.6%** in the second half, whereas female runners slowed by **11.7%**.",
+        "targets": [
+          "15.6%",
+          "11.7%"
+        ],
+        "optionsBank": [
+          "15.6%",
+          "11.7%",
+          "50%",
+          "0%",
+          "80%"
+        ],
+        "hint": "Identify the second-half pace decay percentages for male versus female runners."
+      },
+      {
+        "id": 2,
+        "statement": "Enhanced submaximal **lipid oxidation** in females promotes **glycogen sparing**, protecting runners from hitting the wall.",
+        "targets": [
+          "lipid oxidation",
+          "glycogen sparing"
+        ],
+        "optionsBank": [
+          "lipid oxidation",
+          "glycogen sparing",
+          "protein breakdown",
+          "lactate acidosis",
+          "heart rate drop"
+        ],
+        "hint": "Identify the fatty acid metabolism process and the carbohydrate preservation outcome."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Summarize the key empirical findings of the 2015 mass-participation marathon study (Deaner et al.) regarding second-half pace decay and major slowing in male versus female runners.",
+        "model": "The 2015 study evaluated 91,921 runners across 14 mass-participation marathons over a 3-year period to compare pacing strategies. Empirical findings demonstrated that male runners experienced significantly greater pace decay in the second half of the 26.2-mile race, slowing by an average of 15.6% compared to their first-half speed. Female runners demonstrated superior pace maintenance, slowing by an average of only 11.7%. Furthermore, female runners were significantly less likely to experience major pace decay (>30% slowing in the second half) across all age groups, finishing time tiers, and race course conditions.",
+        "criteria": [
+          "Reference the Deaner et al. (2015) study of 91,921 marathon runners.",
+          "Cite second-half pace decay averages: males slowed by 15.6% vs females slowed by 11.7%.",
+          "Explain that females were significantly less likely to experience major pace decay (>30% slowing) across age and performance tiers."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain the physiological fuel utilization mechanisms and tactical behavioral factors that account for sex differences in marathon pacing dynamics and late-race fatigue.",
+        "model": "Sex differences in marathon pacing dynamics stem from an interplay of physiological fuel kinetics and behavioral pacing choices. Physiologically, under estrogenic influence, female runners exhibit higher relative rates of lipid oxidation and lower carbohydrate oxidation at submaximal workloads (50%-75% VO2max). This enhanced fat oxidation promotes muscle and liver glycogen sparing, protecting female runners from complete glycogen depletion. Conversely, male runners rely more heavily on carbohydrate oxidation, making them more susceptible to glycogen exhaustion ('hitting the wall') and peripheral fatigue during the final miles. Behaviorally, male runners are statistically more prone to adopting aggressive, risky early race paces relative to their fitness, which accelerates early glycogen depletion and metabolic strain. Female runners demonstrate greater pacing discipline, choosing sustainable early workloads.",
+        "criteria": [
+          "Explain female metabolic advantages (higher relative lipid oxidation leading to muscle/liver glycogen sparing).",
+          "Explain male metabolic vulnerabilities (higher carbohydrate reliance leading to glycogen depletion and 'hitting the wall').",
+          "Detail behavioral/tactical factors (male tendency toward overly aggressive early pacing vs female pacing discipline)."
+        ]
+      }
+    ]
+  }
+}

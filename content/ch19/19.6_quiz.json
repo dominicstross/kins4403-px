@@ -1,0 +1,747 @@
+{
+  "p1": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "What is the average length of a normal menstrual cycle in eumenorrheic females?",
+        "opts": [
+          "14 days",
+          "28 days (normal range: 21 to 35 days)",
+          "45 days",
+          "60 days"
+        ],
+        "correct": 1,
+        "rationale": "The normal menstrual cycle spans an average of 28 days, with a normal physiological range between 21 and 35 days."
+      },
+      {
+        "id": 2,
+        "q": "Which hormonal surge from the anterior pituitary gland directly triggers ovulation at approximately day 14 of the menstrual cycle?",
+        "opts": [
+          "Thyroid-stimulating hormone (TSH)",
+          "Luteinizing hormone (LH)",
+          "Adrenocorticotropic hormone (ACTH)",
+          "Growth hormone (GH)"
+        ],
+        "correct": 1,
+        "rationale": "A pre-ovulatory rise in estrogen triggers a massive surge in luteinizing hormone (LH) from the anterior pituitary gland, inducing follicular rupture and ovulation."
+      },
+      {
+        "id": 3,
+        "q": "How is secondary amenorrhea formally defined in exercise physiology and sports medicine?",
+        "opts": [
+          "Failure to achieve menarche by 15 years of age",
+          "Absence of menstruation for 90 days or longer in a previously eumenorrheic female",
+          "Irregular menses occurring every 20 days",
+          "Painful menses accompanied by heavy cramping"
+        ],
+        "correct": 1,
+        "rationale": "Secondary amenorrhea is defined as the absence of menses for 90 days (3 consecutive months) or longer in a previously regular, eumenorrheic female."
+      },
+      {
+        "id": 4,
+        "q": "According to research led by Dr. Anne Loucks, what is the fundamental physiological cause of athletic secondary amenorrhea?",
+        "opts": [
+          "High mechanical joint impact during running",
+          "Low energy availability (EA) resulting from caloric intake failing to match exercise energy expenditure",
+          "Direct toxic inhibition of ovaries by lactic acid",
+          "High body fat percentage suppressing pituitary hormones"
+        ],
+        "correct": 1,
+        "rationale": "Low energy availability (EA) below ~30 kcal/kg FFM/day—where energy intake is insufficient to cover exercise expenditure and basic physiological functions—is the primary cause of hypothalamic LH pulse disruption and secondary amenorrhea."
+      },
+      {
+        "id": 5,
+        "q": "Below what energy availability threshold does neuroendocrine disruption of LH pulsatility and thyroid hormone (T3) suppression occur in females?",
+        "opts": [
+          "45 kcal/kg FFM/day",
+          "30 kcal/kg FFM/day",
+          "60 kcal/kg FFM/day",
+          "15 kcal/kg FFM/day"
+        ],
+        "correct": 1,
+        "rationale": "When energy availability drops below 30 kcal/kg FFM/day, hypothalamic GnRH release is disrupted, altering LH pulsatility and suppressing metabolic rate markers like active T3 and leptin."
+      },
+      {
+        "id": 6,
+        "q": "What happens to baseline physiological performance capacities (e.g., VO2max, muscle strength, submaximal cardiac output) across different phases of the menstrual cycle?",
+        "opts": [
+          "Performance decreases by 50% during the luteal phase in all women",
+          "Baseline physiological performance capacities remain stable across cycle phases with no systemic decline",
+          "VO2max is completely absent during menses",
+          "Strength doubles during ovulation due to progesterone hypersecretion"
+        ],
+        "correct": 1,
+        "rationale": "Extensive empirical research demonstrates no consistent or systemic decline in physiological performance capacities (VO2max, strength, submaximal cardiorespiratory kinetics) across menstrual cycle phases."
+      },
+      {
+        "id": 7,
+        "q": "Which formula correctly defines Energy Availability (EA) in exercise physiology?",
+        "opts": [
+          "EA = (Energy Intake - Exercise Energy Expenditure) / Fat-Free Mass (kg)",
+          "EA = Total Body Weight / Energy Intake",
+          "EA = Exercise Energy Expenditure x Resting Metabolic Rate",
+          "EA = Fat Mass / Caloric Intake"
+        ],
+        "correct": 0,
+        "rationale": "Energy Availability is defined as dietary energy intake (EI) minus exercise energy expenditure (EEE), normalized to fat-free mass (FFM in kg): EA = (EI - EEE) / FFM."
+      },
+      {
+        "id": 8,
+        "q": "What is the clinical term for abnormally infrequent or irregular menstruation characterized by cycle lengths exceeding 35 days (fewer than 9 cycles/year)?",
+        "opts": [
+          "Eumenorrhea",
+          "Oligomenorrhea",
+          "Dysmenorrhea",
+          "Menorrhagia"
+        ],
+        "correct": 1,
+        "rationale": "Oligomenorrhea is defined as abnormally infrequent or irregular menses occurring at intervals greater than 35 days (fewer than 9 cycles per year)."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which endocrine and metabolic alterations occur when energy availability drops below 30 kcal/kg FFM/day? (Select all that apply)",
+        "opts": [
+          "Disruption of hypothalamic GnRH secretion and LH pulse frequency/amplitude",
+          "Hypoestrogenemia (low circulating estrogen) and progesterone deficiency",
+          "Suppression of active thyroid hormone (T3), leptin, and IGF-1",
+          "Massive elevation of resting metabolic rate and body temperature"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Low energy availability disrupts LH pulsatility, lowers circulating estrogen/progesterone, and depresses metabolic hormone markers (T3, leptin, IGF-1). Metabolic rate decreases rather than increases."
+      },
+      {
+        "id": 2,
+        "q": "Which diagnostic categories describe menstrual function status in female athletes? (Select all that apply)",
+        "opts": [
+          "Eumenorrhea (normal regular menses every 21–35 days)",
+          "Primary Amenorrhea (absence of menarche by age 15)",
+          "Secondary Amenorrhea (absence of menses for >=90 days in previously regular females)",
+          "Oligomenorrhea (irregular menses with cycles >35 days)"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "rationale": "All four terms represent formal diagnostic points along the menstrual function spectrum."
+      },
+      {
+        "id": 3,
+        "q": "Which athletic sports categories exhibit the highest prevalence rates of secondary amenorrhea (up to 60%+)? (Select all that apply)",
+        "opts": [
+          "Distance running (endurance)",
+          "Ballet and figure skating (aesthetic/appearance)",
+          "Gymnastics (aesthetic/appearance)",
+          "Heavyweight powerlifting"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Aesthetic, appearance, and distance endurance sports emphasizing low body mass carry the highest prevalence of secondary amenorrhea (up to 60%+)."
+      },
+      {
+        "id": 4,
+        "q": "Which facts regarding exercise training and menstrual cycle phases are supported by textbook evidence? (Select all that apply)",
+        "opts": [
+          "World records and Olympic gold medals have been achieved across all phases of the menstrual cycle",
+          "Submaximal VO2, strength, and anaerobic power do not show systemic phase-dependent declines",
+          "High-volume exercise without energy deficit (when caloric intake matches expenditure) does NOT disrupt LH pulsatility",
+          "Exercise stress alone automatically destroys ovarian function regardless of energy intake"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Performance capacities remain stable across cycle phases, world records occur in all phases, and energy deficit—not exercise stress per se—drives LH disruption."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "Secondary amenorrhea is defined as the absence of menstruation for 90 days or longer in a previously eumenorrheic female athlete.",
+        "ans": true,
+        "feedback": "True. Secondary amenorrhea is the clinical absence of menses for 90 consecutive days or more in a previously menstruating female."
+      },
+      {
+        "id": 2,
+        "q": "High exercise training volume directly causes amenorrhea even when dietary caloric intake fully matches exercise energy expenditure.",
+        "ans": false,
+        "feedback": "False. Experimental research proves that high training volume with adequate caloric intake (maintaining EA >= 45 kcal/kg FFM/day) preserves normal LH pulsatility."
+      },
+      {
+        "id": 3,
+        "q": "Optimal energy availability for maintaining normal reproductive and endocrine function in females is at least 45 kcal/kg FFM/day.",
+        "ans": true,
+        "feedback": "True. Energy availability of 45 kcal/kg FFM/day supports healthy reproductive LH pulsatility and metabolic homeostasis."
+      },
+      {
+        "id": 4,
+        "q": "Systemic athletic performance capacities drop by 50% during the luteal phase of every eumenorrheic athlete.",
+        "ans": false,
+        "feedback": "False. Empirical testing demonstrates no consistent or systemic decline in physiological performance capacities across cycle phases."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "The primary cause of secondary amenorrhea is low **energy availability**, which disrupts hypothalamic **LH pulsatility**.",
+        "targets": [
+          "energy availability",
+          "LH pulsatility"
+        ],
+        "optionsBank": [
+          "energy availability",
+          "LH pulsatility",
+          "lactic acid",
+          "growth hormone",
+          "hyperthermia"
+        ],
+        "hint": "Identify the caloric deficit metric and the pituitary gonadotropin secretion pattern."
+      },
+      {
+        "id": 2,
+        "statement": "An energy availability below **30 kcal/kg FFM/day** induces hypoestrogenemia and suppresses active **T3** thyroid hormone.",
+        "targets": [
+          "30 kcal/kg FFM/day",
+          "T3"
+        ],
+        "optionsBank": [
+          "30 kcal/kg FFM/day",
+          "T3",
+          "100 kcal/kg FFM/day",
+          "insulin",
+          "myoglobin"
+        ],
+        "hint": "Identify the neuroendocrine disruption threshold and the active thyroid hormone."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Define secondary amenorrhea, state the mathematical formula for Energy Availability (EA), and detail the neuroendocrine mechanisms by which low energy availability causes menstrual disruption.",
+        "model": "Secondary amenorrhea is defined as the absence of menstruation for 90 days or longer in a previously eumenorrheic female. Energy Availability is calculated as EA = (Energy Intake - Exercise Energy Expenditure) / Fat-Free Mass (kg). When an athlete experiences chronic low energy availability (<30 kcal/kg FFM/day), the severe caloric deficit suppresses hypothalamic GnRH pulsatility, which disrupts anterior pituitary LH pulse frequency and amplitude. Disrupted LH pulsatility impairs ovarian follicular development, causing severe hypoestrogenemia (low circulating estrogen) and progesterone deficiency. Additionally, low EA triggers a starvation response, suppressing active thyroid hormone (T3), leptin, and IGF-1.",
+        "criteria": [
+          "Define secondary amenorrhea (absence of menses for >=90 days in previously eumenorrheic female).",
+          "State the EA formula: EA = (EI - EEE) / FFM (kg).",
+          "Detail neuroendocrine disruption: low EA (<30 kcal/kg FFM/day) alters GnRH/LH pulsatility, causing hypoestrogenemia and suppressing T3/leptin."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain textbook evidence regarding athletic performance stability across the phases of the normal menstrual cycle, and contrast energy deficit versus exercise stress as causes of amenorrhea.",
+        "model": "Textbook evidence demonstrates that baseline physiological capacities—including VO2max, submaximal cardiorespiratory kinetics, muscle strength, anaerobic power, and lactate threshold—remain fully preserved and stable across the early follicular, late follicular, and luteal phases of the menstrual cycle, with no systemic performance decline. World records and Olympic gold medals have been achieved across all cycle phases. Regarding causation, landmark experiments prove that exercise stress per se does not cause amenorrhea; when caloric intake is expanded to match high exercise energy expenditure (maintaining EA >= 45 kcal/kg FFM/day), LH pulsatility remains normal. Secondary amenorrhea is driven specifically by energy deficit (low EA < 30 kcal/kg FFM/day).",
+        "criteria": [
+          "State that baseline physiological performance capacities (VO2max, strength, submaximal kinetics) remain stable across cycle phases.",
+          "Mention that elite performance and world records occur across all cycle phases.",
+          "Differentiate exercise stress vs energy deficit: energy deficit (low EA) drives amenorrhea, whereas high training volume with matched intake preserves LH pulsatility."
+        ]
+      }
+    ]
+  },
+  "p2": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "What three interrelated clinical components comprise the Female Athlete Triad?",
+        "opts": [
+          "Low Energy Availability, Menstrual Dysfunction, and Low Bone Mineral Density",
+          "High Blood Pressure, Diabetes, and Asthma",
+          "Muscle Hypertrophy, Anemia, and Dehydration",
+          "Lactic Acidosis, Bradycardia, and Hypothermia"
+        ],
+        "correct": 0,
+        "rationale": "The Female Athlete Triad consists of three interrelated conditions along a continuum: (1) Low Energy Availability (with or without disordered eating), (2) Menstrual Dysfunction (secondary amenorrhea), and (3) Low Bone Density (osteopenia/osteoporosis)."
+      },
+      {
+        "id": 2,
+        "q": "What role does estrogen play in maintaining skeletal bone mineral density in females?",
+        "opts": [
+          "Estrogen stimulates osteoclasts to destroy all trabecular bone",
+          "Estrogen stimulates osteoblast bone formation and inhibits osteoclast bone resorption",
+          "Estrogen converts bone collagen into skeletal muscle fibers",
+          "Estrogen has zero effect on skeletal tissue"
+        ],
+        "correct": 1,
+        "rationale": "Estrogen protects bone health by stimulating osteoblast activity (bone mineral formation) and suppressing osteoclast activity (bone resorption)."
+      },
+      {
+        "id": 3,
+        "q": "At what annual percentage rate do amenorrheic female athletes lose skeletal bone mineral density?",
+        "opts": [
+          "0.1% per year",
+          "2% to 5% per year",
+          "25% per year",
+          "50% per year"
+        ],
+        "correct": 1,
+        "rationale": "Amenorrheic athletes with hypoestrogenemia lose bone mineral density at an accelerated rate of 2% to 5% per year, comparable to postmenopausal bone loss."
+      },
+      {
+        "id": 4,
+        "q": "Why is bone mineral density loss during adolescence and young adulthood particularly concerning for an athlete's long-term health?",
+        "opts": [
+          "Adolescence represents the critical window when over 90% of lifetime peak bone mass is accrued",
+          "Adolescents have no osteoblasts in their skeletal system",
+          "Bone loss during adolescence causes immediate loss of eyesight",
+          "Adolescent bone loss converts bone marrow into pure adipose tissue"
+        ],
+        "correct": 0,
+        "rationale": "Over 90% of lifetime peak bone mass is deposited during adolescence (ages 11–18). Estrogen deficiency during this window causes irreversible deficits in peak bone mass and permanent stress fracture risk."
+      },
+      {
+        "id": 5,
+        "q": "How is clinical osteopenia defined according to dual-energy X-ray absorptiometry (DXA) bone mineral density T-scores?",
+        "opts": [
+          "T-score between +1.0 and +2.5",
+          "T-score between -1.0 and -2.5",
+          "T-score <= -2.5",
+          "T-score of 0"
+        ],
+        "correct": 1,
+        "rationale": "Osteopenia is defined as a bone mineral density T-score between -1.0 and -2.5 standard deviations below young adult reference means."
+      },
+      {
+        "id": 6,
+        "q": "Which diagnostic criterion distinguishes clinical Bulimia Nervosa from general disordered eating?",
+        "opts": [
+          "Recurrent binge eating with purging at least twice weekly for 3 months",
+          "Drinking 2 liters of water daily",
+          "Refusal to eat any protein",
+          "Gaining 10 kg of fat-free mass in 1 week"
+        ],
+        "correct": 0,
+        "rationale": "Bulimia Nervosa is characterized by recurrent binge eating and compensatory purging behaviors (vomiting, laxatives) occurring at an average frequency of at least twice weekly for 3 months."
+      },
+      {
+        "id": 7,
+        "q": "Which sports category carries the highest prevalence rates of disordered eating and the Female Athlete Triad?",
+        "opts": [
+          "Appearance/aesthetic sports (gymnastics, figure skating, ballet) and distance running",
+          "Heavyweight field throwing (shot put, hammer throw)",
+          "Archery and marksmanship",
+          "Offensive line football"
+        ],
+        "correct": 0,
+        "rationale": "Aesthetic/appearance sports (gymnastics, figure skating, ballet), distance running (endurance), and weight-class sports exhibit the highest prevalence of disordered eating and Triad components."
+      },
+      {
+        "id": 8,
+        "q": "How is clinical Osteoporosis defined based on DXA bone mineral density T-scores?",
+        "opts": [
+          "T-score <= -2.5",
+          "T-score between -1.0 and 0",
+          "T-score > +2.0",
+          "T-score of +5.0"
+        ],
+        "correct": 0,
+        "rationale": "Osteoporosis is defined as a bone mineral density T-score of -2.5 or lower (<= -2.5 standard deviations below young adult means)."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which three interrelated health components comprise the Female Athlete Triad continuum? (Select all that apply)",
+        "opts": [
+          "Energy Availability (ranging from optimal to low EA)",
+          "Menstrual Function (ranging from eumenorrhea to amenorrhea)",
+          "Bone Mineral Density (ranging from optimal bone health to osteoporosis)",
+          "Pulmonary Tidal Volume (ranging from normal to asthma)"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "The Female Athlete Triad spectrum consists of Energy Availability, Menstrual Function, and Bone Mineral Density."
+      },
+      {
+        "id": 2,
+        "q": "Which skeletal consequences result from chronic hypoestrogenemia and low energy availability in amenorrheic athletes? (Select all that apply)",
+        "opts": [
+          "Accelerated bone mineral density loss of 2% to 5% per year",
+          "Increased incidence of trabecular and cortical stress fractures",
+          "Irreversible deficits in lifetime peak bone mass accrual",
+          "Immediate doubling of bone mineral density and cortical thickness"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Hypoestrogenemia accelerates bone loss (2%–5%/yr), increases stress fracture risk, and impairs peak bone mass accrual during adolescence."
+      },
+      {
+        "id": 3,
+        "q": "Which athletic categories are classified as high-risk for disordered eating and clinical eating disorders? (Select all that apply)",
+        "opts": [
+          "Appearance / aesthetic sports (gymnastics, figure skating, diving, ballet)",
+          "Endurance sports (distance running, cross-country skiing)",
+          "Weight-classification sports (lightweight rowing, jockeys, combat sports)",
+          "Heavyweight bench press competitions"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "High-risk categories include aesthetic/appearance sports, endurance sports, and weight-class sports where body mass penalization or weight limits exist."
+      },
+      {
+        "id": 4,
+        "q": "Which clinical features characterize Anorexia Nervosa according to psychiatric diagnostic criteria? (Select all that apply)",
+        "opts": [
+          "Refusal to maintain minimal normal body weight for age and height",
+          "Distorted body image and intense fear of gaining weight",
+          "Secondary amenorrhea in females",
+          "Compulsive overeating of 10,000 calories without purging"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Anorexia Nervosa involves refusal to maintain minimal weight, body image distortion, intense fear of weight gain, and secondary amenorrhea."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "The Female Athlete Triad is comprised of Low Energy Availability, Menstrual Dysfunction, and Low Bone Mineral Density.",
+        "ans": true,
+        "feedback": "True. The Triad represents a continuum connecting energy availability, menstrual status, and bone health."
+      },
+      {
+        "id": 2,
+        "q": "Amenorrheic female athletes lose skeletal bone mineral density at a rate of 2% to 5% per year due to estrogen deficiency.",
+        "ans": true,
+        "feedback": "True. Hypoestrogenemia disrupts bone remodeling, accelerating bone mineral loss at 2%–5% annually."
+      },
+      {
+        "id": 3,
+        "q": "Bone mineral density deficits accrued during adolescent amenorrhea can always be completely reversed in 2 weeks once menses returns.",
+        "ans": false,
+        "feedback": "False. Failure to accrue peak bone mass during adolescence often leaves permanent structural skeletal deficits and lifelong fracture risk."
+      },
+      {
+        "id": 4,
+        "q": "Prevalence of disordered eating and eating disorders in high-risk sports like gymnastics and distance running can exceed 60%.",
+        "ans": true,
+        "feedback": "True. High-risk aesthetic, endurance, and weight-class sports exhibit eating disorder/disordered eating prevalence rates exceeding 60%."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "The Female Athlete Triad connects low energy availability to secondary amenorrhea and **osteopenia**, increasing **stress fracture** risk.",
+        "targets": [
+          "osteopenia",
+          "stress fracture"
+        ],
+        "optionsBank": [
+          "osteopenia",
+          "stress fracture",
+          "hypertrophy",
+          "bradycardia",
+          "glycogen sparing"
+        ],
+        "hint": "Identify the bone loss condition and the resulting skeletal injury."
+      },
+      {
+        "id": 2,
+        "statement": "Estrogen protects bone by stimulating **osteoblasts** and inhibiting osteoclast-mediated **bone resorption**.",
+        "targets": [
+          "osteoblasts",
+          "bone resorption"
+        ],
+        "optionsBank": [
+          "osteoblasts",
+          "bone resorption",
+          "myocytes",
+          "glycolysis",
+          "protein synthesis"
+        ],
+        "hint": "Identify the bone-forming cells and the bone breakdown process."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Identify the three interrelated components of the Female Athlete Triad, and explain the cellular mechanism by which estrogen deficiency leads to accelerated bone mineral density loss and stress fractures.",
+        "model": "The Female Athlete Triad consists of three interrelated components along a clinical continuum: (1) Low Energy Availability (with or without disordered eating), (2) Menstrual Dysfunction (secondary amenorrhea), and (3) Low Bone Mineral Density (osteopenia/osteoporosis). Cellometrically, estrogen protects bone by stimulating osteoblast activity (bone formation) and suppressing osteoclast activity (bone resorption). In amenorrheic athletes, chronic hypoestrogenemia removes this protective brake on osteoclasts, causing bone resorption to exceed bone formation. Bone mineral density drops by 2% to 5% per year, eroding trabecular microarchitecture and markedly increasing the risk of cortical and trabecular stress fractures.",
+        "criteria": [
+          "Identify all 3 components of the Triad (Low Energy Availability, Menstrual Dysfunction, Low Bone Mineral Density).",
+          "Explain estrogen's cellular role (stimulates osteoblasts, inhibits osteoclasts).",
+          "Detail the loss mechanism (hypoestrogenemia causes resorption > formation, losing 2%-5% BMD/yr and causing stress fractures)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Differentiate disordered eating from clinical eating disorders (Anorexia Nervosa and Bulimia Nervosa), and list three high-risk athletic categories along with representative sports.",
+        "model": "Disordered eating encompasses abnormal, restrictive eating behaviors (skipping meals, severe caloric restriction, laxative misuse) that cause energy deficits but do not fulfill full psychiatric diagnostic criteria. In contrast, clinical eating disorders meet strict APA psychiatric criteria: Anorexia Nervosa involves refusal to maintain minimal body weight, distorted body image, intense fear of weight gain, and amenorrhea; Bulimia Nervosa involves recurrent binge eating and purging at least twice weekly for 3 months. Three high-risk athletic categories are: (1) Appearance / Aesthetic sports (gymnastics, figure skating, ballet, diving); (2) Endurance sports (distance running, cross-country skiing); (3) Weight-classification sports (lightweight rowing, combat sports, horse racing jockeys).",
+        "criteria": [
+          "Differentiate disordered eating (unhealthy restriction/behaviors below psychiatric threshold) from clinical eating disorders (meet full APA criteria).",
+          "Define Anorexia Nervosa (refusal to maintain minimal weight, image distortion, amenorrhea) and Bulimia Nervosa (binge-purge >=2x/wk for 3 months).",
+          "List 3 high-risk categories with sports (Appearance: gymnastics/skating; Endurance: running/skiing; Weight-class: rowing/combat)."
+        ]
+      }
+    ]
+  },
+  "p3": {
+    "mcq": [
+      {
+        "id": 1,
+        "q": "According to the American College of Obstetricians and Gynecologists (ACOG), how much weekly moderate-intensity aerobic exercise is recommended for uncomplicated pregnancies?",
+        "opts": [
+          "At least 150 minutes per week (e.g., 30 minutes/day, 5 days/week)",
+          "Zero minutes (strict bed rest required)",
+          "10 hours per day at maximal heart rate",
+          "60 minutes per month"
+        ],
+        "correct": 0,
+        "rationale": "ACOG guidelines recommend that pregnant women with uncomplicated pregnancies accumulate at least 150 minutes of moderate-intensity aerobic exercise per week."
+      },
+      {
+        "id": 2,
+        "q": "Which maternal cardiorespiratory adaptation occurs during a healthy pregnancy?",
+        "opts": [
+          "Blood volume expands by 40% to 50% and resting cardiac output increases by 30% to 50%",
+          "Blood volume drops by 80% causing immediate anemia",
+          "Resting heart rate decreases to 20 beats/min",
+          "Cardiac output drops to zero during the second trimester"
+        ],
+        "correct": 0,
+        "rationale": "Pregnancy expands plasma blood volume by 40% to 50%, increases resting heart rate by 10–15 bpm, and increases resting cardiac output by 30% to 50%."
+      },
+      {
+        "id": 3,
+        "q": "Which activity is strictly prohibited during pregnancy according to ACOG safety guidelines?",
+        "opts": [
+          "Scuba diving",
+          "Bisk walking on level ground",
+          "Stationary cycling",
+          "Water aerobics in a cool pool"
+        ],
+        "correct": 0,
+        "rationale": "Scuba diving is strictly prohibited during pregnancy because the fetal pulmonary circulation cannot filter bubble formation, posing severe risks of fetal decompression sickness."
+      },
+      {
+        "id": 4,
+        "q": "Why are contact sports (e.g., soccer, basketball, ice hockey) prohibited during pregnancy?",
+        "opts": [
+          "Risk of direct abdominal trauma and placental abruption",
+          "Risk of developing Type I diabetes within 5 minutes",
+          "Contact sports cause immediate bone loss in the fetus",
+          "Contact sports destroy maternal myoglobin"
+        ],
+        "correct": 0,
+        "rationale": "Contact sports carry a high risk of blunt abdominal trauma, which can lead to placental abruption or fetal injury."
+      },
+      {
+        "id": 5,
+        "q": "Why are hot yoga and hot Pilates contraindicated during pregnancy, particularly during the first trimester?",
+        "opts": [
+          "Risk of maternal hyperthermia (>38.5 deg C / 101.3 deg F), which is teratogenic and increases neural tube defect risk",
+          "Risk of excessive vitamin D absorption",
+          "Hot environments cause immediate muscle atrophy in the mother",
+          "Hot yoga converts blood hemoglobin into glucose"
+        ],
+        "correct": 0,
+        "rationale": "Maternal hyperthermia (>38.5 deg C or 101.3 deg F) during early pregnancy is teratogenic and significantly increases the risk of neural tube defects."
+      },
+      {
+        "id": 6,
+        "q": "What transient physiological response occurs during strenuous, maximal exercise exceeding 90% HRmax in pregnant elite athletes?",
+        "opts": [
+          "Transient 20% to 30% reduction in uterine blood flow and transient fetal heart rate decelerations",
+          "Immediate permanent cessation of fetal cardiac activity",
+          "Doubling of uterine artery diameter",
+          "Complete reversal of maternal blood circulation"
+        ],
+        "correct": 0,
+        "rationale": "Strenuous exercise exceeding 90% HRmax causes splanchnic vasoconstriction, evoking a transient 20% to 30% drop in uterine blood flow and transient fetal heart rate decelerations."
+      },
+      {
+        "id": 7,
+        "q": "Which pregnancy-related metabolic complication is significantly reduced in incidence by regular maternal physical activity?",
+        "opts": [
+          "Gestational diabetes",
+          "Type 1 juvenile diabetes",
+          "Sickle cell anemia",
+          "Hemophilia A"
+        ],
+        "correct": 0,
+        "rationale": "Regular exercise during pregnancy improves insulin sensitivity and glucose regulation, significantly reducing the risk of gestational diabetes."
+      },
+      {
+        "id": 8,
+        "q": "Why should exercise in the supine position (lying flat on back) be avoided after the first trimester of pregnancy?",
+        "opts": [
+          "The heavy gravid uterus compresses the inferior vena cava, reducing venous return and cardiac output",
+          "Supine position causes immediate uterine rupture",
+          "Supine position stops all fetal lung development",
+          "Supine position destroys maternal knee cartilage"
+        ],
+        "correct": 0,
+        "rationale": "After the first trimester, lying supine causes the enlarged uterus to compress the inferior vena cava, impairing venous return, lowering maternal cardiac output, and causing hypotension."
+      }
+    ],
+    "ms": [
+      {
+        "id": 1,
+        "q": "Which maternal health benefits are associated with regular moderate exercise during pregnancy? (Select all that apply)",
+        "opts": [
+          "Reduced risk of gestational diabetes and preeclampsia",
+          "Reduced incidence of excessive gestational weight gain",
+          "Decreased lower back pain and improved post-partum physical recovery",
+          "100% guarantee of zero labor discomfort"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Regular exercise reduces risks of gestational diabetes, preeclampsia, excessive weight gain, lower back pain, and aids recovery."
+      },
+      {
+        "id": 2,
+        "q": "Which activities are strictly contra-indicated/prohibited during pregnancy according to ACOG safety guidelines? (Select all that apply)",
+        "opts": [
+          "Scuba diving (fetal decompression sickness risk)",
+          "Contact sports like soccer, basketball, ice hockey (abdominal trauma risk)",
+          "Activities with high fall risk like downhill skiing or horseback riding",
+          "Moderate walking on level ground"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Scuba diving, contact sports, high-fall risk activities, and hot environments are prohibited. Level walking is highly recommended."
+      },
+      {
+        "id": 3,
+        "q": "Which cardiovascular adjustments occur naturally during a normal pregnancy? (Select all that apply)",
+        "opts": [
+          "Blood volume expansion of 40% to 50%",
+          "Increase in resting cardiac output by 30% to 50%",
+          "Increase in resting heart rate by 10 to 15 beats/min",
+          "Complete collapse of systemic blood vessels"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "Normal pregnancy involves blood volume expansion (40%–50%), increased resting heart rate (10–15 bpm), and elevated resting cardiac output (30%–50%)."
+      },
+      {
+        "id": 4,
+        "q": "Which practical guidelines should be followed when prescribing exercise for pregnant athletes? (Select all that apply)",
+        "opts": [
+          "Monitor intensity using Rate of Perceived Exertion (RPE 12–14) rather than fixed target heart rates",
+          "Ensure thorough hydration and dress in breathable clothing to prevent hyperthermia",
+          "Avoid supine exercise after the first trimester to prevent inferior vena cava compression",
+          "Force athletes to exercise to complete exhaustion in 40 deg C heat"
+        ],
+        "correctArray": [
+          0,
+          1,
+          2
+        ],
+        "rationale": "RPE monitoring, hydration/cooling, and avoiding supine positioning after T1 are standard ACOG safety guidelines."
+      }
+    ],
+    "tf": [
+      {
+        "id": 1,
+        "q": "ACOG recommends at least 150 minutes of moderate-intensity aerobic activity per week for pregnant women with uncomplicated pregnancies.",
+        "ans": true,
+        "feedback": "True. ACOG guidelines encourage 150 minutes/week of moderate exercise for healthy pregnant women."
+      },
+      {
+        "id": 2,
+        "q": "Scuba diving is completely safe during pregnancy because water pressure protects the fetus from gas bubbles.",
+        "ans": false,
+        "feedback": "False. Scuba diving is strictly prohibited due to the risk of fetal decompression sickness and gas embolism."
+      },
+      {
+        "id": 3,
+        "q": "Regular maternal exercise significantly reduces the risk of developing gestational diabetes and preeclampsia.",
+        "ans": true,
+        "feedback": "True. Exercise improves maternal glycemic control and vascular health, reducing gestational diabetes and hypertensive disorders."
+      },
+      {
+        "id": 4,
+        "q": "Pregnant athletes should be encouraged to exercise in the supine position during the third trimester to maximize venous return.",
+        "ans": false,
+        "feedback": "False. Supine exercise after T1 compresses the inferior vena cava, reducing venous return and causing maternal hypotension."
+      }
+    ],
+    "cloze": [
+      {
+        "id": 1,
+        "statement": "ACOG guidelines recommend **150 minutes** of moderate exercise per week, while prohibiting **scuba diving** due to gas bubble risks.",
+        "targets": [
+          "150 minutes",
+          "scuba diving"
+        ],
+        "optionsBank": [
+          "150 minutes",
+          "scuba diving",
+          "10 hours",
+          "walking",
+          "weightlifting"
+        ],
+        "hint": "Identify the weekly aerobic volume recommendation and the prohibited aquatic activity."
+      },
+      {
+        "id": 2,
+        "statement": "Avoid maternal **hyperthermia** above 38.5 deg C, and use **RPE** to monitor exercise intensity during pregnancy.",
+        "targets": [
+          "hyperthermia",
+          "RPE"
+        ],
+        "optionsBank": [
+          "hyperthermia",
+          "RPE",
+          "hypothermia",
+          "maximal heart rate",
+          "glycogen"
+        ],
+        "hint": "Identify the elevated body temperature risk and the subjective exertion monitoring scale."
+      }
+    ],
+    "sa": [
+      {
+        "id": 1,
+        "prompt": "Summarize ACOG exercise guidelines during pregnancy (volume, intensity monitoring), list three maternal health benefits of regular exercise, and identify three prohibited activity types.",
+        "model": "ACOG guidelines recommend that pregnant women with uncomplicated pregnancies engage in at least 150 minutes of moderate-intensity aerobic exercise per week (e.g., 30 minutes/day, 5 days/week). Exercise intensity should be monitored using Rate of Perceived Exertion (RPE 12–14 on 6–20 scale) rather than target heart rate, as maternal heart rate kinetics are altered. Three key maternal health benefits include: (1) Reduced risk of gestational diabetes; (2) Decreased incidence of preeclampsia and hypertensive disorders; (3) Reduced excessive gestational weight gain and lower back pain. Three prohibited activity types are: (1) Scuba diving (risk of fetal decompression sickness); (2) Contact sports like soccer/basketball (risk of abdominal trauma/placental abruption); (3) High fall-risk sports like downhill skiing or horseback riding.",
+        "criteria": [
+          "Cite ACOG guidelines (>=150 min/wk moderate exercise, monitor via RPE 12-14 rather than target HR).",
+          "List 3 maternal benefits (reduced gestational diabetes, preeclampsia, excessive weight gain, lower back pain).",
+          "Identify 3 prohibited activities (scuba diving, contact sports, high fall-risk sports, hot yoga)."
+        ]
+      },
+      {
+        "id": 2,
+        "prompt": "Explain the cardiovascular changes that occur naturally during pregnancy, describe why supine exercise should be avoided after the first trimester, and discuss physiological considerations for elite pregnant athletes exercising at high intensity.",
+        "model": "During a normal pregnancy, maternal blood volume expands by 40% to 50%, resting heart rate increases by 10 to 15 bpm, and resting cardiac output increases by 30% to 50% to perfusion the placenta. Supine exercise should be avoided after the first trimester because the enlarged, heavy uterus compresses the inferior vena cava against the spine, drastically reducing venous return, stroke volume, and maternal cardiac output (causing supine hypotensive syndrome). For elite pregnant athletes engaging in high-intensity exercise (>90% HRmax), strenuous exertion induces transient splanchnic and uterine vasoconstriction, causing a temporary 20% to 30% reduction in uterine blood flow and transient fetal heart rate decelerations. High-intensity training requires careful hydration, cooling, and obstetric oversight.",
+        "criteria": [
+          "Detail pregnancy cardiorespiratory changes (blood volume +40%-50%, resting HR +10-15 bpm, resting Q +30%-50%).",
+          "Explain supine avoidance (gravid uterus compresses inferior vena cava, impairing venous return and cardiac output).",
+          "Discuss high-intensity (>90% HRmax) elite exercise (transient 20%-30% drop in uterine blood flow, transient fetal HR decelerations, need for cooling/hydration)."
+        ]
+      }
+    ]
+  }
+}
