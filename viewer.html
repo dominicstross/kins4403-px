@@ -609,15 +609,20 @@
   function loadConceptPart(idx) {
     currentPartIndex = idx;
     
-    // Collapse all accordions by default
+    // 1. Force all shell accordions to be collapsed
     document.querySelectorAll('.accordion-card').forEach(c => c.classList.remove('open'));
 
-    // Update pinned pills
+    // 2. Update pinned header pills
     document.querySelectorAll('.part-pill').forEach((btn, i) => btn.classList.toggle('active', i === idx));
-    const page = moduleData.pages[idx] || moduleData.pages[0];
+    const page = (moduleData.pages && moduleData.pages[idx]) ? moduleData.pages[idx] : (moduleData.pages ? moduleData.pages[0] : {});
 
-    document.getElementById('readingContainer').innerHTML = page.readingHtml || '<p>No reading content available.</p>';
+    // 3. Inject reading and strip any legacy open attributes/classes inside reading
+    const readingDiv = document.getElementById('readingContainer');
+    readingDiv.innerHTML = page.readingHtml || '<p>No reading content available.</p>';
+    readingDiv.querySelectorAll('details[open]').forEach(d => d.removeAttribute('open'));
+    readingDiv.querySelectorAll('.accordion-card.open').forEach(c => c.classList.remove('open'));
 
+    // 4. Sample and populate quizzes
     currentPartCounts = page.sampleCounts || { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 1 };
     currentPool = resolvePartPool(page.id, idx);
 
@@ -627,6 +632,7 @@
     resampleCategory(null, 'cloze');
     resampleCategory(null, 'sa');
 
+    // 5. Update bottom stepping bar
     updateBottomBarNavigation();
 
     if (window.renderMath) window.renderMath();
