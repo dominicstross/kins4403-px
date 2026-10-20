@@ -517,9 +517,10 @@
     setupBottomNav(ch, mod);
 
     try {
+      const cacheBust = Date.now();
       const [resContent, resQuiz] = await Promise.all([
-        fetch(`content/ch${ch}/${mod}_content.json?t=${Date.now()}`),
-        fetch(`content/ch${ch}/${mod}_quiz.json?t=${Date.now()}`)
+        fetch(`content/ch${ch}/${mod}_content.json?t=${cacheBust}`),
+        fetch(`content/ch${ch}/${mod}_quiz.json?t=${cacheBust}`)
       ]);
 
       if (!resContent.ok || !resQuiz.ok) throw new Error(`Could not load files for Ch ${ch}, Module ${mod}`);
@@ -757,8 +758,8 @@
     
     items.forEach((item, i) => {
       const qId = `tf_item_${currentPartIndex}_${i}_${item.id || i}`;
-      const answerBool = (item.ans !== undefined) ? item.ans : (item.answer !== undefined ? item.answer : false);
-      const fbText = item.feedback || item.rationale || (answerBool ? "Correct statement." : "This statement is false.");
+      const answerBool = (item.ans !== undefined) ? Boolean(item.ans) : (item.answer !== undefined ? Boolean(item.answer) : false);
+      const fbText = item.feedback || item.rationale || (answerBool ? "This statement is true." : "This statement is false.");
 
       const div = document.createElement('div');
       div.className = 'q-item';
@@ -832,6 +833,7 @@
           bank.push(t);
         }
       });
+
       const uniqueBank = [];
       const seen = new Set();
       bank.forEach(opt => {
@@ -843,30 +845,29 @@
       });
       uniqueBank.sort(() => 0.5 - Math.random());
 
+      let blankIdx = 0;
       let renderedSentence = rawStmt;
-      let blankCounter = 0;
 
       if (rawStmt.includes('**')) {
         renderedSentence = rawStmt.replace(/\*\*(.*?)\*\*/g, () => {
-          const bIdx = blankCounter++;
-          return createClozeSelectHtml(qId, bIdx, uniqueBank);
+          const idx = blankIdx++;
+          return createClozeSelectHtml(qId, idx, uniqueBank);
         });
       } else if (targets.length > 0) {
         targets.forEach((tgt) => {
-          const bIdx = blankCounter++;
-          renderedSentence = renderedSentence.replace(tgt, createClozeSelectHtml(qId, bIdx, uniqueBank));
+          const idx = blankIdx++;
+          renderedSentence = renderedSentence.replace(tgt, createClozeSelectHtml(qId, idx, uniqueBank));
         });
-      } else {
-        const bIdx = blankCounter++;
-        renderedSentence = renderedSentence + " " + createClozeSelectHtml(qId, bIdx, uniqueBank);
       }
+
+      const escapedTargets = JSON.stringify(targets).replace(/"/g, '&quot;');
 
       const div = document.createElement('div');
       div.className = 'q-item';
       div.innerHTML = `
         <div class="q-title">${i + 1}. Sentence Completion (${targets.length} blank${targets.length > 1 ? 's' : ''})</div>
         <p style="font-size:1.05rem; line-height: 2.2;">${renderedSentence}</p>
-        <button class="action-btn" style="margin-top:12px;" onclick="gradeClozeMulti('${qId}', ${JSON.stringify(targets).replace(/"/g, '&quot;')})">Check Answer</button>
+        <button class="action-btn" style="margin-top:12px;" onclick="gradeClozeMulti('${qId}', ${escapedTargets})">Check Answer</button>
         <div class="feedback-box info" id="${qId}_fb">
           ${item.hint ? `<p><strong>Hint:</strong> ${item.hint}</p>` : ''}
           <div id="${qId}_targets_display" style="margin-top:4px;"></div>
