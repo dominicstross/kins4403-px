@@ -37,7 +37,6 @@
       padding-bottom: 90px;
     }
 
-    /* TOP PERSISTENT HEADER */
     header {
       background: var(--primary);
       color: #fff;
@@ -174,12 +173,49 @@
       color: var(--primary);
       border-bottom: 1px solid transparent;
       user-select: none;
+      gap: 12px;
     }
     .accordion-header:hover { background: var(--slate-50); }
     .accordion-card.open .accordion-header {
       border-bottom-color: var(--slate-200);
       background: var(--slate-100);
     }
+    .accordion-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .accordion-header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-badge {
+      background: #e2e8f0;
+      color: #334155;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+    .section-badge.perfect { background: #dcfce7; color: #166534; }
+
+    .resample-btn {
+      background: #fff;
+      border: 1px solid var(--slate-300);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .resample-btn:hover {
+      background: #eff6ff;
+      border-color: var(--accent);
+    }
+
     .chevron { transition: transform 0.2s ease; }
     .accordion-card.open .chevron { transform: rotate(180deg); }
     .accordion-body {
@@ -212,7 +248,6 @@
     .data-table th, .data-table td { padding: 10px 14px; border: 1px solid var(--slate-200); text-align: left; }
     .data-table th { background: var(--slate-100); font-weight: 700; color: var(--primary); }
 
-    /* QUESTION CARDS */
     .q-item {
       background: var(--slate-50);
       border: 1px solid var(--slate-200);
@@ -269,7 +304,6 @@
     }
     .action-btn:hover { background: var(--accent-hover); }
 
-    /* RUBRIC PILLS FOR SHORT ANSWER */
     .rubric-scores {
       display: flex;
       gap: 8px;
@@ -289,7 +323,6 @@
     .score-btn:hover { border-color: var(--accent); background: #eff6ff; }
     .score-btn.selected { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    /* BOTTOM STICKY BAR */
     .bottom-bar {
       position: fixed;
       bottom: 0; left: 0; right: 0;
@@ -353,51 +386,90 @@
   </div>
 
   <main id="pane-lesson" class="panel active">
-    <!-- Distinct acc- IDs guarantee no collisions with reading content -->
+    <!-- READING ACCORDION -->
     <div class="accordion-card open" id="acc-reading">
       <div class="accordion-header" onclick="toggleCard(this)">
-        <span>📖 Instructional Reading Content</span>
-        <span class="chevron">▼</span>
+        <div class="accordion-header-left">
+          <span>📖 Instructional Reading Content</span>
+        </div>
+        <div class="accordion-header-right">
+          <span class="chevron">▼</span>
+        </div>
       </div>
       <div class="accordion-body reading-content" id="readingContainer"></div>
     </div>
 
+    <!-- MCQ ACCORDION -->
     <div class="accordion-card open" id="acc-mcq">
       <div class="accordion-header" onclick="toggleCard(this)">
-        <span>🎯 Multiple Choice Questions</span>
-        <span class="chevron">▼</span>
+        <div class="accordion-header-left">
+          <span>🎯 Multiple Choice Questions</span>
+        </div>
+        <div class="accordion-header-right">
+          <span class="section-badge" id="badge-mcq">0 / 0 pts</span>
+          <button class="resample-btn" onclick="resampleCategory(event, 'mcq')">🔄 Resample</button>
+          <span class="chevron">▼</span>
+        </div>
       </div>
       <div class="accordion-body" id="container-mcq"></div>
     </div>
 
+    <!-- MULTI-SELECT ACCORDION -->
     <div class="accordion-card open" id="acc-ms">
       <div class="accordion-header" onclick="toggleCard(this)">
-        <span>☑️ Multi-Select Questions</span>
-        <span class="chevron">▼</span>
+        <div class="accordion-header-left">
+          <span>☑️ Multi-Select Questions</span>
+        </div>
+        <div class="accordion-header-right">
+          <span class="section-badge" id="badge-ms">0 / 0 pts</span>
+          <button class="resample-btn" onclick="resampleCategory(event, 'ms')">🔄 Resample</button>
+          <span class="chevron">▼</span>
+        </div>
       </div>
       <div class="accordion-body" id="container-ms"></div>
     </div>
 
+    <!-- TRUE / FALSE ACCORDION -->
     <div class="accordion-card open" id="acc-tf">
       <div class="accordion-header" onclick="toggleCard(this)">
-        <span>⚖️ True / False Statements</span>
-        <span class="chevron">▼</span>
+        <div class="accordion-header-left">
+          <span>⚖️ True / False Statements</span>
+        </div>
+        <div class="accordion-header-right">
+          <span class="section-badge" id="badge-tf">0 / 0 pts</span>
+          <button class="resample-btn" onclick="resampleCategory(event, 'tf')">🔄 Resample</button>
+          <span class="chevron">▼</span>
+        </div>
       </div>
       <div class="accordion-body" id="container-tf"></div>
     </div>
 
+    <!-- CLOZE ACCORDION -->
     <div class="accordion-card open" id="acc-cloze">
       <div class="accordion-header" onclick="toggleCard(this)">
-        <span>✏️ Sentence Completion (Cloze)</span>
-        <span class="chevron">▼</span>
+        <div class="accordion-header-left">
+          <span>✏️ Sentence Completion (Cloze)</span>
+        </div>
+        <div class="accordion-header-right">
+          <span class="section-badge" id="badge-cloze">0 / 0 pts</span>
+          <button class="resample-btn" onclick="resampleCategory(event, 'cloze')">🔄 Resample</button>
+          <span class="chevron">▼</span>
+        </div>
       </div>
       <div class="accordion-body" id="container-cloze"></div>
     </div>
 
+    <!-- SHORT ANSWER ACCORDION -->
     <div class="accordion-card open" id="acc-sa">
       <div class="accordion-header" onclick="toggleCard(this)">
-        <span>💡 Applied Short Answer Prompts</span>
-        <span class="chevron">▼</span>
+        <div class="accordion-header-left">
+          <span>💡 Applied Short Answer Prompts</span>
+        </div>
+        <div class="accordion-header-right">
+          <span class="section-badge" id="badge-sa">0 / 0 pts</span>
+          <button class="resample-btn" onclick="resampleCategory(event, 'sa')">🔄 Resample</button>
+          <span class="chevron">▼</span>
+        </div>
       </div>
       <div class="accordion-body" id="container-sa"></div>
     </div>
@@ -426,7 +498,10 @@
 <script>
   let moduleData = null;
   let quizData = null;
-  let gradedMap = {};
+  let currentPartIndex = 0;
+  let currentPartCounts = {};
+  let currentPool = null;
+  let gradedMap = {}; // Keyed by qId -> { earned, possible, type }
 
   const courseSequence = [
     { ch: '10', mod: '10.1' }, { ch: '10', mod: '10.2' }, { ch: '10', mod: '10.3' }, { ch: '10', mod: '10.4' },
@@ -525,38 +600,80 @@
   }
 
   function loadConceptPart(idx) {
+    currentPartIndex = idx;
     document.querySelectorAll('.part-pill').forEach((btn, i) => btn.classList.toggle('active', i === idx));
     const page = moduleData.pages[idx] || moduleData.pages[0];
 
     document.getElementById('readingContainer').innerHTML = page.readingHtml || '<p>No reading content available.</p>';
 
-    const counts = page.sampleCounts || { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 1 };
-    renderSampledAssessments(page.id, idx, counts);
+    currentPartCounts = page.sampleCounts || { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 1 };
+    currentPool = resolvePartPool(page.id, idx);
+
+    // Render all categories fresh
+    resampleCategory(null, 'mcq');
+    resampleCategory(null, 'ms');
+    resampleCategory(null, 'tf');
+    resampleCategory(null, 'cloze');
+    resampleCategory(null, 'sa');
 
     if (window.renderMath) window.renderMath();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function renderSampledAssessments(partId, partIdx, counts) {
-    const pool = resolvePartPool(partId, partIdx);
-    const mcqLimit = counts.mcq !== undefined ? counts.mcq : 2;
-    const msLimit = counts.ms !== undefined ? counts.ms : 2;
-    const tfLimit = counts.tf !== undefined ? counts.tf : 2;
-    const clozeLimit = counts.cloze !== undefined ? counts.cloze : 2;
-    const saLimit = counts.sa !== undefined ? counts.sa : 1;
+  // INDEPENDENT CATEGORY RESAMPLING
+  window.resampleCategory = (event, type) => {
+    if (event) event.stopPropagation(); // Don't trigger accordion toggle
+    if (!currentPool) return;
 
-    renderMCQs(sample(pool ? (pool.mcq || pool.multipleChoice) : [], mcqLimit));
-    renderMSs(sample(pool ? (pool.ms || pool.multiSelect) : [], msLimit));
-    renderTFs(sample(pool ? (pool.tf || pool.trueFalse) : [], tfLimit));
-    renderClozes(sample(pool ? (pool.cloze || pool.fillBlank) : [], clozeLimit));
-    renderSAs(sample(pool ? (pool.sa || pool.shortAnswer || pool.openEnded) : [], saLimit));
+    // Clear scores for this type in gradedMap
+    Object.keys(gradedMap).forEach(k => {
+      if (gradedMap[k].type === type) delete gradedMap[k];
+    });
+
+    const count = currentPartCounts[type] || (type === 'sa' ? 1 : 2);
+
+    if (type === 'mcq') {
+      const items = sample(currentPool.mcq || currentPool.multipleChoice || [], count);
+      renderMCQs(items);
+      updateSectionBadge('mcq', count);
+    } else if (type === 'ms') {
+      const items = sample(currentPool.ms || currentPool.multiSelect || [], count);
+      renderMSs(items);
+      updateSectionBadge('ms', count);
+    } else if (type === 'tf') {
+      const items = sample(currentPool.tf || currentPool.trueFalse || [], count);
+      renderTFs(items);
+      updateSectionBadge('tf', count);
+    } else if (type === 'cloze') {
+      const items = sample(currentPool.cloze || currentPool.fillBlank || [], count);
+      renderClozes(items);
+      updateSectionBadge('cloze', count);
+    } else if (type === 'sa') {
+      const items = sample(currentPool.sa || currentPool.shortAnswer || currentPool.openEnded || [], count);
+      renderSAs(items);
+      updateSectionBadge('sa', count * 5);
+    }
+
+    recalcGlobalScore();
+  };
+
+  function updateSectionBadge(type, totalPts) {
+    let earned = 0;
+    Object.values(gradedMap).forEach(v => {
+      if (v.type === type) earned += v.earned;
+    });
+    const badge = document.getElementById(`badge-${type}`);
+    if (badge) {
+      badge.textContent = `${earned} / ${totalPts} pts`;
+      badge.classList.toggle('perfect', earned === totalPts && totalPts > 0);
+    }
   }
 
   function renderMCQs(items) {
     const c = document.getElementById('container-mcq');
     c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
     items.forEach((item, i) => {
-      const qId = item.id || `mcq_${i}`;
+      const qId = item.id || `mcq_${i}_${Date.now()}`;
       const div = document.createElement('div');
       div.className = 'q-item';
       div.innerHTML = `
@@ -581,12 +698,12 @@
     const isCorrect = (selected === correct);
     if (isCorrect) {
       chosen.classList.add('correct');
-      recordScore(qId, 1, 1);
+      recordScore(qId, 'mcq', 1, 1);
     } else {
       chosen.classList.add('incorrect');
       const corr = document.getElementById(`${qId}_opt_${correct}`);
       if (corr) corr.classList.add('correct');
-      recordScore(qId, 0, 1);
+      recordScore(qId, 'mcq', 0, 1);
     }
     document.getElementById(`${qId}_fb`).classList.add('visible');
   };
@@ -595,7 +712,7 @@
     const c = document.getElementById('container-ms');
     c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
     items.forEach((item, i) => {
-      const qId = item.id || `ms_${i}`;
+      const qId = item.id || `ms_${i}_${Date.now()}`;
       const correctArr = item.correctArray || item.correct || [];
       const div = document.createElement('div');
       div.className = 'q-item';
@@ -632,7 +749,7 @@
     });
 
     const isMatch = (checked.length === correctArray.length && checked.every(v => correctArray.includes(v)));
-    recordScore(qId, isMatch ? 1 : 0, 1);
+    recordScore(qId, 'ms', isMatch ? 1 : 0, 1);
     document.getElementById(`${qId}_fb`).classList.add('visible');
   };
 
@@ -640,7 +757,7 @@
     const c = document.getElementById('container-tf');
     c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
     items.forEach((item, i) => {
-      const qId = item.id || `tf_${i}`;
+      const qId = item.id || `tf_${i}_${Date.now()}`;
       const answerBool = (item.ans !== undefined) ? item.ans : item.answer;
       const div = document.createElement('div');
       div.className = 'q-item';
@@ -650,7 +767,7 @@
           <label class="opt-label" id="${qId}_true"><input type="radio" name="${qId}" onchange="gradeTF('${qId}', true, ${answerBool})"> True</label>
           <label class="opt-label" id="${qId}_false"><input type="radio" name="${qId}" onchange="gradeTF('${qId}', false, ${answerBool})"> False</label>
         </div>
-        <div class="feedback-box info" id="${qId}_fb"><strong>Feedback:</strong> ${item.feedback || item.rationale || 'Review key principles.'}</div>
+        <div class="feedback-box info" id="${qId}_fb"><strong>Feedback:</strong> ${item.feedback || item.rationale || 'Review key concepts.'}</div>
       `;
       c.appendChild(div);
     });
@@ -661,12 +778,12 @@
     document.querySelectorAll(`[id^="${qId}_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
     if (selected === correct) {
       chosen.classList.add('correct');
-      recordScore(qId, 1, 1);
+      recordScore(qId, 'tf', 1, 1);
     } else {
       chosen.classList.add('incorrect');
       const corr = document.getElementById(`${qId}_${correct}`);
       if (corr) corr.classList.add('correct');
-      recordScore(qId, 0, 1);
+      recordScore(qId, 'tf', 0, 1);
     }
     document.getElementById(`${qId}_fb`).classList.add('visible');
   };
@@ -675,7 +792,7 @@
     const c = document.getElementById('container-cloze');
     c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
     items.forEach((item, i) => {
-      const qId = item.id || `clz_${i}`;
+      const qId = item.id || `clz_${i}_${Date.now()}`;
       const rawStmt = item.statement || "";
       const target = item.target || ((item.targets && item.targets[0]) ? item.targets[0] : "");
       const cleanStmt = rawStmt.replace(/\*\*(.*?)\*\*/g, '___TARGET___');
@@ -707,11 +824,11 @@
     if (sel.value.toLowerCase().trim() === target.toLowerCase().trim()) {
       sel.style.borderColor = 'var(--success)';
       fb.classList.add('visible');
-      recordScore(qId, 1, 1);
+      recordScore(qId, 'cloze', 1, 1);
     } else {
       sel.style.borderColor = 'var(--danger)';
       fb.classList.remove('visible');
-      recordScore(qId, 0, 1);
+      recordScore(qId, 'cloze', 0, 1);
     }
   };
 
@@ -719,7 +836,7 @@
     const c = document.getElementById('container-sa');
     c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No short answer prompts available.</p>' : '';
     items.forEach((item, i) => {
-      const qId = item.id || `sa_${i}`;
+      const qId = item.id || `sa_${i}_${Date.now()}`;
       const div = document.createElement('div');
       div.className = 'q-item';
       div.innerHTML = `
@@ -745,11 +862,20 @@
     document.querySelectorAll(`[id^="${qId}_pt_"]`).forEach(b => b.classList.remove('selected'));
     const btn = document.getElementById(`${qId}_pt_${pts}`);
     if (btn) btn.classList.add('selected');
-    recordScore(qId, pts, 5);
+    recordScore(qId, 'sa', pts, 5);
   };
 
-  function recordScore(qId, earned, possible) {
-    gradedMap[qId] = { earned, possible };
+  function recordScore(qId, type, earned, possible) {
+    gradedMap[qId] = { earned, possible, type };
+    
+    // Update section badge
+    const totalSectionPts = (type === 'sa' ? (currentPartCounts.sa || 1) * 5 : (currentPartCounts[type] || 2));
+    updateSectionBadge(type, totalSectionPts);
+
+    recalcGlobalScore();
+  }
+
+  function recalcGlobalScore() {
     let totalEarned = 0;
     let totalPoss = 0;
     Object.values(gradedMap).forEach(v => {
