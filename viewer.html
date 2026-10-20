@@ -274,12 +274,13 @@
 
     .cloze-select {
       font-family: inherit;
-      font-size: 1rem;
+      font-size: 0.95rem;
       padding: 4px 8px;
       border-radius: 6px;
       border: 1.5px solid var(--accent);
       background: #fff;
-      margin: 0 4px;
+      margin: 2px 4px;
+      display: inline-block;
     }
     .feedback-box {
       margin-top: 10px;
@@ -501,7 +502,7 @@
   let currentPartIndex = 0;
   let currentPartCounts = {};
   let currentPool = null;
-  let gradedMap = {}; // Keyed by qId -> { earned, possible, type }
+  let gradedMap = {};
 
   const courseSequence = [
     { ch: '10', mod: '10.1' }, { ch: '10', mod: '10.2' }, { ch: '10', mod: '10.3' }, { ch: '10', mod: '10.4' },
@@ -609,7 +610,6 @@
     currentPartCounts = page.sampleCounts || { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 1 };
     currentPool = resolvePartPool(page.id, idx);
 
-    // Render all categories fresh
     resampleCategory(null, 'mcq');
     resampleCategory(null, 'ms');
     resampleCategory(null, 'tf');
@@ -620,12 +620,10 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // INDEPENDENT CATEGORY RESAMPLING
   window.resampleCategory = (event, type) => {
-    if (event) event.stopPropagation(); // Don't trigger accordion toggle
+    if (event) event.stopPropagation();
     if (!currentPool) return;
 
-    // Clear scores for this type in gradedMap
     Object.keys(gradedMap).forEach(k => {
       if (gradedMap[k].type === type) delete gradedMap[k];
     });
@@ -673,7 +671,7 @@
     const c = document.getElementById('container-mcq');
     c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
     items.forEach((item, i) => {
-      const qId = item.id || `mcq_${i}_${Date.now()}`;
+      const qId = `mcq_${currentPartIndex}_${i}_${item.id || i}`;
       const div = document.createElement('div');
       div.className = 'q-item';
       div.innerHTML = `
@@ -712,7 +710,7 @@
     const c = document.getElementById('container-ms');
     c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
     items.forEach((item, i) => {
-      const qId = item.id || `ms_${i}_${Date.now()}`;
+      const qId = `ms_${currentPartIndex}_${i}_${item.id || i}`;
       const correctArr = item.correctArray || item.correct || [];
       const div = document.createElement('div');
       div.className = 'q-item';
@@ -756,127 +754,176 @@
   function renderTFs(items) {
     const c = document.getElementById('container-tf');
     c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
+    
     items.forEach((item, i) => {
-      const qId = item.id || `tf_${i}_${Date.now()}`;
-      const answerBool = (item.ans !== undefined) ? item.ans : item.answer;
+      const qId = `tf_item_${currentPartIndex}_${i}_${item.id || i}`;
+      const answerBool = (item.ans !== undefined) ? item.ans : (item.answer !== undefined ? item.answer : false);
+      const fbText = item.feedback || item.rationale || (answerBool ? "Correct statement." : "This statement is false.");
+
       const div = document.createElement('div');
       div.className = 'q-item';
       div.innerHTML = `
         <div class="q-title">${i + 1}. True or False: ${item.q || item.question}</div>
-        <div class="option-group" style="flex-direction:row;">
-          <label class="opt-label" id="${qId}_true"><input type="radio" name="${qId}" onchange="gradeTF('${qId}', true, ${answerBool})"> True</label>
-          <label class="opt-label" id="${qId}_false"><input type="radio" name="${qId}" onchange="gradeTF('${qId}', false, ${answerBool})"> False</label>
+        <div class="option-group" style="flex-direction:row; gap:12px;">
+          <label class="opt-label" id="${qId}_true_lbl">
+            <input type="radio" name="${qId}_radio" onchange="gradeTF('${qId}', true, ${answerBool})"> True
+          </label>
+          <label class="opt-label" id="${qId}_false_lbl">
+            <input type="radio" name="${qId}_radio" onchange="gradeTF('${qId}', false, ${answerBool})"> False
+          </label>
         </div>
-        <div class="feedback-box info" id="${qId}_fb"><strong>Feedback:</strong> ${item.feedback || item.rationale || 'Review key concepts.'}</div>
+        <div class="feedback-box info" id="${qId}_fb">
+          <strong>Physiological Rationale:</strong> ${fbText}
+        </div>
       `;
       c.appendChild(div);
     });
   }
 
-  window.gradeTF = (qId, selected, correct) => {
-    const chosen = document.getElementById(`${qId}_${selected}`);
-    document.querySelectorAll(`[id^="${qId}_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
-    if (selected === correct) {
-      chosen.classList.add('correct');
+  window.gradeTF = (qId, selectedBool, correctBool) => {
+    const trueLbl = document.getElementById(`${qId}_true_lbl`);
+    const falseLbl = document.getElementById(`${qId}_false_lbl`);
+    const fbBox = document.getElementById(`${qId}_fb`);
+
+    if (trueLbl) trueLbl.classList.remove('correct', 'incorrect');
+    if (falseLbl) falseLbl.classList.remove('correct', 'incorrect');
+
+    const chosenLbl = selectedBool ? trueLbl : falseLbl;
+    const correctLbl = correctBool ? trueLbl : falseLbl;
+
+    if (selectedBool === correctBool) {
+      if (chosenLbl) chosenLbl.classList.add('correct');
       recordScore(qId, 'tf', 1, 1);
     } else {
-      chosen.classList.add('incorrect');
-      const corr = document.getElementById(`${qId}_${correct}`);
-      if (corr) corr.classList.add('correct');
+      if (chosenLbl) chosenLbl.classList.add('incorrect');
+      if (correctLbl) correctLbl.classList.add('correct');
       recordScore(qId, 'tf', 0, 1);
     }
-    document.getElementById(`${qId}_fb`).classList.add('visible');
+
+    if (fbBox) {
+      fbBox.classList.remove('info', 'success');
+      fbBox.classList.add(selectedBool === correctBool ? 'success' : 'info', 'visible');
+    }
   };
 
   function renderClozes(items) {
     const c = document.getElementById('container-cloze');
     c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
+
     items.forEach((item, i) => {
-      const qId = item.id || `clz_${i}_${Date.now()}`;
+      const qId = `clz_item_${currentPartIndex}_${i}_${item.id || i}`;
       const rawStmt = item.statement || "";
       
-      // 1. Detect target term across all generator variants
-      let target = (item.target || (item.targets && item.targets[0]) || "").trim();
-      
-      // If target not explicitly set, extract whatever was inside **bold**
-      if (!target) {
-        const boldMatch = rawStmt.match(/\*\*(.*?)\*\*/);
-        if (boldMatch) target = boldMatch[1].trim();
+      let targets = [];
+      if (Array.isArray(item.targets) && item.targets.length > 0) {
+        targets = item.targets.map(t => String(t).trim());
+      } else {
+        const matches = [...rawStmt.matchAll(/\*\*(.*?)\*\*/g)].map(m => m[1].trim());
+        if (matches.length > 0) {
+          targets = matches;
+        } else if (item.target) {
+          targets = [String(item.target).trim()];
+        }
       }
 
-      // 2. Format the sentence with a replacement marker
-      let cleanStmt = rawStmt;
-      if (rawStmt.includes('**')) {
-        cleanStmt = rawStmt.replace(/\*\*(.*?)\*\*/g, '___TARGET___');
-      } else if (target && rawStmt.includes(target)) {
-        cleanStmt = rawStmt.replace(target, '___TARGET___');
-      } else if (rawStmt.includes('___')) {
-        cleanStmt = rawStmt.replace(/_{3,}/g, '___TARGET___');
-      }
-
-      const parts = cleanStmt.includes('___TARGET___') ? cleanStmt.split('___TARGET___') : [cleanStmt, ""];
-
-      // 3. Guarantee target is ALWAYS in the options bank
       let bank = Array.isArray(item.optionsBank) ? [...item.optionsBank] : [];
-      if (target && !bank.some(opt => opt.trim().toLowerCase() === target.toLowerCase())) {
-        bank.push(target);
+      targets.forEach(t => {
+        if (!bank.some(b => b.trim().toLowerCase() === t.toLowerCase())) {
+          bank.push(t);
+        }
+      });
+      const uniqueBank = [];
+      const seen = new Set();
+      bank.forEach(opt => {
+        const clean = String(opt).trim();
+        if (clean && !seen.has(clean.toLowerCase())) {
+          seen.add(clean.toLowerCase());
+          uniqueBank.push(clean);
+        }
+      });
+      uniqueBank.sort(() => 0.5 - Math.random());
+
+      let renderedSentence = rawStmt;
+      let blankCounter = 0;
+
+      if (rawStmt.includes('**')) {
+        renderedSentence = rawStmt.replace(/\*\*(.*?)\*\*/g, () => {
+          const bIdx = blankCounter++;
+          return createClozeSelectHtml(qId, bIdx, uniqueBank);
+        });
+      } else if (targets.length > 0) {
+        targets.forEach((tgt) => {
+          const bIdx = blankCounter++;
+          renderedSentence = renderedSentence.replace(tgt, createClozeSelectHtml(qId, bIdx, uniqueBank));
+        });
+      } else {
+        const bIdx = blankCounter++;
+        renderedSentence = renderedSentence + " " + createClozeSelectHtml(qId, bIdx, uniqueBank);
       }
-      if (bank.length < 3) {
-        bank.push("Left ventricular hypertrophy", "Stroke volume", "Tidal volume");
-      }
-      
-      // De-duplicate and shuffle
-      const uniqueBank = Array.from(new Set(bank.map(b => b.trim()))).sort(() => 0.5 - Math.random());
 
       const div = document.createElement('div');
       div.className = 'q-item';
       div.innerHTML = `
-        <div class="q-title">${i + 1}. Sentence Completion</div>
-        <p style="font-size:1.05rem;">
-          ${parts[0]}
-          <select class="cloze-select" id="${qId}_sel" onchange="gradeCloze('${qId}', '${target.replace(/'/g, "\\'")}')">
-            <option value="">-- select term --</option>
-            ${uniqueBank.map(o => `<option value="${o}">${o}</option>`).join('')}
-          </select>
-          ${parts[1] || ''}
-        </p>
-        <div class="feedback-box success" id="${qId}_fb">✓ Correct target identified!</div>
+        <div class="q-title">${i + 1}. Sentence Completion (${targets.length} blank${targets.length > 1 ? 's' : ''})</div>
+        <p style="font-size:1.05rem; line-height: 2.2;">${renderedSentence}</p>
+        <button class="action-btn" style="margin-top:12px;" onclick="gradeClozeMulti('${qId}', ${JSON.stringify(targets).replace(/"/g, '&quot;')})">Check Answer</button>
+        <div class="feedback-box info" id="${qId}_fb">
+          ${item.hint ? `<p><strong>Hint:</strong> ${item.hint}</p>` : ''}
+          <div id="${qId}_targets_display" style="margin-top:4px;"></div>
+        </div>
       `;
       c.appendChild(div);
     });
   }
 
-  window.gradeCloze = (qId, target) => {
-    const sel = document.getElementById(`${qId}_sel`);
-    const fb = document.getElementById(`${qId}_fb`);
-    if (!sel) return;
-    
-    // Case-insensitive, trimmed comparison
-    const userVal = sel.value.trim().toLowerCase();
-    const correctVal = (target || "").trim().toLowerCase();
+  function createClozeSelectHtml(qId, blankIdx, bank) {
+    return `
+      <select class="cloze-select" id="${qId}_blank_${blankIdx}">
+        <option value="">-- select --</option>
+        ${bank.map(opt => `<option value="${opt.replace(/"/g, '&quot;')}">${opt}</option>`).join('')}
+      </select>
+    `;
+  }
 
-    if (userVal && userVal === correctVal) {
-      sel.style.borderColor = 'var(--success)';
-      fb.classList.add('visible');
-      recordScore(qId, 'cloze', 1, 1);
-    } else {
-      sel.style.borderColor = 'var(--danger)';
-      fb.classList.remove('visible');
-      recordScore(qId, 'cloze', 0, 1);
-    }
-  };
+  window.gradeClozeMulti = (qId, targets) => {
+    let allCorrect = true;
+    let anyEmpty = false;
+    const fbBox = document.getElementById(`${qId}_fb`);
+    const targetDisplay = document.getElementById(`${qId}_targets_display`);
 
-  window.gradeCloze = (qId, target) => {
-    const sel = document.getElementById(`${qId}_sel`);
-    const fb = document.getElementById(`${qId}_fb`);
-    if (sel.value.toLowerCase().trim() === target.toLowerCase().trim()) {
-      sel.style.borderColor = 'var(--success)';
-      fb.classList.add('visible');
+    targets.forEach((tgt, idx) => {
+      const sel = document.getElementById(`${qId}_blank_${idx}`);
+      if (!sel) return;
+
+      const userVal = sel.value.trim().toLowerCase();
+      const expectedVal = String(tgt).trim().toLowerCase();
+
+      if (!userVal) {
+        anyEmpty = true;
+        allCorrect = false;
+        sel.style.borderColor = 'var(--danger)';
+      } else if (userVal === expectedVal) {
+        sel.style.borderColor = 'var(--success)';
+      } else {
+        allCorrect = false;
+        sel.style.borderColor = 'var(--danger)';
+      }
+    });
+
+    if (allCorrect) {
       recordScore(qId, 'cloze', 1, 1);
+      if (fbBox) {
+        fbBox.className = 'feedback-box success visible';
+        targetDisplay.innerHTML = `<strong>✓ Fully Correct!</strong> Key sequence: <em>${targets.join(' &rarr; ')}</em>`;
+      }
     } else {
-      sel.style.borderColor = 'var(--danger)';
-      fb.classList.remove('visible');
       recordScore(qId, 'cloze', 0, 1);
+      if (fbBox) {
+        fbBox.className = 'feedback-box info visible';
+        targetDisplay.innerHTML = anyEmpty 
+          ? `<em>Please select an answer for every blank.</em>` 
+          : `<strong>Review Solution:</strong> Expected terms: <strong>${targets.join(', ')}</strong>`;
+      }
     }
   };
 
@@ -884,7 +931,7 @@
     const c = document.getElementById('container-sa');
     c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No short answer prompts available.</p>' : '';
     items.forEach((item, i) => {
-      const qId = item.id || `sa_${i}_${Date.now()}`;
+      const qId = `sa_${currentPartIndex}_${i}_${item.id || i}`;
       const div = document.createElement('div');
       div.className = 'q-item';
       div.innerHTML = `
@@ -916,7 +963,6 @@
   function recordScore(qId, type, earned, possible) {
     gradedMap[qId] = { earned, possible, type };
     
-    // Update section badge
     const totalSectionPts = (type === 'sa' ? (currentPartCounts.sa || 1) * 5 : (currentPartCounts[type] || 2));
     updateSectionBadge(type, totalSectionPts);
 
