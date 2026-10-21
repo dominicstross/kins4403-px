@@ -158,5 +158,13 @@
       "term": "Myelination",
       "def": "The process of forming an insulating fatty myelin sheath around nerve axons, which significantly accelerates electrical action potential conduction velocity."
     }
+  ],
+  "activities": [
+    {
+      "type": "scenario",
+      "title": "Clinical Case: Epiphyseal Plate Stress in a Youth Pitcher",
+      "file": "activities/test_activity.html",
+      "desc": "Evaluate biological vs. chronological maturity and make pitch count recommendations."
+    }
   ]
 }

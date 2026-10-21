@@ -572,6 +572,7 @@
 
       buildPartPills();
       buildGlossary();
+        buildActivities();
       loadConceptPart(0);
     } catch (err) {
       document.querySelector('.container').innerHTML = `
@@ -1084,7 +1085,83 @@
     document.querySelectorAll('.accordion-card').forEach(c => c.classList.toggle('open', open));
   };
 
+
+  function buildActivities() {
+    const actCountEl = document.getElementById("actCount");
+    const grid = document.getElementById("activitiesGrid");
+    const emptyState = document.getElementById("activitiesEmpty");
+    if (!grid) return;
+
+    grid.innerHTML = "";
+    
+    // Check both local moduleData and window.moduleData
+    let dataObj = null;
+    try { if (typeof moduleData !== 'undefined' && moduleData) dataObj = moduleData; } catch(e) {}
+    if (!dataObj && typeof window !== 'undefined' && window.moduleData) dataObj = window.moduleData;
+    
+    const activities = (dataObj && dataObj.activities && Array.isArray(dataObj.activities)) ? dataObj.activities : [];
+
+    console.log("buildActivities executed. Found activities:", activities.length, activities);
+
+    if (actCountEl) actCountEl.textContent = activities.length;
+
+    if (!activities.length) {
+      if (emptyState) emptyState.style.display = "block";
+      return;
+    }
+
+    if (emptyState) emptyState.style.display = "none";
+
+    const badgeLabels = {
+      sim: "Simulation / Interactive",
+      h5p: "Interactive Activity",
+      lab: "Applied Lab",
+      case: "Case Study"
+    };
+
+    activities.forEach(act => {
+      const card = document.createElement("a");
+      card.className = "activity-card";
+      const typeKey = (act && act.type) ? String(act.type).toLowerCase() : "sim";
+
+      let rawPath = (act.file || "").trim().replace(/^\.?\//, "");
+      
+      // If already an absolute URL or explicitly starts from repo root (content/...)
+      if (rawPath.indexOf("http") === 0) {
+        card.href = rawPath;
+      } else if (rawPath.indexOf("content/") === 0) {
+        card.href = "./" + rawPath;
+      } else if (rawPath.indexOf("activities/") === 0) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const ch = urlParams.get("ch") || "10";
+        card.href = "./content/ch" + ch + "/" + rawPath;
+      } else {
+        card.href = "./" + rawPath;
+      }
+      card.target = "_blank";
+      card.rel = "noopener noreferrer";
+
+      const badgeText = badgeLabels[typeKey] || "Applied Activity";
+      const titleText = act.title || "Interactive Activity";
+      const descText = act.desc ? `<div class="activity-card-desc">${act.desc}</div>` : "";
+
+      card.innerHTML = `
+        <div>
+          <div class="activity-card-top">
+            <span class="activity-badge ${typeKey}">${badgeText}</span>
+            <span style="font-size: 0.75rem; color: #94a3b8;">↗ New Tab</span>
+          </div>
+          <div class="activity-card-title">${titleText}</div>
+          ${descText}
+        </div>
+        <div class="activity-card-btn">Launch Activity &rarr;</div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
   function buildGlossary() {
+
     const tbody = document.getElementById('glossaryBody');
     tbody.innerHTML = '';
     (moduleData.glossary || []).forEach(item => {

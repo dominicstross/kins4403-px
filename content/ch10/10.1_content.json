@@ -5,6 +5,15 @@
     "chapter": "10",
     "section": "10.1"
   },
+  "activities": [
+    {
+      "id": "act-10-1-1",
+      "title": "Fiber Type Alterations Simulator",
+      "type": "sim",
+      "desc": "Explore MHC isoform plasticity and transition dynamics across resistance, endurance, and detraining states.",
+      "file": "content/ch10/activities/fiber_type_alterations.html"
+    }
+  ],
   "glossary": [
     {
       "term": "Muscular Strength",

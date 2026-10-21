@@ -1,0 +1,248 @@
+{
+  "courseCode": "KINS 4403",
+  "courseTitle": "KINS 4403: Physiology of Exercise",
+  "institution": "Southeastern University • Department of Kinesiology",
+  "description": "Interactive Online Learning Modules (OLMs), self-paced reading sequences, dynamic algorithmic quizzes, and analytical knowledge checks.",
+  "units": [
+    {
+      "unitTitle": "Chronic Physiological Adaptations",
+      "unitTag": "Chapters 10 & 11",
+      "chapters": [
+        {
+          "num": "10",
+          "title": "Chapter 10Adaptations to Resistance Training4 Modules (Active)▶",
+          "modules": [
+            {
+              "id": "10.1",
+              "title": "10.1 ✓ Active Mechanisms of Muscle Strength and Hypertrophy Launch Module →",
+              "href": "viewer.html?ch=10&mod=10.1"
+            },
+            {
+              "id": "10.2",
+              "title": "10.2 ✓ Active Neural Adaptations to Resistance Training Launch Module →",
+              "href": "viewer.html?ch=10&mod=10.2"
+            },
+            {
+              "id": "10.3",
+              "title": "10.3 ✓ Active Integration of Neural and Muscular Adaptations Launch Module →",
+              "href": "viewer.html?ch=10&mod=10.3"
+            },
+            {
+              "id": "10.4",
+              "title": "10.4 ✓ Active Resistance Training for Special Populations Launch Module →",
+              "href": "viewer.html?ch=10&mod=10.4"
+            }
+          ]
+        },
+        {
+          "num": "11",
+          "title": "Chapter 11Adaptations to Aerobic and Anaerobic Training4 Modules (Active)▶",
+          "modules": [
+            {
+              "id": "11.1",
+              "title": "11.1 ✓ Active Cardiovascular Adaptations to Aerobic Training Launch Module →",
+              "href": "viewer.html?ch=11&mod=11.1"
+            },
+            {
+              "id": "11.2",
+              "title": "11.2 ✓ Active Respiratory and Metabolic Adaptations to Aerobic Training Launch Module →",
+              "href": "viewer.html?ch=11&mod=11.2"
+            },
+            {
+              "id": "11.3",
+              "title": "11.3 ✓ Active Factors Affecting Aerobic Adaptations & Individual Variation Launch Module →",
+              "href": "viewer.html?ch=11&mod=11.3"
+            },
+            {
+              "id": "11.4",
+              "title": "11.4 ✓ Active Neuromuscular and Metabolic Adaptations to Anaerobic Training Launch Module →",
+              "href": "viewer.html?ch=11&mod=11.4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitTitle": "Developmental & Sex Differences Across the Lifespan",
+      "unitTag": "Chapters 17 & 19",
+      "chapters": [
+        {
+          "num": "17",
+          "title": "Chapter 17Children and Adolescents in Sport and Exercise6 Modules (Active)▶",
+          "modules": [
+            {
+              "id": "17.1",
+              "title": "17.1 ✓ Active Growth, Development, and Maturation Launch Module →",
+              "href": "viewer.html?ch=17&mod=17.1"
+            },
+            {
+              "id": "17.2",
+              "title": "17.2 ✓ Active Physiological Responses to Acute Exercise Launch Module →",
+              "href": "viewer.html?ch=17&mod=17.2"
+            },
+            {
+              "id": "17.3",
+              "title": "17.3 ✓ Active Physiological Adaptations to Exercise Training Launch Module →",
+              "href": "viewer.html?ch=17&mod=17.3"
+            },
+            {
+              "id": "17.4",
+              "title": "17.4 ✓ Active Physical Activity Patterns Among Youth Launch Module →",
+              "href": "viewer.html?ch=17&mod=17.4"
+            },
+            {
+              "id": "17.5",
+              "title": "17.5 ✓ Active Sport Performance and Specialization Launch Module →",
+              "href": "viewer.html?ch=17&mod=17.5"
+            },
+            {
+              "id": "17.6",
+              "title": "17.6 ✓ Active Special Issues in Pediatric Exercise Physiology Launch Module →",
+              "href": "viewer.html?ch=17&mod=17.6"
+            }
+          ]
+        },
+        {
+          "num": "19",
+          "title": "Chapter 19Sex Differences in Sport and Exercise6 Modules (Active)▶",
+          "modules": [
+            {
+              "id": "19.1",
+              "title": "19.1 ✓ Active Sex Versus Gender in Exercise Physiology Launch Module →",
+              "href": "viewer.html?ch=19&mod=19.1"
+            },
+            {
+              "id": "19.2",
+              "title": "19.2 ✓ Active Body Size and Composition Launch Module →",
+              "href": "viewer.html?ch=19&mod=19.2"
+            },
+            {
+              "id": "19.3",
+              "title": "19.3 ✓ Active Physiological Responses to Acute Exercise Launch Module →",
+              "href": "viewer.html?ch=19&mod=19.3"
+            },
+            {
+              "id": "19.4",
+              "title": "19.4 ✓ Active Physiological Adaptations to Exercise Training Launch Module →",
+              "href": "viewer.html?ch=19&mod=19.4"
+            },
+            {
+              "id": "19.5",
+              "title": "19.5 ✓ Active Sport Performance Launch Module →",
+              "href": "viewer.html?ch=19&mod=19.5"
+            },
+            {
+              "id": "19.6",
+              "title": "19.6 ✓ Active Special Issues Launch Module →",
+              "href": "viewer.html?ch=19&mod=19.6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitTitle": "Training Programming, Periodization & Prescription",
+      "unitTag": "Chapters 9, 14 & 20",
+      "chapters": [
+        {
+          "num": "9",
+          "title": "Chapter 9Principles of Exercise Training4 Modules (Upcoming)▶",
+          "modules": [
+            {
+              "id": "",
+              "title": "9.1 Upcoming Terminology and Foundations",
+              "href": "#"
+            },
+            {
+              "id": "",
+              "title": "9.2 Upcoming General Principles of Training",
+              "href": "#"
+            },
+            {
+              "id": "",
+              "title": "9.3 Upcoming Resistance Training Programs",
+              "href": "#"
+            },
+            {
+              "id": "",
+              "title": "9.4 Upcoming Anaerobic and Aerobic Power Training Programs",
+              "href": "#"
+            }
+          ]
+        },
+        {
+          "num": "14",
+          "title": "Chapter 14Training for Sport5 Modules (Upcoming)▶",
+          "modules": [
+            {
+              "id": "",
+              "title": "14.1 Upcoming Optimizing Training: A Model",
+              "href": "#"
+            },
+            {
+              "id": "",
+              "title": "14.2 Upcoming Periodization of Training",
+              "href": "#"
+            },
+            {
+              "id": "",
+              "title": "14.3 Upcoming Overtraining",
+              "href": "#"
+            },
+            {
+              "id": "",
+              "title": "14.4 Upcoming Tapering for Peak Performance",
+              "href": "#"
+            },
+            {
+              "id": "",
+              "title": "14.5 Upcoming Detraining",
+              "href": "#"
+            }
+          ]
+        },
+        {
+          "num": "20",
+          "title": "Chapter 20Prescription of Exercise for Health and Fitness7 Modules (Upcoming)▶",
+          "modules": [
+            {
+              "id": "",
+              "title": "20.1 Upcoming Health Benefits of Regular Physical Activity and Exercise",
+              "href": "#"
+            },
+            {
+              "id": "",
+              "title": "20.2 Upcoming Physical Activity Recommendations",
+              "href": "#"
+            },
+            {
+              "id": "",
+              "title": "20.3 Upcoming Health Screening",
+              "href": "#"
+            },
+            {
+              "id": "",
+              "title": "20.4 Upcoming Exercise Prescription",
+              "href": "#"
+            },
+            {
+              "id": "",
+              "title": "20.5 Upcoming Monitoring Exercise Intensity",
+              "href": "#"
+            },
+            {
+              "id": "",
+              "title": "20.6 Upcoming Exercise Programming",
+              "href": "#"
+            },
+            {
+              "id": "",
+              "title": "20.7 Upcoming Exercise and Rehabilitation of People with Diseases",
+              "href": "#"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiber Type Alterations: Myosin Heavy Chain Plasticity & Phenotypic Transitions</title>
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-subtle: #f1f5f9;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-inverse: #ffffff;
+      --border-color: #cbd5e1;
+      --border-focus: #2563eb;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-light: #eff6ff;
+
+      /* Fiber Continuum Scheme (High Contrast & Color-Blind Friendly) */
+      --color-type-i: #1d4ed8;       /* Deep Royal Blue: Slow Oxidative */
+      --color-type-i-hyb: #0891b2;   /* Cyan-Teal: I/IIa Hybrid */
+      --color-type-iia: #059669;     /* Emerald: Fast Oxidative-Glycolytic */
+      --color-type-iix-hyb: #d97706; /* Amber: IIa/IIx Hybrid */
+      --color-type-iix: #dc2626;     /* Crimson: Fast Glycolytic */
+
+      --success-bg: #ecfdf5;
+      --success-border: #10b981;
+      --success-text: #065f46;
+      --error-bg: #fef2f2;
+      --error-border: #ef4444;
+      --error-text: #991b1b;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0b0f19;
+      --bg-card: #131b2e;
+      --bg-card-subtle: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-inverse: #0f172a;
+      --border-color: #334155;
+      --border-focus: #60a5fa;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --accent-light: #172554;
+
+      --color-type-i: #3b82f6;
+      --color-type-i-hyb: #06b6d4;
+      --color-type-iia: #10b981;
+      --color-type-iix-hyb: #f59e0b;
+      --color-type-iix: #f87171;
+
+      --success-bg: #064e3b;
+      --success-border: #059669;
+      --success-text: #ecfdf5;
+      --error-bg: #7f1d1d;
+      --error-border: #dc2626;
+      --error-text: #fef2f2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Accessibility focus indicators */
+    button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 3px solid var(--border-focus);
+      outline-offset: 2px;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Header & Navigation Bar */
+    header {
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .badge-course {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background-color: var(--accent-light);
+      color: var(--accent);
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--accent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 0.45rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-card-subtle);
+      border-color: var(--text-muted);
+    }
+
+    /* Subheader Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-subtle) 100%);
+      border-bottom: 1px solid var(--border-color);
+      padding: 2.25rem 0 2rem 0;
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+
+    .hero-lead {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 960px;
+    }
+
+    /* Grid Layout */
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease;
+    }
+
+    .card-header {
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-subtitle {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* Continuum Stepper */
+    .continuum-bar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding: 0.75rem;
+      background: var(--bg-card-subtle);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .continuum-node {
+      text-align: center;
+      padding: 0.6rem 0.4rem;
+      border-radius: var(--radius-sm);
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .continuum-node small {
+      display: block;
+      font-size: 0.675rem;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .bg-type-i { background-color: var(--color-type-i); }
+    .bg-type-i-hyb { background-color: var(--color-type-i-hyb); }
+    .bg-type-iia { background-color: var(--color-type-iia); }
+    .bg-type-iix-hyb { background-color: var(--color-type-iix-hyb); }
+    .bg-type-iix { background-color: var(--color-type-iix); }
+
+    /* Modality Button Selector */
+    .modality-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .modality-btn {
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      font-family: inherit;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .modality-btn:hover {
+      border-color: var(--accent);
+      background-color: var(--bg-card-subtle);
+    }
+
+    .modality-btn.active {
+      border-color: var(--accent);
+      background-color: var(--accent-light);
+      box-shadow: 0 0 0 2px var(--border-focus);
+    }
+
+    .modality-btn-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .modality-btn.active .modality-btn-title {
+      color: var(--accent);
+    }
+
+    .modality-btn-desc {
+      font-size: 0.775rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Stacked Distribution Visualization */
+    .chart-container {
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .chart-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .chart-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      font-weight: 700;
+    }
+
+    .chart-label-title {
+      color: var(--text-main);
+    }
+
+    .chart-label-sub {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.8rem;
+    }
+
+    .stacked-bar {
+      height: 42px;
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .bar-seg {
+      height: 100%;
+      transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 0.775rem;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Chart Legend */
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      padding: 0.75rem;
+      background: var(--bg-card-subtle);
+      border-radius: var(--radius-md);
+    }
+
+    .legend-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .legend-bullet {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    /* Physiological Metrics Matrix */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .metric-box {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .metric-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .metric-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .metric-val {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .metric-meter {
+      height: 8px;
+      background: var(--border-color);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .metric-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 999px;
+      transition: width 0.4s ease;
+    }
+
+    .metric-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    /* Scientific Rationale Callout */
+    .rationale-panel {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .rationale-header {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .rationale-text {
+      font-size: 0.925rem;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    /* Scenario & Self-Check Cards */
+    .scenario-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-top: 1.25rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .scenario-badge {
+      font-size: 0.725rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .scenario-stem {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      line-height: 1.45;
+    }
+
+    .options-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .option-item {
+      background: var(--bg-card-subtle);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.9rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+
+    .option-item:hover:not([disabled]) {
+      border-color: var(--accent);
+      background: var(--bg-card);
+    }
+
+    .option-item.correct {
+      background: var(--success-bg) !important;
+      border-color: var(--success-border) !important;
+      color: var(--success-text) !important;
+      font-weight: 600;
+    }
+
+    .option-item.incorrect {
+      background: var(--error-bg) !important;
+      border-color: var(--error-border) !important;
+      color: var(--error-text) !important;
+    }
+
+    .feedback-box {
+      margin-top: 0.85rem;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      line-height: 1.45;
+      display: none;
+    }
+
+    .feedback-box.show-correct {
+      display: block;
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      color: var(--success-text);
+    }
+
+    .feedback-box.show-incorrect {
+      display: block;
+      background: var(--error-bg);
+      border: 1px solid var(--error-border);
+      color: var(--error-text);
+    }
+
+    /* Score Bar */
+    .quiz-tally {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      margin-top: 1.5rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    /* Summary Modal / Print Layout */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding-bottom: 0;
+      }
+      header, .header-actions, .modality-selector, .options-group, .quiz-tally, button {
+        display: none !important;
+      }
+      .card {
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        margin-bottom: 2rem;
+      }
+      .feedback-box {
+        display: block !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 1.45rem; }
+      .continuum-bar { grid-template-columns: 1fr; }
+      .metrics-grid { grid-template-columns: 1fr; }
+      .header-content { flex-direction: column; align-items: flex-start; }
+      .header-actions { width: 100%; justify-content: space-between; }
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+  <header>
+    <div class="container header-content">
+      <div class="brand-title">
+        <span>Exercise Physiology Sim</span>
+        <span class="badge-course">KINS 4403 • Ch. 10</span>
+      </div>
+      <div class="header-actions">
+        <button class="btn-secondary" id="themeToggleBtn" aria-label="Toggle Dark Mode">
+          <span id="themeIcon">🌙</span> <span id="themeText">Dark Mode</span>
+        </button>
+        <button class="btn-secondary" id="printReportBtn" aria-label="Print Lab Report">
+          📄 Export Summary
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">Fiber Type Alterations: Myosin Heavy Chain Plasticity &amp; Phenotypic Transitions</h1>
+      <p class="hero-lead">
+        Investigate single-fiber remodeling along the continuous spectrum of human skeletal muscle. 
+        Analyze real-time shifts between pure isoforms (MHC-I, MHC-IIa, MHC-IIx) and hybrid intermediates (I/IIa, IIa/IIx), 
+        cross-bridge kinetics, metabolic enzyme profiles, and competing molecular signaling cascades.
+      </p>
+    </div>
+  </section>
+
+  <main class="container grid-layout">
+    <!-- SECTION 1: INTERACTIVE CONTINUUM SIMULATOR -->
+    <section class="card" aria-labelledby="simHeading">
+      <div class="card-header">
+        <h2 class="card-title" id="simHeading">
+          <span>Part 1: Dynamic Continuum Plasticity Simulator</span>
+        </h2>
+        <span class="card-subtitle">Select an intervention to plot physiological remodeling</span>
+      </div>
+
+      <!-- Human Skeletal Muscle Fiber Continuum Indicator -->
+      <div class="continuum-bar" aria-label="Fiber Type Continuum Spectrum">
+        <div class="continuum-node bg-type-i">
+          Type I
+          <small>MHC-I • Slow Oxidative</small>
+        </div>
+        <div class="continuum-node bg-type-i-hyb">
+          Type I / IIa
+          <small>Slow-Fast Hybrid</small>
+        </div>
+        <div class="continuum-node bg-type-iia">
+          Type IIa
+          <small>MHC-IIa • Fast Oxidative</small>
+        </div>
+        <div class="continuum-node bg-type-iix-hyb">
+          Type IIa / IIx
+          <small>Fast-Fatigable Hybrid</small>
+        </div>
+        <div class="continuum-node bg-type-iix">
+          Type IIx
+          <small>MHC-IIx • Pure Fast Glycolytic</small>
+        </div>
+      </div>
+
+      <!-- Training Modality Buttons -->
+      <div class="modality-selector" role="radiogroup" aria-label="Training Modality Options">
+        <button class="modality-btn active" data-mod="baseline" role="radio" aria-checked="true">
+          <span class="modality-btn-title">1. Untrained Baseline</span>
+          <span class="modality-btn-desc">Recreationally active; vastus lateralis maintaining balanced hybrid reserve (~10-15%).</span>
+        </button>
+        <button class="modality-btn" data-mod="resistance" role="radio" aria-checked="false">
+          <span class="modality-btn-title">2. Heavy Resistance Training</span>
+          <span class="modality-btn-desc">16 weeks (80–90% 1RM). MHC-IIx &rarr; MHC-IIa compression; high mechanotransduction.</span>
+        </button>
+        <button class="modality-btn" data-mod="endurance" role="radio" aria-checked="false">
+          <span class="modality-btn-title">3. High-Volume Endurance</span>
+          <span class="modality-btn-desc">16 weeks (&gt;65% VO₂max). Fast-to-slow shift, profound mitochondrial biogenesis &amp; angiogenesis.</span>
+        </button>
+        <button class="modality-btn" data-mod="disuse" role="radio" aria-checked="false">
+          <span class="modality-btn-title">4. Bed Rest / Microgravity / Disuse</span>
+          <span class="modality-btn-desc">6 weeks non-weight-bearing. Slow-to-fast drift, loss of postural Type I tonicity, MuRF1 atrophy.</span>
+        </button>
+        <button class="modality-btn" data-mod="sprint" role="radio" aria-checked="false">
+          <span class="modality-btn-title">5. High-Velocity Sprint &amp; Plyometrics</span>
+          <span class="modality-btn-desc">Maximal velocity rate of force development (RFD); preservation of shortening velocity (Vmax).</span>
+        </button>
+        <button class="modality-btn" data-mod="taper" role="radio" aria-checked="false">
+          <span class="modality-btn-title">6. Sudden Detraining / Taper 'Overshoot'</span>
+          <span class="modality-btn-desc">4–6 weeks post-resistance taper. MHC-IIx transcript derepression exceeding baseline.</span>
+        </button>
+      </div>
+
+      <!-- Comparative Stacked Bar Charts -->
+      <div class="chart-container">
+        <!-- Baseline Reference Bar -->
+        <div class="chart-row">
+          <div class="chart-label-row">
+            <span class="chart-label-title">Untrained Baseline Reference</span>
+            <span class="chart-label-sub">50% Type I • 5% I/IIa • 32% IIa • 5% IIa/IIx • 8% IIx</span>
+          </div>
+          <div class="stacked-bar" aria-label="Baseline distribution bar">
+            <div class="bar-seg bg-type-i" style="width: 50%;">50% I</div>
+            <div class="bar-seg bg-type-i-hyb" style="width: 5%;">5%</div>
+            <div class="bar-seg bg-type-iia" style="width: 32%;">32% IIa</div>
+            <div class="bar-seg bg-type-iix-hyb" style="width: 5%;">5%</div>
+            <div class="bar-seg bg-type-iix" style="width: 8%;">8% IIx</div>
+          </div>
+        </div>
+
+        <!-- Adapted State Bar -->
+        <div class="chart-row">
+          <div class="chart-label-row">
+            <span class="chart-label-title" id="activeStateLabel">Current Adapted Muscle Profile: Heavy Resistance Training</span>
+            <span class="chart-label-sub" id="activeDistributionNumbers">46% Type I • 2% I/IIa • 50% IIa • 1% IIa/IIx • 1% IIx</span>
+          </div>
+          <div class="stacked-bar" id="adaptedBar" aria-label="Adapted distribution bar">
+            <div class="bar-seg bg-type-i" id="segI" style="width: 46%;">46% I</div>
+            <div class="bar-seg bg-type-i-hyb" id="segIHyb" style="width: 2%;">2%</div>
+            <div class="bar-seg bg-type-iia" id="segIIa" style="width: 50%;">50% IIa</div>
+            <div class="bar-seg bg-type-iix-hyb" id="segIIxHyb" style="width: 1%;">1%</div>
+            <div class="bar-seg bg-type-iix" id="segIIx" style="width: 1%;">1% IIx</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart Legend -->
+      <div class="chart-legend">
+        <div class="legend-chip">
+          <span class="legend-bullet bg-type-i"></span>
+          <strong>Type I:</strong> Slow Oxidative (Pure MHC-I)
+        </div>
+        <div class="legend-chip">
+          <span class="legend-bullet bg-type-i-hyb"></span>
+          <strong>Type I/IIa:</strong> Slow Hybrid
+        </div>
+        <div class="legend-chip">
+          <span class="legend-bullet bg-type-iia"></span>
+          <strong>Type IIa:</strong> Fast Oxidative-Glycolytic (MHC-IIa)
+        </div>
+        <div class="legend-chip">
+          <span class="legend-bullet bg-type-iix-hyb"></span>
+          <strong>Type IIa/IIx:</strong> Fast Hybrid
+        </div>
+        <div class="legend-chip">
+          <span class="legend-bullet bg-type-iix"></span>
+          <strong>Type IIx:</strong> Pure Fast Glycolytic (MHC-IIx)
+        </div>
+      </div>
+
+      <!-- Physiological Adaptation Matrix -->
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <div class="metric-meta">
+            <span class="metric-name">Myofibrillar ATPase Activity</span>
+            <span class="metric-val" id="mAtpaseVal">High</span>
+          </div>
+          <div class="metric-meter"><div class="metric-fill" id="mAtpaseBar" style="width: 78%;"></div></div>
+          <span class="metric-desc">Reflects actin-activated cross-bridge cycling rate and rapid tension generation.</span>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-meta">
+            <span class="metric-name">Mitochondrial Density</span>
+            <span class="metric-val" id="mMitoVal">Moderate</span>
+          </div>
+          <div class="metric-meter"><div class="metric-fill" id="mMitoBar" style="width: 48%;"></div></div>
+          <span class="metric-desc">Total volume percentage occupied by subsarcolemmal and intermyofibrillar mitochondria.</span>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-meta">
+            <span class="metric-name">Capillary-to-Fiber Ratio</span>
+            <span class="metric-val" id="mCapVal">1.60 caps/fiber</span>
+          </div>
+          <div class="metric-meter"><div class="metric-fill" id="mCapBar" style="width: 55%;"></div></div>
+          <span class="metric-desc">Microvascular exchange surface area per muscle fiber cross-sectional area.</span>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-meta">
+            <span class="metric-name">Peak Specific Tension (Po/CSA)</span>
+            <span class="metric-val" id="mTensionVal">285 kN/m²</span>
+          </div>
+          <div class="metric-meter"><div class="metric-fill" id="mTensionBar" style="width: 90%;"></div></div>
+          <span class="metric-desc">Maximal isometric force normalized per unit of anatomical cross-sectional area.</span>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-meta">
+            <span class="metric-name">SERCA Re-uptake Kinetics</span>
+            <span class="metric-val" id="mSercaVal">Fast (SERCA1 Dominant)</span>
+          </div>
+          <div class="metric-meter"><div class="metric-fill" id="mSercaBar" style="width: 82%;"></div></div>
+          <span class="metric-desc">Sarcoplasmic reticulum Ca²⁺ ATPase re-uptake speed governing relaxation time.</span>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-meta">
+            <span class="metric-name">Dominant Signaling Cascade</span>
+            <span class="metric-val" id="mSignalVal" style="font-size: 0.95rem;">mTORC1 / p70S6K</span>
+          </div>
+          <div class="metric-meter"><div class="metric-fill" id="mSignalBar" style="width: 88%; background-color: #8b5cf6;"></div></div>
+          <span class="metric-desc">Primary molecular pathway regulating transcription and protein turnover.</span>
+        </div>
+      </div>
+
+      <!-- Molecular Rationale Explainer -->
+      <div class="rationale-panel">
+        <div class="rationale-header">
+          <span>🔬 Molecular Mechanism &amp; Histochemical Rationale:</span>
+          <span id="rationaleTitle">MHC-IIx to MHC-IIa Compression</span>
+        </div>
+        <p class="rationale-text" id="rationaleBody">
+          Regular high-intensity resistance training forces high-frequency motor unit recruitment, which systematically represses transcription of the erratic, fatigable pure MHC-IIx gene. The fiber pool shifts toward highly fatigue-resistant, hypertrophied Type IIa fibers, collapsing the uncommitted hybrid pool.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: APPLIED CLINICAL SCENARIOS & EVIDENCE-BASED CASES -->
+    <section class="card" aria-labelledby="casesHeading">
+      <div class="card-header">
+        <h2 class="card-title" id="casesHeading">
+          <span>Part 2: Clinical Scenarios &amp; Mechanistic Knowledge Checks</span>
+        </h2>
+        <span class="card-subtitle">Test conceptual mastery of continuum shifting, unloading, and signaling cross-talk</span>
+      </div>
+
+      <!-- Case 1: The Taper Overshoot -->
+      <article class="scenario-card" id="case1">
+        <div class="scenario-badge">Clinical Scenario 1 • Neuromuscular Tapering &amp; Explosive Power</div>
+        <h3 class="scenario-stem">
+          An Olympic weightlifter executes a 3-week progressive exponential taper following 16 weeks of grueling high-volume training. Muscle biopsies reveal an abrupt surge in peak dynamic velocity and specific power output accompanied by an increase in pure MHC-IIx expression above pre-training baseline levels. What physiological event has occurred?
+        </h3>
+        <div class="options-group">
+          <button class="option-item" data-correct="false">
+            A. Type I slow-twitch motor units underwent apoptosis and were replaced by freshly generated de novo Type IIx motor units.
+          </button>
+          <button class="option-item" data-correct="true">
+            B. The "MHC-IIx Overshoot Phenomenon": Contractile cessation relieved chronic transcriptional repression on the MHC-IIx gene while preserving accumulated myofibrillar hypertrophy.
+          </button>
+          <button class="option-item" data-correct="false">
+            C. High circulating levels of cortisol permanently mutated slow myosin regulatory light chains into fast isoforms.
+          </button>
+          <button class="option-item" data-correct="false">
+            D. SERCA2 slow calcium pumps downregulated completely, forcing muscle fibers to produce infinite velocity.
+          </button>
+        </div>
+        <div class="feedback-box" id="fb-case1"></div>
+      </article>
+
+      <!-- Case 2: Disuse Atrophy -->
+      <article class="scenario-card" id="case2">
+        <div class="scenario-badge">Clinical Scenario 2 • Casting &amp; Microgravity Induced Remodeling</div>
+        <h3 class="scenario-stem">
+          Following a distal fibular fracture, an active collegiate athlete is placed in a non-weight-bearing cast for 6 weeks. Histochemical staining of the immobilized soleus and vastus lateralis muscles will demonstrate which classical profile?
+        </h3>
+        <div class="options-group">
+          <button class="option-item" data-correct="false">
+            A. Marked hypertrophy of Type I fibers with a total absence of all fast glycolytic hybrid fibers.
+          </button>
+          <button class="option-item" data-correct="false">
+            B. A shift exclusively toward oxidative phosphorylation driven by continuous PGC-1α upregulation.
+          </button>
+          <button class="option-item" data-correct="true">
+            C. Preferential atrophy of tonic, slow-twitch Type I fibers accompanied by a slow-to-fast continuum drift with expansion of hybrid (IIa/IIx) and pure MHC-IIx isoforms driven by MuRF1/MAFbx ubiquitination.
+          </button>
+          <button class="option-item" data-correct="false">
+            D. No phenotypic shifts occur because human fiber distribution is 100% genetically fixed and immutable after birth.
+          </button>
+        </div>
+        <div class="feedback-box" id="fb-case2"></div>
+      </article>
+
+      <!-- Case 3: Concurrent Training Conflict -->
+      <article class="scenario-card" id="case3">
+        <div class="scenario-badge">Clinical Scenario 3 • The Molecular Interference Effect</div>
+        <h3 class="scenario-stem">
+          An endurance athlete begins adding high-load squatting immediately following 90-minute zone-2 cycling sessions in the same training session. Despite high caloric intake, Type II fiber hypertrophy is blunted. What specific intracellular molecular cross-talk accounts for this interference effect?
+        </h3>
+        <div class="options-group">
+          <button class="option-item" data-correct="true">
+            A. Elevated AMP/ATP ratio activates AMPK, which phosphorylates TSC2 and inhibits Raptor, suppressing downstream mTORC1-mediated translation initiation in Type II fibers.
+          </button>
+          <button class="option-item" data-correct="false">
+            B. Calcineurin/NFAT signaling enters the nucleus and mechanically shears actin-myosin cross-bridges.
+          </button>
+          <button class="option-item" data-correct="false">
+            C. Glycogen depletion causes immediate cleavage of titin filaments without altering ribosomal activity.
+          </button>
+          <button class="option-item" data-correct="false">
+            D. Resistance exercise completely blocks capillary angiogenesis, suffocating muscle stem cells.
+          </button>
+        </div>
+        <div class="feedback-box" id="fb-case3"></div>
+      </article>
+
+      <!-- Knowledge Check Summary Bar -->
+      <div class="quiz-tally">
+        <span>Clinical Check Score: <strong id="scoreDisplay">0 of 3 Answered</strong></span>
+        <button class="btn-secondary" id="resetQuizBtn">🔄 Reset Scenarios</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    /**
+     * KINS 4403: Fiber Type Alterations & Continuum Plasticity
+     * Self-contained JavaScript State & Controller
+     */
+    (function () {
+      'use strict';
+
+      // 1. Modality State Database
+      const MODALITY_DATA = {
+        baseline: {
+          label: "Untrained Baseline (Sedentary/Recreationally Active)",
+          distribution: { i: 50, i_hyb: 5, iia: 32, iix_hyb: 5, iix: 8 },
+          atpase: { text: "Moderate", pct: 55 },
+          mito: { text: "Moderate (3.5% vol)", pct: 50 },
+          cap: { text: "1.45 caps/fiber", pct: 48 },
+          tension: { text: "215 kN/m²", pct: 60 },
+          serca: { text: "Balanced (SERCA1 & 2)", pct: 50 },
+          signal: { text: "Basal Neuromuscular Tone", pct: 45, color: "#64748b" },
+          rationaleTitle: "Homeostatic Baseline Architecture",
+          rationaleBody: "In recreationally active individuals, human vastus lateralis exhibits an equilibrium between Type I (slow-twitch) and Type IIa fibers, with a persistent reservoir of hybrid uncommitted fibers (~10%). Occasional low-frequency ambulatory recruitment keeps the pure MHC-IIx gene moderately suppressed compared to completely immobilized muscle."
+        },
+        resistance: {
+          label: "Heavy Resistance Training (Hypertrophy / Max Strength)",
+          distribution: { i: 46, i_hyb: 2, iia: 50, iix_hyb: 1, iix: 1 },
+          atpase: { text: "High", pct: 78 },
+          mito: { text: "Diluted / Low-Moderate", pct: 42 },
+          cap: { text: "1.60 caps/fiber", pct: 55 },
+          tension: { text: "285 kN/m² (Hypertrophied)", pct: 90 },
+          serca: { text: "Elevated Fast SERCA1", pct: 82 },
+          signal: { text: "mTORC1 / p70S6K Pathway", pct: 92, color: "#8b5cf6" },
+          rationaleTitle: "MHC-IIx to MHC-IIa Compression & Hypertrophy",
+          rationaleBody: "High mechanical tension stimulates focal adhesion kinase and the costameric mechanosensor complex, releasing phosphatidic acid to hyper-activate mTORC1. Chronic recruitment of fast motor units eliminates pure MHC-IIx transcription, compressing almost the entire fast fiber pool into resilient, high-force-producing MHC-IIa fibers with markedly expanded cross-sectional areas."
+        },
+        endurance: {
+          label: "High-Volume Aerobic Endurance (>65% VO₂max)",
+          distribution: { i: 68, i_hyb: 5, iia: 26, iix_hyb: 1, iix: 0 },
+          atpase: { text: "Low-Moderate", pct: 40 },
+          mito: { text: "Very High (+40-60% vol)", pct: 96 },
+          cap: { text: "2.40 caps/fiber (+80%)", pct: 94 },
+          tension: { text: "195 kN/m²", pct: 45 },
+          serca: { text: "Slow SERCA2 Dominance", pct: 36 },
+          signal: { text: "AMPK / PGC-1α / Calcineurin", pct: 96, color: "#059669" },
+          rationaleTitle: "Oxidative Transformation & Fast-to-Slow Continuum Shifting",
+          rationaleBody: "Continuous, prolonged calcium influx sustains elevated intracellular [Ca²⁺], activating Calcineurin to dephosphorylate NFAT, which migrates to the nucleus to induce slow oxidative gene promoters. Concurrently, ATP turnover stimulates AMPK and p38 MAPK to phosphorylate PGC-1α, driving robust mitochondrial biogenesis and VEGF-dependent capillary angiogenesis."
+        },
+        disuse: {
+          label: "Chronic Bed Rest / Microgravity / Casting Disuse",
+          distribution: { i: 32, i_hyb: 7, iia: 30, iix_hyb: 11, iix: 20 },
+          atpase: { text: "High (Non-Functional)", pct: 85 },
+          mito: { text: "Severely Depleted (-50%)", pct: 18 },
+          cap: { text: "1.10 caps/fiber", pct: 28 },
+          tension: { text: "135 kN/m² (Severe Collapse)", pct: 22 },
+          serca: { text: "Fast SERCA1 Shift", pct: 75 },
+          signal: { text: "MuRF1 / MAFbx Ubiquitination", pct: 94, color: "#dc2626" },
+          rationaleTitle: "Slow-to-Fast Phenotypic Drift & Muscle Collapse",
+          rationaleBody: "Elimination of chronic tonic stretch and weight-bearing nerve impulses removes transcriptional repression on the MHC-IIx gene. The slow postural Type I fibers experience rapid ubiquitin-proteasome degradation via MuRF1 and MAFbx ligases. The surviving muscle exhibits a maladaptive shift toward hybrid and pure MHC-IIx fibers, resulting in extreme fatigability and low specific tension."
+        },
+        sprint: {
+          label: "High-Velocity Sprint & Plyometrics (Maximal RFD)",
+          distribution: { i: 43, i_hyb: 3, iia: 46, iix_hyb: 5, iix: 3 },
+          atpase: { text: "Very High", pct: 90 },
+          mito: { text: "Moderate", pct: 52 },
+          cap: { text: "1.55 caps/fiber", pct: 52 },
+          tension: { text: "310 kN/m²", pct: 96 },
+          serca: { text: "Hyper-Kinetic SERCA1 Rate", pct: 94 },
+          signal: { text: "High RFD / Neuromuscular Drive", pct: 88, color: "#d97706" },
+          rationaleTitle: "Preservation of Maximal Shortening Velocity (Vmax)",
+          rationaleBody: "Sprint and ballistic plyometric training prioritize rapid rate of torque development without the sustained fatigue that forces total MHC-IIx down-regulation. Fast cross-bridge detachment rates and ultra-rapid calcium handling via SERCA1 are retained, preserving contractile velocity and maximizing elastic strain energy utilization."
+        },
+        taper: {
+          label: "Sudden Detraining / Taper 'Overshoot'",
+          distribution: { i: 44, i_hyb: 4, iia: 34, iix_hyb: 6, iix: 12 },
+          atpase: { text: "High", pct: 78 },
+          mito: { text: "Moderate", pct: 48 },
+          cap: { text: "1.50 caps/fiber", pct: 50 },
+          tension: { text: "265 kN/m² (+Peak Power)", pct: 86 },
+          serca: { text: "Rapid Fast Re-Expression", pct: 80 },
+          signal: { text: "MHC-IIx Transcriptional Derepression", pct: 75, color: "#2563eb" },
+          rationaleTitle: "The Molecular MHC-IIx Overshoot / Supercompensation",
+          rationaleBody: "During heavy baseline training, MHC-IIx mRNA is persistently repressed by high-frequency motor unit firing. When training volume is tapered by 40-60% before competition, this inhibition is removed. The muscle experiences a transient rebound in MHC-IIx transcription exceeding baseline levels, producing a dramatic surge in single-fiber maximal velocity and explosive power."
+        }
+      };
+
+      // 2. Scenario Explanations Database
+      const SCENARIO_EXPLANATIONS = {
+        case1: {
+          correct: "CORRECT (Option B): The 'Overshoot Phenomenon' is a landmark neuromuscular adaptation in human exercise physiology. Constant high-intensity training suppresses MHC-IIx transcription in favor of MHC-IIa. When training volume is systematically tapered before competition, this repression is released, and MHC-IIx isoform expression rebounds past baseline, driving a marked peak in single-fiber explosive power.",
+          incorrect: "INCORRECT: Skeletal muscle fibers do not undergo apoptotic cell death followed by de novo motor unit replacement during a 3-week taper. The surge in velocity and power is driven by the relief of transcriptional repression on the MHC-IIx gene, termed the overshoot phenomenon."
+        },
+        case2: {
+          correct: "CORRECT (Option C): Joint immobilization removes weight-bearing stretch and tonic low-frequency motor nerve impulses. This induces FoxO-mediated activation of the E3 ubiquitin ligases MuRF1 and MAFbx, causing rapid atrophy that disproportionately strikes postural slow Type I fibers, alongside a slow-to-fast continuum drift toward hybrid and pure MHC-IIx profiles.",
+          incorrect: "INCORRECT: Disuse leads to muscle atrophy rather than hypertrophy, and it downregulates mitochondrial volume. Due to the loss of tonic slow-twitch nerve stimulation, muscle unloads toward faster, highly fatigable hybrid and MHC-IIx isoforms."
+        },
+        case3: {
+          correct: "CORRECT (Option A): This is the exact intracellular mechanism of the concurrent training interference effect. Prolonged endurance exercise activates AMPK via an elevated AMP/ATP ratio. Active AMPK directly phosphorylates tuberous sclerosis complex 2 (TSC2) and inhibits Raptor, shutting down the mTORC1 pathway and attenuating muscle protein synthesis in Type II fibers.",
+          incorrect: "INCORRECT: The interference effect has a well-defined molecular basis: endurance-activated AMPK inhibits the anabolic mTORC1 pathway (via TSC2 phosphorylation and Raptor suppression), preventing optimal translation initiation in Type II fibers."
+        }
+      };
+
+      // 3. Cache DOM Elements
+      const modalityBtns = document.querySelectorAll('.modality-btn');
+      const activeStateLabel = document.getElementById('activeStateLabel');
+      const activeDistributionNumbers = document.getElementById('activeDistributionNumbers');
+      const segI = document.getElementById('segI');
+      const segIHyb = document.getElementById('segIHyb');
+      const segIIa = document.getElementById('segIIa');
+      const segIIxHyb = document.getElementById('segIIxHyb');
+      const segIIx = document.getElementById('segIIx');
+
+      const mAtpaseVal = document.getElementById('mAtpaseVal');
+      const mAtpaseBar = document.getElementById('mAtpaseBar');
+      const mMitoVal = document.getElementById('mMitoVal');
+      const mMitoBar = document.getElementById('mMitoBar');
+      const mCapVal = document.getElementById('mCapVal');
+      const mCapBar = document.getElementById('mCapBar');
+      const mTensionVal = document.getElementById('mTensionVal');
+      const mTensionBar = document.getElementById('mTensionBar');
+      const mSercaVal = document.getElementById('mSercaVal');
+      const mSercaBar = document.getElementById('mSercaBar');
+      const mSignalVal = document.getElementById('mSignalVal');
+      const mSignalBar = document.getElementById('mSignalBar');
+
+      const rationaleTitle = document.getElementById('rationaleTitle');
+      const rationaleBody = document.getElementById('rationaleBody');
+
+      const themeToggleBtn = document.getElementById('themeToggleBtn');
+      const themeIcon = document.getElementById('themeIcon');
+      const themeText = document.getElementById('themeText');
+      const printReportBtn = document.getElementById('printReportBtn');
+
+      const scoreDisplay = document.getElementById('scoreDisplay');
+      const resetQuizBtn = document.getElementById('resetQuizBtn');
+
+      // 4. Modality Switch Handler
+      function applyModality(key) {
+        const item = MODALITY_DATA[key];
+        if (!item) return;
+
+        // Update active button state
+        modalityBtns.forEach(btn => {
+          const isActive = btn.dataset.mod === key;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
+        });
+
+        // Update Labels
+        activeStateLabel.textContent = `Current Adapted Muscle Profile: ${item.label}`;
+        const dist = item.distribution;
+        activeDistributionNumbers.textContent = 
+          `${dist.i}% Type I • ${dist.i_hyb}% I/IIa • ${dist.iia}% IIa • ${dist.iix_hyb}% IIa/IIx • ${dist.iix}% IIx`;
+
+        // Update Stacked Bar Widths & Content
+        segI.style.width = dist.i + '%';
+        segI.textContent = dist.i > 6 ? `${dist.i}% I` : '';
+
+        segIHyb.style.width = dist.i_hyb + '%';
+        segIHyb.textContent = dist.i_hyb > 3 ? `${dist.i_hyb}%` : '';
+
+        segIIa.style.width = dist.iia + '%';
+        segIIa.textContent = dist.iia > 6 ? `${dist.iia}% IIa` : '';
+
+        segIIxHyb.style.width = dist.iix_hyb + '%';
+        segIIxHyb.textContent = dist.iix_hyb > 3 ? `${dist.iix_hyb}%` : '';
+
+        segIIx.style.width = dist.iix + '%';
+        segIIx.textContent = dist.iix > 4 ? `${dist.iix}% IIx` : '';
+
+        // Update Physiological Metrics
+        mAtpaseVal.textContent = item.atpase.text;
+        mAtpaseBar.style.width = item.atpase.pct + '%';
+
+        mMitoVal.textContent = item.mito.text;
+        mMitoBar.style.width = item.mito.pct + '%';
+
+        mCapVal.textContent = item.cap.text;
+        mCapBar.style.width = item.cap.pct + '%';
+
+        mTensionVal.textContent = item.tension.text;
+        mTensionBar.style.width = item.tension.pct + '%';
+
+        mSercaVal.textContent = item.serca.text;
+        mSercaBar.style.width = item.serca.pct + '%';
+
+        mSignalVal.textContent = item.signal.text;
+        mSignalBar.style.width = item.signal.pct + '%';
+        mSignalBar.style.backgroundColor = item.signal.color;
+
+        // Update Scientific Rationale
+        rationaleTitle.textContent = item.rationaleTitle;
+        rationaleBody.textContent = item.rationaleBody;
+      }
+
+      // Attach modality click listeners
+      modalityBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          applyModality(btn.dataset.mod);
+        });
+      });
+
+      // 5. Scenario Self-Check State & Evaluation
+      let answeredCases = new Set();
+      let correctCount = 0;
+
+      function updateScore() {
+        scoreDisplay.textContent = `${correctCount} of 3 Correct (${answeredCases.size} completed)`;
+      }
+
+      document.querySelectorAll('.scenario-card').forEach(card => {
+        const caseId = card.id;
+        const options = card.querySelectorAll('.option-item');
+        const feedback = card.querySelector('.feedback-box');
+
+        options.forEach(btn => {
+          btn.addEventListener('click', () => {
+            if (answeredCases.has(caseId)) return;
+
+            const isCorrect = btn.dataset.correct === 'true';
+            answeredCases.add(caseId);
+
+            // Lock all options for this question
+            options.forEach(opt => {
+              opt.disabled = true;
+              if (opt.dataset.correct === 'true') {
+                opt.classList.add('correct');
+              }
+            });
+
+            if (isCorrect) {
+              correctCount++;
+              feedback.className = 'feedback-box show-correct';
+              feedback.textContent = SCENARIO_EXPLANATIONS[caseId].correct;
+            } else {
+              btn.classList.add('incorrect');
+              feedback.className = 'feedback-box show-incorrect';
+              feedback.textContent = SCENARIO_EXPLANATIONS[caseId].incorrect;
+            }
+
+            updateScore();
+          });
+        });
+      });
+
+      // Reset Scenarios Handler
+      resetQuizBtn.addEventListener('click', () => {
+        answeredCases.clear();
+        correctCount = 0;
+        scoreDisplay.textContent = '0 of 3 Answered';
+
+        document.querySelectorAll('.scenario-card').forEach(card => {
+          const options = card.querySelectorAll('.option-item');
+          const feedback = card.querySelector('.feedback-box');
+
+          feedback.className = 'feedback-box';
+          feedback.textContent = '';
+
+          options.forEach(opt => {
+            opt.disabled = false;
+            opt.classList.remove('correct', 'incorrect');
+          });
+        });
+      });
+
+      // 6. Dark / Light Theme Toggle
+      function toggleTheme() {
+        const currentTheme = document.body.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.body.setAttribute('data-theme', newTheme);
+
+        if (newTheme === 'dark') {
+          themeIcon.textContent = '☀️';
+          themeText.textContent = 'Light Mode';
+        } else {
+          themeIcon.textContent = '🌙';
+          themeText.textContent = 'Dark Mode';
+        }
+      }
+
+      themeToggleBtn.addEventListener('click', toggleTheme);
+
+      // 7. Print / Export Handler
+      printReportBtn.addEventListener('click', () => {
+        window.print();
+      });
+
+      // Initialize with Resistance Training to show visible contrast against baseline
+      applyModality('resistance');
+    })();
+  </script>
+</body>
+</html>

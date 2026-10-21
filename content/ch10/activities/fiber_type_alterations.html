@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiber Type Alterations Simulator | KINS 4403</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --accent: #d97706;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --type-i: #2563eb;
+      --type-i-iia: #0284c7;
+      --type-iia: #059669;
+      --type-iia-iix: #d97706;
+      --type-iix: #dc2626;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+    }
+    .wrapper { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .header {
+      background: var(--surface);
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .header h1 { font-size: 1.5rem; color: var(--primary); margin-bottom: 6px; }
+    .header p { color: var(--text-muted); font-size: 0.95rem; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+    .modality-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .mod-btn {
+      padding: 12px 14px;
+      background: #f1f5f9;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .mod-btn:hover { background: #e2e8f0; }
+    .mod-btn.active {
+      background: #eff6ff;
+      border-color: var(--primary-light);
+      color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(59,130,246,0.15);
+    }
+    .chart-container { margin: 18px 0; }
+    .chart-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .stacked-bar {
+      height: 38px;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      background: #e2e8f0;
+    }
+    .bar-seg {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: width 0.35s ease;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 500; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .metric-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .metric-name { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .metric-value { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-top: 4px; }
+    .metric-bar-bg { height: 6px; background: #e2e8f0; border-radius: 3px; margin-top: 8px; overflow: hidden; }
+    .metric-bar-fill { height: 100%; background: var(--primary-light); transition: width 0.35s ease; }
+    .detail-text {
+      font-size: 0.9rem;
+      color: var(--text);
+      background: #f1f5f9;
+      border-left: 4px solid var(--primary-light);
+      padding: 14px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <h1>Myosin Heavy Chain (MHC) Plasticity Simulator</h1>
+      <p>Analyze muscle fiber transitions along the continuum: Type I &harr; I/IIa &harr; IIa &harr; IIa/IIx &harr; IIx under distinct training and disuse states.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Select Training or Environmental State</div>
+      <div class="modality-grid" id="btnGroup"></div>
+
+      <div class="chart-container">
+        <div class="chart-label-row">
+          <span>Untrained Reference Distribution (Vastus Lateralis)</span>
+          <span>100%</span>
+        </div>
+        <div class="stacked-bar">
+          <div class="bar-seg" style="width: 48%; background: var(--type-i);">I (48%)</div>
+          <div class="bar-seg" style="width: 5%; background: var(--type-i-iia);"></div>
+          <div class="bar-seg" style="width: 35%; background: var(--type-iia);">IIa (35%)</div>
+          <div class="bar-seg" style="width: 4%; background: var(--type-iia-iix);"></div>
+          <div class="bar-seg" style="width: 8%; background: var(--type-iix);">IIx (8%)</div>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <div class="chart-label-row">
+          <span id="adaptedLabel">Adapted Muscle Profile</span>
+          <span>Active State</span>
+        </div>
+        <div class="stacked-bar" id="activeBar"></div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--type-i);"></div>Type I (Slow Oxidative)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--type-i-iia);"></div>Type I/IIa Hybrid</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--type-iia);"></div>Type IIa (Fast Fatigue-Resistant)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--type-iia-iix);"></div>Type IIa/IIx Hybrid</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--type-iix);"></div>Type IIx (Fast Glycolytic)</div>
+      </div>
+
+      <div class="detail-text" id="stateDesc"></div>
+
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <div class="metric-name">Myofibrillar ATPase Activity</div>
+          <div class="metric-value" id="mAtp">Medium</div>
+          <div class="metric-bar-bg"><div class="metric-bar-fill" id="mAtpBar" style="width: 55%;"></div></div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-name">Mitochondrial Density</div>
+          <div class="metric-value" id="mMito">High</div>
+          <div class="metric-bar-bg"><div class="metric-bar-fill" id="mMitoBar" style="width: 70%;"></div></div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-name">Specific Tension (Po/CSA)</div>
+          <div class="metric-value" id="mTens">Baseline</div>
+          <div class="metric-bar-bg"><div class="metric-bar-fill" id="mTensBar" style="width: 60%;"></div></div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-name">Dominant Signaling Pathway</div>
+          <div class="metric-value" id="mSignal" style="font-size:0.95rem;">Homeostatic Turnover</div>
+          <div class="metric-bar-bg"><div class="metric-bar-fill" id="mSignalBar" style="width: 50%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const states = [
+      {
+        id: "baseline",
+        label: "Untrained Baseline",
+        i: 48, i_iia: 5, iia: 35, iia_iix: 4, iix: 8,
+        desc: "Typical recreationally active adult human vastus lateralis: roughly balanced slow- and fast-twitch distribution with ~8% pure IIx reservoirs.",
+        atp: "Moderate (55%)", atpW: 55, mito: "Baseline (60%)", mitoW: 60, tens: "100% Baseline", tensW: 60, signal: "Resting Turnover", sigW: 50
+      },
+      {
+        id: "hypertrophy",
+        label: "Heavy Resistance Training",
+        i: 45, i_iia: 3, iia: 51, iia_iix: 1, iix: 0,
+        desc: "MHC-IIx expression drops near zero as fast fibers transition into fatigue-resistant Type IIa. Total muscle CSA and specific tension increase markedly.",
+        atp: "High (78%)", atpW: 78, mito: "Moderate (45%)", mitoW: 45, tens: "135% Elevated", tensW: 90, signal: "mTORC1 / Akt Pathway", sigW: 95
+      },
+      {
+        id: "endurance",
+        label: "High-Volume Endurance",
+        i: 62, i_iia: 12, iia: 25, iia_iix: 1, iix: 0,
+        desc: "High daily contractile volume shifts hybrid and fast fibers toward slow oxidative Type I. Mitochondrial volume density and capillary density peak.",
+        atp: "Low-Mod (40%)", atpW: 40, mito: "Peak Density (95%)", mitoW: 95, tens: "95% Conserved", tensW: 55, signal: "AMPK / PGC-1α", sigW: 90
+      },
+      {
+        id: "disuse",
+        label: "Casting / Bed Rest Disuse",
+        i: 32, i_iia: 4, iia: 36, iia_iix: 12, iix: 16,
+        desc: "Absence of mechanical loading triggers slow-to-fast fiber transitions accompanied by severe muscle atrophy. The MHC-IIx pool doubles.",
+        atp: "High (82%)", atpW: 82, mito: "Severely Reduced (25%)", mitoW: 25, tens: "55% Depleted", tensW: 25, signal: "MuRF1 / MAFbx Proteolysis", sigW: 85
+      },
+      {
+        id: "sprint",
+        label: "Sprint & Plyometric",
+        i: 40, i_iia: 2, iia: 52, iia_iix: 4, iix: 2,
+        desc: "High-velocity explosive training minimizes fatigue-prone pure IIx while expanding high-power IIa with elevated rate of force development (RFD).",
+        atp: "Very High (88%)", atpW: 88, mito: "Moderate (50%)", mitoW: 50, tens: "125% Elevated", tensW: 85, signal: "Neural / Neuromuscular", sigW: 80
+      },
+      {
+        id: "overshoot",
+        label: "Taper / Detraining Overshoot",
+        i: 44, i_iia: 2, iia: 40, iia_iix: 4, iix: 10,
+        desc: "Following a cessation or steep volume taper after resistance training, MHC-IIa fibers convert back toward IIx, creating the classic supranormal power overshoot.",
+        atp: "Elevated (75%)", atpW: 75, mito: "Moderate (48%)", mitoW: 48, tens: "110% Preserved", tensW: 72, signal: "MHC Rebound", sigW: 65
+      }
+    ];
+
+    let current = states[0];
+
+    function renderButtons() {
+      const g = document.getElementById("btnGroup");
+      g.innerHTML = "";
+      states.forEach(s => {
+        const b = document.createElement("button");
+        b.className = "mod-btn" + (s.id === current.id ? " active" : "");
+        b.textContent = s.label;
+        b.onclick = () => { current = s; update(); };
+        g.appendChild(b);
+      });
+    }
+
+    function update() {
+      renderButtons();
+      document.getElementById("adaptedLabel").textContent = current.label + " Profile";
+      document.getElementById("stateDesc").textContent = current.desc;
+
+      const bar = document.getElementById("activeBar");
+      bar.innerHTML = `
+        <div class="bar-seg" style="width:${current.i}%; background:var(--type-i);">${current.i > 8 ? 'I (' + current.i + '%)' : ''}</div>
+        <div class="bar-seg" style="width:${current.i_iia}%; background:var(--type-i-iia);">${current.i_iia > 5 ? current.i_iia + '%' : ''}</div>
+        <div class="bar-seg" style="width:${current.iia}%; background:var(--type-iia);">${current.iia > 8 ? 'IIa (' + current.iia + '%)' : ''}</div>
+        <div class="bar-seg" style="width:${current.iia_iix}%; background:var(--type-iia-iix);">${current.iia_iix > 5 ? current.iia_iix + '%' : ''}</div>
+        <div class="bar-seg" style="width:${current.iix}%; background:var(--type-iix);">${current.iix > 4 ? 'IIx (' + current.iix + '%)' : ''}</div>
+      `;
+
+      document.getElementById("mAtp").textContent = current.atp;
+      document.getElementById("mAtpBar").style.width = current.atpW + "%";
+      document.getElementById("mMito").textContent = current.mito;
+      document.getElementById("mMitoBar").style.width = current.mitoW + "%";
+      document.getElementById("mTens").textContent = current.tens;
+      document.getElementById("mTensBar").style.width = current.tensW + "%";
+      document.getElementById("mSignal").textContent = current.signal;
+      document.getElementById("mSignalBar").style.width = current.sigW + "%";
+    }
+
+    renderButtons();
+    update();
+  </script>
+</body>
+</html>
