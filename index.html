@@ -294,6 +294,51 @@
       color: var(--slate-400);
       margin-top: 48px;
     }
+  
+    /* Vertical Module List Styling */
+    .mod-vertical-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mod-list-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      background: #fff;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.15s ease-in-out;
+    }
+    .mod-list-row.active:hover {
+      border-color: var(--accent);
+      background: var(--accent-bg, #f0f7ff);
+      transform: translateX(4px);
+    }
+    .mod-list-row.disabled {
+      background: var(--slate-100);
+      border-color: var(--slate-200);
+      cursor: not-allowed;
+      opacity: 0.75;
+    }
+    .mod-row-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .mod-row-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mod-list-row .mod-title {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
   </style>
 
 <style>
@@ -383,34 +428,56 @@
           (unit.chapters || []).forEach((ch, chIdx) => {
             const details = document.createElement("details");
             details.className = "chapter-accordion";
-            // Keep first chapter open by default
-            if (uIdx === 0 && chIdx === 0) details.open = true;
 
-            let modLinksHtml = "";
+            const chNumDisplay = String(ch.num || (chIdx + 1)).replace(/^0+/, '');
+
+            let modCardsHtml = "";
             (ch.modules || []).forEach(m => {
               const href = m.href || `viewer.html?ch=${ch.num}&mod=${m.id}`;
-              modLinksHtml += `
-                <a href="${href}" class="module-card">
-                  <div class="module-card-body">
-                    <span class="module-id-badge">${m.id || "Mod"}</span>
-                    <span class="module-title-text">${m.title || "Interactive Lesson"}</span>
+              const isLocked = m.disabled === true || m.available === false || m.status === "locked";
+
+              if (isLocked) {
+                modCardsHtml += `
+                  <div class="mod-list-row disabled">
+                    <div class="mod-row-left">
+                      <span class="mod-num">Mod ${m.id || ""}</span>
+                      <span class="mod-title">${m.title || "Interactive Lesson"}</span>
+                    </div>
+                    <div class="mod-row-right">
+                      <span class="mod-status">Locked</span>
+                    </div>
                   </div>
-                  <span class="module-arrow">&rarr;</span>
-                </a>
-              `;
+                `;
+              } else {
+                modCardsHtml += `
+                  <a href="${href}" class="mod-list-row active">
+                    <div class="mod-row-left">
+                      <span class="mod-num">Mod ${m.id || ""}</span>
+                      <span class="mod-title">${m.title || "Interactive Lesson"}</span>
+                    </div>
+                    <div class="mod-row-right">
+                      <span class="mod-status ready">Available</span>
+                      <span class="mod-arrow">&rarr;</span>
+                    </div>
+                  </a>
+                `;
+              }
             });
 
             details.innerHTML = `
-              <summary>
+              <summary class="chapter-summary">
                 <div class="summary-left">
-                  <span class="chapter-chevron">&#9656;</span>
-                  <span class="chapter-name">${ch.title || ("Chapter " + ch.num)}</span>
+                  <span class="chapter-badge">Chapter ${chNumDisplay}</span>
+                  <span class="chapter-name">${ch.title || ""}</span>
                 </div>
-                <span class="module-count">${(ch.modules || []).length} Modules</span>
+                <div class="summary-right">
+                  <span class="chapter-counts">${(ch.modules || []).length} Modules</span>
+                  <span class="accordion-arrow">&#9656;</span>
+                </div>
               </summary>
-              <div class="chapter-content">
-                <div class="module-list">
-                  ${modLinksHtml || '<div style="padding:12px; color:var(--slate-400); font-size:0.9rem;">Modules in development.</div>'}
+              <div class="accordion-content" style="padding: 12px 18px 18px;">
+                <div class="mod-vertical-list">
+                  ${modCardsHtml || '<div style="padding:12px; color:var(--slate-400); font-size:0.9rem;">Modules in development.</div>'}
                 </div>
               </div>
             `;

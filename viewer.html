@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,8 @@
   <!-- KaTeX for physiological formulas -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
-          onload="window.renderMath = () => renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+    onload="window.renderMath = () => renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
 
   <style>
     :root {
@@ -27,8 +28,16 @@
       --slate-800: #1e293b;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--slate-50);
@@ -45,8 +54,9 @@
       position: sticky;
       top: 0;
       z-index: 60;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
+
     .header-top {
       display: flex;
       justify-content: space-between;
@@ -55,12 +65,20 @@
       gap: 12px;
       margin-bottom: 8px;
     }
-    .header-titles h1 { font-size: 1.15rem; font-weight: 700; }
-    .header-titles p { font-size: 0.8rem; color: #94a3b8; }
-    
+
+    .header-titles h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .header-titles p {
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+
     .score-badge {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 4px 12px;
       border-radius: 20px;
       font-size: 0.85rem;
@@ -73,13 +91,14 @@
       display: flex;
       gap: 8px;
       padding: 6px 0;
-      border-top: 1px solid rgba(255,255,255,0.12);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
       margin-top: 4px;
       overflow-x: auto;
     }
+
     .part-pill {
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       color: #cbd5e1;
       padding: 5px 12px;
       border-radius: 16px;
@@ -89,15 +108,17 @@
       white-space: nowrap;
       transition: all 0.15s ease;
     }
+
     .part-pill:hover {
-      background: rgba(255,255,255,0.25);
+      background: rgba(255, 255, 255, 0.25);
       color: #fff;
     }
+
     .part-pill.active {
       background: var(--accent);
       color: #fff;
       border-color: var(--accent);
-      box-shadow: 0 0 8px rgba(37,99,235,0.5);
+      box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
     }
 
     .header-controls {
@@ -106,11 +127,17 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding-top: 6px;
       margin-top: 4px;
     }
-    .subnav-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+
+    .subnav-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
     .nav-btn {
       background: var(--primary-light);
       color: #fff;
@@ -122,17 +149,25 @@
       text-decoration: none;
       transition: background 0.15s;
     }
-    .nav-btn:hover { background: var(--accent); }
+
+    .nav-btn:hover {
+      background: var(--accent);
+    }
+
     .toggle-all-btn {
       background: transparent;
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       color: #cbd5e1;
       padding: 2px 7px;
       border-radius: 4px;
       font-size: 0.72rem;
       cursor: pointer;
     }
-    .toggle-all-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+    .toggle-all-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
 
     .container {
       max-width: 1040px;
@@ -146,6 +181,7 @@
       border-bottom: 2px solid var(--slate-200);
       margin-bottom: 24px;
     }
+
     .tab-btn {
       padding: 10px 18px;
       font-weight: 600;
@@ -157,10 +193,19 @@
       margin-bottom: -2px;
       font-size: 0.95rem;
     }
-    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-    .panel { display: none; }
-    .panel.active { display: block; }
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+    }
 
     /* ACCORDIONS - DEFAULT CLOSED */
     .accordion-card {
@@ -169,8 +214,9 @@
       border-radius: 8px;
       margin-bottom: 18px;
       overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
     }
+
     .accordion-header {
       background: #fff;
       padding: 14px 18px;
@@ -184,21 +230,28 @@
       user-select: none;
       gap: 12px;
     }
-    .accordion-header:hover { background: var(--slate-50); }
+
+    .accordion-header:hover {
+      background: var(--slate-50);
+    }
+
     .accordion-card.open .accordion-header {
       border-bottom-color: var(--slate-200);
       background: var(--slate-100);
     }
+
     .accordion-header-left {
       display: flex;
       align-items: center;
       gap: 8px;
     }
+
     .accordion-header-right {
       display: flex;
       align-items: center;
       gap: 10px;
     }
+
     .section-badge {
       background: #e2e8f0;
       color: #334155;
@@ -207,7 +260,11 @@
       border-radius: 12px;
       font-weight: 700;
     }
-    .section-badge.perfect { background: #dcfce7; color: #166534; }
+
+    .section-badge.perfect {
+      background: #dcfce7;
+      color: #166534;
+    }
 
     .resample-btn {
       background: #fff;
@@ -220,24 +277,53 @@
       cursor: pointer;
       transition: all 0.15s ease;
     }
+
     .resample-btn:hover {
       background: #eff6ff;
       border-color: var(--accent);
     }
 
-    .chevron { transition: transform 0.2s ease; }
-    .accordion-card.open .chevron { transform: rotate(180deg); }
+    .chevron {
+      transition: transform 0.2s ease;
+    }
+
+    .accordion-card.open .chevron {
+      transform: rotate(180deg);
+    }
+
     .accordion-body {
       display: none;
       padding: 20px;
     }
-    .accordion-card.open .accordion-body { display: block; }
 
-    .reading-content h2 { margin: 24px 0 12px 0; color: var(--primary); font-size: 1.35rem; }
-    .reading-content h3 { margin: 18px 0 8px 0; color: var(--primary-light); font-size: 1.15rem; }
-    .reading-content p { margin-bottom: 16px; font-size: 1.05rem; }
-    .reading-content ul { margin: 0 0 18px 24px; }
-    .reading-content li { margin-bottom: 6px; }
+    .accordion-card.open .accordion-body {
+      display: block;
+    }
+
+    .reading-content h2 {
+      margin: 24px 0 12px 0;
+      color: var(--primary);
+      font-size: 1.35rem;
+    }
+
+    .reading-content h3 {
+      margin: 18px 0 8px 0;
+      color: var(--primary-light);
+      font-size: 1.15rem;
+    }
+
+    .reading-content p {
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+    }
+
+    .reading-content ul {
+      margin: 0 0 18px 24px;
+    }
+
+    .reading-content li {
+      margin-bottom: 6px;
+    }
 
     .callout-box {
       background: #eff6ff;
@@ -246,7 +332,12 @@
       border-radius: 0 8px 8px 0;
       margin: 20px 0;
     }
-    .callout-title { font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
 
     .data-table {
       width: 100%;
@@ -254,8 +345,19 @@
       margin: 20px 0;
       background: #fff;
     }
-    .data-table th, .data-table td { padding: 10px 14px; border: 1px solid var(--slate-200); text-align: left; }
-    .data-table th { background: var(--slate-100); font-weight: 700; color: var(--primary); }
+
+    .data-table th,
+    .data-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--slate-200);
+      text-align: left;
+    }
+
+    .data-table th {
+      background: var(--slate-100);
+      font-weight: 700;
+      color: var(--primary);
+    }
 
     .q-item {
       background: var(--slate-50);
@@ -264,8 +366,20 @@
       padding: 16px;
       margin-bottom: 16px;
     }
-    .q-title { font-weight: 700; color: var(--primary); margin-bottom: 12px; }
-    .option-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+
+    .q-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .option-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
     .opt-label {
       display: flex;
       align-items: center;
@@ -277,9 +391,24 @@
       cursor: pointer;
       font-size: 0.95rem;
     }
-    .opt-label:hover { background: #f8fafc; border-color: #94a3b8; }
-    .opt-label.correct { border-color: var(--success); background: #dcfce7 !important; color: #166534; font-weight: 600; }
-    .opt-label.incorrect { border-color: var(--danger); background: #fee2e2 !important; color: #991b1b; }
+
+    .opt-label:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+
+    .opt-label.correct {
+      border-color: var(--success);
+      background: #dcfce7 !important;
+      color: #166534;
+      font-weight: 600;
+    }
+
+    .opt-label.incorrect {
+      border-color: var(--danger);
+      background: #fee2e2 !important;
+      color: #991b1b;
+    }
 
     .cloze-select {
       font-family: inherit;
@@ -291,6 +420,7 @@
       margin: 2px 4px;
       display: inline-block;
     }
+
     .feedback-box {
       margin-top: 10px;
       padding: 10px 14px;
@@ -298,9 +428,22 @@
       font-size: 0.9rem;
       display: none;
     }
-    .feedback-box.visible { display: block; }
-    .feedback-box.info { background: #e0f2fe; color: #075985; border: 1px solid #bae6fd; }
-    .feedback-box.success { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+
+    .feedback-box.visible {
+      display: block;
+    }
+
+    .feedback-box.info {
+      background: #e0f2fe;
+      color: #075985;
+      border: 1px solid #bae6fd;
+    }
+
+    .feedback-box.success {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
 
     .action-btn {
       background: var(--accent);
@@ -312,7 +455,10 @@
       font-size: 0.85rem;
       cursor: pointer;
     }
-    .action-btn:hover { background: var(--accent-hover); }
+
+    .action-btn:hover {
+      background: var(--accent-hover);
+    }
 
     .rubric-scores {
       display: flex;
@@ -321,6 +467,7 @@
       align-items: center;
       flex-wrap: wrap;
     }
+
     .score-btn {
       background: #fff;
       border: 1.5px solid var(--slate-300);
@@ -330,13 +477,24 @@
       cursor: pointer;
       font-weight: 600;
     }
-    .score-btn:hover { border-color: var(--accent); background: #eff6ff; }
-    .score-btn.selected { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    .score-btn:hover {
+      border-color: var(--accent);
+      background: #eff6ff;
+    }
+
+    .score-btn.selected {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
 
     /* SMART BOTTOM NAVIGATION BAR */
     .bottom-bar {
       position: fixed;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       background: #fff;
       border-top: 1px solid var(--slate-200);
       padding: 10px 20px;
@@ -344,8 +502,9 @@
       justify-content: space-between;
       align-items: center;
       z-index: 50;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
     }
+
     .nav-arrow {
       background: var(--primary);
       color: #fff;
@@ -361,9 +520,24 @@
       gap: 6px;
       transition: background 0.15s;
     }
-    .nav-arrow:hover { background: var(--primary-light); }
-    .nav-arrow.disabled { background: var(--slate-200); color: var(--slate-600); pointer-events: none; }
-    .menu-link { color: var(--accent); text-decoration: none; font-weight: 700; font-size: 0.9rem; }
+
+    .nav-arrow:hover {
+      background: var(--primary-light);
+    }
+
+    .nav-arrow.disabled {
+      background: var(--slate-200);
+      color: var(--slate-600);
+      pointer-events: none;
+    }
+
+    .menu-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
     .page-indicator-badge {
       font-size: 0.82rem;
       font-weight: 600;
@@ -373,404 +547,688 @@
       border-radius: 12px;
       border: 1px solid var(--slate-200);
     }
+
+    /* Container for standalone activity links */
+    .activity-links-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    /* Individual activity pill button */
+    .activity-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background-color: #f1f5f9;
+      color: #1e293b;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      border: 1px solid #cbd5e1;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .activity-pill:hover {
+      background-color: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .activity-pill:active {
+      transform: translateY(0);
+    }
+
+    /* Lightning bolt icon prefix */
+    .activity-pill::before {
+      content: "⚡";
+      font-size: 0.85rem;
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div class="header-top">
-    <div class="header-titles">
-      <h1 id="moduleTitle">Loading Module...</h1>
-      <p id="courseTitle">KINS 4403 Physiology of Exercise</p>
+  <header>
+    <div class="header-top">
+      <div class="header-titles">
+        <h1 id="moduleTitle">Loading Module...</h1>
+        <p id="courseTitle">KINS 4403 Physiology of Exercise</p>
+      </div>
+      <div class="score-badge" id="scoreTracker">Score: 0 / 0 pts (0%)</div>
     </div>
-    <div class="score-badge" id="scoreTracker">Score: 0 / 0 pts (0%)</div>
+
+    <!-- PERSISTENT CONCEPT PART PILLS INSIDE STICKY HEADER -->
+    <div class="concept-part-bar" id="conceptPartBar"></div>
+
+    <div class="header-controls">
+      <div class="subnav-pills">
+        <a class="nav-btn" href="#acc-reading">Reading</a>
+        <a class="nav-btn" href="#acc-mcq">MC</a>
+        <a class="nav-btn" href="#acc-ms">MS</a>
+        <a class="nav-btn" href="#acc-tf">T/F</a>
+        <a class="nav-btn" href="#acc-cloze">Cloze</a>
+        <a class="nav-btn" href="#acc-sa">Short Answer</a>
+      </div>
+      <div style="display:flex; gap:6px;">
+        <button class="toggle-all-btn" onclick="toggleAll(true)">Expand All</button>
+        <button class="toggle-all-btn" onclick="toggleAll(false)">Collapse All</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="view-tabs">
+      <button class="tab-btn active" onclick="switchView('lesson')">Interactive Lesson</button>
+      <button class="tab-btn" onclick="switchView('activities')">Applied Labs &amp; Scenarios (<span
+          id="actCount">0</span>)</button>
+      <button class="tab-btn" onclick="switchView('glossary')">Glossary</button>
+    </div>
+
+    <main id="pane-lesson" class="panel active">
+      <!-- DEFAULT COLLAPSED: NO "open" CLASS -->
+      <div class="accordion-card" id="acc-reading">
+        <div class="accordion-header" onclick="toggleCard(this)">
+          <div class="accordion-header-left">
+            <span>📖 Instructional Reading Content</span>
+          </div>
+          <div class="accordion-header-right">
+            <span class="chevron">▼</span>
+          </div>
+        </div>
+        <div class="accordion-body reading-content" id="readingContainer"></div>
+      </div>
+
+      <div class="accordion-card" id="acc-mcq">
+        <div class="accordion-header" onclick="toggleCard(this)">
+          <div class="accordion-header-left">
+            <span>🎯 Multiple Choice Questions</span>
+          </div>
+          <div class="accordion-header-right">
+            <span class="section-badge" id="badge-mcq">0 / 0 pts</span>
+            <button class="resample-btn" onclick="resampleCategory(event, 'mcq')">🔄 Resample</button>
+            <span class="chevron">▼</span>
+          </div>
+        </div>
+        <div class="accordion-body" id="container-mcq"></div>
+      </div>
+
+      <div class="accordion-card" id="acc-ms">
+        <div class="accordion-header" onclick="toggleCard(this)">
+          <div class="accordion-header-left">
+            <span>☑️ Multi-Select Questions</span>
+          </div>
+          <div class="accordion-header-right">
+            <span class="section-badge" id="badge-ms">0 / 0 pts</span>
+            <button class="resample-btn" onclick="resampleCategory(event, 'ms')">🔄 Resample</button>
+            <span class="chevron">▼</span>
+          </div>
+        </div>
+        <div class="accordion-body" id="container-ms"></div>
+      </div>
+
+      <div class="accordion-card" id="acc-tf">
+        <div class="accordion-header" onclick="toggleCard(this)">
+          <div class="accordion-header-left">
+            <span>⚖️ True / False Statements</span>
+          </div>
+          <div class="accordion-header-right">
+            <span class="section-badge" id="badge-tf">0 / 0 pts</span>
+            <button class="resample-btn" onclick="resampleCategory(event, 'tf')">🔄 Resample</button>
+            <span class="chevron">▼</span>
+          </div>
+        </div>
+        <div class="accordion-body" id="container-tf"></div>
+      </div>
+
+      <div class="accordion-card" id="acc-cloze">
+        <div class="accordion-header" onclick="toggleCard(this)">
+          <div class="accordion-header-left">
+            <span>✏️ Sentence Completion (Cloze)</span>
+          </div>
+          <div class="accordion-header-right">
+            <span class="section-badge" id="badge-cloze">0 / 0 pts</span>
+            <button class="resample-btn" onclick="resampleCategory(event, 'cloze')">🔄 Resample</button>
+            <span class="chevron">▼</span>
+          </div>
+        </div>
+        <div class="accordion-body" id="container-cloze"></div>
+      </div>
+
+      <div class="accordion-card" id="acc-sa">
+        <div class="accordion-header" onclick="toggleCard(this)">
+          <div class="accordion-header-left">
+            <span>💡 Applied Short Answer Prompts</span>
+          </div>
+          <div class="accordion-header-right">
+            <span class="section-badge" id="badge-sa">0 / 0 pts</span>
+            <button class="resample-btn" onclick="resampleCategory(event, 'sa')">🔄 Resample</button>
+            <span class="chevron">▼</span>
+          </div>
+        </div>
+        <div class="accordion-body" id="container-sa"></div>
+      </div>
+    </main>
+
+    <section id="pane-activities" class="panel">
+      <h3 style="color: var(--primary); margin-bottom: 8px;">Applied Activities &amp; Interactive Scenarios</h3>
+      <div id="activitiesGrid"
+        style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top:16px;">
+      </div>
+    </section>
+
+    <section id="pane-glossary" class="panel">
+      <h3 style="color: var(--primary); margin-bottom: 16px;">Core Terminology Reference</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 28%;">Term</th>
+            <th>Physiological Definition</th>
+          </tr>
+        </thead>
+        <tbody id="glossaryBody"></tbody>
+      </table>
+    </section>
   </div>
 
-  <!-- PERSISTENT CONCEPT PART PILLS INSIDE STICKY HEADER -->
-  <div class="concept-part-bar" id="conceptPartBar"></div>
-
-  <div class="header-controls">
-    <div class="subnav-pills">
-      <a class="nav-btn" href="#acc-reading">Reading</a>
-      <a class="nav-btn" href="#acc-mcq">MC</a>
-      <a class="nav-btn" href="#acc-ms">MS</a>
-      <a class="nav-btn" href="#acc-tf">T/F</a>
-      <a class="nav-btn" href="#acc-cloze">Cloze</a>
-      <a class="nav-btn" href="#acc-sa">Short Answer</a>
+  <!-- INTELLIGENT STEPPING BOTTOM NAVIGATION -->
+  <footer class="bottom-bar">
+    <button class="nav-arrow" id="btnPrev" onclick="navigatePrevious()">&larr; Previous</button>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span class="page-indicator-badge" id="pageIndicatorBadge">Part 1 of 1</span>
+      <a class="menu-link" href="index.html">&#9776; Main Course Menu</a>
     </div>
-    <div style="display:flex; gap:6px;">
-      <button class="toggle-all-btn" onclick="toggleAll(true)">Expand All</button>
-      <button class="toggle-all-btn" onclick="toggleAll(false)">Collapse All</button>
-    </div>
-  </div>
-</header>
+    <button class="nav-arrow" id="btnNext" onclick="navigateNext()">Next &rarr;</button>
+  </footer>
 
-<div class="container">
-  <div class="view-tabs">
-    <button class="tab-btn active" onclick="switchView('lesson')">Interactive Lesson</button>
-    <button class="tab-btn" onclick="switchView('activities')">Applied Labs &amp; Scenarios (<span id="actCount">0</span>)</button>
-    <button class="tab-btn" onclick="switchView('glossary')">Glossary</button>
-  </div>
+  <script>
+    let moduleData = null;
+    let quizData = null;
+    let currentPartIndex = 0;
+    let currentPartCounts = {};
+    let currentPool = null;
+    let gradedMap = {};
+    let currentCh = '11';
+    let currentMod = '11.1';
 
-  <main id="pane-lesson" class="panel active">
-    <!-- DEFAULT COLLAPSED: NO "open" CLASS -->
-    <div class="accordion-card" id="acc-reading">
-      <div class="accordion-header" onclick="toggleCard(this)">
-        <div class="accordion-header-left">
-          <span>📖 Instructional Reading Content</span>
-        </div>
-        <div class="accordion-header-right">
-          <span class="chevron">▼</span>
-        </div>
-      </div>
-      <div class="accordion-body reading-content" id="readingContainer"></div>
-    </div>
+    const courseSequence =     [
+      {
+        "ch": "02",
+        "mod": "2.1"
+      },
+      {
+        "ch": "02",
+        "mod": "2.2"
+      },
+      {
+        "ch": "02",
+        "mod": "2.3"
+      },
+      {
+        "ch": "02",
+        "mod": "2.4"
+      },
+      {
+        "ch": "02",
+        "mod": "2.5"
+      },
+      {
+        "ch": "02",
+        "mod": "2.6"
+      },
+      {
+        "ch": "02",
+        "mod": "2.7"
+      },
+      {
+        "ch": "05",
+        "mod": "5.1"
+      },
+      {
+        "ch": "05",
+        "mod": "5.2"
+      },
+      {
+        "ch": "05",
+        "mod": "5.3"
+      },
+      {
+        "ch": "05",
+        "mod": "5.4"
+      },
+      {
+        "ch": "05",
+        "mod": "5.5"
+      },
+      {
+        "ch": "10",
+        "mod": "10.1"
+      },
+      {
+        "ch": "10",
+        "mod": "10.2"
+      },
+      {
+        "ch": "10",
+        "mod": "10.3"
+      },
+      {
+        "ch": "10",
+        "mod": "10.4"
+      },
+      {
+        "ch": "11",
+        "mod": "11.1"
+      },
+      {
+        "ch": "11",
+        "mod": "11.2"
+      },
+      {
+        "ch": "11",
+        "mod": "11.3"
+      },
+      {
+        "ch": "11",
+        "mod": "11.4"
+      },
+      {
+        "ch": "17",
+        "mod": "17.1"
+      },
+      {
+        "ch": "17",
+        "mod": "17.2"
+      },
+      {
+        "ch": "17",
+        "mod": "17.3"
+      },
+      {
+        "ch": "17",
+        "mod": "17.4"
+      },
+      {
+        "ch": "17",
+        "mod": "17.5"
+      },
+      {
+        "ch": "17",
+        "mod": "17.6"
+      },
+      {
+        "ch": "19",
+        "mod": "19.1"
+      },
+      {
+        "ch": "19",
+        "mod": "19.2"
+      },
+      {
+        "ch": "19",
+        "mod": "19.3"
+      },
+      {
+        "ch": "19",
+        "mod": "19.4"
+      },
+      {
+        "ch": "19",
+        "mod": "19.5"
+      },
+      {
+        "ch": "19",
+        "mod": "19.6"
+      },
+      {
+        "ch": "09",
+        "mod": "9.1"
+      },
+      {
+        "ch": "09",
+        "mod": "9.2"
+      },
+      {
+        "ch": "09",
+        "mod": "9.3"
+      },
+      {
+        "ch": "09",
+        "mod": "9.4"
+      },
+      {
+        "ch": "14",
+        "mod": "14.1"
+      },
+      {
+        "ch": "14",
+        "mod": "14.2"
+      },
+      {
+        "ch": "14",
+        "mod": "14.3"
+      },
+      {
+        "ch": "14",
+        "mod": "14.4"
+      },
+      {
+        "ch": "14",
+        "mod": "14.5"
+      },
+      {
+        "ch": "20",
+        "mod": "20.1"
+      },
+      {
+        "ch": "20",
+        "mod": "20.2"
+      },
+      {
+        "ch": "20",
+        "mod": "20.3"
+      },
+      {
+        "ch": "20",
+        "mod": "20.4"
+      },
+      {
+        "ch": "20",
+        "mod": "20.5"
+      },
+      {
+        "ch": "20",
+        "mod": "20.6"
+      },
+      {
+        "ch": "20",
+        "mod": "20.7"
+      }
+    ];
 
-    <div class="accordion-card" id="acc-mcq">
-      <div class="accordion-header" onclick="toggleCard(this)">
-        <div class="accordion-header-left">
-          <span>🎯 Multiple Choice Questions</span>
-        </div>
-        <div class="accordion-header-right">
-          <span class="section-badge" id="badge-mcq">0 / 0 pts</span>
-          <button class="resample-btn" onclick="resampleCategory(event, 'mcq')">🔄 Resample</button>
-          <span class="chevron">▼</span>
-        </div>
-      </div>
-      <div class="accordion-body" id="container-mcq"></div>
-    </div>
+    async function init() {
+      const params = new URLSearchParams(window.location.search);
+      currentCh = params.get('ch') || '11';
+      currentMod = params.get('mod') || '11.1';
 
-    <div class="accordion-card" id="acc-ms">
-      <div class="accordion-header" onclick="toggleCard(this)">
-        <div class="accordion-header-left">
-          <span>☑️ Multi-Select Questions</span>
-        </div>
-        <div class="accordion-header-right">
-          <span class="section-badge" id="badge-ms">0 / 0 pts</span>
-          <button class="resample-btn" onclick="resampleCategory(event, 'ms')">🔄 Resample</button>
-          <span class="chevron">▼</span>
-        </div>
-      </div>
-      <div class="accordion-body" id="container-ms"></div>
-    </div>
+      try {
+        const cacheBust = Date.now();
+        const chPadded = currentCh.toString().padStart(2, '0');
+        const chUnpadded = currentCh.toString().replace(/^0+/, '');
+        const modRaw = currentMod.toString();
+        const modUnpadded = modRaw.replace(/^0+/, '');
+        const modPadded = modRaw.includes('.')
+          ? modRaw.split('.')[0].padStart(2, '0') + '.' + modRaw.split('.')[1]
+          : modRaw.padStart(2, '0');
 
-    <div class="accordion-card" id="acc-tf">
-      <div class="accordion-header" onclick="toggleCard(this)">
-        <div class="accordion-header-left">
-          <span>⚖️ True / False Statements</span>
-        </div>
-        <div class="accordion-header-right">
-          <span class="section-badge" id="badge-tf">0 / 0 pts</span>
-          <button class="resample-btn" onclick="resampleCategory(event, 'tf')">🔄 Resample</button>
-          <span class="chevron">▼</span>
-        </div>
-      </div>
-      <div class="accordion-body" id="container-tf"></div>
-    </div>
+        // Candidate file paths to check in order:
+        // 1. content/ch07/7.1_content.json
+        // 2. content/ch07/07.1_content.json
+        // 3. content/ch7/7.1_content.json
+        // 4. content/ch7/07.1_content.json
+        const candidatePaths = [
+          `content/ch${chPadded}/${modUnpadded}`,
+          `content/ch${chPadded}/${modPadded}`,
+          `content/ch${chPadded}/${modRaw}`,
+          `content/ch${chUnpadded}/${modUnpadded}`,
+          `content/ch${chUnpadded}/${modPadded}`,
+          `content/ch${chUnpadded}/${modRaw}`
+        ];
+        // Deduplicate candidate base paths
+        const uniqueBases = [...new Set(candidatePaths)];
 
-    <div class="accordion-card" id="acc-cloze">
-      <div class="accordion-header" onclick="toggleCard(this)">
-        <div class="accordion-header-left">
-          <span>✏️ Sentence Completion (Cloze)</span>
-        </div>
-        <div class="accordion-header-right">
-          <span class="section-badge" id="badge-cloze">0 / 0 pts</span>
-          <button class="resample-btn" onclick="resampleCategory(event, 'cloze')">🔄 Resample</button>
-          <span class="chevron">▼</span>
-        </div>
-      </div>
-      <div class="accordion-body" id="container-cloze"></div>
-    </div>
+        let resContent = null;
+        let matchedBase = null;
+        for (const base of uniqueBases) {
+          try {
+            const testRes = await fetch(`${base}_content.json?t=${cacheBust}`);
+            if (testRes.ok) {
+              resContent = testRes;
+              matchedBase = base;
+              break;
+            }
+          } catch (e) { }
+        }
+        if (!resContent) {
+          resContent = { ok: false, status: 404 };
+        }
 
-    <div class="accordion-card" id="acc-sa">
-      <div class="accordion-header" onclick="toggleCard(this)">
-        <div class="accordion-header-left">
-          <span>💡 Applied Short Answer Prompts</span>
-        </div>
-        <div class="accordion-header-right">
-          <span class="section-badge" id="badge-sa">0 / 0 pts</span>
-          <button class="resample-btn" onclick="resampleCategory(event, 'sa')">🔄 Resample</button>
-          <span class="chevron">▼</span>
-        </div>
-      </div>
-      <div class="accordion-body" id="container-sa"></div>
-    </div>
-  </main>
+        // Quiz is optional - don't let a missing quiz block the lesson content
+        let resQuiz = { ok: false };
+        try {
+          if (matchedBase) {
+            resQuiz = await fetch(`${matchedBase}_quiz.json?t=${cacheBust}`);
+          }
+          if (!resQuiz || !resQuiz.ok) {
+            for (const base of uniqueBases) {
+              const qRes = await fetch(`${base}_quiz.json?t=${cacheBust}`);
+              if (qRes.ok) { resQuiz = qRes; break; }
+            }
+          }
+        } catch (e) {
+          console.warn("No quiz file found for this module.");
+        }
 
-  <section id="pane-activities" class="panel">
-    <h3 style="color: var(--primary); margin-bottom: 8px;">Applied Activities &amp; Interactive Scenarios</h3>
-    <div id="activitiesGrid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top:16px;"></div>
-  </section>
+        if (!resContent.ok) throw new Error(`Could not fetch content for Ch ${currentCh}, Module ${currentMod} (HTTP ${resContent.status})`);
+        moduleData = await resContent.json();
+        quizData = resQuiz.ok ? await resQuiz.json() : null;
+        const title = (moduleData.meta && moduleData.meta.moduleTitle) || moduleData.title || `Module ${currentMod}`;
+        const course = (moduleData.meta && moduleData.meta.course) || moduleData.course || moduleData.unit || 'KINS 2203';
+        const titleEl = document.getElementById('moduleTitle');
+        const courseEl = document.getElementById('courseTitle');
+        if (titleEl) titleEl.textContent = title;
+        if (courseEl) courseEl.textContent = course;
 
-  <section id="pane-glossary" class="panel">
-    <h3 style="color: var(--primary); margin-bottom: 16px;">Core Terminology Reference</h3>
-    <table class="data-table">
-      <thead><tr><th style="width: 28%;">Term</th><th>Physiological Definition</th></tr></thead>
-      <tbody id="glossaryBody"></tbody>
-    </table>
-  </section>
-</div>
-
-<!-- INTELLIGENT STEPPING BOTTOM NAVIGATION -->
-<footer class="bottom-bar">
-  <button class="nav-arrow" id="btnPrev" onclick="navigatePrevious()">&larr; Previous</button>
-  <div style="display:flex; align-items:center; gap:12px;">
-    <span class="page-indicator-badge" id="pageIndicatorBadge">Part 1 of 1</span>
-    <a class="menu-link" href="index.html">&#9776; Main Course Menu</a>
-  </div>
-  <button class="nav-arrow" id="btnNext" onclick="navigateNext()">Next &rarr;</button>
-</footer>
-
-<script>
-  let moduleData = null;
-  let quizData = null;
-  let currentPartIndex = 0;
-  let currentPartCounts = {};
-  let currentPool = null;
-  let gradedMap = {};
-  let currentCh = '11';
-  let currentMod = '11.1';
-
-  const courseSequence = [
-    // Unit 1: Foundations of Bioenergetics & Fatigue
-    { ch: '2', mod: '2.1' }, { ch: '2', mod: '2.2' }, { ch: '2', mod: '2.3' },
-    { ch: '5', mod: '5.1' }, { ch: '5', mod: '5.2' }, { ch: '5', mod: '5.3' },
-
-    // Unit 2: Chronic Neuromuscular, Metabolic & Cardiorespiratory Adaptations
-    { ch: '10', mod: '10.1' }, { ch: '10', mod: '10.2' }, { ch: '10', mod: '10.3' }, { ch: '10', mod: '10.4' },
-    { ch: '11', mod: '11.1' }, { ch: '11', mod: '11.2' }, { ch: '11', mod: '11.3' }, { ch: '11', mod: '11.4' },
-
-    // Unit 3: Special Populations across the Lifespan & Sex Differences
-    { ch: '17', mod: '17.1' }, { ch: '17', mod: '17.2' }, { ch: '17', mod: '17.3' }, { ch: '17', mod: '17.4' }, { ch: '17', mod: '17.5' }, { ch: '17', mod: '17.6' },
-    { ch: '19', mod: '19.1' }, { ch: '19', mod: '19.2' }, { ch: '19', mod: '19.3' }, { ch: '19', mod: '19.4' }, { ch: '19', mod: '19.5' }, { ch: '19', mod: '19.6' },
-
-    // Unit 4: Program Design, Periodization & Clinical Exercise Prescription
-    { ch: '9', mod: '9.1' }, { ch: '9', mod: '9.2' }, { ch: '9', mod: '9.3' }, { ch: '9', mod: '9.4' },
-    { ch: '14', mod: '14.1' }, { ch: '14', mod: '14.2' }, { ch: '14', mod: '14.3' }, { ch: '14', mod: '14.4' }, { ch: '14', mod: '14.5' },
-    { ch: '20', mod: '20.1' }, { ch: '20', mod: '20.2' }, { ch: '20', mod: '20.3' }, { ch: '20', mod: '20.4' }, { ch: '20', mod: '20.5' }, { ch: '20', mod: '20.6' }, { ch: '20', mod: '20.7' }
-  ];
-
-  async function init() {
-    const params = new URLSearchParams(window.location.search);
-    currentCh = params.get('ch') || '11';
-    currentMod = params.get('mod') || '11.1';
-
-    try {
-      const cacheBust = Date.now();
-      const [resContent, resQuiz] = await Promise.all([
-        fetch(`content/ch${currentCh}/${currentMod}_content.json?t=${cacheBust}`),
-        fetch(`content/ch${currentCh}/${currentMod}_quiz.json?t=${cacheBust}`)
-      ]);
-
-      if (!resContent.ok || !resQuiz.ok) throw new Error(`Could not load files for Ch ${currentCh}, Module ${currentMod}`);
-
-      moduleData = await resContent.json();
-      quizData = await resQuiz.json();
-
-      document.getElementById('moduleTitle').textContent = moduleData.meta.moduleTitle;
-      document.getElementById('courseTitle').textContent = moduleData.meta.course;
-
-      buildPartPills();
-      buildGlossary();
+        buildPartPills();
+        buildGlossary();
         buildActivities();
-      loadConceptPart(0);
-    } catch (err) {
-      document.querySelector('.container').innerHTML = `
+        loadConceptPart(0);
+      } catch (err) {
+        document.querySelector('.container').innerHTML = `
         <div style="background:#fee2e2; border:1px solid #f87171; padding:24px; border-radius:8px; color:#991b1b; margin-top:20px;">
           <h3>Failed to load learning module</h3>
           <p>${err.message}</p>
         </div>`;
-    }
-  }
-
-  function buildPartPills() {
-    const container = document.getElementById('conceptPartBar');
-    container.innerHTML = '';
-    const totalPages = (moduleData.pages && moduleData.pages.length) ? moduleData.pages.length : 1;
-    
-    if (totalPages <= 1) {
-      container.style.display = 'none';
-      return;
-    }
-    container.style.display = 'flex';
-    moduleData.pages.forEach((p, idx) => {
-      const pill = document.createElement('button');
-      pill.className = `part-pill ${idx === 0 ? 'active' : ''}`;
-      pill.textContent = p.title || `Part ${idx + 1}`;
-      pill.onclick = () => loadConceptPart(idx);
-      container.appendChild(pill);
-    });
-  }
-
-  function sample(arr, count) {
-    if (!arr || !Array.isArray(arr) || arr.length === 0) return [];
-    const limit = (typeof count === 'number' && count > 0) ? count : 2;
-    const shuffled = [...arr].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, Math.min(limit, shuffled.length));
-  }
-
-  function resolvePartPool(partId, partIdx) {
-    if (!quizData) return null;
-    if (quizData[partId]) return quizData[partId];
-    if (quizData[String(partIdx + 1)]) return quizData[String(partIdx + 1)];
-    
-    const pools = Object.values(quizData).filter(v => typeof v === 'object' && v !== null && (v.mcq || v.tf || v.ms || v.cloze));
-    if (pools.length > partIdx) return pools[partIdx];
-    if (pools.length > 0) return pools[0];
-    
-    return quizData;
-  }
-
-  function loadConceptPart(idx) {
-    currentPartIndex = idx;
-    
-    // 1. Force all shell accordions to be collapsed
-    document.querySelectorAll('.accordion-card').forEach(c => c.classList.remove('open'));
-
-    // 2. Update pinned header pills
-    document.querySelectorAll('.part-pill').forEach((btn, i) => btn.classList.toggle('active', i === idx));
-    const page = (moduleData.pages && moduleData.pages[idx]) ? moduleData.pages[idx] : (moduleData.pages ? moduleData.pages[0] : {});
-
-    // 3. Inject reading and strip any legacy open attributes/classes inside reading
-    const readingDiv = document.getElementById('readingContainer');
-    readingDiv.innerHTML = page.readingHtml || '<p>No reading content available.</p>';
-    readingDiv.querySelectorAll('details[open]').forEach(d => d.removeAttribute('open'));
-    readingDiv.querySelectorAll('.accordion-card.open').forEach(c => c.classList.remove('open'));
-
-    // 4. Sample and populate quizzes
-    currentPartCounts = page.sampleCounts || { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 1 };
-    currentPool = resolvePartPool(page.id, idx);
-
-    resampleCategory(null, 'mcq');
-    resampleCategory(null, 'ms');
-    resampleCategory(null, 'tf');
-    resampleCategory(null, 'cloze');
-    resampleCategory(null, 'sa');
-
-    // 5. Update bottom stepping bar
-    updateBottomBarNavigation();
-
-    if (window.renderMath) window.renderMath();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  /* STEPPING NAVIGATION LOGIC */
-  function updateBottomBarNavigation() {
-    const totalPages = (moduleData.pages && moduleData.pages.length) ? moduleData.pages.length : 1;
-    const badge = document.getElementById('pageIndicatorBadge');
-    badge.textContent = `Part ${currentPartIndex + 1} of ${totalPages}`;
-
-    const prevBtn = document.getElementById('btnPrev');
-    const nextBtn = document.getElementById('btnNext');
-    const curModIdx = courseSequence.findIndex(item => item.ch === currentCh && item.mod === currentMod);
-
-    // PREVIOUS: Internal page first, else previous module
-    if (currentPartIndex > 0) {
-      prevBtn.innerHTML = `&larr; Part ${currentPartIndex}`;
-      prevBtn.classList.remove('disabled');
-    } else if (curModIdx > 0) {
-      const prevMod = courseSequence[curModIdx - 1];
-      prevBtn.innerHTML = `&larr; Mod ${prevMod.mod}`;
-      prevBtn.classList.remove('disabled');
-    } else {
-      prevBtn.innerHTML = `&larr; Start`;
-      prevBtn.classList.add('disabled');
-    }
-
-    // NEXT: Internal page first, else next module
-    if (currentPartIndex < totalPages - 1) {
-      nextBtn.innerHTML = `Part ${currentPartIndex + 2} &rarr;`;
-      nextBtn.classList.remove('disabled');
-    } else if (curModIdx < courseSequence.length - 1) {
-      const nextMod = courseSequence[curModIdx + 1];
-      nextBtn.innerHTML = `Mod ${nextMod.mod} &rarr;`;
-      nextBtn.classList.remove('disabled');
-    } else {
-      nextBtn.innerHTML = `Complete`;
-      nextBtn.classList.add('disabled');
-    }
-  }
-
-  window.navigatePrevious = () => {
-    if (currentPartIndex > 0) {
-      loadConceptPart(currentPartIndex - 1);
-    } else {
-      const curModIdx = courseSequence.findIndex(item => item.ch === currentCh && item.mod === currentMod);
-      if (curModIdx > 0) {
-        const prev = courseSequence[curModIdx - 1];
-        window.location.href = `viewer.html?ch=${prev.ch}&mod=${prev.mod}`;
       }
     }
-  };
 
-  window.navigateNext = () => {
-    const totalPages = (moduleData.pages && moduleData.pages.length) ? moduleData.pages.length : 1;
-    if (currentPartIndex < totalPages - 1) {
-      loadConceptPart(currentPartIndex + 1);
-    } else {
-      const curModIdx = courseSequence.findIndex(item => item.ch === currentCh && item.mod === currentMod);
-      if (curModIdx < courseSequence.length - 1) {
-        const next = courseSequence[curModIdx + 1];
-        window.location.href = `viewer.html?ch=${next.ch}&mod=${next.mod}`;
+    function buildPartPills() {
+      const container = document.getElementById('conceptPartBar');
+      container.innerHTML = '';
+      const totalPages = (moduleData.pages && moduleData.pages.length) ? moduleData.pages.length : 1;
+
+      if (totalPages <= 1) {
+        container.style.display = 'none';
+        return;
+      }
+      container.style.display = 'flex';
+      moduleData.pages.forEach((p, idx) => {
+        const pill = document.createElement('button');
+        pill.className = `part-pill ${idx === 0 ? 'active' : ''}`;
+        pill.textContent = p.title || `Part ${idx + 1}`;
+        pill.onclick = () => loadConceptPart(idx);
+        container.appendChild(pill);
+      });
+    }
+
+    function sample(arr, count) {
+      if (!arr || !Array.isArray(arr) || arr.length === 0) return [];
+      const limit = (typeof count === 'number' && count > 0) ? count : 2;
+      const shuffled = [...arr].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, Math.min(limit, shuffled.length));
+    }
+
+    function resolvePartPool(partId, partIdx) {
+      if (!quizData) return null;
+      if (quizData[partId]) return quizData[partId];
+      if (quizData[String(partIdx + 1)]) return quizData[String(partIdx + 1)];
+
+      const pools = Object.values(quizData).filter(v => typeof v === 'object' && v !== null && (v.mcq || v.tf || v.ms || v.cloze));
+      if (pools.length > partIdx) return pools[partIdx];
+      if (pools.length > 0) return pools[0];
+
+      return quizData;
+    }
+
+    function loadConceptPart(idx) {
+      currentPartIndex = idx;
+
+      // 1. Force all shell accordions to be collapsed
+      document.querySelectorAll('.accordion-card').forEach(c => c.classList.remove('open'));
+
+      // 2. Update pinned header pills
+      document.querySelectorAll('.part-pill').forEach((btn, i) => btn.classList.toggle('active', i === idx));
+      const page = (moduleData.pages && moduleData.pages[idx]) ? moduleData.pages[idx] : (moduleData.pages ? moduleData.pages[0] : {});
+
+      // 3. Inject reading and strip any legacy open attributes/classes inside reading
+      const readingDiv = document.getElementById('readingContainer');
+      readingDiv.innerHTML = page.readingHtml || '<p>No reading content available.</p>';
+      readingDiv.querySelectorAll('details[open]').forEach(d => d.removeAttribute('open'));
+      readingDiv.querySelectorAll('.accordion-card.open').forEach(c => c.classList.remove('open'));
+
+      // 4. Sample and populate quizzes
+      currentPartCounts = page.sampleCounts || { mcq: 2, ms: 2, tf: 2, cloze: 2, sa: 1 };
+      currentPool = resolvePartPool(page.id, idx);
+
+      resampleCategory(null, 'mcq');
+      resampleCategory(null, 'ms');
+      resampleCategory(null, 'tf');
+      resampleCategory(null, 'cloze');
+      resampleCategory(null, 'sa');
+
+      // 5. Update bottom stepping bar
+      updateBottomBarNavigation();
+
+      if (window.renderMath) window.renderMath();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* STEPPING NAVIGATION LOGIC */
+    function updateBottomBarNavigation() {
+      const totalPages = (moduleData.pages && moduleData.pages.length) ? moduleData.pages.length : 1;
+      const badge = document.getElementById('pageIndicatorBadge');
+      badge.textContent = `Part ${currentPartIndex + 1} of ${totalPages}`;
+
+      const prevBtn = document.getElementById('btnPrev');
+      const nextBtn = document.getElementById('btnNext');
+      const norm = v => String(v || '').replace(/^0+/, '');
+      const curModIdx = courseSequence.findIndex(item => norm(item.ch) === norm(currentCh) && norm(item.mod) === norm(currentMod));
+
+      // PREVIOUS: Internal page first, else previous module
+      if (currentPartIndex > 0) {
+        prevBtn.innerHTML = `&larr; Part ${currentPartIndex}`;
+        prevBtn.classList.remove('disabled');
+      } else if (curModIdx > 0) {
+        const prevMod = courseSequence[curModIdx - 1];
+        prevBtn.innerHTML = `&larr; Mod ${prevMod.mod}`;
+        prevBtn.classList.remove('disabled');
+      } else {
+        prevBtn.innerHTML = `&larr; Start`;
+        prevBtn.classList.add('disabled');
+      }
+
+      // NEXT: Internal page first, else next module
+      if (currentPartIndex < totalPages - 1) {
+        nextBtn.innerHTML = `Part ${currentPartIndex + 2} &rarr;`;
+        nextBtn.classList.remove('disabled');
+      } else if (curModIdx < courseSequence.length - 1) {
+        const nextMod = courseSequence[curModIdx + 1];
+        nextBtn.innerHTML = `Mod ${nextMod.mod} &rarr;`;
+        nextBtn.classList.remove('disabled');
+      } else {
+        nextBtn.innerHTML = `Complete`;
+        nextBtn.classList.add('disabled');
       }
     }
-  };
 
-  window.resampleCategory = (event, type) => {
-    if (event) event.stopPropagation();
-    if (!currentPool) return;
+    window.navigatePrevious = () => {
+      if (currentPartIndex > 0) {
+        loadConceptPart(currentPartIndex - 1);
+      } else {
+        const norm = v => String(v || '').replace(/^0+/, '');
+      const curModIdx = courseSequence.findIndex(item => norm(item.ch) === norm(currentCh) && norm(item.mod) === norm(currentMod));
+        if (curModIdx > 0) {
+          const prev = courseSequence[curModIdx - 1];
+          window.location.href = `viewer.html?ch=${prev.ch}&mod=${prev.mod}`;
+        }
+      }
+    };
 
-    Object.keys(gradedMap).forEach(k => {
-      if (gradedMap[k].type === type) delete gradedMap[k];
-    });
+    window.navigateNext = () => {
+      const totalPages = (moduleData.pages && moduleData.pages.length) ? moduleData.pages.length : 1;
+      if (currentPartIndex < totalPages - 1) {
+        loadConceptPart(currentPartIndex + 1);
+      } else {
+        const norm = v => String(v || '').replace(/^0+/, '');
+      const curModIdx = courseSequence.findIndex(item => norm(item.ch) === norm(currentCh) && norm(item.mod) === norm(currentMod));
+        if (curModIdx < courseSequence.length - 1) {
+          const next = courseSequence[curModIdx + 1];
+          window.location.href = `viewer.html?ch=${next.ch}&mod=${next.mod}`;
+        }
+      }
+    };
 
-    const count = currentPartCounts[type] || (type === 'sa' ? 1 : 2);
+    window.resampleCategory = (event, type) => {
+      if (event) event.stopPropagation();
+      if (!currentPool) return;
 
-    if (type === 'mcq') {
-      const items = sample(currentPool.mcq || currentPool.multipleChoice || [], count);
-      renderMCQs(items);
-      updateSectionBadge('mcq', count);
-    } else if (type === 'ms') {
-      const items = sample(currentPool.ms || currentPool.multiSelect || [], count);
-      renderMSs(items);
-      updateSectionBadge('ms', count);
-    } else if (type === 'tf') {
-      const items = sample(currentPool.tf || currentPool.trueFalse || [], count);
-      renderTFs(items);
-      updateSectionBadge('tf', count);
-    } else if (type === 'cloze') {
-      const items = sample(currentPool.cloze || currentPool.fillBlank || [], count);
-      renderClozes(items);
-      updateSectionBadge('cloze', count);
-    } else if (type === 'sa') {
-      const items = sample(currentPool.sa || currentPool.shortAnswer || currentPool.openEnded || [], count);
-      renderSAs(items);
-      updateSectionBadge('sa', count * 5);
+      Object.keys(gradedMap).forEach(k => {
+        if (gradedMap[k].type === type) delete gradedMap[k];
+      });
+
+      const count = currentPartCounts[type] || (type === 'sa' ? 1 : 2);
+
+      if (type === 'mcq') {
+        const items = sample(currentPool.mcq || currentPool.multipleChoice || [], count);
+        renderMCQs(items);
+        updateSectionBadge('mcq', count);
+      } else if (type === 'ms') {
+        const items = sample(currentPool.ms || currentPool.multiSelect || [], count);
+        renderMSs(items);
+        updateSectionBadge('ms', count);
+      } else if (type === 'tf') {
+        const items = sample(currentPool.tf || currentPool.trueFalse || [], count);
+        renderTFs(items);
+        updateSectionBadge('tf', count);
+      } else if (type === 'cloze') {
+        const items = sample(currentPool.cloze || currentPool.fillBlank || [], count);
+        renderClozes(items);
+        updateSectionBadge('cloze', count);
+      } else if (type === 'sa') {
+        const items = sample(currentPool.sa || currentPool.shortAnswer || currentPool.openEnded || [], count);
+        renderSAs(items);
+        updateSectionBadge('sa', count * 5);
+      }
+
+      recalcGlobalScore();
+    };
+
+    function updateSectionBadge(type, totalPts) {
+      let earned = 0;
+      Object.values(gradedMap).forEach(v => {
+        if (v.type === type) earned += v.earned;
+      });
+      const badge = document.getElementById(`badge-${type}`);
+      if (badge) {
+        badge.textContent = `${earned} / ${totalPts} pts`;
+        badge.classList.toggle('perfect', earned === totalPts && totalPts > 0);
+      }
     }
 
-    recalcGlobalScore();
-  };
-
-  function updateSectionBadge(type, totalPts) {
-    let earned = 0;
-    Object.values(gradedMap).forEach(v => {
-      if (v.type === type) earned += v.earned;
-    });
-    const badge = document.getElementById(`badge-${type}`);
-    if (badge) {
-      badge.textContent = `${earned} / ${totalPts} pts`;
-      badge.classList.toggle('perfect', earned === totalPts && totalPts > 0);
-    }
-  }
-
-  function renderMCQs(items) {
-    const c = document.getElementById('container-mcq');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
-    items.forEach((item, i) => {
-      const qId = `mcq_${currentPartIndex}_${i}_${item.id || i}`;
-      const div = document.createElement('div');
-      div.className = 'q-item';
-      div.innerHTML = `
+    function renderMCQs(items) {
+      const c = document.getElementById('container-mcq');
+      c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
+      items.forEach((item, i) => {
+        const qId = `mcq_${currentPartIndex}_${i}_${item.id || i}`;
+        const div = document.createElement('div');
+        div.className = 'q-item';
+        div.innerHTML = `
         <div class="q-title">${i + 1}. ${item.q || item.question}</div>
         <div class="option-group">
           ${(item.opts || item.options || []).map((opt, optIdx) => `
@@ -782,35 +1240,35 @@
         </div>
         <div class="feedback-box info" id="${qId}_fb"><strong>Rationale:</strong> ${item.rationale || item.feedback || ''}</div>
       `;
-      c.appendChild(div);
-    });
-  }
-
-  window.gradeMCQ = (qId, selected, correct) => {
-    document.querySelectorAll(`[id^="${qId}_opt_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
-    const chosen = document.getElementById(`${qId}_opt_${selected}`);
-    const isCorrect = (selected === correct);
-    if (isCorrect) {
-      chosen.classList.add('correct');
-      recordScore(qId, 'mcq', 1, 1);
-    } else {
-      chosen.classList.add('incorrect');
-      const corr = document.getElementById(`${qId}_opt_${correct}`);
-      if (corr) corr.classList.add('correct');
-      recordScore(qId, 'mcq', 0, 1);
+        c.appendChild(div);
+      });
     }
-    document.getElementById(`${qId}_fb`).classList.add('visible');
-  };
 
-  function renderMSs(items) {
-    const c = document.getElementById('container-ms');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
-    items.forEach((item, i) => {
-      const qId = `ms_${currentPartIndex}_${i}_${item.id || i}`;
-      const correctArr = item.correctArray || item.correct || [];
-      const div = document.createElement('div');
-      div.className = 'q-item';
-      div.innerHTML = `
+    window.gradeMCQ = (qId, selected, correct) => {
+      document.querySelectorAll(`[id^="${qId}_opt_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
+      const chosen = document.getElementById(`${qId}_opt_${selected}`);
+      const isCorrect = (selected === correct);
+      if (isCorrect) {
+        chosen.classList.add('correct');
+        recordScore(qId, 'mcq', 1, 1);
+      } else {
+        chosen.classList.add('incorrect');
+        const corr = document.getElementById(`${qId}_opt_${correct}`);
+        if (corr) corr.classList.add('correct');
+        recordScore(qId, 'mcq', 0, 1);
+      }
+      document.getElementById(`${qId}_fb`).classList.add('visible');
+    };
+
+    function renderMSs(items) {
+      const c = document.getElementById('container-ms');
+      c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
+      items.forEach((item, i) => {
+        const qId = `ms_${currentPartIndex}_${i}_${item.id || i}`;
+        const correctArr = item.correctArray || item.correct || [];
+        const div = document.createElement('div');
+        div.className = 'q-item';
+        div.innerHTML = `
         <div class="q-title">${i + 1}. ${item.q || item.question} (Select all that apply)</div>
         <div class="option-group">
           ${(item.opts || item.options || []).map((opt, optIdx) => `
@@ -823,42 +1281,42 @@
         <button class="action-btn" onclick="gradeMS('${qId}', ${JSON.stringify(correctArr)})">Check Selection</button>
         <div class="feedback-box info" id="${qId}_fb"><strong>Rationale:</strong> ${item.rationale || item.feedback || ''}</div>
       `;
-      c.appendChild(div);
-    });
-  }
+        c.appendChild(div);
+      });
+    }
 
-  window.gradeMS = (qId, correctArray) => {
-    const checked = Array.from(document.querySelectorAll(`input[name="${qId}"]:checked`)).map(cb => parseInt(cb.value));
-    document.querySelectorAll(`[id^="${qId}_ms_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
-    
-    correctArray.forEach(idx => {
-      const el = document.getElementById(`${qId}_ms_${idx}`);
-      if (el) el.classList.add('correct');
-    });
-    checked.forEach(idx => {
-      if (!correctArray.includes(idx)) {
+    window.gradeMS = (qId, correctArray) => {
+      const checked = Array.from(document.querySelectorAll(`input[name="${qId}"]:checked`)).map(cb => parseInt(cb.value));
+      document.querySelectorAll(`[id^="${qId}_ms_"]`).forEach(l => l.classList.remove('correct', 'incorrect'));
+
+      correctArray.forEach(idx => {
         const el = document.getElementById(`${qId}_ms_${idx}`);
-        if (el) el.classList.add('incorrect');
-      }
-    });
+        if (el) el.classList.add('correct');
+      });
+      checked.forEach(idx => {
+        if (!correctArray.includes(idx)) {
+          const el = document.getElementById(`${qId}_ms_${idx}`);
+          if (el) el.classList.add('incorrect');
+        }
+      });
 
-    const isMatch = (checked.length === correctArray.length && checked.every(v => correctArray.includes(v)));
-    recordScore(qId, 'ms', isMatch ? 1 : 0, 1);
-    document.getElementById(`${qId}_fb`).classList.add('visible');
-  };
+      const isMatch = (checked.length === correctArray.length && checked.every(v => correctArray.includes(v)));
+      recordScore(qId, 'ms', isMatch ? 1 : 0, 1);
+      document.getElementById(`${qId}_fb`).classList.add('visible');
+    };
 
-  function renderTFs(items) {
-    const c = document.getElementById('container-tf');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
-    
-    items.forEach((item, i) => {
-      const qId = `tf_item_${currentPartIndex}_${i}_${item.id || i}`;
-      const answerBool = (item.ans !== undefined) ? Boolean(item.ans) : (item.answer !== undefined ? Boolean(item.answer) : false);
-      const fbText = item.feedback || item.rationale || (answerBool ? "This statement is true." : "This statement is false.");
+    function renderTFs(items) {
+      const c = document.getElementById('container-tf');
+      c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
 
-      const div = document.createElement('div');
-      div.className = 'q-item';
-      div.innerHTML = `
+      items.forEach((item, i) => {
+        const qId = `tf_item_${currentPartIndex}_${i}_${item.id || i}`;
+        const answerBool = (item.ans !== undefined) ? Boolean(item.ans) : (item.answer !== undefined ? Boolean(item.answer) : false);
+        const fbText = item.feedback || item.rationale || (answerBool ? "This statement is true." : "This statement is false.");
+
+        const div = document.createElement('div');
+        div.className = 'q-item';
+        div.innerHTML = `
         <div class="q-title">${i + 1}. True or False: ${item.q || item.question}</div>
         <div class="option-group" style="flex-direction:row; gap:12px;">
           <label class="opt-label" id="${qId}_true_lbl">
@@ -872,94 +1330,94 @@
           <strong>Physiological Rationale:</strong> ${fbText}
         </div>
       `;
-      c.appendChild(div);
-    });
-  }
-
-  window.gradeTF = (qId, selectedBool, correctBool) => {
-    const trueLbl = document.getElementById(`${qId}_true_lbl`);
-    const falseLbl = document.getElementById(`${qId}_false_lbl`);
-    const fbBox = document.getElementById(`${qId}_fb`);
-
-    if (trueLbl) trueLbl.classList.remove('correct', 'incorrect');
-    if (falseLbl) falseLbl.classList.remove('correct', 'incorrect');
-
-    const chosenLbl = selectedBool ? trueLbl : falseLbl;
-    const correctLbl = correctBool ? trueLbl : falseLbl;
-
-    if (selectedBool === correctBool) {
-      if (chosenLbl) chosenLbl.classList.add('correct');
-      recordScore(qId, 'tf', 1, 1);
-    } else {
-      if (chosenLbl) chosenLbl.classList.add('incorrect');
-      if (correctLbl) correctLbl.classList.add('correct');
-      recordScore(qId, 'tf', 0, 1);
+        c.appendChild(div);
+      });
     }
 
-    if (fbBox) {
-      fbBox.classList.remove('info', 'success');
-      fbBox.classList.add(selectedBool === correctBool ? 'success' : 'info', 'visible');
-    }
-  };
+    window.gradeTF = (qId, selectedBool, correctBool) => {
+      const trueLbl = document.getElementById(`${qId}_true_lbl`);
+      const falseLbl = document.getElementById(`${qId}_false_lbl`);
+      const fbBox = document.getElementById(`${qId}_fb`);
 
-  function renderClozes(items) {
-    const c = document.getElementById('container-cloze');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
+      if (trueLbl) trueLbl.classList.remove('correct', 'incorrect');
+      if (falseLbl) falseLbl.classList.remove('correct', 'incorrect');
 
-    items.forEach((item, i) => {
-      const qId = `clz_item_${currentPartIndex}_${i}_${item.id || i}`;
-      const rawStmt = item.statement || "";
-      
-      let targets = [];
-      if (Array.isArray(item.targets) && item.targets.length > 0) {
-        targets = item.targets.map(t => String(t).trim());
+      const chosenLbl = selectedBool ? trueLbl : falseLbl;
+      const correctLbl = correctBool ? trueLbl : falseLbl;
+
+      if (selectedBool === correctBool) {
+        if (chosenLbl) chosenLbl.classList.add('correct');
+        recordScore(qId, 'tf', 1, 1);
       } else {
-        const matches = [...rawStmt.matchAll(/\*\*(.*?)\*\*/g)].map(m => m[1].trim());
-        if (matches.length > 0) {
-          targets = matches;
-        } else if (item.target) {
-          targets = [String(item.target).trim()];
-        }
+        if (chosenLbl) chosenLbl.classList.add('incorrect');
+        if (correctLbl) correctLbl.classList.add('correct');
+        recordScore(qId, 'tf', 0, 1);
       }
 
-      let bank = Array.isArray(item.optionsBank) ? [...item.optionsBank] : [];
-      targets.forEach(t => {
-        if (!bank.some(b => b.trim().toLowerCase() === t.toLowerCase())) {
-          bank.push(t);
-        }
-      });
-
-      const uniqueBank = [];
-      const seen = new Set();
-      bank.forEach(opt => {
-        const clean = String(opt).trim();
-        if (clean && !seen.has(clean.toLowerCase())) {
-          seen.add(clean.toLowerCase());
-          uniqueBank.push(clean);
-        }
-      });
-      uniqueBank.sort(() => 0.5 - Math.random());
-
-      let blankIdx = 0;
-      let renderedSentence = rawStmt;
-
-      if (rawStmt.includes('**')) {
-        renderedSentence = rawStmt.replace(/\*\*(.*?)\*\*/g, () => {
-          const idx = blankIdx++;
-          return createClozeSelectHtml(qId, idx, uniqueBank);
-        });
-      } else if (targets.length > 0) {
-        targets.forEach((tgt) => {
-          const idx = blankIdx++;
-          renderedSentence = renderedSentence.replace(tgt, createClozeSelectHtml(qId, idx, uniqueBank));
-        });
+      if (fbBox) {
+        fbBox.classList.remove('info', 'success');
+        fbBox.classList.add(selectedBool === correctBool ? 'success' : 'info', 'visible');
       }
+    };
 
-      const escapedTargets = JSON.stringify(targets).replace(/"/g, '&quot;');
+    function renderClozes(items) {
+      const c = document.getElementById('container-cloze');
+      c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
 
-      const div = document.createElement('div');
-      div.className = 'q-item';
-      div.innerHTML = `
+      items.forEach((item, i) => {
+        const qId = `clz_item_${currentPartIndex}_${i}_${item.id || i}`;
+        const rawStmt = item.statement || "";
+
+        let targets = [];
+        if (Array.isArray(item.targets) && item.targets.length > 0) {
+          targets = item.targets.map(t => String(t).trim());
+        } else {
+          const matches = [...rawStmt.matchAll(/\*\*(.*?)\*\*/g)].map(m => m[1].trim());
+          if (matches.length > 0) {
+            targets = matches;
+          } else if (item.target) {
+            targets = [String(item.target).trim()];
+          }
+        }
+
+        let bank = Array.isArray(item.optionsBank) ? [...item.optionsBank] : [];
+        targets.forEach(t => {
+          if (!bank.some(b => b.trim().toLowerCase() === t.toLowerCase())) {
+            bank.push(t);
+          }
+        });
+
+        const uniqueBank = [];
+        const seen = new Set();
+        bank.forEach(opt => {
+          const clean = String(opt).trim();
+          if (clean && !seen.has(clean.toLowerCase())) {
+            seen.add(clean.toLowerCase());
+            uniqueBank.push(clean);
+          }
+        });
+        uniqueBank.sort(() => 0.5 - Math.random());
+
+        let blankIdx = 0;
+        let renderedSentence = rawStmt;
+
+        if (rawStmt.includes('**')) {
+          renderedSentence = rawStmt.replace(/\*\*(.*?)\*\*/g, () => {
+            const idx = blankIdx++;
+            return createClozeSelectHtml(qId, idx, uniqueBank);
+          });
+        } else if (targets.length > 0) {
+          targets.forEach((tgt) => {
+            const idx = blankIdx++;
+            renderedSentence = renderedSentence.replace(tgt, createClozeSelectHtml(qId, idx, uniqueBank));
+          });
+        }
+
+        const escapedTargets = JSON.stringify(targets).replace(/"/g, '&quot;');
+
+        const div = document.createElement('div');
+        div.className = 'q-item';
+        div.innerHTML = `
         <div class="q-title">${i + 1}. Sentence Completion (${targets.length} blank${targets.length > 1 ? 's' : ''})</div>
         <p style="font-size:1.05rem; line-height: 2.2;">${renderedSentence}</p>
         <button class="action-btn" style="margin-top:12px;" onclick="gradeClozeMulti('${qId}', ${escapedTargets})">Check Answer</button>
@@ -968,69 +1426,69 @@
           <div id="${qId}_targets_display" style="margin-top:4px;"></div>
         </div>
       `;
-      c.appendChild(div);
-    });
-  }
+        c.appendChild(div);
+      });
+    }
 
-  function createClozeSelectHtml(qId, blankIdx, bank) {
-    return `
+    function createClozeSelectHtml(qId, blankIdx, bank) {
+      return `
       <select class="cloze-select" id="${qId}_blank_${blankIdx}">
         <option value="">-- select --</option>
         ${bank.map(opt => `<option value="${opt.replace(/"/g, '&quot;')}">${opt}</option>`).join('')}
       </select>
     `;
-  }
-
-  window.gradeClozeMulti = (qId, targets) => {
-    let allCorrect = true;
-    let anyEmpty = false;
-    const fbBox = document.getElementById(`${qId}_fb`);
-    const targetDisplay = document.getElementById(`${qId}_targets_display`);
-
-    targets.forEach((tgt, idx) => {
-      const sel = document.getElementById(`${qId}_blank_${idx}`);
-      if (!sel) return;
-
-      const userVal = sel.value.trim().toLowerCase();
-      const expectedVal = String(tgt).trim().toLowerCase();
-
-      if (!userVal) {
-        anyEmpty = true;
-        allCorrect = false;
-        sel.style.borderColor = 'var(--danger)';
-      } else if (userVal === expectedVal) {
-        sel.style.borderColor = 'var(--success)';
-      } else {
-        allCorrect = false;
-        sel.style.borderColor = 'var(--danger)';
-      }
-    });
-
-    if (allCorrect) {
-      recordScore(qId, 'cloze', 1, 1);
-      if (fbBox) {
-        fbBox.className = 'feedback-box success visible';
-        targetDisplay.innerHTML = `<strong>✓ Fully Correct!</strong> Key sequence: <em>${targets.join(' &rarr; ')}</em>`;
-      }
-    } else {
-      recordScore(qId, 'cloze', 0, 1);
-      if (fbBox) {
-        fbBox.className = 'feedback-box info visible';
-        targetDisplay.innerHTML = anyEmpty 
-          ? `<em>Please select an answer for every blank.</em>` 
-          : `<strong>Review Solution:</strong> Expected terms: <strong>${targets.join(', ')}</strong>`;
-      }
     }
-  };
 
-  function renderSAs(items) {
-    const c = document.getElementById('container-sa');
-    c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No short answer prompts available.</p>' : '';
-    items.forEach((item, i) => {
-      const qId = `sa_${currentPartIndex}_${i}_${item.id || i}`;
-      const div = document.createElement('div');
-      div.className = 'q-item';
-      div.innerHTML = `
+    window.gradeClozeMulti = (qId, targets) => {
+      let allCorrect = true;
+      let anyEmpty = false;
+      const fbBox = document.getElementById(`${qId}_fb`);
+      const targetDisplay = document.getElementById(`${qId}_targets_display`);
+
+      targets.forEach((tgt, idx) => {
+        const sel = document.getElementById(`${qId}_blank_${idx}`);
+        if (!sel) return;
+
+        const userVal = sel.value.trim().toLowerCase();
+        const expectedVal = String(tgt).trim().toLowerCase();
+
+        if (!userVal) {
+          anyEmpty = true;
+          allCorrect = false;
+          sel.style.borderColor = 'var(--danger)';
+        } else if (userVal === expectedVal) {
+          sel.style.borderColor = 'var(--success)';
+        } else {
+          allCorrect = false;
+          sel.style.borderColor = 'var(--danger)';
+        }
+      });
+
+      if (allCorrect) {
+        recordScore(qId, 'cloze', 1, 1);
+        if (fbBox) {
+          fbBox.className = 'feedback-box success visible';
+          targetDisplay.innerHTML = `<strong>✓ Fully Correct!</strong> Key sequence: <em>${targets.join(' &rarr; ')}</em>`;
+        }
+      } else {
+        recordScore(qId, 'cloze', 0, 1);
+        if (fbBox) {
+          fbBox.className = 'feedback-box info visible';
+          targetDisplay.innerHTML = anyEmpty
+            ? `<em>Please select an answer for every blank.</em>`
+            : `<strong>Review Solution:</strong> Expected terms: <strong>${targets.join(', ')}</strong>`;
+        }
+      }
+    };
+
+    function renderSAs(items) {
+      const c = document.getElementById('container-sa');
+      c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No short answer prompts available.</p>' : '';
+      items.forEach((item, i) => {
+        const qId = `sa_${currentPartIndex}_${i}_${item.id || i}`;
+        const div = document.createElement('div');
+        div.className = 'q-item';
+        div.innerHTML = `
         <div class="q-title">${i + 1}. Applied Short Answer: ${item.q || item.prompt}</div>
         <textarea style="width:100%; height:90px; padding:10px; border-radius:6px; border:1px solid var(--slate-300); font-family:inherit; margin-bottom:10px;" placeholder="Draft your answer here..."></textarea>
         <button class="action-btn" onclick="document.getElementById('${qId}_model').classList.toggle('visible')">Reveal Model Exemplar &amp; Self-Rubric</button>
@@ -1039,154 +1497,151 @@
           ${item.criteria ? `<strong>Grading Criteria:</strong><ul>${item.criteria.map(cr => `<li>${cr}</li>`).join('')}</ul>` : ''}
           <div class="rubric-scores">
             <span><strong>Self-Grade (0-5 pts):</strong></span>
-            ${[0,1,2,3,4,5].map(pt => `
-              <button class="score-btn" id="${qId}_pt_${pt}" onclick="gradeShortAnswer('${qId}',${pt})">${pt} pt${pt===1?'':'s'}</button>
+            ${[0, 1, 2, 3, 4, 5].map(pt => `
+              <button class="score-btn" id="${qId}_pt_${pt}" onclick="gradeShortAnswer('${qId}',${pt})">${pt} pt${pt === 1 ? '' : 's'}</button>
             `).join('')}
           </div>
         </div>
       `;
-      c.appendChild(div);
-    });
-  }
-
-  window.gradeShortAnswer = (qId, pts) => {
-    document.querySelectorAll(`[id^="${qId}_pt_"]`).forEach(b => b.classList.remove('selected'));
-    const btn = document.getElementById(`${qId}_pt_${pts}`);
-    if (btn) btn.classList.add('selected');
-    recordScore(qId, 'sa', pts, 5);
-  };
-
-  function recordScore(qId, type, earned, possible) {
-    gradedMap[qId] = { earned, possible, type };
-    
-    const totalSectionPts = (type === 'sa' ? (currentPartCounts.sa || 1) * 5 : (currentPartCounts[type] || 2));
-    updateSectionBadge(type, totalSectionPts);
-
-    recalcGlobalScore();
-  }
-
-  function recalcGlobalScore() {
-    let totalEarned = 0;
-    let totalPoss = 0;
-    Object.values(gradedMap).forEach(v => {
-      totalEarned += v.earned;
-      totalPoss += v.possible;
-    });
-    const pct = totalPoss > 0 ? Math.round((totalEarned / totalPoss) * 100) : 0;
-    document.getElementById('scoreTracker').textContent = `Score: ${totalEarned} / ${totalPoss} pts (${pct}%)`;
-  }
-
-  window.toggleCard = (el) => {
-    const card = el.closest('.accordion-card');
-    if (card) card.classList.toggle('open');
-  };
-
-  window.toggleAll = (open) => {
-    document.querySelectorAll('.accordion-card').forEach(c => c.classList.toggle('open', open));
-  };
-
-
-  function buildActivities() {
-    const actCountEl = document.getElementById("actCount");
-    const grid = document.getElementById("activitiesGrid");
-    const emptyState = document.getElementById("activitiesEmpty");
-    if (!grid) return;
-
-    grid.innerHTML = "";
-    
-    // Check both local moduleData and window.moduleData
-    let dataObj = null;
-    try { if (typeof moduleData !== 'undefined' && moduleData) dataObj = moduleData; } catch(e) {}
-    if (!dataObj && typeof window !== 'undefined' && window.moduleData) dataObj = window.moduleData;
-    
-    const activities = (dataObj && dataObj.activities && Array.isArray(dataObj.activities)) ? dataObj.activities : [];
-
-    console.log("buildActivities executed. Found activities:", activities.length, activities);
-
-    if (actCountEl) actCountEl.textContent = activities.length;
-
-    if (!activities.length) {
-      if (emptyState) emptyState.style.display = "block";
-      return;
+        c.appendChild(div);
+      });
     }
 
-    if (emptyState) emptyState.style.display = "none";
-
-    const badgeLabels = {
-      sim: "Simulation / Interactive",
-      h5p: "Interactive Activity",
-      lab: "Applied Lab",
-      case: "Case Study"
+    window.gradeShortAnswer = (qId, pts) => {
+      document.querySelectorAll(`[id^="${qId}_pt_"]`).forEach(b => b.classList.remove('selected'));
+      const btn = document.getElementById(`${qId}_pt_${pts}`);
+      if (btn) btn.classList.add('selected');
+      recordScore(qId, 'sa', pts, 5);
     };
 
-    activities.forEach(act => {
-      const card = document.createElement("a");
-      card.className = "activity-card";
-      const typeKey = (act && act.type) ? String(act.type).toLowerCase() : "sim";
+    function recordScore(qId, type, earned, possible) {
+      gradedMap[qId] = { earned, possible, type };
 
-      let rawPath = (act.file || "").trim().replace(/^\.?\//, "");
-      
-      // If already an absolute URL or explicitly starts from repo root (content/...)
-      if (rawPath.indexOf("http") === 0) {
-        card.href = rawPath;
-      } else if (rawPath.indexOf("content/") === 0) {
-        card.href = "./" + rawPath;
-      } else if (rawPath.indexOf("activities/") === 0) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const ch = urlParams.get("ch") || "10";
-        card.href = "./content/ch" + ch + "/" + rawPath;
-      } else {
-        card.href = "./" + rawPath;
-      }
-      card.target = "_blank";
-      card.rel = "noopener noreferrer";
+      const totalSectionPts = (type === 'sa' ? (currentPartCounts.sa || 1) * 5 : (currentPartCounts[type] || 2));
+      updateSectionBadge(type, totalSectionPts);
 
-      const badgeText = badgeLabels[typeKey] || "Applied Activity";
-      const titleText = act.title || "Interactive Activity";
-      const descText = act.desc ? `<div class="activity-card-desc">${act.desc}</div>` : "";
-
-      card.innerHTML = `
-        <div>
-          <div class="activity-card-top">
-            <span class="activity-badge ${typeKey}">${badgeText}</span>
-            <span style="font-size: 0.75rem; color: #94a3b8;">↗ New Tab</span>
-          </div>
-          <div class="activity-card-title">${titleText}</div>
-          ${descText}
-        </div>
-        <div class="activity-card-btn">Launch Activity &rarr;</div>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  function buildGlossary() {
-
-    const tbody = document.getElementById('glossaryBody');
-    tbody.innerHTML = '';
-    (moduleData.glossary || []).forEach(item => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td><strong>${item.term}</strong></td><td>${item.def}</td>`;
-      tbody.appendChild(tr);
-    });
-  }
-
-  window.switchView = (tab) => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    if (tab === 'lesson') {
-      document.querySelectorAll('.tab-btn')[0].classList.add('active');
-      document.getElementById('pane-lesson').classList.add('active');
-    } else if (tab === 'activities') {
-      document.querySelectorAll('.tab-btn')[1].classList.add('active');
-      document.getElementById('pane-activities').classList.add('active');
-    } else {
-      document.querySelectorAll('.tab-btn')[2].classList.add('active');
-      document.getElementById('pane-glossary').classList.add('active');
+      recalcGlobalScore();
     }
-  };
 
-  window.addEventListener('DOMContentLoaded', init);
-</script>
+    function recalcGlobalScore() {
+      let totalEarned = 0;
+      let totalPoss = 0;
+      Object.values(gradedMap).forEach(v => {
+        totalEarned += v.earned;
+        totalPoss += v.possible;
+      });
+      const pct = totalPoss > 0 ? Math.round((totalEarned / totalPoss) * 100) : 0;
+      document.getElementById('scoreTracker').textContent = `Score: ${totalEarned} / ${totalPoss} pts (${pct}%)`;
+    }
+
+    window.toggleCard = (el) => {
+      const card = el.closest('.accordion-card');
+      if (card) card.classList.toggle('open');
+    };
+
+    window.toggleAll = (open) => {
+      document.querySelectorAll('.accordion-card').forEach(c => c.classList.toggle('open', open));
+    };
+
+
+    
+    function buildActivities() {
+      const actCountEl = document.getElementById("actCount");
+      const grid = document.getElementById("activitiesGrid");
+      if (!grid) return;
+      grid.innerHTML = "";
+
+      let dataObj = (typeof moduleData !== "undefined" && moduleData) ? moduleData : (window.moduleData || null);
+      const activities = (dataObj && Array.isArray(dataObj.activities)) ? dataObj.activities : [];
+
+      if (actCountEl) actCountEl.textContent = activities.length;
+
+      if (!activities.length) {
+        grid.innerHTML = '<div style="color: #64748b; font-style: italic; padding: 12px 0;">No applied activities or simulations registered for this module.</div>';
+        return;
+      }
+
+      const badgeLabels = {
+        sim: "Simulation / Interactive",
+        h5p: "Interactive Activity",
+        lab: "Applied Lab",
+        case: "Case Study"
+      };
+
+      activities.forEach(act => {
+        const card = document.createElement("a");
+        card.className = "activity-card";
+        const typeKey = (act && act.type) ? String(act.type).toLowerCase() : "sim";
+
+        let rawPath = (act.file || act.path || act.src || act.href || "").trim();
+
+        if (rawPath.startsWith("http://") || rawPath.startsWith("https://")) {
+          card.href = rawPath;
+        } else if (rawPath.includes("content/")) {
+          card.href = "./" + rawPath.replace(/^(\.\/|\/)+/, "");
+        } else if (rawPath.includes("activities/")) {
+          const urlParams = new URLSearchParams(window.location.search);
+          let ch = urlParams.get("ch") || (dataObj.meta && dataObj.meta.chapter) || "01";
+          ch = String(ch).padStart(2, "0");
+          const cleanActPath = rawPath.replace(/^(\.\/|\/)*activities\//, "");
+          card.href = `./content/ch${ch}/activities/${cleanActPath}`;
+        } else {
+          card.href = "./" + rawPath;
+        }
+
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+        card.style.cssText = "display: flex; flex-direction: column; justify-content: space-between; padding: 16px; border: 1px solid #cbd5e1; border-radius: 8px; background: #ffffff; text-decoration: none; color: inherit; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: box-shadow 0.2s, border-color 0.2s;";
+
+        const badgeText = badgeLabels[typeKey] || "Applied Activity";
+        const titleText = act.title || "Interactive Activity";
+        const descText = act.desc ? `<div style="font-size: 0.875rem; color: #475569; margin: 8px 0 16px;">${act.desc}</div>` : "";
+
+        card.innerHTML = `
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; background: #e0f2fe; color: #0369a1;">${badgeText}</span>
+              <span style="font-size: 0.75rem; color: #94a3b8;">↗ New Tab</span>
+            </div>
+            <div style="font-weight: 600; font-size: 1rem; color: #0f172a;">${titleText}</div>
+            ${descText}
+          </div>
+          <div style="font-size: 0.875rem; font-weight: 600; color: #0284c7; margin-top: 12px;">Launch Activity &rarr;</div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+
+    function buildGlossary() {
+
+      const tbody = document.getElementById('glossaryBody');
+      tbody.innerHTML = '';
+      (moduleData.glossary || []).forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td><strong>${item.term}</strong></td><td>${item.def}</td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    window.switchView = (tab) => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      if (tab === 'lesson') {
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        document.getElementById('pane-lesson').classList.add('active');
+      } else if (tab === 'activities') {
+        document.querySelectorAll('.tab-btn')[1].classList.add('active');
+        document.getElementById('pane-activities').classList.add('active');
+      } else {
+        document.querySelectorAll('.tab-btn')[2].classList.add('active');
+        document.getElementById('pane-glossary').classList.add('active');
+      }
+    };
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
 </body>
+
 </html>
