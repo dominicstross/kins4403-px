@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bioenergetic Pathway Contribution Simulator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root { --bg: #f8fafc; --card: #ffffff; --border: #cbd5e1; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); padding: 24px; margin: 0; color: #0f172a; }
+    .card { max-width: 800px; margin: 0 auto; background: var(--card); border-radius: 12px; padding: 24px; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    h2 { margin-top: 0; color: #1e3a8a; }
+    .slider-box { margin: 24px 0; background: #eff6ff; padding: 20px; border-radius: 8px; border: 1px solid #bfdbfe; }
+    .slider-box label { font-weight: 700; display: block; margin-bottom: 8px; }
+    input[type=range] { width: 100%; cursor: pointer; }
+    .readout { font-size: 1.25rem; font-weight: 800; color: #1d4ed8; margin-top: 8px; }
+    .bar-wrap { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .bar-row { display: flex; align-items: center; gap: 12px; }
+    .bar-label { width: 150px; font-weight: 600; font-size: 0.9rem; }
+    .bar-track { flex: 1; height: 24px; background: #e2e8f0; border-radius: 12px; overflow: hidden; position: relative; }
+    .bar-fill { height: 100%; transition: width 0.3s ease; }
+    .fill-pc { background: #ef4444; }
+    .fill-glyc { background: #f59e0b; }
+    .fill-ox { background: #10b981; }
+    .bar-pct { width: 50px; text-align: right; font-weight: 700; font-size: 0.9rem; }
+    .notes { margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 4px solid #3b82f6; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Bioenergetics: Energy System Continuum Simulator</h2>
+    <p>Adjust maximal exercise duration to model the shifting relative ATP production contribution across the three primary metabolic pathways.</p>
+    <div class="slider-box">
+      <label for="durSlider">All-Out Maximal Effort Duration: <span id="durVal" class="readout">30 seconds</span></label>
+      <input type="range" id="durSlider" min="1" max="180" value="30" oninput="updateSimulation(this.value)">
+    </div>
+    <div class="bar-wrap">
+      <div class="bar-row">
+        <span class="bar-label">ATP-PCr (Phosphagen)</span>
+        <div class="bar-track"><div id="bar-pc" class="bar-fill fill-pc" style="width:25%;"></div></div>
+        <span id="pct-pc" class="bar-pct">25%</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Fast Glycolysis</span>
+        <div class="bar-track"><div id="bar-glyc" class="bar-fill fill-glyc" style="width:55%;"></div></div>
+        <span id="pct-glyc" class="bar-pct">55%</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Oxidative (Aerobic)</span>
+        <div class="bar-track"><div id="bar-ox" class="bar-fill fill-ox" style="width:20%;"></div></div>
+        <span id="pct-ox" class="bar-pct">20%</span>
+      </div>
+    </div>
+    <div class="notes" id="pathwayNotes">Loading pathway dynamics...</div>
+  </div>
+
+  <script>
+    function updateSimulation(seconds) {
+      const s = parseInt(seconds, 10);
+      let label = s < 60 ? `${s} seconds` : `${(s/60).toFixed(1)} minutes`;
+      document.getElementById('durVal').textContent = label;
+
+      let pc, glyc, ox, note;
+      
+      // Gastin (2001) calibrated continuous continuum equations
+      if (s <= 10) {
+        // 1-10s: Phosphagen dominates; glycolysis surges; oxidative baseline is always active (~3-10%)
+        pc = 85 - (s - 1) * 3.5;          // ~85% -> 53.5%
+        ox = 3 + (s - 1) * 0.9;           // ~3% -> 11.1%
+        glyc = 100 - pc - ox;            // ~12% -> 35.4%
+        note = "<strong>Immediate Power (Dimmer Switch Active):</strong> Intramuscular ATP-PCr turnover is maximal. Notice that oxidative phosphorylation is NEVER zero—mitochondrial respiration runs continuously from onset.";
+      } else if (s <= 60) {
+        // 10-60s: Glycolysis peaks (~50-55%); PCr depletes; aerobic ramps toward ~40-45%
+        const t = (s - 10) / 50;          // 0 to 1
+        pc = 53.5 * (1 - t) + 8 * t;      // 53.5% down to 8%
+        ox = 11.1 * (1 - t) + 45 * t;     // 11.1% up to 45%
+        glyc = 100 - pc - ox;            // peaks at ~47-50%
+        note = "<strong>Anaerobic-to-Aerobic Transition:</strong> Fast glycolysis provides rapid ATP turnover. As duration approaches 60 seconds, oxidative pathways accelerate to supply nearly half of total ATP.";
+      } else {
+        // 60-180s: Aerobic crossover (>50% at ~75s) dominating prolonged work
+        const t = Math.min((s - 60) / 120, 1); // 0 to 1
+        pc = 8 * (1 - t) + 1 * t;         // 8% down to 1%
+        glyc = 47 * (1 - t) + 12 * t;     // 47% down to 12%
+        ox = 100 - pc - glyc;            // climbs from 45% up to 87%
+        note = "<strong>Oxidative Dominance:</strong> Beyond 75 seconds of maximal exertion, mitochondrial phosphorylation becomes the primary energy contributor, sparing finite anaerobic reserves.";
+      }
+
+      document.getElementById('bar-pc').style.width = pc + '%';
+      document.getElementById('pct-pc').textContent = Math.round(pc) + '%';
+      document.getElementById('bar-glyc').style.width = glyc + '%';
+      document.getElementById('pct-glyc').textContent = Math.round(glyc) + '%';
+      document.getElementById('bar-ox').style.width = ox + '%';
+      document.getElementById('pct-ox').textContent = Math.round(ox) + '%';
+      document.getElementById('pathwayNotes').innerHTML = note;
+    }
+
+    updateSimulation(30);
+  </script>
+</body>
+</html>

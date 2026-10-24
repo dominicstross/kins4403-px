@@ -1,7 +1,7 @@
 {
   "meta": {
     "course": "PX – KINS 4403 Physiology of Exercise",
-    "moduleTitle": "10.1 KINS 4403: Resistance Training and Gains in Muscular Fitness",
+    "moduleTitle": "10.1 Resistance Training and Gains in Muscular Fitness",
     "chapter": "10",
     "section": "10.1"
   },
@@ -12,6 +12,13 @@
       "type": "sim",
       "desc": "Explore MHC isoform plasticity and transition dynamics across resistance, endurance, and detraining states.",
       "file": "content/ch10/activities/fiber_type_alterations.html"
+    },
+    {
+      "type": "lab",
+      "title": "Fake Lab",
+      "desc": "Fake stuff",
+      "file": "content/ch10/activities/starter_simulation.html",
+      "path": "content/ch10/activities/starter_simulation.html"
     }
   ],
   "glossary": [

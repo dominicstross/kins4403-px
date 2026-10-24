@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lactate Shuttle & Cori Cycle: Interactive Lab</title>
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --card-bg: rgba(16, 24, 39, 0.88);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.35);
+            --lactate: #c084fc;
+            --lactate-glow: rgba(192, 132, 252, 0.5);
+            --pyruvate: #fbbf24;
+            --glucose: #34d399;
+            --atp: #38bdf8;
+            --danger: #f87171;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image:
+                radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(192, 132, 252, 0.05) 0%, transparent 40%);
+            color: var(--text);
+            line-height: 1.5;
+            padding: 24px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .header-text h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .badge-intro {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .header-text p {
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-size: 0.95rem;
+            max-width: 780px;
+        }
+
+        .quick-stats {
+            display: flex;
+            gap: 16px;
+        }
+
+        .stat-pill {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            padding: 10px 18px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-pill .val {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-pill .lbl {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Key Concept Callout Banner */
+        .concept-banner {
+            background: linear-gradient(90deg, rgba(192, 132, 252, 0.12), rgba(56, 189, 248, 0.08));
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            border-radius: 14px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .concept-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .concept-text h3 {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .concept-text p {
+            font-size: 0.88rem;
+            color: #cbd5e1;
+        }
+
+        /* Main Grid Layout */
+        .grid-top {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+        }
+
+        @media (max-width: 1050px) {
+            .grid-top {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Canvas Simulation Container */
+        .sim-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .canvas-wrap {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            background: #060911;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Simulation Control Bar */
+        .controls-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-top: 4px;
+        }
+
+        .slider-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .slider-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        input[type=range] {
+            flex: 1;
+            accent-color: var(--primary);
+            height: 6px;
+            background: #1e293b;
+            border-radius: 4px;
+        }
+
+        .intensity-badge {
+            font-weight: 700;
+            color: var(--primary);
+            background: rgba(56, 189, 248, 0.1);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            min-width: 48px;
+            text-align: center;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #fff;
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .btn.active {
+            background: var(--primary);
+            color: #04101e;
+            border-color: var(--primary);
+            box-shadow: 0 0 14px var(--primary-glow);
+        }
+
+        /* Legend Strip */
+        .legend-strip {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.78rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        /* Right Sidebar: Guided Explainer & Inspector */
+        .side-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .side-panel h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pathway-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 14px;
+            transition: border-color 0.2s;
+        }
+
+        .pathway-card.highlight {
+            border-color: var(--primary);
+            background: rgba(56, 189, 248, 0.04);
+        }
+
+        .pathway-card h4 {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pathway-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .step-tag {
+            font-size: 0.68rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            font-weight: 700;
+        }
+
+        /* Bottom Section: Applied Case Studies & Interactive Lab Check */
+        .lab-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 28px 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .lab-header {
+            margin-bottom: 24px;
+        }
+
+        .lab-header h2 {
+            font-size: 1.4rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lab-header p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-top: 4px;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 20px;
+        }
+
+        .case-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            position: relative;
+        }
+
+        .case-tag {
+            align-self: flex-start;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .case-title {
+            font-size: 1.05rem;
+            color: #fff;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .case-scenario {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .case-question {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .opt-btn {
+            text-align: left;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .opt-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.18);
+        }
+
+        .opt-btn.correct {
+            background: rgba(52, 211, 153, 0.15) !important;
+            border-color: #34d399 !important;
+            color: #34d399 !important;
+            font-weight: 600;
+        }
+
+        .opt-btn.incorrect {
+            background: rgba(248, 113, 113, 0.15) !important;
+            border-color: #f87171 !important;
+            color: #f87171 !important;
+        }
+
+        .case-feedback {
+            display: none;
+            font-size: 0.82rem;
+            padding: 10px 12px;
+            border-radius: 8px;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: #e0f2fe;
+            line-height: 1.4;
+        }
+
+        /* Modal / Tooltip */
+        .tooltip {
+            position: absolute;
+            background: #0f172a;
+            border: 1px solid var(--primary);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            pointer-events: none;
+            display: none;
+            z-index: 100;
+            max-width: 240px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .pathway-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 14px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            /* Makes it clearly clickable */
+            user-select: none;
+        }
+
+        .pathway-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(56, 189, 248, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .pathway-card.highlight {
+            border-color: var(--primary) !important;
+            background: rgba(56, 189, 248, 0.08) !important;
+            box-shadow: 0 0 16px rgba(56, 189, 248, 0.18);
+        }
+
+        .pathway-card.highlight .step-tag {
+            background: var(--primary);
+            color: #04101e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <div class="header-text">
+                <h1>
+                    The Lactate Shuttle & Cori Cycle
+                    <span class="badge-intro">Lab</span>
+                </h1>
+                <p>
+                    <strong>Core Rule:</strong> Lactate is <em>not</em> metabolic waste. Discover how fast-twitch muscle
+                    fibers pass high-energy lactate to slow-twitch fibers, the heart, and the liver to be recycled into
+                    ATP and glucose.
+                </p>
+            </div>
+            <div class="quick-stats">
+                <div class="stat-pill">
+                    <div class="val" id="stat-salvage">0</div>
+                    <div class="lbl">ATP Salvaged (kJ)</div>
+                </div>
+                <div class="stat-pill">
+                    <div class="val" id="stat-recycled">0</div>
+                    <div class="lbl">Lactate Molecules Recycled</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Big Idea Callout -->
+        <div class="concept-banner">
+            <div class="concept-icon">💡</div>
+            <div class="concept-text">
+                <h3>Golden Rule: Lactate is Fuel, Free Protons (H+) Cause Acidosis</h3>
+                <p>
+                    When you sprint, your fast-twitch fibers produce <strong>Lactate + H+</strong>. The H+ ion
+                    causes fatigue and burning—but the <strong>Lactate molecule</strong> is packed with chemical energy.
+                    Specialized door proteins called <strong>MCTs (Monocarboxylate Transporters)</strong> ship this
+                    lactate out into the blood to fuel your heart and liver!
+                </p>
+            </div>
+        </div>
+
+        <!-- Simulation Grid -->
+        <div class="grid-top">
+
+            <!-- Simulation Interactive View -->
+            <div class="sim-panel">
+                <div class="controls-strip">
+                    <div class="slider-group">
+                        <label for="intensity-slider">Exercise Workload:</label>
+                        <input type="range" id="intensity-slider" min="20" max="95" value="65">
+                        <span class="intensity-badge" id="intensity-val">65% V̇O₂max</span>
+                    </div>
+
+                    <div class="btn-row">
+                        <button class="btn active" id="btn-both">Show All Pathways</button>
+                        <button class="btn" id="btn-shuttle">Focus: Muscle Shuttle</button>
+                        <button class="btn" id="btn-cori">Focus: Liver Cori Cycle</button>
+                    </div>
+                </div>
+
+                <!-- Canvas Diagram -->
+                <div class="canvas-wrap" id="canvas-container">
+                    <canvas id="simCanvas"></canvas>
+                    <div class="tooltip" id="tooltip"></div>
+                </div>
+
+                <!-- Legend -->
+                <div class="legend-strip">
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: var(--lactate);"></span>
+                        <span><strong>Lactate Molecule (C₃H₅O₃⁻)</strong>: Recyclable 3-Carbon Fuel</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: var(--pyruvate);"></span>
+                        <span><strong>Pyruvate (C₃H₄O₃)</strong>: Mitochondrial Entry Fuel</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: var(--glucose);"></span>
+                        <span><strong>Glucose (C₆H₁₂O₆)</strong>: Restored Blood Sugar</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: var(--primary);"></span>
+                        <span><strong>MCT Doorways</strong>: Lactate Membrane Transporters</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar Guided Tour -->
+            <div class="side-panel">
+                <h2>Interactive Road Map</h2>
+
+                <div class="pathway-card highlight" id="card-step1">
+                    <h4 style="color: var(--danger);"><span class="step-tag">Step 1</span> Type II Sprint Muscle
+                        (Producer)</h4>
+                    <p>During hard exercise, fast glycolytic fibers generate ATP without oxygen, churning out
+                        <strong>Pyruvate</strong> which converts to <strong>Lactate</strong>. <strong>MCT4</strong>
+                        transporters pump this lactate out into the bloodstream.
+                    </p>
+                </div>
+
+                <div class="pathway-card" id="card-step2">
+                    <h4 style="color: #38bdf8;"><span class="step-tag">Step 2</span> Capillary Bloodstream Loop</h4>
+                    <p>Circulating blood carries lactate away from active sprinting muscles. This prevents local buildup
+                        and allows oxidative tissues around the body to grab it.</p>
+                </div>
+
+                <div class="pathway-card" id="card-step3">
+                    <h4 style="color: #4ade80;"><span class="step-tag">Route A</span> Intracellular Shuttle (Type I &
+                        Heart)</h4>
+                    <p>Slow-twitch endurance fibers and the cardiac muscle drink in lactate using <strong>MCT1</strong>
+                        doorways. They turn it back to pyruvate and burn it aerobically for <strong>+15 ATP</strong> per
+                        molecule!</p>
+                </div>
+
+                <div class="pathway-card" id="card-step4">
+                    <h4 style="color: #fbbf24;"><span class="step-tag">Route B</span> The Cori Cycle (Liver Salvage)
+                    </h4>
+                    <p>The liver pulls lactate from blood via <strong>MCT2</strong>. Through <em>gluconeogenesis</em>,
+                        hepatic enzymes spend energy to rebuild lactate back into fresh <strong>Glucose</strong>,
+                        replenishing muscle glycogen.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Section: Undergraduate Case Studies & Practice Lab -->
+        <section class="lab-section">
+            <div class="lab-header">
+                <h2>Applied Case Studies: Clinical & Coaching Lab</h2>
+                <p>Test your understanding of the Lactate Shuttle and Cori Cycle in real sports performance scenarios.
+                </p>
+            </div>
+
+            <div class="cases-grid">
+
+                <!-- Case 1 -->
+                <div class="case-card" id="case-1">
+                    <span class="case-tag">Case 1: Track & Field Coaching</span>
+                    <div class="case-title">The Active Recovery Dilemma</div>
+                    <div class="case-scenario">
+                        A collegiate 800m runner finishes an all-out time trial with sky-high blood lactate (14 mmol/L).
+                        Assistant Coach A says: <em>"Sit down on the bench to save energy."</em> Head Coach B says:
+                        <em>"Do a light jog at 40% V̇O₂max for 15 minutes."</em>
+                    </div>
+                    <div class="case-question">
+                        Why does Coach B's active jog clear lactate twice as fast as sitting?
+                    </div>
+                    <div class="options-list">
+                        <button class="opt-btn" onclick="checkAnswer(1, 0)">A. Sweating removes 90% of circulating
+                            lactate through the skin pores.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 1)">B. Light muscle contractions maintain blood
+                            flow and feed lactate to Type I fibers and the heart for aerobic oxidation.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 2)">C. Light jogging stops the liver from
+                            performing gluconeogenesis.</button>
+                    </div>
+                    <div class="case-feedback" id="feedback-1"></div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="case-card" id="case-2">
+                    <span class="case-tag">Case 2: Cardiac Physiology</span>
+                    <div class="case-title">The Hard-Working Heart Muscle</div>
+                    <div class="case-scenario">
+                        During heavy soccer matches, skeletal muscles dump massive amounts of lactate into the vena
+                        cava. Surprisingly, myocardial (heart) tissue thrives during this period rather than fatiguing.
+                    </div>
+                    <div class="case-question">
+                        How does the heart utilize circulating lactate during intense exercise?
+                    </div>
+                    <div class="options-list">
+                        <button class="opt-btn" onclick="checkAnswer(2, 0)">A. The myocardium is rich in mitochondria
+                            and MCT1 transporters, preferring lactate as a primary aerobic fuel over glucose.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 1)">B. The heart transforms lactate directly
+                            into bone mineral density.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 2)">C. The heart rejects lactate and pumps it
+                            solely to the kidneys for urinary excretion.</button>
+                    </div>
+                    <div class="case-feedback" id="feedback-2"></div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="case-card" id="case-3">
+                    <span class="case-tag">Case 3: Cellular Bioenergetics</span>
+                    <div class="case-title">Debunking the "Lactate Causes Soreness" Myth</div>
+                    <div class="case-scenario">
+                        A freshman gym client complains: <em>"My legs are still sore 48 hours after heavy squats. It's
+                            because of all that lactic acid trapped in my quads!"</em>
+                    </div>
+                    <div class="case-question">
+                        What is the correct scientific explanation based on the Cori Cycle and Shuttle kinetics?
+                    </div>
+                    <div class="options-list">
+                        <button class="opt-btn" onclick="checkAnswer(3, 0)">A. The client is correct; lactic acid
+                            crystals stay locked inside muscle fibers for up to 72 hours.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 1)">B. Lactate returns to resting baseline
+                            levels within 30–60 minutes post-exercise via the shuttle and Cori cycle; delayed soreness
+                            (DOMS) is caused by micro-tears and inflammation.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 2)">C. Lactate turns into calcium spurs inside
+                            the knee joint.</button>
+                    </div>
+                    <div class="case-feedback" id="feedback-3"></div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        /* ==========================================================
+           SIMULATION ENGINE & PARTICLE SYSTEM
+        ========================================================== */
+        const canvas = document.getElementById('simCanvas');
+        const ctx = canvas.getContext('2d');
+        const container = document.getElementById('canvas-container');
+
+        let width, height;
+        function resizeCanvas() {
+            width = container.clientWidth;
+            height = container.clientHeight;
+            canvas.width = width * window.devicePixelRatio;
+            canvas.height = height * window.devicePixelRatio;
+            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Compartment Coordinates
+        function getNodes() {
+            return {
+                type2: { x: width * 0.16, y: height * 0.5, r: 55, label: "Type II Fast Muscle", sub: "Lactate Producer (MCT4)", color: "#ef4444" },
+                vessel: { x: width * 0.48, y: height * 0.5, rx: width * 0.18, ry: height * 0.38, label: "Capillary Blood Loop" },
+                type1: { x: width * 0.82, y: height * 0.28, r: 52, label: "Type I & Heart", sub: "Oxidative Burner (MCT1)", color: "#10b981" },
+                liver: { x: width * 0.82, y: height * 0.72, r: 52, label: "Liver (Cori Cycle)", sub: "Glucose Creator (MCT2)", color: "#f59e0b" }
+            };
+        }
+
+        // State
+        let intensity = 65;
+        let viewMode = 'both'; // 'both', 'shuttle', 'cori'
+        let totalRecycled = 0;
+        let totalATP = 0;
+
+        // Particle Pools
+        class Particle {
+            constructor(type) {
+                this.type = type; // 'lactate', 'pyruvate', 'glucose'
+                this.reset();
+            }
+
+            reset() {
+                const nodes = getNodes();
+                this.progress = 0;
+                this.speed = (0.003 + Math.random() * 0.003) * (intensity / 50);
+                this.stage = 0; // 0: in Type II, 1: blood, 2: to target, 3: return (for Cori)
+                this.target = Math.random() < 0.55 ? 'type1' : 'liver';
+                if (viewMode === 'shuttle') this.target = 'type1';
+                if (viewMode === 'cori') this.target = 'liver';
+
+                this.x = nodes.type2.x + (Math.random() - 0.5) * 40;
+                this.y = nodes.type2.y + (Math.random() - 0.5) * 40;
+            }
+
+            update() {
+                const nodes = getNodes();
+                this.progress += this.speed;
+
+                if (this.stage === 0) {
+                    // Generation inside Type II muscle
+                    if (this.progress > 0.3) {
+                        this.stage = 1;
+                        this.progress = 0;
+                    }
+                } else if (this.stage === 1) {
+                    // Exiting via MCT4 into Capillary blood
+                    const startX = nodes.type2.x + 50;
+                    const startY = nodes.type2.y;
+                    const targetNode = this.target === 'type1' ? nodes.type1 : nodes.liver;
+                    const endX = targetNode.x - 50;
+                    const endY = targetNode.y;
+
+                    // Quadratic bezier arc
+                    const midX = nodes.vessel.x;
+                    const midY = this.target === 'type1' ? height * 0.2 : height * 0.8;
+
+                    const t = this.progress;
+                    this.x = (1 - t) * (1 - t) * startX + 2 * (1 - t) * t * midX + t * t * endX;
+                    this.y = (1 - t) * (1 - t) * startY + 2 * (1 - t) * t * midY + t * t * endY;
+
+                    if (this.progress >= 1) {
+                        this.stage = 2;
+                        this.progress = 0;
+                    }
+                } else if (this.stage === 2) {
+                    // Cellular processing inside Target
+                    const targetNode = this.target === 'type1' ? nodes.type1 : nodes.liver;
+                    this.x = targetNode.x + (Math.random() - 0.5) * 30;
+                    this.y = targetNode.y + (Math.random() - 0.5) * 30;
+
+                    if (this.progress > 0.35) {
+                        if (this.target === 'type1') {
+                            // Oxidized for +15 ATP
+                            totalRecycled++;
+                            totalATP += 15;
+                            this.reset();
+                        } else {
+                            // Transformed into Glucose (Cori cycle returns to blood)
+                            this.type = 'glucose';
+                            this.stage = 3;
+                            this.progress = 0;
+                        }
+                    }
+                } else if (this.stage === 3) {
+                    // Glucose traveling back through blood to replenish muscle
+                    const startX = nodes.liver.x - 40;
+                    const startY = nodes.liver.y;
+                    const endX = nodes.type2.x;
+                    const endY = nodes.type2.y;
+                    const midX = nodes.vessel.x;
+                    const midY = height * 0.5;
+
+                    const t = this.progress;
+                    this.x = (1 - t) * (1 - t) * startX + 2 * (1 - t) * t * midX + t * t * endX;
+                    this.y = (1 - t) * (1 - t) * startY + 2 * (1 - t) * t * midY + t * t * endY;
+
+                    if (this.progress >= 1) {
+                        totalRecycled++;
+                        totalATP += 26; // Net Cori salvage yield
+                        this.reset();
+                    }
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                if (this.type === 'lactate') {
+                    ctx.fillStyle = '#c084fc';
+                    ctx.shadowColor = '#c084fc';
+                    ctx.shadowBlur = 8;
+                    ctx.arc(this.x, this.y, 4.5, 0, Math.PI * 2);
+                } else if (this.type === 'glucose') {
+                    ctx.fillStyle = '#34d399';
+                    ctx.shadowColor = '#34d399';
+                    ctx.shadowBlur = 10;
+                    ctx.arc(this.x, this.y, 6, 0, Math.PI * 2);
+                }
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        const particles = [];
+        function setParticleCount() {
+            const desired = Math.floor(intensity * 0.7);
+            while (particles.length < desired) {
+                particles.push(new Particle('lactate'));
+            }
+            while (particles.length > desired) {
+                particles.pop();
+            }
+        }
+        setParticleCount();
+
+        // Animation Loop
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            const nodes = getNodes();
+
+            // 1. Draw Capillary Blood Loop
+            ctx.save();
+            ctx.beginPath();
+            ctx.lineWidth = 36;
+            ctx.strokeStyle = "rgba(225, 29, 72, 0.14)";
+            ctx.lineCap = "round";
+            // Upper Loop (to Type 1)
+            ctx.moveTo(nodes.type2.x, nodes.type2.y);
+            ctx.bezierCurveTo(nodes.vessel.x, height * 0.15, nodes.vessel.x + 80, height * 0.15, nodes.type1.x, nodes.type1.y);
+            // Lower Loop (to Liver)
+            ctx.moveTo(nodes.type2.x, nodes.type2.y);
+            ctx.bezierCurveTo(nodes.vessel.x, height * 0.85, nodes.vessel.x + 80, height * 0.85, nodes.liver.x, nodes.liver.y);
+            // Return corridor (Liver -> Muscle)
+            ctx.moveTo(nodes.liver.x, nodes.liver.y);
+            ctx.bezierCurveTo(nodes.vessel.x + 20, height * 0.52, nodes.vessel.x - 20, height * 0.52, nodes.type2.x, nodes.type2.y);
+            ctx.stroke();
+
+            // Vascular track glow lines
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "rgba(244, 63, 94, 0.4)";
+            ctx.setLineDash([8, 12]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.restore();
+
+            // Vessel Label
+            ctx.fillStyle = "rgba(244, 63, 94, 0.8)";
+            ctx.font = "600 11px -apple-system, sans-serif";
+            ctx.fillText("VASCULAR CAPILLARY STREAM", nodes.vessel.x - 85, height * 0.5 - 6);
+
+            // 2. Draw Transporter Gates (MCTs)
+            drawTransporter(nodes.type2.x + 48, nodes.type2.y, "MCT4", "Export Gate");
+            drawTransporter(nodes.type1.x - 48, nodes.type1.y, "MCT1", "Aerobic Gate");
+            drawTransporter(nodes.liver.x - 48, nodes.liver.y, "MCT2", "Hepatic Gate");
+
+            // 3. Draw Compartment Organs
+            drawOrgan(nodes.type2, "Fast-Twitch Fiber", "Glycolytic Producer", "#f87171", "🔥");
+            drawOrgan(nodes.type1, "Type I / Heart", "Oxidizes to +15 ATP", "#34d399", "⚡");
+            drawOrgan(nodes.liver, "Liver Tissue", "Cori Cycle Glucose", "#fbbf24", "🔄");
+
+            // 4. Update and Draw Particles
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            // Update Counters in DOM
+            document.getElementById('stat-recycled').innerText = totalRecycled;
+            document.getElementById('stat-salvage').innerText = (totalATP * 30.5).toFixed(0); // kJ approximate
+
+            requestAnimationFrame(animate);
+        }
+
+        function drawOrgan(node, title, subtitle, color, icon) {
+            ctx.save();
+            // Halo glow
+            const grad = ctx.createRadialGradient(node.x, node.y, 10, node.x, node.y, node.r + 15);
+            grad.addColorStop(0, "rgba(255,255,255,0.08)");
+            grad.addColorStop(1, "transparent");
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, node.r + 15, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Solid Circle
+            ctx.fillStyle = "#0c1322";
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            // Inner icon
+            ctx.font = "24px -apple-system, sans-serif";
+            ctx.textAlign = "center";
+            ctx.fillText(icon, node.x, node.y - 8);
+
+            // Text Labels
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "bold 12px -apple-system, sans-serif";
+            ctx.fillText(title, node.x, node.y + 14);
+
+            ctx.fillStyle = color;
+            ctx.font = "9px -apple-system, sans-serif";
+            ctx.fillText(subtitle, node.x, node.y + 27);
+            ctx.restore();
+        }
+
+        function drawTransporter(x, y, name, tag) {
+            ctx.save();
+            ctx.fillStyle = "#0284c7";
+            ctx.strokeStyle = "#38bdf8";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.roundRect(x - 22, y - 12, 44, 24, 6);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = "#fff";
+            ctx.font = "bold 10px sans-serif";
+            ctx.textAlign = "center";
+            ctx.fillText(name, x, y + 3);
+            ctx.restore();
+        }
+
+        animate();
+
+        /* ==========================================================
+           UI CONTROLS & EVENT LISTENERS
+        ========================================================== */
+        const slider = document.getElementById('intensity-slider');
+        const intensityBadge = document.getElementById('intensity-val');
+
+        slider.addEventListener('input', (e) => {
+            intensity = parseInt(e.target.value);
+            intensityBadge.innerText = intensity + "% V̇O₂max";
+            setParticleCount();
+        });
+
+
+        /* ==========================================================
+   UI CONTROLS & INTERACTIVE ROADMAP CLICK HANDLERS
+========================================================== */
+        const card1 = document.getElementById('card-step1');
+        const card2 = document.getElementById('card-step2');
+        const card3 = document.getElementById('card-step3');
+        const card4 = document.getElementById('card-step4');
+
+        const btnBoth = document.getElementById('btn-both');
+        const btnShuttle = document.getElementById('btn-shuttle');
+        const btnCori = document.getElementById('btn-cori');
+
+        function clearActiveStates() {
+            btnBoth.classList.remove('active');
+            btnShuttle.classList.remove('active');
+            btnCori.classList.remove('active');
+            card1.classList.remove('highlight');
+            card2.classList.remove('highlight');
+            card3.classList.remove('highlight');
+            card4.classList.remove('highlight');
+        }
+
+        // Top Button Controls
+        btnBoth.addEventListener('click', () => {
+            clearActiveStates();
+            btnBoth.classList.add('active');
+            card1.classList.add('highlight');
+            viewMode = 'both';
+            particles.forEach(p => p.reset());
+        });
+
+        btnShuttle.addEventListener('click', () => {
+            clearActiveStates();
+            btnShuttle.classList.add('active');
+            card3.classList.add('highlight');
+            viewMode = 'shuttle';
+            particles.forEach(p => p.reset());
+        });
+
+        btnCori.addEventListener('click', () => {
+            clearActiveStates();
+            btnCori.classList.add('active');
+            card4.classList.add('highlight');
+            viewMode = 'cori';
+            particles.forEach(p => p.reset());
+        });
+
+        // Interactive Roadmap Cards Click Listeners
+        card1.addEventListener('click', () => {
+            clearActiveStates();
+            card1.classList.add('highlight');
+            btnBoth.classList.add('active');
+            viewMode = 'both';
+            particles.forEach(p => {
+                p.reset();
+                p.stage = 0; // Focus on Type II production
+            });
+        });
+
+        card2.addEventListener('click', () => {
+            clearActiveStates();
+            card2.classList.add('highlight');
+            btnBoth.classList.add('active');
+            viewMode = 'both';
+            particles.forEach(p => {
+                p.reset();
+                p.stage = 1; // Focus on blood capillary flow
+            });
+        });
+
+        card3.addEventListener('click', () => {
+            clearActiveStates();
+            card3.classList.add('highlight');
+            btnShuttle.classList.add('active');
+            viewMode = 'shuttle'; // Route A: Intracellular muscle shuttle
+            particles.forEach(p => {
+                p.reset();
+                p.target = 'type1';
+            });
+        });
+
+        card4.addEventListener('click', () => {
+            clearActiveStates();
+            card4.classList.add('highlight');
+            btnCori.classList.add('active');
+            viewMode = 'cori'; // Route B: Cori Cycle hepatic gluconeogenesis
+            particles.forEach(p => {
+                p.reset();
+                p.target = 'liver';
+            });
+        });
+
+        /* ==========================================================
+           CASE STUDY INTERACTIVE LAB CHECK (AUTO-GRADER)
+        ========================================================== */
+        const caseAnswers = {
+            1: {
+                correctIndex: 1,
+                explain: "Correct! Light physical movement (35–45% V̇O₂max) sustains cardiovascular cardiac output and muscle perfusion. This continually feeds circulating lactate to Type I slow-twitch oxidative fibers and cardiac myocytes, which consume and oxidize lactate for fuel far faster than passive sitting."
+            },
+            2: {
+                correctIndex: 0,
+                explain: "Correct! The human myocardium has an extraordinarily dense mitochondrial network and high levels of MCT1 transporters. During high-intensity exercise, the heart switches heavily to consuming blood lactate, sparing valuable blood glucose for the brain and nervous system."
+            },
+            3: {
+                correctIndex: 1,
+                explain: "Correct! A foundational concept: blood lactate returns to resting baseline levels (1.0–2.0 mmol/L) within 30 to 60 minutes after exercise via oxidation and the Cori cycle. Delayed-Onset Muscle Soreness (DOMS) 24–48 hours later is caused by microscopic sarcomere strain, membrane micro-tears, and inflammatory repair—not lactate!"
+            }
+        };
+
+        function checkAnswer(caseNum, selectedIndex) {
+            const parentCard = document.getElementById(`case-${caseNum}`);
+            const buttons = parentCard.querySelectorAll('.opt-btn');
+            const feedbackBox = document.getElementById(`feedback-${caseNum}`);
+            const data = caseAnswers[caseNum];
+
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                if (idx === data.correctIndex) {
+                    btn.classList.add('correct');
+                } else if (idx === selectedIndex) {
+                    btn.classList.add('incorrect');
+                }
+            });
+
+            feedbackBox.style.display = 'block';
+            if (selectedIndex === data.correctIndex) {
+                feedbackBox.innerHTML = `<strong>🌟 Excellent Analysis:</strong> ${data.explain}`;
+            } else {
+                feedbackBox.innerHTML = `<strong>❌ Not Quite:</strong> ${data.explain}`;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lactate Threshold & Active Recovery Lab</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Range slider custom styling */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 18px;
+            width: 18px;
+            border-radius: 9999px;
+            background: #06b6d4;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(6, 182, 212, 0.8);
+            border: 2px solid #ffffff;
+            transition: transform 0.1s ease;
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 9999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+
+        @keyframes pulse-subtle {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.85;
+                transform: scale(0.99);
+            }
+        }
+
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- Top Navigation & Mode Switcher Bar -->
+    <header
+        class="border-b border-slate-800 bg-slate-900/95 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3 shadow-xl">
+        <div class="flex items-center space-x-3">
+            <div
+                class="p-2 rounded-xl bg-gradient-to-tr from-cyan-500 via-emerald-400 to-amber-400 text-slate-950 shadow-md shadow-cyan-500/20">
+                <i data-lucide="activity" class="w-5 h-5 stroke-[2.5]"></i>
+            </div>
+            <div>
+                <div class="flex items-center gap-2">
+                    <h1 class="text-sm sm:text-base font-bold tracking-tight text-white">Lactate Threshold & Active
+                        Recovery Lab</h1>
+                    <span
+                        class="text-[10px] font-mono uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-700/50">Exercise
+                        Physiology Sandbox</span>
+                </div>
+                <p class="text-xs text-slate-400 hidden sm:block">Kinetics of Fast/Slow Glycolysis, OBLA Inflection, and
+                    Post-Exercise Clearance Pathways</p>
+            </div>
+        </div>
+
+        <!-- Mode Selector Tabs & Guide -->
+        <div class="flex items-center gap-2">
+            <div class="flex p-1 bg-slate-950 rounded-xl border border-slate-800 text-xs font-medium">
+                <button id="btn-mode-a"
+                    class="px-3 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold transition flex items-center gap-1.5 cursor-pointer shadow-sm">
+                    <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
+                    <span>Mode A: GXT & Threshold</span>
+                </button>
+                <button id="btn-mode-b"
+                    class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition flex items-center gap-1.5 cursor-pointer">
+                    <i data-lucide="timer" class="w-3.5 h-3.5"></i>
+                    <span>Mode B: Active vs Passive Clearance</span>
+                </button>
+            </div>
+
+            <button id="btn-toggle-theory"
+                class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition cursor-pointer"
+                title="Physiology Reference Guide">
+                <i data-lucide="book-open" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Multi-Panel Workspace -->
+    <main class="flex-1 max-w-[1750px] w-full mx-auto p-3 sm:p-5 lg:p-6 grid grid-cols-1 xl:grid-cols-12 gap-5">
+
+        <!-- Left / Center Section: Mode Dynamic Viewports (xl: 8 cols) -->
+        <div class="xl:col-span-8 flex flex-col space-y-4">
+
+            <!-- ================= MODE A: GXT & THRESHOLD ANALYSIS ================= -->
+            <section id="panel-mode-a" class="space-y-4 flex flex-col flex-1">
+
+                <!-- Mode A Banner -->
+                <div
+                    class="rounded-2xl p-3.5 border border-cyan-800/40 bg-gradient-to-r from-cyan-950/40 via-slate-900 to-slate-900 shadow-xl flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 shrink-0">
+                            <i data-lucide="gauge" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-[10px] font-mono uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-cyan-900/60 text-cyan-300 border border-cyan-700/50">Graded
+                                    Incremental Test</span>
+                                <span class="text-xs text-slate-400">Step Protocol (3 min stages)</span>
+                            </div>
+                            <p class="text-xs text-slate-300 mt-0.5">
+                                Observe the shift from aerobic pyruvate oxidation in mitochondria to fast glycolytic
+                                lactate accumulation as workload ramps from baseline to maximal capacity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="hidden sm:flex items-center gap-1.5 bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800">
+                        <span class="text-[10px] font-mono text-slate-400">Athlete Profile:</span>
+                        <div class="flex gap-1 text-[11px] font-mono">
+                            <button id="toggle-athlete-untrained"
+                                class="px-2 py-0.5 rounded font-bold bg-slate-800 text-cyan-400 border border-cyan-700/40 cursor-pointer">Untrained
+                                (LT ~55%)</button>
+                            <button id="toggle-athlete-trained"
+                                class="px-2 py-0.5 rounded text-slate-400 hover:text-slate-200 cursor-pointer">Trained
+                                (LT ~75%)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mode A Chart Card -->
+                <div
+                    class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-2xl relative flex flex-col flex-1">
+                    <div
+                        class="flex flex-wrap items-center justify-between text-xs font-mono text-slate-400 mb-2 gap-2">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="line-chart" class="w-4 h-4 text-cyan-400"></i>
+                            <span class="font-bold text-slate-200 uppercase tracking-wider text-[11px]">Blood Lactate
+                                Response Curve (mmol/L vs % VO₂max)</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-[11px] flex-wrap">
+                            <span class="flex items-center gap-1.5"><span
+                                    class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> Baseline (1.0-2.0 mM)</span>
+                            <span class="flex items-center gap-1.5"><span
+                                    class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span> Lactate Threshold (LT)</span>
+                            <span class="flex items-center gap-1.5"><span
+                                    class="w-2.5 h-2.5 rounded-full bg-rose-400"></span> OBLA (4.0 mM)</span>
+                        </div>
+                    </div>
+
+                    <!-- Canvas Container -->
+                    <div
+                        class="relative w-full h-[320px] sm:h-[380px] bg-slate-950 rounded-xl border border-slate-800 overflow-hidden">
+                        <canvas id="chart-gxt-canvas" class="w-full h-full block cursor-crosshair"></canvas>
+                        <div id="chart-gxt-tooltip"
+                            class="absolute hidden pointer-events-none bg-slate-900/95 border border-cyan-500/60 rounded-lg p-2 text-[10px] font-mono text-cyan-300 shadow-2xl backdrop-blur-md">
+                        </div>
+                    </div>
+
+                    <!-- Live Intensity Slider & Dial -->
+                    <div class="mt-4 p-3.5 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <label for="slider-vo2" class="font-semibold text-slate-200 flex items-center gap-2">
+                                <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
+                                Exercise Workload / Intensity:
+                            </label>
+                            <div class="flex items-center gap-2">
+                                <span id="disp-vo2-val" class="font-mono font-bold text-base text-cyan-300">55%
+                                    V̇O₂max</span>
+                                <span id="badge-energy-sys"
+                                    class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">
+                                    Aerobic Oxidative Dominant
+                                </span>
+                            </div>
+                        </div>
+                        <input type="range" id="slider-vo2" min="30" max="100" step="1" value="55"
+                            class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer outline-none">
+                        <div class="flex justify-between text-[10px] font-mono text-slate-500">
+                            <span>Warmup (30%)</span>
+                            <span>Untrained LT (~55%)</span>
+                            <span>Trained LT (~75%)</span>
+                            <span class="text-rose-400 font-semibold">Maximal Effort (100%)</span>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Kinetics Readout Grid -->
+                    <div class="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-[10px] text-slate-400 block font-sans">Blood [Lactate]</span>
+                            <span id="readout-lactate" class="text-lg font-bold text-cyan-400">1.8 mmol/L</span>
+                        </div>
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-[10px] text-slate-400 block font-sans">Production (Ra)</span>
+                            <span id="readout-ra" class="text-lg font-bold text-purple-400">1.2 mmol/min</span>
+                        </div>
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-[10px] text-slate-400 block font-sans">Clearance (Rd)</span>
+                            <span id="readout-rd" class="text-lg font-bold text-emerald-400">1.2 mmol/min</span>
+                        </div>
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-[10px] text-slate-400 block font-sans">Net Accumulation</span>
+                            <span id="readout-net" class="text-lg font-bold text-slate-300">0.0 mmol/min</span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ================= MODE B: POST-HIIT RECOVERY LAB ================= -->
+            <section id="panel-mode-b" class="space-y-4 flex flex-col flex-1 hidden">
+
+                <!-- Mode B Banner -->
+                <div
+                    class="rounded-2xl p-3.5 border border-emerald-800/40 bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-900 shadow-xl flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 shrink-0">
+                            <i data-lucide="timer-reset" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-[10px] font-mono uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-emerald-900/60 text-emerald-300 border border-emerald-700/50">Post-HIIT
+                                    Clearance Kinetics</span>
+                                <span class="text-xs text-slate-400">Sprint Recovery (0 to 60 Minutes)</span>
+                            </div>
+                            <p class="text-xs text-slate-300 mt-0.5">
+                                Simulate an athlete right after an all-out 60s sprint bout ([La⁻] spiked to ~15.0
+                                mmol/L). Compare how passive resting vs active spinning alters the clearance timeline.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="hidden sm:flex items-center gap-2 bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800 font-mono text-xs">
+                        <span class="text-slate-400 text-[10px]">Elapsed Time:</span>
+                        <span id="disp-sim-time" class="text-cyan-400 font-bold text-sm">00:00</span>
+                    </div>
+                </div>
+
+                <!-- Mode B Clearance Graph Card -->
+                <div
+                    class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-2xl relative flex flex-col flex-1">
+                    <div
+                        class="flex flex-wrap items-center justify-between text-xs font-mono text-slate-400 mb-2 gap-2">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i>
+                            <span class="font-bold text-slate-200 uppercase tracking-wider text-[11px]">Recovery Curve:
+                                Blood [La⁻] vs Post-Exercise Minutes</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-[11px] flex-wrap">
+                            <span class="flex items-center gap-1.5"><span
+                                    class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span> Active Spin (35-45%)</span>
+                            <span class="flex items-center gap-1.5"><span
+                                    class="w-2.5 h-2.5 rounded-full bg-slate-400"></span> Passive Rest (0%)</span>
+                            <span class="flex items-center gap-1.5"><span
+                                    class="w-2.5 h-2.5 rounded-full bg-rose-400"></span> Excessive (>60%)</span>
+                        </div>
+                    </div>
+
+                    <!-- Canvas Container -->
+                    <div
+                        class="relative w-full h-[300px] sm:h-[340px] bg-slate-950 rounded-xl border border-slate-800 overflow-hidden">
+                        <canvas id="chart-recovery-canvas" class="w-full h-full block"></canvas>
+                    </div>
+
+                    <!-- Playback Controls & Strategy Selector -->
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+
+                        <!-- Strategy Selector Buttons (7 cols) -->
+                        <div class="md:col-span-7 flex flex-wrap gap-1.5">
+                            <button id="strat-passive"
+                                class="flex-1 min-w-[130px] p-2 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-left transition cursor-pointer">
+                                <div class="text-[11px] font-bold text-slate-200 flex items-center gap-1">
+                                    <span>🛋️ Passive Rest</span>
+                                </div>
+                                <div class="text-[9px] font-mono text-slate-400">0% VO₂max (Slow, ~60-90m)</div>
+                            </button>
+
+                            <button id="strat-active"
+                                class="flex-1 min-w-[130px] p-2 rounded-xl border border-cyan-500/80 bg-cyan-950/60 text-left transition cursor-pointer shadow-lg shadow-cyan-950/50">
+                                <div class="text-[11px] font-bold text-cyan-300 flex items-center gap-1">
+                                    <span>🚴 Active Recovery</span>
+                                    <span
+                                        class="text-[8px] bg-cyan-500 text-slate-950 px-1 rounded font-mono font-bold">Optimal</span>
+                                </div>
+                                <div class="text-[9px] font-mono text-cyan-400/90">35-45% VO₂max (2x Faster)</div>
+                            </button>
+
+                            <button id="strat-excessive"
+                                class="flex-1 min-w-[130px] p-2 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-left transition cursor-pointer">
+                                <div class="text-[11px] font-bold text-rose-300 flex items-center gap-1">
+                                    <span>🏃 High Intensity</span>
+                                </div>
+                                <div class="text-[9px] font-mono text-rose-400/80">&gt;60% VO₂max (Re-accumulation)
+                                </div>
+                            </button>
+                        </div>
+
+                        <!-- Timer Speed & Playback (5 cols) -->
+                        <div
+                            class="md:col-span-5 flex items-center justify-end gap-1.5 bg-slate-950 p-2 rounded-xl border border-slate-800">
+                            <button id="btn-play-pause"
+                                class="px-3 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1 transition cursor-pointer">
+                                <i data-lucide="play" id="icon-play" class="w-3.5 h-3.5"></i>
+                                <span id="text-play">Start Recovery</span>
+                            </button>
+
+                            <div class="flex items-center gap-1 text-[10px] font-mono">
+                                <button id="btn-speed-1x"
+                                    class="px-2 py-1 rounded bg-slate-800 text-cyan-300 border border-cyan-700/40 cursor-pointer">1x</button>
+                                <button id="btn-speed-5x"
+                                    class="px-2 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 cursor-pointer">5x</button>
+                                <button id="btn-speed-20x"
+                                    class="px-2 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 cursor-pointer">20x</button>
+                            </div>
+
+                            <button id="btn-reset-recovery"
+                                class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer"
+                                title="Reset Recovery Bout">
+                                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <!-- Live Physiological Mechanisms Bar -->
+                    <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center gap-3">
+                            <div class="p-2 rounded-lg bg-cyan-500/10 text-cyan-400">
+                                <i data-lucide="droplet" class="w-4 h-4"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between font-mono text-[10px]">
+                                    <span class="text-slate-400">Capillary Perfusion</span>
+                                    <span id="meter-perfusion-val" class="text-cyan-400 font-bold">1.8x Baseline</span>
+                                </div>
+                                <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1 overflow-hidden">
+                                    <div id="meter-perfusion-bar" class="h-full bg-cyan-400 transition-all duration-200"
+                                        style="width: 72%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center gap-3">
+                            <div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
+                                <i data-lucide="flame" class="w-4 h-4"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between font-mono text-[10px]">
+                                    <span class="text-slate-400">Type I / Heart Oxidation</span>
+                                    <span id="meter-oxidation-val" class="text-emerald-400 font-bold">High (~75%)</span>
+                                </div>
+                                <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1 overflow-hidden">
+                                    <div id="meter-oxidation-bar"
+                                        class="h-full bg-emerald-400 transition-all duration-200" style="width: 78%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center gap-3">
+                            <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400">
+                                <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between font-mono text-[10px]">
+                                    <span class="text-slate-400">Cori Cycle Gluconeogenesis</span>
+                                    <span id="meter-cori-val" class="text-amber-400 font-bold">Active (~25%)</span>
+                                </div>
+                                <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1 overflow-hidden">
+                                    <div id="meter-cori-bar" class="h-full bg-amber-400 transition-all duration-200"
+                                        style="width: 25%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- Right Column: Protocol Builder & Coaching Challenges (xl: 4 cols) -->
+        <div class="xl:col-span-4 space-y-4 flex flex-col justify-between">
+
+            <!-- 1. HIIT Protocol & Buffering Capacity Builder -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3.5">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="sliders-horizontal" class="w-4 h-4 text-emerald-400"></i>
+                        <h3 class="font-bold text-white text-xs uppercase tracking-wider">HIIT Protocol & Buffering
+                            Builder</h3>
+                    </div>
+                    <span
+                        class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60">
+                        Adaptations
+                    </span>
+                </div>
+
+                <p class="text-xs text-slate-400">
+                    Design interval training parameters to predict chronic skeletal muscle buffering and transporter
+                    upregulations.
+                </p>
+
+                <!-- Builder Controls -->
+                <div class="space-y-3">
+                    <!-- Work Interval Duration -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-mono">
+                            <span class="text-slate-300">Work Duration (Seconds):</span>
+                            <span id="disp-hiit-work" class="text-cyan-400 font-bold">45s (Fast Glycolysis)</span>
+                        </div>
+                        <input type="range" id="slider-hiit-work" min="15" max="90" step="5" value="45"
+                            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer outline-none">
+                        <div class="flex justify-between text-[9px] font-mono text-slate-500">
+                            <span>15s (Alactic)</span>
+                            <span>45s (Peak Glycolytic)</span>
+                            <span>90s (Aerobic Mix)</span>
+                        </div>
+                    </div>
+
+                    <!-- Work-to-Rest Ratio Selector -->
+                    <div class="space-y-1.5">
+                        <label class="text-xs text-slate-300 block">Work-to-Rest Ratio:</label>
+                        <div class="grid grid-cols-5 gap-1 text-[11px] font-mono">
+                            <button
+                                class="btn-ratio p-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-white"
+                                data-ratio="1:1">1:1</button>
+                            <button
+                                class="btn-ratio p-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-white"
+                                data-ratio="1:2">1:2</button>
+                            <button
+                                class="btn-ratio p-1.5 rounded-lg bg-cyan-950 border border-cyan-600 text-cyan-300 font-bold"
+                                data-ratio="1:3">1:3</button>
+                            <button
+                                class="btn-ratio p-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-white"
+                                data-ratio="1:4">1:4</button>
+                            <button
+                                class="btn-ratio p-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-white"
+                                data-ratio="1:5">1:5</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Predicted Chronic Physiological Adaptations -->
+                <div class="pt-2 border-t border-slate-800 space-y-2.5">
+                    <div class="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">
+                        Projected 6-Week Adaptations:
+                    </div>
+
+                    <!-- Carnosine / Bicarb Buffering -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-[11px] font-mono">
+                            <span class="text-slate-300">Intracellular Buffering (Carnosine/Bicarb)</span>
+                            <span id="stat-buffering" class="text-emerald-400 font-bold">+18.5%</span>
+                        </div>
+                        <div class="w-full bg-slate-950 h-2 rounded-full overflow-hidden border border-slate-800">
+                            <div id="bar-buffering" class="h-full bg-emerald-500 rounded transition-all duration-300"
+                                style="width: 68%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- MCT1 & MCT4 Density -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-[11px] font-mono">
+                            <span class="text-slate-300">MCT1 / MCT4 Transporter Density</span>
+                            <span id="stat-mct" class="text-cyan-400 font-bold">+24.0%</span>
+                        </div>
+                        <div class="w-full bg-slate-950 h-2 rounded-full overflow-hidden border border-slate-800">
+                            <div id="bar-mct" class="h-full bg-cyan-400 rounded transition-all duration-300"
+                                style="width: 75%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Fatigue Resistance Index -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-[11px] font-mono">
+                            <span class="text-slate-300">Acidosis Tolerance Index</span>
+                            <span id="stat-tolerance" class="text-purple-400 font-bold">High (Tier 1)</span>
+                        </div>
+                        <div class="w-full bg-slate-950 h-2 rounded-full overflow-hidden border border-slate-800">
+                            <div id="bar-tolerance" class="h-full bg-purple-500 rounded transition-all duration-300"
+                                style="width: 82%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 2. Interactive Coaching Scenario Challenges -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+                        <h3 class="font-bold text-white text-xs uppercase tracking-wider">Applied Coaching Challenges
+                        </h3>
+                    </div>
+                    <span id="challenge-badge"
+                        class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/60">
+                        Case 1 of 3
+                    </span>
+                </div>
+
+                <div id="challenge-box" class="space-y-2.5 text-xs">
+                    <h4 id="challenge-title" class="font-bold text-white text-sm">400m Sprinter Inter-Heat Strategy</h4>
+                    <p id="challenge-desc" class="text-slate-300 leading-relaxed text-[11px]">
+                        Your track athlete finishes their 400m heat with a blood lactate of 14.5 mmol/L and heavy
+                        sarcoplasmic acidosis. The final heat takes place in 45 minutes. What protocol will optimize ATP
+                        resynthesis and metabolic clearance?
+                    </p>
+
+                    <!-- Choices -->
+                    <div id="challenge-options" class="space-y-1.5 pt-1">
+                        <button
+                            class="challenge-opt w-full p-2 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 text-left text-slate-300 text-[11px] transition flex items-center justify-between"
+                            data-correct="false">
+                            <span>A. Lie down flat on the bench to preserve glycogen and rest muscles.</span>
+                        </button>
+                        <button
+                            class="challenge-opt w-full p-2 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 text-left text-slate-300 text-[11px] transition flex items-center justify-between"
+                            data-correct="true">
+                            <span>B. 20 min easy spin (35-45% VO2max) followed by light stretching.</span>
+                        </button>
+                        <button
+                            class="challenge-opt w-full p-2 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 text-left text-slate-300 text-[11px] transition flex items-center justify-between"
+                            data-correct="false">
+                            <span>C. High-cadence hard sprints (70% VO2max) to flush out acid.</span>
+                        </button>
+                    </div>
+
+                    <div id="challenge-feedback" class="hidden p-2.5 rounded-xl border text-[11px] leading-relaxed">
+                    </div>
+                </div>
+
+                <!-- Next Challenge Nav -->
+                <div class="pt-2 flex items-center justify-between border-t border-slate-800 text-[10px] font-mono">
+                    <button id="btn-prev-challenge"
+                        class="px-2 py-1 rounded bg-slate-950 text-slate-400 hover:text-white border border-slate-800 transition cursor-pointer">
+                        ← Prev Case
+                    </button>
+                    <span id="challenge-counter" class="text-slate-500">1 / 3</span>
+                    <button id="btn-next-challenge"
+                        class="px-2 py-1 rounded bg-slate-950 text-slate-400 hover:text-white border border-slate-800 transition cursor-pointer">
+                        Next Case →
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Slide-Out Scientific Reference Drawer -->
+    <div id="theory-drawer"
+        class="fixed inset-y-0 right-0 z-50 w-full sm:w-[540px] bg-slate-900/98 backdrop-blur-xl border-l border-slate-800 shadow-2xl p-6 overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+            <div class="flex items-center gap-2">
+                <i data-lucide="graduation-cap" class="w-5 h-5 text-cyan-400"></i>
+                <h3 class="font-bold text-white text-base">Physiology & Clearance Reference</h3>
+            </div>
+            <button id="btn-close-theory"
+                class="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <div class="space-y-4 text-xs text-slate-300 leading-relaxed">
+            <!-- Section 1 -->
+            <div class="space-y-1.5 p-3 rounded-xl bg-slate-950 border border-slate-800">
+                <h4 class="font-bold text-cyan-400 text-sm flex items-center gap-1.5">
+                    <i data-lucide="trending-up" class="w-4 h-4 text-cyan-400"></i>
+                    1. The Anaerobic / Lactate Threshold (LT & OBLA)
+                </h4>
+                <p class="text-slate-400">
+                    Under resting conditions and light exercise, the rate of lactate production ($R_a$) equals the rate
+                    of clearance ($R_d$), maintaining blood lactate between <strong>1.0 and 2.0 mmol/L</strong>.
+                </p>
+                <ul class="list-disc pl-5 space-y-1 text-slate-300 mt-1">
+                    <li><strong>Lactate Threshold (LT):</strong> The inflection point where $R_a$ exceeds $R_d$, and
+                        blood lactate begins to rise exponentially above resting baseline. In untrained adults, this
+                        occurs at ~50–60% $\text{V̇O}_2\text{max}$. Endurance training shifts LT rightward to ~70–85%
+                        $\text{V̇O}_2\text{max}$.</li>
+                    <li><strong>OBLA (Onset of Blood Lactate Accumulation):</strong> Clinically defined as the point
+                        where blood lactate concentration crosses <strong>4.0 mmol/L</strong>.</li>
+                </ul>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="space-y-1.5 p-3 rounded-xl bg-slate-950 border border-slate-800">
+                <h4 class="font-bold text-emerald-400 text-sm flex items-center gap-1.5">
+                    <i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i>
+                    2. Clearance Pathways: Active vs. Passive Rest
+                </h4>
+                <p class="text-slate-400">
+                    Following intense fast glycolysis, lactate is cleared through two main routes:
+                </p>
+                <ol class="list-decimal pl-5 space-y-1 text-slate-300 mt-1">
+                    <li><strong>Aerobic Oxidation (~75%):</strong> Neighboring slow-twitch (Type I) skeletal muscle and
+                        myocardium import lactate via <strong>MCT1</strong>, convert it to pyruvate via
+                        <strong>LDH-H</strong>, and oxidize it in the Krebs cycle.</li>
+                    <li><strong>The Cori Cycle (~25%):</strong> The liver extracts circulating lactate via
+                        <strong>MCT2</strong> and resynthesizes glucose via hepatic gluconeogenesis (costing 6 ATP).
+                    </li>
+                </ol>
+                <p class="text-slate-400 mt-1">
+                    <strong>Why Active Recovery Wins:</strong> Light exercise (35%–45% $\text{V̇O}_2\text{max}$)
+                    elevates muscle blood flow and cardiac output without stimulating new fast glycolytic flux, almost
+                    doubling the clearance rate compared to lying down.
+                </p>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="space-y-1.5 p-3 rounded-xl bg-slate-950 border border-slate-800">
+                <h4 class="font-bold text-amber-400 text-sm flex items-center gap-1.5">
+                    <i data-lucide="shield" class="w-4 h-4 text-amber-400"></i>
+                    3. Buffering Adaptations & HIIT Prescription
+                </h4>
+                <p class="text-slate-400">
+                    High-intensity intervals lasting <strong>30 to 90 seconds</strong> with work-to-rest ratios of
+                    <strong>1:3 to 1:5</strong> maximally stress the fast glycolytic system. Chronic adaptations
+                    include:
+                </p>
+                <ul class="list-disc pl-5 space-y-1 text-slate-300 mt-1">
+                    <li>Upregulation of the intracellular dipeptide buffer <strong>carnosine</strong> and extracellular
+                        <strong>bicarbonate ($\text{HCO}_3^-$)</strong>.</li>
+                    <li>Increased expression of <strong>MCT1</strong> (uptake) and <strong>MCT4</strong> (efflux)
+                        monocarboxylate transporters.</li>
+                    <li>Delayed onset of Troponin C $\text{Ca}^{2+}$ competition and reduced PFK enzyme inhibition.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Dimmer for Theory Drawer -->
+    <div id="drawer-backdrop" class="fixed inset-0 bg-slate-950/70 z-40 hidden backdrop-blur-sm transition-opacity">
+    </div>
+
+    <!-- Application Engine Script -->
+    <script>
+        // --- Application State Model ---
+        const APP = {
+            activeMode: 'A', // 'A' or 'B'
+
+            // Mode A: GXT & Threshold State
+            athlete: 'untrained', // 'untrained' (LT 55%) vs 'trained' (LT 75%)
+            intensityVO2: 55,     // 30% to 100%
+
+            // Mode B: Active vs Passive Clearance State
+            strategy: 'active',   // 'passive', 'active', 'excessive'
+            simTimeMinutes: 0.0,  // 0 to 60 mins
+            isPlaying: false,
+            speedMultiplier: 1.0, // 1x, 5x, 20x
+            currentLactateB: 15.0, // Starts post-HIIT at 15.0 mmol/L
+            recoveryData: {
+                passive: [],
+                active: [],
+                excessive: []
+            },
+
+            // HIIT Builder State
+            hiitWork: 45,
+            hiitRatio: '1:3',
+
+            // Challenge State
+            challengeIdx: 0
+        };
+
+        // Challenge Database
+        const CHALLENGES = [
+            {
+                title: "400m Sprinter Inter-Heat Strategy",
+                desc: "Your track athlete finishes their 400m heat with a blood lactate of 14.5 mmol/L and heavy sarcoplasmic acidosis. The final heat takes place in 45 minutes. What protocol will optimize ATP resynthesis and metabolic clearance?",
+                options: [
+                    { text: "A. Lie down flat on the bench to preserve glycogen and rest muscles.", correct: false, reason: "Passive rest leaves capillary beds unperfused and pool lactate, requiring 60-90+ minutes to return to baseline." },
+                    { text: "B. 20 min easy spin (35-45% VO2max) followed by light stretching.", correct: true, reason: "Correct! Light contraction increases blood flow and Type I oxidation, clearing lactate nearly twice as fast while avoiding new glycolytic flux." },
+                    { text: "C. High-cadence hard sprints (70% VO2max) to flush out acid.", correct: false, reason: "Incorrect! Working at 70% VO2max exceeds threshold, generating more fast glycolytic lactate and worsening fatigue." }
+                ]
+            },
+            {
+                title: "Identifying the True Fatigue Culprit",
+                desc: "An endurance runner experiences heavy leg burning and drops their pace during the final 2 miles of a 10K. Which molecule is directly responsible for inhibiting cross-bridge cycling force?",
+                options: [
+                    { text: "A. The lactate anion (C₃H₅O₃⁻) binding directly to myosin.", correct: false, reason: "Lactate is completely benign to cross-bridges and actually acts as high-energy fuel for cardiac and Type I cells." },
+                    { text: "B. Dissociated free H⁺ ions competing with Ca²⁺ on Troponin C.", correct: true, reason: "Correct! Protons (H⁺) compete with calcium on Troponin C, impairing excitation-contraction coupling and inhibiting PFK." },
+                    { text: "C. Complete, irreversible depletion of all intracellular ATP.", correct: false, reason: "ATP levels rarely drop by more than 20-30% due to phosphagen and glycolytic buffering." }
+                ]
+            },
+            {
+                title: "Lactate Threshold Shift in Master Cycling",
+                desc: "A cyclist undergoes 12 weeks of polarized aerobic training. Their V̇O₂max remains unchanged at 58 mL/kg/min, yet their 40km time trial power increases significantly. What physiological change explains this?",
+                options: [
+                    { text: "A. Complete shutdown of all fast glycolytic enzymatic pathways.", correct: false, reason: "Fast glycolysis remains vital for surges, sprints, and hill climbs." },
+                    { text: "B. Rightward shift in the Lactate Threshold via increased mitochondrial & MCT1 density.", correct: true, reason: "Correct! A rightward shift means the cyclist can sustain higher power outputs before production (Ra) outpaces clearance (Rd)." },
+                    { text: "C. Total elimination of OBLA (Onset of Blood Lactate Accumulation).", correct: false, reason: "OBLA (4.0 mmol/L) will always occur when work demands exceed mitochondrial capacity." }
+                ]
+            }
+        ];
+
+        // --- DOM Elements ---
+        const btnModeA = document.getElementById('btn-mode-a');
+        const btnModeB = document.getElementById('btn-mode-b');
+        const panelModeA = document.getElementById('panel-mode-a');
+        const panelModeB = document.getElementById('panel-mode-b');
+
+        // Mode A Elements
+        const toggleAthleteUntrained = document.getElementById('toggle-athlete-untrained');
+        const toggleAthleteTrained = document.getElementById('toggle-athlete-trained');
+        const sliderVo2 = document.getElementById('slider-vo2');
+        const dispVo2Val = document.getElementById('disp-vo2-val');
+        const badgeEnergySys = document.getElementById('badge-energy-sys');
+        const readoutLactate = document.getElementById('readout-lactate');
+        const readoutRa = document.getElementById('readout-ra');
+        const readoutRd = document.getElementById('readout-rd');
+        const readoutNet = document.getElementById('readout-net');
+        const chartGxtCanvas = document.getElementById('chart-gxt-canvas');
+        const ctxGxt = chartGxtCanvas.getContext('2d');
+        const chartGxtTooltip = document.getElementById('chart-gxt-tooltip');
+
+        // Mode B Elements
+        const chartRecoveryCanvas = document.getElementById('chart-recovery-canvas');
+        const ctxRec = chartRecoveryCanvas.getContext('2d');
+        const stratPassive = document.getElementById('strat-passive');
+        const stratActive = document.getElementById('strat-active');
+        const stratExcessive = document.getElementById('strat-excessive');
+        const btnPlayPause = document.getElementById('btn-play-pause');
+        const iconPlay = document.getElementById('icon-play');
+        const textPlay = document.getElementById('text-play');
+        const btnResetRecovery = document.getElementById('btn-reset-recovery');
+        const dispSimTime = document.getElementById('disp-sim-time');
+        const btnSpeed1x = document.getElementById('btn-speed-1x');
+        const btnSpeed5x = document.getElementById('btn-speed-5x');
+        const btnSpeed20x = document.getElementById('btn-speed-20x');
+
+        const meterPerfusionVal = document.getElementById('meter-perfusion-val');
+        const meterPerfusionBar = document.getElementById('meter-perfusion-bar');
+        const meterOxidationVal = document.getElementById('meter-oxidation-val');
+        const meterOxidationBar = document.getElementById('meter-oxidation-bar');
+        const meterCoriVal = document.getElementById('meter-cori-val');
+        const meterCoriBar = document.getElementById('meter-cori-bar');
+
+        // HIIT Builder Elements
+        const sliderHiitWork = document.getElementById('slider-hiit-work');
+        const dispHiitWork = document.getElementById('disp-hiit-work');
+        const btnRatios = document.querySelectorAll('.btn-ratio');
+        const statBuffering = document.getElementById('stat-buffering');
+        const barBuffering = document.getElementById('bar-buffering');
+        const statMct = document.getElementById('stat-mct');
+        const barMct = document.getElementById('bar-mct');
+        const statTolerance = document.getElementById('stat-tolerance');
+        const barTolerance = document.getElementById('bar-tolerance');
+
+        // Challenge Elements
+        const challengeBadge = document.getElementById('challenge-badge');
+        const challengeTitle = document.getElementById('challenge-title');
+        const challengeDesc = document.getElementById('challenge-desc');
+        const challengeOptions = document.getElementById('challenge-options');
+        const challengeFeedback = document.getElementById('challenge-feedback');
+        const challengeCounter = document.getElementById('challenge-counter');
+        const btnPrevChallenge = document.getElementById('btn-prev-challenge');
+        const btnNextChallenge = document.getElementById('btn-next-challenge');
+
+        // Reference Drawer Elements
+        const theoryDrawer = document.getElementById('theory-drawer');
+        const drawerBackdrop = document.getElementById('drawer-backdrop');
+        const btnToggleTheory = document.getElementById('btn-toggle-theory');
+        const btnCloseTheory = document.getElementById('btn-close-theory');
+
+        // --- Kinetic Formulas & Physiology Equations ---
+
+        // Calculate Blood Lactate for Mode A given intensity and profile
+        function calcLactateGXT(vo2, athleteType) {
+            const ltThreshold = (athleteType === 'trained') ? 75 : 55;
+            const base = 1.3;
+
+            if (vo2 <= ltThreshold) {
+                // Below threshold: gentle baseline curve
+                const progress = (vo2 - 30) / (ltThreshold - 30);
+                return base + (progress * 0.7); // 1.3 to 2.0 mmol/L
+            } else {
+                // Exponential rise past threshold
+                const excess = vo2 - ltThreshold;
+                const maxExcess = 100 - ltThreshold;
+                const factor = excess / maxExcess;
+                return 2.0 + Math.pow(factor, 2.3) * 13.0; // 2.0 to 15.0 mmol/L
+            }
+        }
+
+        // Calculate Production (Ra) and Clearance (Rd) in mmol/min
+        function calcKineticsGXT(vo2, athleteType) {
+            const ltThreshold = (athleteType === 'trained') ? 75 : 55;
+            const lactate = calcLactateGXT(vo2, athleteType);
+
+            // Production accelerates steeply at high intensities
+            const ra = 0.5 + Math.pow(vo2 / 100, 2.6) * 9.5;
+
+            // Clearance peaks near threshold then saturates
+            let rd;
+            if (vo2 <= ltThreshold) {
+                rd = ra; // In balance below LT
+            } else {
+                const maxRd = (athleteType === 'trained') ? 5.8 : 3.8;
+                rd = Math.min(maxRd, ra * 0.75);
+            }
+
+            const net = Math.max(0, ra - rd);
+            return { lactate, ra, rd, net };
+        }
+
+        // --- Mode A: Dynamic GXT Curve Drawing ---
+        function drawGXTChart() {
+            const dpr = window.devicePixelRatio || 1;
+            const rect = chartGxtCanvas.getBoundingClientRect();
+            const w = rect.width;
+            const h = rect.height;
+
+            chartGxtCanvas.width = w * dpr;
+            chartGxtCanvas.height = h * dpr;
+            ctxGxt.resetTransform();
+            ctxGxt.scale(dpr, dpr);
+
+            ctxGxt.clearRect(0, 0, w, h);
+
+            const padL = 48;
+            const padR = 24;
+            const padT = 24;
+            const padB = 40;
+            const plotW = w - padL - padR;
+            const plotH = h - padT - padB;
+
+            // X: 30% to 100% VO2max
+            // Y: 0 to 16 mmol/L
+            const xToPx = (vo2) => padL + ((vo2 - 30) / 70) * plotW;
+            const yToPx = (lac) => padT + (1 - (lac / 16)) * plotH;
+
+            // 1. Gridlines & Axes
+            ctxGxt.strokeStyle = 'rgba(51, 65, 85, 0.4)';
+            ctxGxt.lineWidth = 1;
+
+            // Horizontal lines (0, 2, 4, 8, 12, 16 mM)
+            const yGridVals = [0, 2, 4, 8, 12, 16];
+            ctxGxt.fillStyle = '#64748b';
+            ctxGxt.font = '10px JetBrains Mono, monospace';
+            ctxGxt.textAlign = 'right';
+
+            yGridVals.forEach(val => {
+                const y = yToPx(val);
+                ctxGxt.beginPath();
+                ctxGxt.moveTo(padL, y);
+                ctxGxt.lineTo(padL + plotW, y);
+                ctxGxt.stroke();
+                ctxGxt.fillText(`${val} mM`, padL - 8, y + 3);
+            });
+
+            // Vertical lines (30, 45, 60, 75, 90, 100% VO2)
+            const xGridVals = [30, 45, 60, 75, 90, 100];
+            ctxGxt.textAlign = 'center';
+            xGridVals.forEach(val => {
+                const x = xToPx(val);
+                ctxGxt.beginPath();
+                ctxGxt.moveTo(x, padT);
+                ctxGxt.lineTo(x, padT + plotH);
+                ctxGxt.stroke();
+                ctxGxt.fillText(`${val}%`, x, padT + plotH + 18);
+            });
+
+            // X-axis and Y-axis labels
+            ctxGxt.fillStyle = '#94a3b8';
+            ctxGxt.font = '10px Inter, sans-serif';
+            ctxGxt.fillText('Exercise Workload (% V̇O₂max)', padL + plotW / 2, h - 8);
+
+            // 2. Physiological Reference Zones
+            // Resting Baseline Zone (1.0 to 2.0 mM)
+            ctxGxt.fillStyle = 'rgba(16, 185, 129, 0.08)';
+            ctxGxt.fillRect(padL, yToPx(2.0), plotW, yToPx(0) - yToPx(2.0));
+
+            // OBLA 4.0 mM Reference Line (Dashed Rose)
+            ctxGxt.save();
+            ctxGxt.strokeStyle = '#f43f5e';
+            ctxGxt.lineWidth = 1.5;
+            ctxGxt.setLineDash([5, 4]);
+            ctxGxt.beginPath();
+            ctxGxt.moveTo(padL, yToPx(4.0));
+            ctxGxt.lineTo(padL + plotW, yToPx(4.0));
+            ctxGxt.stroke();
+            ctxGxt.setLineDash([]);
+            ctxGxt.fillStyle = '#f43f5e';
+            ctxGxt.font = 'bold 9px JetBrains Mono, monospace';
+            ctxGxt.textAlign = 'left';
+            ctxGxt.fillText('OBLA Threshold (4.0 mmol/L)', padL + 8, yToPx(4.0) - 5);
+            ctxGxt.restore();
+
+            // 3. Draw Comparison Curves
+            // Draw both Untrained (faded if trained active) and Trained curves
+            const isTrained = APP.athlete === 'trained';
+
+            // Function to draw curve
+            function renderCurve(type, isCurrent) {
+                ctxGxt.save();
+                ctxGxt.beginPath();
+                for (let v = 30; v <= 100; v += 1) {
+                    const l = calcLactateGXT(v, type);
+                    const px = xToPx(v);
+                    const py = yToPx(l);
+                    if (v === 30) ctxGxt.moveTo(px, py);
+                    else ctxGxt.lineTo(px, py);
+                }
+
+                if (isCurrent) {
+                    ctxGxt.strokeStyle = '#38bdf8';
+                    ctxGxt.lineWidth = 3.5;
+                    ctxGxt.shadowColor = 'rgba(56, 189, 248, 0.6)';
+                    ctxGxt.shadowBlur = 10;
+                } else {
+                    ctxGxt.strokeStyle = 'rgba(148, 163, 184, 0.3)';
+                    ctxGxt.lineWidth = 2;
+                    ctxGxt.setLineDash([4, 4]);
+                }
+                ctxGxt.stroke();
+                ctxGxt.restore();
+            }
+
+            // Render alternate curve for comparison
+            renderCurve(isTrained ? 'untrained' : 'trained', false);
+            // Render active curve
+            renderCurve(APP.athlete, true);
+
+            // 4. Mark LT Inflection Point on Active Curve
+            const activeLT = (APP.athlete === 'trained') ? 75 : 55;
+            const activeLTLac = calcLactateGXT(activeLT, APP.athlete);
+            const ltX = xToPx(activeLT);
+            const ltY = yToPx(activeLTLac);
+
+            ctxGxt.save();
+            // Drop line to X-axis
+            ctxGxt.strokeStyle = 'rgba(56, 189, 248, 0.4)';
+            ctxGxt.lineWidth = 1.5;
+            ctxGxt.setLineDash([3, 3]);
+            ctxGxt.beginPath();
+            ctxGxt.moveTo(ltX, ltY);
+            ctxGxt.lineTo(ltX, padT + plotH);
+            ctxGxt.stroke();
+
+            // Marker circle
+            ctxGxt.fillStyle = '#06b6d4';
+            ctxGxt.shadowColor = '#06b6d4';
+            ctxGxt.shadowBlur = 12;
+            ctxGxt.beginPath();
+            ctxGxt.arc(ltX, ltY, 6, 0, Math.PI * 2);
+            ctxGxt.fill();
+
+            ctxGxt.fillStyle = '#ffffff';
+            ctxGxt.font = 'bold 9px JetBrains Mono, monospace';
+            ctxGxt.textAlign = 'center';
+            ctxGxt.fillText(`LT (${activeLT}%)`, ltX, ltY - 10);
+            ctxGxt.restore();
+
+            // 5. Draw Current Intensity Pin from Slider
+            const currVO2 = APP.intensityVO2;
+            const currLac = calcLactateGXT(currVO2, APP.athlete);
+            const curX = xToPx(currVO2);
+            const curY = yToPx(currLac);
+
+            ctxGxt.save();
+            // Vertical indicator bar
+            ctxGxt.strokeStyle = 'rgba(251, 191, 36, 0.7)';
+            ctxGxt.lineWidth = 2;
+            ctxGxt.beginPath();
+            ctxGxt.moveTo(curX, padT);
+            ctxGxt.lineTo(curX, padT + plotH);
+            ctxGxt.stroke();
+
+            // Pin head
+            ctxGxt.fillStyle = '#fbbf24';
+            ctxGxt.shadowColor = 'rgba(251, 191, 36, 0.9)';
+            ctxGxt.shadowBlur = 12;
+            ctxGxt.beginPath();
+            ctxGxt.arc(curX, curY, 7.5, 0, Math.PI * 2);
+            ctxGxt.fill();
+            ctxGxt.strokeStyle = '#ffffff';
+            ctxGxt.lineWidth = 2;
+            ctxGxt.stroke();
+
+            // Value label
+            ctxGxt.fillStyle = '#fbbf24';
+            ctxGxt.font = 'bold 10px JetBrains Mono, monospace';
+            ctxGxt.textAlign = 'left';
+            ctxGxt.fillText(`${currLac.toFixed(1)} mM`, curX + 10, curY - 5);
+            ctxGxt.restore();
+        }
+
+        // --- Mode B: Recovery Clearance Simulation Engine ---
+
+        // Precalculate baseline historical curves for comparison
+        function precalculateRecoveryData() {
+            APP.recoveryData.passive = [];
+            APP.recoveryData.active = [];
+            APP.recoveryData.excessive = [];
+
+            for (let t = 0; t <= 60; t += 0.5) {
+                // Passive: slow exponential decay (k = 0.035) to ~1.4 mM
+                const lacPassive = 1.4 + (15.0 - 1.4) * Math.exp(-0.038 * t);
+                APP.recoveryData.passive.push({ t, val: lacPassive });
+
+                // Active (35-45%): accelerated clearance via Type I oxidation (k = 0.085)
+                const lacActive = 1.3 + (15.0 - 1.3) * Math.exp(-0.092 * t);
+                APP.recoveryData.active.push({ t, val: lacActive });
+
+                // Excessive (>60%): initial slight decline then remains elevated / re-accumulates
+                const lacExcess = 5.5 + (15.0 - 5.5) * Math.exp(-0.02 * t) + (t > 15 ? (t - 15) * 0.08 : 0);
+                APP.recoveryData.excessive.push({ t, val: Math.min(16.0, lacExcess) });
+            }
+        }
+
+        // Draw Recovery Canvas
+        function drawRecoveryChart() {
+            const dpr = window.devicePixelRatio || 1;
+            const rect = chartRecoveryCanvas.getBoundingClientRect();
+            const w = rect.width;
+            const h = rect.height;
+
+            chartRecoveryCanvas.width = w * dpr;
+            chartRecoveryCanvas.height = h * dpr;
+            ctxRec.resetTransform();
+            ctxRec.scale(dpr, dpr);
+
+            ctxRec.clearRect(0, 0, w, h);
+
+            const padL = 48;
+            const padR = 24;
+            const padT = 24;
+            const padB = 40;
+            const plotW = w - padL - padR;
+            const plotH = h - padT - padB;
+
+            // X: 0 to 60 Minutes
+            // Y: 0 to 16 mmol/L
+            const xToPx = (mins) => padL + (mins / 60) * plotW;
+            const yToPx = (lac) => padT + (1 - (lac / 16)) * plotH;
+
+            // 1. Gridlines
+            ctxRec.strokeStyle = 'rgba(51, 65, 85, 0.4)';
+            ctxRec.lineWidth = 1;
+
+            // Y-axis grid
+            const yGridVals = [0, 2, 4, 8, 12, 16];
+            ctxRec.fillStyle = '#64748b';
+            ctxRec.font = '10px JetBrains Mono, monospace';
+            ctxRec.textAlign = 'right';
+
+            yGridVals.forEach(val => {
+                const y = yToPx(val);
+                ctxRec.beginPath();
+                ctxRec.moveTo(padL, y);
+                ctxRec.lineTo(padL + plotW, y);
+                ctxRec.stroke();
+                ctxRec.fillText(`${val} mM`, padL - 8, y + 3);
+            });
+
+            // X-axis grid (0, 10, 20, 30, 40, 50, 60 mins)
+            const xGridVals = [0, 10, 20, 30, 40, 50, 60];
+            ctxRec.textAlign = 'center';
+            xGridVals.forEach(val => {
+                const x = xToPx(val);
+                ctxRec.beginPath();
+                ctxRec.moveTo(x, padT);
+                ctxRec.lineTo(x, padT + plotH);
+                ctxRec.stroke();
+                ctxRec.fillText(`${val}m`, x, padT + plotH + 18);
+            });
+
+            ctxRec.fillStyle = '#94a3b8';
+            ctxRec.font = '10px Inter, sans-serif';
+            ctxRec.fillText('Post-Exercise Recovery Time (Minutes)', padL + plotW / 2, h - 8);
+
+            // Baseline resting ribbon
+            ctxRec.fillStyle = 'rgba(16, 185, 129, 0.08)';
+            ctxRec.fillRect(padL, yToPx(2.0), plotW, yToPx(0) - yToPx(2.0));
+
+            // 2. Draw Comparison Background Lines
+            // Passive reference (slate)
+            ctxRec.save();
+            ctxRec.strokeStyle = (APP.strategy === 'passive') ? '#94a3b8' : 'rgba(148, 163, 184, 0.35)';
+            ctxRec.lineWidth = (APP.strategy === 'passive') ? 3 : 1.5;
+            ctxRec.setLineDash((APP.strategy === 'passive') ? [] : [4, 4]);
+            ctxRec.beginPath();
+            APP.recoveryData.passive.forEach((pt, idx) => {
+                const px = xToPx(pt.t);
+                const py = yToPx(pt.val);
+                if (idx === 0) ctxRec.moveTo(px, py);
+                else ctxRec.lineTo(px, py);
+            });
+            ctxRec.stroke();
+            ctxRec.restore();
+
+            // Active reference (cyan)
+            ctxRec.save();
+            ctxRec.strokeStyle = (APP.strategy === 'active') ? '#38bdf8' : 'rgba(56, 189, 248, 0.35)';
+            ctxRec.lineWidth = (APP.strategy === 'active') ? 3.5 : 1.5;
+            ctxRec.setLineDash((APP.strategy === 'active') ? [] : [4, 4]);
+            if (APP.strategy === 'active') {
+                ctxRec.shadowColor = 'rgba(56, 189, 248, 0.6)';
+                ctxRec.shadowBlur = 10;
+            }
+            ctxRec.beginPath();
+            APP.recoveryData.active.forEach((pt, idx) => {
+                const px = xToPx(pt.t);
+                const py = yToPx(pt.val);
+                if (idx === 0) ctxRec.moveTo(px, py);
+                else ctxRec.lineTo(px, py);
+            });
+            ctxRec.stroke();
+            ctxRec.restore();
+
+            // Excessive reference (rose)
+            ctxRec.save();
+            ctxRec.strokeStyle = (APP.strategy === 'excessive') ? '#f43f5e' : 'rgba(244, 63, 94, 0.35)';
+            ctxRec.lineWidth = (APP.strategy === 'excessive') ? 3 : 1.5;
+            ctxRec.setLineDash((APP.strategy === 'excessive') ? [] : [4, 4]);
+            ctxRec.beginPath();
+            APP.recoveryData.excessive.forEach((pt, idx) => {
+                const px = xToPx(pt.t);
+                const py = yToPx(pt.val);
+                if (idx === 0) ctxRec.moveTo(px, py);
+                else ctxRec.lineTo(px, py);
+            });
+            ctxRec.stroke();
+            ctxRec.restore();
+
+            // 3. Current Live Simulation Time Needle & Head
+            const curT = APP.simTimeMinutes;
+            const curX = xToPx(curT);
+            const curLac = APP.currentLactateB;
+            const curY = yToPx(curLac);
+
+            ctxRec.save();
+            // Vertical scrubber bar
+            ctxRec.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+            ctxRec.lineWidth = 1.5;
+            ctxRec.setLineDash([3, 3]);
+            ctxRec.beginPath();
+            ctxRec.moveTo(curX, padT);
+            ctxRec.lineTo(curX, padT + plotH);
+            ctxRec.stroke();
+
+            // Tracer point on current curve
+            let headColor = '#38bdf8';
+            if (APP.strategy === 'passive') headColor = '#94a3b8';
+            if (APP.strategy === 'excessive') headColor = '#f43f5e';
+
+            ctxRec.fillStyle = headColor;
+            ctxRec.shadowColor = headColor;
+            ctxRec.shadowBlur = 12;
+            ctxRec.beginPath();
+            ctxRec.arc(curX, curY, 7.5, 0, Math.PI * 2);
+            ctxRec.fill();
+            ctxRec.strokeStyle = '#ffffff';
+            ctxRec.lineWidth = 2;
+            ctxRec.stroke();
+
+            // Floating readout box
+            ctxRec.fillStyle = '#0f172a';
+            ctxRec.strokeStyle = headColor;
+            ctxRec.lineWidth = 1;
+            const badgeW = 75;
+            const badgeH = 22;
+            let badgeX = curX + 10;
+            if (badgeX + badgeW > padL + plotW) badgeX = curX - badgeW - 10;
+            ctxRec.beginPath();
+            ctxRec.roundRect(badgeX, curY - 11, badgeW, badgeH, 6);
+            ctxRec.fill();
+            ctxRec.stroke();
+
+            ctxRec.fillStyle = '#ffffff';
+            ctxRec.font = 'bold 10px JetBrains Mono, monospace';
+            ctxRec.textAlign = 'center';
+            ctxRec.fillText(`${curLac.toFixed(1)} mmol/L`, badgeX + badgeW / 2, curY + 4);
+
+            ctxRec.restore();
+        }
+
+        // Step the Mode B recovery simulation clock
+        function updateRecoverySimulation(dt) {
+            if (!APP.isPlaying) return;
+
+            // dt in seconds converted to simulation minutes
+            const deltaMins = (dt / 60) * APP.speedMultiplier * 8.0; // Scaled for pleasant interactive pacing
+            APP.simTimeMinutes = Math.min(60.0, APP.simTimeMinutes + deltaMins);
+
+            // Interpolate current lactate value from precalculated array
+            const dataset = APP.recoveryData[APP.strategy];
+            const match = dataset.find(d => d.t >= APP.simTimeMinutes) || dataset[dataset.length - 1];
+            APP.currentLactateB = match.val;
+
+            // If reached 60 mins, stop play
+            if (APP.simTimeMinutes >= 60.0) {
+                APP.isPlaying = false;
+                updatePlayButtonUI();
+            }
+
+            syncModeBUI();
+        }
+
+        // --- Mode Switching & UI Sync Functions ---
+
+        function setMode(mode) {
+            APP.activeMode = mode;
+            if (mode === 'A') {
+                panelModeA.classList.remove('hidden');
+                panelModeB.classList.add('hidden');
+                btnModeA.className = "px-3 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold transition flex items-center gap-1.5 cursor-pointer shadow-sm";
+                btnModeB.className = "px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition flex items-center gap-1.5 cursor-pointer";
+                drawGXTChart();
+            } else {
+                panelModeA.classList.add('hidden');
+                panelModeB.classList.remove('hidden');
+                btnModeA.className = "px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition flex items-center gap-1.5 cursor-pointer";
+                btnModeB.className = "px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 font-bold transition flex items-center gap-1.5 cursor-pointer shadow-sm";
+                drawRecoveryChart();
+                syncModeBUI();
+            }
+        }
+
+        function syncModeAUI() {
+            const vo2 = APP.intensityVO2;
+            const { lactate, ra, rd, net } = calcKineticsGXT(vo2, APP.athlete);
+
+            dispVo2Val.textContent = `${vo2}% V̇O₂max`;
+            readoutLactate.textContent = `${lactate.toFixed(1)} mmol/L`;
+            readoutRa.textContent = `${ra.toFixed(1)} mmol/min`;
+            readoutRd.textContent = `${rd.toFixed(1)} mmol/min`;
+            readoutNet.textContent = `${net.toFixed(1)} mmol/min`;
+
+            // Energy system badge
+            const ltThreshold = (APP.athlete === 'trained') ? 75 : 55;
+            if (vo2 < ltThreshold) {
+                badgeEnergySys.textContent = "Aerobic Oxidative Dominant";
+                badgeEnergySys.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800";
+            } else if (vo2 < ltThreshold + 15) {
+                badgeEnergySys.textContent = "Lactate Accumulation Zone";
+                badgeEnergySys.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800";
+            } else {
+                badgeEnergySys.textContent = "Severe Anaerobic Glycolysis";
+                badgeEnergySys.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-rose-950 text-rose-400 border border-rose-800 animate-pulse";
+            }
+
+            drawGXTChart();
+        }
+
+        function syncModeBUI() {
+            // Format MM:SS for simulated minutes
+            const totalSecs = Math.round(APP.simTimeMinutes * 60);
+            const mins = Math.floor(totalSecs / 60);
+            const secs = totalSecs % 60;
+            dispSimTime.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')} (${APP.simTimeMinutes.toFixed(1)}m)`;
+
+            // Update physiological mechanism meters based on selected recovery strategy
+            if (APP.strategy === 'active') {
+                meterPerfusionVal.textContent = "1.8x Baseline (High)";
+                meterPerfusionBar.style.width = "78%";
+                meterPerfusionBar.className = "h-full bg-cyan-400 transition-all duration-200";
+
+                meterOxidationVal.textContent = "Optimal (~75%)";
+                meterOxidationBar.style.width = "82%";
+                meterOxidationBar.className = "h-full bg-emerald-400 transition-all duration-200";
+
+                meterCoriVal.textContent = "Sustained (~25%)";
+                meterCoriBar.style.width = "25%";
+            } else if (APP.strategy === 'passive') {
+                meterPerfusionVal.textContent = "1.0x Baseline (Sluggish)";
+                meterPerfusionBar.style.width = "25%";
+                meterPerfusionBar.className = "h-full bg-slate-500 transition-all duration-200";
+
+                meterOxidationVal.textContent = "Low (~30%)";
+                meterOxidationBar.style.width = "30%";
+                meterOxidationBar.className = "h-full bg-slate-500 transition-all duration-200";
+
+                meterCoriVal.textContent = "Baseline (~15%)";
+                meterCoriBar.style.width = "15%";
+            } else if (APP.strategy === 'excessive') {
+                meterPerfusionVal.textContent = "2.4x (High, but Producing)";
+                meterPerfusionBar.style.width = "95%";
+                meterPerfusionBar.className = "h-full bg-rose-400 transition-all duration-200";
+
+                meterOxidationVal.textContent = "Overwhelmed by Glycolysis";
+                meterOxidationBar.style.width = "40%";
+                meterOxidationBar.className = "h-full bg-rose-400 transition-all duration-200";
+
+                meterCoriVal.textContent = "Max Saturated";
+                meterCoriBar.style.width = "30%";
+            }
+
+            drawRecoveryChart();
+        }
+
+        function setRecoveryStrategy(strat) {
+            APP.strategy = strat;
+
+            // Update button styling
+            [stratPassive, stratActive, stratExcessive].forEach(btn => {
+                btn.className = "flex-1 min-w-[130px] p-2 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-left transition cursor-pointer";
+            });
+
+            if (strat === 'passive') {
+                stratPassive.className = "flex-1 min-w-[130px] p-2 rounded-xl border border-slate-400 bg-slate-800/90 text-left transition cursor-pointer shadow-lg shadow-slate-900";
+            } else if (strat === 'active') {
+                stratActive.className = "flex-1 min-w-[130px] p-2 rounded-xl border border-cyan-500/80 bg-cyan-950/60 text-left transition cursor-pointer shadow-lg shadow-cyan-950/50";
+            } else if (strat === 'excessive') {
+                stratExcessive.className = "flex-1 min-w-[130px] p-2 rounded-xl border border-rose-500/80 bg-rose-950/50 text-left transition cursor-pointer shadow-lg shadow-rose-950/50";
+            }
+
+            // Re-interpolate current lactate
+            const dataset = APP.recoveryData[APP.strategy];
+            const match = dataset.find(d => d.t >= APP.simTimeMinutes) || dataset[dataset.length - 1];
+            APP.currentLactateB = match.val;
+
+            syncModeBUI();
+        }
+
+        function updatePlayButtonUI() {
+            if (APP.isPlaying) {
+                iconPlay.setAttribute('data-lucide', 'pause');
+                textPlay.textContent = "Pause";
+                btnPlayPause.className = "px-3 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs flex items-center gap-1 transition cursor-pointer";
+            } else {
+                iconPlay.setAttribute('data-lucide', 'play');
+                textPlay.textContent = APP.simTimeMinutes >= 60.0 ? "Restart" : "Resume";
+                btnPlayPause.className = "px-3 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1 transition cursor-pointer";
+            }
+            lucide.createIcons();
+        }
+
+        // --- HIIT Builder Logic ---
+        function updateHIITAdaptations() {
+            const work = APP.hiitWork;
+            const ratio = APP.hiitRatio;
+
+            dispHiitWork.textContent = `${work}s (${work <= 20 ? 'Phosphagen / Alactic' : (work <= 60 ? 'Peak Fast Glycolysis' : 'Glycolytic-Oxidative Mix')})`;
+
+            // Ratio multiplier
+            let ratioScore = 1.0;
+            if (ratio === '1:3') ratioScore = 1.25; // Gold standard
+            else if (ratio === '1:4') ratioScore = 1.15;
+            else if (ratio === '1:2') ratioScore = 0.9;
+            else if (ratio === '1:1') ratioScore = 0.65;
+            else if (ratio === '1:5') ratioScore = 1.1;
+
+            // Optimal glycolytic adaptation occurs around 30s-60s
+            const durationScore = Math.max(0.4, 1.0 - Math.abs(work - 45) / 50);
+
+            const bufferGain = (12.0 + durationScore * 9.0 * ratioScore).toFixed(1);
+            const mctGain = (15.0 + durationScore * 12.0 * ratioScore).toFixed(1);
+
+            statBuffering.textContent = `+${bufferGain}%`;
+            barBuffering.style.width = `${Math.min(100, bufferGain * 3.5)}%`;
+
+            statMct.textContent = `+${mctGain}%`;
+            barMct.style.width = `${Math.min(100, mctGain * 3.2)}%`;
+
+            if (bufferGain > 20) {
+                statTolerance.textContent = "Elite (Tier 1)";
+                barTolerance.style.width = "90%";
+            } else if (bufferGain > 15) {
+                statTolerance.textContent = "High (Tier 2)";
+                barTolerance.style.width = "72%";
+            } else {
+                statTolerance.textContent = "Moderate (Tier 3)";
+                barTolerance.style.width = "50%";
+            }
+        }
+
+        // --- Applied Challenge System ---
+        function renderChallenge() {
+            const c = CHALLENGES[APP.challengeIdx];
+            challengeBadge.textContent = `Case ${APP.challengeIdx + 1} of ${CHALLENGES.length}`;
+            challengeCounter.textContent = `${APP.challengeIdx + 1} / ${CHALLENGES.length}`;
+            challengeTitle.textContent = c.title;
+            challengeDesc.textContent = c.desc;
+            challengeFeedback.className = "hidden p-2.5 rounded-xl border text-[11px] leading-relaxed";
+
+            challengeOptions.innerHTML = '';
+            c.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "challenge-opt w-full p-2.5 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 text-left text-slate-300 text-[11px] transition flex items-center justify-between cursor-pointer";
+                btn.innerHTML = `<span>${opt.text}</span>`;
+                btn.addEventListener('click', () => handleChallengeAnswer(opt));
+                challengeOptions.appendChild(btn);
+            });
+        }
+
+        function handleChallengeAnswer(opt) {
+            if (opt.correct) {
+                challengeFeedback.className = "p-3 rounded-xl border border-emerald-500/60 bg-emerald-950/40 text-emerald-300 text-[11px] leading-relaxed block animate-pulse-subtle";
+                challengeFeedback.innerHTML = `<strong>✓ Correct:</strong> ${opt.reason}`;
+            } else {
+                challengeFeedback.className = "p-3 rounded-xl border border-rose-500/60 bg-rose-950/40 text-rose-300 text-[11px] leading-relaxed block";
+                challengeFeedback.innerHTML = `<strong>✗ Physiological Misconception:</strong> ${opt.reason}`;
+            }
+        }
+
+        // --- Event Listeners ---
+
+        // Mode Toggle
+        btnModeA.addEventListener('click', () => setMode('A'));
+        btnModeB.addEventListener('click', () => setMode('B'));
+
+        // Athlete Profile Toggles
+        toggleAthleteUntrained.addEventListener('click', () => {
+            APP.athlete = 'untrained';
+            toggleAthleteUntrained.className = "px-2 py-0.5 rounded font-bold bg-slate-800 text-cyan-400 border border-cyan-700/40 cursor-pointer";
+            toggleAthleteTrained.className = "px-2 py-0.5 rounded text-slate-400 hover:text-slate-200 cursor-pointer";
+            syncModeAUI();
+        });
+
+        toggleAthleteTrained.addEventListener('click', () => {
+            APP.athlete = 'trained';
+            toggleAthleteTrained.className = "px-2 py-0.5 rounded font-bold bg-slate-800 text-emerald-400 border border-emerald-700/40 cursor-pointer";
+            toggleAthleteUntrained.className = "px-2 py-0.5 rounded text-slate-400 hover:text-slate-200 cursor-pointer";
+            syncModeAUI();
+        });
+
+        // Intensity Slider
+        sliderVo2.addEventListener('input', (e) => {
+            APP.intensityVO2 = parseInt(e.target.value, 10);
+            syncModeAUI();
+        });
+
+        // Recovery Strategies
+        stratPassive.addEventListener('click', () => setRecoveryStrategy('passive'));
+        stratActive.addEventListener('click', () => setRecoveryStrategy('active'));
+        stratExcessive.addEventListener('click', () => setRecoveryStrategy('excessive'));
+
+        // Playback Controls
+        btnPlayPause.addEventListener('click', () => {
+            if (APP.simTimeMinutes >= 60.0) {
+                APP.simTimeMinutes = 0.0;
+                APP.currentLactateB = 15.0;
+            }
+            APP.isPlaying = !APP.isPlaying;
+            updatePlayButtonUI();
+        });
+
+        btnResetRecovery.addEventListener('click', () => {
+            APP.isPlaying = false;
+            APP.simTimeMinutes = 0.0;
+            APP.currentLactateB = 15.0;
+            updatePlayButtonUI();
+            syncModeBUI();
+        });
+
+        // Speed Multipliers
+        function setSpeed(mult, btn) {
+            APP.speedMultiplier = mult;
+            [btnSpeed1x, btnSpeed5x, btnSpeed20x].forEach(b => {
+                b.className = "px-2 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 cursor-pointer";
+            });
+            btn.className = "px-2 py-1 rounded bg-slate-800 text-cyan-300 border border-cyan-700/40 cursor-pointer";
+        }
+        btnSpeed1x.addEventListener('click', () => setSpeed(1.0, btnSpeed1x));
+        btnSpeed5x.addEventListener('click', () => setSpeed(5.0, btnSpeed5x));
+        btnSpeed20x.addEventListener('click', () => setSpeed(20.0, btnSpeed20x));
+
+        // HIIT Slider & Ratio Buttons
+        sliderHiitWork.addEventListener('input', (e) => {
+            APP.hiitWork = parseInt(e.target.value, 10);
+            updateHIITAdaptations();
+        });
+
+        btnRatios.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btnRatios.forEach(b => b.className = "btn-ratio p-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-white cursor-pointer");
+                btn.className = "btn-ratio p-1.5 rounded-lg bg-cyan-950 border border-cyan-600 text-cyan-300 font-bold cursor-pointer";
+                APP.hiitRatio = btn.getAttribute('data-ratio');
+                updateHIITAdaptations();
+            });
+        });
+
+        // Challenge Navigation
+        btnPrevChallenge.addEventListener('click', () => {
+            APP.challengeIdx = (APP.challengeIdx - 1 + CHALLENGES.length) % CHALLENGES.length;
+            renderChallenge();
+        });
+        btnNextChallenge.addEventListener('click', () => {
+            APP.challengeIdx = (APP.challengeIdx + 1) % CHALLENGES.length;
+            renderChallenge();
+        });
+
+        // Drawer Controls
+        function toggleDrawer(open) {
+            if (open) {
+                theoryDrawer.classList.remove('translate-x-full');
+                drawerBackdrop.classList.remove('hidden');
+            } else {
+                theoryDrawer.classList.add('translate-x-full');
+                drawerBackdrop.classList.add('hidden');
+            }
+        }
+        btnToggleTheory.addEventListener('click', () => toggleDrawer(true));
+        btnCloseTheory.addEventListener('click', () => toggleDrawer(false));
+        drawerBackdrop.addEventListener('click', () => toggleDrawer(false));
+
+        // Resize Handler
+        window.addEventListener('resize', () => {
+            if (APP.activeMode === 'A') drawGXTChart();
+            else drawRecoveryChart();
+        });
+
+        // --- Main Simulation Frame Loop ---
+        let lastTime = performance.now();
+        function animateLoop(now) {
+            const dt = Math.min(0.1, (now - lastTime) / 1000);
+            lastTime = now;
+
+            if (APP.activeMode === 'B') {
+                updateRecoverySimulation(dt);
+            }
+
+            requestAnimationFrame(animateLoop);
+        }
+
+        // Initialization
+        window.onload = function () {
+            lucide.createIcons();
+            precalculateRecoveryData();
+            renderChallenge();
+            updateHIITAdaptations();
+            syncModeAUI();
+            lastTime = performance.now();
+            requestAnimationFrame(animateLoop);
+        };
+    </script>
+</body>
+
+</html>

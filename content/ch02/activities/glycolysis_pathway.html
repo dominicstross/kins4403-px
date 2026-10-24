@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Substrate Utilization & The Crossover Concept</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --fat-color: #f59e0b;
+      --cho-color: #dc2626;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f8fafc;
+      --border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 1.5rem;
+      background-color: var(--bg-subtle);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 850px;
+      width: 100%;
+      background: var(--bg-surface);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+
+    h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.5rem;
+      color: var(--text-main);
+    }
+
+    p.desc {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Controls Panel */
+    .control-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+
+    .slider-label {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .slider-value {
+      font-family: monospace;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #cbd5e1;
+      outline: none;
+      margin: 0.75rem 0;
+      cursor: pointer;
+    }
+
+    .range-markers {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Stacked Fuel Bar */
+    .bar-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .bar-labels {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .bar-label-fat { color: #b45309; }
+    .bar-label-cho { color: var(--cho-color); }
+
+    .stacked-bar {
+      height: 38px;
+      width: 100%;
+      background: #e2e8f0;
+      border-radius: 8px;
+      display: flex;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .segment {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: width 150ms ease-out;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .segment-fat { background-color: var(--fat-color); }
+    .segment-cho { background-color: var(--cho-color); }
+
+    /* Dashboard Metrics Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .metric-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .metric-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-num {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Physiological Context Box */
+    .info-callout {
+      border-left: 4px solid var(--primary);
+      background-color: #eff6ff;
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.9rem;
+    }
+
+    .info-callout h4 {
+      margin: 0 0 0.35rem 0;
+      color: #1e40af;
+      font-size: 0.95rem;
+    }
+
+    .info-callout p {
+      margin: 0;
+      color: #1e3a8a;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>The Crossover Concept: Substrate Utilization</h1>
+    <p class="desc">Explore how relative exercise intensity shifts mitochondrial oxidation from free fatty acids to muscle glycogen and blood glucose.</p>
+  </header>
+
+  <div class="control-card">
+    <div class="slider-header">
+      <span class="slider-label">Exercise Intensity (% VO₂max)</span>
+      <span class="slider-value" id="intensityText">65%</span>
+    </div>
+    <input type="range" id="intensitySlider" min="20" max="100" value="65" step="1">
+    <div class="range-markers">
+      <span>20% (Rest / Light Walk)</span>
+      <span>~65% (Crossover Zone)</span>
+      <span>100% (Maximal Aerobic)</span>
+    </div>
+  </div>
+
+  <div class="bar-section">
+    <div class="bar-labels">
+      <span class="bar-label-fat" id="fatLabel">Fat Oxidation: 50%</span>
+      <span class="bar-label-cho" id="choLabel">Carbohydrate Oxidation: 50%</span>
+    </div>
+    <div class="stacked-bar">
+      <div class="segment segment-fat" id="fatSegment" style="width: 50%;">50%</div>
+      <div class="segment segment-cho" id="choSegment" style="width: 50%;">50%</div>
+    </div>
+  </div>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-title">Estimated RER</div>
+      <div class="metric-num" id="rerMetric">0.85</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-title">Dominant Muscle Fibers</div>
+      <div class="metric-num" id="fiberMetric" style="font-size: 1.1rem; padding-top: 0.2rem;">Type I (Slow)</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-title">Primary Substrate Pool</div>
+      <div class="metric-num" id="sourceMetric" style="font-size: 1.1rem; padding-top: 0.2rem;">Plasma FFA & Intramuscular TG</div>
+    </div>
+  </div>
+
+  <div class="info-callout">
+    <h4 id="mechTitle">Crossover Transition Zone</h4>
+    <p id="mechDesc">At this moderate intensity, the rate of energy expenditure begins to outpace beta-oxidation. Recruitment of Type IIa fast-twitch motor units increases glycolytic flux via epinephrine stimulation.</p>
+  </div>
+</div>
+
+<script>
+  const slider = document.getElementById('intensitySlider');
+  const intensityText = document.getElementById('intensityText');
+  const fatSegment = document.getElementById('fatSegment');
+  const choSegment = document.getElementById('choSegment');
+  const fatLabel = document.getElementById('fatLabel');
+  const choLabel = document.getElementById('choLabel');
+  const rerMetric = document.getElementById('rerMetric');
+  const fiberMetric = document.getElementById('fiberMetric');
+  const sourceMetric = document.getElementById('sourceMetric');
+  const mechTitle = document.getElementById('mechTitle');
+  const mechDesc = document.getElementById('mechDesc');
+
+  function updatePhysiology(intensity) {
+    // Sigmoidal approximation of substrate crossover (crossover centered ~60-65% VO2max)
+    // Intensity range: 20% to 100%
+    const normalized = (intensity - 20) / 80; // 0.0 to 1.0
+    
+    // Model CHO percentage: ~15% at rest/20% VO2max up to 100% at maximal effort
+    let choPercent = Math.round(15 + (85 * Math.pow(normalized, 1.25)));
+    if (choPercent > 100) choPercent = 100;
+    if (choPercent < 0) choPercent = 0;
+    
+    const fatPercent = 100 - choPercent;
+
+    // Linear RER approximation from 0.70 (100% fat) to 1.00 (100% CHO)
+    const rer = (0.70 + (0.30 * (choPercent / 100))).toFixed(2);
+
+    // Update Visuals
+    intensityText.textContent = `${intensity}%`;
+    fatSegment.style.width = `${fatPercent}%`;
+    choSegment.style.width = `${choPercent}%`;
+
+    fatSegment.textContent = fatPercent >= 12 ? `${fatPercent}%` : '';
+    choSegment.textContent = choPercent >= 12 ? `${choPercent}%` : '';
+
+    fatLabel.textContent = `Fat Oxidation: ${fatPercent}%`;
+    choLabel.textContent = `Carbohydrate Oxidation: ${choPercent}%`;
+    rerMetric.textContent = rer;
+
+    // Mechanistic Descriptions & Fiber Recruitment
+    if (intensity < 40) {
+      fiberMetric.textContent = "Type I (Slow-Twitch)";
+      sourceMetric.textContent = "Plasma FFA & Adipose";
+      mechTitle.textContent = "Low Intensity: High Lipid Reliance";
+      mechDesc.textContent = "Abundant oxygen availability and low rate of ATP demand permit mitochondrial beta-oxidation to fulfill the majority of energy requirements. Glycolytic flux remains minimal.";
+    } else if (intensity <= 65) {
+      fiberMetric.textContent = "Type I + Type IIa";
+      sourceMetric.textContent = "Mixed FFA & Muscle Glycogen";
+      mechTitle.textContent = "Moderate Intensity: The Crossover Zone";
+      mechDesc.textContent = "As ATP turnover increases, circulating epinephrine stimulates muscle glycogenolysis. Increased recruitment of Type IIa glycolytic fibers begins shifting reliance toward intramuscular carbohydrate.";
+    } else if (intensity <= 85) {
+      fiberMetric.textContent = "Type IIa + Type IIx";
+      sourceMetric.textContent = "Muscle Glycogen";
+      mechTitle.textContent = "Vigorous Intensity: Glycolytic Predominance";
+      mechDesc.textContent = "High glycolytic rates produce high levels of malonyl-CoA, inhibiting Carnitine Palmitoyltransferase-1 (CPT-1) and blunting fat entry into mitochondria. Lactate accumulation further suppresses FFA mobilization.";
+    } else {
+      fiberMetric.textContent = "Full Recruitment (Type I, IIa, IIx)";
+      sourceMetric.textContent = "Muscle Glycogen & Blood Glucose";
+      mechTitle.textContent = "Near-Maximal: Obligate Carbohydrate Metabolism";
+      mechDesc.textContent = "Near VO₂max, rate of ATP resynthesis per second takes priority over total ATP yield. Carbohydrates yield more ATP per liter of oxygen consumed (~5.05 kcal/L O₂ vs 4.69 kcal/L O₂ for fat), making glycolysis obligate.";
+    }
+  }
+
+  slider.addEventListener('input', (e) => {
+    updatePhysiology(parseInt(e.target.value, 10));
+  });
+
+  // Initial draw
+  updatePhysiology(parseInt(slider.value, 10));
+</script>
+
+</body>
+</html>

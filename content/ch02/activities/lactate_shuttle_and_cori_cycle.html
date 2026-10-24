@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lactate Shuttle & Cori Cycle Circulation Map</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Range slider custom styling */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 9999px;
+            background: #38bdf8;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+            border: 2px solid #ffffff;
+            transition: transform 0.1s ease;
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 9999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                opacity: 0.95;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.75;
+                transform: scale(0.98);
+            }
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 3s infinite ease-in-out;
+        }
+
+        /* Subtle glow for transporter gates */
+        .transporter-active {
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+        }
+
+        .transporter-blocked {
+            box-shadow: 0 0 12px rgba(244, 63, 94, 0.5);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Top Navigation Bar -->
+    <header
+        class="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3 shadow-lg">
+        <div class="flex items-center space-x-3">
+            <div
+                class="p-2 rounded-xl bg-gradient-to-tr from-purple-500 via-cyan-500 to-emerald-400 text-slate-950 shadow-md shadow-cyan-500/20">
+                <i data-lucide="git-fork" class="w-5 h-5 stroke-[2.5]"></i>
+            </div>
+            <div>
+                <div class="flex items-center gap-2">
+                    <h1 class="text-sm sm:text-base font-bold tracking-tight text-white">Lactate Shuttle & Cori Cycle
+                    </h1>
+                    <span
+                        class="text-[10px] font-mono uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-purple-950 text-purple-300 border border-purple-700/50">Systemic
+                        Metabolism</span>
+                </div>
+                <p class="text-xs text-slate-400 hidden sm:block">Intracellular & Intercellular Monocarboxylate
+                    Transport & Hepatic Gluconeogenesis</p>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="flex items-center gap-2 text-xs">
+            <button id="btn-reset-counters"
+                class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 flex items-center gap-1.5 font-medium transition cursor-pointer"
+                title="Reset Salvage Ledger">
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                <span>Reset Ledger</span>
+            </button>
+
+            <button id="btn-toggle-guide"
+                class="px-3 py-1.5 rounded-xl bg-cyan-950 hover:bg-cyan-900 border border-cyan-700/60 text-cyan-300 flex items-center gap-1.5 font-semibold transition cursor-pointer">
+                <i data-lucide="book-open" class="w-4 h-4"></i>
+                <span>Pathway Guide</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Grid Layout -->
+    <main class="flex-1 max-w-[1750px] w-full mx-auto p-3 sm:p-5 lg:p-6 grid grid-cols-1 xl:grid-cols-12 gap-5">
+
+        <!-- Center/Left Visual Circulation Map (xl: 8 cols) -->
+        <div class="xl:col-span-8 flex flex-col space-y-4">
+
+            <!-- Scientific Banner: Substrate Paradigm Shift -->
+            <div
+                class="rounded-2xl p-3.5 border border-purple-800/40 bg-gradient-to-r from-purple-950/40 via-slate-900 to-slate-900 shadow-xl flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <div class="p-2 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 shrink-0">
+                        <i data-lucide="recycle" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-mono uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-purple-900/60 text-purple-300 border border-purple-700/50">High-Energy
+                                Intermediate</span>
+                            <span class="text-xs text-slate-400">George Brooks' Lactate Shuttle Theory</span>
+                        </div>
+                        <p class="text-xs text-slate-300 mt-0.5">
+                            Lactate is not metabolic waste! It is a dynamic fuel shuttled from fast glycolytic fibers to
+                            oxidative tissues (Type I & heart) and the liver for glucose synthesis.
+                        </p>
+                    </div>
+                </div>
+                <div class="hidden md:flex flex-col items-end shrink-0 text-right">
+                    <span class="text-[10px] font-mono text-slate-400 uppercase">Capillary Blood Lactate</span>
+                    <span id="badge-blood-lactate" class="text-base font-mono font-bold text-cyan-400">1.8 mmol/L</span>
+                </div>
+            </div>
+
+            <!-- Main Canvas Card -->
+            <div
+                class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 sm:p-4 shadow-2xl relative flex flex-col flex-1">
+
+                <!-- Canvas Top Bar & Legend -->
+                <div class="flex flex-wrap items-center justify-between text-xs font-mono text-slate-400 mb-2 gap-2">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="network" class="w-4 h-4 text-cyan-400"></i>
+                        <span class="font-bold text-slate-200 uppercase tracking-wider text-[11px]">Systemic Vascular
+                            Circuit & Inter-Organ Exchange</span>
+                    </div>
+                    <!-- Legend Items -->
+                    <div class="flex items-center gap-3 text-[11px] flex-wrap">
+                        <span class="flex items-center gap-1"><span
+                                class="w-2.5 h-2.5 rounded-full bg-purple-400 inline-block shadow-sm shadow-purple-400/50"></span>
+                            Lactate (La⁻)</span>
+                        <span class="flex items-center gap-1"><span
+                                class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span> Pyruvate (Pyr)</span>
+                        <span class="flex items-center gap-1"><span
+                                class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-sm shadow-emerald-400/50"></span>
+                            Glucose (Glu)</span>
+                        <span class="flex items-center gap-1"><span
+                                class="w-2.5 h-2.5 rounded-full bg-cyan-400 inline-block"></span> ATP Output</span>
+                    </div>
+                </div>
+
+                <!-- Canvas Container -->
+                <div id="canvas-container"
+                    class="relative w-full h-[480px] sm:h-[540px] bg-slate-950 rounded-xl border border-slate-800 overflow-hidden cursor-crosshair">
+                    <canvas id="circuit-canvas" class="w-full h-full block"></canvas>
+
+                    <!-- Interactive Node Badges (Clickable Overlays) -->
+                    <div id="hint-click-node"
+                        class="absolute bottom-2.5 left-3 text-[10px] font-mono text-slate-500 pointer-events-none flex items-center gap-1.5">
+                        <i data-lucide="mouse-pointer" class="w-3.5 h-3.5"></i>
+                        <span>Click any tissue compartment or transporter for deep-dive biochemistry</span>
+                    </div>
+
+                    <div
+                        class="absolute top-2.5 right-3 bg-slate-900/80 border border-slate-700/80 backdrop-blur px-2.5 py-1 rounded-lg text-right pointer-events-none">
+                        <div class="text-[9px] font-mono uppercase text-slate-400">Hemodynamic Velocity</div>
+                        <div id="overlay-flow" class="text-xs font-mono font-bold text-cyan-400">Baseline (0.8 m/s)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transporter Gate Status Toggles -->
+                <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <!-- MCT4 Toggle -->
+                    <button id="toggle-mct4"
+                        class="p-2.5 rounded-xl border bg-slate-950 hover:bg-slate-800/80 flex items-center justify-between text-xs transition cursor-pointer transporter-active border-cyan-500/50">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                            <div class="text-left">
+                                <div class="font-bold text-white">MCT4 Export Gate</div>
+                                <div class="text-[10px] text-slate-400">Type II Fiber Sarcolemma</div>
+                            </div>
+                        </div>
+                        <span id="status-mct4"
+                            class="font-mono text-[10px] uppercase font-bold text-cyan-400 bg-cyan-950 px-2 py-0.5 rounded border border-cyan-800">Open</span>
+                    </button>
+
+                    <!-- MCT1 Toggle -->
+                    <button id="toggle-mct1"
+                        class="p-2.5 rounded-xl border bg-slate-950 hover:bg-slate-800/80 flex items-center justify-between text-xs transition cursor-pointer transporter-active border-emerald-500/50">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            <div class="text-left">
+                                <div class="font-bold text-white">MCT1 Import Gate</div>
+                                <div class="text-[10px] text-slate-400">Type I / Myocardium Uptake</div>
+                            </div>
+                        </div>
+                        <span id="status-mct1"
+                            class="font-mono text-[10px] uppercase font-bold text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">Open</span>
+                    </button>
+
+                    <!-- MCT2 Toggle -->
+                    <button id="toggle-mct2"
+                        class="p-2.5 rounded-xl border bg-slate-950 hover:bg-slate-800/80 flex items-center justify-between text-xs transition cursor-pointer transporter-active border-amber-500/50">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                            <div class="text-left">
+                                <div class="font-bold text-white">MCT2 Hepatic Gate</div>
+                                <div class="text-[10px] text-slate-400">Liver Sinusoid Uptake</div>
+                            </div>
+                        </div>
+                        <span id="status-mct2"
+                            class="font-mono text-[10px] uppercase font-bold text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-800">Open</span>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Live Controls Deck -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="sliders" class="w-4 h-4 text-cyan-400"></i>
+                        <span class="text-xs font-bold uppercase tracking-wider text-white">Physiological Drive &
+                            Hemodynamics</span>
+                    </div>
+                    <span class="text-[11px] font-mono text-slate-400">Control glycolytic production & blood
+                        transport</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Slider: Muscle Exertion & Glycolytic Production -->
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <label for="slider-exertion" class="font-semibold text-slate-200 flex items-center gap-1.5">
+                                <i data-lucide="flame" class="w-3.5 h-3.5 text-rose-400"></i>
+                                Type II Glycolytic Exertion:
+                            </label>
+                            <span id="disp-exertion-val" class="font-mono font-bold text-purple-300 text-sm">Moderate
+                                (55%)</span>
+                        </div>
+                        <input type="range" id="slider-exertion" min="10" max="100" step="1" value="55"
+                            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer outline-none">
+                        <div class="flex justify-between text-[10px] font-mono text-slate-500">
+                            <span>Rest (10%)</span>
+                            <span>Anaerobic Threshold (55%)</span>
+                            <span class="text-rose-400 font-semibold">Max Sprint (100%)</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider: Capillary Perfusion & Blood Flow -->
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <label for="slider-flow" class="font-semibold text-slate-200 flex items-center gap-1.5">
+                                <i data-lucide="activity" class="w-3.5 h-3.5 text-cyan-400"></i>
+                                Capillary Blood Flow & Perfusion:
+                            </label>
+                            <span id="disp-flow-val" class="font-mono font-bold text-cyan-300 text-sm">Normal
+                                (1.0x)</span>
+                        </div>
+                        <input type="range" id="slider-flow" min="0.5" max="2.5" step="0.1" value="1.0"
+                            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer outline-none">
+                        <div class="flex justify-between text-[10px] font-mono text-slate-500">
+                            <span>Ischemic / Low (0.5x)</span>
+                            <span>Active Recovery Spin (1.5x)</span>
+                            <span class="text-cyan-400 font-semibold">Peak Cardiac (2.5x)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Scenario Presets -->
+                <div class="pt-1 flex flex-wrap items-center gap-2 text-xs">
+                    <span class="text-slate-400 text-[11px] font-mono mr-1">Clinical & Coaching Presets:</span>
+                    <button id="preset-rest"
+                        class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-[11px] font-medium transition cursor-pointer">
+                        🧘 Resting Baseline
+                    </button>
+                    <button id="preset-steady"
+                        class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-800/60 text-[11px] font-medium transition cursor-pointer">
+                        🏃 Steady-State Aerobic (Lactate In Balance)
+                    </button>
+                    <button id="preset-sprint"
+                        class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-800/60 text-[11px] font-medium transition cursor-pointer">
+                        ⚡ 400m Max Sprint (Lactate Flooding)
+                    </button>
+                    <button id="preset-active-rec"
+                        class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-800/60 text-[11px] font-medium transition cursor-pointer">
+                        🚴 Active Spin Clearance (35% VO2max)
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side Column: Energetic Ledger & Biochemical Deep-Dive (xl: 4 cols) -->
+        <div class="xl:col-span-4 space-y-4 flex flex-col justify-between">
+
+            <!-- 1. Substrate Value & Energetic Salvage Calculator -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3.5">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="calculator" class="w-4 h-4 text-emerald-400"></i>
+                        <h3 class="font-bold text-white text-xs uppercase tracking-wider">Substrate Value & Salvage
+                            Ledger</h3>
+                    </div>
+                    <span
+                        class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60">
+                        Live Energetics
+                    </span>
+                </div>
+
+                <!-- Ledger Big Numbers -->
+                <div class="grid grid-cols-2 gap-2.5 font-mono text-center">
+                    <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-[10px] text-slate-500 uppercase block font-sans">Total Lactate Produced</span>
+                        <span id="ledger-produced" class="text-xl font-bold text-purple-400">0.0 mmol</span>
+                        <span class="text-[9px] text-slate-500 block font-sans">Fast Glycolysis Output</span>
+                    </div>
+
+                    <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-[10px] text-slate-500 uppercase block font-sans">Capillary Blood [La⁻]</span>
+                        <span id="ledger-blood-conc" class="text-xl font-bold text-cyan-300">1.8 mmol/L</span>
+                        <span id="ledger-blood-state" class="text-[9px] text-slate-500 block font-sans">Equilibrium
+                            Clearance</span>
+                    </div>
+
+                    <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-[10px] text-slate-500 uppercase block font-sans">Type I / Heart
+                            Oxidized</span>
+                        <span id="ledger-oxidized" class="text-xl font-bold text-emerald-400">0.0 mmol</span>
+                        <span class="text-[9px] text-emerald-500/80 block font-sans font-semibold">Aerobic Fuel
+                            Utilization</span>
+                    </div>
+
+                    <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-[10px] text-slate-500 uppercase block font-sans">Cori Glucose
+                            Synthesized</span>
+                        <span id="ledger-glucose" class="text-xl font-bold text-amber-300">0.0 mmol</span>
+                        <span class="text-[9px] text-slate-500 block font-sans">Hepatic Gluconeogenesis</span>
+                    </div>
+                </div>
+
+                <!-- Net ATP Salvaged Hero Metric -->
+                <div
+                    class="bg-gradient-to-r from-emerald-950/60 to-slate-950 p-3 rounded-xl border border-emerald-700/50 flex items-center justify-between">
+                    <div>
+                        <div class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-bold">Net ATP
+                            Energetically Salvaged</div>
+                        <div class="text-xs text-slate-400">Substrate recycling vs hypothetical total waste</div>
+                    </div>
+                    <div class="text-right">
+                        <span id="ledger-atp-salvaged" class="text-2xl font-mono font-extrabold text-emerald-300">+0
+                            ATP</span>
+                    </div>
+                </div>
+
+                <!-- Clearance Destination Partition Bar -->
+                <div class="space-y-1">
+                    <div class="flex justify-between text-[10px] font-mono">
+                        <span class="text-emerald-400 font-semibold">Type I / Heart Oxidation (~75%)</span>
+                        <span class="text-amber-400 font-semibold">Cori Cycle Liver (~25%)</span>
+                    </div>
+                    <div
+                        class="w-full bg-slate-950 h-2.5 rounded-full overflow-hidden border border-slate-800 flex p-0.5">
+                        <div id="bar-salvage-type1" class="bg-emerald-500 h-full rounded-l transition-all duration-300"
+                            style="width: 75%;"></div>
+                        <div id="bar-salvage-cori" class="bg-amber-500 h-full rounded-r transition-all duration-300"
+                            style="width: 25%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Interactive Pathway Inspector & Biochemical Deep Dive -->
+            <div id="inspector-card"
+                class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3 transition-colors duration-200">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="microscope" class="w-4 h-4 text-cyan-400"></i>
+                        <h3 class="font-bold text-white text-xs uppercase tracking-wider">Biochemical Mechanism
+                            Inspector</h3>
+                    </div>
+                    <span id="inspector-badge"
+                        class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-800/60">
+                        Type II Fiber Hub
+                    </span>
+                </div>
+
+                <!-- Dynamic Content Box populated by selection -->
+                <div id="inspector-content" class="space-y-2.5 text-xs text-slate-300">
+                    <div class="flex items-center justify-between">
+                        <h4 id="inspector-title" class="font-bold text-white text-sm">Type II Fast-Twitch Glycolytic
+                            Fiber</h4>
+                        <span id="inspector-role" class="text-[10px] font-mono text-purple-400 font-semibold">Lactate
+                            Producer & Exporter</span>
+                    </div>
+
+                    <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 font-mono text-[11px] space-y-1">
+                        <div class="text-slate-400 text-[10px] uppercase font-sans">Key Reaction Equation:</div>
+                        <div id="inspector-eq" class="text-cyan-300 font-bold">Pyruvate + NADH + H⁺ ⇄ Lactate⁻ + NAD⁺
+                        </div>
+                        <div id="inspector-enz" class="text-amber-300 text-[10px]">Catalyzed by: Lactate Dehydrogenase-M
+                            (LDH-5 / LDH-M)</div>
+                    </div>
+
+                    <p id="inspector-desc" class="text-slate-400 leading-relaxed text-[11px]">
+                        During all-out glycolytic flux, pyruvate resynthesizes NAD⁺ via LDH-M to prevent Step 6
+                        glycolysis lock. Excess lactate and protons are swiftly evacuated to the blood stream across the
+                        sarcolemma via <strong>MCT4</strong> (low affinity, high capacity exporter).
+                    </p>
+
+                    <!-- Mechanism Bullet Points -->
+                    <ul id="inspector-bullets" class="space-y-1 text-[11px] text-slate-300">
+                        <li class="flex items-start gap-1.5">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i>
+                            <span><strong>MCT4 Transporter:</strong> Optimized for rapid extrusion under heavy lactic
+                                acidosis.</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i>
+                            <span><strong>Fatigue Prevention:</strong> Fast export buffers sarcoplasmic pH and preserves
+                                cross-bridge action.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Switcher Tabs -->
+                <div
+                    class="pt-2 flex items-center justify-between border-t border-slate-800 gap-1 text-[10px] font-mono">
+                    <button id="tab-type2"
+                        class="px-2 py-1 rounded bg-purple-950 text-purple-300 border border-purple-800/80 font-bold hover:bg-purple-900 transition cursor-pointer">
+                        1. Type II Fiber
+                    </button>
+                    <button id="tab-type1"
+                        class="px-2 py-1 rounded bg-slate-950 text-slate-400 border border-slate-800 hover:text-emerald-300 hover:border-emerald-800/60 transition cursor-pointer">
+                        2. Type I / Heart
+                    </button>
+                    <button id="tab-liver"
+                        class="px-2 py-1 rounded bg-slate-950 text-slate-400 border border-slate-800 hover:text-amber-300 hover:border-amber-800/60 transition cursor-pointer">
+                        3. Cori Liver
+                    </button>
+                    <button id="tab-blood"
+                        class="px-2 py-1 rounded bg-slate-950 text-slate-400 border border-slate-800 hover:text-cyan-300 hover:border-cyan-800/60 transition cursor-pointer">
+                        4. Blood Pool
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Slide-Out Scientific Theory Drawer -->
+    <div id="theory-drawer"
+        class="fixed inset-y-0 right-0 z-50 w-full sm:w-[520px] bg-slate-900/98 backdrop-blur-xl border-l border-slate-800 shadow-2xl p-6 overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+            <div class="flex items-center gap-2">
+                <i data-lucide="book-marked" class="w-5 h-5 text-cyan-400"></i>
+                <h3 class="font-bold text-white text-base">The Lactate Shuttle & Cori Cycle Guide</h3>
+            </div>
+            <button id="btn-close-theory"
+                class="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <div class="space-y-5 text-xs text-slate-300 leading-relaxed">
+            <!-- Section 1 -->
+            <div class="space-y-1.5 p-3 rounded-xl bg-slate-950 border border-slate-800">
+                <h4 class="font-bold text-purple-400 text-sm flex items-center gap-1.5">
+                    <i data-lucide="cpu" class="w-4 h-4 text-purple-400"></i>
+                    1. Monocarboxylate Transporters (MCTs)
+                </h4>
+                <p class="text-slate-400">
+                    Lactate cannot freely diffuse across lipid bilayer cell membranes due to its negative charge. It
+                    requires dedicated symport carrier proteins:
+                </p>
+                <ul class="list-disc pl-5 space-y-1 text-slate-300">
+                    <li><strong>MCT4:</strong> Expressed heavily on glycolytic Type II fibers. Low affinity ($K_m
+                        \approx 28\text{ mM}$), high capacity; ideal for rapidly exporting lactate out into the
+                        interstitium during intense sprinting.</li>
+                    <li><strong>MCT1:</strong> Expressed on oxidative Type I fibers, cardiac myocytes, and red blood
+                        cells. High affinity ($K_m \approx 3.5\text{ mM}$); specialized for continuous uptake of
+                        circulating lactate even at low blood concentrations.</li>
+                    <li><strong>MCT2:</strong> High affinity ($K_m \approx 0.5\text{–}1.0\text{ mM}$) expressed on
+                        hepatocytes and neurons, capturing lactate for gluconeogenesis and neural fuel.</li>
+                </ul>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="space-y-1.5">
+                <h4 class="font-bold text-emerald-400 text-sm flex items-center gap-1.5">
+                    <i data-lucide="heart" class="w-4 h-4 text-emerald-400"></i>
+                    2. The Intracellular & Intercellular Lactate Shuttle
+                </h4>
+                <p class="text-slate-400">
+                    Discovered by Dr. George Brooks (UC Berkeley), the Lactate Shuttle demonstrates that ~70% to 80% of
+                    all lactate generated during vigorous exercise is immediately oxidized by neighboring slow-twitch
+                    fibers and the heart:
+                </p>
+                <div class="p-2.5 rounded bg-slate-950 font-mono text-[11px] text-emerald-300 my-1">
+                    Lactate⁻ + NAD⁺ —(LDH-H)→ Pyruvate + NADH + H⁺<br>
+                    Pyruvate → Acetyl-CoA → Krebs Cycle / ETC → 30–32 ATP
+                </div>
+                <p class="text-slate-400">
+                    The myocardium prefers lactate as an oxidative fuel over glucose and free fatty acids during
+                    exercise, ensuring tremendous myocardial energy conservation.
+                </p>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="space-y-1.5">
+                <h4 class="font-bold text-amber-400 text-sm flex items-center gap-1.5">
+                    <i data-lucide="refresh-cw" class="w-4 h-4 text-amber-400"></i>
+                    3. The Cori Cycle (Hepatic Gluconeogenesis)
+                </h4>
+                <p class="text-slate-400">
+                    The remaining ~20% to 30% of circulating lactate travels to the liver via the portal vein:
+                </p>
+                <div class="p-2.5 rounded bg-slate-950 font-mono text-[11px] text-amber-300 my-1">
+                    2 Lactate + 6 ATP + 6 H₂O → 1 Glucose + 6 ADP + 6 Pᵢ
+                </div>
+                <p class="text-slate-400">
+                    While this process costs the liver 6 ATP equivalents, it restores circulating blood glucose and
+                    delivers glycogen replenishment back to exhausted working skeletal muscles.
+                </p>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="space-y-1.5">
+                <h4 class="font-bold text-cyan-400 text-sm flex items-center gap-1.5">
+                    <i data-lucide="zap" class="w-4 h-4 text-cyan-400"></i>
+                    4. Active Recovery Science (Coaching Translation)
+                </h4>
+                <p class="text-slate-400">
+                    Why do coaches mandate light spinning (35%–45% $\text{V̇O}_2\text{max}$) post-sprint? Passive rest
+                    allows lactate to sit in stagnant blood pools. Light active contraction maintains elevated capillary
+                    perfusion and drives continuous lactate uptake into oxidative Type I muscle beds, clearing blood
+                    lactate at nearly double the rate!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Dimmer for Theory Drawer -->
+    <div id="drawer-backdrop" class="fixed inset-0 bg-slate-950/70 z-40 hidden backdrop-blur-sm transition-opacity">
+    </div>
+
+    <!-- Simulation JavaScript Engine -->
+    <script>
+        // --- State Model ---
+        const SIM = {
+            // Physiology Driving Parameters
+            exertion: 55,        // 10 to 100%
+            perfusionFlow: 1.0,  // 0.5 to 2.5x
+
+            // MCT Transporter Gates
+            mct4Open: true,      // Type II export
+            mct1Open: true,      // Type I / Heart uptake
+            mct2Open: true,      // Liver uptake
+
+            // Dynamic Concentration & Ledger Metrics
+            bloodLactate: 1.8,   // mmol/L
+            totalProduced: 0.0,  // mmol
+            totalOxidized: 0.0,  // mmol
+            totalGlucose: 0.0,   // mmol
+            totalAtpSalvaged: 0, // ATP count equivalents
+
+            // Active selected inspection hub
+            activeHub: 'type2',  // 'type2', 'type1', 'liver', 'blood'
+
+            // Particles & Simulation geometry
+            particles: [],
+            compartments: {},
+            vesselPath: null
+        };
+
+        // DOM Elements
+        const canvas = document.getElementById('circuit-canvas');
+        const ctx = canvas.getContext('2d');
+        const container = document.getElementById('canvas-container');
+
+        // Sliders & Display
+        const sliderExertion = document.getElementById('slider-exertion');
+        const dispExertionVal = document.getElementById('disp-exertion-val');
+        const sliderFlow = document.getElementById('slider-flow');
+        const dispFlowVal = document.getElementById('disp-flow-val');
+
+        // Toggles
+        const toggleMct4 = document.getElementById('toggle-mct4');
+        const statusMct4 = document.getElementById('status-mct4');
+        const toggleMct1 = document.getElementById('toggle-mct1');
+        const statusMct1 = document.getElementById('status-mct1');
+        const toggleMct2 = document.getElementById('toggle-mct2');
+        const statusMct2 = document.getElementById('status-mct2');
+
+        // Presets
+        const presetRest = document.getElementById('preset-rest');
+        const presetSteady = document.getElementById('preset-steady');
+        const presetSprint = document.getElementById('preset-sprint');
+        const presetActiveRec = document.getElementById('preset-active-rec');
+
+        // Ledger DOM
+        const badgeBloodLactate = document.getElementById('badge-blood-lactate');
+        const ledgerProduced = document.getElementById('ledger-produced');
+        const ledgerBloodConc = document.getElementById('ledger-blood-conc');
+        const ledgerBloodState = document.getElementById('ledger-blood-state');
+        const ledgerOxidized = document.getElementById('ledger-oxidized');
+        const ledgerGlucose = document.getElementById('ledger-glucose');
+        const ledgerAtpSalvaged = document.getElementById('ledger-atp-salvaged');
+        const barSalvageType1 = document.getElementById('bar-salvage-type1');
+        const barSalvageCori = document.getElementById('bar-salvage-cori');
+        const overlayFlow = document.getElementById('overlay-flow');
+        const btnResetCounters = document.getElementById('btn-reset-counters');
+
+        // Inspector DOM
+        const inspectorBadge = document.getElementById('inspector-badge');
+        const inspectorTitle = document.getElementById('inspector-title');
+        const inspectorRole = document.getElementById('inspector-role');
+        const inspectorEq = document.getElementById('inspector-eq');
+        const inspectorEnz = document.getElementById('inspector-enz');
+        const inspectorDesc = document.getElementById('inspector-desc');
+        const inspectorBullets = document.getElementById('inspector-bullets');
+        const tabType2 = document.getElementById('tab-type2');
+        const tabType1 = document.getElementById('tab-type1');
+        const tabLiver = document.getElementById('tab-liver');
+        const tabBlood = document.getElementById('tab-blood');
+
+        // Theory Drawer
+        const theoryDrawer = document.getElementById('theory-drawer');
+        const drawerBackdrop = document.getElementById('drawer-backdrop');
+        const btnToggleGuide = document.getElementById('btn-toggle-guide');
+        const btnCloseTheory = document.getElementById('btn-close-theory');
+
+        // --- Particle System Class ---
+        class FlowParticle {
+            constructor(type, x, y, targetZone, pathIdx = 0) {
+                this.type = type; // 'lactate', 'pyruvate', 'glucose', 'atp'
+                this.x = x;
+                this.y = y;
+                this.vx = 0;
+                this.vy = 0;
+                this.targetZone = targetZone; // 'blood', 'type1', 'liver', 'type2'
+                this.pathIdx = pathIdx;
+                this.progress = Math.random(); // 0 to 1 along vessel
+                this.life = 0;
+                this.maxLife = 200 + Math.random() * 150;
+            }
+
+            update(dt, speedScale) {
+                this.life += dt;
+                // Logic handled in master update
+            }
+
+            draw(c) {
+                c.save();
+                if (this.type === 'lactate') {
+                    // Lactate Anion (Purple glow)
+                    c.fillStyle = '#c084fc';
+                    c.shadowColor = 'rgba(192, 132, 252, 0.8)';
+                    c.shadowBlur = 7;
+                    c.beginPath();
+                    c.arc(this.x, this.y, 4.5, 0, Math.PI * 2);
+                    c.fill();
+                } else if (this.type === 'pyruvate') {
+                    // Pyruvate (Amber/Orange)
+                    c.fillStyle = '#fbbf24';
+                    c.shadowColor = 'rgba(251, 191, 36, 0.8)';
+                    c.shadowBlur = 6;
+                    c.beginPath();
+                    c.arc(this.x, this.y, 4, 0, Math.PI * 2);
+                    c.fill();
+                } else if (this.type === 'glucose') {
+                    // Glucose (Emerald Hexagon / Ring glow)
+                    c.fillStyle = '#34d399';
+                    c.shadowColor = 'rgba(52, 211, 153, 0.9)';
+                    c.shadowBlur = 8;
+                    c.beginPath();
+                    c.arc(this.x, this.y, 5, 0, Math.PI * 2);
+                    c.fill();
+                } else if (this.type === 'atp') {
+                    // Energetic Spark (Cyan / Yellow)
+                    c.fillStyle = '#38bdf8';
+                    c.shadowColor = '#38bdf8';
+                    c.shadowBlur = 9;
+                    c.beginPath();
+                    c.arc(this.x, this.y, 3.5, 0, Math.PI * 2);
+                    c.fill();
+                }
+                c.restore();
+            }
+        }
+
+        // --- Resize Canvas Responsively ---
+        let width = 800;
+        let height = 500;
+
+        function resizeCanvas() {
+            const dpr = window.devicePixelRatio || 1;
+            const rect = container.getBoundingClientRect();
+            width = rect.width;
+            height = rect.height;
+
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.resetTransform();
+            ctx.scale(dpr, dpr);
+
+            computeCompartmentLayout();
+        }
+
+        // --- Dynamic Compartment Layout Geometry ---
+        function computeCompartmentLayout() {
+            // 3 Main Tissue Hubs & 1 Central Capillary Circuit
+            // Left: Type II Glycolytic Fiber
+            // Right Top: Type I Oxidative / Heart
+            // Right Bottom: Liver / Cori Cycle
+            // Center: Capillary Loop Ring
+
+            const hubW = Math.min(230, width * 0.28);
+            const hubH = Math.min(180, height * 0.38);
+
+            SIM.compartments = {
+                type2: {
+                    x: 20,
+                    y: height * 0.30,
+                    w: hubW,
+                    h: hubH + 30,
+                    title: "Type II Fast-Twitch Fiber",
+                    subtitle: "Anaerobic Glycolytic Source",
+                    color: "#9333ea",
+                    borderColor: "#c084fc",
+                    mctGate: { x: 20 + hubW, y: height * 0.30 + (hubH + 30) * 0.45, label: "MCT4" }
+                },
+                type1: {
+                    x: width - hubW - 20,
+                    y: 25,
+                    w: hubW,
+                    h: hubH,
+                    title: "Type I Fiber & Myocardium",
+                    subtitle: "Lactate Oxidation Hub",
+                    color: "#059669",
+                    borderColor: "#34d399",
+                    mctGate: { x: width - hubW - 20, y: 25 + hubH * 0.5, label: "MCT1" }
+                },
+                liver: {
+                    x: width - hubW - 20,
+                    y: height - hubH - 25,
+                    w: hubW,
+                    h: hubH,
+                    title: "The Liver (Hepatic Hub)",
+                    subtitle: "Cori Cycle Gluconeogenesis",
+                    color: "#d97706",
+                    borderColor: "#fbbf24",
+                    mctGate: { x: width - hubW - 20, y: height - hubH - 25 + hubH * 0.5, label: "MCT2" }
+                },
+                vesselCenter: {
+                    cx: width * 0.50,
+                    cy: height * 0.50,
+                    rx: width * 0.22,
+                    ry: height * 0.34
+                }
+            };
+        }
+
+        // --- Mathematical Physiology & Flux Calculation ---
+        let spawnTimer = 0;
+        function updateSimulation(dt) {
+            const exertionFactor = SIM.exertion / 100.0;
+            const flowScale = SIM.perfusionFlow;
+
+            // 1. Lactate Production Rate (Fast Glycolysis in Type II)
+            // Base generation accelerates non-linearly past 50% exertion
+            const productionRate = (0.01 + Math.pow(exertionFactor, 2.2) * 0.12) * dt;
+            SIM.totalProduced += productionRate;
+
+            // 2. Transporter Efflux & Blood Pool Dynamics
+            // If MCT4 is open, lactate flows from Type II into Blood
+            let exportRate = 0;
+            if (SIM.mct4Open) {
+                exportRate = productionRate * 0.95;
+            }
+
+            // Uptake into Type I / Heart via MCT1
+            let type1Uptake = 0;
+            if (SIM.mct1Open && SIM.bloodLactate > 0.8) {
+                // High affinity MCT1 saturates around 4-6 mmol/L
+                const affinity = Math.min(1.0, SIM.bloodLactate / 4.0);
+                type1Uptake = (0.015 + affinity * 0.065 * flowScale) * dt;
+            }
+
+            // Uptake into Liver via MCT2
+            let liverUptake = 0;
+            if (SIM.mct2Open && SIM.bloodLactate > 1.2) {
+                const liverAffinity = Math.min(1.0, (SIM.bloodLactate - 0.8) / 3.5);
+                liverUptake = (0.006 + liverAffinity * 0.025 * flowScale) * dt;
+            }
+
+            // Update Blood Lactate Concentration (equilibrium between export vs clearance)
+            const netBloodFlux = (exportRate - type1Uptake - liverUptake);
+            SIM.bloodLactate = Math.max(0.9, Math.min(22.0, SIM.bloodLactate + netBloodFlux * 0.25));
+
+            // 3. Energetics & ATP Salvage Accounting
+            SIM.totalOxidized += type1Uptake;
+            // 1 mol of Lactate oxidized via LDH-H -> Pyruvate -> Krebs/ETC generates ~15 ATP equivalents
+            // The Cori cycle converts 2 Lactate into 1 Glucose (consuming 6 ATP in liver, but yielding 30-32 ATP upon total future oxidation)
+            const glucoseMade = liverUptake * 0.5;
+            SIM.totalGlucose += glucoseMade;
+
+            // Net ATP Salvaged:
+            // Oxidized in Heart/Type I: +15 ATP per lactate
+            // Cori Cycle: +26 net ATP per synthesized glucose (+32 upon oxidation minus 6 hepatic cost)
+            SIM.totalAtpSalvaged = Math.round(SIM.totalOxidized * 15000 + SIM.totalGlucose * 26000);
+
+            // 4. Particle Spawning Logic
+            spawnTimer += dt * flowScale;
+            if (spawnTimer > 0.18) {
+                spawnTimer = 0;
+
+                // Spawn lactate from Type II if MCT4 is open
+                const t2 = SIM.compartments.type2;
+                if (t2) {
+                    if (SIM.mct4Open && Math.random() < exertionFactor * 1.5) {
+                        SIM.particles.push(new FlowParticle('lactate', t2.x + t2.w * 0.45, t2.y + t2.h * 0.5, 'blood'));
+                    } else if (!SIM.mct4Open && Math.random() < 0.4) {
+                        // Trapped inside Type II fiber (acidosis lock)
+                        SIM.particles.push(new FlowParticle('lactate', t2.x + t2.w * 0.3, t2.y + t2.h * 0.3, 'trapped'));
+                    }
+                }
+
+                // Spawn circulating particles along capillary loop
+                if (SIM.bloodLactate > 2.0 && Math.random() < 0.6) {
+                    const vc = SIM.compartments.vesselCenter;
+                    if (vc) {
+                        const angle = Math.random() * Math.PI * 2;
+                        const px = vc.cx + Math.cos(angle) * vc.rx;
+                        const py = vc.cy + Math.sin(angle) * vc.ry;
+                        SIM.particles.push(new FlowParticle('lactate', px, py, 'circulating'));
+                    }
+                }
+            }
+
+            // Update Particle Positions
+            updateParticles(dt, flowScale);
+        }
+
+        function updateParticles(dt, flowScale) {
+            const vc = SIM.compartments.vesselCenter;
+            const t1 = SIM.compartments.type1;
+            const liv = SIM.compartments.liver;
+            const t2 = SIM.compartments.type2;
+
+            for (let i = SIM.particles.length - 1; i >= 0; i--) {
+                const p = SIM.particles[i];
+                p.life += dt;
+
+                if (p.targetZone === 'trapped') {
+                    // Brownish drift inside Type II
+                    p.x += (Math.random() - 0.5) * 1.5;
+                    p.y += (Math.random() - 0.5) * 1.5;
+                    if (p.life > 180) SIM.particles.splice(i, 1);
+                    continue;
+                }
+
+                if (p.targetZone === 'blood' && t2) {
+                    // Flow from Type II through MCT4 gate to the left side of capillary vessel
+                    const gate = t2.mctGate;
+                    const dx = gate.x - p.x;
+                    const dy = gate.y - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist > 10) {
+                        p.x += (dx / dist) * 2.5 * flowScale;
+                        p.y += (dy / dist) * 2.5 * flowScale;
+                    } else {
+                        // Enter vessel stream
+                        p.targetZone = 'circulating';
+                        p.progress = Math.PI; // start at 9 o'clock position (left)
+                    }
+                } else if (p.targetZone === 'circulating' && vc) {
+                    // Move along the elliptical vascular loop (clockwise)
+                    p.progress += 0.025 * flowScale;
+                    p.x = vc.cx + Math.cos(p.progress) * vc.rx + (Math.sin(p.progress * 5) * 6);
+                    p.y = vc.cy + Math.sin(p.progress) * vc.ry;
+
+                    // Check if near Type I MCT1 gate (top right, progress near 1.75 PI or 0.25 PI)
+                    const angleNorm = (p.progress % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+
+                    if (SIM.mct1Open && angleNorm > 5.0 && angleNorm < 6.1 && p.type === 'lactate' && Math.random() < 0.08) {
+                        p.targetZone = 'type1';
+                    }
+
+                    // Check if near Liver MCT2 gate (bottom right, progress near 0.7 PI to 1.2 PI)
+                    if (SIM.mct2Open && angleNorm > 0.4 && angleNorm < 1.3 && p.type === 'lactate' && Math.random() < 0.05) {
+                        p.targetZone = 'liver';
+                    }
+
+                    if (p.life > p.maxLife) {
+                        SIM.particles.splice(i, 1);
+                    }
+                } else if (p.targetZone === 'type1' && t1) {
+                    // Move into Type I fiber, morph into Pyruvate -> ATP sparks
+                    const tx = t1.x + t1.w * 0.5;
+                    const ty = t1.y + t1.h * 0.5;
+                    p.x += (tx - p.x) * 0.08;
+                    p.y += (ty - p.y) * 0.08;
+
+                    if (p.type === 'lactate' && Math.abs(p.x - tx) < 30) {
+                        p.type = 'pyruvate'; // LDH-H converts back to pyruvate
+                    } else if (p.type === 'pyruvate' && Math.abs(p.x - tx) < 15) {
+                        p.type = 'atp'; // Krebs cycle yields ATP!
+                    }
+
+                    if (p.life > 220) SIM.particles.splice(i, 1);
+                } else if (p.targetZone === 'liver' && liv) {
+                    // Move into Liver, convert into Glucose, and shuttle back to bloodstream!
+                    const lx = liv.x + liv.w * 0.5;
+                    const ly = liv.y + liv.h * 0.5;
+                    p.x += (lx - p.x) * 0.08;
+                    p.y += (ly - p.y) * 0.08;
+
+                    if (p.type === 'lactate' && Math.abs(p.x - lx) < 25) {
+                        p.type = 'glucose'; // Hepatic gluconeogenesis produces Glucose
+                    } else if (p.type === 'glucose' && Math.abs(p.x - lx) < 15) {
+                        // Send glucose particle back into vascular loop to fuel skeletal muscle
+                        p.targetZone = 'circulating';
+                        p.progress = 0.8;
+                    }
+
+                    if (p.life > 260) SIM.particles.splice(i, 1);
+                }
+            }
+        }
+
+        // --- Canvas Rendering Pipeline ---
+        function renderCircuit() {
+            ctx.clearRect(0, 0, width, height);
+
+            // 1. Draw Vascular Capillary Bed Loop (Underneath)
+            drawVascularLoop();
+
+            // 2. Draw Transporter Channel Conduits & Gates
+            drawTransporters();
+
+            // 3. Draw Tissue Compartments
+            drawCompartments();
+
+            // 4. Render All Flow Particles
+            SIM.particles.forEach(p => p.draw(ctx));
+
+            // 5. Draw Dynamic Labels & Flow Vectors
+            drawCircuitOverlays();
+        }
+
+        function drawVascularLoop() {
+            const vc = SIM.compartments.vesselCenter;
+            if (!vc) return;
+
+            ctx.save();
+            // Outer glow of capillary bed
+            ctx.lineWidth = 36;
+            ctx.strokeStyle = 'rgba(239, 68, 68, 0.12)'; // Oxygenated arterial/capillary crimson
+            ctx.beginPath();
+            ctx.ellipse(vc.cx, vc.cy, vc.rx, vc.ry, 0, 0, Math.PI * 2);
+            ctx.stroke();
+
+            // Main blood stream channel
+            ctx.lineWidth = 22;
+            ctx.strokeStyle = '#1e1b4b'; // Deep vascular indigo-red
+            ctx.stroke();
+
+            // Center stream line
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = 'rgba(244, 63, 94, 0.4)';
+            ctx.setLineDash([8, 8]);
+            ctx.lineDashOffset = -performance.now() * 0.03 * SIM.perfusionFlow;
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Vascular Stream Annotation
+            ctx.fillStyle = '#fda4af';
+            ctx.font = 'bold 9px JetBrains Mono, monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText('CAPILLARY BED & SYSTEMIC CIRCULATION', vc.cx, vc.cy - vc.ry - 16);
+            ctx.fillText('Directional Blood Flow →', vc.cx, vc.cy + vc.ry + 22);
+
+            ctx.restore();
+        }
+
+        function drawCompartments() {
+            const hubs = [
+                { key: 'type2', data: SIM.compartments.type2 },
+                { key: 'type1', data: SIM.compartments.type1 },
+                { key: 'liver', data: SIM.compartments.liver }
+            ];
+
+            hubs.forEach(({ key, data }) => {
+                if (!data) return;
+                const isSelected = SIM.activeHub === key;
+
+                ctx.save();
+                // Background card
+                ctx.fillStyle = isSelected ? '#0b1329' : '#090e1a';
+                ctx.strokeStyle = isSelected ? data.borderColor : 'rgba(71, 85, 105, 0.5)';
+                ctx.lineWidth = isSelected ? 2.5 : 1.5;
+
+                if (isSelected) {
+                    ctx.shadowColor = data.borderColor;
+                    ctx.shadowBlur = 14;
+                }
+
+                ctx.beginPath();
+                ctx.roundRect(data.x, data.y, data.w, data.h, 14);
+                ctx.fill();
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+
+                // Compartment Header Pill
+                ctx.fillStyle = data.color + '33';
+                ctx.beginPath();
+                ctx.roundRect(data.x + 10, data.y + 10, data.w - 20, 26, 6);
+                ctx.fill();
+
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 11px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText(data.title, data.x + 16, data.y + 27);
+
+                ctx.fillStyle = '#94a3b8';
+                ctx.font = '9px JetBrains Mono, monospace';
+                ctx.fillText(data.subtitle, data.x + 14, data.y + 49);
+
+                // Internal Organ Specific Visuals
+                if (key === 'type2') {
+                    // Fast-twitch myofibrils diagram
+                    drawType2Internal(data);
+                } else if (key === 'type1') {
+                    // Oxidative mitochondria + myoglobin
+                    drawType1Internal(data);
+                } else if (key === 'liver') {
+                    // Hepatic lobule & gluconeogenesis factory
+                    drawLiverInternal(data);
+                }
+
+                ctx.restore();
+            });
+        }
+
+        function drawType2Internal(d) {
+            const innerY = d.y + 60;
+            // Glycolytic Pathway Flow
+            ctx.fillStyle = '#38bdf8';
+            ctx.font = 'bold 9px JetBrains Mono, monospace';
+            ctx.fillText('Glucose / Glycogen', d.x + 14, innerY);
+            ctx.fillText('      ↓ [Fast Glycolysis]', d.x + 14, innerY + 14);
+            ctx.fillText('Pyruvate + NADH', d.x + 14, innerY + 28);
+            ctx.fillStyle = '#c084fc';
+            ctx.fillText('      ↓ (LDH-M isozyme)', d.x + 14, innerY + 42);
+            ctx.fillText('Lactate⁻ + H⁺ Pool', d.x + 14, innerY + 56);
+
+            // Warning indicator if MCT4 blocked
+            if (!SIM.mct4Open) {
+                ctx.fillStyle = '#f43f5e';
+                ctx.font = 'bold 10px Inter, sans-serif';
+                ctx.fillText('⚠️ MCT4 BLOCKED: Sarcoplasmic Acidosis!', d.x + 14, innerY + 82);
+            } else {
+                ctx.fillStyle = '#34d399';
+                ctx.font = '8px JetBrains Mono, monospace';
+                ctx.fillText('✓ Rapid MCT4 Efflux Active', d.x + 14, innerY + 82);
+            }
+        }
+
+        function drawType1Internal(d) {
+            const innerY = d.y + 60;
+            // Aerobic Oxidation Flow
+            ctx.fillStyle = '#c084fc';
+            ctx.font = 'bold 9px JetBrains Mono, monospace';
+            ctx.fillText('Lactate⁻ Uptake (MCT1)', d.x + 14, innerY);
+            ctx.fillStyle = '#34d399';
+            ctx.fillText('      ↓ (LDH-H isozyme)', d.x + 14, innerY + 14);
+            ctx.fillText('Pyruvate Re-formation', d.x + 14, innerY + 28);
+            ctx.fillStyle = '#38bdf8';
+            ctx.fillText('      ↓ Mitochondria Matrix', d.x + 14, innerY + 42);
+            ctx.fillText('Krebs / ETC → +30-32 ATP', d.x + 14, innerY + 56);
+
+            // Heart / Type 1 Badge
+            ctx.fillStyle = '#065f46';
+            ctx.beginPath();
+            ctx.roundRect(d.x + 14, innerY + 70, d.w - 28, 18, 5);
+            ctx.fill();
+            ctx.fillStyle = '#a7f3d0';
+            ctx.font = 'bold 8px JetBrains Mono, monospace';
+            ctx.fillText('❤️ Myocardium Preferred Fuel', d.x + 20, innerY + 82);
+        }
+
+        function drawLiverInternal(d) {
+            const innerY = d.y + 60;
+            // Cori Cycle Flow
+            ctx.fillStyle = '#c084fc';
+            ctx.font = 'bold 9px JetBrains Mono, monospace';
+            ctx.fillText('Lactate⁻ Influx (MCT2)', d.x + 14, innerY);
+            ctx.fillStyle = '#fbbf24';
+            ctx.fillText('      ↓ (LDH reverse)', d.x + 14, innerY + 14);
+            ctx.fillText('Pyruvate → Gluconeogenesis', d.x + 14, innerY + 28);
+            ctx.fillStyle = '#f43f5e';
+            ctx.fillText('      ↳ Costs 6 ATP', d.x + 14, innerY + 42);
+            ctx.fillStyle = '#34d399';
+            ctx.fillText('Free Glucose Synthesized', d.x + 14, innerY + 56);
+
+            // Cori Badge
+            ctx.fillStyle = '#78350f';
+            ctx.beginPath();
+            ctx.roundRect(d.x + 14, innerY + 70, d.w - 28, 18, 5);
+            ctx.fill();
+            ctx.fillStyle = '#fde68a';
+            ctx.font = 'bold 8px JetBrains Mono, monospace';
+            ctx.fillText('🔄 Cori Cycle Glucose Recycling', d.x + 20, innerY + 82);
+        }
+
+        function drawTransporters() {
+            // Draw MCT4 Gate
+            const t2 = SIM.compartments.type2;
+            const t1 = SIM.compartments.type1;
+            const liv = SIM.compartments.liver;
+
+            if (t2) {
+                renderGate(t2.mctGate.x, t2.mctGate.y, 'MCT4', SIM.mct4Open, '#38bdf8');
+            }
+            if (t1) {
+                renderGate(t1.mctGate.x, t1.mctGate.y, 'MCT1', SIM.mct1Open, '#34d399');
+            }
+            if (liv) {
+                renderGate(liv.mctGate.x, liv.mctGate.y, 'MCT2', SIM.mct2Open, '#fbbf24');
+            }
+        }
+
+        function renderGate(gx, gy, label, isOpen, glowColor) {
+            ctx.save();
+            ctx.translate(gx, gy);
+
+            // Gate housing
+            ctx.fillStyle = isOpen ? '#0f172a' : '#450a0a';
+            ctx.strokeStyle = isOpen ? glowColor : '#f43f5e';
+            ctx.lineWidth = 2;
+
+            ctx.shadowColor = isOpen ? glowColor : '#f43f5e';
+            ctx.shadowBlur = isOpen ? 10 : 6;
+
+            ctx.beginPath();
+            ctx.roundRect(-16, -18, 32, 36, 6);
+            ctx.fill();
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+
+            // Gate doors
+            ctx.fillStyle = isOpen ? '#10b981' : '#f43f5e';
+            if (isOpen) {
+                // Open pore: split bars
+                ctx.fillRect(-12, -14, 4, 28);
+                ctx.fillRect(8, -14, 4, 28);
+            } else {
+                // Closed pore: solid bar
+                ctx.fillRect(-6, -14, 12, 28);
+            }
+
+            // Gate text label
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 8px JetBrains Mono, monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText(label, 0, -22);
+
+            ctx.restore();
+        }
+
+        function drawCircuitOverlays() {
+            // Real-time flow arrows along capillary loop
+            const vc = SIM.compartments.vesselCenter;
+            if (!vc) return;
+
+            // Draw subtle directional markers
+            ctx.save();
+            const time = performance.now() * 0.001 * SIM.perfusionFlow;
+            for (let i = 0; i < 4; i++) {
+                const theta = time + (i * (Math.PI / 2));
+                const ax = vc.cx + Math.cos(theta) * vc.rx;
+                const ay = vc.cy + Math.sin(theta) * vc.ry;
+
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+                ctx.beginPath();
+                ctx.arc(ax, ay, 2, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.restore();
+        }
+
+        // --- UI Synchronization & Inspections ---
+        function syncUI() {
+            // 1. Sliders & Gauges
+            dispExertionVal.textContent = `${SIM.exertion}% (${SIM.exertion < 35 ? 'Rest/Aerobic' : (SIM.exertion < 70 ? 'Anaerobic Threshold' : 'All-Out Sprint')})`;
+            dispFlowVal.textContent = `${SIM.perfusionFlow.toFixed(1)}x (${SIM.perfusionFlow < 1.0 ? 'Ischemic' : (SIM.perfusionFlow > 1.4 ? 'Hyperemic Active Spin' : 'Baseline')})`;
+
+            overlayFlow.textContent = `${SIM.perfusionFlow.toFixed(1)}x Speed (${(0.8 * SIM.perfusionFlow).toFixed(1)} m/s)`;
+
+            badgeBloodLactate.textContent = `${SIM.bloodLactate.toFixed(1)} mmol/L`;
+            ledgerBloodConc.textContent = `${SIM.bloodLactate.toFixed(1)} mmol/L`;
+
+            // Blood status color
+            if (SIM.bloodLactate < 2.5) {
+                badgeBloodLactate.className = "text-base font-mono font-bold text-emerald-400";
+                ledgerBloodState.textContent = "Equilibrium Clearance";
+                ledgerBloodState.className = "text-[9px] text-emerald-400 block font-sans";
+            } else if (SIM.bloodLactate < 6.0) {
+                badgeBloodLactate.className = "text-base font-mono font-bold text-amber-400";
+                ledgerBloodState.textContent = "Lactate Accumulation";
+                ledgerBloodState.className = "text-[9px] text-amber-400 block font-sans";
+            } else {
+                badgeBloodLactate.className = "text-base font-mono font-bold text-rose-400 animate-pulse";
+                ledgerBloodState.textContent = "Heavy Lactic Acidosis";
+                ledgerBloodState.className = "text-[9px] text-rose-400 block font-sans font-bold";
+            }
+
+            // 2. Ledger Numbers
+            ledgerProduced.textContent = `${SIM.totalProduced.toFixed(1)} mmol`;
+            ledgerOxidized.textContent = `${SIM.totalOxidized.toFixed(1)} mmol`;
+            ledgerGlucose.textContent = `${SIM.totalGlucose.toFixed(1)} mmol`;
+            ledgerAtpSalvaged.textContent = `+${SIM.totalAtpSalvaged.toLocaleString()} ATP`;
+
+            // Partition bar
+            const sum = (SIM.totalOxidized + SIM.totalGlucose) || 1;
+            const type1Pct = Math.round((SIM.totalOxidized / sum) * 100);
+            const coriPct = 100 - type1Pct;
+            barSalvageType1.style.width = `${type1Pct}%`;
+            barSalvageCori.style.width = `${coriPct}%`;
+
+            // 3. MCT Toggles appearance
+            updateToggleUI(toggleMct4, statusMct4, SIM.mct4Open, 'cyan');
+            updateToggleUI(toggleMct1, statusMct1, SIM.mct1Open, 'emerald');
+            updateToggleUI(toggleMct2, statusMct2, SIM.mct2Open, 'amber');
+        }
+
+        function updateToggleUI(btn, statusEl, isOpen, color) {
+            if (isOpen) {
+                btn.className = `p-2.5 rounded-xl border bg-slate-950 hover:bg-slate-800/80 flex items-center justify-between text-xs transition cursor-pointer transporter-active border-${color}-500/50`;
+                statusEl.textContent = "Open";
+                statusEl.className = `font-mono text-[10px] uppercase font-bold text-${color}-400 bg-${color}-950 px-2 py-0.5 rounded border border-${color}-800`;
+            } else {
+                btn.className = "p-2.5 rounded-xl border bg-rose-950/20 hover:bg-rose-950/40 flex items-center justify-between text-xs transition cursor-pointer transporter-blocked border-rose-600/60";
+                statusEl.textContent = "Blocked";
+                statusEl.className = "font-mono text-[10px] uppercase font-bold text-rose-400 bg-rose-950 px-2 py-0.5 rounded border border-rose-800 animate-pulse";
+            }
+        }
+
+        // --- Biochemical Mechanism Inspector Switching ---
+        function setInspectorTab(hub) {
+            SIM.activeHub = hub;
+
+            // Reset tab styling
+            [tabType2, tabType1, tabLiver, tabBlood].forEach(t => {
+                t.className = "px-2 py-1 rounded bg-slate-950 text-slate-400 border border-slate-800 transition cursor-pointer";
+            });
+
+            if (hub === 'type2') {
+                tabType2.className = "px-2 py-1 rounded bg-purple-950 text-purple-300 border border-purple-800/80 font-bold";
+                inspectorBadge.textContent = "Type II Fiber Hub";
+                inspectorBadge.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-800/60";
+                inspectorTitle.textContent = "Type II Fast-Twitch Glycolytic Fiber";
+                inspectorRole.textContent = "Lactate Producer & Exporter";
+                inspectorEq.textContent = "Pyruvate + NADH + H⁺ ⇄ Lactate⁻ + NAD⁺";
+                inspectorEnz.textContent = "Catalyzed by: Lactate Dehydrogenase-M (LDH-M / LDH-5)";
+                inspectorDesc.innerHTML = "During all-out glycolytic flux, pyruvate resynthesizes NAD⁺ via LDH-M to prevent Step 6 glycolysis lock. Excess lactate and protons are swiftly evacuated to the bloodstream across the sarcolemma via <strong>MCT4</strong> (low affinity, high capacity exporter).";
+                inspectorBullets.innerHTML = `
+          <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i><span><strong>MCT4 Transporter:</strong> Fast extrusion prevents fatal sarcoplasmic proton clogging.</span></li>
+          <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i><span><strong>NAD+ Rescue:</strong> LDH reduction is indispensable to keep rapid ATP resynthesis active.</span></li>
+        `;
+            } else if (hub === 'type1') {
+                tabType1.className = "px-2 py-1 rounded bg-emerald-950 text-emerald-300 border border-emerald-800/80 font-bold";
+                inspectorBadge.textContent = "Oxidative Consumer Hub";
+                inspectorBadge.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60";
+                inspectorTitle.textContent = "Type I Slow-Twitch Fibers & Cardiac Myocytes";
+                inspectorRole.textContent = "Aerobic Lactate Oxidation Sink";
+                inspectorEq.textContent = "Lactate⁻ + NAD⁺ ⇄ Pyruvate + NADH + H⁺ → Krebs / ETC";
+                inspectorEnz.textContent = "Catalyzed by: Lactate Dehydrogenase-H (LDH-H / LDH-1)";
+                inspectorDesc.innerHTML = "Oxidative muscle fibers and myocardium extract circulating lactate directly via <strong>MCT1</strong>. LDH-H drives the reverse reaction back to pyruvate, which enters mitochondria for complete oxidative phosphorylation, producing ~30–32 ATP per oxidized unit!";
+                inspectorBullets.innerHTML = `
+          <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i><span><strong>Myocardium Fuel:</strong> The heart prefers lactate over glucose during vigorous exercise.</span></li>
+          <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i><span><strong>Clearance Dominance:</strong> ~75% of all produced lactate is oxidized here, not discarded!</span></li>
+        `;
+            } else if (hub === 'liver') {
+                tabLiver.className = "px-2 py-1 rounded bg-amber-950 text-amber-300 border border-amber-800/80 font-bold";
+                inspectorBadge.textContent = "Cori Cycle Hepatic Hub";
+                inspectorBadge.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/60";
+                inspectorTitle.textContent = "The Liver (Hepatic Sinusoids)";
+                inspectorRole.textContent = "Gluconeogenic Recycling Factory";
+                inspectorEq.textContent = "2 Lactate + 6 ATP + 6 H₂O → 1 Glucose + 6 ADP + 6 Pᵢ";
+                inspectorEnz.textContent = "Key Enzymes: Pyruvate Carboxylase, PEPCK, FBPase-1, G6Pase";
+                inspectorDesc.innerHTML = "Hepatocytes extract lactate via <strong>MCT2</strong>. Through hepatic gluconeogenesis, the liver invests 6 ATP to re-assemble 2 lactate molecules into fresh glucose, releasing it back into circulation to restore blood glucose and replenish muscle glycogen.";
+                inspectorBullets.innerHTML = `
+          <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5"></i><span><strong>Energetic Investment:</strong> Costs liver 6 ATP, but rescues 30-32 ATP of future energy.</span></li>
+          <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5"></i><span><strong>Systemic Glycemia:</strong> Prevents hypoglycemia during prolonged grueling endurance bouts.</span></li>
+        `;
+            } else if (hub === 'blood') {
+                tabBlood.className = "px-2 py-1 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/80 font-bold";
+                inspectorBadge.textContent = "Systemic Capillary Pool";
+                inspectorBadge.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/60";
+                inspectorTitle.textContent = "Circulating Vascular Highway";
+                inspectorRole.textContent = "Dynamic Substrate Transit Network";
+                inspectorEq.textContent = "Δ Blood [La⁻] = Lactate Appearance (Ra) − Lactate Disappearance (Rd)";
+                inspectorEnz.textContent = "Modulated by: Cardiac Output, Capillary Recruitment, MCT Density";
+                inspectorDesc.innerHTML = "Blood lactate concentration represents a dynamic balance between rate of appearance ($R_a$) from fast-twitch fibers and rate of disappearance ($R_d$) into oxidative beds and liver. At anaerobic threshold, $R_a > R_d$, triggering rapid systemic accumulation.";
+                inspectorBullets.innerHTML = `
+          <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i><span><strong>Active Recovery Principle:</strong> Light spinning maintains elevated blood flow, accelerating $R_d$.</span></li>
+          <li class="flex items-start gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i><span><strong>Resting Baseline:</strong> 1.0 to 1.8 mmol/L is normal steady-state turnover.</span></li>
+        `;
+            }
+
+            lucide.createIcons();
+        }
+
+        // --- Interactive Canvas Click Detection ---
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const clickY = e.clientY - rect.top;
+
+            const t2 = SIM.compartments.type2;
+            const t1 = SIM.compartments.type1;
+            const liv = SIM.compartments.liver;
+            const vc = SIM.compartments.vesselCenter;
+
+            // Check Type II
+            if (t2 && clickX >= t2.x && clickX <= t2.x + t2.w && clickY >= t2.y && clickY <= t2.y + t2.h) {
+                setInspectorTab('type2');
+                return;
+            }
+            // Check Type 1
+            if (t1 && clickX >= t1.x && clickX <= t1.x + t1.w && clickY >= t1.y && clickY <= t1.y + t1.h) {
+                setInspectorTab('type1');
+                return;
+            }
+            // Check Liver
+            if (liv && clickX >= liv.x && clickX <= liv.x + liv.w && clickY >= liv.y && clickY <= liv.y + liv.h) {
+                setInspectorTab('liver');
+                return;
+            }
+            // Check central loop
+            if (vc) {
+                const dx = (clickX - vc.cx) / vc.rx;
+                const dy = (clickY - vc.cy) / vc.ry;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist > 0.7 && dist < 1.3) {
+                    setInspectorTab('blood');
+                    return;
+                }
+            }
+        });
+
+        // --- Event Handlers & Sliders ---
+        sliderExertion.addEventListener('input', (e) => {
+            SIM.exertion = parseInt(e.target.value, 10);
+        });
+
+        sliderFlow.addEventListener('input', (e) => {
+            SIM.perfusionFlow = parseFloat(e.target.value);
+        });
+
+        // MCT Transporters
+        toggleMct4.addEventListener('click', () => {
+            SIM.mct4Open = !SIM.mct4Open;
+        });
+
+        toggleMct1.addEventListener('click', () => {
+            SIM.mct1Open = !SIM.mct1Open;
+        });
+
+        toggleMct2.addEventListener('click', () => {
+            SIM.mct2Open = !SIM.mct2Open;
+        });
+
+        // Presets
+        presetRest.addEventListener('click', () => {
+            SIM.exertion = 15;
+            sliderExertion.value = 15;
+            SIM.perfusionFlow = 1.0;
+            sliderFlow.value = 1.0;
+            SIM.mct4Open = true;
+            SIM.mct1Open = true;
+            SIM.mct2Open = true;
+            SIM.bloodLactate = 1.4;
+            setInspectorTab('blood');
+        });
+
+        presetSteady.addEventListener('click', () => {
+            SIM.exertion = 50;
+            sliderExertion.value = 50;
+            SIM.perfusionFlow = 1.3;
+            sliderFlow.value = 1.3;
+            SIM.mct4Open = true;
+            SIM.mct1Open = true;
+            SIM.mct2Open = true;
+            SIM.bloodLactate = 2.4;
+            setInspectorTab('type1');
+        });
+
+        presetSprint.addEventListener('click', () => {
+            SIM.exertion = 95;
+            sliderExertion.value = 95;
+            SIM.perfusionFlow = 1.8;
+            sliderFlow.value = 1.8;
+            SIM.mct4Open = true;
+            SIM.mct1Open = true;
+            SIM.mct2Open = true;
+            SIM.bloodLactate = 12.5;
+            setInspectorTab('type2');
+        });
+
+        presetActiveRec.addEventListener('click', () => {
+            SIM.exertion = 25;
+            sliderExertion.value = 25;
+            SIM.perfusionFlow = 1.6;
+            sliderFlow.value = 1.6;
+            SIM.mct4Open = true;
+            SIM.mct1Open = true;
+            SIM.mct2Open = true;
+            setInspectorTab('type1');
+        });
+
+        // Reset Ledger
+        btnResetCounters.addEventListener('click', () => {
+            SIM.totalProduced = 0.0;
+            SIM.totalOxidized = 0.0;
+            SIM.totalGlucose = 0.0;
+            SIM.totalAtpSalvaged = 0;
+        });
+
+        // Inspector Tab Buttons
+        tabType2.addEventListener('click', () => setInspectorTab('type2'));
+        tabType1.addEventListener('click', () => setInspectorTab('type1'));
+        tabLiver.addEventListener('click', () => setInspectorTab('liver'));
+        tabBlood.addEventListener('click', () => setInspectorTab('blood'));
+
+        // Drawer Controls
+        function toggleDrawer(open) {
+            if (open) {
+                theoryDrawer.classList.remove('translate-x-full');
+                drawerBackdrop.classList.remove('hidden');
+            } else {
+                theoryDrawer.classList.add('translate-x-full');
+                drawerBackdrop.classList.add('hidden');
+            }
+        }
+        btnToggleGuide.addEventListener('click', () => toggleDrawer(true));
+        btnCloseTheory.addEventListener('click', () => toggleDrawer(false));
+        drawerBackdrop.addEventListener('click', () => toggleDrawer(false));
+
+        // Window Resize
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+        });
+
+        // --- Main Animation Engine ---
+        let lastTime = performance.now();
+        function animate(now) {
+            const dt = Math.min(0.05, (now - lastTime) / 1000);
+            lastTime = now;
+
+            updateSimulation(dt);
+            renderCircuit();
+            syncUI();
+
+            requestAnimationFrame(animate);
+        }
+
+        // Initialization
+        window.onload = function () {
+            lucide.createIcons();
+            resizeCanvas();
+            setInspectorTab('type2');
+            lastTime = performance.now();
+            requestAnimationFrame(animate);
+        };
+    </script>
+</body>
+
+</html>

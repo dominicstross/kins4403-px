@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acidosis & Fatigue: The Troponin-C Competitive Binding Micro-Sim</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Custom range slider */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 18px;
+            width: 18px;
+            border-radius: 9999px;
+            background: #06b6d4;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
+            border: 2px solid #ffffff;
+            transition: transform 0.1s ease;
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 9999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+                filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.7));
+            }
+
+            100% {
+                transform: scale(0.95);
+                opacity: 0.8;
+            }
+        }
+
+        .animate-burn {
+            animation: pulse-ring 1.2s infinite ease-in-out;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Top Navigation & Header -->
+    <header
+        class="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3 shadow-lg">
+        <div class="flex items-center space-x-3">
+            <div
+                class="p-2 rounded-xl bg-gradient-to-tr from-rose-500 via-amber-500 to-cyan-500 text-slate-950 shadow-md shadow-rose-500/20">
+                <i data-lucide="microscope" class="w-5 h-5 stroke-[2.5]"></i>
+            </div>
+            <div>
+                <div class="flex items-center gap-2">
+                    <h1 class="text-base sm:text-lg font-bold tracking-tight text-white">Acidosis & Fatigue Lab</h1>
+                    <span
+                        class="text-[10px] font-mono uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-rose-950 text-rose-300 border border-rose-700/50">Myth-Buster
+                        Edition</span>
+                </div>
+                <p class="text-xs text-slate-400 hidden sm:block">Troponin-C Competitive Binding & Sarcoplasmic Acidosis
+                    Mechanics</p>
+            </div>
+        </div>
+
+        <!-- Quick Tool Buttons -->
+        <div class="flex items-center gap-2 text-xs">
+            <button id="btn-open-quiz"
+                class="px-3 py-1.5 rounded-xl bg-indigo-950 hover:bg-indigo-900 border border-indigo-700/60 text-indigo-300 flex items-center gap-1.5 font-semibold transition cursor-pointer">
+                <i data-lucide="help-circle" class="w-4 h-4"></i>
+                <span>Myth-Buster Quiz</span>
+            </button>
+
+            <button id="btn-toggle-theory"
+                class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition cursor-pointer"
+                title="Physiological Reference Guide">
+                <i data-lucide="book-open" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-[1650px] w-full mx-auto p-3 sm:p-5 lg:p-6 grid grid-cols-1 xl:grid-cols-12 gap-5">
+
+        <!-- Left Column: Primary Sarcomere Micro-Canvas & Controls (xl: 8 cols) -->
+        <div class="xl:col-span-8 space-y-4 flex flex-col">
+
+            <!-- Myth-Buster Core Thesis Banner -->
+            <div id="myth-banner"
+                class="rounded-2xl p-4 border border-rose-800/50 bg-gradient-to-r from-rose-950/40 via-slate-900 to-slate-900 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+                <div class="flex items-start gap-3">
+                    <div
+                        class="p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 shrink-0 mt-0.5">
+                        <i data-lucide="alert-octagon" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-mono uppercase tracking-wider font-extrabold px-2 py-0.5 rounded bg-rose-900/60 text-rose-300 border border-rose-700/50">Scientific
+                                Consensus</span>
+                            <span class="text-xs text-slate-400">Lactate⁻ vs Free H⁺ (Proton)</span>
+                        </div>
+                        <h2 class="text-sm sm:text-base font-bold text-white mt-1">Lactate does NOT cause muscular
+                            fatigue or the "burn"</h2>
+                        <p id="myth-banner-desc" class="text-xs text-slate-300 max-w-2xl mt-0.5 leading-relaxed">
+                            Lactate anions (C₃H₅O₃⁻) are non-inhibitory and serve as vital cellular fuel. The true
+                            culprit is <strong>free hydrogen ions (H⁺)</strong> from rapid ATP hydrolysis and fast
+                            glycolysis, which directly displace Ca²⁺ from Troponin C and shut down cross-bridge cycling.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Status Tag -->
+                <div
+                    class="flex flex-row md:flex-col items-center md:items-end justify-between w-full md:w-auto border-t md:border-t-0 pt-2 md:pt-0 border-slate-800 gap-1 shrink-0">
+                    <span class="text-[10px] uppercase tracking-wider text-slate-400 font-mono font-semibold">Thin
+                        Filament State</span>
+                    <span id="filament-status-text"
+                        class="text-xs font-mono font-bold text-emerald-400 flex items-center gap-1">
+                        <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Ca²⁺ Bound / Active Force
+                    </span>
+                </div>
+            </div>
+
+            <!-- Main Microscopic Sarcomere Canvas Card -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-2xl relative flex flex-col flex-1">
+
+                <!-- Canvas Header Overlay -->
+                <div class="flex flex-wrap items-center justify-between text-xs font-mono text-slate-400 mb-2 gap-2">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="orbit" class="w-4 h-4 text-cyan-400"></i>
+                        <span class="font-bold text-slate-200 uppercase tracking-wider text-[11px]">Sarcomere
+                            Micro-Space: Thin Filament & Cross-Bridge Field</span>
+                    </div>
+                    <!-- Legend -->
+                    <div class="flex items-center gap-3 text-[11px] flex-wrap">
+                        <span class="flex items-center gap-1"><span
+                                class="w-3 h-3 rounded-full bg-emerald-400 inline-block shadow-sm shadow-emerald-400/50"></span>
+                            Ca²⁺ (Activator)</span>
+                        <span class="flex items-center gap-1"><span
+                                class="w-3 h-3 rounded-full bg-rose-500 inline-block shadow-sm shadow-rose-500/50"></span>
+                            H⁺ Acid (Competitor)</span>
+                        <span class="flex items-center gap-1"><span
+                                class="w-3 h-3 rounded-full bg-purple-500 inline-block"></span> Lactate⁻
+                            (Harmless)</span>
+                        <span class="flex items-center gap-1"><span
+                                class="w-2.5 h-2.5 rounded bg-amber-400 inline-block"></span> Myosin Heads</span>
+                    </div>
+                </div>
+
+                <!-- Canvas Container -->
+                <div id="canvas-container"
+                    class="relative w-full h-[360px] sm:h-[400px] bg-slate-950 rounded-xl border border-slate-800 overflow-hidden">
+                    <canvas id="sarcomere-canvas" class="w-full h-full block"></canvas>
+
+                    <!-- Real-Time Floating Overlays -->
+                    <div class="absolute top-2 left-3 pointer-events-none">
+                        <div class="text-[10px] font-mono uppercase text-slate-500 font-bold">Actin Thin Filament</div>
+                        <div class="text-[11px] font-medium text-slate-300">Troponin-Tropomyosin Regulatory Complex
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-2 left-3 pointer-events-none">
+                        <div class="text-[10px] font-mono uppercase text-amber-400/90 font-bold">Thick Filament</div>
+                        <div class="text-[11px] font-medium text-slate-400">Myosin Cross-Bridge Rowing Power Strokes
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Floating Force Indicator -->
+                    <div
+                        class="absolute top-2 right-3 pointer-events-none bg-slate-900/80 border border-slate-700 backdrop-blur px-2.5 py-1 rounded-lg text-right">
+                        <div class="text-[9px] font-mono uppercase text-slate-400">Current Cross-Bridge Force</div>
+                        <div id="overlay-force" class="text-sm font-mono font-bold text-emerald-400">92%</div>
+                    </div>
+                </div>
+
+                <!-- Action / Interactive Micro-Interventions Bar -->
+                <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                    <!-- Button 1: Inject Ca2+ -->
+                    <button id="btn-inject-ca"
+                        class="px-3 py-2 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-600/50 rounded-xl font-semibold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer">
+                        <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                        <span>Release Ca²⁺ (AP)</span>
+                    </button>
+
+                    <!-- Button 2: Infuse Lactate Only -->
+                    <button id="btn-infuse-lactate"
+                        class="px-3 py-2 bg-purple-600/20 hover:bg-purple-600/30 text-purple-300 border border-purple-600/50 rounded-xl font-semibold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer"
+                        title="Proves Lactate alone does not inhibit Troponin or drop force!">
+                        <i data-lucide="droplets" class="w-3.5 h-3.5"></i>
+                        <span>Infuse Lactate Only</span>
+                    </button>
+
+                    <!-- Button 3: Infuse H+ Acid -->
+                    <button id="btn-infuse-acid"
+                        class="px-3 py-2 bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 border border-rose-600/50 rounded-xl font-semibold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer"
+                        title="Adds free H+ ions to trigger competitive displacement">
+                        <i data-lucide="flame" class="w-3.5 h-3.5"></i>
+                        <span>Infuse H⁺ (Drop pH)</span>
+                    </button>
+
+                    <!-- Button 4: Buffer / Washout -->
+                    <button id="btn-buffer"
+                        class="px-3 py-2 bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 border border-cyan-600/50 rounded-xl font-semibold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer"
+                        title="Neutralize H+ with physiological carnosine/bicarbonate">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        <span>Buffer (Bicarb/Carnosine)</span>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Interactive Controllers & Physiological Forcing -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="sliders" class="w-4 h-4 text-cyan-400"></i>
+                        <span class="text-xs font-bold uppercase tracking-wider text-white">Sarcoplasmic Environment
+                            Controllers</span>
+                    </div>
+                    <span class="text-[11px] font-mono text-slate-400">Simulate glycolytic surge & acidosis</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Slider 1: Glycolytic Intensity -->
+                    <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800/80 space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <label for="slider-flux" class="font-semibold text-slate-200 flex items-center gap-1.5">
+                                <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
+                                Glycolytic Flux / Sprint Effort:
+                            </label>
+                            <span id="disp-flux-val" class="font-mono font-bold text-amber-300 text-sm">25% (Aerobic
+                                Steady)</span>
+                        </div>
+                        <input type="range" id="slider-flux" min="0" max="100" step="1" value="25"
+                            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer outline-none">
+                        <div class="flex justify-between text-[10px] font-mono text-slate-500">
+                            <span>Rest (0%)</span>
+                            <span>Lactate Turn (55%)</span>
+                            <span class="text-rose-400 font-semibold">Max Sprint (100%)</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 2: Sarcoplasmic pH Direct Override -->
+                    <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800/80 space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <label for="slider-ph" class="font-semibold text-slate-200 flex items-center gap-1.5">
+                                <i data-lucide="flask-conical" class="w-4 h-4 text-rose-400"></i>
+                                Sarcoplasmic pH Level:
+                            </label>
+                            <span id="disp-slider-ph-val" class="font-mono font-bold text-emerald-400 text-sm">7.10 pH
+                                (Resting)</span>
+                        </div>
+                        <input type="range" id="slider-ph" min="6.40" max="7.15" step="0.01" value="7.10"
+                            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer outline-none">
+                        <div class="flex justify-between text-[10px] font-mono text-slate-500">
+                            <span class="text-rose-400 font-semibold">6.40 (Exhaustion)</span>
+                            <span>6.80 (Heavy)</span>
+                            <span class="text-emerald-400 font-semibold">7.15 (Optimal)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preset Experiment Buttons -->
+                <div class="pt-1 flex flex-wrap items-center gap-2 text-xs">
+                    <span class="text-slate-400 text-[11px] font-mono mr-1">Direct Proof Experiments:</span>
+                    <button id="exp-myth-test"
+                        class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-purple-300 border border-purple-800/60 text-[11px] font-medium transition cursor-pointer">
+                        🧪 Test A: High Lactate, Normal pH (Myth Disproved)
+                    </button>
+                    <button id="exp-acid-test"
+                        class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-800/60 text-[11px] font-medium transition cursor-pointer">
+                        💥 Test B: Normal Lactate, Acidic pH (True Fatigue)
+                    </button>
+                    <button id="exp-sprint-test"
+                        class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-800/60 text-[11px] font-medium transition cursor-pointer">
+                        ⚡ Test C: 400m All-Out Sprint Acidosis
+                    </button>
+                    <button id="exp-recovery-test"
+                        class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-800/60 text-[11px] font-medium transition cursor-pointer">
+                        🔄 Test D: Carnosine / Active Flush
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right Column: Micro-Enzyme PFK Viewer, Nociceptor Gauge, Telemetry (xl: 4 cols) -->
+        <div class="xl:col-span-4 space-y-4 flex flex-col justify-between">
+
+            <!-- 1. Mechanism 1 & 2 Live Telemetry Card -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="gauge" class="w-4 h-4 text-cyan-400"></i>
+                        <h3 class="font-bold text-white text-xs uppercase tracking-wider">Excitation-Contraction
+                            Telemetry</h3>
+                    </div>
+                    <span id="mech-state-tag"
+                        class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60">
+                        Uninhibited Cross-Bridges
+                    </span>
+                </div>
+
+                <!-- Telemetry Numbers Grid -->
+                <div class="grid grid-cols-2 gap-2.5 font-mono text-center">
+                    <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-[10px] text-slate-500 uppercase block font-sans">Mechanical Force</span>
+                        <span id="metric-force" class="text-2xl font-bold text-emerald-400">92%</span>
+                        <span class="text-[9px] text-slate-500 block font-sans">Actin-Myosin Power</span>
+                    </div>
+
+                    <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-[10px] text-slate-500 uppercase block font-sans">Sarcoplasmic pH</span>
+                        <span id="metric-ph" class="text-2xl font-bold text-cyan-300">7.10</span>
+                        <span id="metric-hplus" class="text-[9px] text-slate-500 block font-sans">[H⁺] = 79
+                            nmol/L</span>
+                    </div>
+
+                    <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-[10px] text-slate-500 uppercase block font-sans">Troponin C Saturation</span>
+                        <span id="metric-tnc-ca" class="text-xl font-bold text-emerald-300">88% Ca²⁺</span>
+                        <span id="metric-tnc-h" class="text-[9px] text-rose-400 block font-sans">12% H⁺ Blocked</span>
+                    </div>
+
+                    <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                        <span class="text-[10px] text-slate-500 uppercase block font-sans">Lactate⁻ Pool</span>
+                        <span id="metric-lactate" class="text-xl font-bold text-purple-400">1.4 mmol/L</span>
+                        <span class="text-[9px] text-slate-500 block font-sans">Zero Troponin Affinity</span>
+                    </div>
+                </div>
+
+                <!-- Dynamic Troponin C Saturation Bar -->
+                <div class="space-y-1 pt-1">
+                    <div class="flex justify-between text-[10px] font-mono">
+                        <span class="text-emerald-400 font-semibold">Ca²⁺ Activating Sites</span>
+                        <span class="text-rose-400 font-semibold">H⁺ Displacing Sites</span>
+                    </div>
+                    <div
+                        class="w-full bg-slate-950 h-3 rounded-full overflow-hidden border border-slate-800 flex p-0.5">
+                        <div id="bar-tnc-ca" class="bg-emerald-500 h-full rounded-l transition-all duration-200"
+                            style="width: 88%;"></div>
+                        <div id="bar-tnc-h" class="bg-rose-500 h-full rounded-r transition-all duration-200"
+                            style="width: 12%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Rate-Limiting Enzyme PFK Micro-Viewer Card -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="dna" class="w-4 h-4 text-amber-400"></i>
+                        <h3 class="font-bold text-white text-xs uppercase tracking-wider">Mechanism 2: Enzyme PFK
+                            Shutdown</h3>
+                    </div>
+                    <span id="pfk-status-badge"
+                        class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60">
+                        Active Conformation
+                    </span>
+                </div>
+
+                <!-- Interactive Micro-PFK Diagram -->
+                <div
+                    class="bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-center justify-between gap-3">
+                    <!-- Canvas for PFK Enzyme Morph -->
+                    <div
+                        class="w-24 h-24 rounded-lg bg-slate-900 border border-slate-800 overflow-hidden relative shrink-0">
+                        <canvas id="pfk-canvas" class="w-full h-full block"></canvas>
+                    </div>
+                    <!-- Explanatory Text & Catalytic Rate -->
+                    <div class="flex-1 space-y-1 text-xs">
+                        <div class="flex justify-between items-baseline font-mono">
+                            <span class="text-slate-400 text-[11px]">PFK Efficiency:</span>
+                            <span id="pfk-rate-val" class="text-amber-300 font-bold text-sm">96%</span>
+                        </div>
+                        <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
+                            <div id="pfk-rate-bar"
+                                class="bg-gradient-to-r from-amber-500 to-emerald-400 h-full transition-all duration-200"
+                                style="width: 96%;"></div>
+                        </div>
+                        <p id="pfk-explanation" class="text-[10px] text-slate-400 leading-tight pt-1">
+                            At normal pH (7.10), Phosphofructokinase catalytic site is fully open, maintaining maximum
+                            glycolytic ATP resynthesis speed.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Mechanism 3: Sensory Nociceptor "Muscle Burn" Firing Gauge -->
+            <div id="nociceptor-card"
+                class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3 transition-colors duration-300">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="activity" class="w-4 h-4 text-rose-400"></i>
+                        <h3 class="font-bold text-white text-xs uppercase tracking-wider">Mechanism 3: Sensory
+                            Nociceptor Firing</h3>
+                    </div>
+                    <span id="nociceptor-badge"
+                        class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60">
+                        Quiescent
+                    </span>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-[10px] font-mono text-slate-400 uppercase">Type III/IV Afferent Frequency</div>
+                        <div class="flex items-baseline gap-1 mt-0.5">
+                            <span id="metric-hz" class="text-3xl font-extrabold font-mono text-white">4</span>
+                            <span class="text-xs font-mono text-slate-400">Impulses/sec (Hz)</span>
+                        </div>
+                    </div>
+
+                    <!-- Pulsing Sensory Node Icon -->
+                    <div id="burn-indicator"
+                        class="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-600 transition-all">
+                        <i data-lucide="flame" class="w-6 h-6"></i>
+                    </div>
+                </div>
+
+                <!-- Neural Impulse Waveform Canvas -->
+                <div class="w-full h-12 bg-slate-950 rounded-lg border border-slate-800 overflow-hidden relative">
+                    <canvas id="neural-canvas" class="w-full h-full block"></canvas>
+                </div>
+
+                <p id="nociceptor-desc" class="text-[10px] text-slate-400 leading-normal">
+                    Proton-sensing ion channels (ASIC3) on muscle sensory nerves respond exclusively to <strong>free H⁺
+                        protons</strong>, sending intense fatigue and "burn" sensations to the somatosensory cortex.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Slide-Out Scientific Theory Drawer -->
+    <div id="theory-drawer"
+        class="fixed inset-y-0 right-0 z-50 w-full sm:w-[500px] bg-slate-900/98 backdrop-blur-xl border-l border-slate-800 shadow-2xl p-6 overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+            <div class="flex items-center gap-2">
+                <i data-lucide="book-marked" class="w-5 h-5 text-cyan-400"></i>
+                <h3 class="font-bold text-white text-base">The 3 Acidosis Mechanisms Guide</h3>
+            </div>
+            <button id="btn-close-theory"
+                class="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <div class="space-y-5 text-xs text-slate-300 leading-relaxed">
+            <!-- Section 1: The Great Lactate Fallacy -->
+            <div class="space-y-1.5 p-3 rounded-xl bg-slate-950 border border-slate-800">
+                <h4 class="font-bold text-rose-400 text-sm flex items-center gap-1.5">
+                    <i data-lucide="x-circle" class="w-4 h-4 text-rose-400"></i>
+                    The Fallacy: "Lactic Acid Causes Muscle Fatigue"
+                </h4>
+                <p class="text-slate-400">
+                    At normal human intramuscular pH (~7.0), lactic acid has a pKa of 3.86. Therefore, >99.9% of lactic
+                    acid immediately dissociates into:
+                </p>
+                <div class="p-2 rounded bg-slate-900 font-mono text-[11px] text-cyan-300 my-1">
+                    Lactic Acid → Lactate⁻ + H⁺
+                </div>
+                <p class="text-slate-300">
+                    <strong>Lactate⁻</strong> is a high-energy metabolic intermediate shuttled to the heart, slow-twitch
+                    fibers, and liver (Cori cycle). It does not block troponin, does not shut down PFK, and does not
+                    stimulate pain receptors.
+                </p>
+            </div>
+
+            <!-- Section 2: Mechanism 1 -->
+            <div class="space-y-1.5">
+                <h4 class="font-bold text-emerald-400 text-sm flex items-center gap-1.5">
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                    1. Impaired Excitation-Contraction Coupling
+                </h4>
+                <p class="text-slate-400">
+                    Troponin C has specific coordinating carboxyl groups designed to bind Ca²⁺ released by the
+                    sarcoplasmic reticulum. When sarcoplasmic pH drops below 6.8, the astronomical surge in free H⁺
+                    concentration causes direct competitive binding. When H⁺ occupies Troponin C:
+                </p>
+                <ul class="list-disc pl-5 space-y-1 text-slate-300">
+                    <li>Tropomyosin fails to move out of the myosin-binding groove on actin.</li>
+                    <li>Myosin heads are physically blocked from attaching.</li>
+                    <li>Active force and peak power output decline catastrophically.</li>
+                </ul>
+            </div>
+
+            <!-- Section 3: Mechanism 2 -->
+            <div class="space-y-1.5">
+                <h4 class="font-bold text-amber-400 text-sm flex items-center gap-1.5">
+                    <i data-lucide="zap-off" class="w-4 h-4 text-amber-400"></i>
+                    2. Allosteric Inhibition of Phosphofructokinase (PFK)
+                </h4>
+                <p class="text-slate-400">
+                    PFK is the rate-limiting enzyme in glycolysis. Protons (H⁺) bind to allosteric inhibitory sites on
+                    PFK subunits, decreasing its affinity for Fructose-6-Phosphate. This halts fast glycolytic flux,
+                    drastically lowering the rate of ATP resynthesis during sustained high-intensity contractions.
+                </p>
+            </div>
+
+            <!-- Section 4: Mechanism 3 -->
+            <div class="space-y-1.5">
+                <h4 class="font-bold text-purple-400 text-sm flex items-center gap-1.5">
+                    <i data-lucide="activity" class="w-4 h-4 text-purple-400"></i>
+                    3. Group III & IV Afferent Sensory Pain Firing
+                </h4>
+                <p class="text-slate-400">
+                    Free protons activate acid-sensing ion channels (ASIC3) and TRPV1 receptors on non-myelinated Group
+                    IV metaboreceptive sensory fibers. This produces the searing "muscle burn" signal transmitted via
+                    the spinothalamic tract to the brain, commanding the motor cortex to reduce central drive.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Myth-Buster Quiz Modal -->
+    <div id="quiz-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="help-circle" class="w-5 h-5 text-indigo-400"></i>
+                    <h3 class="font-bold text-white text-base">Physiology Myth-Buster Challenge</h3>
+                </div>
+                <button id="btn-close-quiz"
+                    class="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Quiz Questions Container -->
+            <div id="quiz-content" class="space-y-4">
+                <div id="quiz-q1" class="space-y-2">
+                    <p class="text-xs font-semibold text-slate-200">
+                        1. An athlete is sprinting 400m and feels a severe burning sensation in the quadriceps. What
+                        chemical entity is directly activating the sensory pain receptors?
+                    </p>
+                    <div class="space-y-1.5 text-xs">
+                        <button
+                            class="quiz-btn w-full text-left p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 text-slate-300 transition"
+                            data-correct="false">
+                            A) Lactate anions (C₃H₅O₃⁻)
+                        </button>
+                        <button
+                            class="quiz-btn w-full text-left p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 text-slate-300 transition"
+                            data-correct="true">
+                            B) Free Hydrogen ions (H⁺) activating acid-sensing ion channels (ASICs)
+                        </button>
+                        <button
+                            class="quiz-btn w-full text-left p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 text-slate-300 transition"
+                            data-correct="false">
+                            C) Stored intramuscular glycogen
+                        </button>
+                    </div>
+                    <div class="quiz-feedback hidden text-[11px] p-2 rounded-lg font-mono"></div>
+                </div>
+
+                <div id="quiz-q2" class="space-y-2 pt-2 border-t border-slate-800">
+                    <p class="text-xs font-semibold text-slate-200">
+                        2. How does severe acidosis (pH 6.45) directly impair cross-bridge force generation?
+                    </p>
+                    <div class="space-y-1.5 text-xs">
+                        <button
+                            class="quiz-btn w-full text-left p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 text-slate-300 transition"
+                            data-correct="true">
+                            A) H⁺ competes with Ca²⁺ for Troponin C, preventing tropomyosin shift
+                        </button>
+                        <button
+                            class="quiz-btn w-full text-left p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 text-slate-300 transition"
+                            data-correct="false">
+                            B) Lactate physically binds to actin and degrades myosin heavy chains
+                        </button>
+                        <button
+                            class="quiz-btn w-full text-left p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 text-slate-300 transition"
+                            data-correct="false">
+                            C) Creatine kinase dissolves troponin I
+                        </button>
+                    </div>
+                    <div class="quiz-feedback hidden text-[11px] p-2 rounded-lg font-mono"></div>
+                </div>
+            </div>
+
+            <div class="pt-2 text-right">
+                <button id="btn-quiz-done"
+                    class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition">
+                    Done
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Dimmer for Theory Drawer -->
+    <div id="drawer-backdrop" class="fixed inset-0 bg-slate-950/70 z-40 hidden backdrop-blur-sm transition-opacity">
+    </div>
+
+    <!-- Simulation JavaScript Engine -->
+    <script>
+        // --- State Model ---
+        const SIM = {
+            flux: 25,           // 0 to 100%
+            ph: 7.10,           // 6.40 to 7.15
+            lactate: 1.4,       // mmol/L
+            hPlus: 79,          // nmol/L
+
+            // Excitation-Contraction
+            caConcentration: 0.85,  // 0 to 1.0 (sarcoplasmic free Ca2+)
+            tncCaSaturation: 88,    // % troponin bound to Ca2+
+            tncHBlocked: 12,        // % troponin occupied by H+
+            crossBridgeForce: 92,   // % mechanical force output
+
+            // Mechanism 2: PFK
+            pfkEfficiency: 96,      // %
+
+            // Mechanism 3: Nociceptor
+            nerveHz: 4,             // Impulses per second
+
+            // Visual Components
+            troponinSites: [],
+            myosinHeads: [],
+            particles: [],          // Free moving ions: Ca2+, H+, Lactate-
+            nerveWaveHistory: []
+        };
+
+        // Canvas References
+        const sCanvas = document.getElementById('sarcomere-canvas');
+        const sCtx = sCanvas.getContext('2d');
+        const sContainer = document.getElementById('canvas-container');
+
+        const pfkCanvas = document.getElementById('pfk-canvas');
+        const pfkCtx = pfkCanvas.getContext('2d');
+
+        const neuralCanvas = document.getElementById('neural-canvas');
+        const neuralCtx = neuralCanvas.getContext('2d');
+
+        // Controls
+        const sliderFlux = document.getElementById('slider-flux');
+        const dispFluxVal = document.getElementById('disp-flux-val');
+        const sliderPh = document.getElementById('slider-ph');
+        const dispSliderPhVal = document.getElementById('disp-slider-ph-val');
+
+        // Action Buttons
+        const btnInjectCa = document.getElementById('btn-inject-ca');
+        const btnInfuseLactate = document.getElementById('btn-infuse-lactate');
+        const btnInfuseAcid = document.getElementById('btn-infuse-acid');
+        const btnBuffer = document.getElementById('btn-buffer');
+
+        // Preset Buttons
+        const expMythTest = document.getElementById('exp-myth-test');
+        const expAcidTest = document.getElementById('exp-acid-test');
+        const expSprintTest = document.getElementById('exp-sprint-test');
+        const expRecoveryTest = document.getElementById('exp-recovery-test');
+
+        // Telemetry DOM
+        const metricForce = document.getElementById('metric-force');
+        const metricPh = document.getElementById('metric-ph');
+        const metricHplus = document.getElementById('metric-hplus');
+        const metricTncCa = document.getElementById('metric-tnc-ca');
+        const metricTncH = document.getElementById('metric-tnc-h');
+        const metricLactate = document.getElementById('metric-lactate');
+        const barTncCa = document.getElementById('bar-tnc-ca');
+        const barTncH = document.getElementById('bar-tnc-h');
+        const overlayForce = document.getElementById('overlay-force');
+        const mechStateTag = document.getElementById('mech-state-tag');
+        const filamentStatusText = document.getElementById('filament-status-text');
+
+        // PFK DOM
+        const pfkRateVal = document.getElementById('pfk-rate-val');
+        const pfkRateBar = document.getElementById('pfk-rate-bar');
+        const pfkStatusBadge = document.getElementById('pfk-status-badge');
+        const pfkExplanation = document.getElementById('pfk-explanation');
+
+        // Nociceptor DOM
+        const metricHz = document.getElementById('metric-hz');
+        const nociceptorBadge = document.getElementById('nociceptor-badge');
+        const burnIndicator = document.getElementById('burn-indicator');
+        const nociceptorDesc = document.getElementById('nociceptor-desc');
+
+        // Drawers & Modals
+        const theoryDrawer = document.getElementById('theory-drawer');
+        const drawerBackdrop = document.getElementById('drawer-backdrop');
+        const btnToggleTheory = document.getElementById('btn-toggle-theory');
+        const btnCloseTheory = document.getElementById('btn-close-theory');
+
+        const quizModal = document.getElementById('quiz-modal');
+        const btnOpenQuiz = document.getElementById('btn-open-quiz');
+        const btnCloseQuiz = document.getElementById('btn-close-quiz');
+        const btnQuizDone = document.getElementById('btn-quiz-done');
+
+        // --- Particle Class for Visual Sarcoplasm ---
+        class IonParticle {
+            constructor(type, x, y) {
+                this.type = type; // 'ca', 'h', 'lactate'
+                this.x = x;
+                this.y = y;
+                this.vx = (Math.random() - 0.5) * 2.2;
+                this.vy = (Math.random() - 0.5) * 2.2;
+                this.radius = type === 'h' ? 3.5 : (type === 'ca' ? 5.5 : 7.0);
+                this.life = 0;
+                this.maxLife = 300 + Math.random() * 200;
+            }
+
+            update(width, height) {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off bounds
+                if (this.x < 10 || this.x > width - 10) this.vx *= -1;
+                if (this.y < 10 || this.y > height - 10) this.vy *= -1;
+
+                this.life++;
+            }
+
+            draw(ctx) {
+                ctx.save();
+                if (this.type === 'ca') {
+                    // Calcium ion (Emerald/Cyan glow)
+                    ctx.fillStyle = '#10b981';
+                    ctx.shadowColor = 'rgba(16, 185, 129, 0.7)';
+                    ctx.shadowBlur = 8;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.fillStyle = '#022c22';
+                    ctx.font = 'bold 6px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('Ca²', this.x, this.y);
+                } else if (this.type === 'h') {
+                    // Free Hydrogen Proton (Intense Rose/Red Acid)
+                    ctx.fillStyle = '#f43f5e';
+                    ctx.shadowColor = 'rgba(244, 63, 94, 0.9)';
+                    ctx.shadowBlur = 9;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.fillStyle = '#ffffff';
+                    ctx.font = 'bold 5px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('H⁺', this.x, this.y);
+                } else if (this.type === 'lactate') {
+                    // Lactate anion (Purple/Indigo - large, harmless, non-binding)
+                    ctx.fillStyle = '#a855f7';
+                    ctx.shadowColor = 'rgba(168, 85, 247, 0.4)';
+                    ctx.shadowBlur = 6;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.fillStyle = '#ffffff';
+                    ctx.font = 'bold 6px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('La⁻', this.x, this.y);
+                }
+                ctx.restore();
+            }
+        }
+
+        // --- Setup Sarcomere Structure Sites ---
+        function initSarcomere() {
+            SIM.troponinSites = [];
+            SIM.myosinHeads = [];
+
+            // 6 Troponin Regulatory Complexes along Actin strand
+            for (let i = 0; i < 6; i++) {
+                SIM.troponinSites.push({
+                    id: i,
+                    relX: 0.15 + i * 0.14,
+                    boundTo: 'ca', // 'ca', 'h', 'none'
+                    bindingTimer: Math.random() * 50
+                });
+            }
+
+            // 6 Corresponding Myosin Thick Filament Heads
+            for (let i = 0; i < 6; i++) {
+                SIM.myosinHeads.push({
+                    id: i,
+                    relX: 0.15 + i * 0.14,
+                    attached: true,
+                    angle: 0.25,
+                    strokePhase: Math.random() * Math.PI * 2
+                });
+            }
+
+            // Initial resting ion population
+            spawnInitialIons();
+        }
+
+        function spawnInitialIons() {
+            SIM.particles = [];
+            const w = sCanvas.width / (window.devicePixelRatio || 1) || 700;
+            const h = sCanvas.height / (window.devicePixelRatio || 1) || 380;
+
+            // Ca2+ pool
+            for (let i = 0; i < 16; i++) {
+                SIM.particles.push(new IonParticle('ca', Math.random() * w, Math.random() * h));
+            }
+            // H+ protons
+            for (let i = 0; i < 4; i++) {
+                SIM.particles.push(new IonParticle('h', Math.random() * w, Math.random() * h));
+            }
+            // Lactate anions
+            for (let i = 0; i < 6; i++) {
+                SIM.particles.push(new IonParticle('lactate', Math.random() * w, Math.random() * h));
+            }
+        }
+
+        // --- Resize Canvases Responsively ---
+        function resizeCanvases() {
+            const dpr = window.devicePixelRatio || 1;
+
+            // Sarcomere Canvas
+            const rect = sContainer.getBoundingClientRect();
+            sCanvas.width = rect.width * dpr;
+            sCanvas.height = rect.height * dpr;
+            sCtx.resetTransform();
+            sCtx.scale(dpr, dpr);
+
+            // PFK Canvas
+            pfkCanvas.width = 96 * dpr;
+            pfkCanvas.height = 96 * dpr;
+            pfkCtx.resetTransform();
+            pfkCtx.scale(dpr, dpr);
+
+            // Neural Canvas
+            const nRect = neuralCanvas.getBoundingClientRect();
+            neuralCanvas.width = nRect.width * dpr;
+            neuralCanvas.height = nRect.height * dpr;
+            neuralCtx.resetTransform();
+            neuralCtx.scale(dpr, dpr);
+        }
+
+        // --- Mathematical Physiology & Competitive Binding Model ---
+        function updatePhysiology() {
+            // 1. Calculate free [H+] in nmol/L: [H+] = 10^(9 - pH)
+            SIM.hPlus = Math.round(Math.pow(10, 9 - SIM.ph));
+
+            // 2. Relative competitive affinity for Troponin C
+            // Troponin C affinity: Kd for Ca2+ is ~1-5 uM, but astronomical surges in H+ (from 79 to 398 nmol/L)
+            // protonate carboxyl side chains (Glu/Asp residues), drastically lowering Ca2+ binding affinity.
+            const acidShift = Math.max(0, (7.10 - SIM.ph) / 0.70); // 0 at pH 7.10, 1.0 at pH 6.40
+
+            // Calculate Troponin Saturation
+            const hBlockProb = acidShift * 0.82; // up to 82% blocked under extreme acidosis
+            const baseCaSat = Math.min(1.0, SIM.caConcentration);
+
+            SIM.tncHBlocked = Math.round(hBlockProb * 100);
+            SIM.tncCaSaturation = Math.round(Math.max(8, (1 - hBlockProb) * baseCaSat * 100));
+
+            // 3. Mechanical Force Output is directly proportional to Ca2+-activated Troponin-Tropomyosin complexes
+            // When H+ blocks troponin, tropomyosin does not roll, blocking myosin cross-bridge attachment
+            SIM.crossBridgeForce = Math.round(Math.max(6, SIM.tncCaSaturation * 1.05));
+
+            // 4. Mechanism 2: PFK Catalytic Efficiency
+            // High [H+] causes allosteric transition from high-affinity R-state to inactive T-state
+            SIM.pfkEfficiency = Math.round(Math.max(12, 98 - (acidShift * 84)));
+
+            // 5. Mechanism 3: Nociceptor Firing Rate (Hz)
+            // ASIC3 channels respond directly to free [H+], completely independent of lactate anions!
+            SIM.nerveHz = Math.round(3 + acidShift * 42);
+
+            // Update Troponin Site Binding States based on probabilities
+            SIM.troponinSites.forEach(site => {
+                site.bindingTimer--;
+                if (site.bindingTimer <= 0) {
+                    site.bindingTimer = 20 + Math.random() * 30;
+                    const roll = Math.random();
+                    if (roll < hBlockProb) {
+                        site.boundTo = 'h';
+                    } else if (roll < hBlockProb + (SIM.tncCaSaturation / 100)) {
+                        site.boundTo = 'ca';
+                    } else {
+                        site.boundTo = 'none';
+                    }
+                }
+            });
+
+            // Update Myosin Cross-Bridges based on their aligned Troponin site
+            SIM.myosinHeads.forEach((myo, idx) => {
+                const correspondingTnC = SIM.troponinSites[idx];
+                // Can only form cross-bridge stroke if Ca2+ is bound and troponin rolled tropomyosin!
+                if (correspondingTnC && correspondingTnC.boundTo === 'ca') {
+                    myo.attached = true;
+                    myo.strokePhase += 0.08;
+                    myo.angle = Math.sin(myo.strokePhase) * 0.35 + 0.15; // active rowing power stroke
+                } else {
+                    // Detached or stalled due to tropomyosin steric block
+                    myo.attached = false;
+                    myo.angle = 0.55; // drooping limp/inhibited state
+                }
+            });
+
+            // Maintain particle densities according to conditions
+            syncParticles();
+        }
+
+        function syncParticles() {
+            const w = sCanvas.width / (window.devicePixelRatio || 1) || 700;
+            const h = sCanvas.height / (window.devicePixelRatio || 1) || 380;
+
+            // Target H+ particle count (proportional to acidity)
+            const targetHCount = Math.round(3 + Math.max(0, (7.10 - SIM.ph) / 0.70) * 35);
+            const currentH = SIM.particles.filter(p => p.type === 'h').length;
+            if (currentH < targetHCount) {
+                SIM.particles.push(new IonParticle('h', Math.random() * w, Math.random() * h));
+            } else if (currentH > targetHCount) {
+                const idx = SIM.particles.findIndex(p => p.type === 'h');
+                if (idx !== -1) SIM.particles.splice(idx, 1);
+            }
+
+            // Target Lactate particle count
+            const targetLactateCount = Math.round(4 + (SIM.lactate / 16.0) * 28);
+            const currentLa = SIM.particles.filter(p => p.type === 'lactate').length;
+            if (currentLa < targetLactateCount) {
+                SIM.particles.push(new IonParticle('lactate', Math.random() * w, Math.random() * h));
+            } else if (currentLa > targetLactateCount) {
+                const idx = SIM.particles.findIndex(p => p.type === 'lactate');
+                if (idx !== -1) SIM.particles.splice(idx, 1);
+            }
+        }
+
+        // --- Render Main Sarcomere Micro-Simulation ---
+        function renderSarcomere() {
+            const w = sCanvas.width / (window.devicePixelRatio || 1);
+            const h = sCanvas.height / (window.devicePixelRatio || 1);
+
+            sCtx.clearRect(0, 0, w, h);
+
+            // Background Sarcoplasm Tint (shifts to hot acidic crimson under severe acidosis)
+            const acidFactor = Math.max(0, (7.10 - SIM.ph) / 0.70);
+            const r = Math.round(10 + acidFactor * 45);
+            const g = Math.round(16 - acidFactor * 8);
+            const b = Math.round(26 - acidFactor * 14);
+            sCtx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+            sCtx.fillRect(0, 0, w, h);
+
+            // Subtle biological micro-mesh
+            sCtx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
+            sCtx.lineWidth = 1;
+            for (let x = 0; x < w; x += 30) {
+                sCtx.beginPath();
+                sCtx.moveTo(x, 0);
+                sCtx.lineTo(x, h);
+                sCtx.stroke();
+            }
+
+            // 1. Draw Actin Thin Filament (Top horizontal rail)
+            const actinY = h * 0.32;
+            sCtx.save();
+            // Actin Globular (G-actin) double-helix string
+            const beadRadius = 11;
+            const beadCount = Math.floor(w / (beadRadius * 1.8));
+            for (let i = 0; i < beadCount; i++) {
+                const bx = i * (beadRadius * 1.8) + 16;
+                const by = actinY + Math.sin(i * 0.6) * 5;
+
+                sCtx.fillStyle = '#38bdf8'; // Actin blue
+                sCtx.beginPath();
+                sCtx.arc(bx, by, beadRadius, 0, Math.PI * 2);
+                sCtx.fill();
+                sCtx.strokeStyle = '#0284c7';
+                sCtx.stroke();
+            }
+
+            // 2. Tropomyosin Ribbon (Dynamic position based on Ca2+ vs H+)
+            // When Troponin is Ca2+ bound, Tropomyosin shifts UPWARD (rolling off the binding site)
+            // When H+ is bound or no Ca2+, Tropomyosin drops directly over actin groove (steric block)
+            sCtx.lineWidth = 4.5;
+            sCtx.beginPath();
+            for (let x = 10; x < w - 10; x += 20) {
+                // Average displacement based on overall force
+                const shiftY = (SIM.crossBridgeForce > 45) ? -7 : 4;
+                const ty = actinY + shiftY + Math.cos(x * 0.04) * 4;
+                if (x === 10) sCtx.moveTo(x, ty);
+                else sCtx.lineTo(x, ty);
+            }
+            sCtx.strokeStyle = (SIM.crossBridgeForce > 45) ? '#10b981' : '#f43f5e'; // Green if rolled off, Red if blocking
+            sCtx.shadowColor = (SIM.crossBridgeForce > 45) ? 'rgba(16, 185, 129, 0.4)' : 'rgba(244, 63, 94, 0.5)';
+            sCtx.shadowBlur = 6;
+            sCtx.stroke();
+            sCtx.shadowBlur = 0;
+
+            // Label Tropomyosin state
+            sCtx.fillStyle = (SIM.crossBridgeForce > 45) ? '#34d399' : '#fda4af';
+            sCtx.font = 'bold 9px JetBrains Mono, monospace';
+            sCtx.fillText((SIM.crossBridgeForce > 45) ? 'Tropomyosin ROLLED (Groove Open)' : 'Tropomyosin BLOCKING Myosin Binding Groove', 24, actinY - 22);
+
+            // 3. Draw Troponin Complexes along Actin Strand
+            SIM.troponinSites.forEach(tn => {
+                const tx = w * tn.relX;
+                const ty = actinY - 6;
+
+                sCtx.save();
+                // Troponin complex base
+                sCtx.fillStyle = '#0f172a';
+                sCtx.strokeStyle = '#64748b';
+                sCtx.lineWidth = 2;
+                sCtx.beginPath();
+                sCtx.roundRect(tx - 14, ty - 12, 28, 22, 6);
+                sCtx.fill();
+                sCtx.stroke();
+
+                // Binding pocket center
+                if (tn.boundTo === 'ca') {
+                    // Bound with Ca2+ (Green glow - Permissive state)
+                    sCtx.fillStyle = '#10b981';
+                    sCtx.shadowColor = '#10b981';
+                    sCtx.shadowBlur = 10;
+                    sCtx.beginPath();
+                    sCtx.arc(tx, ty - 1, 7, 0, Math.PI * 2);
+                    sCtx.fill();
+
+                    sCtx.fillStyle = '#022c22';
+                    sCtx.font = 'bold 7px Inter, sans-serif';
+                    sCtx.textAlign = 'center';
+                    sCtx.textBaseline = 'middle';
+                    sCtx.fillText('Ca²', tx, ty - 1);
+                } else if (tn.boundTo === 'h') {
+                    // Occupied by H+ Acid (Red warning - Competitive Block)
+                    sCtx.fillStyle = '#f43f5e';
+                    sCtx.shadowColor = '#f43f5e';
+                    sCtx.shadowBlur = 12;
+                    sCtx.beginPath();
+                    sCtx.arc(tx, ty - 1, 7, 0, Math.PI * 2);
+                    sCtx.fill();
+
+                    sCtx.fillStyle = '#ffffff';
+                    sCtx.font = 'bold 7px Inter, sans-serif';
+                    sCtx.textAlign = 'center';
+                    sCtx.textBaseline = 'middle';
+                    sCtx.fillText('H⁺', tx, ty - 1);
+                } else {
+                    // Empty pocket
+                    sCtx.fillStyle = '#334155';
+                    sCtx.beginPath();
+                    sCtx.arc(tx, ty - 1, 6, 0, Math.PI * 2);
+                    sCtx.fill();
+                }
+
+                sCtx.fillStyle = '#94a3b8';
+                sCtx.font = '8px Inter, sans-serif';
+                sCtx.textAlign = 'center';
+                sCtx.fillText('Tn-C', tx, ty + 16);
+                sCtx.restore();
+            });
+
+            // 4. Draw Thick Filament (Bottom heavy rail) & Myosin Heads
+            const myosinRailY = h * 0.78;
+            sCtx.fillStyle = '#78350f';
+            sCtx.strokeStyle = '#b45309';
+            sCtx.lineWidth = 3;
+            sCtx.beginPath();
+            sCtx.roundRect(10, myosinRailY, w - 20, 24, 8);
+            sCtx.fill();
+            sCtx.stroke();
+
+            sCtx.fillStyle = '#fbbf24';
+            sCtx.font = 'bold 10px Inter, sans-serif';
+            sCtx.fillText('MYOSIN THICK FILAMENT', 24, myosinRailY + 16);
+
+            // Draw Myosin Heads reaching up
+            SIM.myosinHeads.forEach((myo, i) => {
+                const rootX = w * myo.relX;
+                const rootY = myosinRailY;
+
+                // Head joint & angle
+                const armLength = h * 0.35;
+                const headX = rootX + Math.sin(myo.angle) * (armLength * 0.65);
+                const headY = rootY - Math.cos(myo.angle) * armLength;
+
+                sCtx.save();
+                sCtx.lineWidth = 4;
+                sCtx.strokeStyle = myo.attached ? '#f59e0b' : '#64748b'; // Gold if cross-bridging, slate if detached
+                sCtx.beginPath();
+                sCtx.moveTo(rootX, rootY);
+                // S1 flexible hinge
+                const midX = (rootX + headX) / 2 + (myo.attached ? 6 : -3);
+                const midY = (rootY + headY) / 2;
+                sCtx.quadraticCurveTo(midX, midY, headX, headY);
+                sCtx.stroke();
+
+                // Myosin Globular Head (S1 subunit)
+                sCtx.fillStyle = myo.attached ? '#fbbf24' : '#475569';
+                sCtx.shadowColor = myo.attached ? 'rgba(251, 191, 36, 0.7)' : 'transparent';
+                sCtx.shadowBlur = myo.attached ? 8 : 0;
+                sCtx.beginPath();
+                sCtx.ellipse(headX, headY, 12, 7, myo.angle, 0, Math.PI * 2);
+                sCtx.fill();
+
+                if (myo.attached) {
+                    // Power stroke force spark
+                    sCtx.fillStyle = '#fef08a';
+                    sCtx.beginPath();
+                    sCtx.arc(headX, headY, 3, 0, Math.PI * 2);
+                    sCtx.fill();
+                }
+                sCtx.restore();
+            });
+
+            // 5. Update & Render Ion Particles (Ca2+, H+, Lactate-)
+            SIM.particles.forEach(p => {
+                p.update(w, h);
+
+                // Interaction demonstration: Lactate bouncing harmlessly
+                SIM.troponinSites.forEach(tn => {
+                    const tx = w * tn.relX;
+                    const ty = actinY - 6;
+                    const dx = p.x - tx;
+                    const dy = p.y - ty;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 18) {
+                        // Lactate anions NEVER bind; they deflect harmlessly!
+                        if (p.type === 'lactate') {
+                            p.vx = (dx / dist) * 2.5;
+                            p.vy = (dy / dist) * 2.5;
+                        }
+                    }
+                });
+
+                p.draw(sCtx);
+            });
+
+            sCtx.restore();
+        }
+
+        // --- Mechanism 2: Render Micro-PFK Enzyme Conformation ---
+        function renderPFK() {
+            const w = 96;
+            const h = 96;
+            pfkCtx.clearRect(0, 0, w, h);
+
+            const acidRatio = Math.max(0, (7.10 - SIM.ph) / 0.70);
+            const isOpen = acidRatio < 0.45;
+
+            // Enzyme Body (Tetrameric protein silhouette)
+            pfkCtx.save();
+            pfkCtx.translate(w / 2, h / 2);
+
+            // Conformation distortion based on H+ allosteric binding
+            const pinch = acidRatio * 10;
+            pfkCtx.fillStyle = isOpen ? '#1e293b' : '#3f151e';
+            pfkCtx.strokeStyle = isOpen ? '#38bdf8' : '#f43f5e';
+            pfkCtx.lineWidth = 2.5;
+
+            pfkCtx.beginPath();
+            // Left subunit
+            pfkCtx.ellipse(-20 + pinch, 0, 16 - pinch * 0.4, 28, 0, 0, Math.PI * 2);
+            // Right subunit
+            pfkCtx.ellipse(20 - pinch, 0, 16 - pinch * 0.4, 28, 0, 0, Math.PI * 2);
+            pfkCtx.fill();
+            pfkCtx.stroke();
+
+            // Active Catalytic Site Pocket in center
+            pfkCtx.fillStyle = isOpen ? '#06b6d4' : '#64748b';
+            pfkCtx.beginPath();
+            const pocketWidth = Math.max(3, 14 - acidRatio * 11);
+            pfkCtx.ellipse(0, 0, pocketWidth, 10, 0, 0, Math.PI * 2);
+            pfkCtx.fill();
+
+            // Allosteric H+ binding indicator
+            if (acidRatio > 0.3) {
+                pfkCtx.fillStyle = '#f43f5e';
+                pfkCtx.shadowColor = '#f43f5e';
+                pfkCtx.shadowBlur = 6;
+                pfkCtx.beginPath();
+                pfkCtx.arc(0, -22, 4.5, 0, Math.PI * 2);
+                pfkCtx.fill();
+
+                pfkCtx.fillStyle = '#ffffff';
+                pfkCtx.font = 'bold 5px Inter, sans-serif';
+                pfkCtx.textAlign = 'center';
+                pfkCtx.fillText('H⁺', 0, -20);
+            }
+
+            pfkCtx.restore();
+        }
+
+        // --- Mechanism 3: Render Nociceptor Nerve Impulse Waveform ---
+        let nervePhase = 0;
+        function renderNeuralWave() {
+            const w = neuralCanvas.width / (window.devicePixelRatio || 1);
+            const h = neuralCanvas.height / (window.devicePixelRatio || 1);
+
+            neuralCtx.clearRect(0, 0, w, h);
+
+            // Background grid
+            neuralCtx.fillStyle = '#020617';
+            neuralCtx.fillRect(0, 0, w, h);
+
+            // Update impulse queue
+            nervePhase += SIM.nerveHz * 0.05;
+            if (!SIM.nerveWaveHistory) SIM.nerveWaveHistory = new Array(Math.floor(w)).fill(h / 2);
+
+            // Generate action potential spikes depending on Hz
+            let yVal = h / 2;
+            const spikeThreshold = Math.max(0.05, 1.0 - (SIM.nerveHz / 50));
+            if (Math.sin(nervePhase * 3) > spikeThreshold && Math.random() < 0.6) {
+                yVal = h * 0.15; // Upstroke action potential spike
+            } else {
+                yVal = h / 2 + (Math.random() - 0.5) * 3; // Baseline noise
+            }
+
+            SIM.nerveWaveHistory.push(yVal);
+            if (SIM.nerveWaveHistory.length > w) {
+                SIM.nerveWaveHistory.shift();
+            }
+
+            // Draw Waveform line
+            neuralCtx.lineWidth = 1.5;
+            neuralCtx.strokeStyle = (SIM.nerveHz > 25) ? '#f43f5e' : (SIM.nerveHz > 12 ? '#fbbf24' : '#10b981');
+            neuralCtx.shadowColor = neuralCtx.strokeStyle;
+            neuralCtx.shadowBlur = 6;
+
+            neuralCtx.beginPath();
+            for (let x = 0; x < SIM.nerveWaveHistory.length; x++) {
+                const y = SIM.nerveWaveHistory[x];
+                if (x === 0) neuralCtx.moveTo(x, y);
+                else neuralCtx.lineTo(x, y);
+            }
+            neuralCtx.stroke();
+            neuralCtx.shadowBlur = 0;
+        }
+
+        // --- Synchronize DOM & UI Gauges ---
+        function syncUI() {
+            // 1. Force & pH Telemetry
+            metricForce.textContent = `${SIM.crossBridgeForce}%`;
+            overlayForce.textContent = `${SIM.crossBridgeForce}%`;
+            overlayForce.className = SIM.crossBridgeForce > 60 ? 'text-sm font-mono font-bold text-emerald-400' : 'text-sm font-mono font-bold text-rose-400';
+
+            metricPh.textContent = SIM.ph.toFixed(2);
+            metricHplus.textContent = `[H⁺] = ${SIM.hPlus} nmol/L`;
+
+            metricTncCa.textContent = `${SIM.tncCaSaturation}% Ca²⁺`;
+            metricTncH.textContent = `${SIM.tncHBlocked}% H⁺ Blocked`;
+
+            metricLactate.textContent = `${SIM.lactate.toFixed(1)} mmol/L`;
+
+            barTncCa.style.width = `${SIM.tncCaSaturation}%`;
+            barTncH.style.width = `${SIM.tncHBlocked}%`;
+
+            // Status tags
+            if (SIM.crossBridgeForce >= 75) {
+                mechStateTag.textContent = "Uninhibited Cross-Bridges";
+                mechStateTag.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60";
+                filamentStatusText.innerHTML = `<i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Ca²⁺ Bound / Active Force`;
+                filamentStatusText.className = "text-xs font-mono font-bold text-emerald-400 flex items-center gap-1";
+            } else if (SIM.crossBridgeForce >= 45) {
+                mechStateTag.textContent = "Moderate Competitive Block";
+                mechStateTag.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/60";
+                filamentStatusText.innerHTML = `<i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i> Ca²⁺ Displaced by Protons`;
+                filamentStatusText.className = "text-xs font-mono font-bold text-amber-400 flex items-center gap-1";
+            } else {
+                mechStateTag.textContent = "Severe Cross-Bridge Shutdown";
+                mechStateTag.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-rose-950 text-rose-400 border border-rose-800/60 animate-pulse";
+                filamentStatusText.innerHTML = `<i data-lucide="zap-off" class="w-3.5 h-3.5"></i> Severe Acidosis / Steric Block`;
+                filamentStatusText.className = "text-xs font-mono font-bold text-rose-400 flex items-center gap-1";
+            }
+
+            // 2. Mechanism 2: PFK Controls
+            pfkRateVal.textContent = `${SIM.pfkEfficiency}%`;
+            pfkRateBar.style.width = `${SIM.pfkEfficiency}%`;
+
+            if (SIM.pfkEfficiency >= 75) {
+                pfkStatusBadge.textContent = "Active R-Conformation";
+                pfkStatusBadge.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60";
+                pfkExplanation.textContent = "At normal pH, the PFK catalytic pocket is wide open. Rapid ATP resynthesis supports cross-bridge cycling.";
+            } else {
+                pfkStatusBadge.textContent = "Allosteric Shutdown (T-State)";
+                pfkStatusBadge.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-rose-950 text-rose-400 border border-rose-800/60";
+                pfkExplanation.textContent = "Free H⁺ binds allosteric inhibitory sites, deforming the catalytic pocket. Glycolytic ATP delivery collapses.";
+            }
+
+            // 3. Mechanism 3: Nociceptor Firing
+            metricHz.textContent = SIM.nerveHz;
+            if (SIM.nerveHz < 12) {
+                nociceptorBadge.textContent = "Quiescent (Resting)";
+                nociceptorBadge.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60";
+                burnIndicator.className = "w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-600 transition-all";
+                nociceptorDesc.textContent = "Proton-sensing ASIC3 channels remain quiet at normal pH (7.10). No burning sensation is perceived by the CNS.";
+            } else if (SIM.nerveHz < 26) {
+                nociceptorBadge.textContent = "Mild Acidic Firing";
+                nociceptorBadge.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/60";
+                burnIndicator.className = "w-12 h-12 rounded-xl bg-amber-950/40 border border-amber-600/50 flex items-center justify-center text-amber-400 transition-all";
+                nociceptorDesc.textContent = "Rising sarcoplasmic [H+] triggers moderate depolarization of Group IV pain fibers, transmitting early muscular fatigue signals.";
+            } else {
+                nociceptorBadge.textContent = "Intense Burn Firing (ASIC3)";
+                nociceptorBadge.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-rose-950 text-rose-400 border border-rose-800/60 animate-pulse";
+                burnIndicator.className = "w-12 h-12 rounded-xl bg-rose-950/60 border border-rose-600 flex items-center justify-center text-rose-400 animate-burn transition-all";
+                nociceptorDesc.textContent = "MAXIMAL CNS PAIN DRIVE: Astronomical free [H+] saturates ASIC3 & TRPV1 nociceptors, creating the intense muscular 'burn'. Note: Lactate plays zero role in this sensation!";
+            }
+
+            lucide.createIcons();
+        }
+
+        // --- Main Simulation Loop ---
+        function mainLoop() {
+            updatePhysiology();
+            renderSarcomere();
+            renderPFK();
+            renderNeuralWave();
+            syncUI();
+
+            requestAnimationFrame(mainLoop);
+        }
+
+        // --- User Interactions & Event Handlers ---
+
+        // 1. Glycolytic Flux Slider
+        sliderFlux.addEventListener('input', (e) => {
+            SIM.flux = parseInt(e.target.value, 10);
+            dispFluxVal.textContent = `${SIM.flux}% (${SIM.flux < 45 ? 'Aerobic Steady' : (SIM.flux < 75 ? 'Lactate Accumulation' : 'Max Sprint Flux')})`;
+
+            // Coupled physiological response
+            // High flux accelerates ATP hydrolysis & fast glycolysis -> produces both Lactate and H+
+            const fluxRatio = SIM.flux / 100.0;
+            SIM.lactate = 1.0 + fluxRatio * 15.0; // 1 to 16 mmol/L
+            SIM.ph = 7.12 - (fluxRatio * 0.68);   // Drops down to 6.44 at 100%
+            sliderPh.value = SIM.ph.toFixed(2);
+            dispSliderPhVal.textContent = `${SIM.ph.toFixed(2)} pH`;
+        });
+
+        // 2. Direct Sarcoplasmic pH Slider
+        sliderPh.addEventListener('input', (e) => {
+            SIM.ph = parseFloat(e.target.value);
+            dispSliderPhVal.textContent = `${SIM.ph.toFixed(2)} pH (${SIM.ph > 6.95 ? 'Resting' : (SIM.ph > 6.70 ? 'Mild Acidosis' : 'Severe Acidosis')})`;
+        });
+
+        // 3. Action Buttons
+        btnInjectCa.addEventListener('click', () => {
+            SIM.caConcentration = Math.min(1.0, SIM.caConcentration + 0.35);
+            const w = sCanvas.width / (window.devicePixelRatio || 1);
+            const h = sCanvas.height / (window.devicePixelRatio || 1);
+            // Spawn extra Ca2+ burst
+            for (let i = 0; i < 12; i++) {
+                SIM.particles.push(new IonParticle('ca', Math.random() * w, h * 0.2 + Math.random() * (h * 0.4)));
+            }
+        });
+
+        btnInfuseLactate.addEventListener('click', () => {
+            // PROVE THE MYTH: Boost Lactate to huge levels (15.5 mmol/L) without changing pH!
+            SIM.lactate = 15.5;
+            const w = sCanvas.width / (window.devicePixelRatio || 1);
+            const h = sCanvas.height / (window.devicePixelRatio || 1);
+            for (let i = 0; i < 20; i++) {
+                SIM.particles.push(new IonParticle('lactate', Math.random() * w, Math.random() * h));
+            }
+            // Show confirmation toast / banner update
+            document.getElementById('myth-banner-desc').innerHTML = `<span class="text-purple-300 font-bold">EXPERIMENT RESULT:</span> Injected 15.5 mmol/L of Lactate⁻. Observe the telemetry above: <span class="text-emerald-400 font-bold">Cross-bridge force remains high (${SIM.crossBridgeForce}%) and PFK remains active</span> because Lactate has no affinity for Troponin C!`;
+        });
+
+        btnInfuseAcid.addEventListener('click', () => {
+            // Incur direct proton load (drop pH to 6.48)
+            SIM.ph = 6.48;
+            sliderPh.value = 6.48;
+            dispSliderPhVal.textContent = "6.48 pH (Acidic)";
+            const w = sCanvas.width / (window.devicePixelRatio || 1);
+            const h = sCanvas.height / (window.devicePixelRatio || 1);
+            for (let i = 0; i < 22; i++) {
+                SIM.particles.push(new IonParticle('h', Math.random() * w, Math.random() * h));
+            }
+            document.getElementById('myth-banner-desc').innerHTML = `<span class="text-rose-400 font-bold">EXPERIMENT RESULT:</span> Free H⁺ ions injected (pH dropped to 6.48). Troponin C is competitively blocked, PFK catalytic site deformed, and nociceptors firing rapidly!`;
+        });
+
+        btnBuffer.addEventListener('click', () => {
+            // Neutralize free protons
+            SIM.ph = 7.10;
+            sliderPh.value = 7.10;
+            dispSliderPhVal.textContent = "7.10 pH (Restored)";
+            SIM.particles = SIM.particles.filter(p => p.type !== 'h');
+            // Add a few baseline H+
+            const w = sCanvas.width / (window.devicePixelRatio || 1);
+            const h = sCanvas.height / (window.devicePixelRatio || 1);
+            for (let i = 0; i < 3; i++) {
+                SIM.particles.push(new IonParticle('h', Math.random() * w, Math.random() * h));
+            }
+            document.getElementById('myth-banner-desc').innerHTML = `<span class="text-cyan-300 font-bold">BUFFERING ACTIVE:</span> Sarcoplasmic carnosine and bicarbonate neutralized excess H⁺ ions. pH restored to 7.10, freeing Troponin C and restoring full muscular force!`;
+        });
+
+        // 4. Guided Experiment Presets
+        expMythTest.addEventListener('click', () => {
+            // High lactate, normal pH
+            SIM.lactate = 14.8;
+            SIM.ph = 7.10;
+            sliderPh.value = 7.10;
+            dispSliderPhVal.textContent = "7.10 pH (Resting)";
+            SIM.flux = 30;
+            sliderFlux.value = 30;
+            dispFluxVal.textContent = "30% (Steady)";
+            document.getElementById('myth-banner-desc').innerHTML = `<strong>TEST A ACTIVE:</strong> High Lactate (14.8 mmol/L) with normal pH (7.10). Result: Force is >85%, PFK is uninhibited. <span class="text-purple-300 font-bold">Lactate does NOT cause fatigue!</span>`;
+        });
+
+        expAcidTest.addEventListener('click', () => {
+            // Low lactate, severe acid
+            SIM.lactate = 1.8;
+            SIM.ph = 6.45;
+            sliderPh.value = 6.45;
+            dispSliderPhVal.textContent = "6.45 pH (Exhaustion)";
+            SIM.flux = 40;
+            sliderFlux.value = 40;
+            dispFluxVal.textContent = "40%";
+            document.getElementById('myth-banner-desc').innerHTML = `<strong>TEST B ACTIVE:</strong> Baseline Lactate (1.8 mmol/L) with low pH (6.45). Result: Force plummets to ~15%. <span class="text-rose-400 font-bold">Proof: H⁺ accumulation is the true agent of fatigue.</span>`;
+        });
+
+        expSprintTest.addEventListener('click', () => {
+            // Full sprint
+            sliderFlux.value = 95;
+            SIM.flux = 95;
+            dispFluxVal.textContent = "95% (Max Sprint)";
+            SIM.lactate = 14.5;
+            SIM.ph = 6.47;
+            sliderPh.value = 6.47;
+            dispSliderPhVal.textContent = "6.47 pH (All-Out Sprint)";
+            document.getElementById('myth-banner-desc').innerHTML = `<strong>TEST C ACTIVE:</strong> 400m All-Out Sprint simulation. Extreme ATP hydrolysis drops pH to 6.47. Troponin C blocked, PFK throttled, and severe nociceptive pain firing.`;
+        });
+
+        expRecoveryTest.addEventListener('click', () => {
+            // Active recovery
+            sliderFlux.value = 15;
+            SIM.flux = 15;
+            dispFluxVal.textContent = "15% (Light Active Spin)";
+            SIM.lactate = 3.2;
+            SIM.ph = 7.08;
+            sliderPh.value = 7.08;
+            dispSliderPhVal.textContent = "7.08 pH (Normalizing)";
+            document.getElementById('myth-banner-desc').innerHTML = `<strong>TEST D ACTIVE:</strong> Active recovery flush. Gentle circulation oxidizes lactate in Type I fibers while intracellular buffers restore pH and cross-bridge force.`;
+        });
+
+        // 5. Theory Drawer Toggle
+        function toggleDrawer(open) {
+            if (open) {
+                theoryDrawer.classList.remove('translate-x-full');
+                drawerBackdrop.classList.remove('hidden');
+            } else {
+                theoryDrawer.classList.add('translate-x-full');
+                drawerBackdrop.classList.add('hidden');
+            }
+        }
+        btnToggleTheory.addEventListener('click', () => toggleDrawer(true));
+        btnCloseTheory.addEventListener('click', () => toggleDrawer(false));
+        drawerBackdrop.addEventListener('click', () => toggleDrawer(false));
+
+        // 6. Myth-Buster Quiz Modal
+        btnOpenQuiz.addEventListener('click', () => quizModal.classList.remove('hidden'));
+        btnCloseQuiz.addEventListener('click', () => quizModal.classList.add('hidden'));
+        btnQuizDone.addEventListener('click', () => quizModal.classList.add('hidden'));
+
+        // Quiz Option Click Handling
+        document.querySelectorAll('.quiz-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const isCorrect = btn.getAttribute('data-correct') === 'true';
+                const parent = btn.closest('.space-y-2');
+                const feedback = parent.querySelector('.quiz-feedback');
+
+                // Remove previous styles on sibling buttons
+                parent.querySelectorAll('.quiz-btn').forEach(b => {
+                    b.className = "quiz-btn w-full text-left p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 transition";
+                });
+
+                if (isCorrect) {
+                    btn.className = "quiz-btn w-full text-left p-2.5 rounded-xl bg-emerald-950/80 border border-emerald-500 text-emerald-200 font-semibold";
+                    feedback.textContent = "✓ Correct! Free H⁺ ions directly activate ASIC3 pain channels and compete with Ca²⁺ at Troponin C. Lactate is innocent!";
+                    feedback.className = "quiz-feedback text-[11px] p-2 rounded-lg font-mono bg-emerald-950 text-emerald-300 border border-emerald-800/80 block";
+                } else {
+                    btn.className = "quiz-btn w-full text-left p-2.5 rounded-xl bg-rose-950/80 border border-rose-500 text-rose-200 font-semibold";
+                    feedback.textContent = "✗ Incorrect. Remember: Lactate is a harmless carbohydrate fuel. The true culprit is free H⁺ ions lowering pH!";
+                    feedback.className = "quiz-feedback text-[11px] p-2 rounded-lg font-mono bg-rose-950 text-rose-300 border border-rose-800/80 block";
+                }
+            });
+        });
+
+        // Window Resize Handling
+        window.addEventListener('resize', () => {
+            resizeCanvases();
+        });
+
+        // Initialization
+        window.onload = function () {
+            lucide.createIcons();
+            resizeCanvases();
+            initSarcomere();
+            mainLoop();
+        };
+    </script>
+</body>
+
+</html>

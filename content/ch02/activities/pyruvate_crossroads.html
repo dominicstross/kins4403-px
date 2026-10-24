@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pyruvate Crossroads: Metabolic Sorting & Oxygen Threshold Engine</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Custom range slider thumb */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 9999px;
+            background: #06b6d4;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.75);
+            border: 2px solid #ffffff;
+            transition: transform 0.1s ease;
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+
+        /* Pulse animations */
+        @keyframes pulse-subtle {
+
+            0%,
+            100% {
+                opacity: 0.9;
+            }
+
+            50% {
+                opacity: 1;
+                filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.6));
+            }
+        }
+
+        .glow-cyan {
+            animation: pulse-subtle 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-warn {
+
+            0%,
+            100% {
+                opacity: 0.9;
+            }
+
+            50% {
+                opacity: 1;
+                filter: drop-shadow(0 0 10px rgba(244, 63, 94, 0.7));
+            }
+        }
+
+        .glow-red {
+            animation: pulse-warn 1.5s infinite ease-in-out;
+        }
+
+        /* Custom scrollbar for drawers */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 9999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Top Navigation / Application Header -->
+    <header
+        class="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3 shadow-lg">
+        <div class="flex items-center space-x-3">
+            <div
+                class="p-2 rounded-xl bg-gradient-to-tr from-cyan-500 via-sky-500 to-indigo-600 text-slate-950 shadow-md shadow-cyan-500/30">
+                <i data-lucide="split" class="w-5 h-5 stroke-[2.5]"></i>
+            </div>
+            <div>
+                <div class="flex items-center gap-2">
+                    <h1 class="text-base sm:text-lg font-bold tracking-tight text-white">The Pyruvate Crossroads</h1>
+                    <span
+                        class="text-[10px] font-mono uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-700/50">Metabolic
+                        Fate Lab</span>
+                </div>
+                <p class="text-xs text-slate-400 hidden sm:block">Enzymatic Partitioning & Intramuscular Acidosis
+                    Simulation</p>
+            </div>
+        </div>
+
+        <!-- Mode Badge & Quick Preset Selectors -->
+        <div class="flex items-center gap-2 text-xs">
+            <div
+                class="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-900 border border-slate-800 text-slate-400">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                <span>Cellular Engine Active</span>
+            </div>
+
+            <!-- Athlete Profile Switcher -->
+            <div class="flex items-center bg-slate-950 border border-slate-800 p-1 rounded-xl">
+                <button id="btn-profile-untrained"
+                    class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-cyan-500 text-slate-950 shadow transition cursor-pointer">
+                    Untrained (LT: 55%)
+                </button>
+                <button id="btn-profile-trained"
+                    class="px-2.5 py-1 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition cursor-pointer">
+                    Endurance (LT: 75%)
+                </button>
+            </div>
+
+            <!-- Theory Drawer Toggle -->
+            <button id="btn-toggle-theory"
+                class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 transition cursor-pointer"
+                title="Biochemical Reference Guide">
+                <i data-lucide="book-open" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Grid Layout -->
+    <main class="flex-1 max-w-[1600px] w-full mx-auto p-3 sm:p-5 lg:p-6 grid grid-cols-1 xl:grid-cols-12 gap-5">
+
+        <!-- Left & Center: Canvas Engine + Controllers (xl: 8 cols) -->
+        <div class="xl:col-span-8 space-y-4 flex flex-col">
+
+            <!-- Dynamic Status Banner (Metabolic State) -->
+            <div id="state-banner"
+                class="rounded-2xl p-4 border transition-all duration-300 bg-cyan-950/20 border-cyan-800/60 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div class="flex items-start gap-3">
+                    <div id="state-icon-box"
+                        class="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 shrink-0 mt-0.5">
+                        <i id="state-icon" data-lucide="shield-check" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span id="state-badge"
+                                class="px-2 py-0.5 rounded text-[10px] font-extrabold font-mono tracking-wider bg-cyan-900/60 text-cyan-300 border border-cyan-600/40 uppercase">
+                                Slow Glycolysis Dominant
+                            </span>
+                            <span id="state-subbadge" class="text-xs text-slate-400 font-medium">Normoxic Oxidative
+                                Flux</span>
+                        </div>
+                        <h2 id="state-title" class="text-sm sm:text-base font-bold text-white mt-1">Mitochondrial Matrix
+                            Influx via Pyruvate Dehydrogenase (PDH)</h2>
+                        <p id="state-desc" class="text-xs text-slate-300 max-w-2xl mt-0.5 leading-relaxed">
+                            Exercise intensity is below the anaerobic threshold. Mitochondria readily absorb
+                            sarcoplasmic pyruvate, converting it into Acetyl-CoA for the Krebs cycle. Intramuscular pH
+                            remains stable at resting levels.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-800 gap-1 shrink-0">
+                    <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Step 6 NAD⁺
+                        Status</span>
+                    <span id="state-nad-status"
+                        class="text-xs font-bold text-emerald-400 font-mono flex items-center gap-1">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i> Plentiful (No GAPDH Block)
+                    </span>
+                </div>
+            </div>
+
+            <!-- Main Cellular Micro-Environment Canvas Card -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-2xl relative flex flex-col flex-1">
+
+                <!-- Canvas Header Overlay -->
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="microscope" class="w-4 h-4 text-cyan-400"></i>
+                        <span class="font-bold text-slate-200">SARCOPLASMIC & MITOCHONDRIAL FLUX FIELD</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-[11px]">
+                        <span class="flex items-center gap-1.5"><span
+                                class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span> Pyruvate (3C)</span>
+                        <span class="flex items-center gap-1.5"><span
+                                class="w-2.5 h-2.5 rounded-full bg-cyan-400 inline-block"></span> Acetyl-CoA (2C)</span>
+                        <span class="flex items-center gap-1.5"><span
+                                class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span> Lactate⁻ + H⁺</span>
+                    </div>
+                </div>
+
+                <!-- Simulation Canvas Container -->
+                <div id="canvas-container"
+                    class="relative w-full h-[380px] sm:h-[420px] bg-slate-950 rounded-xl border border-slate-800 overflow-hidden">
+                    <canvas id="bio-canvas" class="w-full h-full block"></canvas>
+
+                    <!-- Floating Biochemical Labels (Positioned on top of Canvas) -->
+                    <div class="absolute top-3 left-4 pointer-events-none text-left">
+                        <div class="text-[11px] font-mono uppercase tracking-wider text-slate-500 font-bold">Sarcoplasm
+                            Compartment</div>
+                        <div class="text-xs font-semibold text-slate-300 mt-0.5">Glycolytic Flux (Step 6 GAPDH ⇌
+                            Pyruvate)</div>
+                    </div>
+
+                    <div class="absolute bottom-3 right-4 pointer-events-none text-right">
+                        <div
+                            class="text-[11px] font-mono uppercase tracking-wider text-cyan-400 font-bold flex items-center justify-end gap-1">
+                            <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+                            Mitochondrion Matrix
+                        </div>
+                        <div class="text-xs text-slate-400 mt-0.5">Aerobic PDH Complex & Krebs Cycle</div>
+                    </div>
+
+                    <div class="absolute top-3 right-4 pointer-events-none text-right">
+                        <div
+                            class="text-[11px] font-mono uppercase tracking-wider text-rose-400 font-bold flex items-center justify-end gap-1">
+                            <i data-lucide="zap-off" class="w-3.5 h-3.5"></i>
+                            LDH Enzyme Complex
+                        </div>
+                        <div class="text-xs text-slate-400 mt-0.5">Pyruvate + NADH + H⁺ ⇌ Lactate + NAD⁺</div>
+                    </div>
+                </div>
+
+                <!-- Timeline / Flow Action Controls -->
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
+                    <!-- Play / Pause / Reset / Inject Buttons -->
+                    <div class="sm:col-span-6 flex items-center gap-2">
+                        <button id="btn-play"
+                            class="flex-1 sm:flex-none px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl transition duration-150 flex items-center justify-center gap-1.5 shadow-lg shadow-cyan-500/20 active:scale-95 text-xs cursor-pointer">
+                            <i data-lucide="play" id="play-icon" class="w-3.5 h-3.5 fill-slate-950"></i>
+                            <span id="play-text">Start Engine</span>
+                        </button>
+                        <button id="btn-inject"
+                            class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-amber-300 font-semibold rounded-xl border border-slate-700 transition flex items-center gap-1.5 text-xs cursor-pointer"
+                            title="Inject rapid burst of 10 Pyruvate molecules">
+                            <i data-lucide="plus-circle" class="w-3.5 h-3.5 text-amber-400"></i>
+                            <span>Inject Pyruvate</span>
+                        </button>
+                        <button id="btn-reset"
+                            class="p-2 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-xl border border-slate-700 transition text-xs cursor-pointer"
+                            title="Reset cellular environment">
+                            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+
+                    <!-- Speed & Sarcoplasmic Dissociation Alert -->
+                    <div class="sm:col-span-6 flex items-center justify-end gap-3 text-xs font-mono">
+                        <span class="text-slate-400">Simulation Speed:</span>
+                        <div class="flex items-center bg-slate-950 border border-slate-800 rounded-lg p-0.5">
+                            <button id="btn-speed-1"
+                                class="px-2 py-0.5 rounded text-cyan-400 font-bold bg-slate-800 text-[11px]">1x</button>
+                            <button id="btn-speed-2"
+                                class="px-2 py-0.5 rounded text-slate-400 hover:text-white text-[11px]">2x</button>
+                            <button id="btn-speed-3"
+                                class="px-2 py-0.5 rounded text-slate-400 hover:text-white text-[11px]">3x</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Sliders / Experimental Manipulations Control Deck -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="sliders" class="w-4 h-4 text-cyan-400"></i>
+                        <span class="text-xs font-bold uppercase tracking-wider text-white">Physiological Variables &
+                            Flux Forcing</span>
+                    </div>
+                    <span class="text-[11px] font-mono text-slate-400">Adjust parameters to induce metabolic branch
+                        shift</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                    <!-- Variable 1: Exercise Intensity (% VO2max) -->
+                    <div class="space-y-2 bg-slate-950 p-3.5 rounded-xl border border-slate-800/80">
+                        <div class="flex justify-between items-center text-xs">
+                            <label for="slider-intensity"
+                                class="font-semibold text-slate-200 flex items-center gap-1.5">
+                                <i data-lucide="flame" class="w-4 h-4 text-amber-400"></i>
+                                Exercise Workload / Intensity:
+                            </label>
+                            <span class="font-mono font-bold text-amber-300 text-sm" id="val-intensity">40%
+                                V̇O₂max</span>
+                        </div>
+                        <input type="range" id="slider-intensity" min="0" max="100" step="1" value="40"
+                            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer outline-none">
+                        <div class="flex justify-between text-[10px] font-mono text-slate-500">
+                            <span>Rest (10%)</span>
+                            <span id="marker-lt" class="text-cyan-400 font-semibold">LT Threshold: 55%</span>
+                            <span class="text-rose-400 font-semibold">Max Effort (100%)</span>
+                        </div>
+                    </div>
+
+                    <!-- Variable 2: Oxygen Availability (Hypoxic vs Normoxic) -->
+                    <div class="space-y-2 bg-slate-950 p-3.5 rounded-xl border border-slate-800/80">
+                        <div class="flex justify-between items-center text-xs">
+                            <label for="slider-oxygen" class="font-semibold text-slate-200 flex items-center gap-1.5">
+                                <i data-lucide="wind" class="w-4 h-4 text-cyan-400"></i>
+                                Cellular O₂ Availability:
+                            </label>
+                            <span class="font-mono font-bold text-cyan-300 text-sm" id="val-oxygen">95%
+                                (Normoxic)</span>
+                        </div>
+                        <input type="range" id="slider-oxygen" min="5" max="100" step="1" value="95"
+                            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer outline-none">
+                        <div class="flex justify-between text-[10px] font-mono text-slate-500">
+                            <span class="text-rose-400">Hypoxic / Ischemia (5%)</span>
+                            <span>Sub-optimal (50%)</span>
+                            <span class="text-cyan-400">Optimal O₂ (100%)</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Quick Scenario Presets -->
+                <div class="pt-1 flex flex-wrap items-center gap-2 text-xs">
+                    <span class="text-slate-400 text-[11px] font-mono mr-1">Teaching Presets:</span>
+                    <button id="preset-zone2"
+                        class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-[11px] font-medium transition cursor-pointer">
+                        1. Moderate Zone 2 (45% VO2max)
+                    </button>
+                    <button id="preset-threshold"
+                        class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-[11px] font-medium transition cursor-pointer">
+                        2. At Lactate Threshold (58% VO2max)
+                    </button>
+                    <button id="preset-sprint"
+                        class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-[11px] font-medium transition cursor-pointer">
+                        3. All-Out Fast Glycolysis (95% VO2max)
+                    </button>
+                    <button id="preset-hypoxia"
+                        class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-[11px] font-medium transition cursor-pointer">
+                        4. Acute Hypoxia / Occlusion
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right Column: Scientific Meters, Acidosis Gauge & Metabolic Accounting (xl: 4 cols) -->
+        <div class="xl:col-span-4 space-y-4 flex flex-col justify-between">
+
+            <!-- Intracellular Sarcoplasmic pH Meter Card -->
+            <div id="ph-card"
+                class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl transition-colors duration-300 relative overflow-hidden">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="droplet" class="w-4 h-4 text-cyan-400"></i>
+                        <h3 class="font-bold text-white text-sm">Sarcoplasmic Intracellular pH</h3>
+                    </div>
+                    <span id="ph-status-badge"
+                        class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60">
+                        Resting Homeostasis
+                    </span>
+                </div>
+
+                <!-- Big Digital Display -->
+                <div class="flex items-baseline justify-between mt-2">
+                    <div class="flex items-baseline gap-2">
+                        <span id="disp-ph"
+                            class="text-4xl font-extrabold font-mono text-cyan-300 tracking-tight">7.10</span>
+                        <span class="text-xs text-slate-400 font-mono">pH units</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] text-slate-500 uppercase block font-mono">Free [H⁺] Ions</span>
+                        <span id="disp-hplus" class="text-xs font-mono font-bold text-slate-300">80 nmol/L</span>
+                    </div>
+                </div>
+
+                <!-- Dynamic pH Bar Gauge -->
+                <div class="mt-4 space-y-1.5">
+                    <div
+                        class="w-full bg-slate-950 h-5 rounded-lg border border-slate-800 overflow-hidden relative p-0.5">
+                        <div id="ph-gauge-fill"
+                            class="h-full rounded transition-all duration-200 bg-gradient-to-r from-cyan-500 to-emerald-400"
+                            style="width: 95%;"></div>
+                        <!-- Target line indicator for severe fatigue (6.45) -->
+                        <div class="absolute top-0 bottom-0 left-[20%] border-r-2 border-dashed border-red-500"
+                            title="Severe Acidosis Threshold (pH 6.5)"></div>
+                    </div>
+                    <div class="flex justify-between text-[10px] font-mono text-slate-500 px-0.5">
+                        <span class="text-rose-400 font-bold">6.40 (Exhaustion)</span>
+                        <span>6.75 (Lactate Turn)</span>
+                        <span class="text-emerald-400 font-bold">7.10 (Resting)</span>
+                    </div>
+                </div>
+
+                <!-- Fatigue Mechanism Callout (Dynamic based on pH) -->
+                <div id="acidosis-mechanism-box"
+                    class="mt-4 p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-[11px] leading-relaxed text-slate-400 flex items-start gap-2">
+                    <i data-lucide="info" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                    <span id="acidosis-mechanism-text">
+                        Sarcoplasmic pH is within optimal resting limits (7.05 - 7.15). Troponin C binding affinity for
+                        Ca²⁺ is unimpaired and PFK catalytic activity is uninhibited.
+                    </span>
+                </div>
+            </div>
+
+            <!-- Biochemical Metabolite Counters Grid -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <h3 class="font-bold text-white text-xs uppercase tracking-wider flex items-center gap-2">
+                        <i data-lucide="gauge" class="w-4 h-4 text-cyan-400"></i>
+                        Real-Time Kinetic Indicators
+                    </h3>
+                    <span class="text-[10px] font-mono text-slate-500">Live Reaction Flux</span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2.5 font-mono">
+                    <!-- 1. Intracellular Lactate -->
+                    <div class="p-3 rounded-xl bg-slate-950 border border-slate-800/90">
+                        <div class="text-[10px] text-slate-500 uppercase font-sans font-medium">Intracellular Lactate⁻
+                        </div>
+                        <div id="disp-lactate" class="text-xl font-bold text-rose-400 mt-1">1.2 mmol/L</div>
+                        <div class="text-[9px] text-slate-500 font-sans mt-0.5" id="lactate-subtext">Resting baseline
+                            (~1.0)</div>
+                    </div>
+
+                    <!-- 2. NAD+ / NADH Redox Pool -->
+                    <div class="p-3 rounded-xl bg-slate-950 border border-slate-800/90">
+                        <div class="text-[10px] text-slate-500 uppercase font-sans font-medium">Redox Ratio (NAD⁺/NADH)
+                        </div>
+                        <div id="disp-redox" class="text-xl font-bold text-emerald-400 mt-1">10.5 : 1</div>
+                        <div class="text-[9px] text-slate-500 font-sans mt-0.5" id="redox-subtext">High recycling rate
+                        </div>
+                    </div>
+
+                    <!-- 3. Mitochondrial Oxidative Flux -->
+                    <div class="p-3 rounded-xl bg-slate-950 border border-slate-800/90">
+                        <div class="text-[10px] text-slate-500 uppercase font-sans font-medium">Mito Oxidative Flux
+                        </div>
+                        <div id="disp-mito-flux" class="text-xl font-bold text-cyan-400 mt-1">42 %</div>
+                        <div class="text-[9px] text-slate-500 font-sans mt-0.5">PDH Matrix Processing</div>
+                    </div>
+
+                    <!-- 4. Total ATP Resynthesis Rate -->
+                    <div class="p-3 rounded-xl bg-slate-950 border border-slate-800/90">
+                        <div class="text-[10px] text-slate-500 uppercase font-sans font-medium">ATP Generation Rate
+                        </div>
+                        <div id="disp-atp-rate" class="text-xl font-bold text-amber-400 mt-1">3.4 mmol/s</div>
+                        <div class="text-[9px] text-slate-500 font-sans mt-0.5">Sustaining workload</div>
+                    </div>
+                </div>
+
+                <!-- Molecular Tally Comparison Bar -->
+                <div class="space-y-1.5 pt-1">
+                    <div class="flex justify-between text-[11px] font-mono">
+                        <span class="text-cyan-400">Mitochondrial (Aerobic): <b id="tally-aerobic">0</b></span>
+                        <span class="text-rose-400">LDH Lactic Acid (Anaerobic): <b id="tally-anaerobic">0</b></span>
+                    </div>
+                    <div class="w-full bg-slate-950 h-2.5 rounded-full overflow-hidden border border-slate-800 flex">
+                        <div id="tally-bar-aerobic" class="bg-cyan-500 h-full transition-all duration-300"
+                            style="width: 100%;"></div>
+                        <div id="tally-bar-anaerobic" class="bg-rose-500 h-full transition-all duration-300"
+                            style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Biochemical Concept Callout -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl text-xs space-y-2">
+                <div class="flex items-center gap-2 font-bold text-amber-400">
+                    <i data-lucide="lightbulb" class="w-4 h-4"></i>
+                    <span>The Key Step 6 Biochemical Insight</span>
+                </div>
+                <p class="text-slate-300 leading-relaxed text-[11px]">
+                    Why do muscles convert Pyruvate into Lactic Acid if it causes acidosis?
+                    <br>
+                    <strong class="text-cyan-300">To regenerate NAD⁺!</strong> Without oxygen, NADH accumulates and
+                    stalls glyceraldehyde-3-phosphate dehydrogenase (Step 6 of glycolysis). The LDH reaction recycles
+                    NAD⁺ so ATP synthesis can continue during life-or-death explosive efforts.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Slide-Out Scientific Reference Drawer -->
+    <div id="theory-drawer"
+        class="fixed inset-y-0 right-0 z-50 w-full sm:w-[480px] bg-slate-900/98 backdrop-blur-xl border-l border-slate-800 shadow-2xl p-6 overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+            <div class="flex items-center gap-2">
+                <i data-lucide="book-marked" class="w-5 h-5 text-cyan-400"></i>
+                <h3 class="font-bold text-white text-base">Exercise Physiology Reference Guide</h3>
+            </div>
+            <button id="btn-close-theory"
+                class="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <div class="space-y-5 text-xs text-slate-300 leading-relaxed">
+            <!-- Section 1 -->
+            <div class="space-y-1.5">
+                <h4 class="font-bold text-cyan-300 text-sm flex items-center gap-1.5">
+                    <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-cyan-400"></i>
+                    1. The Metabolic Fate of Pyruvate (3C)
+                </h4>
+                <p class="text-slate-400">
+                    Glycolysis cleaves 1 glucose molecule into two 3-carbon pyruvate molecules. Pyruvate’s destination
+                    depends strictly on <strong>exercise intensity</strong> and <strong>mitochondrial oxygen
+                        availability</strong>:
+                </p>
+                <ul class="list-disc pl-5 space-y-1 text-slate-300">
+                    <li><strong>Slow (Aerobic) Glycolysis:</strong> Pyruvate crosses the double mitochondrial membrane
+                        into the matrix, where <em>pyruvate dehydrogenase (PDH)</em> converts it to Acetyl-CoA for the
+                        Krebs cycle.</li>
+                    <li><strong>Fast (Anaerobic) Glycolysis:</strong> When ATP demands surpass mitochondrial speed,
+                        pyruvate remains in the sarcoplasm and is reduced by <em>lactate dehydrogenase (LDH)</em>.</li>
+                </ul>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="space-y-1.5 p-3 rounded-xl bg-slate-950 border border-slate-800 font-mono">
+                <h4 class="font-bold text-amber-300 text-xs uppercase font-sans">Key Biochemical Equations</h4>
+                <div class="space-y-2 mt-2 text-[11px]">
+                    <div>
+                        <span class="text-slate-500 block text-[10px]">LDH Reduction Reaction:</span>
+                        <span class="text-rose-300">Pyruvate + NADH + H⁺ ⇌ Lactic Acid + NAD⁺</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block text-[10px]">Instantaneous Sarcoplasmic Dissociation:</span>
+                        <span class="text-amber-300">Lactic Acid (C₃H₆O₃) ⇌ Lactate⁻ (C₃H₅O₃⁻) + H⁺</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block text-[10px]">Net Result:</span>
+                        <span class="text-emerald-300">NAD⁺ is salvaged for Step 6, but free H⁺ induces acidosis.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="space-y-1.5">
+                <h4 class="font-bold text-rose-400 text-sm flex items-center gap-1.5">
+                    <i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-rose-400"></i>
+                    2. The 3 Mechanisms of Intramuscular Acidosis Fatigue
+                </h4>
+                <p class="text-slate-400">
+                    Lactate itself does <em>not</em> cause fatigue or the burning sensation. The culprit is free
+                    <strong>hydrogen ions (H⁺)</strong>, which drop sarcoplasmic pH from 7.1 down to 6.45:
+                </p>
+                <ol class="list-decimal pl-5 space-y-1.5 text-slate-300">
+                    <li><strong>Enzyme Inhibition:</strong> High [H⁺] allosterically inhibits <em>phosphofructokinase
+                            (PFK)</em>, reducing glycolytic speed.</li>
+                    <li><strong>Impaired Excitation-Contraction Coupling:</strong> H⁺ competes directly with Ca²⁺ for
+                        the binding site on <em>Troponin C</em>, attenuating actin-myosin cross-bridge force.</li>
+                    <li><strong>Sensory Pain Stimulation:</strong> Free protons activate chemical nociceptors (pain
+                        sensory fibers) in the muscle bed, triggering the severe muscular "burn".</li>
+                </ol>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="space-y-1.5">
+                <h4 class="font-bold text-cyan-300 text-sm flex items-center gap-1.5">
+                    <i data-lucide="activity" class="w-3.5 h-3.5 text-cyan-400"></i>
+                    3. Untrained vs. Endurance-Trained Thresholds
+                </h4>
+                <p class="text-slate-400">
+                    In untrained individuals, mitochondrial density and capillary networks support aerobic sorting up to
+                    only <strong>50–60% V̇O₂max</strong>. In endurance-trained athletes, heightened mitochondrial volume
+                    and monocarboxylate transporter (MCT) expression delay the anaerobic threshold until <strong>75–85%
+                        V̇O₂max</strong>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Dimmer for Theory Drawer -->
+    <div id="drawer-backdrop" class="fixed inset-0 bg-slate-950/70 z-40 hidden backdrop-blur-sm transition-opacity">
+    </div>
+
+    <!-- Simulation JavaScript Engine -->
+    <script>
+        // --- Model State & Physiological Constants ---
+        const STATE = {
+            isRunning: false,
+            speed: 1,
+            profile: 'untrained', // 'untrained' (LT 55%) or 'trained' (LT 75%)
+            intensity: 40,        // % VO2max (0 to 100)
+            oxygen: 95,           // % (5 to 100)
+
+            // Dynamic Physiological Values
+            ph: 7.10,
+            lactate: 1.20,        // mmol/L
+            hPlus: 80,            // nmol/L
+            nadNadhRatio: 10.5,
+            mitoFlux: 42,         // %
+            atpRate: 3.4,         // mmol/s
+
+            // Accumulation counters
+            tallyAerobic: 0,
+            tallyAnaerobic: 0,
+
+            // Particle simulation array
+            particles: [],
+            particlesRecycledNAD: []
+        };
+
+        // Profiles Configuration
+        const PROFILES = {
+            untrained: { lt: 55, name: "Untrained Individual", maxMitoCapacity: 60 },
+            trained: { lt: 75, name: "Endurance-Trained Athlete", maxMitoCapacity: 85 }
+        };
+
+        // DOM Elements
+        const canvas = document.getElementById('bio-canvas');
+        const ctx = canvas.getContext('2d');
+        const canvasContainer = document.getElementById('canvas-container');
+
+        // Controls
+        const sliderIntensity = document.getElementById('slider-intensity');
+        const sliderOxygen = document.getElementById('slider-oxygen');
+        const valIntensity = document.getElementById('val-intensity');
+        const valOxygen = document.getElementById('val-oxygen');
+        const markerLt = document.getElementById('marker-lt');
+
+        const btnPlay = document.getElementById('btn-play');
+        const playIcon = document.getElementById('play-icon');
+        const playText = document.getElementById('play-text');
+        const btnInject = document.getElementById('btn-inject');
+        const btnReset = document.getElementById('btn-reset');
+
+        const btnSpeed1 = document.getElementById('btn-speed-1');
+        const btnSpeed2 = document.getElementById('btn-speed-2');
+        const btnSpeed3 = document.getElementById('btn-speed-3');
+
+        const btnProfileUntrained = document.getElementById('btn-profile-untrained');
+        const btnProfileTrained = document.getElementById('btn-profile-trained');
+
+        // Display Gauges
+        const dispPh = document.getElementById('disp-ph');
+        const dispHplus = document.getElementById('disp-hplus');
+        const phGaugeFill = document.getElementById('ph-gauge-fill');
+        const phStatusBadge = document.getElementById('ph-status-badge');
+        const phCard = document.getElementById('ph-card');
+        const acidosisMechText = document.getElementById('acidosis-mechanism-text');
+
+        const dispLactate = document.getElementById('disp-lactate');
+        const lactateSubtext = document.getElementById('lactate-subtext');
+        const dispRedox = document.getElementById('disp-redox');
+        const redoxSubtext = document.getElementById('redox-subtext');
+        const dispMitoFlux = document.getElementById('disp-mito-flux');
+        const dispAtpRate = document.getElementById('disp-atp-rate');
+
+        const tallyAerobicEl = document.getElementById('tally-aerobic');
+        const tallyAnaerobicEl = document.getElementById('tally-anaerobic');
+        const tallyBarAerobic = document.getElementById('tally-bar-aerobic');
+        const tallyBarAnaerobic = document.getElementById('tally-bar-anaerobic');
+
+        // State Banner Elements
+        const stateBanner = document.getElementById('state-banner');
+        const stateBadge = document.getElementById('state-badge');
+        const stateSubbadge = document.getElementById('state-subbadge');
+        const stateTitle = document.getElementById('state-title');
+        const stateDesc = document.getElementById('state-desc');
+        const stateIcon = document.getElementById('state-icon');
+        const stateNadStatus = document.getElementById('state-nad-status');
+
+        // Drawer Elements
+        const theoryDrawer = document.getElementById('theory-drawer');
+        const drawerBackdrop = document.getElementById('drawer-backdrop');
+        const btnToggleTheory = document.getElementById('btn-toggle-theory');
+        const btnCloseTheory = document.getElementById('btn-close-theory');
+
+        // --- Particle Class for Visual Simulation ---
+        class Molecule {
+            constructor(type, x, y, targetType) {
+                this.type = type; // 'pyruvate', 'acetyl_coa', 'lactate', 'h_plus', 'nad_plus'
+                this.x = x;
+                this.y = y;
+                this.targetType = targetType; // 'mito', 'ldh', 'step6', 'diffuse'
+                this.radius = type === 'h_plus' ? 3.5 : 6.5;
+                this.progress = 0;
+                this.speed = (0.006 + Math.random() * 0.004) * STATE.speed;
+                this.decay = 1.0;
+                this.active = true;
+
+                // Custom path waypoints based on canvas size
+                this.startX = x;
+                this.startY = y;
+                this.calculatePath();
+            }
+
+            calculatePath() {
+                const w = canvas.width / (window.devicePixelRatio || 1);
+                const h = canvas.height / (window.devicePixelRatio || 1);
+
+                if (this.targetType === 'mito') {
+                    // Flow toward bottom-right mitochondrial gate
+                    this.endX = w * 0.72 + (Math.random() * 60 - 30);
+                    this.endY = h * 0.72 + (Math.random() * 60 - 30);
+                    this.cpX = w * 0.45;
+                    this.cpY = h * 0.35;
+                } else if (this.targetType === 'ldh') {
+                    // Flow toward top-right LDH enzyme site
+                    this.endX = w * 0.78 + (Math.random() * 40 - 20);
+                    this.endY = h * 0.28 + (Math.random() * 40 - 20);
+                    this.cpX = w * 0.50;
+                    this.cpY = h * 0.15;
+                } else if (this.targetType === 'step6') {
+                    // Recycled NAD+ looping back to glycolysis site on top-left
+                    this.endX = w * 0.16 + (Math.random() * 40 - 20);
+                    this.endY = h * 0.32 + (Math.random() * 40 - 20);
+                    this.cpX = w * 0.45;
+                    this.cpY = h * 0.08;
+                } else {
+                    // Diffusing H+ / Lactate
+                    this.endX = this.startX + (Math.random() * 140 - 70);
+                    this.endY = this.startY + (Math.random() * 140 - 70);
+                    this.cpX = (this.startX + this.endX) / 2;
+                    this.cpY = (this.startY + this.endY) / 2;
+                }
+            }
+
+            update() {
+                this.progress += this.speed * STATE.speed;
+                if (this.progress >= 1) {
+                    this.progress = 1;
+                    this.onArrival();
+                }
+
+                // Quadratic Bezier interpolation
+                const t = this.progress;
+                const invT = 1 - t;
+                this.x = invT * invT * this.startX + 2 * invT * t * this.cpX + t * t * this.endX;
+                this.y = invT * invT * this.startY + 2 * invT * t * this.cpY + t * t * this.endY;
+
+                if (this.targetType === 'diffuse') {
+                    this.decay -= 0.015 * STATE.speed;
+                    if (this.decay <= 0) this.active = false;
+                }
+            }
+
+            onArrival() {
+                if (this.type === 'pyruvate') {
+                    if (this.targetType === 'mito') {
+                        // Converts to Acetyl-CoA inside mitochondrion
+                        STATE.tallyAerobic++;
+                        spawnMolecule('acetyl_coa', this.x, this.y, 'diffuse');
+                    } else if (this.targetType === 'ldh') {
+                        // Converts to Lactate- + H+ and regenerates NAD+
+                        STATE.tallyAnaerobic++;
+                        spawnMolecule('lactate', this.x, this.y, 'diffuse');
+                        spawnMolecule('h_plus', this.x, this.y, 'diffuse');
+                        // Recycle NAD+ back to Step 6
+                        spawnMolecule('nad_plus', this.x, this.y, 'step6');
+                    }
+                    this.active = false;
+                } else if (this.type === 'nad_plus') {
+                    // Reached Step 6 site, successfully refreshed
+                    this.active = false;
+                }
+            }
+
+            draw(c) {
+                c.save();
+                c.globalAlpha = Math.max(0, this.decay);
+
+                if (this.type === 'pyruvate') {
+                    // Amber glowing 3C particle
+                    c.fillStyle = '#fbbf24';
+                    c.shadowColor = 'rgba(251, 191, 36, 0.6)';
+                    c.shadowBlur = 8;
+                    c.beginPath();
+                    c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    c.fill();
+
+                    c.fillStyle = '#78350f';
+                    c.font = 'bold 7px Inter, sans-serif';
+                    c.textAlign = 'center';
+                    c.textBaseline = 'middle';
+                    c.fillText('3C', this.x, this.y);
+                } else if (this.type === 'acetyl_coa') {
+                    // Cyan glowing 2C particle
+                    c.fillStyle = '#22d3ee';
+                    c.shadowColor = 'rgba(34, 211, 238, 0.7)';
+                    c.shadowBlur = 9;
+                    c.beginPath();
+                    c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    c.fill();
+
+                    c.fillStyle = '#083344';
+                    c.font = 'bold 7px Inter, sans-serif';
+                    c.textAlign = 'center';
+                    c.textBaseline = 'middle';
+                    c.fillText('2C', this.x, this.y);
+                } else if (this.type === 'lactate') {
+                    // Rose glowing Lactate anion
+                    c.fillStyle = '#f43f5e';
+                    c.shadowColor = 'rgba(244, 63, 94, 0.6)';
+                    c.shadowBlur = 8;
+                    c.beginPath();
+                    c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    c.fill();
+
+                    c.fillStyle = '#ffffff';
+                    c.font = 'bold 6px Inter, sans-serif';
+                    c.textAlign = 'center';
+                    c.textBaseline = 'middle';
+                    c.fillText('La⁻', this.x, this.y);
+                } else if (this.type === 'h_plus') {
+                    // Intense small red/magenta H+ proton
+                    c.fillStyle = '#fb7185';
+                    c.shadowColor = '#f43f5e';
+                    c.shadowBlur = 6;
+                    c.beginPath();
+                    c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    c.fill();
+                } else if (this.type === 'nad_plus') {
+                    // Emerald green particle returning to Step 6
+                    c.fillStyle = '#10b981';
+                    c.shadowColor = 'rgba(16, 185, 129, 0.8)';
+                    c.shadowBlur = 8;
+                    c.beginPath();
+                    c.arc(this.x, this.y, 5, 0, Math.PI * 2);
+                    c.fill();
+
+                    c.fillStyle = '#022c22';
+                    c.font = 'bold 6px Inter, sans-serif';
+                    c.textAlign = 'center';
+                    c.textBaseline = 'middle';
+                    c.fillText('NAD⁺', this.x, this.y);
+                }
+
+                c.restore();
+            }
+        }
+
+        function spawnMolecule(type, x, y, targetType) {
+            STATE.particles.push(new Molecule(type, x, y, targetType));
+        }
+
+        // --- Responsive Canvas Resizing ---
+        function resizeCanvas() {
+            const dpr = window.devicePixelRatio || 1;
+            const rect = canvasContainer.getBoundingClientRect();
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.resetTransform();
+            ctx.scale(dpr, dpr);
+        }
+
+        // --- Mathematical Bioenergetics Model ---
+        function updatePhysiology() {
+            const currentProfile = PROFILES[STATE.profile];
+            const ltThreshold = currentProfile.lt;
+
+            // Factors
+            const intensityFactor = STATE.intensity / 100.0;
+            const oxygenFactor = STATE.oxygen / 100.0;
+
+            // Effective mitochondrial oxidative capacity limit
+            // If oxygen drops or intensity exceeds threshold, mitochondrial capacity bottlenecks
+            const mitoMaxCapacity = (currentProfile.maxMitoCapacity / 100.0) * oxygenFactor;
+
+            // Determine pathway partitioning
+            let aerobicFraction = 0;
+            if (intensityFactor <= mitoMaxCapacity) {
+                aerobicFraction = 1.0;
+            } else {
+                // Excess spills over to Fast Glycolysis (LDH)
+                aerobicFraction = Math.max(0.08, mitoMaxCapacity / intensityFactor);
+            }
+
+            // If hypoxic (< 40% O2), mitochondrial flux drops steeply
+            if (oxygenFactor < 0.4) {
+                aerobicFraction *= (oxygenFactor / 0.4);
+            }
+
+            const anaerobicFraction = 1.0 - aerobicFraction;
+
+            // Target Physiological Values
+            // 1. Sarcoplasmic pH: Drops from 7.10 down to ~6.45 during extreme anaerobic drive
+            const targetPh = 7.10 - (anaerobicFraction * 0.65) * Math.min(1.0, STATE.intensity / 50.0);
+            STATE.ph += (targetPh - STATE.ph) * 0.05 * STATE.speed;
+
+            // 2. Intracellular Lactate: 1.0 up to 16.5 mmol/L
+            const targetLactate = 1.0 + (anaerobicFraction * 15.5) * (STATE.intensity / 80.0);
+            STATE.lactate += (targetLactate - STATE.lactate) * 0.05 * STATE.speed;
+
+            // 3. Free H+ concentration: Calculated directly from pH: [H+] = 10^(9 - pH) nmol/L
+            STATE.hPlus = Math.round(Math.pow(10, 9 - STATE.ph));
+
+            // 4. Redox ratio NAD+/NADH
+            // Under high LDH recycling, ratio stays viable (4:1 to 11:1); if hypoxic without LDH it crashes
+            const targetRedox = Math.max(2.5, 11.0 - (anaerobicFraction * 6.5));
+            STATE.nadNadhRatio += (targetRedox - STATE.nadNadhRatio) * 0.05;
+
+            // 5. Mito Flux (%)
+            STATE.mitoFlux = Math.round(Math.min(100, (aerobicFraction * intensityFactor * 130)));
+
+            // 6. ATP Rate
+            STATE.atpRate = (1.5 + intensityFactor * 7.5).toFixed(1);
+
+            return { aerobicFraction, anaerobicFraction, ltThreshold };
+        }
+
+        // --- Particle Spawning Engine ---
+        let spawnTimer = 0;
+        function handleParticleEmissions(aerobicFraction) {
+            if (!STATE.isRunning) return;
+
+            // Spawning frequency proportional to intensity
+            const spawnInterval = Math.max(3, Math.round(18 - (STATE.intensity / 100) * 14));
+            spawnTimer++;
+
+            if (spawnTimer >= spawnInterval) {
+                spawnTimer = 0;
+
+                const w = canvas.width / (window.devicePixelRatio || 1);
+                const h = canvas.height / (window.devicePixelRatio || 1);
+
+                // Origin at Glycolysis site (top-left)
+                const originX = w * 0.16 + (Math.random() * 20 - 10);
+                const originY = h * 0.35 + (Math.random() * 20 - 10);
+
+                // Partition according to current aerobic vs anaerobic fractions
+                const goesAerobic = Math.random() < aerobicFraction;
+                const target = goesAerobic ? 'mito' : 'ldh';
+
+                spawnMolecule('pyruvate', originX, originY, target);
+            }
+        }
+
+        // --- Canvas Rendering Loop ---
+        function renderCanvas() {
+            const w = canvas.width / (window.devicePixelRatio || 1);
+            const h = canvas.height / (window.devicePixelRatio || 1);
+
+            ctx.clearRect(0, 0, w, h);
+
+            // 1. Dynamic Sarcoplasm Ambient Background Color (Color shifts based on pH)
+            // Normal: Deep slate blue / teal (pH 7.1) -> Severe Acidosis: Dark crimson / amber (pH 6.45)
+            const acidRatio = Math.max(0, Math.min(1, (7.10 - STATE.ph) / 0.65));
+            const r = Math.round(10 + acidRatio * 45);
+            const g = Math.round(18 - acidRatio * 10);
+            const b = Math.round(30 - acidRatio * 18);
+            ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+            ctx.fillRect(0, 0, w, h);
+
+            // Subtle cellular grid pattern
+            ctx.strokeStyle = `rgba(255, 255, 255, 0.03)`;
+            ctx.lineWidth = 1;
+            const gridSize = 32;
+            for (let x = 0; x < w; x += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, h);
+                ctx.stroke();
+            }
+            for (let y = 0; y < h; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(w, y);
+                ctx.stroke();
+            }
+
+            // 2. Draw Glycolytic Entry Hub (Top Left)
+            ctx.save();
+            ctx.strokeStyle = '#38bdf8';
+            ctx.lineWidth = 2;
+            ctx.fillStyle = 'rgba(14, 165, 233, 0.08)';
+            ctx.beginPath();
+            ctx.roundRect(w * 0.04, h * 0.18, w * 0.25, h * 0.40, 16);
+            ctx.fill();
+            ctx.stroke();
+
+            // Label inside Glycolysis Hub
+            ctx.fillStyle = '#38bdf8';
+            ctx.font = 'bold 11px Inter, sans-serif';
+            ctx.fillText('GLYCOLYSIS HUB', w * 0.06, h * 0.25);
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '9px JetBrains Mono, monospace';
+            ctx.fillText('Glucose (6C) → 2 Pyruvate', w * 0.06, h * 0.31);
+
+            // Step 6 GAPDH Indicator Tag
+            ctx.fillStyle = 'rgba(16, 185, 129, 0.2)';
+            ctx.strokeStyle = 'rgba(16, 185, 129, 0.6)';
+            ctx.beginPath();
+            ctx.roundRect(w * 0.06, h * 0.38, w * 0.21, 28, 6);
+            ctx.fill();
+            ctx.stroke();
+            ctx.fillStyle = '#34d399';
+            ctx.font = 'bold 9px JetBrains Mono, monospace';
+            ctx.fillText('Step 6 (GAPDH) ⟵ NAD⁺', w * 0.075, h * 0.44);
+            ctx.restore();
+
+            // 3. Draw Mitochondrial Double-Membrane Organelle (Bottom Right)
+            ctx.save();
+            const mitoX = w * 0.60;
+            const mitoY = h * 0.50;
+            const mitoW = w * 0.36;
+            const mitoH = h * 0.44;
+
+            // Outer membrane
+            ctx.fillStyle = 'rgba(6, 182, 212, 0.08)';
+            ctx.strokeStyle = 'rgba(6, 182, 212, 0.6)';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.roundRect(mitoX, mitoY, mitoW, mitoH, 24);
+            ctx.fill();
+            ctx.stroke();
+
+            // Inner cristae wavy membranes
+            ctx.strokeStyle = 'rgba(6, 182, 212, 0.25)';
+            ctx.lineWidth = 2;
+            for (let i = 1; i <= 3; i++) {
+                const yOff = mitoY + (mitoH * (i / 4));
+                ctx.beginPath();
+                ctx.moveTo(mitoX + 16, yOff);
+                ctx.bezierCurveTo(mitoX + mitoW * 0.3, yOff - 12, mitoX + mitoW * 0.7, yOff + 12, mitoX + mitoW - 16, yOff);
+                ctx.stroke();
+            }
+
+            // Pyruvate Dehydrogenase (PDH) Entry Gate
+            ctx.fillStyle = '#06b6d4';
+            ctx.shadowColor = '#06b6d4';
+            ctx.shadowBlur = 8;
+            ctx.beginPath();
+            ctx.arc(mitoX + 12, mitoY + mitoH * 0.35, 9, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            ctx.fillStyle = '#e0f2fe';
+            ctx.font = 'bold 9px Inter, sans-serif';
+            ctx.fillText('PDH', mitoX + 26, mitoY + mitoH * 0.38);
+
+            ctx.fillStyle = '#22d3ee';
+            ctx.font = 'bold 11px Inter, sans-serif';
+            ctx.fillText('MITOCHONDRIA', mitoX + 24, mitoY + 24);
+            ctx.fillStyle = '#67e8f9';
+            ctx.font = '9px JetBrains Mono, monospace';
+            ctx.fillText('Acetyl-CoA → Krebs Cycle + ETC', mitoX + 24, mitoY + 38);
+            ctx.restore();
+
+            // 4. Draw Lactate Dehydrogenase (LDH) Complex (Top Right)
+            ctx.save();
+            const ldhX = w * 0.64;
+            const ldhY = h * 0.12;
+            const ldhW = w * 0.32;
+            const ldhH = h * 0.30;
+
+            const isLdhActive = (STATE.intensity > PROFILES[STATE.profile].lt) || (STATE.oxygen < 60);
+
+            ctx.fillStyle = isLdhActive ? 'rgba(244, 63, 94, 0.12)' : 'rgba(30, 41, 59, 0.3)';
+            ctx.strokeStyle = isLdhActive ? '#f43f5e' : '#475569';
+            ctx.lineWidth = isLdhActive ? 2 : 1.5;
+            ctx.beginPath();
+            ctx.roundRect(ldhX, ldhY, ldhW, ldhH, 20);
+            ctx.fill();
+            ctx.stroke();
+
+            // LDH Enzyme Icon Indicator
+            ctx.fillStyle = isLdhActive ? '#f43f5e' : '#64748b';
+            ctx.shadowColor = isLdhActive ? '#f43f5e' : 'transparent';
+            ctx.shadowBlur = isLdhActive ? 12 : 0;
+            ctx.beginPath();
+            ctx.arc(ldhX + 24, ldhY + 24, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 10px Inter, sans-serif';
+            ctx.fillText('LDH COMPLEX (Sarcoplasm)', ldhX + 42, ldhY + 24);
+
+            ctx.fillStyle = isLdhActive ? '#fda4af' : '#94a3b8';
+            ctx.font = '9px JetBrains Mono, monospace';
+            ctx.fillText('Pyruvate + NADH + H⁺ ⇌ Lactic Acid', ldhX + 16, ldhY + 46);
+            ctx.fillText('Immediate dissociation: Lactate⁻ + H⁺', ldhX + 16, ldhY + 60);
+
+            // Active badge
+            if (isLdhActive) {
+                ctx.fillStyle = '#f43f5e';
+                ctx.font = 'bold 9px JetBrains Mono, monospace';
+                ctx.fillText('⚡ FAST GLYCOLYSIS ACCELERATING', ldhX + 16, ldhY + 80);
+            }
+            ctx.restore();
+
+            // 5. Draw Pathway Vectors (Dotted guide lines)
+            ctx.save();
+            ctx.setLineDash([4, 6]);
+
+            // Path A: Toward Mitochondria (Aerobic)
+            ctx.strokeStyle = 'rgba(6, 182, 212, 0.35)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(w * 0.28, h * 0.40);
+            ctx.quadraticCurveTo(w * 0.45, h * 0.38, mitoX + 12, mitoY + mitoH * 0.35);
+            ctx.stroke();
+
+            // Path B: Toward LDH (Anaerobic)
+            ctx.strokeStyle = 'rgba(244, 63, 94, 0.35)';
+            ctx.beginPath();
+            ctx.moveTo(w * 0.28, h * 0.36);
+            ctx.quadraticCurveTo(w * 0.50, h * 0.16, ldhX + 16, ldhY + 40);
+            ctx.stroke();
+
+            // Path C: Recycled NAD+ Loop (LDH back to Step 6)
+            ctx.strokeStyle = 'rgba(16, 185, 129, 0.4)';
+            ctx.beginPath();
+            ctx.moveTo(ldhX + 20, ldhY + 20);
+            ctx.quadraticCurveTo(w * 0.45, h * 0.06, w * 0.25, h * 0.38);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.restore();
+
+            // 6. Update & Draw All Flying Molecules
+            for (let i = STATE.particles.length - 1; i >= 0; i--) {
+                const p = STATE.particles[i];
+                p.update();
+                p.draw(ctx);
+                if (!p.active) {
+                    STATE.particles.splice(i, 1);
+                }
+            }
+        }
+
+        // --- Synchronize UI Elements ---
+        function updateUIElements(fractions) {
+            // 1. pH & H+ Gauge
+            dispPh.textContent = STATE.ph.toFixed(2);
+            dispHplus.textContent = `${STATE.hPlus} nmol/L`;
+
+            // Gauge fill width (7.10 is 95%, 6.40 is 8%)
+            const pct = Math.max(5, Math.min(95, ((STATE.ph - 6.35) / (7.15 - 6.35)) * 100));
+            phGaugeFill.style.width = `${pct}%`;
+
+            if (STATE.ph >= 6.95) {
+                phStatusBadge.textContent = "Optimal Resting";
+                phStatusBadge.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60";
+                phGaugeFill.className = "h-full rounded transition-all duration-200 bg-gradient-to-r from-cyan-500 to-emerald-400";
+                acidosisMechText.textContent = "Sarcoplasmic pH is within optimal resting limits (7.05 - 7.15). Troponin C binding affinity for Ca²⁺ is unimpaired and PFK catalytic activity is uninhibited.";
+            } else if (STATE.ph >= 6.70) {
+                phStatusBadge.textContent = "Mild Acidosis";
+                phStatusBadge.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800/60";
+                phGaugeFill.className = "h-full rounded transition-all duration-200 bg-gradient-to-r from-amber-500 to-yellow-400";
+                acidosisMechText.textContent = "Free H⁺ ions beginning to accumulate. Minimal competition with Ca²⁺ at troponin C. Sensory pain nerve receptors are receiving early acidic stimuli.";
+            } else {
+                phStatusBadge.textContent = "Severe Acidosis (Burn)";
+                phStatusBadge.className = "text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800/60 animate-pulse";
+                phGaugeFill.className = "h-full rounded transition-all duration-200 bg-gradient-to-r from-rose-600 via-rose-500 to-amber-500";
+                acidosisMechText.textContent = "CRITICAL METABOLIC FATIGUE: Excess H⁺ competitively inhibits Ca²⁺ binding to Troponin C, decreasing cross-bridge force. Direct allosteric shutdown of PFK halts rapid ATP synthesis.";
+            }
+
+            // 2. Kinetic Meters
+            dispLactate.textContent = `${STATE.lactate.toFixed(1)} mmol/L`;
+            if (STATE.lactate > 8.0) {
+                lactateSubtext.textContent = "Fast glycolysis surge (>8.0)";
+                lactateSubtext.className = "text-[9px] text-rose-400 font-sans mt-0.5 font-bold";
+            } else {
+                lactateSubtext.textContent = "Resting baseline (~1.0)";
+                lactateSubtext.className = "text-[9px] text-slate-500 font-sans mt-0.5";
+            }
+
+            dispRedox.textContent = `${STATE.nadNadhRatio.toFixed(1)} : 1`;
+            dispMitoFlux.textContent = `${STATE.mitoFlux} %`;
+            dispAtpRate.textContent = `${STATE.atpRate} mmol/s`;
+
+            // 3. Tally & Ratio Bar
+            tallyAerobicEl.textContent = STATE.tallyAerobic;
+            tallyAnaerobicEl.textContent = STATE.tallyAnaerobic;
+            const totalTally = STATE.tallyAerobic + STATE.tallyAnaerobic;
+            if (totalTally > 0) {
+                const aeroPct = (STATE.tallyAerobic / totalTally) * 100;
+                tallyBarAerobic.style.width = `${aeroPct}%`;
+                tallyBarAnaerobic.style.width = `${100 - aeroPct}%`;
+            }
+
+            // 4. State Banner Logic
+            const isAnaerobic = fractions.anaerobicFraction > 0.45;
+            if (!isAnaerobic) {
+                stateBanner.className = "rounded-2xl p-4 border transition-all duration-300 bg-cyan-950/20 border-cyan-800/60 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3";
+                stateBadge.textContent = "Slow (Aerobic) Glycolysis Dominant";
+                stateBadge.className = "px-2 py-0.5 rounded text-[10px] font-extrabold font-mono tracking-wider bg-cyan-900/60 text-cyan-300 border border-cyan-600/40 uppercase";
+                stateSubbadge.textContent = `Intensity (${STATE.intensity}%) ≤ LT (${fractions.ltThreshold}%)`;
+                stateTitle.textContent = "Mitochondrial Matrix Influx via Pyruvate Dehydrogenase (PDH)";
+                stateDesc.textContent = "Exercise intensity is well within mitochondrial capacity and cellular oxygen is sufficient. Pyruvate is smoothly transported into the matrix and converted to Acetyl-CoA. Intramuscular pH remains stable.";
+                stateIcon.setAttribute('data-lucide', 'shield-check');
+                stateNadStatus.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i> Plentiful (No GAPDH Block)`;
+                stateNadStatus.className = "text-xs font-bold text-emerald-400 font-mono flex items-center gap-1";
+            } else {
+                stateBanner.className = "rounded-2xl p-4 border transition-all duration-300 bg-rose-950/20 border-rose-800/60 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3";
+                stateBadge.textContent = "Fast (Anaerobic) Glycolysis Overload";
+                stateBadge.className = "px-2 py-0.5 rounded text-[10px] font-extrabold font-mono tracking-wider bg-rose-900/60 text-rose-300 border border-rose-600/40 uppercase";
+                stateSubbadge.textContent = `Intensity (${STATE.intensity}%) > LT (${fractions.ltThreshold}%) or Low O₂`;
+                stateTitle.textContent = "LDH Sarcoplasmic Reduction & Intracellular Acidosis";
+                stateDesc.textContent = "Mitochondrial rate is outstripped. Pyruvate is reduced into Lactic Acid by LDH in the sarcoplasm to recycle NAD⁺ for Step 6. Lactic acid instantly dissociates into Lactate⁻ and H⁺, causing muscular acidosis.";
+                stateIcon.setAttribute('data-lucide', 'flame');
+                stateNadStatus.innerHTML = `<i data-lucide="refresh-cw" class="w-3.5 h-3.5 animate-spin"></i> Rescuing Step 6 via LDH`;
+                stateNadStatus.className = "text-xs font-bold text-amber-400 font-mono flex items-center gap-1";
+            }
+            lucide.createIcons();
+        }
+
+        // --- Main Animation Frame Loop ---
+        function animationLoop() {
+            const fractions = updatePhysiology();
+            handleParticleEmissions(fractions.aerobicFraction);
+            renderCanvas();
+            updateUIElements(fractions);
+
+            requestAnimationFrame(animationLoop);
+        }
+
+        // --- Control Handlers ---
+        function setSimulationRunning(running) {
+            STATE.isRunning = running;
+            if (running) {
+                playText.textContent = "Pause Engine";
+                playIcon.setAttribute('data-lucide', 'pause');
+            } else {
+                playText.textContent = "Resume Engine";
+                playIcon.setAttribute('data-lucide', 'play');
+            }
+            lucide.createIcons();
+        }
+
+        btnPlay.addEventListener('click', () => {
+            setSimulationRunning(!STATE.isRunning);
+        });
+
+        btnInject.addEventListener('click', () => {
+            const w = canvas.width / (window.devicePixelRatio || 1);
+            const h = canvas.height / (window.devicePixelRatio || 1);
+            const fractions = updatePhysiology();
+
+            // Burst of 8 molecules
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const originX = w * 0.16 + (Math.random() * 24 - 12);
+                    const originY = h * 0.35 + (Math.random() * 24 - 12);
+                    const goesAerobic = Math.random() < fractions.aerobicFraction;
+                    spawnMolecule('pyruvate', originX, originY, goesAerobic ? 'mito' : 'ldh');
+                }, i * 60);
+            }
+        });
+
+        btnReset.addEventListener('click', () => {
+            STATE.ph = 7.10;
+            STATE.lactate = 1.20;
+            STATE.hPlus = 80;
+            STATE.nadNadhRatio = 10.5;
+            STATE.tallyAerobic = 0;
+            STATE.tallyAnaerobic = 0;
+            STATE.particles = [];
+            updateUIElements(updatePhysiology());
+        });
+
+        // Speed Controls
+        function setSpeed(s) {
+            STATE.speed = s;
+            [btnSpeed1, btnSpeed2, btnSpeed3].forEach(btn => {
+                btn.className = "px-2 py-0.5 rounded text-slate-400 hover:text-white text-[11px]";
+            });
+            if (s === 1) btnSpeed1.className = "px-2 py-0.5 rounded text-cyan-400 font-bold bg-slate-800 text-[11px]";
+            if (s === 2) btnSpeed2.className = "px-2 py-0.5 rounded text-cyan-400 font-bold bg-slate-800 text-[11px]";
+            if (s === 3) btnSpeed3.className = "px-2 py-0.5 rounded text-cyan-400 font-bold bg-slate-800 text-[11px]";
+        }
+        btnSpeed1.addEventListener('click', () => setSpeed(1));
+        btnSpeed2.addEventListener('click', () => setSpeed(2));
+        btnSpeed3.addEventListener('click', () => setSpeed(3));
+
+        // Intensity Slider
+        sliderIntensity.addEventListener('input', (e) => {
+            STATE.intensity = parseInt(e.target.value, 10);
+            valIntensity.textContent = `${STATE.intensity}% V̇O₂max`;
+        });
+
+        // Oxygen Slider
+        sliderOxygen.addEventListener('input', (e) => {
+            STATE.oxygen = parseInt(e.target.value, 10);
+            valOxygen.textContent = `${STATE.oxygen}% (${STATE.oxygen > 60 ? 'Normoxic' : (STATE.oxygen > 30 ? 'Hypoxic' : 'Ischemia')})`;
+        });
+
+        // Profile Buttons
+        function setProfile(p) {
+            STATE.profile = p;
+            if (p === 'untrained') {
+                btnProfileUntrained.className = "px-2.5 py-1 text-xs font-semibold rounded-lg bg-cyan-500 text-slate-950 shadow transition cursor-pointer";
+                btnProfileTrained.className = "px-2.5 py-1 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition cursor-pointer";
+                markerLt.textContent = "LT Threshold: 55%";
+            } else {
+                btnProfileTrained.className = "px-2.5 py-1 text-xs font-semibold rounded-lg bg-cyan-500 text-slate-950 shadow transition cursor-pointer";
+                btnProfileUntrained.className = "px-2.5 py-1 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition cursor-pointer";
+                markerLt.textContent = "LT Threshold: 75%";
+            }
+        }
+        btnProfileUntrained.addEventListener('click', () => setProfile('untrained'));
+        btnProfileTrained.addEventListener('click', () => setProfile('trained'));
+
+        // Preset Scenarios
+        document.getElementById('preset-zone2').addEventListener('click', () => {
+            sliderIntensity.value = 45;
+            STATE.intensity = 45;
+            valIntensity.textContent = "45% V̇O₂max";
+            sliderOxygen.value = 95;
+            STATE.oxygen = 95;
+            valOxygen.textContent = "95% (Normoxic)";
+            setSimulationRunning(true);
+        });
+
+        document.getElementById('preset-threshold').addEventListener('click', () => {
+            const lt = PROFILES[STATE.profile].lt;
+            sliderIntensity.value = lt + 3;
+            STATE.intensity = lt + 3;
+            valIntensity.textContent = `${lt + 3}% V̇O₂max`;
+            sliderOxygen.value = 95;
+            STATE.oxygen = 95;
+            valOxygen.textContent = "95% (Normoxic)";
+            setSimulationRunning(true);
+        });
+
+        document.getElementById('preset-sprint').addEventListener('click', () => {
+            sliderIntensity.value = 95;
+            STATE.intensity = 95;
+            valIntensity.textContent = "95% V̇O₂max";
+            sliderOxygen.value = 90;
+            STATE.oxygen = 90;
+            valOxygen.textContent = "90% (Normoxic)";
+            setSimulationRunning(true);
+        });
+
+        document.getElementById('preset-hypoxia').addEventListener('click', () => {
+            sliderIntensity.value = 60;
+            STATE.intensity = 60;
+            valIntensity.textContent = "60% V̇O₂max";
+            sliderOxygen.value = 15;
+            STATE.oxygen = 15;
+            valOxygen.textContent = "15% (Ischemia)";
+            setSimulationRunning(true);
+        });
+
+        // Reference Drawer Toggle
+        function toggleDrawer(open) {
+            if (open) {
+                theoryDrawer.classList.remove('translate-x-full');
+                drawerBackdrop.classList.remove('hidden');
+            } else {
+                theoryDrawer.classList.add('translate-x-full');
+                drawerBackdrop.classList.add('hidden');
+            }
+        }
+        btnToggleTheory.addEventListener('click', () => toggleDrawer(true));
+        btnCloseTheory.addEventListener('click', () => toggleDrawer(false));
+        drawerBackdrop.addEventListener('click', () => toggleDrawer(false));
+
+        // Window Resize Event
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+        });
+
+        // --- Application Initialization ---
+        window.onload = function () {
+            lucide.createIcons();
+            resizeCanvas();
+            setSimulationRunning(true);
+            animationLoop();
+        };
+    </script>
+</body>
+
+</html>

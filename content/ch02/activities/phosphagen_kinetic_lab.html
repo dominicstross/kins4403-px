@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100m Sprint Bioenergetics & Phosphagen Simulator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Smooth range slider styling */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 22px;
+            width: 22px;
+            border-radius: 9999px;
+            background: #38bdf8;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
+            border: 2px solid #ffffff;
+            transition: transform 0.1s ease;
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+
+        /* Subtle pulse animation for active reaction enzyme */
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                opacity: 0.8;
+                filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.6));
+            }
+
+            50% {
+                opacity: 1;
+                filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.9));
+            }
+        }
+
+        .enzyme-active {
+            animation: pulse-glow 1.5s infinite;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Header -->
+    <header
+        class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-30 px-4 sm:px-8 py-3.5 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div
+                class="p-2 rounded-xl bg-gradient-to-tr from-cyan-500 to-amber-500 text-slate-950 shadow-lg shadow-cyan-500/20">
+                <i data-lucide="zap" class="w-5 h-5 stroke-[2.5]"></i>
+            </div>
+            <div>
+                <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                    Phosphagen Kinetic Lab
+                    <span
+                        class="text-xs font-semibold px-2 py-0.5 rounded-full bg-cyan-950 border border-cyan-700/50 text-cyan-300">Bioenergetics</span>
+                </h1>
+                <p class="text-xs text-slate-400 hidden sm:block">Intramuscular ATP-CP Buffering & Power Kinetics during
+                    Maximal 100-m Sprinting</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2 text-xs text-slate-400">
+            <span
+                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                Interactive Simulation
+            </span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+
+        <!-- Top Grid: Track & Bioenergetic Phase Banner -->
+        <section class="space-y-4">
+            <!-- Bioenergetic Phase Banner -->
+            <div id="phase-banner"
+                class="rounded-2xl p-4 sm:p-5 border transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 border-slate-800 shadow-xl">
+                <div class="flex items-start gap-3.5">
+                    <div id="phase-icon-container"
+                        class="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 shrink-0">
+                        <i id="phase-icon" data-lucide="activity" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs uppercase font-extrabold tracking-wider text-cyan-400"
+                                id="phase-step">PHASE 1 (0.0s – 2.0s)</span>
+                            <span id="phase-tag"
+                                class="px-2 py-0.2 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-950 text-emerald-400 border border-emerald-800/50">Pure
+                                Alactic</span>
+                        </div>
+                        <h2 id="phase-title" class="text-base sm:text-lg font-bold text-white mt-0.5">Initial Stored
+                            Intramuscular ATP Utilization</h2>
+                        <p id="phase-desc" class="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl leading-relaxed">
+                            Muscular mechanical work is directly fueled by free sarcoplasmic ATP (~5.5 mmol/kg).
+                            Creatine Kinase flux is primed as ADP begins accumulating.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="flex md:flex-col items-center md:items-end justify-between border-t md:border-t-0 pt-3 md:pt-0 border-slate-800/70 gap-1 shrink-0">
+                    <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Primary Energy
+                        Vector</span>
+                    <div id="phase-primary-fuel" class="text-sm font-bold text-cyan-300 font-mono">Stored Free ATP Pool
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sprint Track Animation Canvas & Visualization -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl relative overflow-hidden">
+                <div class="flex items-center justify-between mb-3 text-xs text-slate-400 font-semibold tracking-wide">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="navigation" class="w-4 h-4 text-cyan-400 rotate-90"></i>
+                        <span>TRACK DISTANCE ACCELERATION (0 – 100m)</span>
+                    </div>
+                    <div class="font-mono text-cyan-400" id="track-readout">0.0 m | 0.00 m/s</div>
+                </div>
+
+                <!-- Track Canvas Container -->
+                <div
+                    class="relative w-full h-24 bg-gradient-to-b from-amber-950/20 via-orange-950/30 to-amber-950/10 rounded-xl border border-amber-900/30 overflow-hidden flex items-center px-4">
+                    <!-- Distance Markers -->
+                    <div class="absolute inset-0 flex justify-between px-6 pointer-events-none opacity-40">
+                        <div
+                            class="border-l border-dashed border-amber-500/40 h-full flex flex-col justify-end pb-1 text-[10px] font-mono text-amber-300">
+                            0m</div>
+                        <div
+                            class="border-l border-dashed border-amber-500/40 h-full flex flex-col justify-end pb-1 text-[10px] font-mono text-amber-300">
+                            20m</div>
+                        <div
+                            class="border-l border-dashed border-amber-500/40 h-full flex flex-col justify-end pb-1 text-[10px] font-mono text-amber-300">
+                            40m</div>
+                        <div
+                            class="border-l border-dashed border-amber-500/40 h-full flex flex-col justify-end pb-1 text-[10px] font-mono text-amber-300">
+                            60m</div>
+                        <div
+                            class="border-l border-dashed border-amber-500/40 h-full flex flex-col justify-end pb-1 text-[10px] font-mono text-amber-300">
+                            80m</div>
+                        <div
+                            class="border-l border-dashed border-amber-500/40 h-full flex flex-col justify-end pb-1 text-[10px] font-mono text-amber-300">
+                            100m</div>
+                    </div>
+
+                    <!-- Running Track Lane Line -->
+                    <div class="absolute left-0 right-0 h-1 bg-white/10 top-1/2 -translate-y-1/2"></div>
+
+                    <!-- Runner Avatar Pin -->
+                    <div id="runner-avatar"
+                        class="relative z-10 transition-transform duration-75 ease-out flex flex-col items-center"
+                        style="transform: translateX(0px);">
+                        <div
+                            class="px-2 py-0.5 rounded bg-cyan-500 text-slate-950 font-mono font-bold text-[10px] shadow-md shadow-cyan-500/40 mb-1 whitespace-nowrap">
+                            <span id="runner-dist-tag">0.0 m</span>
+                        </div>
+                        <div
+                            class="w-9 h-9 rounded-full bg-gradient-to-tr from-cyan-500 to-sky-300 text-slate-950 flex items-center justify-center shadow-lg shadow-cyan-500/50 border-2 border-white">
+                            <i data-lucide="flame" class="w-5 h-5 fill-slate-950"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Scrubbing & Controls -->
+                <div class="mt-5 space-y-3">
+                    <div class="flex items-center gap-3">
+                        <button id="btn-play"
+                            class="flex items-center justify-center gap-2 px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl transition duration-150 shadow-lg shadow-cyan-500/20 active:scale-95 text-sm cursor-pointer">
+                            <i data-lucide="play" id="play-icon" class="w-4 h-4 fill-slate-950"></i>
+                            <span id="play-text">Start Sprint</span>
+                        </button>
+                        <button id="btn-reset"
+                            class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl transition duration-150 border border-slate-700 text-sm flex items-center gap-1.5 cursor-pointer">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                            <span>Reset</span>
+                        </button>
+                        <div
+                            class="flex-1 flex items-center justify-end font-mono text-sm sm:text-base gap-1 text-slate-300">
+                            <span class="text-xs text-slate-500 font-sans uppercase font-bold mr-1">Elapsed Time:</span>
+                            <span id="time-display" class="font-bold text-cyan-400 text-lg w-16 text-right">0.00</span>
+                            <span class="text-xs text-slate-500">s / 12.0s</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider Bar -->
+                    <div class="relative pt-1">
+                        <input type="range" id="time-slider" min="0" max="12" step="0.05" value="0"
+                            class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer outline-none focus:ring-2 focus:ring-cyan-500">
+                        <div class="flex justify-between text-[11px] font-mono text-slate-500 px-1 mt-1">
+                            <span>0.0s (Gun)</span>
+                            <span>2.0s</span>
+                            <span>5.0s</span>
+                            <span>10.0s (Alactic Ceiling)</span>
+                            <span>12.0s (Decel)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Center Section: Biological Pools & Creatine Kinase Engine -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            <!-- Tank 1: Free ATP Pool -->
+            <div
+                class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col justify-between relative overflow-hidden">
+                <div
+                    class="absolute -right-6 -bottom-6 w-24 h-24 bg-cyan-500/5 rounded-full blur-xl pointer-events-none">
+                </div>
+                <div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-cyan-400 shadow shadow-cyan-400"></span>
+                            <h3 class="font-bold text-white text-base">Intramuscular ATP Pool</h3>
+                        </div>
+                        <span
+                            class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300">Immediate
+                            Fuel</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">Direct fuel for cross-bridge power strokes. Tightly buffered
+                        by CP resynthesis.</p>
+
+                    <!-- Digital Readout -->
+                    <div class="mt-4 flex items-baseline gap-2">
+                        <span id="atp-val"
+                            class="text-3xl font-extrabold font-mono text-cyan-400 tracking-tight">5.50</span>
+                        <span class="text-xs text-slate-400">mmol / kg wet mass</span>
+                    </div>
+                    <div class="text-[11px] text-slate-500 flex items-center justify-between mt-0.5 font-mono">
+                        <span>Resting: 5.50 mmol/kg</span>
+                        <span id="atp-depletion-pct" class="text-cyan-300 font-semibold">-0.0%</span>
+                    </div>
+
+                    <!-- Vertical Gauge Graphic -->
+                    <div class="mt-4 bg-slate-950 p-2.5 rounded-xl border border-slate-800/80">
+                        <div class="flex justify-between text-[11px] text-slate-400 mb-1.5 font-mono">
+                            <span>Buffer Capacity</span>
+                            <span id="atp-status-label" class="text-emerald-400 font-medium">Optimal Buffering</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-6 rounded-lg overflow-hidden relative">
+                            <div id="atp-bar"
+                                class="h-full bg-gradient-to-r from-sky-500 to-cyan-400 transition-all duration-75 rounded-lg flex items-center justify-end pr-2 text-[10px] font-bold text-slate-950 font-mono"
+                                style="width: 100%;">
+                            </div>
+                            <!-- 20-30% buffer safe line indicator -->
+                            <div class="absolute top-0 bottom-0 left-[70%] border-r border-dashed border-red-500/70"
+                                title="Max buffer depletion limit (30%)"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Note tooltip footer -->
+                <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center gap-2 text-xs text-slate-400">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                    <span>Drops only <strong>20–25%</strong> even during maximal sprints due to rapid CP
+                        phosphorylation.</span>
+                </div>
+            </div>
+
+            <!-- Tank 2: Creatine Phosphate (CP) Reservoir -->
+            <div
+                class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col justify-between relative overflow-hidden">
+                <div
+                    class="absolute -right-6 -bottom-6 w-24 h-24 bg-amber-500/5 rounded-full blur-xl pointer-events-none">
+                </div>
+                <div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-amber-400 shadow shadow-amber-400"></span>
+                            <h3 class="font-bold text-white text-base">Phosphocreatine (CP) Pool</h3>
+                        </div>
+                        <span
+                            class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300">Phosphate
+                            Donor</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">High-energy biochemical reservoir that regenerates ATP via
+                        Creatine Kinase.</p>
+
+                    <!-- Digital Readout -->
+                    <div class="mt-4 flex items-baseline gap-2">
+                        <span id="cp-val"
+                            class="text-3xl font-extrabold font-mono text-amber-400 tracking-tight">17.50</span>
+                        <span class="text-xs text-slate-400">mmol / kg wet mass</span>
+                    </div>
+                    <div class="text-[11px] text-slate-500 flex items-center justify-between mt-0.5 font-mono">
+                        <span>Resting: 17.50 mmol/kg</span>
+                        <span id="cp-depletion-pct" class="text-amber-300 font-semibold">-0.0%</span>
+                    </div>
+
+                    <!-- Vertical Gauge Graphic -->
+                    <div class="mt-4 bg-slate-950 p-2.5 rounded-xl border border-slate-800/80">
+                        <div class="flex justify-between text-[11px] text-slate-400 mb-1.5 font-mono">
+                            <span>Depletion Status</span>
+                            <span id="cp-status-label" class="text-emerald-400 font-medium">100% Available</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-6 rounded-lg overflow-hidden relative">
+                            <div id="cp-bar"
+                                class="h-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-300 transition-all duration-75 rounded-lg flex items-center justify-end pr-2 text-[10px] font-bold text-slate-950 font-mono"
+                                style="width: 100%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Note tooltip footer -->
+                <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center gap-2 text-xs text-slate-400">
+                    <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                    <span>Exhausts by <strong>&gt;85%</strong> in 10–12s, triggering acute glycolytic fatigue and
+                        velocity drop.</span>
+                </div>
+            </div>
+
+            <!-- Tank 3: Enzymatic Coupling & Reaction State -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-white text-base flex items-center gap-2">
+                            <i data-lucide="repeat" class="w-4 h-4 text-emerald-400"></i>
+                            Creatine Kinase Coupled Flux
+                        </h3>
+                        <span id="enzyme-status-badge"
+                            class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">CK
+                            Active</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">Single-step exergonic re-phosphorylation reaction in
+                        sarcoplasm:</p>
+
+                    <!-- Biochemical Equation Box -->
+                    <div class="mt-3 p-3 bg-slate-950 border border-slate-800 rounded-xl font-mono text-center text-xs">
+                        <div class="text-slate-300 font-semibold mb-1">
+                            <span class="text-sky-300">ADP</span> + <span class="text-amber-300">CP</span>
+                            <span class="text-emerald-400 inline-block px-1 enzyme-active">⇌ [Creatine Kinase] ⇌</span>
+                            <span class="text-cyan-300">ATP</span> + <span class="text-indigo-300">Cr</span>
+                        </div>
+                        <div class="text-[10px] text-slate-500">ΔG°' = -43.1 kJ/mol (Exergonic High-Resynthesis Rate)
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Metabolite Split Counters -->
+                    <div class="grid grid-cols-2 gap-2 mt-4 font-mono">
+                        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800">
+                            <div class="text-[10px] text-slate-500 uppercase font-sans">Accumulated Free Cr</div>
+                            <div id="free-cr-val" class="text-lg font-bold text-indigo-400">0.0 mmol/kg</div>
+                            <div class="text-[9px] text-slate-500">Unphosphorylated Creatine</div>
+                        </div>
+                        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800">
+                            <div class="text-[10px] text-slate-500 uppercase font-sans">Mechanical Power</div>
+                            <div id="power-output-val" class="text-lg font-bold text-emerald-400">100.0 %</div>
+                            <div class="text-[9px] text-slate-500" id="power-subtext">Peak Alactic Drive</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="mt-4 pt-3 border-t border-slate-800/80 text-xs text-slate-400 flex items-center justify-between">
+                    <span class="flex items-center gap-1.5">
+                        <i data-lucide="flame" class="w-4 h-4 text-orange-400"></i>
+                        Acidosis: <strong id="acidosis-val" class="text-emerald-400 font-mono">None (Alactic)</strong>
+                    </span>
+                    <span class="font-mono text-[11px] text-slate-500" id="atp-rate-label">Max Resynthesis Flux</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Section: Graph & Coaching Diagnostics -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            <!-- Real-time Multi-Curve Graph (2 Columns) -->
+            <div
+                class="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col justify-between">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                    <div>
+                        <h3 class="font-bold text-white text-base flex items-center gap-2">
+                            <i data-lucide="line-chart" class="w-4 h-4 text-cyan-400"></i>
+                            Bioenergetic Kinetics vs. Time (0 – 12s)
+                        </h3>
+                        <p class="text-xs text-slate-400">Synchronized timeline plot showing ATP stability, CP crash,
+                            and mechanical power curve.</p>
+                    </div>
+                    <!-- Legend -->
+                    <div class="flex items-center gap-3 text-xs font-mono">
+                        <span class="flex items-center gap-1.5"><span
+                                class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span> ATP (mmol/kg)</span>
+                        <span class="flex items-center gap-1.5"><span
+                                class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> CP (mmol/kg)</span>
+                        <span class="flex items-center gap-1.5"><span
+                                class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> Power (%)</span>
+                    </div>
+                </div>
+
+                <!-- Canvas Container -->
+                <div
+                    class="relative w-full h-64 sm:h-72 bg-slate-950 rounded-xl border border-slate-800/90 overflow-hidden">
+                    <canvas id="kinetics-canvas" class="w-full h-full block cursor-crosshair"></canvas>
+                    <div class="absolute top-2 right-3 text-[10px] font-mono text-slate-500 pointer-events-none">Click
+                        or drag graph to scrub timeline</div>
+                </div>
+
+                <div class="flex justify-between items-center text-[11px] font-mono text-slate-500 mt-2 px-1">
+                    <span>0.0s (Gun)</span>
+                    <span class="text-amber-500/80">5.0s (50% CP Loss)</span>
+                    <span class="text-red-400 font-semibold">10.0s (Alactic Threshold)</span>
+                    <span>12.0s</span>
+                </div>
+            </div>
+
+            <!-- Coaching & Clinical Takeaways (1 Column) -->
+            <div
+                class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col justify-between space-y-4">
+                <div>
+                    <div class="flex items-center gap-2 text-cyan-400 font-bold text-base mb-2">
+                        <i data-lucide="book-open" class="w-5 h-5"></i>
+                        <h3>Exercise Physiology Insight</h3>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Why does intramuscular ATP concentration stay almost flat while CP plummets?
+                    </p>
+
+                    <div class="space-y-3 mt-3 text-xs">
+                        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+                            <h4 class="font-bold text-cyan-300 flex items-center gap-1.5">
+                                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-cyan-400"></i>
+                                The ATP Buffering Paradox
+                            </h4>
+                            <p class="text-slate-400 mt-1 leading-normal">
+                                Resting muscle only has enough free ATP for <strong>1–2 seconds</strong> of maximal
+                                work. Creatine kinase re-phosphorylates ADP so rapidly that ATP drops less than 20–25%,
+                                preventing early cross-bridge rigor.
+                            </p>
+                        </div>
+
+                        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+                            <h4 class="font-bold text-amber-300 flex items-center gap-1.5">
+                                <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-amber-400"></i>
+                                The 10-Second Coaching Rule
+                            </h4>
+                            <p class="text-slate-400 mt-1 leading-normal">
+                                Between 5–10s, CP drops by 50–70%. By 10–12s, with CP depleted &gt;85%, cross-bridge
+                                velocity drops noticeably, forcing rapid reliance on anaerobic glycolysis (producing H⁺
+                                and lactate).
+                            </p>
+                        </div>
+
+                        <div class="p-3 rounded-xl bg-emerald-950/30 border border-emerald-800/40 text-emerald-200">
+                            <span class="font-bold block text-[11px] uppercase tracking-wider text-emerald-400">Program
+                                Design Prescription</span>
+                            To target pure neuromuscular explosive power without inducing acidosis, keep work bouts
+                            strictly <strong>≤ 10 seconds</strong> with full aerobic rest (2–5 minutes) to resynthesize
+                            CP stores.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Interactive JavaScript Engine -->
+    <script>
+        // --- Model Constants & Bioenergetic Equations ---
+        const RESTING_ATP = 5.5;  // mmol/kg wet tissue
+        const RESTING_CP = 17.5; // mmol/kg wet tissue
+        const MAX_TIME = 12.0; // seconds
+
+        // Simulation State
+        let currentTime = 0.0;
+        let isPlaying = false;
+        let animFrameId = null;
+        let lastTimestamp = null;
+
+        // DOM Elements
+        const timeSlider = document.getElementById('time-slider');
+        const timeDisplay = document.getElementById('time-display');
+        const btnPlay = document.getElementById('btn-play');
+        const playText = document.getElementById('play-text');
+        const playIcon = document.getElementById('play-icon');
+        const btnReset = document.getElementById('btn-reset');
+
+        const atpVal = document.getElementById('atp-val');
+        const atpBar = document.getElementById('atp-bar');
+        const atpDepletionPct = document.getElementById('atp-depletion-pct');
+        const atpStatusLabel = document.getElementById('atp-status-label');
+
+        const cpVal = document.getElementById('cp-val');
+        const cpBar = document.getElementById('cp-bar');
+        const cpDepletionPct = document.getElementById('cp-depletion-pct');
+        const cpStatusLabel = document.getElementById('cp-status-label');
+
+        const freeCrVal = document.getElementById('free-cr-val');
+        const powerOutputVal = document.getElementById('power-output-val');
+        const powerSubtext = document.getElementById('power-subtext');
+        const acidosisVal = document.getElementById('acidosis-val');
+        const atpRateLabel = document.getElementById('atp-rate-label');
+
+        const phaseBanner = document.getElementById('phase-banner');
+        const phaseStep = document.getElementById('phase-step');
+        const phaseTag = document.getElementById('phase-tag');
+        const phaseTitle = document.getElementById('phase-title');
+        const phaseDesc = document.getElementById('phase-desc');
+        const phasePrimary = document.getElementById('phase-primary-fuel');
+        const runnerAvatar = document.getElementById('runner-avatar');
+        const runnerDistTag = document.getElementById('runner-dist-tag');
+        const trackReadout = document.getElementById('track-readout');
+
+        const canvas = document.getElementById('kinetics-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // --- Mathematical Bioenergetic Functions ---
+        // Returns { atp, cp, power, distance, velocity } based on literature parameters
+        function calculateKineticState(t) {
+            // Clamped time
+            const time = Math.max(0, Math.min(MAX_TIME, t));
+
+            // 1. Creatine Phosphate Curve:
+            // 0 to 2s: small consumption (17.5 -> 16.8)
+            // 2 to 5s: rapid breakdown (16.8 -> 10.5)
+            // 5 to 10s: progressive deep depletion down to 5.0 - 2.5
+            // 10 to 12s: nearly exhausted (< 2.2)
+            let cp;
+            if (time <= 2.0) {
+                cp = RESTING_CP - (0.35 * time); // down to ~16.8 at 2s
+            } else if (time <= 5.0) {
+                // Fast drop
+                const progress = (time - 2.0) / 3.0;
+                cp = 16.8 - progress * (16.8 - 9.5); // down to 9.5 at 5s
+            } else if (time <= 10.0) {
+                const progress = (time - 5.0) / 5.0;
+                cp = 9.5 - progress * (9.5 - 3.2); // down to 3.2 at 10s (~82% depleted)
+            } else {
+                const progress = (time - 10.0) / 2.0;
+                cp = 3.2 - progress * (3.2 - 1.8); // down to ~1.8 at 12s (>90% depleted)
+            }
+
+            // 2. Intramuscular ATP Concentration Curve:
+            // Buffering phenomenon: Drops at most 20-25% from 5.5 to ~4.15 mmol/kg
+            let atp;
+            if (time <= 2.0) {
+                // slight initial drop from direct usage before maximal CK rate
+                atp = RESTING_ATP - 0.25 * (time / 2.0); // 5.50 -> 5.25
+            } else if (time <= 6.0) {
+                // buffered very stably by high CK flux
+                atp = 5.25 - 0.3 * ((time - 2.0) / 4.0); // 5.25 -> 4.95
+            } else if (time <= 10.0) {
+                // CP pool waning, slight drop
+                atp = 4.95 - 0.55 * ((time - 6.0) / 4.0); // 4.95 -> 4.40
+            } else {
+                // glycolytic handover phase
+                atp = 4.40 - 0.30 * ((time - 10.0) / 2.0); // 4.40 -> 4.10 (drops ~25% total)
+            }
+
+            // Free Creatine is inversely linked to CP breakdown (Conservation of Creatine pool)
+            const freeCr = RESTING_CP - cp;
+
+            // 3. Mechanical Power Output (%):
+            // Explosive acceleration up to peak at ~2.5 - 3.5s (100%)
+            // Maintains >92% through 5-6s, drops to ~78% at 10s, and drops sharply to ~60% by 12s
+            let power;
+            if (time < 1.0) {
+                power = 75 + (25 * (time / 1.0)); // rise from 75% to 100%
+            } else if (time <= 3.5) {
+                power = 100; // peak power plate
+            } else if (time <= 6.0) {
+                power = 100 - ((time - 3.5) / 2.5) * 6; // 100 down to 94%
+            } else if (time <= 10.0) {
+                power = 94 - ((time - 6.0) / 4.0) * 18; // 94 down to 76%
+            } else {
+                power = 76 - ((time - 10.0) / 2.0) * 18; // 76 down to 58%
+            }
+
+            // 4. Sprint Track Distance & Velocity (Realistic 100m model in ~11.8 - 12.0s)
+            // Integrating acceleration and deceleration phases
+            let velocity;
+            if (time <= 4.0) {
+                velocity = (time / 4.0) * 11.2; // accelerates to ~11.2 m/s
+            } else if (time <= 8.5) {
+                velocity = 11.2 - ((time - 4.0) / 4.5) * 0.6; // 11.2 to 10.6 m/s
+            } else {
+                velocity = 10.6 - ((time - 8.5) / 3.5) * 1.8; // drops toward 8.8 m/s
+            }
+
+            // Distance estimation using average segment integration
+            const distance = Math.min(100, (time * 8.35) * Math.min(1.05, 0.4 + (time * 0.06)));
+
+            return {
+                atp: Math.max(0, atp),
+                cp: Math.max(0, cp),
+                freeCr: Math.max(0, freeCr),
+                power: Math.max(0, power),
+                velocity: Math.max(0, velocity),
+                distance: Math.min(100, distance)
+            };
+        }
+
+        // --- Update UI with Current State ---
+        function updateUI(time) {
+            const state = calculateKineticState(time);
+
+            // Slider & Time
+            timeSlider.value = time;
+            timeDisplay.textContent = time.toFixed(2);
+
+            // 1. ATP Readings
+            atpVal.textContent = state.atp.toFixed(2);
+            const atpPct = (state.atp / RESTING_ATP) * 100;
+            atpBar.style.width = `${atpPct}%`;
+            const atpLossPct = ((RESTING_ATP - state.atp) / RESTING_ATP) * 100;
+            atpDepletionPct.textContent = `-${atpLossPct.toFixed(1)}%`;
+            if (atpPct > 85) {
+                atpStatusLabel.textContent = "High Buffer Capacity";
+                atpStatusLabel.className = "text-emerald-400 font-medium";
+            } else {
+                atpStatusLabel.textContent = "Moderate Drop (Buffered)";
+                atpStatusLabel.className = "text-cyan-400 font-medium";
+            }
+
+            // 2. CP Readings
+            cpVal.textContent = state.cp.toFixed(2);
+            const cpPct = (state.cp / RESTING_CP) * 100;
+            cpBar.style.width = `${Math.max(4, cpPct)}%`;
+            const cpLossPct = ((RESTING_CP - state.cp) / RESTING_CP) * 100;
+            cpDepletionPct.textContent = `-${cpLossPct.toFixed(1)}%`;
+            if (cpPct > 65) {
+                cpStatusLabel.textContent = "Well Stocked";
+                cpStatusLabel.className = "text-emerald-400 font-medium";
+            } else if (cpPct > 30) {
+                cpStatusLabel.textContent = "50-70% Depleted";
+                cpStatusLabel.className = "text-amber-400 font-medium";
+            } else {
+                cpStatusLabel.textContent = "Critical Depletion (>80%)";
+                cpStatusLabel.className = "text-red-400 font-medium font-bold";
+            }
+
+            // 3. Metabolites & Output
+            freeCrVal.textContent = `${state.freeCr.toFixed(2)} mmol/kg`;
+            powerOutputVal.textContent = `${state.power.toFixed(1)} %`;
+
+            if (state.power >= 95) {
+                powerOutputVal.className = "text-lg font-bold text-emerald-400";
+                powerSubtext.textContent = "Peak Alactic Drive";
+            } else if (state.power >= 80) {
+                powerOutputVal.className = "text-lg font-bold text-amber-400";
+                powerSubtext.textContent = "Early Power Decay";
+            } else {
+                powerOutputVal.className = "text-lg font-bold text-red-400";
+                powerSubtext.textContent = "Glycolytic Handover / Deceleration";
+            }
+
+            // 4. Acidosis & Rate label
+            if (time <= 6.0) {
+                acidosisVal.textContent = "None (Alactic)";
+                acidosisVal.className = "text-emerald-400 font-mono font-semibold";
+                atpRateLabel.textContent = "Peak CP Resynthesis Rate";
+            } else if (time <= 10.0) {
+                acidosisVal.textContent = "Minimal (Early Glycolysis)";
+                acidosisVal.className = "text-amber-400 font-mono font-semibold";
+                atpRateLabel.textContent = "CP Breakdown Slowing";
+            } else {
+                acidosisVal.textContent = "Rapid Onset (H⁺ / Lactate)";
+                acidosisVal.className = "text-red-400 font-mono font-semibold animate-pulse";
+                atpRateLabel.textContent = "Anaerobic Glycolysis Dominant";
+            }
+
+            // 5. Track position & Runner
+            const trackContainerWidth = runnerAvatar.parentElement.clientWidth - 70; // track margin
+            const runnerTranslateX = (state.distance / 100) * trackContainerWidth;
+            runnerAvatar.style.transform = `translateX(${runnerTranslateX}px)`;
+            runnerDistTag.textContent = `${state.distance.toFixed(1)} m`;
+            trackReadout.textContent = `${state.distance.toFixed(1)} m | ${state.velocity.toFixed(2)} m/s`;
+
+            // 6. Bioenergetic Phase Card Updates
+            updatePhaseCard(time);
+
+            // 7. Redraw Kinetics Graph with Scrubber Line
+            renderGraph(time);
+        }
+
+        // --- Phase Indicator Controller ---
+        function updatePhaseCard(time) {
+            if (time <= 2.0) {
+                phaseStep.textContent = "PHASE 1 (0.0s – 2.0s)";
+                phaseStep.className = "text-xs uppercase font-extrabold tracking-wider text-cyan-400";
+                phaseTag.textContent = "Pure Alactic";
+                phaseTag.className = "px-2 py-0.2 rounded text-[10px] font-bold uppercase tracking-wider bg-cyan-950 text-cyan-400 border border-cyan-800/50";
+                phaseTitle.textContent = "Intramuscular Stored ATP Utilization";
+                phaseDesc.textContent = "Muscular contraction is powered directly by free sarcoplasmic ATP (5.5 mmol/kg). As mechanical work splits ATP into ADP + Pi, elevated ADP instantaneously primes Creatine Kinase.";
+                phasePrimary.textContent = "Free Resting ATP";
+                phasePrimary.className = "text-sm font-bold text-cyan-300 font-mono";
+                phaseBanner.className = "rounded-2xl p-4 sm:p-5 border transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-cyan-950/20 border-cyan-800/60 shadow-xl";
+            } else if (time <= 5.0) {
+                phaseStep.textContent = "PHASE 2 (2.0s – 5.0s)";
+                phaseStep.className = "text-xs uppercase font-extrabold tracking-wider text-amber-400";
+                phaseTag.textContent = "Maximal CP Flux";
+                phaseTag.className = "px-2 py-0.2 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-950 text-amber-400 border border-amber-800/50";
+                phaseTitle.textContent = "Peak Creatine Kinase Reaction Rate";
+                phaseDesc.textContent = "Creatine phosphate breakdown rapidly accelerates to resynthesize ATP at maximal physiological velocity. Sarcoplasmic ATP levels remain securely buffered (>90%) while CP reserves decline steadily.";
+                phasePrimary.textContent = "Creatine Phosphate (CP)";
+                phasePrimary.className = "text-sm font-bold text-amber-400 font-mono";
+                phaseBanner.className = "rounded-2xl p-4 sm:p-5 border transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-amber-950/20 border-amber-800/60 shadow-xl";
+            } else if (time <= 10.0) {
+                phaseStep.textContent = "PHASE 3 (5.0s – 10.0s)";
+                phaseStep.className = "text-xs uppercase font-extrabold tracking-wider text-orange-400";
+                phaseTag.textContent = "Phosphagen Decay";
+                phaseTag.className = "px-2 py-0.2 rounded text-[10px] font-bold uppercase tracking-wider bg-orange-950 text-orange-400 border border-orange-800/50";
+                phaseTitle.textContent = "50–70% CP Depletion & Power Decay";
+                phaseDesc.textContent = "Intramuscular CP concentrations plummet below critical thresholds. The rate of ATP resynthesis can no longer fully match cross-bridge consumption, resulting in a progressive reduction in peak mechanical power.";
+                phasePrimary.textContent = "Depleting CP + Glycolysis";
+                phasePrimary.className = "text-sm font-bold text-orange-300 font-mono";
+                phaseBanner.className = "rounded-2xl p-4 sm:p-5 border transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-orange-950/20 border-orange-800/60 shadow-xl";
+            } else {
+                phaseStep.textContent = "PHASE 4 (10.0s – 12.0s)";
+                phaseStep.className = "text-xs uppercase font-extrabold tracking-wider text-rose-400";
+                phaseTag.textContent = "Glycolytic Shift";
+                phaseTag.className = "px-2 py-0.2 rounded text-[10px] font-bold uppercase tracking-wider bg-rose-950 text-rose-400 border border-rose-800/50";
+                phaseTitle.textContent = "Exhaustion & Anaerobic Glycolysis Shift";
+                phaseDesc.textContent = "CP is depleted by >85–90%. Skeletal muscle is forced to rely on anaerobic glycolysis for ATP regeneration. Cross-bridge cycling speed drops, and rapid accumulation of H⁺ ions (acidosis) sets in.";
+                phasePrimary.textContent = "Anaerobic Glycolysis";
+                phasePrimary.className = "text-sm font-bold text-rose-400 font-mono";
+                phaseBanner.className = "rounded-2xl p-4 sm:p-5 border transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-rose-950/20 border-rose-800/60 shadow-xl";
+            }
+        }
+
+        // --- Canvas Graph Rendering Engine ---
+        function resizeCanvas() {
+            const dpr = window.devicePixelRatio || 1;
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.resetTransform();
+            ctx.scale(dpr, dpr);
+            renderGraph(currentTime);
+        }
+
+        function renderGraph(tScrubber) {
+            const rect = canvas.getBoundingClientRect();
+            const w = rect.width;
+            const h = rect.height;
+
+            // Clear
+            ctx.clearRect(0, 0, w, h);
+
+            const paddingLeft = 36;
+            const paddingRight = 20;
+            const paddingTop = 22;
+            const paddingBottom = 28;
+
+            const graphW = w - paddingLeft - paddingRight;
+            const graphH = h - paddingTop - paddingBottom;
+
+            // Draw Grid Lines
+            ctx.strokeStyle = '#1e293b';
+            ctx.lineWidth = 1;
+
+            // Horizontal lines (0, 25, 50, 75, 100%)
+            for (let i = 0; i <= 4; i++) {
+                const y = paddingTop + (graphH * (i / 4));
+                ctx.beginPath();
+                ctx.moveTo(paddingLeft, y);
+                ctx.lineTo(w - paddingRight, y);
+                ctx.stroke();
+
+                // Y-axis labels (mmol/kg CP on left)
+                ctx.fillStyle = '#64748b';
+                ctx.font = '10px JetBrains Mono, monospace';
+                const val = (20 - (i * 5)).toFixed(0);
+                ctx.fillText(val, 8, y + 3);
+            }
+
+            // Vertical Phase Guideline at 10.0s (Ceiling)
+            const x10 = paddingLeft + (10.0 / MAX_TIME) * graphW;
+            ctx.strokeStyle = 'rgba(239, 68, 68, 0.35)';
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(x10, paddingTop);
+            ctx.lineTo(x10, h - paddingBottom);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            ctx.fillStyle = '#ef4444';
+            ctx.font = '9px JetBrains Mono, monospace';
+            ctx.fillText('10s Alactic Limit', x10 - 45, paddingTop + 12);
+
+            // Helper coordinate mapping
+            function getX(sec) {
+                return paddingLeft + (sec / MAX_TIME) * graphW;
+            }
+            // Maps CP & ATP values (0 - 20 mmol/kg) to Y
+            function getYConc(val) {
+                return paddingTop + graphH - (val / 20.0) * graphH;
+            }
+            // Maps Power (0 - 100%) to Y
+            function getYPower(val) {
+                return paddingTop + graphH - (val / 100.0) * graphH;
+            }
+
+            // --- Draw Power Output Curve (Emerald) ---
+            ctx.beginPath();
+            ctx.strokeStyle = '#10b981';
+            ctx.lineWidth = 2.5;
+            for (let s = 0; s <= MAX_TIME; s += 0.1) {
+                const k = calculateKineticState(s);
+                const x = getX(s);
+                const y = getYPower(k.power);
+                if (s === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            // --- Draw CP Reservoir Curve (Amber) ---
+            ctx.beginPath();
+            ctx.strokeStyle = '#f59e0b';
+            ctx.lineWidth = 2.5;
+            for (let s = 0; s <= MAX_TIME; s += 0.1) {
+                const k = calculateKineticState(s);
+                const x = getX(s);
+                const y = getYConc(k.cp);
+                if (s === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            // --- Draw ATP Curve (Cyan) ---
+            ctx.beginPath();
+            ctx.strokeStyle = '#38bdf8';
+            ctx.lineWidth = 2.5;
+            for (let s = 0; s <= MAX_TIME; s += 0.1) {
+                const k = calculateKineticState(s);
+                const x = getX(s);
+                const y = getYConc(k.atp);
+                if (s === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            // --- Draw Scrubbing Indicator Cursor ---
+            const scrubX = getX(tScrubber);
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(scrubX, paddingTop);
+            ctx.lineTo(scrubX, h - paddingBottom);
+            ctx.stroke();
+
+            // Dots on current values
+            const curState = calculateKineticState(tScrubber);
+
+            // ATP Dot
+            ctx.fillStyle = '#38bdf8';
+            ctx.beginPath();
+            ctx.arc(scrubX, getYConc(curState.atp), 4.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+
+            // CP Dot
+            ctx.fillStyle = '#f59e0b';
+            ctx.beginPath();
+            ctx.arc(scrubX, getYConc(curState.cp), 4.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            // Power Dot
+            ctx.fillStyle = '#10b981';
+            ctx.beginPath();
+            ctx.arc(scrubX, getYPower(curState.power), 4.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        // --- Interactive Graph Scrubbing with Mouse/Touch ---
+        function handleGraphInteraction(e) {
+            const rect = canvas.getBoundingClientRect();
+            const paddingLeft = 36;
+            const paddingRight = 20;
+            const graphW = rect.width - paddingLeft - paddingRight;
+
+            const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+            if (!clientX) return;
+
+            const clickX = clientX - rect.left - paddingLeft;
+            const normalizedRatio = Math.max(0, Math.min(1, clickX / graphW));
+            currentTime = normalizedRatio * MAX_TIME;
+
+            if (isPlaying) pauseSimulation();
+            updateUI(currentTime);
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+            handleGraphInteraction(e);
+            const onMouseMove = (ev) => handleGraphInteraction(ev);
+            const onMouseUp = () => {
+                window.removeEventListener('mousemove', onMouseMove);
+                window.removeEventListener('mouseup', onMouseUp);
+            };
+            window.addEventListener('mousemove', onMouseMove);
+            window.addEventListener('mouseup', onMouseUp);
+        });
+
+        canvas.addEventListener('touchstart', (e) => {
+            handleGraphInteraction(e);
+        }, { passive: true });
+
+        canvas.addEventListener('touchmove', (e) => {
+            handleGraphInteraction(e);
+        }, { passive: true });
+
+        // --- Animation & Control Loop ---
+        function startSimulation() {
+            if (currentTime >= MAX_TIME) {
+                currentTime = 0.0;
+            }
+            isPlaying = true;
+            playText.textContent = "Pause";
+            playIcon.setAttribute('data-lucide', 'pause');
+            lucide.createIcons();
+
+            lastTimestamp = performance.now();
+            function loop(now) {
+                if (!isPlaying) return;
+                const deltaSec = (now - lastTimestamp) / 1000;
+                lastTimestamp = now;
+
+                currentTime += deltaSec;
+                if (currentTime >= MAX_TIME) {
+                    currentTime = MAX_TIME;
+                    updateUI(currentTime);
+                    pauseSimulation();
+                    return;
+                }
+                updateUI(currentTime);
+                animFrameId = requestAnimationFrame(loop);
+            }
+            animFrameId = requestAnimationFrame(loop);
+        }
+
+        function pauseSimulation() {
+            isPlaying = false;
+            playText.textContent = "Resume";
+            playIcon.setAttribute('data-lucide', 'play');
+            lucide.createIcons();
+            if (animFrameId) {
+                cancelAnimationFrame(animFrameId);
+            }
+        }
+
+        function resetSimulation() {
+            pauseSimulation();
+            currentTime = 0.0;
+            playText.textContent = "Start Sprint";
+            updateUI(0.0);
+        }
+
+        // --- Event Listeners ---
+        btnPlay.addEventListener('click', () => {
+            if (isPlaying) {
+                pauseSimulation();
+            } else {
+                startSimulation();
+            }
+        });
+
+        btnReset.addEventListener('click', resetSimulation);
+
+        timeSlider.addEventListener('input', (e) => {
+            if (isPlaying) pauseSimulation();
+            currentTime = parseFloat(e.target.value);
+            updateUI(currentTime);
+        });
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            updateUI(currentTime);
+        });
+
+        // --- Init ---
+        window.onload = function () {
+            lucide.createIcons();
+            resizeCanvas();
+            updateUI(0.0);
+        };
+    </script>
+</body>
+
+</html>
