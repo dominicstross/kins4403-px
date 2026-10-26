@@ -1290,20 +1290,48 @@
       c.innerHTML = (!items || !items.length) ? '<p style="color:var(--slate-600)">No items available.</p>' : '';
       items.forEach((item, i) => {
         const qId = `ms_${currentPartIndex}_${i}_${item.id || i}`;
-        const correctArr = item.correctArray || item.correct || [];
+        const rawOpts = item.opts || item.options || [];
+        const rawCorrectArr = item.correctArray || item.correct || [];
+
+        // 1. Strip hardcoded leading letters (e.g., "A. ", "B) ") and track correctness
+        let mappedOpts = rawOpts.map((optText, origIdx) => {
+          const cleanText = String(optText).replace(/^[A-Fa-f][\.\)]\s*/, '').trim();
+          return {
+            text: cleanText,
+            isCorrect: rawCorrectArr.includes(origIdx)
+          };
+        });
+
+        // 2. Check if question relies on position-dependent choices
+        const hasAnchor = mappedOpts.some(o => /all of the above|none of the above|both [a-d] and|neither [a-d]/i.test(o.text));
+
+        // 3. Shuffle options using Fisher-Yates if no position anchors exist
+        if (!hasAnchor && mappedOpts.length > 1) {
+          for (let j = mappedOpts.length - 1; j > 0; j--) {
+            const k = Math.floor(Math.random() * (j + 1));
+            [mappedOpts[j], mappedOpts[k]] = [mappedOpts[k], mappedOpts[j]];
+          }
+        }
+
+        // 4. Calculate new correct index array
+        const newCorrectArr = mappedOpts.reduce((acc, optObj, newIdx) => {
+          if (optObj.isCorrect) acc.push(newIdx);
+          return acc;
+        }, []);
+
         const div = document.createElement('div');
         div.className = 'q-item';
         div.innerHTML = `
         <div class="q-title">${i + 1}. ${item.q || item.question} (Select all that apply)</div>
         <div class="option-group">
-          ${(item.opts || item.options || []).map((opt, optIdx) => `
+          ${mappedOpts.map((optObj, optIdx) => `
             <label class="opt-label" id="${qId}_ms_${optIdx}">
               <input type="checkbox" name="${qId}" value="${optIdx}">
-              <span>${opt}</span>
+              <span>${optObj.text}</span>
             </label>
           `).join('')}
         </div>
-        <button class="action-btn" onclick="gradeMS('${qId}', ${JSON.stringify(correctArr)})">Check Selection</button>
+        <button class="action-btn" onclick="gradeMS('${qId}', ${JSON.stringify(newCorrectArr)})">Check Selection</button>
         <div class="feedback-box info" id="${qId}_fb"><strong>Rationale:</strong> ${item.rationale || item.feedback || ''}</div>
       `;
         c.appendChild(div);
