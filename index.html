@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KINS 4403 - Online Learning Modules | Southeastern University</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --primary: #17324d;
@@ -54,10 +57,12 @@
       border-bottom: 4px solid var(--accent);
       box-shadow: var(--shadow-md);
     }
+
     .top-bar-inner {
       max-width: 1000px;
       margin: 0 auto;
     }
+
     .inst-pill {
       display: inline-block;
       font-size: 0.8rem;
@@ -70,6 +75,7 @@
       margin-bottom: 16px;
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
+
     .top-bar h1 {
       font-size: 2.25rem;
       font-weight: 800;
@@ -77,6 +83,7 @@
       margin-bottom: 12px;
       line-height: 1.2;
     }
+
     .top-bar p {
       font-size: 1.1rem;
       color: var(--slate-300);
@@ -94,6 +101,7 @@
     .unit-section {
       margin-bottom: 36px;
     }
+
     .unit-header {
       display: flex;
       align-items: baseline;
@@ -102,6 +110,7 @@
       padding-bottom: 10px;
       margin-bottom: 16px;
     }
+
     .unit-title {
       font-size: 1.25rem;
       font-weight: 800;
@@ -109,6 +118,7 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
+
     .unit-tag {
       font-size: 0.85rem;
       font-weight: 600;
@@ -125,9 +135,11 @@
       overflow: hidden;
       transition: border-color 0.15s ease;
     }
+
     details.chapter-accordion:hover {
       border-color: var(--slate-300);
     }
+
     details.chapter-accordion[open] {
       border-color: var(--accent);
       box-shadow: var(--shadow-md);
@@ -145,12 +157,15 @@
       background: #fff;
       transition: background 0.15s ease;
     }
+
     summary.chapter-summary::-webkit-details-marker {
       display: none;
     }
+
     summary.chapter-summary:hover {
       background: var(--slate-50);
     }
+
     details.chapter-accordion[open] summary.chapter-summary {
       border-bottom: 1px solid var(--slate-100);
       background: #fafcff;
@@ -161,6 +176,7 @@
       align-items: center;
       gap: 12px;
     }
+
     .chapter-badge {
       background: var(--primary);
       color: #fff;
@@ -172,6 +188,7 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
+
     .chapter-name {
       font-size: 1.05rem;
       font-weight: 700;
@@ -183,16 +200,19 @@
       align-items: center;
       gap: 12px;
     }
+
     .chapter-counts {
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--slate-500);
     }
+
     .accordion-arrow {
       font-size: 0.9rem;
       color: var(--slate-400);
       transition: transform 0.2s ease, color 0.15s ease;
     }
+
     details.chapter-accordion[open] .accordion-arrow {
       transform: rotate(90deg);
       color: var(--accent);
@@ -223,11 +243,13 @@
       color: inherit;
       transition: all 0.15s ease-in-out;
     }
+
     .mod-card.active:hover {
       border-color: var(--accent);
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
     }
+
     .mod-card.disabled {
       background: var(--slate-100);
       border-color: var(--slate-200);
@@ -241,6 +263,7 @@
       justify-content: space-between;
       margin-bottom: 8px;
     }
+
     .mod-num {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.8rem;
@@ -250,10 +273,12 @@
       padding: 2px 8px;
       border-radius: 4px;
     }
+
     .mod-card.disabled .mod-num {
       color: var(--slate-500);
       background: var(--slate-200);
     }
+
     .mod-status {
       font-size: 0.7rem;
       font-weight: 700;
@@ -261,6 +286,7 @@
       letter-spacing: 0.05em;
       color: var(--slate-500);
     }
+
     .mod-status.ready {
       color: var(--success);
       background: var(--success-bg);
@@ -284,6 +310,7 @@
       align-items: center;
       gap: 4px;
     }
+
     .mod-card.disabled .mod-arrow {
       display: none;
     }
@@ -294,13 +321,14 @@
       color: var(--slate-400);
       margin-top: 48px;
     }
-  
+
     /* Vertical Module List Styling */
     .mod-vertical-list {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
+
     .mod-list-row {
       display: flex;
       align-items: center;
@@ -313,74 +341,149 @@
       color: inherit;
       transition: all 0.15s ease-in-out;
     }
+
     .mod-list-row.active:hover {
       border-color: var(--accent);
       background: var(--accent-bg, #f0f7ff);
       transform: translateX(4px);
     }
+
     .mod-list-row.disabled {
       background: var(--slate-100);
       border-color: var(--slate-200);
       cursor: not-allowed;
       opacity: 0.75;
     }
+
     .mod-row-left {
       display: flex;
       align-items: center;
       gap: 12px;
     }
+
     .mod-row-right {
       display: flex;
       align-items: center;
       gap: 10px;
     }
+
     .mod-list-row .mod-title {
       margin-bottom: 0;
       font-size: 0.95rem;
     }
-
   </style>
 
-<style>
-  .module-list { display: flex; flex-direction: column; gap: 8px; padding: 12px 16px; }
-  .module-card {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 12px 16px; background: #fff; border: 1px solid var(--slate-200);
-    border-radius: 8px; text-decoration: none; color: var(--slate-800);
-    transition: all 0.15s ease;
-  }
-  .module-card:hover {
-    border-color: var(--accent); background: var(--accent-bg);
-    transform: translateX(4px);
-  }
-  .module-card-body { display: flex; align-items: center; gap: 12px; }
-  .module-id-badge {
-    background: var(--slate-100); color: var(--slate-700);
-    font-size: 0.75rem; font-weight: 700; padding: 4px 8px;
-    border-radius: 6px; font-family: 'JetBrains Mono', monospace;
-  }
-  .module-card:hover .module-id-badge { background: #dbeafe; color: var(--accent); }
-  .module-title-text { font-weight: 600; font-size: 0.95rem; }
-  .module-arrow { color: var(--slate-400); font-weight: bold; }
-  .module-card:hover .module-arrow { color: var(--accent); }
-  summary {
-    cursor: pointer; user-select: none; padding: 16px 20px;
-    display: flex; align-items: center; justify-content: space-between;
-    font-weight: 700; color: var(--slate-800); list-style: none;
-  }
-  summary::-webkit-details-marker { display: none; }
-  .summary-left { display: flex; align-items: center; gap: 10px; }
-  .module-count { font-size: 0.8rem; color: var(--slate-500); background: var(--slate-100); padding: 3px 8px; border-radius: 9999px; }
-  details[open] summary .chapter-chevron { transform: rotate(90deg); }
-  .chapter-chevron { display: inline-block; transition: transform 0.2s ease; font-size: 0.85rem; color: var(--slate-500); }
-</style>
+  <style>
+    .module-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px 16px;
+    }
+
+    .module-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--slate-800);
+      transition: all 0.15s ease;
+    }
+
+    .module-card:hover {
+      border-color: var(--accent);
+      background: var(--accent-bg);
+      transform: translateX(4px);
+    }
+
+    .module-card-body {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .module-id-badge {
+      background: var(--slate-100);
+      color: var(--slate-700);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .module-card:hover .module-id-badge {
+      background: #dbeafe;
+      color: var(--accent);
+    }
+
+    .module-title-text {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .module-arrow {
+      color: var(--slate-400);
+      font-weight: bold;
+    }
+
+    .module-card:hover .module-arrow {
+      color: var(--accent);
+    }
+
+    summary {
+      cursor: pointer;
+      user-select: none;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      color: var(--slate-800);
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .summary-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .module-count {
+      font-size: 0.8rem;
+      color: var(--slate-500);
+      background: var(--slate-100);
+      padding: 3px 8px;
+      border-radius: 9999px;
+    }
+
+    details[open] summary .chapter-chevron {
+      transform: rotate(90deg);
+    }
+
+    .chapter-chevron {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      font-size: 0.85rem;
+      color: var(--slate-500);
+    }
+  </style>
 </head>
+
 <body>
   <header class="top-bar">
     <div class="top-bar-inner">
       <div id="courseInst" class="inst-pill">Southeastern University</div>
-      <h1 id="courseTitle">Exercise Science Learning Portal</h1>
-      <p id="courseDesc">Interactive online modules, laboratory simulations, and conceptual mastery.</p>
+      <h1 id="courseTitle">Physiology of Exercise Learning Portal</h1>
+      <p id="courseDesc">Interactive online learning modules, laboratory simulations, and conceptual mastery.</p>
     </div>
   </header>
 
@@ -502,4 +605,5 @@
     document.addEventListener("DOMContentLoaded", loadCoursePortal);
   </script>
 </body>
+
 </html>
