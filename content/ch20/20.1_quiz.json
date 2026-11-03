@@ -1,0 +1,501 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "According to statistics from the President's Council on Physical Fitness, what percentage of adults participate in 30 minutes of physical activity each day?",
+                "opts": [
+                    "Less than 5%",
+                    "Approximately 25%",
+                    "Exactly 50%",
+                    "Over 75%"
+                ],
+                "correct": 0,
+                "rationale": "According to the President's Council on Physical Fitness, less than 5% of adults participate in 30 minutes of physical activity each day."
+            },
+            {
+                "id": 2,
+                "q": "How many Americans above the age of 6 are classified as physically inactive according to public health statistics?",
+                "opts": [
+                    "80.2 million",
+                    "10.5 million",
+                    "150.8 million",
+                    "25.4 million"
+                ],
+                "correct": 0,
+                "rationale": "Data indicate that 80.2 million people above the age of 6 in the United States are physically inactive."
+            },
+            {
+                "id": 3,
+                "q": "What proportion of children participate in physical activity every day?",
+                "opts": [
+                    "Only one in three children",
+                    "Nine in ten children",
+                    "Every child (100%)",
+                    "Only one in ten children"
+                ],
+                "correct": 0,
+                "rationale": "Statistics show that only one in three children are physically active every day."
+            },
+            {
+                "id": 4,
+                "q": "In 1992, which organization officially declared physical inactivity a major independent risk factor for coronary artery disease (CAD)?",
+                "opts": [
+                    "American Heart Association (AHA)",
+                    "World Health Organization (WHO)",
+                    "National Institutes of Health (NIH)",
+                    "President's Council on Physical Fitness"
+                ],
+                "correct": 0,
+                "rationale": "In 1992, the American Heart Association (AHA) declared physical inactivity a major risk factor for coronary artery disease, placing it alongside smoking, abnormal blood lipids, and hypertension."
+            },
+            {
+                "id": 5,
+                "q": "Which landmark federal document was released in 1996 recognizing the importance of physical activity in reducing the risk of chronic degenerative diseases?",
+                "opts": [
+                    "Report of the Surgeon General on Physical Activity and Health",
+                    "The CDC/ACSM Consensus Statement",
+                    "The Galen Medical Treatise",
+                    "The Sedentary Death Syndrome Manifesto"
+                ],
+                "correct": 0,
+                "rationale": "In 1996, the Surgeon General of the United States released a landmark written report on the health benefits of physical activity."
+            },
+            {
+                "id": 6,
+                "q": "What term was coined by exercise physiologists in the year 2000 to describe diseases and disorders associated with an inactive lifestyle?",
+                "opts": [
+                    "Sedentary Death Syndrome (SeDS)",
+                    "Hypokinetic Cardiac Failure",
+                    "Metabolic Immobilization Complex",
+                    "Inactivity Overload Syndrome"
+                ],
+                "correct": 0,
+                "rationale": "In 2000, exercise physiologists formed an action group advocating against what they termed 'Sedentary Death Syndrome' (SeDS)."
+            },
+            {
+                "id": 7,
+                "q": "Which historical figure in the first century AD identified that regular exercise was as fundamental to health as breathing fresh air and proper nutrition?",
+                "opts": [
+                    "Galen",
+                    "Hippocrates",
+                    "Aristotle",
+                    "Selye"
+                ],
+                "correct": 0,
+                "rationale": "Galen identified in the first century that regular exercise was as important as breathing fresh air and eating proper foods in promoting health."
+            },
+            {
+                "id": 8,
+                "q": "What proportion of American adolescents and adults fail to meet national guidelines for both aerobic and muscle-strengthening activities?",
+                "opts": [
+                    "More than 80%",
+                    "Less than 10%",
+                    "Exactly 25%",
+                    "Approximately 50%"
+                ],
+                "correct": 0,
+                "rationale": "More than 80% of adolescents and adults do not meet the guidelines for both aerobic and muscle-strengthening activities."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which major risk factors for coronary artery disease (CAD) were placed alongside physical inactivity by the American Heart Association in 1992? (Select all that apply)",
+                "opts": [
+                    "Cigarette smoking",
+                    "Abnormal blood lipids (hyperlipidemia)",
+                    "Hypertension (high blood pressure)",
+                    "Daily screen time exceeding 1 hour"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "The 1992 AHA declaration placed physical inactivity alongside smoking, abnormal blood lipids, and hypertension as major CAD risk factors."
+            },
+            {
+                "id": 2,
+                "q": "Which statistical facts describe physical activity patterns in youth and children? (Select all that apply)",
+                "opts": [
+                    "Only 1 in 3 children are physically active every day",
+                    "Children spend more than 7.5 hours per day in front of TV, video game, or computer screens",
+                    "Nearly one-third of high school students play video/computer games for \\(\\ge 3\\text{ h}\\) on school days",
+                    "100% of high school students meet national aerobic exercise guidelines"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Youth data reveal that only 1 in 3 children are active daily, screen time exceeds 7.5 h/day, and nearly 1/3 of high schoolers spend >= 3 h on video games on school days."
+            },
+            {
+                "id": 3,
+                "q": "Which public health agencies or reports formally recognized physical activity for disease prevention during the 1990s? (Select all that apply)",
+                "opts": [
+                    "American Heart Association (1992)",
+                    "CDC / ACSM / NIH Panel Consensus Statement (1995)",
+                    "U.S. Surgeon General's Report (1996)",
+                    "World Health Organization Ban on Sedentary Work (1990)"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Key 1990s milestones include the 1992 AHA declaration, 1995 CDC/ACSM/NIH consensus, and 1996 Surgeon General's report."
+            },
+            {
+                "id": 4,
+                "q": "Which physical activity statistics apply to adult populations in the United States? (Select all that apply)",
+                "opts": [
+                    "Less than 5% of adults engage in 30 minutes of physical activity daily",
+                    "Only 1 in 3 adults receive the recommended amount of physical activity each week",
+                    "Only 35% to 44% of adults 75 years or older are physically active",
+                    "Over 80.2 million Americans above age 6 are physically inactive"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "All listed statements represent true adult inactivity statistics from the President's Council on Physical Fitness."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Physical inactivity was declared a major risk factor for coronary artery disease by the American Heart Association in 1992.",
+                "ans": true,
+                "feedback": "True. In 1992, the AHA officially designated physical inactivity as a primary independent risk factor for CAD alongside smoking, hypertension, and dyslipidemia."
+            },
+            {
+                "id": 2,
+                "q": "More than 50% of adults participate in at least 30 minutes of physical activity each day.",
+                "ans": false,
+                "feedback": "False. Less than 5% of adults participate in 30 minutes of physical activity each day."
+            },
+            {
+                "id": 3,
+                "q": "Children in the United States average less than 1 hour per day of entertainment screen time.",
+                "ans": false,
+                "feedback": "False. Children spend more than 7.5 hours per day in front of TV, video game, or computer screens."
+            },
+            {
+                "id": 4,
+                "q": "Epidemiology is the branch of science studying large populations to determine associations between physical activity levels and disease risk.",
+                "ans": true,
+                "feedback": "True. Epidemiology studies large populations to establish statistical associations between activity levels and chronic disease risk."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "In 1992, the AHA declared physical inactivity a major risk factor for **coronary artery disease**, and in 2000, physiologists targeted **Sedentary Death Syndrome**.",
+                "targets": [
+                    "coronary artery disease",
+                    "Sedentary Death Syndrome"
+                ],
+                "optionsBank": [
+                    "coronary artery disease",
+                    "Sedentary Death Syndrome",
+                    "type 1 diabetes",
+                    "overtraining syndrome",
+                    "osteoporosis"
+                ],
+                "hint": "Identify the cardiovascular disease linked to inactivity in 1992 and the 2000 inactivity initiative term."
+            },
+            {
+                "id": 2,
+                "statement": "Only **one in three** children are active daily, and over **80.2 million** Americans above age 6 are physically inactive.",
+                "targets": [
+                    "one in three",
+                    "80.2 million"
+                ],
+                "optionsBank": [
+                    "one in three",
+                    "80.2 million",
+                    "nine in ten",
+                    "5 million",
+                    "half"
+                ],
+                "hint": "Identify the child activity fraction and the total inactive American population number."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Outline the historical progression of public health acknowledgments regarding physical activity and disease prevention from Galen to the year 2000.",
+                "model": "The acknowledgment of physical activity for health progressed across several key milestones: (1) Galen (1st Century AD): Identified exercise as essential to health alongside fresh air and proper food; (2) 1992 AHA Declaration: Declared physical inactivity a major independent risk factor for coronary artery disease (CAD), alongside smoking, hypertension, and abnormal blood lipids; (3) 1995 CDC/ACSM/NIH Consensus Statement: Advocated physical activity for public cardiovascular health; (4) 1996 Surgeon General's Report: Landmark document formally linking regular physical activity to reduced chronic degenerative disease risk; and (5) 2000 Sedentary Death Syndrome (SeDS): Exercise physiologists formed an action group to combat health disorders caused by sedentary living.",
+                "criteria": [
+                    "Detail ancient foundation (Galen in 1st century AD).",
+                    "Detail 1990s milestones (1992 AHA CAD risk factor, 1995 CDC/ACSM, 1996 Surgeon General's Report).",
+                    "Detail 2000 initiative (Sedentary Death Syndrome / SeDS action group)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Summarize the current epidemiological statistics regarding physical inactivity in children, adolescents, adults, and older adults in the United States.",
+                "model": "Epidemiological statistics demonstrate widespread physical inactivity across all demographics: (1) Children & Youth: Only 1 in 3 children are physically active daily; children spend > 7.5 hours/day in front of screens, and nearly 33% of high schoolers play video/computer games for >= 3 hours on school days; (2) Adults: Less than 5% of adults get 30 minutes of daily physical activity, only 1 in 3 get recommended weekly activity, and 80.2 million Americans age 6+ are completely inactive; (3) Older Adults: Only 28-34% of adults 65-74 and 35-44% of adults 75+ are physically active; and (4) Combined Deficit: Over 80% of adolescents and adults fail to meet guidelines for both aerobic and muscle-strengthening activities.",
+                "criteria": [
+                    "Summarize youth stats (1 in 3 active daily; > 7.5 h/day screen time; 1/3 high schoolers >= 3 h screen time).",
+                    "Summarize adult stats (< 5% daily 30 min activity; 1 in 3 weekly guidelines; 80.2 million inactive).",
+                    "Summarize older adult and overall guidelines stats (28-44% active in seniors; > 80% fail combined guidelines)."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What fundamental principle in exercise epidemiology states that higher volumes of physical activity result in larger reductions in disease risk?",
+                "opts": [
+                    "Dose-response relation",
+                    "Principle of progressive overload",
+                    "All-or-none law",
+                    "Crossover concept"
+                ],
+                "correct": 0,
+                "rationale": "The dose-response relation dictates that increasing volumes or intensities of physical activity produce progressively larger health benefits and greater reductions in disease and mortality risk."
+            },
+            {
+                "id": 2,
+                "q": "Which chronic cardiovascular and cerebrovascular conditions are directly minimized by regular physical activity?",
+                "opts": [
+                    "Premature death, CAD, hypertension, and stroke",
+                    "Sickle cell anemia and hemophilia",
+                    "Hypertrophic cardiomyopathy only",
+                    "Congenital septal defects"
+                ],
+                "correct": 0,
+                "rationale": "Epidemiological research confirms well-documented protective effects of exercise against premature death, coronary artery disease, hypertension, and stroke."
+            },
+            {
+                "id": 3,
+                "q": "Which metabolic disorders are significantly reduced through participation in regular physical activity?",
+                "opts": [
+                    "Type 2 diabetes, obesity, and metabolic syndrome",
+                    "Type 1 diabetes exclusively",
+                    "Cushing's disease and Addison's disease",
+                    "Acute phenylketonuria"
+                ],
+                "correct": 0,
+                "rationale": "Regular exercise enhances insulin sensitivity and glucose regulation, protecting against type 2 diabetes, obesity, and metabolic syndrome."
+            },
+            {
+                "id": 4,
+                "q": "Which musculoskeletal condition characterized by low bone mineral density is minimized by regular weight-bearing physical activity?",
+                "opts": [
+                    "Osteoporosis",
+                    "Osteoarthritis only",
+                    "Rheumatoid arthritis",
+                    "Scoliosis"
+                ],
+                "correct": 0,
+                "rationale": "Regular exercise, particularly weight-bearing and muscle-strengthening activity, stimulates bone remodeling and helps prevent osteoporosis."
+            },
+            {
+                "id": 5,
+                "q": "Besides physical fitness, what central nervous system processes are improved by a structured program of regular exercise?",
+                "opts": [
+                    "Cognitive function and mental health (reducing depression)",
+                    "Autonomic spinal reflexes only",
+                    "Visual acuity and hearing threshold",
+                    "Olfactory nerve sensitivity"
+                ],
+                "correct": 0,
+                "rationale": "Regular exercise improves both physical and cognitive function while reducing symptoms of clinical depression."
+            },
+            {
+                "id": 6,
+                "q": "What two primary components define a comprehensive regular physical activity program for optimal health benefits?",
+                "opts": [
+                    "Moderate and vigorous aerobic physical activities AND muscle-strengthening activities",
+                    "Static stretching AND passive massage only",
+                    "High-protein dieting AND complete bed rest",
+                    "Isokinetic dynamometry AND breath holding"
+                ],
+                "correct": 0,
+                "rationale": "Comprehensive physical activity guidelines advocate participation in moderate-to-vigorous aerobic physical activities alongside muscle-strengthening exercises."
+            },
+            {
+                "id": 7,
+                "q": "How does increasing physical activity impact the risk of developing various forms of cancer (e.g., colon and breast cancer)?",
+                "opts": [
+                    "It decreases cancer risk following an inverse dose-response relationship",
+                    "It doubles cancer risk due to oxidative stress",
+                    "It has zero impact on any oncological outcomes",
+                    "It increases cancer risk only in individuals over age 65"
+                ],
+                "correct": 0,
+                "rationale": "Epidemiological evidence shows that regular physical activity is inversely associated with the risk of developing many types of cancer."
+            },
+            {
+                "id": 8,
+                "q": "What trend has been observed regarding health behaviors like smoking and illicit drug use compared to physical activity guidelines in recent years?",
+                "opts": [
+                    "Fewer adults smoke cigarettes and fewer adolescents use illicit drugs, while more adults are meeting physical activity guidelines",
+                    "Cigarette smoking has increased by 500%",
+                    "Physical activity compliance has dropped to zero",
+                    "Adolescent drug use has reached 100%"
+                ],
+                "correct": 0,
+                "rationale": "Textbook data note positive trends: fewer adults smoke, fewer adolescents use alcohol/illicit drugs, and more adults are meeting physical activity guidelines."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which chronic degenerative diseases and health conditions are minimized by regular physical activity? (Select all that apply)",
+                "opts": [
+                    "Coronary artery disease (CAD), hypertension, and stroke",
+                    "Type 2 diabetes, obesity, and metabolic syndrome",
+                    "Osteoporosis and depression",
+                    "Premature death"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "Regular exercise minimizes premature death, CAD, hypertension, stroke, type 2 diabetes, obesity, metabolic syndrome, osteoporosis, cancer, and depression."
+            },
+            {
+                "id": 2,
+                "q": "Which statements accurately describe the dose-response relationship between physical activity and health? (Select all that apply)",
+                "opts": [
+                    "Higher volumes of physical activity are associated with larger reductions in disease risk",
+                    "The inverse association means as activity increases, adverse health conditions decrease",
+                    "Health protection occurs along a continuum rather than a strict all-or-none threshold",
+                    "Physical activity only provides health benefits if performed at 100% maximal intensity"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "The dose-response relation establishes an inverse continuum where greater activity yields larger health protections."
+            },
+            {
+                "id": 3,
+                "q": "Which aspects of human health and function are enhanced by regular physical exercise according to textbook evidence? (Select all that apply)",
+                "opts": [
+                    "Physical function and mobility",
+                    "Cognitive function and mental clarity",
+                    "Cardiovascular health and metabolic control",
+                    "Bone mineral density maintenance"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "Exercise enhances physical function, cognitive function, cardiovascular/metabolic health, and bone mineral density."
+            },
+            {
+                "id": 4,
+                "q": "Which physical activity modalities are specifically emphasized for achieving comprehensive health benefits? (Select all that apply)",
+                "opts": [
+                    "Moderate physical activities",
+                    "Vigorous physical activities",
+                    "Muscle-strengthening activities",
+                    "Continuous 24-hour sedentary immobilization"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Comprehensive guidelines recommend combining moderate aerobic activity, vigorous aerobic activity, and muscle-strengthening exercises."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "The relationship between physical activity level and chronic disease risk follows a dose-response pattern.",
+                "ans": true,
+                "feedback": "True. Increasing physical activity volume or intensity produces proportionally larger reductions in disease risk and premature death."
+            },
+            {
+                "id": 2,
+                "q": "Regular physical activity has no effect on cognitive function or depression.",
+                "ans": false,
+                "feedback": "False. Regular exercise significantly improves cognitive function and reduces depression."
+            },
+            {
+                "id": 3,
+                "q": "Type 2 diabetes, osteoporosis, and metabolic syndrome are all minimized by regular physical activity.",
+                "ans": true,
+                "feedback": "True. Epidemiological research confirms exercise reduces the incidence of metabolic and musculoskeletal disorders."
+            },
+            {
+                "id": 4,
+                "q": "Only vigorous physical activity provides health benefits; moderate physical activity has zero health value.",
+                "ans": false,
+                "feedback": "False. Both moderate and vigorous physical activities contribute to significant health benefits and disease risk reduction."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "The inverse association between exercise and disease follows a **dose-response relation**, minimizing conditions like **type 2 diabetes**.",
+                "targets": [
+                    "dose-response relation",
+                    "type 2 diabetes"
+                ],
+                "optionsBank": [
+                    "dose-response relation",
+                    "type 2 diabetes",
+                    "all-or-none law",
+                    "type 1 diabetes",
+                    "myocardial infarction"
+                ],
+                "hint": "Identify the protective mathematical relationship and the metabolic glucose disorder."
+            },
+            {
+                "id": 2,
+                "statement": "Exercise improves both physical and **cognitive function**, while reducing symptoms of **depression**.",
+                "targets": [
+                    "cognitive function",
+                    "depression"
+                ],
+                "optionsBank": [
+                    "cognitive function",
+                    "depression",
+                    "hearing loss",
+                    "asthma",
+                    "hypertrophy"
+                ],
+                "hint": "Identify the brain performance benefit and the mood disorder minimized by exercise."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Explain the concept of the dose-response relationship in exercise physiology and describe how it applies to chronic disease prevention.",
+                "model": "The dose-response relationship in exercise physiology describes the pattern where increasing volumes (frequency, duration, and intensity) of physical activity yield proportionally larger health benefits and greater reductions in disease risk. Inverse epidemiological associations show that transitioning from an inactive state to light or moderate activity produces initial health gains, but progressing toward higher volumes of moderate-to-vigorous aerobic activity and muscle-strengthening exercise yields maximal protection against premature mortality, CAD, stroke, type 2 diabetes, osteoporosis, and cognitive decline.",
+                "criteria": [
+                    "Define the dose-response relationship (increasing activity volume yields larger health protections).",
+                    "Explain the inverse association with disease risk (higher activity = lower incidence of chronic disease and premature death).",
+                    "Identify key target diseases minimized along the dose-response continuum (CAD, stroke, type 2 diabetes, osteoporosis)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "List six major chronic diseases or pathological conditions that are minimized by regular physical activity, and detail the functional/cognitive benefits of exercise.",
+                "model": "Six major chronic diseases minimized by regular physical activity include: (1) Coronary artery disease (CAD), (2) Arterial hypertension, (3) Ischemic stroke, (4) Type 2 diabetes, (5) Osteoporosis, and (6) Metabolic syndrome (alongside obesity, depression, and various cancers). Beyond chronic disease prevention, regular exercise enhances physical function (preserving mobility and muscle strength across aging) and improves central cognitive function (enhancing executive processing, memory, and mental clarity while reducing clinical depression and anxiety).",
+                "criteria": [
+                    "List six chronic conditions (e.g., CAD, hypertension, stroke, type 2 diabetes, osteoporosis, metabolic syndrome).",
+                    "Detail physical functional benefits (mobility, strength preservation across aging).",
+                    "Detail cognitive and psychological benefits (improved memory/executive function, reduced depression)."
+                ]
+            }
+        ]
+    }
+}

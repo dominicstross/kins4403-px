@@ -1,0 +1,498 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What acronym is used in the latest ACSM guidelines to denote the six basic factors of an aerobic exercise prescription?",
+                "opts": [
+                    "FITT-VP",
+                    "SMART-P",
+                    "RPE-MET",
+                    "HIIT-VO2"
+                ],
+                "correct": 0,
+                "rationale": "The ACSM guidelines use the acronym FITT-VP to denote frequency, intensity, type (mode), time (duration), volume, and progression."
+            },
+            {
+                "id": 2,
+                "q": "What is required before cardiorespiratory endurance adaptations and aerobic health benefits can be obtained from an exercise program?",
+                "opts": [
+                    "A specific minimal threshold for frequency, duration, and intensity must be reached and exceeded",
+                    "An individual must exercise at 100% of maximal heart rate for at least 2 hours daily",
+                    "Complete cessation of all dietary carbohydrate intake",
+                    "Continuous high-intensity resistance training to complete muscle failure"
+                ],
+                "correct": 0,
+                "rationale": "A minimum threshold for exercise frequency, duration, and intensity must be exceeded before aerobic benefits are obtained, though this threshold varies among individuals based on baseline fitness."
+            },
+            {
+                "id": 3,
+                "q": "How does ACSM define the lower threshold of moderate training intensity for healthy adults?",
+                "opts": [
+                    "40% of heart rate reserve (HRR) or 40% of \\(\\dot{V}\\text{O}_{2\\max}\\)",
+                    "80% of heart rate reserve (HRR) or 85% of \\(\\dot{V}\\text{O}_{2\\max}\\)",
+                    "10% of heart rate reserve (HRR) or 15% of \\(\\dot{V}\\text{O}_{2\\max}\\)",
+                    "95% of maximal heart rate (\\(\\text{HR}_{\\max}\\)) exclusively"
+                ],
+                "correct": 0,
+                "rationale": "ACSM defines moderate training intensity as 40% to 59% of heart rate reserve (HRR) or \\(\\dot{V}\\text{O}_{2\\max}\\), with 40% representing the lower threshold for healthy adults."
+            },
+            {
+                "id": 4,
+                "q": "What is considered the single most important factor for developing cardiorespiratory endurance?",
+                "opts": [
+                    "Exercise intensity",
+                    "Exercise frequency",
+                    "Type of exercise footwear",
+                    "Time of day exercise is performed"
+                ],
+                "correct": 0,
+                "rationale": "The intensity of the exercise bout appears to be the most important factor for developing cardiorespiratory endurance."
+            },
+            {
+                "id": 5,
+                "q": "What exercise frequency is considered optimal for achieving health-related aerobic benefits according to ACSM guidelines?",
+                "opts": [
+                    "3 days/week of vigorous activity or 5 days/week of moderate activity",
+                    "7 days/week of maximal sprint training",
+                    "1 day/week of light walking for 10 minutes",
+                    "14 sessions/week split into twice-daily workouts"
+                ],
+                "correct": 0,
+                "rationale": "Research shows that optimal health-related gains are achieved with a time investment of 3 days per week of vigorous activity or 5 days per week of moderate activity."
+            },
+            {
+                "id": 6,
+                "q": "What intensity range defines vigorous-intensity exercise according to ACSM standards?",
+                "opts": [
+                    "60% to 90% of HRR or \\(\\dot{V}\\text{O}_{2\\max}\\)",
+                    "20% to 39% of HRR or \\(\\dot{V}\\text{O}_{2\\max}\\)",
+                    "40% to 59% of HRR or \\(\\dot{V}\\text{O}_{2\\max}\\)",
+                    "95% to 100% of HRR or \\(\\dot{V}\\text{O}_{2\\max}\\)"
+                ],
+                "correct": 0,
+                "rationale": "ACSM defines vigorous exercise as 60% to 90% of heart rate reserve (HRR) or \\(\\dot{V}\\text{O}_{2\\max}\\)."
+            },
+            {
+                "id": 7,
+                "q": "How rapidly can high-intensity interval training (HIIT) produce substantial increases in muscle oxidative capacity and cardiorespiratory endurance?",
+                "opts": [
+                    "In as short as 10 minutes per day for 2 weeks",
+                    "Only after 6 months of daily 3-hour sessions",
+                    "HIIT requires 5 years of continuous training to show any metabolic effect",
+                    "HIIT has zero effect on muscle oxidative capacity"
+                ],
+                "correct": 0,
+                "rationale": "Substantial increases in muscle oxidative capacity, cardiometabolic variables, and cardiorespiratory endurance performance have been obtained in HIIT training interventions as short as 10 minutes per day over 2 weeks."
+            },
+            {
+                "id": 8,
+                "q": "How do single continuous exercise sessions compare to accumulated shorter bouts regarding cardiorespiratory endurance improvements?",
+                "opts": [
+                    "Similar improvements occur whether daily endurance training is conducted in multiple shorter bouts (e.g., three 10-min bouts) or a single long session (e.g., one 30-min bout)",
+                    "Single continuous sessions produce 1,000% greater aerobic gains than accumulated bouts",
+                    "Multiple shorter bouts cause complete loss of mitochondrial enzymes",
+                    "Accumulated bouts are effective only for elite marathon runners"
+                ],
+                "correct": 0,
+                "rationale": "Textbook evidence demonstrates that similar cardiorespiratory endurance improvements are achieved whether the session is conducted in a single continuous bout (e.g., 30 min) or multiple shorter bouts (e.g., three 10-min bouts)."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which components comprise the ACSM FITT-VP exercise prescription acronym? (Select all that apply)",
+                "opts": [
+                    "Frequency and Intensity",
+                    "Type (Mode) and Time (Duration)",
+                    "Volume and Progression",
+                    "Flexibility and Temperature"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "FITT-VP stands for Frequency, Intensity, Type, Time, Volume, and Progression."
+            },
+            {
+                "id": 2,
+                "q": "Which activity modes serve as effective cardiorespiratory endurance modalities according to the textbook? (Select all that apply)",
+                "opts": [
+                    "Walking, jogging, running, cycling, and swimming",
+                    "Spinning and cardiovascular group exercise classes",
+                    "High-Intensity Interval Training (HIIT)",
+                    "Continuous 24-hour bed rest"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Cardiorespiratory endurance modes include traditional continuous activities (walking, jogging, swimming, cycling), group cardio/spinning, and HIIT."
+            },
+            {
+                "id": 3,
+                "q": "Which statements correctly describe exercise intensity guidelines according to ACSM? (Select all that apply)",
+                "opts": [
+                    "Moderate intensity is defined as 40% to 59% of HRR or \\(\\dot{V}\\text{O}_{2\\max}\\)",
+                    "Vigorous intensity is defined as 60% to 90% of HRR or \\(\\dot{V}\\text{O}_{2\\max}\\)",
+                    "Deconditioned or low-fit individuals can experience aerobic gains below 40% \\(\\dot{V}\\text{O}_{2\\max}\\)",
+                    "Intensity is the least important factor in cardiorespiratory training"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "ACSM defines moderate as 40-59% HRR/VO2max and vigorous as 60-90% HRR/VO2max. Low-fit individuals adapt at <40% VO2max. Intensity is the most important factor."
+            },
+            {
+                "id": 4,
+                "q": "Which factors influence the selection of exercise modes for individual exercise prescriptions? (Select all that apply)",
+                "opts": [
+                    "Individual enjoyment, motivation, and personal preference",
+                    "Geographic location, climate, and availability of facilities/equipment",
+                    "Feasibility of home exercise during bad weather or caregiving responsibilities",
+                    "Mandatory participation in elite Olympic weightlifting"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Exercise mode selection depends on personal enjoyment, motivation, climate, facilities, and home exercise options."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "A minimum threshold for frequency, duration, and intensity must be exceeded before cardiorespiratory endurance benefits are obtained.",
+                "ans": true,
+                "feedback": "True. Cardiorespiratory endurance gains require exceeding an individual's specific minimal threshold for frequency, duration, and intensity."
+            },
+            {
+                "id": 2,
+                "q": "Exercise intensity is considered the single most important factor for developing cardiorespiratory endurance.",
+                "ans": true,
+                "feedback": "True. The textbook explicitly identifies intensity as the most important factor in cardiorespiratory conditioning."
+            },
+            {
+                "id": 3,
+                "q": "Accumulating daily aerobic exercise in three 10-minute bouts provides cardiorespiratory benefits similar to a single continuous 30-minute session.",
+                "ans": true,
+                "feedback": "True. Research confirms that similar cardiorespiratory endurance gains occur whether exercise is continuous or divided into bouts lasting at least 10 minutes."
+            },
+            {
+                "id": 4,
+                "q": "Severely deconditioned or low-fit individuals cannot improve aerobic capacity unless they train at or above 80% of VO2max.",
+                "ans": false,
+                "feedback": "False. Deconditioned or low-fit individuals can achieve measurable aerobic improvements at exercise intensities below 40% of VO2max."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "In the ACSM guidelines, moderate intensity is **40% to 59% of HRR**, whereas vigorous intensity is **60% to 90% of HRR**.",
+                "targets": [
+                    "40% to 59% of HRR",
+                    "60% to 90% of HRR"
+                ],
+                "optionsBank": [
+                    "40% to 59% of HRR",
+                    "60% to 90% of HRR",
+                    "10% to 20% of HRR",
+                    "95% to 100% of HRR",
+                    "zero HRR"
+                ],
+                "hint": "Identify the ACSM moderate and vigorous exercise intensity ranges based on heart rate reserve."
+            },
+            {
+                "id": 2,
+                "statement": "Optimal health-related aerobic gains are achieved with **5 days per week** of moderate activity or **3 days per week** of vigorous activity.",
+                "targets": [
+                    "5 days per week",
+                    "3 days per week"
+                ],
+                "optionsBank": [
+                    "5 days per week",
+                    "3 days per week",
+                    "7 days per week",
+                    "1 day per month",
+                    "10 days per week"
+                ],
+                "hint": "Identify the recommended weekly exercise frequencies for moderate and vigorous aerobic activities."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Detail the six FITT-VP factors of an exercise prescription and explain the minimal threshold concept for cardiorespiratory endurance development.",
+                "model": "The six FITT-VP factors of exercise prescription are: (1) Frequency (sessions per week), (2) Intensity (level of physiological strain), (3) Type/Mode (specific exercise activity), (4) Time/Duration (length of exercise session), (5) Volume (cumulative weekly workload, e.g., MET-minutes), and (6) Progression (systematic advancement over time). To achieve cardiorespiratory endurance gains, an individual must exceed their specific minimal threshold for frequency, duration, and intensity. While ACSM defines moderate intensity starting at 40% HRR or 40% VO2max for healthy adults, low-fit or deconditioned individuals can improve at intensities below 40% VO2max. As fitness improves, this minimal threshold increases.",
+                "criteria": [
+                    "List and define all six FITT-VP factors (Frequency, Intensity, Type, Time, Volume, Progression).",
+                    "Explain the minimal threshold concept (specific overload required for cardiorespiratory adaptation).",
+                    "Note baseline variability (healthy adults require >= 40% HRR, while low-fit individuals adapt below 40% VO2max)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Compare the cardiorespiratory and metabolic adaptations of High-Intensity Interval Training (HIIT) to traditional continuous endurance training, noting time-efficiency and bout accumulation rules.",
+                "model": "High-Intensity Interval Training (HIIT) involves brief bouts of high-intensity exercise interspersed with lower-intensity recovery periods. Despite very low total exercise volume, HIIT induces metabolic and oxidative adaptations similar to traditional long-duration continuous endurance training, including rapid increases in skeletal muscle oxidative capacity and cardiometabolic protection in interventions as brief as 10 min/day over 2 weeks. Furthermore, regarding exercise duration, similar cardiorespiratory improvements occur whether daily aerobic exercise is completed in a single continuous session (e.g., 1 x 30 min) or accumulated in multiple shorter bouts (e.g., 3 x 10 min bouts lasting >= 10 min each).",
+                "criteria": [
+                    "Explain HIIT mechanisms and efficiency (low volume/high intensity yielding rapid oxidative capacity increases in 10 min/day over 2 weeks).",
+                    "Compare HIIT to continuous endurance training (similar cardiometabolic and aerobic performance outcomes).",
+                    "Explain bout accumulation rules (single 30-min session equals three 10-min bouts lasting >= 10 min)."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "How is weekly exercise volume standardly quantified in an exercise prescription?",
+                "opts": [
+                    "MET-minutes per week or kilocalories expended per week",
+                    "Total number of heartbeats per month",
+                    "Weight of athletic footwear in grams",
+                    "Liters of water consumed during exercise"
+                ],
+                "correct": 0,
+                "rationale": "Weekly exercise volume is expressed as MET-minutes per week (METs x total weekly minutes) or calories expended per week (kcal/week)."
+            },
+            {
+                "id": 2,
+                "q": "What is the ACSM recommended weekly volume of exercise for healthy adults in MET-minutes?",
+                "opts": [
+                    "500 to 1,000 MET-minutes per week",
+                    "10 to 50 MET-minutes per week",
+                    "10,000 to 50,000 MET-minutes per week",
+                    "Zero MET-minutes per week"
+                ],
+                "correct": 0,
+                "rationale": "The ACSM recommends achieving >= 500 to 1,000 MET-minutes per week (equivalent to 150 min/week of moderate activity)."
+            },
+            {
+                "id": 3,
+                "q": "What weekly caloric expenditure range corresponds to the ACSM target exercise volume of 500 to 1,000 MET-minutes/week?",
+                "opts": [
+                    "1,000 to 1,500 kilocalories per week",
+                    "50 to 100 kilocalories per week",
+                    "10,000 to 20,000 kilocalories per week",
+                    "Zero kilocalories per week"
+                ],
+                "correct": 0,
+                "rationale": "Caloric expenditures of 1,000 to 1,500 kcal per week closely match the recommended 500 to 1,000 MET-minutes/week volume."
+            },
+            {
+                "id": 4,
+                "q": "How is sedentary behavior defined physiologically in terms of energy expenditure?",
+                "opts": [
+                    "Any waking behavior requiring energy expenditure < 1.5 METs while sitting, reclining, or lying down",
+                    "Any physical activity requiring 10 to 15 METs",
+                    "Continuous running at 8 mph",
+                    "Weightlifting at 90% 1RM"
+                ],
+                "correct": 0,
+                "rationale": "Sedentary behavior is defined as any waking physical activity requiring < 1.5 METs while sitting, reclining, or lying down."
+            },
+            {
+                "id": 5,
+                "q": "What percentage of the waking day do sedentary activities make up for most Americans?",
+                "opts": [
+                    "Almost 60% of the waking day (exceeding 75% if sleeping is included)",
+                    "Less than 5% of the waking day",
+                    "Exactly 100% of the 24-hour day continuously",
+                    "Approximately 15% of the day"
+                ],
+                "correct": 0,
+                "rationale": "Sedentary activities comprise almost 60% of the day for most Americans, and exceed 75% of the day when sleep is included."
+            },
+            {
+                "id": 6,
+                "q": "How few minutes of continuous sitting are sufficient to induce acute insulin resistance, negative metabolic shifts, and systemic inflammation?",
+                "opts": [
+                    "As few as 30 minutes of continuous sitting",
+                    "At least 48 hours of uninterrupted sitting",
+                    "10 consecutive days of bed rest only",
+                    "Continuous sitting has zero impact on metabolic variables"
+                ],
+                "correct": 0,
+                "rationale": "As few as 30 minutes of continuous sitting increases insulin resistance, impairs carbohydrate/lipid metabolism, and promotes subacute inflammation."
+            },
+            {
+                "id": 7,
+                "q": "Does engaging in regular structured exercise (e.g., 30-60 min/day) reverse or prevent the negative physiological effects of prolonged continuous sitting during the rest of the day?",
+                "opts": [
+                    "No, regular exercise does not alter or cancel the harmful metabolic effects of prolonged continuous sitting",
+                    "Yes, 10 minutes of morning exercise completely immunizes a person against 15 hours of continuous sitting",
+                    "Yes, structured exercise converts sitting into high-intensity interval training",
+                    "Regular exercise makes prolonged sitting twice as harmful"
+                ],
+                "correct": 0,
+                "rationale": "Textbook research demonstrates that regular exercise, while clearly preventive for chronic disease, does NOT counteract or change the adverse metabolic effects of prolonged sedentary sitting."
+            },
+            {
+                "id": 8,
+                "q": "What minimal movement intervention effectively breaks up sedentary physiology and restores normal glucose metabolism during prolonged sitting?",
+                "opts": [
+                    "As little as 2 minutes of low-intensity activity (2.0-2.5 METs)",
+                    "A 2-hour maximal weightlifting session",
+                    "Taking an oral antibiotic pill",
+                    "Performing 500 maximal vertical jumps every 5 minutes"
+                ],
+                "correct": 0,
+                "rationale": "As little as 2 minutes of low-intensity activity (2.0 to 2.5 METs, such as slow walking) breaks sedentary physiology and positively affects insulin resistance and glucose metabolism."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which metrics are standardly used to express total weekly exercise volume? (Select all that apply)",
+                "opts": [
+                    "MET-minutes per week (METs x total weekly minutes)",
+                    "Kilocalories expended per week (1,000 to 1,500 kcal/week)",
+                    "Equivalent minutes of moderate-intensity activity (>= 150 min/week)",
+                    "Total body height in centimeters"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Exercise volume is expressed as MET-minutes/week (>= 500-1,000), kcal/week (1,000-1,500), or weekly moderate exercise minutes (>= 150 min)."
+            },
+            {
+                "id": 2,
+                "q": "Which pathophysiological changes occur acutely during continuous, prolonged sitting (> 30 minutes)? (Select all that apply)",
+                "opts": [
+                    "Increased insulin resistance and impaired glucose metabolism",
+                    "Negatively affected lipid metabolism and suppressed lipoprotein lipase activity",
+                    "Promoted fat storage and systemic subacute vascular inflammation",
+                    "Immediate 200% increase in maximal cardiac output"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Continuous sitting increases insulin resistance, impairs lipid/glucose metabolism, promotes fat storage, and causes subacute inflammation."
+            },
+            {
+                "id": 3,
+                "q": "Which statements accurately distinguish structured exercise from breaks in sitting? (Select all that apply)",
+                "opts": [
+                    "Regular exercise improves VO2max but does NOT cancel out the metabolic harms of prolonged continuous sitting",
+                    "Breaks in sitting (as short as 2 minutes of light activity) directly alter sedentary physiology and improve glucose metabolism",
+                    "Sedentary behavior is defined as waking activity < 1.5 METs while sitting or reclining",
+                    "Structured exercise eliminates the need to stand up during 12 hours of desk work"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Structured exercise does not eliminate sedentary risks; movement breaks (2 min light activity) interrupt sedentary physiology (< 1.5 METs)."
+            },
+            {
+                "id": 4,
+                "q": "Which strategies should be recommended to sedentary individuals working desk jobs? (Select all that apply)",
+                "opts": [
+                    "Engaging in regular aerobic exercise (>= 150 min/week)",
+                    "Taking periodic movement breaks (standing/walking 2 minutes every 30 minutes)",
+                    "Progressing exercise volume gradually using MET-minutes",
+                    "Sitting continuously for 14 hours without moving if morning exercise was completed"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Clinicians must prescribe both structured exercise (>= 150 min/wk) and frequent movement breaks (2 min every 30 min) with gradual MET-minute progression."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "The ACSM recommends a weekly exercise volume of at least 500 to 1,000 MET-minutes per week.",
+                "ans": true,
+                "feedback": "True. ACSM volume recommendations specify >= 500 to 1,000 MET-minutes/week (or ~150 min/week of moderate exercise)."
+            },
+            {
+                "id": 2,
+                "q": "Sedentary behavior is defined as any waking physical activity requiring less than 1.5 METs while sitting or lying down.",
+                "ans": true,
+                "feedback": "True. Sedentary behavior specifically refers to waking activities < 1.5 METs while sitting, reclining, or lying down."
+            },
+            {
+                "id": 3,
+                "q": "Performing 45 minutes of vigorous exercise every morning completely immunizes a person against the metabolic harms of sitting continuously for 10 hours afterwards.",
+                "ans": false,
+                "feedback": "False. Regular exercise does NOT counteract or eliminate the acute pathophysiological effects of prolonged continuous sitting."
+            },
+            {
+                "id": 4,
+                "q": "As little as 2 minutes of low-intensity movement (2.0 to 2.5 METs) during prolonged sitting can positively restore glucose metabolism and insulin sensitivity.",
+                "ans": true,
+                "feedback": "True. Research confirms that 2-minute light movement breaks interrupt sedentary physiology and improve cardiometabolic variables."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "ACSM recommends a weekly exercise volume of **500 to 1,000 MET-minutes/week**, corresponding to **1,000 to 1,500 kcal/week**.",
+                "targets": [
+                    "500 to 1,000 MET-minutes/week",
+                    "1,000 to 1,500 kcal/week"
+                ],
+                "optionsBank": [
+                    "500 to 1,000 MET-minutes/week",
+                    "1,000 to 1,500 kcal/week",
+                    "10 MET-minutes/week",
+                    "50,000 kcal/week",
+                    "zero METs"
+                ],
+                "hint": "Identify the ACSM recommended weekly exercise volume in MET-minutes and kilocalories."
+            },
+            {
+                "id": 2,
+                "statement": "Continuous sitting for **30 minutes** increases insulin resistance, but **2 minutes of light activity** interrupts sedentary physiology.",
+                "targets": [
+                    "30 minutes",
+                    "2 minutes of light activity"
+                ],
+                "optionsBank": [
+                    "30 minutes",
+                    "2 minutes of light activity",
+                    "24 hours",
+                    "10 days of bed rest",
+                    "zero seconds"
+                ],
+                "hint": "Identify the timeframe for sitting-induced metabolic harm and the minimal break duration required to restore glucose metabolism."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Explain how exercise volume is quantified using MET-minutes, detailing the ACSM volume recommendations and caloric expenditure equivalents.",
+                "model": "Weekly exercise volume combines frequency, intensity, and duration into a single quantifiable metric called MET-minutes (calculated as activity intensity in METs multiplied by total weekly exercise minutes, where 1 MET = 3.5 mL O2/kg/min). ACSM recommends a target weekly volume of >= 500 to 1,000 MET-minutes/week. This volume corresponds to approximately 150 minutes per week of moderate-intensity physical activity or a gross weekly physical activity expenditure of 1,000 to 1,500 kilocalories/week. Expressing volume in MET-minutes allows clinicians to progress an exercise prescription in a deliberate, safe, and measurable manner.",
+                "criteria": [
+                    "Define MET-minutes (METs x weekly minutes, where 1 MET = 3.5 mL O2/kg/min).",
+                    "State ACSM target volume guidelines (>= 500 to 1,000 MET-minutes/week or 150 min/wk moderate exercise).",
+                    "State caloric expenditure equivalent (1,000 to 1,500 kcal/week) and clinical value for progression."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Differentiate sedentary physiology from physical inactivity, detailing the metabolic consequences of continuous sitting and explaining why structured exercise alone fails to counteract prolonged sitting.",
+                "model": "Sedentary behavior is defined as waking physical activity < 1.5 METs while sitting, reclining, or lying down. Continuous sitting for as few as 30 minutes triggers acute sedentary physiology: increased insulin resistance, suppressed lipoprotein lipase (LPL) activity, impaired lipid/glucose metabolism, fat storage promotion, and subacute vascular inflammation. A critical clinical distinction is that structured daily exercise (e.g., 30-60 min/day) does NOT reverse or prevent these acute metabolic harms if an individual remains seated continuously for the rest of the day. To interrupt sedentary physiology, individuals must take periodic movement breaks—as little as 2 minutes of light activity (2.0-2.5 METs, like slow walking) every 20-30 minutes restores normal insulin sensitivity and glucose metabolism.",
+                "criteria": [
+                    "Define sedentary behavior (< 1.5 METs while sitting/reclining) and acute impacts of 30 min continuous sitting (insulin resistance, suppressed LPL, inflammation).",
+                    "Explain why structured exercise does not counteract continuous sitting (exercise improves VO2max but leaves sedentary metabolic dysregulation intact).",
+                    "Detail movement break guidelines (2 min of 2.0-2.5 MET light activity periodically restores glucose/insulin kinetics)."
+                ]
+            }
+        ]
+    }
+}

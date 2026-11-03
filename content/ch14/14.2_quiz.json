@@ -1,0 +1,500 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What is the primary physiological objective of periodization in athletic training?",
+                "opts": [
+                    "To provide a systematically varied training load over time to enable acute overload while preventing overtraining",
+                    "To maintain an identical daily training volume and intensity throughout the entire competitive year",
+                    "To eliminate all high-intensity exercise from an athlete's schedule",
+                    "To maximize muscle glycogen depletion on a daily basis without rest"
+                ],
+                "correct": 0,
+                "rationale": "The primary goal of periodization is to systematically vary training volume and intensity over time, facilitating acute overload and overreaching for adaptation while avoiding overtraining syndrome."
+            },
+            {
+                "id": 2,
+                "q": "Which level of the traditional periodization hierarchy represents long-term athletic development spanning multiple years, such as a Quadrennial Olympic cycle?",
+                "opts": [
+                    "Macrocycle",
+                    "Mesocycle",
+                    "Multiyear preparation",
+                    "Microcycle"
+                ],
+                "correct": 2,
+                "rationale": "Multiyear preparation encompasses multi-year athletic development plans, such as a 4-year Quadrennial Olympic preparation cycle."
+            },
+            {
+                "id": 3,
+                "q": "What structural division in traditional periodization typically lasts several months to a full year and is organized around annual competitive seasons?",
+                "opts": [
+                    "Macrocycle",
+                    "Mesocycle",
+                    "Microcycle",
+                    "Individual workout"
+                ],
+                "correct": 0,
+                "rationale": "A macrocycle is a large-scale training division lasting several months to an entire year, encompassing seasonal preparation, competition, and transition phases."
+            },
+            {
+                "id": 4,
+                "q": "How long does a mesocycle typically last in a traditional periodized training plan?",
+                "opts": [
+                    "1 to 2 days",
+                    "Several weeks to 1 month (e.g., 3 to 4 weeks)",
+                    "2 to 4 years",
+                    "10 to 12 months"
+                ],
+                "correct": 1,
+                "rationale": "A mesocycle is an intermediate training block lasting several weeks (typically 3 to 4 weeks or monthlong cycles), targeting specific adaptation goals such as hypertrophy or maximal strength."
+            },
+            {
+                "id": 5,
+                "q": "What is a major limitation of traditional periodization in modern high-caliber sports?",
+                "opts": [
+                    "It is optimized to peak an athlete for a single planned competition, making it poorly suited for multi-competition seasons",
+                    "It completely eliminates aerobic exercise from training plans",
+                    "It causes immediate muscular atrophy within 24 hours",
+                    "It cannot be used for any endurance athletes"
+                ],
+                "correct": 0,
+                "rationale": "Traditional periodization was designed primarily for single-peak annual competitions. Modern athletes who must compete in multiple events across long seasons find traditional structures overly rigid."
+            },
+            {
+                "id": 6,
+                "q": "What underlying assumption of traditional periodization presents a disadvantage for complex team sports?",
+                "opts": [
+                    "The assumption that all physical systems, energy pathways, and motor skills can be developed simultaneously",
+                    "The assumption that high-intensity training requires zero rest intervals",
+                    "The assumption that athletes require zero protein intake",
+                    "The assumption that macrocycles must last 10 years"
+                ],
+                "correct": 0,
+                "rationale": "Traditional models assume concurrent development of all physiological targets, which can lead to adaptive interference in sports requiring multi-faceted physical abilities."
+            },
+            {
+                "id": 7,
+                "q": "Which exercise category targets basic motor abilities (e.g., general muscular strength or speed) regardless of specific sport mechanics?",
+                "opts": [
+                    "General exercises",
+                    "Specific exercises",
+                    "Isokinetic testing drills",
+                    "Static recovery holds"
+                ],
+                "correct": 0,
+                "rationale": "General exercises focus on developing foundational physical qualities (such as squats for general leg strength) without directly mimicking sport-specific movement gestures."
+            },
+            {
+                "id": 8,
+                "q": "Why is regular performance testing following each training cycle essential in periodized programs?",
+                "opts": [
+                    "To evaluate direct performance gains and measure transfer of training from general exercises to sport-specific skills",
+                    "To force athletes to enter overtraining syndrome",
+                    "To replace all daily training workouts permanently",
+                    "To eliminate the need for recovery intervals"
+                ],
+                "correct": 0,
+                "rationale": "Performance testing provides objective feedback on adaptive progress and measures how effectively general training transfers to sport-specific competition performance."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which levels belong to the traditional periodization hierarchy? (Select all that apply)",
+                "opts": [
+                    "Multiyear preparation (e.g., 4-year Quadrennial Olympic cycle)",
+                    "Macrocycle (annual or multi-month season plan)",
+                    "Mesocycle (several weeks to 1 month block)",
+                    "Microcycle (few days to 1 week detailed workout plan)"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "Traditional periodization is built upon a hierarchy of multiyear preparation, macrocycles, mesocycles, microcycles, and individual workout sessions."
+            },
+            {
+                "id": 2,
+                "q": "Which limitations are associated with traditional periodization? (Select all that apply)",
+                "opts": [
+                    "Optimized primarily for single-peak major competition schedules",
+                    "Assumes concurrent development of multiple physiological targets, causing potential adaptive interference",
+                    "Rigid structure poorly suited for extended multi-competition team sport seasons",
+                    "Complete inability to increase muscle strength or aerobic capacity in any human"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Traditional periodization struggles with multi-peak schedules and concurrent multi-target interference, though it remains effective for single-peak mono-structural sports."
+            },
+            {
+                "id": 3,
+                "q": "Which characteristics distinguish general exercises from specific exercises? (Select all that apply)",
+                "opts": [
+                    "General exercises build foundational motor abilities (e.g., back squats for lower body force)",
+                    "Specific exercises mimic exact mechanical gestures and energy demands of a sport (e.g., fencing lunges)",
+                    "Specific exercises are evaluated via sport-specific performance testing to assess transfer of training",
+                    "General exercises are forbidden in all athletic conditioning programs"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "General exercises build basic physical capacity; specific exercises match sport movement/metabolic patterns; performance testing evaluates transfer between them."
+            },
+            {
+                "id": 4,
+                "q": "Which statements accurately describe microcycles and mesocycles? (Select all that apply)",
+                "opts": [
+                    "A microcycle lasts from a few days up to 1 week, detailing daily workouts and rest",
+                    "A mesocycle lasts several weeks (typically 3 to 4 weeks or 1 month), targeting specific adaptation goals",
+                    "Mesocycles are nested within macrocycles",
+                    "Microcycles span 4 consecutive years without rest"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Microcycles cover a few days to 1 week; mesocycles cover several weeks within an annual macrocycle."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "The primary objective of periodization is to provide a systematically varied training load over time.",
+                "ans": true,
+                "feedback": "True. Structured workload variation enables acute overload while preventing overtraining syndrome."
+            },
+            {
+                "id": 2,
+                "q": "A macrocycle typically spans several weeks to 1 month in traditional periodization.",
+                "ans": false,
+                "feedback": "False. A macrocycle lasts several months to a full year; a mesocycle lasts several weeks to 1 month."
+            },
+            {
+                "id": 3,
+                "q": "Traditional periodization is ideally structured for sports requiring athletes to peak for multiple competitions across a long season.",
+                "ans": false,
+                "feedback": "False. Traditional periodization is optimized for single-peak annual schedules and can be overly rigid for multi-competition seasons."
+            },
+            {
+                "id": 4,
+                "q": "Specific exercises mimic the exact movement patterns and physiological energy demands of a target sport.",
+                "ans": true,
+                "feedback": "True. Specific exercises replicate sport-specific biomechanics and metabolic requirements to maximize performance transfer."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "An annual training plan is a **macrocycle**, whereas an intermediate block lasting several weeks is a **mesocycle**.",
+                "targets": [
+                    "macrocycle",
+                    "mesocycle"
+                ],
+                "optionsBank": [
+                    "macrocycle",
+                    "mesocycle",
+                    "microcycle",
+                    "glycogen",
+                    "atrophy"
+                ],
+                "hint": "Identify the annual cycle term and the multi-week block term."
+            },
+            {
+                "id": 2,
+                "statement": "Back squats represent **general exercises**, while sport-specific drills represent **specific exercises**.",
+                "targets": [
+                    "general exercises",
+                    "specific exercises"
+                ],
+                "optionsBank": [
+                    "general exercises",
+                    "specific exercises",
+                    "isometric holds",
+                    "isokinetic speeds",
+                    "detraining"
+                ],
+                "hint": "Identify the basic motor ability category and the sport-matching exercise category."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Outline the hierarchical structure of traditional periodization from long-term preparation down to daily training, defining each level.",
+                "model": "Traditional periodization is structured hierarchically: (1) Multiyear Preparation: Long-term plans spanning multiple years, such as a 4-year Quadrennial Olympic cycle; (2) Macrocycle: Large-scale training divisions lasting several months up to a full year, structured around annual competitive seasons; (3) Mesocycle: Intermediate training blocks lasting several weeks (typically 3 to 4 weeks or 1 month) targeting specific physiological goals like hypertrophy or maximal strength; (4) Microcycle: Short-term training blocks lasting a few days up to 1 week, detailing daily workout sessions and rest; and (5) Individual Workouts: Single training sessions executed on a specific day.",
+                "criteria": [
+                    "Define multiyear preparation (spanning multiple years / 4-year quadrennial cycle).",
+                    "Define macrocycle (several months to 1 year annual plan) and mesocycle (several weeks / 3-4 weeks target block).",
+                    "Define microcycle (few days to 1 week daily plan) and individual workouts."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Explain the major limitations of traditional periodization in modern athletics and detail how combining general and specific exercises addresses performance transfer.",
+                "model": "Traditional periodization has two major limitations: (1) Single-peak limitation: It is optimized for a single major annual competition, making it rigid for modern athletes competing across multi-event seasons; and (2) Simultaneous adaptation assumption: It assumes all physical capacities can be developed concurrently, causing multi-target adaptive interference in complex sports. Combining general exercises (which build basic foundational motor capacity like strength or speed) with specific exercises (which match exact sport movement patterns and energy systems) ensures foundational adaptation while optimizing direct transfer of training to competition performance.",
+                "criteria": [
+                    "Detail single-peak limitation (rigid for multi-competition seasons).",
+                    "Detail simultaneous adaptation assumption (multi-target interference in complex sports).",
+                    "Explain how general vs specific exercises optimize performance transfer."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What defines a training block in the context of block periodization?",
+                "opts": [
+                    "A highly specialized and concentrated training cycle dedicated to developing a minimal number of targeted physiological abilities",
+                    "A 12-month period where no physical exertion is permitted",
+                    "A generic workout containing 15 different un-targeted exercises",
+                    "A random daily schedule determined without athletic goals"
+                ],
+                "correct": 0,
+                "rationale": "A training block is a concentrated, highly specialized cycle (typically 2 to 4 weeks) focusing on 1 or 2 targeted physical capacities."
+            },
+            {
+                "id": 2,
+                "q": "How many targeted physiological abilities are typically focused on during a single block in block periodization?",
+                "opts": [
+                    "1 or 2 specialized targets",
+                    "9 to 11 targets simultaneously",
+                    "100 distinct motor skills",
+                    "Zero targets"
+                ],
+                "correct": 0,
+                "rationale": "Block periodization concentrates workloads on a minimal number of targeted capacities (1 or 2 per block) to avoid multi-target adaptive interference."
+            },
+            {
+                "id": 3,
+                "q": "What is the typical optimal duration of a single training block in block periodization?",
+                "opts": [
+                    "2 to 4 weeks",
+                    "6 to 12 months",
+                    "4 years",
+                    "1 to 2 days"
+                ],
+                "correct": 0,
+                "rationale": "A single training block typically lasts 2 to 4 weeks, long enough to induce concentrated adaptations without causing excessive neuroendocrine fatigue or accommodation."
+            },
+            {
+                "id": 4,
+                "q": "How are targeted abilities developed across consecutive blocks in block periodization?",
+                "opts": [
+                    "In a logical, consecutive sequence where residual training effects support subsequent blocks",
+                    "Simultaneously all on the exact same day for 52 consecutive weeks",
+                    "In completely random order without regard to residual effects",
+                    "By performing only static stretching in every block"
+                ],
+                "correct": 0,
+                "rationale": "Block periodization sequences training targets consecutively so that residual adaptations from previous blocks enhance progress in subsequent blocks."
+            },
+            {
+                "id": 5,
+                "q": "What is the primary theoretical advantage of block periodization over traditional multi-targeted periodization?",
+                "opts": [
+                    "Consecutive development of specialized sport capacities without metabolic and neural interference",
+                    "Elimination of the need for any high-intensity exercise",
+                    "Instant double-digit increases in VO2max in 24 hours",
+                    "Total elimination of muscle glycogen consumption"
+                ],
+                "correct": 0,
+                "rationale": "Block periodization avoids multi-target interference by concentrating on 1-2 capacities per block rather than trying to develop all abilities simultaneously."
+            },
+            {
+                "id": 6,
+                "q": "Why is published empirical research comparing traditional and block periodization relatively scarce?",
+                "opts": [
+                    "Block periodization is modern and standardized comparison across diverse sport-specific outcomes is complex",
+                    "Block periodization was outlawed by sports federations",
+                    "Traditional periodization has never been studied by scientists",
+                    "Exercise physiologists do not conduct periodization research"
+                ],
+                "correct": 0,
+                "rationale": "Empirical studies comparing periodization models are limited because block periodization is relatively modern and standardized longitudinal sports research across varied disciplines is challenging."
+            },
+            {
+                "id": 7,
+                "q": "How many total blocks typically compose an annual block periodization plan?",
+                "opts": [
+                    "3 or 4 distinct blocks",
+                    "52 blocks",
+                    "300 blocks",
+                    "1 block"
+                ],
+                "correct": 0,
+                "rationale": "An annual block periodization plan consists of a minimal number of distinct blocks (typically 3 or 4 blocks), simplifying training organization."
+            },
+            {
+                "id": 8,
+                "q": "Why does a 2 to 4 week block duration prevent excessive physiological fatigue compared to longer continuous overload cycles?",
+                "opts": [
+                    "It limits the duration of concentrated stress, allowing adaptation before neuroendocrine exhaustion or accommodation occurs",
+                    "It eliminates muscle contraction during workouts",
+                    "It reduces resting heart rate to zero",
+                    "It prevents blood lactate from forming during maximal sprints"
+                ],
+                "correct": 0,
+                "rationale": "Keeping blocks to 2 to 4 weeks provides sufficient time for concentrated adaptation while avoiding the neuroendocrine exhaustion and stagnation associated with prolonged multi-targeted mesocycles."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which structural principles govern block periodization? (Select all that apply)",
+                "opts": [
+                    "Concentrated workloads focused on 1 or 2 specialized targets per block",
+                    "Minimal number of blocks in an annual plan (typically 3 or 4 blocks)",
+                    "Optimal block duration of 2 to 4 weeks",
+                    "Consecutive sequencing of specialized training targets"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "Block periodization is defined by concentrated workloads (1-2 targets), a minimal number of blocks (3-4), optimal block duration (2-4 weeks), and consecutive target sequencing."
+            },
+            {
+                "id": 2,
+                "q": "Which differences distinguish block periodization from traditional periodization? (Select all that apply)",
+                "opts": [
+                    "Block periodization focuses on 1-2 targets per block; traditional attempts multi-targeted development of 9-11 abilities",
+                    "Block periodization sequences targets consecutively; traditional attempts concurrent development",
+                    "Block periodization uses concentrated 2-4 week blocks; traditional uses multi-level macro/meso/micro hierarchies",
+                    "Traditional periodization forbids the use of resistance exercise"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Block periodization uses short, concentrated, sequential 1-2 target blocks, whereas traditional periodization uses multi-targeted, concurrent, hierarchical structures."
+            },
+            {
+                "id": 3,
+                "q": "What benefits does consecutive block sequencing provide? (Select all that apply)",
+                "opts": [
+                    "Capitalizes on residual training effects from previous blocks",
+                    "Prevents metabolic and neural adaptive interference between mismatched targets",
+                    "Allows structured peaking for competition",
+                    "Guarantees athletes never experience fatigue during workouts"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Consecutive block sequencing utilizes residual training effects and prevents adaptive interference, enabling effective competition peaking."
+            },
+            {
+                "id": 4,
+                "q": "Which factors explain why block periodization is favored for modern multi-game sports seasons? (Select all that apply)",
+                "opts": [
+                    "Avoids the rigidity of single-peak traditional macrocycles",
+                    "Allows rapid, focused adaptations within short 2-4 week cycles",
+                    "Simplifies annual training organization into 3-4 specialized blocks",
+                    "Requires zero physical effort from the athlete"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Block periodization provides flexible, rapid adaptations across 3-4 specialized blocks, ideal for multi-game seasons."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "A training block in block periodization typically lasts 2 to 4 weeks.",
+                "ans": true,
+                "feedback": "True. The optimal duration for a concentrated training block is 2 to 4 weeks."
+            },
+            {
+                "id": 2,
+                "q": "Block periodization attempts to develop 9 to 11 physiological capacities simultaneously in every block.",
+                "ans": false,
+                "feedback": "False. Block periodization concentrates workloads on only 1 or 2 specialized targets per block."
+            },
+            {
+                "id": 3,
+                "q": "Consecutive sequencing allows residual training effects from earlier blocks to support adaptation in subsequent blocks.",
+                "ans": true,
+                "feedback": "True. Residual effects from previous blocks support subsequent capacity development."
+            },
+            {
+                "id": 4,
+                "q": "Extensive empirical research comparing traditional and block periodization has conclusively disproven periodization science.",
+                "ans": false,
+                "feedback": "False. Published empirical comparisons remain scarce due to the modern nature of block models and sport-specific outcome complexities."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Block periodization focuses on **1 or 2 specialized targets** per block over an optimal duration of **2 to 4 weeks**.",
+                "targets": [
+                    "1 or 2 specialized targets",
+                    "2 to 4 weeks"
+                ],
+                "optionsBank": [
+                    "1 or 2 specialized targets",
+                    "2 to 4 weeks",
+                    "10 to 12 targets",
+                    "4 years",
+                    "glycolysis"
+                ],
+                "hint": "Identify the number of target abilities per block and the optimal block duration."
+            },
+            {
+                "id": 2,
+                "statement": "Block periodization uses **consecutive sequencing** to capitalize on **residual training effects**.",
+                "targets": [
+                    "consecutive sequencing",
+                    "residual training effects"
+                ],
+                "optionsBank": [
+                    "consecutive sequencing",
+                    "residual training effects",
+                    "concurrent training",
+                    "atrophy",
+                    "undertraining"
+                ],
+                "hint": "Identify the block ordering method and the lingering adaptation benefit."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Define block periodization and outline its four core structural principles.",
+                "model": "Block periodization is a modern periodization model involving short, highly specialized training blocks dedicated to developing a minimal number of targeted physiological capacities. Its four core structural principles are: (1) Concentrated Workloads: Focusing heavily on only 1 or 2 specialized targets per block (e.g., maximal strength or aerobic power) rather than multi-targeted development; (2) Minimal Number of Blocks: Structuring the annual plan into a small number of distinct blocks (typically 3 or 4); (3) Optimal Duration: Keeping block length to 2 to 4 weeks to induce concentrated adaptations without neuroendocrine exhaustion; and (4) Consecutive Sequencing: Developing capacities in a logical sequence where residual training effects from prior blocks support subsequent training phases.",
+                "criteria": [
+                    "Define block periodization (short specialized blocks for minimal target capacities).",
+                    "Detail principle 1 & 2 (concentrated workloads on 1-2 targets; minimal 3-4 blocks per year).",
+                    "Detail principle 3 & 4 (optimal 2-4 week duration; consecutive sequencing utilizing residual training effects)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Compare traditional periodization with block periodization, highlighting target focus per cycle, adaptive interference, and suitability for modern multi-competition sports seasons.",
+                "model": "Traditional periodization relies on a rigid multi-level hierarchy (macro-, meso-, microcycles) attempting to develop multiple physical capacities (9 to 11 targets) simultaneously. This causes adaptive interference between mismatched metabolic pathways and is rigid for modern multi-competition seasons designed around a single peak. In contrast, block periodization uses short 2 to 4 week blocks focused on only 1 or 2 specialized targets, sequenced consecutively. This avoids multi-target adaptive interference, leverages residual training effects, and offers greater scheduling flexibility for athletes competing in multi-game seasons.",
+                "criteria": [
+                    "Compare target focus (traditional: multi-targeted 9-11 abilities simultaneously vs block: concentrated 1-2 targets per block).",
+                    "Compare adaptive interference (traditional causes multi-target interference vs block avoids interference via consecutive sequencing).",
+                    "Compare season suitability (traditional optimized for single-peak vs block flexible for multi-game seasons)."
+                ]
+            }
+        ]
+    }
+}

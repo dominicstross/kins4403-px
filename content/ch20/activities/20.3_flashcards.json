@@ -1,0 +1,76 @@
+{
+    "chapterId": "20.3",
+    "title": "20.3 Health Screening",
+    "cards": [
+        {
+            "id": "20.3-01",
+            "tag": "Preparticipation Screening",
+            "reference": "Section 20.3",
+            "front": "Why is routine <strong>preparticipation medical evaluation</strong> not mandated for all healthy individuals prior to beginning an exercise program?",
+            "back": "Mandating routine clinical medical evaluations for everyone is limited by several factors:<ul><li><strong>Cost and System Capacity:</strong> Comprehensive medical evaluations are expensive, and the healthcare system lacks capacity to screen the entire population.</li><li><strong>Unproven Risk Reduction:</strong> Routine medical evaluation in apparently healthy, asymptomatic populations has not been proven to reduce exercise-related medical risks.</li><li><strong>Participation Barrier:</strong> Perceived medical evaluation requirements act as a significant barrier preventing sedentary people from becoming active.</li></ul>"
+        },
+        {
+            "id": "20.3-02",
+            "tag": "Body Composition & Health Risk",
+            "reference": "Section 20.3",
+            "front": "Why are simple height and weight measurements insufficient for evaluating <strong>body composition</strong>, and what model is used instead?",
+            "back": "Height and weight alone (like BMI) fail to capture tissue distribution, relative adiposity, or fitness level. Instead, the <strong>two-compartment model</strong> is used to divide body mass into:<ul><li><strong>Fat Mass:</strong> Specifically tracking central/abdominal adiposity, which carries a strong association with cardiometabolic disease and disability.</li><li><strong>Fat-Free Mass:</strong> Lean muscle and structural tissues that support metabolic health and functional capacity.</li></ul>"
+        },
+        {
+            "id": "20.3-03",
+            "tag": "Muscular Strength & Endurance",
+            "reference": "Section 20.3",
+            "front": "What is the clinical significance of <strong>handgrip strength testing</strong> in older populations?",
+            "back": "<strong>Handgrip strength</strong> is an essential functional construct for activities of daily living and serves as a strong clinical predictor of <strong>functional independence</strong> and <strong>all-cause premature mortality</strong> in older adults."
+        },
+        {
+            "id": "20.3-04",
+            "tag": "Muscular Endurance Assessments",
+            "reference": "Section 20.3",
+            "front": "Why are <strong>sit-up and curl-up tests</strong> explicitly discouraged in health-related fitness testing, and what field test is recommended instead?",
+            "back": "Sit-up and curl-up tests are discouraged because they show only a moderate relationship to true abdominal muscular endurance and carry a high risk of causing <strong>lower back spinal injury</strong>. The recommended upper-body muscular endurance field assessment is the <strong>push-up test</strong> (maximal properly executed push-ups in 1 to 2 minutes)."
+        },
+        {
+            "id": "20.3-05",
+            "tag": "Flexibility & Sex Differences",
+            "reference": "Section 20.3",
+            "front": "What muscles are evaluated by the <strong>sit-and-reach test</strong>, and what normative sex difference exists across flexibility assessments?",
+            "back": "The <strong>sit-and-reach test</strong> (trunk flexion test) measures the range of motion of the <strong>hamstrings</strong> and <strong>lower back musculature</strong>. On joint flexibility assessments, <strong>females almost routinely score significantly higher</strong> than age-matched males due to anatomical and connective tissue compliance differences."
+        },
+        {
+            "id": "20.3-06",
+            "tag": "Cardiorespiratory Fitness Testing",
+            "reference": "Section 20.3",
+            "front": "How is <strong>maximal oxygen consumption (VO<sub>2max</sub>)</strong> evaluated during submaximal graded exercise testing (GXT)?",
+            "back": "Submaximal GXT protocols measure steady-state <strong>heart rate (HR)</strong> at multiple increasing workloads. These measured HR data points are then linearly extrapolated to the subject's age-predicted <strong>maximal heart rate (HR<sub>max</sub>)</strong> to estimate functional VO<sub>2max</sub>."
+        },
+        {
+            "id": "20.3-07",
+            "tag": "Clinical Graded Exercise Testing",
+            "reference": "Section 20.3",
+            "front": "What physiological variables are continuously monitored during a <strong>clinical diagnostic graded exercise test (GXT)</strong>?",
+            "back": "A clinical diagnostic GXT involves progressive workload advancement every 1 to 3 minutes (typically up to 85% of estimated HR<sub>max</sub>) with continuous monitoring of:<ul><li><strong>12-Lead ECG:</strong> Evaluates cardiac rhythm, conduction abnormalities, and myocardial ischemia (e.g., ST-segment depression).</li><li><strong>Systemic Blood Pressure:</strong> Verifies a normal linear rise in systolic BP alongside stable or slightly reduced diastolic BP.</li><li><strong>Symptom Scales:</strong> Tracks rating of perceived exertion (RPE), chest pain/pressure (angina), dyspnea, and light-headedness.</li></ul>"
+        },
+        {
+            "id": "20.3-08",
+            "tag": "Diagnostic GXT Outcomes & Imaging",
+            "reference": "Section 20.3",
+            "front": "What diagnostic procedures are combined with a clinical GXT to improve cardiac disease detection, and how are test results classified?",
+            "back": "To improve diagnostic specificity and sensitivity, clinical GXTs are combined with <strong>echocardiography</strong>, <strong>radionuclide myocardial perfusion imaging</strong>, or <strong>cardiovascular pharmacological stress agents</strong>. Test results are integrated and classified as:<ul><li><strong>Positive:</strong> Indicative of myocardial ischemia or coronary artery disease (CAD).</li><li><strong>Negative:</strong> Normal physiological response without ischemia.</li><li><strong>Equivocal:</strong> Uncertain results requiring follow-up invasive procedures like coronary angiograms.</li></ul>"
+        },
+        {
+            "id": "20.3-09",
+            "tag": "Diagnostic Validity: Sensitivity",
+            "reference": "Section 20.3",
+            "front": "What is the <strong>sensitivity</strong> of a diagnostic test, and what is the average reported sensitivity of an exercise 12-lead ECG for detecting CAD?",
+            "back": "<strong>Sensitivity</strong> refers to a diagnostic test's ability to correctly identify individuals who actually have the disease in question. For exercise 12-lead ECG detection of coronary artery disease (CAD), sensitivity averages approximately <strong>66%</strong>, meaning that <strong>34% of individuals with CAD receive a false-negative result</strong>."
+        },
+        {
+            "id": "20.3-10",
+            "tag": "Diagnostic Validity: Predictive Value",
+            "reference": "Section 20.3",
+            "front": "Why is routine diagnostic exercise ECG testing rarely indicated for screening <strong>young, asymptomatic, healthy individuals</strong>?",
+            "back": "Routine diagnostic exercise ECGs have low utility in low-risk, asymptomatic populations because:<ul><li><strong>Low Pre-Test Probability:</strong> In populations where disease prevalence is low, the positive <strong>predictive value</strong> of an abnormal test result is extremely low.</li><li><strong>False Results:</strong> Low sensitivity (~66%) and low predictive value lead to high rates of false-negative and false-positive results, rendering routine GXT screening in healthy young populations ineffective.</li></ul>"
+        }
+    ]
+}

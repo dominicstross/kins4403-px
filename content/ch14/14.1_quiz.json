@@ -1,0 +1,747 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What fundamental physiological principle forms the basis of all effective exercise conditioning programs?",
+                "opts": [
+                    "Principle of progressive overload",
+                    "Principle of extreme volume escalation",
+                    "Principle of continuous rest",
+                    "Principle of linear glycogen depletion"
+                ],
+                "correct": 0,
+                "rationale": "The principle of progressive overload dictates that to drive continued physiological adaptation and performance gains, the training stimulus must be systematically increased over time as the body adapts."
+            },
+            {
+                "id": 2,
+                "q": "Which stage of the training continuum represents minor training loads typical of off-season active rest or transition periods where adaptations are minimal?",
+                "opts": [
+                    "Acute overload",
+                    "Undertraining",
+                    "Overreaching",
+                    "Overtraining"
+                ],
+                "correct": 1,
+                "rationale": "Undertraining occurs during active rest or off-season transition periods when training loads are insufficient to drive further physiological adaptation or performance improvement."
+            },
+            {
+                "id": 3,
+                "q": "What characterizes the stage of acute overload along the training continuum?",
+                "opts": [
+                    "Standard positive training stress matching adaptive capacity that drives physiological adaptations",
+                    "Chronic performance decrements requiring years of medical recovery",
+                    "Zero metabolic stress resulting in detraining",
+                    "Intentionally catastrophic overload leading to systemic autonomic collapse"
+                ],
+                "correct": 0,
+                "rationale": "Acute overload represents standard positive training stress that challenges the body sufficiently to improve physiological function and athletic performance without inducing maladaptation."
+            },
+            {
+                "id": 4,
+                "q": "How is overreaching defined in exercise conditioning?",
+                "opts": [
+                    "A systematic attempt to intentionally overstress the body for a brief period of heavy overload without adequate rest",
+                    "A permanent reduction in skeletal muscle fiber cross-sectional area",
+                    "A state of complete undertraining during competitive seasons",
+                    "An irreversible destruction of motor unit recruitment pathways"
+                ],
+                "correct": 0,
+                "rationale": "Overreaching is an intentional, systematic bout of heavy overload designed to overstress the body briefly, inducing temporary fatigue followed by supercompensation upon recovery."
+            },
+            {
+                "id": 5,
+                "q": "What physiological phenomenon occurs after an athlete recovers appropriately from a planned overreaching cycle?",
+                "opts": [
+                    "Supercompensation, yielding higher performance capacity than baseline",
+                    "Permanent loss of maximal oxygen consumption (\\(\\dot{V}\\text{O}_{2\\max}\\))",
+                    "Systemic athletic burnout requiring 2 years of complete bed rest",
+                    "Acute muscle fiber necrosis"
+                ],
+                "correct": 0,
+                "rationale": "When an overreaching block is followed by adequate recovery, the body undergoes supercompensation, rebounding to a higher state of adaptation and performance than prior to the heavy overload."
+            },
+            {
+                "id": 6,
+                "q": "What key distinction separates overreaching from overtraining syndrome regarding recovery kinetics?",
+                "opts": [
+                    "Overreaching recovery requires several days to several weeks, whereas overtraining recovery requires several months to years",
+                    "Overtraining recovery takes 24 hours, whereas overreaching requires 10 years",
+                    "Overreaching has no impact on performance, whereas overtraining improves performance",
+                    "Both states require identical recovery periods of exactly 48 hours"
+                ],
+                "correct": 0,
+                "rationale": "Overreaching resolves with several days to weeks of rest, yielding supercompensation. Overtraining represents severe chronic systemic maladaptation requiring months to years for full recovery."
+            },
+            {
+                "id": 7,
+                "q": "What acute performance impact occurs immediately following an overreaching training cycle before recovery is provided?",
+                "opts": [
+                    "A transient performance decrement",
+                    "An immediate 50% increase in 1RM strength",
+                    "Instant elevation in movement speed without fatigue",
+                    "Total absence of blood lactate accumulation"
+                ],
+                "correct": 0,
+                "rationale": "Intentionally overstressing the body during overreaching induces acute muscular and metabolic fatigue, resulting in a short-term temporary decline in performance before recovery takes place."
+            },
+            {
+                "id": 8,
+                "q": "What outcome occurs if a coach continuously extends a heavy overreaching block without scheduling necessary recovery periods?",
+                "opts": [
+                    "The athlete crosses from overreaching into overtraining syndrome",
+                    "The athlete achieves infinite linear strength gains",
+                    "The athlete transitions directly into undertraining",
+                    "The athlete develops immunity to muscle fatigue"
+                ],
+                "correct": 0,
+                "rationale": "If heavy overreaching stress is sustained without adequate rest, adaptive capacity is exceeded, driving the athlete into chronic overtraining syndrome."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which stages form the recognized continuum of athletic training preparation? (Select all that apply)",
+                "opts": [
+                    "Undertraining",
+                    "Acute overload",
+                    "Overreaching",
+                    "Overtraining"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "Athletic training progresses along a continuum encompassing undertraining, acute overload, overreaching, overtraining, and excessive training."
+            },
+            {
+                "id": 2,
+                "q": "Which characteristics describe a properly managed overreaching cycle? (Select all that apply)",
+                "opts": [
+                    "Intentional brief period of heavy overload exceeding current recovery rate",
+                    "Produces a transient short-term performance decline",
+                    "Yields physiological supercompensation following adequate rest",
+                    "Requires 3 to 5 years of complete physical inactivity for recovery"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Overreaching intentionally overstresses the athlete briefly, causing short-term fatigue followed by supercompensation after several days or weeks of rest. It does not require years of inactivity."
+            },
+            {
+                "id": 3,
+                "q": "Which statements are true regarding the principle of progressive overload? (Select all that apply)",
+                "opts": [
+                    "Training stimuli must systematically increase as the body adapts",
+                    "Unmanaged extreme overload without recovery leads to counterproductive maladaptations",
+                    "Insufficient overload leads to plateau or performance regression",
+                    "Progressive overload guarantees zero muscle fatigue"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Progressive overload requires advancing stimuli to drive gains; excessive loading without rest causes maladaptation, while insufficient load leads to plateaus."
+            },
+            {
+                "id": 4,
+                "q": "Which recovery timeframes correctly correspond to their respective training stages? (Select all that apply)",
+                "opts": [
+                    "Acute overload: Rest restores baseline baseline capacity within \\(24\\text{--}48\\text{ h}\\)",
+                    "Overreaching: Recovery requires several days to several weeks",
+                    "Overtraining: Recovery requires several months to years",
+                    "Undertraining: Recovery requires 6 months of ICU hospitalization"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Acute overload baseline returns in 24-48 h, overreaching resolves in days to weeks, and overtraining demands months to years of recovery."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "The principle of progressive overload dictates that exercise stress must systematically increase over time as physical capacity adapts.",
+                "ans": true,
+                "feedback": "True. Continual physiological gains require systematically advancing the training stimulus as the body adapts."
+            },
+            {
+                "id": 2,
+                "q": "Overreaching is an unintended mistake that always destroys athletic performance permanently.",
+                "ans": false,
+                "feedback": "False. Overreaching is often a planned, systematic training tactic that elicits supercompensation when paired with structured recovery."
+            },
+            {
+                "id": 3,
+                "q": "Full recovery from overtraining syndrome can require several months to years.",
+                "ans": true,
+                "feedback": "True. Overtraining involves severe, systemic physiological maladaptation that takes months to years to resolve."
+            },
+            {
+                "id": 4,
+                "q": "Undertraining during off-season transition periods produces massive improvements in VO2max.",
+                "ans": false,
+                "feedback": "False. Undertraining features minor workloads insufficient to stimulate physiological adaptations or performance gains."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Intentional heavy overload leads to **overreaching**, which yields **supercompensation** after adequate rest.",
+                "targets": [
+                    "overreaching",
+                    "supercompensation"
+                ],
+                "optionsBank": [
+                    "overreaching",
+                    "supercompensation",
+                    "undertraining",
+                    "myosin",
+                    "bradycardia"
+                ],
+                "hint": "Identify the heavy overload tactic and its positive rebound adaptive outcome."
+            },
+            {
+                "id": 2,
+                "statement": "Standard positive training stress is termed **acute overload**, whereas severe chronic maladaptation is termed **overtraining**.",
+                "targets": [
+                    "acute overload",
+                    "overtraining"
+                ],
+                "optionsBank": [
+                    "acute overload",
+                    "overtraining",
+                    "excessive volume",
+                    "glycogen",
+                    "atrophy"
+                ],
+                "hint": "Identify normal productive training stress and the chronic failure state."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Explain the continuum of training stages in athletic conditioning, defining acute overload, overreaching, and overtraining, and compare their respective recovery timeframes.",
+                "model": "Athletic conditioning occurs along a continuum: (1) Acute Overload represents standard, positive training stress that challenges the body within its adaptive capacity, driving structural and metabolic improvements with recovery occurring within 24 to 48 hours; (2) Overreaching is a planned, systematic period of heavy overload that temporarily exceeds adaptive capacity, producing a transient performance drop followed by supercompensation after several days to several weeks of rest; (3) Overtraining occurs when chronic excessive stress is applied without recovery, leading to systemic physiological maladaptation (overtraining syndrome) and severe performance decline requiring months to years for full recovery.",
+                "criteria": [
+                    "Define acute overload (standard positive stress, 24-48 h recovery).",
+                    "Define overreaching (planned brief heavy overload, temporary performance drop, supercompensation after days to weeks rest).",
+                    "Define overtraining (chronic unmanaged stress, systemic maladaptation, recovery requiring months to years)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Describe how strength and conditioning coaches utilize planned overreaching to achieve performance supercompensation while avoiding overtraining syndrome.",
+                "model": "Coaches utilize planned overreaching by subjecting athletes to a brief, heavy block of increased volume or intensity that intentionally pushes them to the brink of fatigue. This induces temporary acute tiredness and short-term performance decrements. However, by strictly programming a subsequent taper or recovery phase lasting several days to weeks, the body rebounds beyond its initial baseline capacity through supercompensation. To prevent overreaching from escalating into overtraining syndrome, coaches must carefully time the recovery block and monitor markers of fatigue, ensuring heavy loading is not sustained continuously.",
+                "criteria": [
+                    "Explain the tactical structure of overreaching (brief heavy loading block driving temporary fatigue).",
+                    "Explain supercompensation (rebound adaptation following structured recovery).",
+                    "Detail how coaches monitor loading/tapering to avoid crossing into chronic overtraining syndrome."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "How is excessive training defined in exercise physiology?",
+                "opts": [
+                    "Training in which volume, intensity, or frequency is escalated to extreme levels beyond what is required for peak performance",
+                    "Training exclusively at 20% of maximal heart rate for 10 minutes per week",
+                    "Performing light active recovery during off-season transition phases",
+                    "Executing a single 1RM bench press trial once per month"
+                ],
+                "correct": 0,
+                "rationale": "Excessive training refers to escalating training volume, intensity, or frequency to extreme levels beyond optimal physiological requirements, driven by a 'more is better' misconception."
+            },
+            {
+                "id": 2,
+                "q": "What did research in elite swimmers demonstrate regarding swimming 3 to 4 hours per day versus 1 to 1.5 hours per day?",
+                "opts": [
+                    "3 to 4 hours per day yielded no extra aerobic benefit and decreased muscular strength and sprint performance",
+                    "3 to 4 hours per day doubled VO2max and quadrupled sprint velocity",
+                    "1 to 1.5 hours per day caused complete muscular atrophy",
+                    "Both training volumes produced identical 100% increases in muscle fiber count"
+                ],
+                "correct": 0,
+                "rationale": "Studies proved that swimming 3 to 4 h/day provided no additional aerobic or muscular gains compared to 1 to 1.5 h/day, and actually decreased maximal muscle strength and sprint speed."
+            },
+            {
+                "id": 3,
+                "q": "In the landmark study by Costill and colleagues comparing single-session (1/day) vs double-session (2/day) swim training, what were the physiological findings?",
+                "opts": [
+                    "Double-daily workouts produced no extra improvements in submaximal HR or lactate clearance and resulted in higher HR and lactate at fixed speeds",
+                    "Double-daily workouts quadrupled lactate clearance rates",
+                    "Single-daily workouts caused immediate heart failure",
+                    "Double-daily workouts eliminated blood lactate production entirely"
+                ],
+                "correct": 0,
+                "rationale": "Costill et al. found that doubling daily session frequency yielded no added submaximal cardiorespiratory or metabolic benefits, with double-session swimmers showing slightly elevated HR and lactate at fixed speeds."
+            },
+            {
+                "id": 4,
+                "q": "What were the 4-year longitudinal performance results comparing competitive swimmers training > 10,000 m/day (Long-Swim) vs ~ 5,000 m/day (Short-Swim)?",
+                "opts": [
+                    "Both groups demonstrated an identical average performance improvement of 0.8% per year across all sprint and distance events",
+                    "The Long-Swim group improved by 50% per year while the Short-Swim group regressed",
+                    "The Short-Swim group improved by 10% per year while the Long-Swim group failed to finish any races",
+                    "Neither group showed any measurable change over 4 years"
+                ],
+                "correct": 0,
+                "rationale": "A 4-year study showed that swimming > 10,000 m/day yielded an identical 0.8% per year performance gain compared to swimming ~ 5,000 m/day, proving high volume provided no extra benefit."
+            },
+            {
+                "id": 5,
+                "q": "Why does accumulating high daily training volume at slow speeds fail to improve sprint performance in short-duration events (< 2 min)?",
+                "opts": [
+                    "It violates the principle of specificity by failing to recruit high-threshold motor units or stress fast glycolytic pathways",
+                    "It destroys all mitochondrial enzymes within 12 hours",
+                    "Slow swimming increases muscle mass too rapidly for sprint speed",
+                    "High volume increases maximal oxygen uptake to dangerous levels"
+                ],
+                "correct": 0,
+                "rationale": "High-volume slow training violates specificity for short events (< 2 min) because low speeds do not stress fast glycolytic pathways or recruit high-threshold fast-twitch motor units."
+            },
+            {
+                "id": 6,
+                "q": "What impact does reducing excessive swim volume by up to 50% have on performance adaptations and injury risk?",
+                "opts": [
+                    "It maintains peak performance adaptations while significantly lowering overuse injury and overtraining risks",
+                    "It causes an immediate 40% decline in competitive swimming speed",
+                    "It doubles the rate of tendonitis and shoulder bursitis",
+                    "It eliminates the athlete's ability to swim aerobically"
+                ],
+                "correct": 0,
+                "rationale": "Reducing excessive, junk volume preserves performance adaptations while markedly decreasing joint stress, overuse injuries, and metabolic overtraining risk."
+            },
+            {
+                "id": 7,
+                "q": "What underlying misconception frequently leads coaches and athletes into excessive training paradigms?",
+                "opts": [
+                    "The false assumption that 'more is always better' and volume increases linearly translate to performance gains",
+                    "The belief that sleep is more important than physical activity",
+                    "The idea that resistance training reduces muscular strength",
+                    "The guideline that rest intervals should exceed 3 hours between sets"
+                ],
+                "correct": 0,
+                "rationale": "Excessive training is driven by the flawed belief that increasing training volume will continuously and linearly elevate athletic performance."
+            },
+            {
+                "id": 8,
+                "q": "What submaximal metabolic response was observed in swimmers subjected to double-daily training sessions at a fixed swimming pace?",
+                "opts": [
+                    "Slightly elevated blood lactate levels and higher heart rates compared to single-daily swimmers",
+                    "Complete absence of blood lactate accumulation",
+                    "A 50% reduction in submaximal oxygen cost",
+                    "Total stabilization of heart rate at resting levels"
+                ],
+                "correct": 0,
+                "rationale": "Swimmers undergoing double-daily sessions exhibited signs of incomplete recovery, showing slightly higher submaximal heart rates and blood lactate levels for fixed-pace swims."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which research findings demonstrate the limits of high training volume in competitive swimming? (Select all that apply)",
+                "opts": [
+                    "Training 3 to 4 h/day provided no extra aerobic benefit over 1 to 1.5 h/day",
+                    "Double-daily sessions yielded no added submaximal HR or lactate clearance benefits over single sessions",
+                    "Swimming > 10,000 m/day produced identical 4-year gains (0.8%/year) to swimming ~ 5,000 m/day",
+                    "Swimming 20 hours per day increases sprint speed exponentially without plateau"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Controlled studies consistently show that expanding volume beyond optimal limits (e.g. 1-1.5 h/day or ~5,000 m/day) provides no additional adaptation."
+            },
+            {
+                "id": 2,
+                "q": "Why does excessive low-speed training volume fail to enhance performance in short-duration competitive events? (Select all that apply)",
+                "opts": [
+                    "It violates the principle of training specificity",
+                    "It fails to recruit high-threshold fast-twitch motor units",
+                    "It fails to stress high-rate anaerobic glycolytic pathways",
+                    "It expands muscle glycogen stores beyond human anatomical storage limits"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Low-speed volume fails to recruit high-threshold motor units or stress glycolytic pathways needed for short events (<2 min), violating specificity."
+            },
+            {
+                "id": 3,
+                "q": "Which physiological consequences are associated with excessive training volume? (Select all that apply)",
+                "opts": [
+                    "Decreased maximal muscular strength and sprint speed",
+                    "Elevated submaximal heart rates and blood lactate at fixed workloads",
+                    "Increased risk of overuse musculoskeletal injuries",
+                    "Exponential increases in rate of force development (RFD)"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Excessive volume reduces strength/speed, elevates fatigue markers (submaximal HR/lactate), and increases overuse injury risk."
+            },
+            {
+                "id": 4,
+                "q": "Which practical adjustments optimize training volume for endurance athletes? (Select all that apply)",
+                "opts": [
+                    "Focusing on quality race-pace intensity rather than junk volume",
+                    "Reducing excessive volume by up to 50% to lower overtraining risk",
+                    "Structuring single daily sessions when double sessions provide no added benefit",
+                    "Increasing workout duration to 8 hours daily regardless of performance drops"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Optimizing volume emphasizes quality, cuts unneeded volume, and avoids double sessions when single sessions suffice."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Research shows that swimming 3 to 4 hours daily produces twice the performance gains of swimming 1 to 1.5 hours daily.",
+                "ans": false,
+                "feedback": "False. Studies prove 3 to 4 hours daily yields no extra aerobic benefit and can decrease strength and sprint performance."
+            },
+            {
+                "id": 2,
+                "q": "In a 4-year study, swimmers doing ~ 5,000 m/day achieved the same annual performance improvement (0.8%) as those doing > 10,000 m/day.",
+                "ans": true,
+                "feedback": "True. Both groups achieved identical 0.8% annual improvements, demonstrating that doubling volume provided zero extra adaptation."
+            },
+            {
+                "id": 3,
+                "q": "Double-daily workouts always double the rate of lactate threshold adaptation compared to single-daily workouts.",
+                "ans": false,
+                "feedback": "False. Costill et al. showed double-daily workouts yielded no added submaximal lactate clearance or HR benefits."
+            },
+            {
+                "id": 4,
+                "q": "Excessive training volume often stems from the misconception that 'more is always better'.",
+                "ans": true,
+                "feedback": "True. The 'more is better' mindset drives volume beyond optimal limits without additional performance gains."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Swimmers training **~ 5,000 m/day** achieved identical 4-year gains (**0.8% per year**) to those swimming > 10,000 m/day.",
+                "targets": [
+                    "~ 5,000 m/day",
+                    "0.8% per year"
+                ],
+                "optionsBank": [
+                    "~ 5,000 m/day",
+                    "0.8% per year",
+                    "50,000 m/day",
+                    "25% per year",
+                    "ATP-PCr"
+                ],
+                "hint": "Identify the moderate volume benchmark distance and the identical annual performance gain percentage."
+            },
+            {
+                "id": 2,
+                "statement": "Excessive low-speed volume violates **training specificity** by failing to recruit **high-threshold motor units**.",
+                "targets": [
+                    "training specificity",
+                    "high-threshold motor units"
+                ],
+                "optionsBank": [
+                    "training specificity",
+                    "high-threshold motor units",
+                    "reversibility",
+                    "slow-twitch fibers",
+                    "alveoli"
+                ],
+                "hint": "Identify the violated principle and the unrecruited motor nerve category."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Summarize the findings of Costill and colleagues regarding single-session versus double-session daily swim training, detailing submaximal metabolic responses and performance implications.",
+                "model": "Costill and colleagues evaluated swimmers split into single-session (1 workout/day) and double-session (2 workouts/day) regimens during a 25-week season. They found that doubling daily session frequency produced no additional improvements in submaximal heart rate or blood lactate clearance compared to single daily workouts. In fact, double-daily swimmers exhibited slightly higher submaximal heart rates and elevated blood lactate levels during fixed-pace swim tests, indicating incomplete recovery and chronic fatigue without added performance enhancement.",
+                "criteria": [
+                    "Describe study design (single vs double daily swim sessions over 25-week season).",
+                    "Detail submaximal physiological findings (no extra benefits in HR or lactate clearance; double sessions showed elevated HR and lactate at fixed pace).",
+                    "State performance conclusion (doubling daily sessions adds fatigue without accelerating performance adaptations)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Explain why high-volume, low-intensity training fails to improve performance in short-duration competitive events (< 2 min) using the principle of training specificity.",
+                "model": "The principle of training specificity dictates that physiological adaptations are specific to the mode, intensity, and movement velocity of exercise. Short-duration events (< 2 min) require maximal rate of force development, high-threshold fast-twitch motor unit recruitment, and rapid ATP resynthesis via fast glycolysis. Accumulating large volumes of low-speed training conditions the body for prolonged low-power output but fails to stress fast glycolytic pathways or recruit high-threshold motor units. Thus, excessive low-speed volume fails to transfer to race-pace power and speed.",
+                "criteria": [
+                    "Define specificity in the context of short-duration events (< 2 min demands fast-twitch recruitment and fast glycolysis).",
+                    "Explain why low-speed volume fails to adapt these pathways (low velocity does not recruit high-threshold motor units).",
+                    "Conclude why junk volume fails to enhance race-pace power or speed."
+                ]
+            }
+        ]
+    },
+    "p3": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What inverse relationship governs training volume and training intensity?",
+                "opts": [
+                    "As intensity increases, volume must decrease; as intensity decreases, volume must expand",
+                    "As intensity increases, volume must increase exponentially",
+                    "Volume and intensity are completely independent and never interact",
+                    "Both volume and intensity must be held at 100% continuously"
+                ],
+                "correct": 0,
+                "rationale": "Training volume and intensity share a strict inverse relationship: high-intensity work can only be sustained at low volumes, whereas high-volume work requires lower intensities."
+            },
+            {
+                "id": 2,
+                "q": "Which energy systems and physiological adaptations are primarily targeted by high-intensity, low-volume training?",
+                "opts": [
+                    "Neuromuscular drive, ATP-PCr, and fast glycolysis; enhancing maximal strength, sprint speed, and anaerobic capacity",
+                    "Mitochondrial biogenesis and maximal fat oxidation exclusively",
+                    "Alveolar capillary diffusion capacity and resting tidal volume",
+                    "Bone mineral density expansion without muscle contraction"
+                ],
+                "correct": 0,
+                "rationale": "High-intensity, low-volume training stresses neuromuscular motor unit recruitment and fast anaerobic energy systems, maximizing strength, power, and sprint speed."
+            },
+            {
+                "id": 3,
+                "q": "Which physiological adaptations are primarily driven by low-intensity, high-volume training?",
+                "opts": [
+                    "Capillary density, mitochondrial oxidative enzymes, and VO2max",
+                    "Maximal 1RM bench press strength and 50 m sprint speed",
+                    "High-threshold fast-twitch motor unit hypertrophy",
+                    "Instant resynthesis of phosphocreatine in 1 second"
+                ],
+                "correct": 0,
+                "rationale": "Low-intensity, high-volume training stresses the oxidative energy system, enhancing peripheral capillarization, mitochondrial enzyme activity, and VO2max."
+            },
+            {
+                "id": 4,
+                "q": "What primary metabolic consequence occurs when an athlete attempts to sustain high volume alongside high training intensity without recovery?",
+                "opts": [
+                    "Chronic muscular glycogen depletion",
+                    "Hyper-expansion of resting liver glycogen to 500%",
+                    "Complete cessation of cardiac contraction",
+                    "Spontaneous conversion of muscle into adipose tissue"
+                ],
+                "correct": 0,
+                "rationale": "High-intensity exercise relies heavily on anaerobic glycolysis. Sustaining high intensity alongside high volume rapidly and chronically depletes intramuscular glycogen stores."
+            },
+            {
+                "id": 5,
+                "q": "What clinical symptom pattern results from persistent chronic muscle glycogen depletion caused by excessive high-intensity training?",
+                "opts": [
+                    "Chronic physical fatigue, reduced muscle tension development, and systemic overtraining syndrome",
+                    "Instant 20% increase in sprint swimming velocity",
+                    "Complete elimination of exercise-induced muscle soreness",
+                    "Immediate reduction in resting heart rate to 20 beats/min"
+                ],
+                "correct": 0,
+                "rationale": "Persistent glycogen depletion prevents energetic recovery, leading to chronic fatigue, impaired force production, and overtraining syndrome."
+            },
+            {
+                "id": 6,
+                "q": "How should high-intensity interval or resistance sessions be scheduled to ensure full glycogen resynthesis and prevent metabolic exhaustion?",
+                "opts": [
+                    "Interspersed with light, low-intensity sessions or complete rest days",
+                    "Executed 4 times per day, 7 days per week without rest",
+                    "Combined with 24-hour total fluid deprivation",
+                    "Replaced permanently with static stretching"
+                ],
+                "correct": 0,
+                "rationale": "Because high-intensity workouts rapidly hydrolyze muscle glycogen, hard training days must be alternated with light recovery days or rest to allow glycogen replenishment."
+            },
+            {
+                "id": 7,
+                "q": "Why can high-intensity, low-volume training be tolerated for only brief training periods?",
+                "opts": [
+                    "High intensity imposes severe neuromuscular and glycolytic fatigue that rapidly exhausts short-term adaptive reserves",
+                    "Low volume causes immediate joint dislocation",
+                    "High intensity destroys all slow-twitch oxidative fibers within 5 minutes",
+                    "Low volume eliminates blood flow to active muscles"
+                ],
+                "correct": 0,
+                "rationale": "High-intensity exercise places high demands on the central nervous system and fast glycolytic system, causing rapid fatigue that limits how long such loading can be sustained."
+            },
+            {
+                "id": 8,
+                "q": "Which statement accurately describes the adaptive limitations of low-intensity, high-volume training?",
+                "opts": [
+                    "It produces minimal gains in maximal muscle strength, power, or sprint speed",
+                    "It fails to increase skeletal muscle mitochondrial density",
+                    "It causes catastrophic acute drops in stroke volume",
+                    "It cannot be performed by endurance athletes"
+                ],
+                "correct": 0,
+                "rationale": "While low-intensity high-volume training expands aerobic endurance and VO2max, it lacks the force and velocity demands required to build maximal strength or sprint speed."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which features describe the inverse volume-intensity relationship? (Select all that apply)",
+                "opts": [
+                    "High intensity demands low volume to avoid premature exhaustion",
+                    "High volume demands lower intensity to allow sustained execution",
+                    "Attempting high volume at high intensity leads to chronic glycogen depletion",
+                    "Volume and intensity can both be maximized simultaneously indefinitely"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Volume and intensity are inversely related; attempting high levels of both simultaneously causes chronic glycogen depletion and overtraining."
+            },
+            {
+                "id": 2,
+                "q": "Which adaptations result from high-intensity, low-volume training? (Select all that apply)",
+                "opts": [
+                    "Increased maximal muscular strength",
+                    "Enhanced sprint speed and rate of force development",
+                    "Expanded anaerobic glycolytic capacity",
+                    "Massive expansion of capillary-to-fiber ratio and VO2max"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "High-intensity low-volume training targets neuromuscular strength, sprint speed, and anaerobic capacity. Capillary density and VO2max require aerobic volume."
+            },
+            {
+                "id": 3,
+                "q": "Which metabolic consequences occur during excessive high-intensity training without rest? (Select all that apply)",
+                "opts": [
+                    "Rapid hydrolysis of intramuscular glycogen stores",
+                    "Chronic muscle glycogen depletion across training days",
+                    "Impaired muscle tension development and chronic fatigue",
+                    "Complete protection against overtraining syndrome"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Excessive high intensity hydrolyzes glycogen, driving chronic depletion, impaired muscle force, fatigue, and overtraining."
+            },
+            {
+                "id": 4,
+                "q": "Which programming strategies restore glycogen and protect against metabolic overtraining? (Select all that apply)",
+                "opts": [
+                    "Alternating high-intensity training days with low-intensity recovery days",
+                    "Scheduling complete rest days within weekly microcycles",
+                    "Consuming adequate dietary carbohydrates to support glycogen resynthesis",
+                    "Increasing high-intensity training frequency to 3 sessions per day without rest"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Alternating hard/easy days, scheduling rest days, and carbohydrate intake facilitate glycogen resynthesis and prevent overtraining."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Training volume and training intensity share a strict inverse relationship in exercise programming.",
+                "ans": true,
+                "feedback": "True. As exercise intensity increases, volume must decrease to prevent premature fatigue and maladaptation."
+            },
+            {
+                "id": 2,
+                "q": "High-intensity, low-volume training is the primary driver of capillary density and VO2max expansion.",
+                "ans": false,
+                "feedback": "False. Low-intensity, high-volume training drives capillary density and VO2max expansion."
+            },
+            {
+                "id": 3,
+                "q": "Chronically depleted muscle glycogen stores impair muscle force development and cause chronic fatigue.",
+                "ans": true,
+                "feedback": "True. Persistent glycogen depletion prevents energetic recovery, leading to reduced tension development and systemic overtraining."
+            },
+            {
+                "id": 4,
+                "q": "High-intensity training sessions can be performed daily without rest because glycogen resynthesis occurs in 5 minutes.",
+                "ans": false,
+                "feedback": "False. Glycogen resynthesis requires 24 to 48 hours; daily high-intensity training causes chronic glycogen depletion."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "High-intensity training hydrolyzes **muscle glycogen**, requiring **light recovery days** for complete resynthesis.",
+                "targets": [
+                    "muscle glycogen",
+                    "light recovery days"
+                ],
+                "optionsBank": [
+                    "muscle glycogen",
+                    "light recovery days",
+                    "myoglobin",
+                    "double daily sessions",
+                    "alveoli"
+                ],
+                "hint": "Identify the depleted substrate and the scheduling strategy for recovery."
+            },
+            {
+                "id": 2,
+                "statement": "High-intensity low-volume work enhances **anaerobic capacity**, whereas low-intensity high-volume work enhances **VO2max**.",
+                "targets": [
+                    "anaerobic capacity",
+                    "VO2max"
+                ],
+                "optionsBank": [
+                    "anaerobic capacity",
+                    "VO2max",
+                    "glycogen depletion",
+                    "atrophy",
+                    "resting HR"
+                ],
+                "hint": "Identify the high-intensity performance adaptation and the high-volume aerobic adaptation."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Explain the inverse relationship between training volume and training intensity, contrasting the dominant physiological adaptations elicited by high-intensity/low-volume training versus low-intensity/high-volume training.",
+                "model": "Training volume and training intensity exist in a strict inverse relationship: as exercise intensity increases, training volume must decrease to avoid premature exhaustion; conversely, high volume can only be sustained at lower exercise intensities. High-intensity, low-volume training stresses neuromuscular drive and anaerobic energy systems (ATP-PCr and fast glycolysis), driving gains in maximal muscular strength, explosive power, sprint speed, and anaerobic capacity. In contrast, low-intensity, high-volume training stresses oxygen delivery and oxidative phosphorylation, driving peripheral adaptations such as increased capillary density, mitochondrial oxidative enzyme activity, and VO2max, but yielding minimal gains in strength or speed.",
+                "criteria": [
+                    "Explain the inverse relationship (high intensity requires low volume; high volume requires low intensity).",
+                    "Detail high-intensity/low-volume adaptations (neuromuscular drive, strength, sprint speed, anaerobic capacity).",
+                    "Detail low-intensity/high-volume adaptations (oxidative energy system, capillary density, mitochondrial enzymes, VO2max)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Detail the metabolic consequences of attempting to sustain high training volume alongside high training intensity, specifically focusing on intramuscular glycogen kinetics and chronic fatigue.",
+                "model": "Attempting to sustain high training volume alongside high training intensity places extreme metabolic strain on the body. High-intensity exercise relies predominantly on anaerobic glycolysis, rapidly hydrolyzing intramuscular glycogen stores. When high-intensity bouts are repeated frequently in high-volume regimens without adequate recovery days, muscle glycogen resynthesis is incomplete, resulting in chronic glycogen depletion. Persistent glycogen depletion impairs cross-bridge cycling and muscle tension development, leading to chronic physical fatigue, performance decline, and systemic overtraining syndrome.",
+                "criteria": [
+                    "Explain why high intensity relies heavily on fast glycolysis and muscle glycogen.",
+                    "Detail the impact of high volume/frequency without recovery (incomplete resynthesis leading to chronic glycogen depletion).",
+                    "Describe the clinical consequences (impaired force production, chronic fatigue, overtraining syndrome)."
+                ]
+            }
+        ]
+    }
+}

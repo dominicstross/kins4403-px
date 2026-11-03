@@ -1,0 +1,76 @@
+{
+    "chapterId": "20.6",
+    "title": "20.6 Exercise Programming",
+    "cards": [
+        {
+            "id": "20.6-01",
+            "tag": "Program Structure",
+            "reference": "Section 20.6",
+            "front": "What seven activity categories comprise a comprehensive, individualized <strong>total exercise program</strong>?",
+            "back": "A total exercise program includes:<ul><li><strong>Warm-up and stretching activities</strong></li><li><strong>Endurance training</strong></li><li><strong>Cool-down and stretching activities</strong></li><li><strong>Flexibility training</strong></li><li><strong>Resistance training</strong></li><li><strong>Neuromotor exercise</strong></li><li><strong>Recreational activities</strong></li></ul>"
+        },
+        {
+            "id": "20.6-02",
+            "tag": "Warm-Up Physiology",
+            "reference": "Section 20.6",
+            "front": "What is the physiological purpose of a low-intensity <strong>dynamic warm-up</strong> prior to vigorous exercise?",
+            "back": "A dynamic warm-up gradually elevates <strong>heart rate, breathing, cardiac output, and tissue temperature</strong>, preparing the cardiovascular, respiratory, vascular, and neuromuscular systems for efficient and safe functioning during subsequent vigorous exertion."
+        },
+        {
+            "id": "20.6-03",
+            "tag": "Aerobic Endurance",
+            "reference": "Section 20.6",
+            "front": "Which types of physical activities serve as the core of an exercise program to develop <strong>cardiorespiratory endurance</strong>?",
+            "back": "Activities that involve large muscle groups in continuous, rhythmic motion—such as <strong>walking, jogging, running, cycling, swimming, rowing, hiking, and group cardiorespiratory exercise</strong>—improve the capacity and efficiency of the cardiovascular, respiratory, and metabolic systems. Vigorous racquet sports and basketball also provide high aerobic potential."
+        },
+        {
+            "id": "20.6-04",
+            "tag": "Cool-Down Physiology",
+            "reference": "Section 20.6",
+            "front": "Why is an active <strong>cool-down period</strong> essential following endurance exercise, and what are the physiological risks of abrupt stopping?",
+            "back": "An active cool-down (e.g., slow walking) maintains the <strong>skeletal muscle pump</strong> to prevent venous blood pooling in the lower extremities. Abruptly stopping causes blood to pool in the legs, leading to decreased venous return, <strong>dizziness, or fainting (syncope)</strong>. Furthermore, elevated recovery <strong>catecholamine levels</strong> combined with abrupt stopping can trigger cardiac dysrhythmias."
+        },
+        {
+            "id": "20.6-05",
+            "tag": "Flexibility Training",
+            "reference": "Section 20.6",
+            "front": "Why should <strong>flexibility exercises</strong> be performed slowly, and when during a workout session are tissues most responsive to stretching?",
+            "back": "Flexibility exercises must be performed slowly because <strong>quick, ballistic stretching is dangerous</strong> and can trigger muscle spasms or pulls. Musculotendinous structures (muscles, tendons, ligaments, joints) are most compliant and responsive to flexibility training when performed <strong>after the endurance conditioning phase</strong> when tissue temperature is elevated."
+        },
+        {
+            "id": "20.6-06",
+            "tag": "Resistance Training",
+            "reference": "Section 20.6",
+            "front": "What initial load percentage of <strong>1-repetition maximum (1RM)</strong> and repetition range are recommended when initiating a resistance training program?",
+            "back": "Beginners should start with a weight between <strong>40% and 60% of 1RM</strong>. Most healthy adults are recommended to perform <strong>8 to 12 repetitions per set</strong> for strength and power gains (or up to 15–20 repetitions across 2 to 4 sets for specific endurance/conditioning goals)."
+        },
+        {
+            "id": "20.6-07",
+            "tag": "Resistance Training",
+            "reference": "Section 20.6",
+            "front": "What is the <strong>progressive resistance exercise rule</strong> for advancing resistance loads in a training program?",
+            "back": "When an exerciser can successfully complete <strong>15 repetitions on the first set</strong> of an exercise, they are ready to progress to the next higher weight increment."
+        },
+        {
+            "id": "20.6-08",
+            "tag": "Resistance Training",
+            "reference": "Section 20.6",
+            "front": "What weekly set volume and exercise selection guidelines apply to <strong>resistance training</strong> for health and fitness?",
+            "back": "Performing <strong>2 to 3 sets per exercise, 2 or 3 days per week</strong> on non-consecutive days effectively supports strength and weight control goals. In previously untrained individuals, significant strength gains are achieved with just <strong>1 set per day</strong>. If time is constrained, set volume should be reduced while maintaining a <strong>full-body workout</strong> targeting upper body, trunk, and lower body."
+        },
+        {
+            "id": "20.6-09",
+            "tag": "Neuromotor Exercise",
+            "reference": "Section 20.6",
+            "front": "What is <strong>neuromotor exercise (functional training)</strong>, and what primary functional benefits does it provide?",
+            "back": "Neuromotor exercise incorporates <strong>balance, agility, coordination, gait, proprioceptive training, and core stabilization</strong> using multi-joint, multi-planar movements (lunges, lifts, bends). It reactivates muscle groups (such as gluteals and abdominals) inhibited by sedentary behavior, helps <strong>prevent falls in older adults</strong>, and lowers injury risk in athletes."
+        },
+        {
+            "id": "20.6-10",
+            "tag": "Recreational Activities",
+            "reference": "Section 20.6",
+            "front": "What five guidelines should be evaluated when selecting <strong>recreational activities</strong> for a comprehensive health improvement plan?",
+            "back": "Recreational activities should be evaluated based on:<ul><li><strong>Skill Competency:</strong> Ability to perform with at least a moderate degree of success.</li><li><strong>Social Opportunity:</strong> Opportunities for desired social interaction.</li><li><strong>Financial Feasibility:</strong> Costs within the individual's budget.</li><li><strong>Long-Term Interest:</strong> Variety to sustain continued long-term participation.</li><li><strong>Safety:</strong> Alignment with current age and health status.</li></ul>"
+        }
+    ]
+}

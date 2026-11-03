@@ -1,0 +1,38 @@
+{
+    "meta": {
+        "course": "PX - KINS 4403 Physiology of Exercise",
+        "chapter": "20",
+        "section": "20.7",
+        "ch": "20",
+        "mod": "20.7",
+        "moduleTitle": "20.7 Exercise and Rehabilitation of People with Diseases"
+    },
+    "pages": [
+        {
+            "id": "p1",
+            "title": "Part 1: Exercise and Rehabilitation of People with Diseases",
+            "sampleCounts": {
+                "mcq": 2,
+                "ms": 2,
+                "tf": 2,
+                "cloze": 2,
+                "sa": 1
+            },
+            "readingHtml": "<h2>Evolution and Scope of Clinical Exercise Rehabilitation</h2><p>Exercise has evolved into a primary therapeutic modality in clinical rehabilitation programs across a broad spectrum of chronic diseases and degenerative conditions. Cardiopulmonary rehabilitation programs, which originated in the \\(1950\\text{s}\\), represent the most established and visible clinical exercise intervention framework. The rapid expansion and scientific advancement of cardiopulmonary exercise rehabilitation led to the establishment of dedicated professional infrastructure, notably the <strong>American Association of Cardiovascular and Pulmonary Rehabilitation (AACVPR)</strong> and its official peer-reviewed research organ, the <em>Journal of Cardiopulmonary Rehabilitation and Prevention</em>.</p><h2>Clinical Disease Indications and Special Populations</h2><p>Beyond cardiovascular and pulmonary pathologies, structured exercise rehabilitation plays an essential role in managing diverse clinical conditions and chronic disease populations:</p><ul><li><strong>Oncology:</strong> Cancer rehabilitation programs utilize exercise to counteract cancer-related fatigue, preserve functional capacity, and improve patient quality of life.</li><li><strong>Metabolic & Endocrinological Disorders:</strong> Exercise is a cornerstone in managing obesity and type 2 diabetes by enhancing insulin sensitivity and systemic energy expenditure.</li><li><strong>Renal & Pulmonary Pathology:</strong> Patients with end-stage renal disease and cystic fibrosis benefit from exercise to improve functional aerobic capacity and daily stamina.</li><li><strong>Musculoskeletal & Rheumatic Diseases:</strong> Conditions such as osteoporosis, arthritis, chronic fatigue syndrome, and fibromyalgia utilize exercise to maintain joint mobility, bone mineral density, and neuromuscular function while reducing pain perception.</li><li><strong>Organ Transplant Rehabilitation:</strong> Exercise rehabilitation has increasingly emphasized post-transplantation recovery for recipients of heart, liver, or kidney transplants. In transplant recipients, structured exercise helps alleviate adverse pharmacological side effects (such as immunosuppressive-induced muscle atrophy and metabolic dysregulation) while enhancing overall cardiovascular prognosis.</li></ul><h2>General Health Benefits vs. Disease-Specific Mechanisms</h2><p>Although the exact physiological mechanisms explaining exercise benefits vary across specific disease states and are not fully elucidated for every condition, exercise training consistently imparts systemic health adaptations that significantly improve overall patient prognosis and functional independence. Because the application of exercise prescription in disease rehabilitation is highly specific to the unique pathology, severity, and clinical status of each patient, exercise programs must be tailored specifically to the nature and extent of the individual disease process.</p><table class=\"data-table\"><thead><tr><th>Clinical Population / Disease Category</th><th>Primary Rehabilitation Role &amp; Therapeutic Value</th><th>Key Physiological &amp; Functional Outcomes</th></tr></thead><tbody><tr><td><strong>Cardiopulmonary Pathology</strong></td><td>Originating in \\(1950\\text{s}\\); guided by AACVPR standards.</td><td>Improves cardiac output, ventilatory efficiency, &amp; functional capacity.</td></tr><tr><td><strong>Organ Transplant Recipients</strong></td><td>Heart, liver, &amp; kidney transplant recovery.</td><td>Alleviates drug side effects &amp; restores aerobic conditioning.</td></tr><tr><td><strong>Metabolic &amp; Musculoskeletal</strong></td><td>Diabetes, obesity, osteoporosis, &amp; arthritis.</td><td>Enhances insulin sensitivity, bone density, &amp; joint function.</td></tr></tbody></table><div class=\"callout-box\"><div class=\"callout-title\">Clinical / Coaching Application</div><p>Exercise specialists operating in clinical rehabilitation settings must recognize that while exercise prescription principles (FITT-VP) apply generally, program design must be highly individualized to the specific pathophysiology, stage of disease, and pharmacological regimen of the patient. For transplant recipients, exercise is specifically indicated to counteract drug-induced catabolism and metabolic side effects.</p></div>"
+        }
+    ],
+    "glossary": [
+        {
+            "term": "Cardiopulmonary Rehabilitation",
+            "def": "Clinical exercise and educational programs originating in the 1950s designed to improve functional capacity and quality of life in patients with cardiovascular and pulmonary diseases."
+        },
+        {
+            "term": "American Association of Cardiovascular and Pulmonary Rehabilitation (AACVPR)",
+            "def": "The professional association dedicated to advancing clinical practice and research in cardiovascular and pulmonary rehabilitation."
+        },
+        {
+            "term": "Organ Transplant Rehabilitation",
+            "def": "Clinical exercise rehabilitation tailored for heart, liver, or kidney transplant recipients to alleviate drug side effects and improve general health and functional prognosis."
+        }
+    ]
+}

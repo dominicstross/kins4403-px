@@ -1,0 +1,498 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What is the primary physiological objective of implementing a taper period prior to major athletic competitions?",
+                "opts": [
+                    "To allow tissue microtrauma healing and full replenishment of muscle and liver glycogen reserves",
+                    "To induce acute muscular atrophy to reduce body weight before weigh-ins",
+                    "To force Type I slow-twitch muscle fibers to convert permanently into Type IIx fast-twitch fibers",
+                    "To decrease maximal cardiac output by 50% to conserve metabolic energy"
+                ],
+                "correct": 0,
+                "rationale": "The primary objective of tapering is to provide sufficient time for repairing microstructural tissue damage from heavy training while allowing muscle and liver glycogen stores to fully replenish."
+            },
+            {
+                "id": 2,
+                "q": "What is the typical recommended timeframe for a structured tapering period in athletic conditioning?",
+                "opts": [
+                    "4 to 28 days (or longer depending on sport and event demands)",
+                    "1 to 2 hours immediately prior to competition",
+                    "6 to 12 months of continuous bed rest",
+                    "Exactly 24 hours regardless of sport duration"
+                ],
+                "correct": 0,
+                "rationale": "Tapering durations range from 4 to 28 days (or longer), tailored to the specific sport, event duration, and individual athlete recovery kinetics."
+            },
+            {
+                "id": 3,
+                "q": "What fiber-level contractile change occurs in Type II (fast-twitch) muscle fibers during blocks of intense, high-volume training prior to a taper?",
+                "opts": [
+                    "Maximal shortening velocity decreases due to heavy-chain myosin molecular shifts resembling Type I properties",
+                    "Maximal shortening velocity increases by 300% due to hyper-contractility",
+                    "Type II fibers undergo rapid cell death and are replaced by adipose tissue",
+                    "Myosin heavy chains uncouple completely from actin, preventing all muscle contraction"
+                ],
+                "correct": 0,
+                "rationale": "Intense training blocks temporarily reduce Type II fiber maximal shortening velocity because myosin heavy-chain molecules shift to resemble the slower contractile properties of Type I fibers."
+            },
+            {
+                "id": 4,
+                "q": "How does a structured taper affect Type II muscle fiber contractile properties and muscular power?",
+                "opts": [
+                    "It restores maximal shortening velocity in Type II fibers, producing a marked increase in muscular force and power",
+                    "It permanently suppresses Type II fiber power output to prevent muscle cramps",
+                    "It reduces muscular power by 50% due to loss of motor unit recruitment",
+                    "It eliminates all actin-myosin cross-bridge cycling"
+                ],
+                "correct": 0,
+                "rationale": "Tapering reverses heavy-training contractile depression, allowing Type II myosin molecules to regain high shortening velocity, thereby restoring maximal force and muscular power."
+            },
+            {
+                "id": 5,
+                "q": "What magnitude of muscular strength and power improvement was observed in competitive swimmers following a taper?",
+                "opts": [
+                    "An 18% to 25% increase in arm muscular strength and power",
+                    "Zero change in muscular strength or power",
+                    "A 50% loss of peak arm power",
+                    "A 5% reduction in bench press strength"
+                ],
+                "correct": 0,
+                "rationale": "Studies in competitive swimmers demonstrated that a structured taper produced an extraordinary 18% to 25% increase in arm muscular strength and power."
+            },
+            {
+                "id": 6,
+                "q": "Why are extended tapering periods impractical for team sports like basketball, soccer, or baseball?",
+                "opts": [
+                    "Competitive matches occur weekly or multiple times per week throughout extended seasons",
+                    "Team sport athletes do not possess Type II muscle fibers",
+                    "Glycogen cannot be stored in team sport athletes' muscles",
+                    "Tapering causes immediate detraining in ball-handling skills within 12 hours"
+                ],
+                "correct": 0,
+                "rationale": "Sports with weekly or multi-game weekly schedules cannot accommodate multi-week tapers due to frequent competitive fixtures."
+            },
+            {
+                "id": 7,
+                "q": "What metabolic substrate supercompensation occurs during a proper taper period when training workload is reduced?",
+                "opts": [
+                    "Intramuscular and liver glycogen stores",
+                    "Blood lactate and hydrogen ion concentration",
+                    "Intramuscular inorganic phosphate and ammonia",
+                    "Circulating blood urea and uric acid"
+                ],
+                "correct": 0,
+                "rationale": "Lowering workout volume while maintaining carbohydrate nutrition allows muscle and liver glycogen stores to fully replenish and supercompensate."
+            },
+            {
+                "id": 8,
+                "q": "How should coaches interpret mid-season drops in maximal muscular power during heavy training blocks?",
+                "opts": [
+                    "As a temporary, reversible alteration in Type II fiber shortening velocity rather than permanent detraining",
+                    "As permanent loss of muscle mass requiring immediate career retirement",
+                    "As proof that the athlete requires 4 times more daily training volume",
+                    "As an acute failure of pulmonary oxygen diffusion"
+                ],
+                "correct": 0,
+                "rationale": "Mid-season power drops reflect temporary myosin heavy-chain shifts from intense training loads, which are fully reversed following a structured taper."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which physiological benefits result from a structured athletic taper prior to competition? (Select all that apply)",
+                "opts": [
+                    "Healing of microstructural muscle tissue damage",
+                    "Full replenishment and supercompensation of muscle and liver glycogen",
+                    "Restoration of Type II muscle fiber maximal shortening velocity",
+                    "Complete destruction of all cardiovascular endurance adaptations"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Tapering heals microtrauma, supercompensates glycogen, and restores Type II fiber shortening velocity without destroying endurance adaptations."
+            },
+            {
+                "id": 2,
+                "q": "Which neuromuscular changes occur in Type II muscle fibers during heavy training versus post-taper recovery? (Select all that apply)",
+                "opts": [
+                    "Heavy training temporarily reduces Type II fiber maximal shortening velocity",
+                    "Myosin heavy chains temporarily shift toward slower Type I-like contractile characteristics during heavy training",
+                    "Tapering restores Type II fiber shortening velocity and peak power output",
+                    "Tapering permanently converts Type II fibers into cardiac muscle cells"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Heavy training depresses Type II fiber shortening velocity via myosin shifts; tapering restores contractile speed and peak power output."
+            },
+            {
+                "id": 3,
+                "q": "Which parameters influence the selection of taper duration (4 to 28+ days) for an individual athlete? (Select all that apply)",
+                "opts": [
+                    "Specific physiological demands of the sport discipline",
+                    "Duration and intensity of the target competitive event",
+                    "Individual athlete recovery kinetics and fatigue levels",
+                    "Color of the athlete's competition uniform"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Taper length is customized based on sport demands, event duration/intensity, and individual recovery kinetics."
+            },
+            {
+                "id": 4,
+                "q": "Which findings were documented in muscle biopsy research on competitive swimmers pre- and post-taper? (Select all that apply)",
+                "opts": [
+                    "10 days of heavy training reduced Type II fiber maximal shortening velocity",
+                    "Tapering produced an 18% to 25% increase in arm muscular strength and power",
+                    "Tapering restored Type II fiber shortening velocity",
+                    "Tapering eliminated all Type I muscle fibers from the deltoid muscle"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Biopsies confirmed Type II shortening velocity depression from heavy training and its restoration post-taper alongside 18-25% power gains."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "The primary objective of tapering is to allow repair of tissue microtrauma and full replenishment of muscle glycogen stores.",
+                "ans": true,
+                "feedback": "True. Reducing workload provides time for microstructural healing and glycogen supercompensation."
+            },
+            {
+                "id": 2,
+                "q": "Intense training blocks temporarily reduce the maximal shortening velocity of Type II fast-twitch muscle fibers.",
+                "ans": true,
+                "feedback": "True. Heavy loading induces myosin heavy-chain shifts that temporarily reduce Type II fiber shortening velocity."
+            },
+            {
+                "id": 3,
+                "q": "Tapering reduces arm muscular power by 25% in competitive swimmers.",
+                "ans": false,
+                "feedback": "False. Tapering increases arm muscular strength and power by 18% to 25% in competitive swimmers."
+            },
+            {
+                "id": 4,
+                "q": "Tapering durations typically range from 4 to 28 days or longer.",
+                "ans": true,
+                "feedback": "True. Tapering periods range from 4 to 28+ days based on sport type, event length, and individual recovery."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Heavy training depresses **Type II fiber shortening velocity**, which is reversed during a **taper period**.",
+                "targets": [
+                    "Type II fiber shortening velocity",
+                    "taper period"
+                ],
+                "optionsBank": [
+                    "Type II fiber shortening velocity",
+                    "taper period",
+                    "cardiac hypertrophy",
+                    "detraining phase",
+                    "myoglobin depletion"
+                ],
+                "hint": "Identify the fast-twitch contractile metric depressed by heavy load and the recovery phase that restores it."
+            },
+            {
+                "id": 2,
+                "statement": "Tapering facilitates microstructural **tissue repair** and full replenishment of **glycogen reserves**.",
+                "targets": [
+                    "tissue repair",
+                    "glycogen reserves"
+                ],
+                "optionsBank": [
+                    "tissue repair",
+                    "glycogen reserves",
+                    "bone loss",
+                    "lactate accumulation",
+                    "atrophy"
+                ],
+                "hint": "Identify the structural muscle recovery process and the energy substrate supercompensation."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Explain the neuromuscular and fiber-level mechanisms that cause muscle power drops during heavy training and how tapering restores peak muscular power.",
+                "model": "During blocks of intense, high-volume training, muscle biopsy research demonstrates that Type II (fast-twitch) muscle fibers undergo a significant reduction in maximal shortening velocity. This loss of contractile speed is caused by molecular alterations in the heavy-chain myosin molecules of Type II fibers, which temporarily shift to resemble the slower contractile properties of Type I fibers. Tapering systematically reduces training workload, providing time for muscle tissue microtrauma to heal, glycogen reserves to supercompensate, and myosin heavy chains to reverse their temporary shift. This restores Type II fiber maximal shortening velocity, resulting in a marked rebound in muscular force and power (e.g., an 18% to 25% increase in arm power).",
+                "criteria": [
+                    "Detail Type II fiber shortening velocity reduction during heavy training caused by myosin heavy-chain molecular shifts.",
+                    "Explain how tapering reverses these contractile modifications (restores Type II shortening velocity).",
+                    "Combine with tissue repair and glycogen supercompensation to explain power output rebound (18-25% increase)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Discuss the practical application and constraints of tapering across different athletic disciplines, contrasting single-peak sports (swimming) with multi-game team sports (soccer/basketball).",
+                "model": "Tapering involves systematically reducing training workload over 4 to 28+ days to peak an athlete for major competitions. In single-peak endurance or power sports like swimming, track and field, or rowing, major competitions occur at planned intervals, allowing coaches to program multi-week tapers that maximize power, glycogen replenishment, and performance. However, in team sports like soccer, basketball, or baseball, competitive matches occur weekly or multiple times per week across extended seasons. Extended 2 to 4 week tapers are impractical in team sports because athletes must maintain match readiness continuously. In these sports, shorter 3 to 7 day load reductions or microcycle deloads are utilized instead.",
+                "criteria": [
+                    "Define taper duration range (4 to 28+ days) and core goals (peak power, glycogen restoration).",
+                    "Explain application in single-peak sports (swimming/track allow structured multi-week tapers).",
+                    "Explain constraints in multi-game team sports (frequent match fixtures make multi-week tapers impractical; use short load reductions instead)."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What happens to maximal oxygen uptake (VO2max) when athletes reduce training volume by ~60% over a 15 to 21 day taper?",
+                "opts": [
+                    "VO2max remains fully preserved with zero loss in aerobic capacity",
+                    "VO2max drops immediately by 50% due to rapid heart atrophy",
+                    "VO2max increases by 300% within 48 hours",
+                    "VO2max fluctuates wildly between zero and maximum every hour"
+                ],
+                "correct": 0,
+                "rationale": "Physiological studies confirm that peak VO2max can be fully preserved despite reductions in training volume of up to 60% over 15 to 21 days."
+            },
+            {
+                "id": 2,
+                "q": "By how much can training frequency be reduced during a taper without causing a decline in established peak VO2max?",
+                "opts": [
+                    "By up to two-thirds (66.7%)",
+                    "By 0% (any frequency reduction causes instant detraining)",
+                    "By 100% for 5 consecutive years",
+                    "By exactly 5%"
+                ],
+                "correct": 0,
+                "rationale": "Research demonstrates that once peak VO2max is established, training frequency can be reduced by up to two-thirds (66.7%) without losing cardiorespiratory adaptation."
+            },
+            {
+                "id": 3,
+                "q": "What performance improvement was observed in competitive swimmers following a taper with reduced volume?",
+                "opts": [
+                    "A 3% direct improvement in competitive swimming performance",
+                    "A 30% reduction in swimming velocity",
+                    "Zero change in competition times",
+                    "A complete inability to complete a 50 m swim"
+                ],
+                "correct": 0,
+                "rationale": "Tapering produced a 3% direct improvement in competitive swimming performance alongside lower submaximal blood lactate levels."
+            },
+            {
+                "id": 4,
+                "q": "In distance runners undergoing a 7-day taper prior to a 5 km time trial, what performance outcome was recorded compared to non-tapered controls?",
+                "opts": [
+                    "Tapered runners improved 5 km race times by 3%, while non-tapered controls showed zero improvement",
+                    "Tapered runners ran 20% slower than non-tapered controls",
+                    "Both groups improved by exactly 50%",
+                    "Non-tapered runners set world records while tapered runners failed to finish"
+                ],
+                "correct": 0,
+                "rationale": "A 7-day taper enabled distance runners to improve 5 km time trial speed by 3%, whereas non-tapered runners experienced no performance gain."
+            },
+            {
+                "id": 5,
+                "q": "What metabolic adaptation explaining improved 'economy of effort' was measured in distance runners following a 7-day taper?",
+                "opts": [
+                    "A 6% decrease in submaximal VO2 at 80% VO2max (lower oxygen cost at a given speed)",
+                    "A 50% increase in oxygen demand at rest",
+                    "Complete suppression of mitochondrial enzyme activity",
+                    "A 10-fold increase in blood lactate during submaximal jogging"
+                ],
+                "correct": 0,
+                "rationale": "Tapering improved running economy, reducing submaximal oxygen uptake at 80% VO2max by 6%, meaning less oxygen was required to run at race pace."
+            },
+            {
+                "id": 6,
+                "q": "What happened to blood lactate levels at 80% VO2max and leg extension peak force in distance runners following a 7-day taper?",
+                "opts": [
+                    "They remained unchanged while submaximal VO2 decreased and race time improved",
+                    "Blood lactate increased by 500% while leg strength dropped to zero",
+                    "Leg extension force doubled while blood lactate dropped to zero",
+                    "Both markers decreased by 90%"
+                ],
+                "correct": 0,
+                "rationale": "In 5 km runners, 7 days of tapering reduced submaximal oxygen cost (economy) and improved race time without altering submaximal blood lactate or leg peak force."
+            },
+            {
+                "id": 7,
+                "q": "Why is the common coaching fear of cardiorespiratory detraining during a pre-competition taper physiologically unwarranted?",
+                "opts": [
+                    "Maintaining VO2max requires significantly less volume and frequency than establishing initial VO2max adaptations",
+                    "Endurance adaptations are permanently hardcoded into DNA and can never be lost",
+                    "Athletes do not consume oxygen during competition",
+                    "Tapering increases daily exercise volume by 200%"
+                ],
+                "correct": 0,
+                "rationale": "The detraining fear is unwarranted because maintaining VO2max requires far less workload than building it initially; 60% volume drops preserve VO2max."
+            },
+            {
+                "id": 8,
+                "q": "Which sport disciplines currently lack extensive empirical research regarding optimal tapering templates?",
+                "opts": [
+                    "Complex team sports (soccer, basketball) and ultra-endurance events (marathon, road cycling)",
+                    "Short-course competitive swimming",
+                    "5 km distance running",
+                    "Track and field sprint events"
+                ],
+                "correct": 0,
+                "rationale": "While swimming and 5 km running have extensive taper research, complex team sports and ultra-endurance events remain research gaps needing further study."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which research findings debunk the fear of cardiorespiratory detraining during a taper? (Select all that apply)",
+                "opts": [
+                    "Peak VO2max is fully maintained despite up to 60% reductions in training volume over 15 to 21 days",
+                    "Peak VO2max is preserved even when training frequency is cut by up to two-thirds (66.7%)",
+                    "Submaximal endurance capacity is maintained without loss during a 2 to 3 week taper",
+                    "Training volume reductions cause immediate 50% drops in stroke volume within 24 hours"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Studies prove VO2max and submaximal capacity are fully maintained with up to 60% volume reduction and 66.7% frequency reduction."
+            },
+            {
+                "id": 2,
+                "q": "Which physiological and performance adaptations resulted from a 7-day taper in 5 km distance runners? (Select all that apply)",
+                "opts": [
+                    "A 3% improvement in 5 km time trial race performance",
+                    "A 6% decrease in submaximal VO2 at 80% VO2max (improved running economy)",
+                    "Preservation of overall VO2max and leg extension peak force",
+                    "A 50% increase in submaximal blood lactate accumulation"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "7 days of tapering improved 5 km time by 3% and running economy by 6% (lower VO2 at 80% VO2max) while maintaining VO2max and leg force."
+            },
+            {
+                "id": 3,
+                "q": "Which adaptations were documented in competitive swimmers following a 15 to 21 day taper with ~60% volume reduction? (Select all that apply)",
+                "opts": [
+                    "A 3% direct improvement in competitive swim speed",
+                    "An 18% to 25% increase in arm muscular strength and power",
+                    "Lower blood lactate concentrations following a standardized submaximal swim test",
+                    "A 40% decline in maximal cardiac output"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Swimmers gained 3% speed, 18-25% arm power, and lower submaximal blood lactate without losing cardiorespiratory capacity."
+            },
+            {
+                "id": 4,
+                "q": "Which statements accurately reflect current scientific knowledge regarding tapering across sports? (Select all that apply)",
+                "opts": [
+                    "Tapering benefits are well documented in swimming and middle-distance running",
+                    "Maintaining VO2max requires far less training volume than developing it initially",
+                    "Optimal sport-specific tapering templates for complex team sports and ultra-marathons require further research",
+                    "Tapering is illegal under Olympic WADA regulations"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Tapering is proven in swimming/running and maintained with low volume, but team sports and ultra-endurance represent ongoing research gaps."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Reducing total training volume by 60% for 15 to 21 days causes severe cardiorespiratory detraining and drops VO2max.",
+                "ans": false,
+                "feedback": "False. Research proves peak VO2max is fully preserved despite 60% reductions in volume over 15 to 21 days."
+            },
+            {
+                "id": 2,
+                "q": "In distance runners, a 7-day taper improved running economy by decreasing submaximal VO2 at 80% VO2max by 6%.",
+                "ans": true,
+                "feedback": "True. Tapering enhanced economy of effort, reducing oxygen demand at submaximal race pace by 6%."
+            },
+            {
+                "id": 3,
+                "q": "Competitive swimmers achieved a 3% performance improvement and an 18% to 25% increase in arm power after tapering.",
+                "ans": true,
+                "feedback": "True. Tapering produced direct 3% competitive speed gains and 18-25% strength/power increases in swimmers."
+            },
+            {
+                "id": 4,
+                "q": "Training frequency cannot be reduced by more than 5% without losing aerobic fitness.",
+                "ans": false,
+                "feedback": "False. Peak VO2max can be maintained even when training frequency is reduced by up to two-thirds (66.7%)."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Peak VO2max is preserved despite **60% volume reductions**, and frequency can drop by **two-thirds** without detraining.",
+                "targets": [
+                    "60% volume reductions",
+                    "two-thirds"
+                ],
+                "optionsBank": [
+                    "60% volume reductions",
+                    "two-thirds",
+                    "100% volume increases",
+                    "zero percent",
+                    "glycogen depletion"
+                ],
+                "hint": "Identify the volume reduction percentage and training frequency reduction fraction that preserve VO2max."
+            },
+            {
+                "id": 2,
+                "statement": "A 7-day taper in runners improved **economy of effort** by reducing submaximal VO2 by **6%**.",
+                "targets": [
+                    "economy of effort",
+                    "6%"
+                ],
+                "optionsBank": [
+                    "economy of effort",
+                    "6%",
+                    "anaerobic threshold",
+                    "50%",
+                    "stroke volume"
+                ],
+                "hint": "Identify the metabolic efficiency metric and its percentage oxygen cost reduction."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Address the common coaching fear of cardiorespiratory detraining during a taper, providing physiological evidence regarding VO2max maintenance and volume/frequency reductions.",
+                "model": "The coaching fear that reducing training volume prior to competition causes cardiorespiratory detraining is physiologically unwarranted. While establishing initial maximal oxygen uptake (VO2max) requires high training volume and frequency, maintaining peak VO2max requires significantly less workload once adaptation is achieved. Physiological studies demonstrate that peak VO2max can be fully preserved even when training frequency is reduced by as much as two-thirds (66.7%). Furthermore, athletes who reduce total training volume by ~60% for 15 to 21 days show zero loss in VO2max or submaximal endurance capacity, while simultaneously gaining muscular power and metabolic efficiency.",
+                "criteria": [
+                    "Explain why detraining fear is unwarranted (maintenance requires far less volume/frequency than initial adaptation).",
+                    "Cite frequency reduction evidence (VO2max preserved with up to two-thirds / 66.7% frequency cuts).",
+                    "Cite volume reduction evidence (~60% volume cut over 15-21 days preserves VO2max and submaximal capacity)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Summarize the empirical research findings on tapering in 5 km distance runners, detailing changes in 5 km race time, running economy (submaximal VO2), and leg extension force.",
+                "model": "In a controlled study evaluating distance runners undergoing a 7-day taper prior to a 5 km time trial, tapered runners achieved a 3% improvement in race performance time, whereas non-tapered control runners showed zero improvement. Physiologically, submaximal oxygen uptake during running at 80% VO2max decreased by 6% in tapered runners, demonstrating a marked improvement in economy of effort (lower oxygen demand at submaximal race speed). Meanwhile, overall VO2max, submaximal blood lactate concentrations at 80% VO2max, and leg extension peak force remained unchanged, proving that performance gains stemmed from restored freshness and improved movement economy without loss of muscular strength or cardiorespiratory capacity.",
+                "criteria": [
+                    "Detail 5 km performance improvement (3% faster race time vs 0% change in controls).",
+                    "Detail running economy adaptation (6% decrease in submaximal VO2 at 80% VO2max).",
+                    "Note unchanged physiological markers (VO2max, submaximal blood lactate, and leg extension peak force maintained)."
+                ]
+            }
+        ]
+    }
+}

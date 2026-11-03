@@ -1,0 +1,62 @@
+{
+    "chapterId": "20.7",
+    "title": "20.7 Exercise and Rehabilitation of People with Diseases",
+    "cards": [
+        {
+            "id": "20.7-01",
+            "tag": "Cardiopulmonary Rehabilitation History",
+            "reference": "Section 20.7",
+            "front": "When did <strong>cardiopulmonary rehabilitation programs</strong> originate, and what is their status in clinical disease management?",
+            "back": "Cardiopulmonary rehabilitation programs began in the <strong>1950s</strong> and have become the most visible and established clinical exercise rehabilitation programs."
+        },
+        {
+            "id": "20.7-02",
+            "tag": "Professional Associations & Journals",
+            "reference": "Section 20.7",
+            "front": "Which major <strong>professional association</strong> and <strong>research journal</strong> emerged from advances in cardiopulmonary rehabilitation?",
+            "back": "Advances led to the formation of:<ul><li><strong>AACVPR:</strong> The American Association of Cardiovascular and Pulmonary Rehabilitation.</li><li><strong>Official Journal:</strong> The <em>Journal of Cardiopulmonary Rehabilitation and Prevention</em>.</li></ul>"
+        },
+        {
+            "id": "20.7-03",
+            "tag": "Oncology & Metabolic Rehabilitation",
+            "reference": "Section 20.7",
+            "front": "For which major <strong>oncological and metabolic diseases</strong> is exercise an essential component of rehabilitation?",
+            "back": "Exercise training is an essential component of clinical rehabilitation for:<ul><li><strong>Cancer:</strong> Counteracts disease- and treatment-related fatigue while preserving functional capacity.</li><li><strong>Obesity:</strong> Facilitates weight management and metabolic health.</li><li><strong>Diabetes:</strong> Enhances glycemic control and insulin sensitivity.</li></ul>"
+        },
+        {
+            "id": "20.7-04",
+            "tag": "Renal & Pulmonary Pathology",
+            "reference": "Section 20.7",
+            "front": "Which <strong>renal and chronic pulmonary conditions</strong> benefit from exercise rehabilitation?",
+            "back": "Structured exercise rehabilitation is an important component of management for:<ul><li><strong>Renal Disease:</strong> Improves functional physical capacity and stamina in kidney disease patients.</li><li><strong>Cystic Fibrosis:</strong> Enhances ventilatory efficiency, airway clearance, and aerobic capacity.</li></ul>"
+        },
+        {
+            "id": "20.7-05",
+            "tag": "Musculoskeletal & Pain Syndromes",
+            "reference": "Section 20.7",
+            "front": "How does exercise rehabilitation benefit patients with <strong>musculoskeletal, joint, and chronic pain disorders</strong>?",
+            "back": "Exercise rehabilitation is prescribed to maintain functional capacity and manage symptoms in:<ul><li><strong>Osteoporosis:</strong> Preserves bone mineral density and structural integrity.</li><li><strong>Arthritis:</strong> Maintains joint range of motion and functional mobility.</li><li><strong>Fatigue & Pain Syndromes:</strong> Improves exercise tolerance in <em>chronic fatigue syndrome</em> and <em>fibromyalgia</em>.</li></ul>"
+        },
+        {
+            "id": "20.7-06",
+            "tag": "Organ Transplant Rehabilitation",
+            "reference": "Section 20.7",
+            "front": "What specific clinical benefit does exercise rehabilitation provide for <strong>organ transplant recipients</strong>?",
+            "back": "In recipients of <strong>heart, liver, or kidney transplants</strong>, exercise rehabilitation is emphasized because it directly helps <strong>alleviate pharmacological drug side effects</strong> (such as immunosuppressive-induced muscle wasting) and improves overall general health."
+        },
+        {
+            "id": "20.7-07",
+            "tag": "Mechanisms & Patient Prognosis",
+            "reference": "Section 20.7",
+            "front": "What is the relationship between <strong>specific physiological mechanisms</strong> and general health benefits in disease rehabilitation?",
+            "back": "Although the specific physiological mechanisms explaining exercise benefits for each disease have not been fully defined, exercise training imparts broad <strong>general health benefits</strong> that significantly improve <strong>patient prognosis</strong> and functional status."
+        },
+        {
+            "id": "20.7-08",
+            "tag": "Disease Specificity in Exercise Prescription",
+            "reference": "Section 20.7",
+            "front": "Why must exercise programming in disease rehabilitation be <strong>highly individualized</strong>?",
+            "back": "The application of exercise in rehabilitation is <strong>highly specific to the nature and extent of the individual disease</strong>, requiring customized exercise prescriptions tailored to the patient's specific clinical status and pathology."
+        }
+    ]
+}

@@ -229,22 +229,22 @@
             {
               "id": "9.1",
               "title": "Terminology",
-              "available": false
+              "available": true
             },
             {
               "id": "9.2",
               "title": "General Principles of Training",
-              "available": false
+              "available": true
             },
             {
               "id": "9.3",
               "title": "Resistance Training Programs",
-              "available": false
+              "available": true
             },
             {
               "id": "9.4",
               "title": "Anaerobic and Aerobic Power Training Programs",
-              "available": false
+              "available": true
             }
           ]
         },
@@ -255,27 +255,27 @@
             {
               "id": "14.1",
               "title": "Optimizing Training: A Model",
-              "available": false
+              "available": true
             },
             {
               "id": "14.2",
               "title": "Periodization of Training",
-              "available": false
+              "available": true
             },
             {
               "id": "14.3",
               "title": "Overtraining",
-              "available": false
+              "available": true
             },
             {
               "id": "14.4",
               "title": "Tapering for Peak Performance",
-              "available": false
+              "available": true
             },
             {
               "id": "14.5",
               "title": "Detraining",
-              "available": false
+              "available": true
             }
           ]
         },

@@ -1,0 +1,497 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What widespread belief regarding exercise training volume and intensity was identified as a myth in the 1995 CDC/ACSM report?",
+                "opts": [
+                    "That high volume and high intensity of exercise training are necessary to attain health-related benefits",
+                    "That walking 30 minutes per day is harmful to cardiovascular health",
+                    "That physical activity has zero impact on mortality in older adults",
+                    "That muscular strength training should never be performed by adults over 18"
+                ],
+                "correct": 0,
+                "rationale": "The 1995 CDC/ACSM report specifically addressed the myth that high volume and high intensity of exercise training are necessary to achieve health benefits, demonstrating that moderate physical activity yields significant health improvements."
+            },
+            {
+                "id": 2,
+                "q": "According to the 1995 CDC/ACSM consensus report, how much physical activity is recommended on most, if not all, days of the week to obtain significant health benefits?",
+                "opts": [
+                    "A moderate amount of physical activity (e.g., 30 min of brisk walking)",
+                    "A minimum of 3 hours of continuous high-intensity weightlifting",
+                    "Exactly 10 miles of daily competitive running",
+                    "Zero physical activity if one follows a healthy diet"
+                ],
+                "correct": 0,
+                "rationale": "The CDC/ACSM report concluded that significant health benefits are obtained by incorporating a moderate amount of physical activity, such as 30 min of brisk walking, on most days of the week."
+            },
+            {
+                "id": 3,
+                "q": "Which of the following activities is cited in the textbook as an equivalent moderate physical activity duration to 30 minutes of brisk walking?",
+                "opts": [
+                    "15 minutes of running or 45 minutes of playing volleyball",
+                    "2 hours of heavy bench press or 5 minutes of static stretching",
+                    "10 hours of screen time or 1 minute of sprinting",
+                    "60 minutes of deep sleep or 120 minutes of sitting"
+                ],
+                "correct": 0,
+                "rationale": "The CDC/ACSM report listed 30 minutes of brisk walking, 15 minutes of running, or 45 minutes of playing volleyball as moderate physical activity options."
+            },
+            {
+                "id": 4,
+                "q": "What did epidemiological research in older adults (aged 70 to 82 years) demonstrate regarding physical activity and mortality?",
+                "opts": [
+                    "Just being more active greatly reduced mortality risk, independent of a formal exercise program",
+                    "Mortality risk increased significantly if older adults engaged in daily walking",
+                    "Only high-intensity weightlifting for 2 hours daily reduced mortality in seniors",
+                    "Physical activity had no statistical relationship to mortality rates in older populations"
+                ],
+                "correct": 0,
+                "rationale": "Research in older adults (70–82 years) showed that simply being more physically active greatly reduced mortality risk, independent of participation in a formal exercise program."
+            },
+            {
+                "id": 5,
+                "q": "According to the 2007 ACSM/AHA guidelines, what is the minimum recommended frequency and duration for moderate-intensity aerobic physical activity in healthy adults aged 18 to 65?",
+                "opts": [
+                    "Minimum of 30 minutes on 5 days per week",
+                    "Minimum of 60 minutes on 7 days per week",
+                    "Minimum of 10 minutes on 1 day per week",
+                    "Minimum of 120 minutes on 2 days per week"
+                ],
+                "correct": 0,
+                "rationale": "The ACSM/AHA 2007 recommendations stipulate that healthy adults aged 18 to 65 perform moderate-intensity aerobic activity for a minimum of 30 minutes on 5 days per week."
+            },
+            {
+                "id": 6,
+                "q": "How can the 30-minute daily moderate-intensity aerobic activity requirement be accumulated throughout the day?",
+                "opts": [
+                    "By performing discrete bouts each lasting \\(\\ge 10\\text{ min}\\) to total the 30-minute minimum",
+                    "By performing 30 one-minute sprints interspersed with 1-minute rest breaks",
+                    "Only in a single continuous 30-minute bout performed at 5:00 AM",
+                    "By accumulating 1-second muscle twitches throughout a 24-hour period"
+                ],
+                "correct": 0,
+                "rationale": "ACSM/AHA guidelines state that moderate-intensity aerobic activity can be accumulated by performing bouts each lasting at least 10 minutes to reach the 30-minute daily total."
+            },
+            {
+                "id": 7,
+                "q": "What is the ACSM/AHA minimum recommendation for vigorous-intensity aerobic physical activity for healthy adults?",
+                "opts": [
+                    "A minimum of 20 minutes on 3 days per week",
+                    "A minimum of 45 minutes on 6 days per week",
+                    "A minimum of 5 minutes on 1 day per week",
+                    "Vigorous exercise is strictly prohibited for all healthy adults"
+                ],
+                "correct": 0,
+                "rationale": "Healthy adults choosing vigorous-intensity aerobic physical activity should perform it for a minimum of 20 minutes on 3 days per week."
+            },
+            {
+                "id": 8,
+                "q": "How often should healthy adults perform activities that maintain or increase muscular strength and endurance according to ACSM/AHA guidelines?",
+                "opts": [
+                    "For a minimum of 2 days per week",
+                    "For a minimum of 7 days per week",
+                    "Only once per month",
+                    "Muscular strength exercise is optional and not included in guidelines"
+                ],
+                "correct": 0,
+                "rationale": "ACSM/AHA recommendations explicitly state that every adult should perform activities that maintain or increase muscular strength and endurance for a minimum of 2 days per week."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which physical activity options are listed in the CDC/ACSM report as examples of moderate physical activity? (Select all that apply)",
+                "opts": [
+                    "30 minutes of brisk walking",
+                    "15 minutes of running",
+                    "45 minutes of playing volleyball",
+                    "8 hours of continuous sedentary screen viewing"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "The CDC/ACSM report explicitly listed 30 minutes of brisk walking, 15 minutes of running, and 45 minutes of playing volleyball as moderate activity examples."
+            },
+            {
+                "id": 2,
+                "q": "Which recommendations are part of the ACSM/AHA 2007 guidelines for healthy adults aged 18 to 65? (Select all that apply)",
+                "opts": [
+                    "Moderate-intensity aerobic activity for a minimum of 30 min on 5 days/week",
+                    "Vigorous-intensity aerobic activity for a minimum of 20 min on 3 days/week",
+                    "Muscular strength and endurance activities for a minimum of 2 days/week",
+                    "Mandatory daily marathon running (42.2 km) every morning"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "ACSM/AHA guidelines specify 30 min moderate aerobic 5 days/wk OR 20 min vigorous aerobic 3 days/wk, plus muscle-strengthening exercise at least 2 days/wk."
+            },
+            {
+                "id": 3,
+                "q": "Which statements regarding physical activity accumulation and dose-response are supported by the textbook? (Select all that apply)",
+                "opts": [
+                    "Moderate-intensity aerobic activity can be accumulated in bouts lasting \\(\\ge 10\\text{ min}\\)",
+                    "Individuals wishing to further improve fitness or prevent weight gain benefit by exceeding minimum guidelines",
+                    "Greater duration or intensity of physical activity provides additional health benefits",
+                    "Physical activity provides health benefits only if performed in a single continuous 5-hour session"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Guidelines allow 10+ min bout accumulation, recognize the dose-response relationship where exceeding minimums yields greater benefits, and support individualized activity progression."
+            },
+            {
+                "id": 4,
+                "q": "Which misconceptions about exercise were challenged by the 1995 CDC/ACSM report? (Select all that apply)",
+                "opts": [
+                    "The belief that high volume of exercise training is mandatory to obtain health benefits",
+                    "The belief that high intensity of exercise training is mandatory to attain health benefits",
+                    "The idea that beneficial exercise must equate to jogging 8 km (5 mi) a day or lifting to failure",
+                    "The concept that regular physical activity improves health and quality of life"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "The CDC/ACSM report challenged the myth that high volume and high intensity (like 5-mile daily runs or lifting to failure) are required, establishing that moderate daily activity yields major health benefits."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Significant health benefits can be obtained from a moderate amount of physical activity on most, if not all, days of the week.",
+                "ans": true,
+                "feedback": "True. The CDC/ACSM report established that a modest increase in moderate daily activity provides substantial health benefits."
+            },
+            {
+                "id": 2,
+                "q": "High volume and high intensity exercise training are required for an individual to attain health-related benefits.",
+                "ans": false,
+                "feedback": "False. High volume and high intensity are not necessary; moderate physical activity provides significant health-related benefits."
+            },
+            {
+                "id": 3,
+                "q": "In older adults aged 70 to 82 years, simply being more active greatly reduces mortality risk independent of a formal exercise program.",
+                "ans": true,
+                "feedback": "True. Research confirms that increased physical activity in older adults reduces mortality risk even without participating in a structured exercise program."
+            },
+            {
+                "id": 4,
+                "q": "ACSM/AHA guidelines state that moderate-intensity aerobic activity bouts must last at least 60 minutes to count toward daily recommendations.",
+                "ans": false,
+                "feedback": "False. Bouts of moderate-intensity activity lasting as short as 10 minutes can be accumulated to reach the 30-minute daily minimum."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Adults should engage in moderate aerobic activity for **30 min on 5 days/week** or vigorous activity for **20 min on 3 days/week**.",
+                "targets": [
+                    "30 min on 5 days/week",
+                    "20 min on 3 days/week"
+                ],
+                "optionsBank": [
+                    "30 min on 5 days/week",
+                    "20 min on 3 days/week",
+                    "60 min on 7 days/week",
+                    "5 min on 1 day/week",
+                    "120 min on 2 days/week"
+                ],
+                "hint": "Identify the moderate aerobic frequency/duration and the vigorous aerobic frequency/duration."
+            },
+            {
+                "id": 2,
+                "statement": "Moderate aerobic activity can be accumulated in bouts of **\\(\\ge 10\\text{ min}\\)**, while strength exercise is recommended **\\(\\ge 2\\text{ days/week}\\)**.",
+                "targets": [
+                    "\\(\\ge 10\\text{ min}\\)",
+                    "\\(\\ge 2\\text{ days/week}\\)"
+                ],
+                "optionsBank": [
+                    "\\(\\ge 10\\text{ min}\\)",
+                    "\\(\\ge 2\\text{ days/week}\\)",
+                    "\\(\\ge 60\\text{ min}\\)",
+                    "7 days/week",
+                    "1 second"
+                ],
+                "hint": "Identify the minimum bout duration for accumulation and the minimum weekly strength training frequency."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Detail the ACSM/AHA 2007 physical activity recommendations for healthy adults aged 18 to 65 years, including aerobic options, bout accumulation rules, and strength guidelines.",
+                "model": "The ACSM/AHA 2007 guidelines specify that healthy adults aged 18 to 65 should participate in: (1) Moderate-Intensity Aerobic Activity: A minimum of 30 minutes on 5 days per week, which can be accumulated in discrete bouts lasting at least 10 minutes each; OR (2) Vigorous-Intensity Aerobic Activity: A minimum of 20 minutes on 3 days per week (or combinations of moderate and vigorous activity); and (3) Muscular Strength & Endurance: Activities maintaining or increasing muscular strength and endurance for a minimum of 2 days per week. Exceeding these minimums provides further health, fitness, and weight management protections.",
+                "criteria": [
+                    "Detail moderate aerobic guideline (30 min/day on 5 days/wk; bout accumulation rule >= 10 min).",
+                    "Detail vigorous aerobic guideline (20 min/day on 3 days/wk or combination).",
+                    "Detail muscle-strengthening guideline (minimum of 2 days/wk)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Explain the major paradigm shift introduced by the 1995 CDC/ACSM report regarding exercise volume/intensity myths and evidence in older adults.",
+                "model": "The 1995 CDC/ACSM report addressed the common myth that high volume and high intensity (e.g., running 5 miles daily or lifting to failure) are mandatory to gain health benefits. The report established that substantial health protections can be achieved through a moderate amount of daily physical activity (e.g., 30 min brisk walking, 15 min running, or 45 min volleyball). Supporting this paradigm shift, research in older adults (aged 70 to 82 years) demonstrated that simply being more physically active significantly reduced overall mortality risk, independent of participation in a formal structured exercise program.",
+                "criteria": [
+                    "Explain debunked myth (high volume/intensity NOT required for health benefits).",
+                    "Provide moderate activity examples from report (30 min brisk walking, 15 min running, 45 min volleyball).",
+                    "Cite older adult research finding (increased physical activity in adults 70-82 yrs reduced mortality independent of formal exercise)."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What major national initiative was launched by the ACSM in collaboration with the American Medical Association (AMA) during the first decade of the 21st century?",
+                "opts": [
+                    "Exercise is Medicine (EIM)",
+                    "National Jogging Campaign",
+                    "Sedentary Eradication Protocol",
+                    "Universal Weightlifting Alliance"
+                ],
+                "correct": 0,
+                "rationale": "The ACSM, in collaboration with the AMA, launched the 'Exercise is Medicine' (EIM) initiative to encourage healthcare providers to counsel patients on physical activity."
+            },
+            {
+                "id": 2,
+                "q": "What was the primary goal of the Exercise is Medicine (EIM) initiative launched by the ACSM and AMA?",
+                "opts": [
+                    "To encourage healthcare providers to counsel their patients on the importance of physical activity in promoting health and preventing disease",
+                    "To mandate that all physicians become competitive marathon runners",
+                    "To replace all prescription pharmaceutical medications with 24-hour bed rest",
+                    "To ban non-physicians from working in fitness centers"
+                ],
+                "correct": 0,
+                "rationale": "EIM was launched to train and guide healthcare providers in incorporating physical activity counseling and exercise prescription into routine patient care."
+            },
+            {
+                "id": 3,
+                "q": "Why was a formal education program developed under the Exercise is Medicine initiative for physicians and healthcare workers?",
+                "opts": [
+                    "Because many physicians and healthcare workers had not received extensive education and training in exercise prescription",
+                    "Because medical schools had already mandated 4 years of exercise science courses",
+                    "To eliminate exercise physiologists from hospitals",
+                    "To prohibit doctors from discussing exercise with patients"
+                ],
+                "correct": 0,
+                "rationale": "Recognizing that many physicians lacked extensive background training in exercise science, EIM provided structured educational tools to train clinicians in exercise prescription basics."
+            },
+            {
+                "id": 4,
+                "q": "Which clinical resource guide is available at ExerciseIsMedicine.org to assist clinicians in including physical activity in patient care plans?",
+                "opts": [
+                    "Health Care Providers' Action Guide",
+                    "Surgical Exercise Manual",
+                    "Cardiothoracic Jogging Blueprint",
+                    "Pharmacological Inactivity Register"
+                ],
+                "correct": 0,
+                "rationale": "ExerciseIsMedicine.org offers the 'Health Care Providers' Action Guide' to help clinicians incorporate physical activity assessment and prescription into clinical practice."
+            },
+            {
+                "id": 5,
+                "q": "According to the textbook, what is the very first step an individual must take when deciding to begin an exercise program?",
+                "opts": [
+                    "Deciding to take action",
+                    "Purchasing expensive athletic apparel",
+                    "Running 10 miles immediately without rest",
+                    "Buying a home treadmill"
+                ],
+                "correct": 0,
+                "rationale": "The textbook explicitly states that knowing the benefits of exercise, the first step in beginning an exercise program is deciding to take action."
+            },
+            {
+                "id": 6,
+                "q": "What is the crucial next step immediately following the decision to take action before starting a new exercise program?",
+                "opts": [
+                    "Getting medical clearance",
+                    "Enrolling in an Olympic competition",
+                    "Taking anabolic steroids",
+                    "Restricting daily calorie intake to zero"
+                ],
+                "correct": 0,
+                "rationale": "After deciding to take action, the next essential clinical step before initiating exercise is getting medical clearance to ensure safe program participation."
+            },
+            {
+                "id": 7,
+                "q": "Why is medical clearance an essential step before initiating an exercise program in sedentary or at-risk individuals?",
+                "opts": [
+                    "To screen for pre-existing health risks and underlying cardiovascular, metabolic, or renal disease",
+                    "To verify that the individual has already won an athletic trophy",
+                    "To force every patient to undergo heart surgery",
+                    "To fulfill legal requirements for buying athletic shoes"
+                ],
+                "correct": 0,
+                "rationale": "Medical clearance allows clinical evaluation and health screening to identify pre-existing conditions or cardiovascular risks, ensuring exercise is prescribed safely."
+            },
+            {
+                "id": 8,
+                "q": "How does the Exercise is Medicine framework view physical activity in the context of clinical healthcare?",
+                "opts": [
+                    "As an integral part of preventive medicine that should be routinely assessed and prescribed by healthcare providers",
+                    "As a dangerous hobby that physicians should actively discourage",
+                    "As a treatment modality useful only for elite professional athletes",
+                    "As an activity that has zero connection to chronic disease prevention"
+                ],
+                "correct": 0,
+                "rationale": "EIM establishes physical activity as a core vital sign and preventive medicine tool that should be routinely counseled and prescribed during patient medical visits."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which organizations collaborated to launch the Exercise is Medicine (EIM) initiative? (Select all that apply)",
+                "opts": [
+                    "American College of Sports Medicine (ACSM)",
+                    "American Medical Association (AMA)",
+                    "National Football League (NFL)",
+                    "International Weightlifting Federation"
+                ],
+                "correctArray": [
+                    0,
+                    1
+                ],
+                "rationale": "Exercise is Medicine was launched as a joint major initiative by the ACSM and the AMA."
+            },
+            {
+                "id": 2,
+                "q": "Which elements are key components of the Exercise is Medicine initiative? (Select all that apply)",
+                "opts": [
+                    "Encouraging healthcare providers to counsel patients on physical activity",
+                    "Providing the Health Care Providers' Action Guide via ExerciseIsMedicine.org",
+                    "Training physicians in the basics of exercise prescription",
+                    "Banning all pharmaceutical medications in primary care clinics"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "EIM encourages physical activity counseling, provides the Health Care Providers' Action Guide, and educates healthcare workers in exercise prescription."
+            },
+            {
+                "id": 3,
+                "q": "Which initial steps are required for individuals starting an exercise program to improve health and fitness? (Select all that apply)",
+                "opts": [
+                    "Deciding to take action",
+                    "Getting medical clearance",
+                    "Undergoing clinical health screening",
+                    "Maximal high-intensity sprint testing without prior screening"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Starting an exercise program requires deciding to take action, obtaining medical clearance, and undergoing pre-participation health screening."
+            },
+            {
+                "id": 4,
+                "q": "Why is professional medical clearance prior to exercise participation valuable? (Select all that apply)",
+                "opts": [
+                    "It identifies underlying cardiovascular disease risks",
+                    "It screens for metabolic or renal clinical conditions",
+                    "It ensures exercise prescriptions are tailored safely to individual health status",
+                    "It guarantees 100% muscle fiber hypertrophy within 24 hours"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Medical clearance screens for cardiovascular, metabolic, and renal disease risks, protecting patient safety during exercise initiation."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Exercise is Medicine is a joint initiative of the ACSM and the American Medical Association (AMA).",
+                "ans": true,
+                "feedback": "True. EIM was launched collaboratively by the ACSM and AMA to integrate exercise counseling into clinical healthcare."
+            },
+            {
+                "id": 2,
+                "q": "Most medical schools historically provided extensive multi-year training in exercise prescription to all physicians.",
+                "ans": false,
+                "feedback": "False. The EIM initiative recognized that many physicians and healthcare workers had not received extensive education in exercise prescription."
+            },
+            {
+                "id": 3,
+                "q": "The website ExerciseIsMedicine.org offers the 'Health Care Providers' Action Guide' to assist clinicians.",
+                "ans": true,
+                "feedback": "True. ExerciseIsMedicine.org provides the Health Care Providers' Action Guide for clinical exercise prescription guidance."
+            },
+            {
+                "id": 4,
+                "q": "Getting medical clearance is recommended after deciding to take action when initiating an exercise program.",
+                "ans": true,
+                "feedback": "True. Medical clearance is the essential second step following the decision to take action before starting a program."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "The ACSM and AMA launched **Exercise is Medicine**, offering the **Health Care Providers' Action Guide**.",
+                "targets": [
+                    "Exercise is Medicine",
+                    "Health Care Providers' Action Guide"
+                ],
+                "optionsBank": [
+                    "Exercise is Medicine",
+                    "Health Care Providers' Action Guide",
+                    "Sedentary Death Syndrome",
+                    "Surgeon General Report",
+                    "Cardiac Rehabilitation Blueprint"
+                ],
+                "hint": "Identify the ACSM/AMA public health initiative and the clinical resource guide."
+            },
+            {
+                "id": 2,
+                "statement": "Starting an exercise program begins with **deciding to take action**, followed immediately by **getting medical clearance**.",
+                "targets": [
+                    "deciding to take action",
+                    "getting medical clearance"
+                ],
+                "optionsBank": [
+                    "deciding to take action",
+                    "getting medical clearance",
+                    "maximal treadmill testing",
+                    "anabolic supplementation",
+                    "bed rest"
+                ],
+                "hint": "Identify the initial behavioral commitment step and the clinical screening step."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Explain the background, founding organizations, and primary objectives of the Exercise is Medicine (EIM) initiative.",
+                "model": "The Exercise is Medicine (EIM) initiative was launched during the first decade of the 21st century as a major collaborative effort between the American College of Sports Medicine (ACSM) and the American Medical Association (AMA). Recognizing that many physicians and healthcare workers lack extensive formal education in exercise science, EIM was created to educate and train clinical providers. Its primary objective is to encourage healthcare providers to routinely assess, counsel, and prescribe physical activity as a standard component of patient care, utilizing resources like the 'Health Care Providers' Action Guide' at ExerciseIsMedicine.org.",
+                "criteria": [
+                    "Identify founding organizations (ACSM and AMA collaboration in 1st decade of 21st century).",
+                    "Explain underlying rationale (many healthcare providers lacked formal education in exercise science/prescription).",
+                    "State primary clinical objective (encourage exercise counseling/prescription as standard care via Health Care Providers' Action Guide)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Outline the two essential initial steps for individuals starting an exercise program, detailing the clinical importance of medical clearance.",
+                "model": "The two essential initial steps for an individual beginning an exercise program to improve health and fitness are: (1) Deciding to take action (making the behavioral commitment to transition from a sedentary lifestyle); and (2) Getting medical clearance. Medical clearance is clinically crucial because pre-participation health evaluation and clinical screening identify underlying health risks, pre-existing cardiovascular, metabolic, or renal disease, ensuring that exercise program type and intensity are prescribed safely and tailored to individual medical status.",
+                "criteria": [
+                    "Identify Step 1 (Deciding to take action).",
+                    "Identify Step 2 (Getting medical clearance).",
+                    "Explain clinical importance of medical clearance (screens for underlying cardiovascular/metabolic disease risks to ensure safe exercise prescription)."
+                ]
+            }
+        ]
+    }
+}

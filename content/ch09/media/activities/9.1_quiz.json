@@ -1,0 +1,746 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "How is muscular strength formally defined in exercise physiology?",
+                "opts": [
+                    "The rate at which work is performed over time",
+                    "The maximal force that a muscle or muscle group can generate",
+                    "The capacity to sustain repeated submaximal muscle contractions",
+                    "The volume of oxygen consumed during maximal exertion"
+                ],
+                "correct": 1,
+                "rationale": "Muscular strength is defined as the maximal force that a muscle or muscle group can generate."
+            },
+            {
+                "id": 2,
+                "q": "What is the standard weight-room metric used to quantify an individual's maximal muscular strength?",
+                "opts": [
+                    "Wingate peak power output",
+                    "1-repetition maximum (1RM)",
+                    "Maximal oxygen uptake (\\(\\dot{V}\\text{O}_{2\\max}\\))",
+                    "Rate of force development (RFD)"
+                ],
+                "correct": 1,
+                "rationale": "In practical athletic settings, strength is quantified as the maximal load that an individual can lift in a single effort, referred to as the 1-repetition maximum (1RM)."
+            },
+            {
+                "id": 3,
+                "q": "Which formula correctly represents muscular power in terms of force, distance, work, and velocity?",
+                "opts": [
+                    "\\(\\text{Power} = \\text{Force} \\times \\text{Distance} \\times \\text{Time}\\)",
+                    "\\(\\text{Power} = \\frac{\\text{Force} \\times \\text{Distance}}{\\text{Time}} = \\text{Force} \\times \\text{Velocity}\\)",
+                    "\\(\\text{Power} = \\frac{\\text{Velocity}}{\\text{Force}}\\)",
+                    "\\(\\text{Power} = \\text{Work} \\times \\text{Time}\\)"
+                ],
+                "correct": 1,
+                "rationale": "Muscular power incorporates velocity and is defined as Work / Time = (Force x Distance) / Time = Force x Velocity."
+            },
+            {
+                "id": 4,
+                "q": "If Athlete A lifts 200 kg in 1.0 s and Athlete B lifts 200 kg in 2.0 s across the same distance, how does their muscular power output compare?",
+                "opts": [
+                    "Athlete B generates twice the muscular power of Athlete A",
+                    "Athlete A generates twice the muscular power of Athlete B",
+                    "Both athletes generate identical muscular power because the load is equal",
+                    "Athlete A generates four times the muscular power of Athlete B"
+                ],
+                "correct": 1,
+                "rationale": "Because Power = Force x Velocity, completing the same work in half the time (1.0 s vs 2.0 s) means Athlete A produces twice the power of Athlete B."
+            },
+            {
+                "id": 5,
+                "q": "Why are improvements in muscular power achieved primarily by increasing force (strength) rather than velocity in traditional training?",
+                "opts": [
+                    "Movement velocity cannot be measured in laboratory settings",
+                    "Movement velocity is a highly innate neuromuscular trait that changes minimally with training",
+                    "Force generation decreases as muscle cross-sectional area grows",
+                    "Velocity increases automatically without any training stimulus"
+                ],
+                "correct": 1,
+                "rationale": "Because movement velocity is a largely innate trait, power gains are driven primarily by increasing the force (strength) component through resistance training."
+            },
+            {
+                "id": 6,
+                "q": "In a proper 1RM testing protocol, what occurs if the subject successfully completes more than one repetition at a selected weight?",
+                "opts": [
+                    "The test is immediately terminated and scored as zero",
+                    "Load is added after an adequate rest period and the test is repeated until only one rep can be completed",
+                    "The weight is reduced by 50% for the next trial",
+                    "The subject is awarded their 1RM based on estimation formulas without further lifting"
+                ],
+                "correct": 1,
+                "rationale": "If a subject completes more than one repetition during 1RM testing, weight is incrementally added following adequate rest until only a single rep can be executed with proper form."
+            },
+            {
+                "id": 7,
+                "q": "Why might a defensive lineman with a bench press 1RM of 150 kg dominate an offensive lineman with a 1RM of 200 kg on the field?",
+                "opts": [
+                    "The defensive lineman moves his lower load at a significantly higher velocity, resulting in greater power output",
+                    "The offensive lineman has higher muscular endurance",
+                    "The defensive lineman has a lower rate of force development",
+                    "Absolute 1RM strength is the sole determinant of football performance"
+                ],
+                "correct": 0,
+                "rationale": "Power combines force and velocity; an athlete with a lower 1RM can generate greater explosive power if they move their load at a significantly higher velocity."
+            },
+            {
+                "id": 8,
+                "q": "What adaptations account for long-term chronic gains in muscular strength following progressive resistance training?",
+                "opts": [
+                    "A combination of structural adaptations in muscle tissue and alterations in neural motor unit control",
+                    "Decreased motor unit recruitment and fiber atrophy",
+                    "Exclusively increases in lung tidal volume",
+                    "Suppression of myofibrillar protein synthesis"
+                ],
+                "correct": 0,
+                "rationale": "Long-term gains in muscular strength stem from structural adaptations within muscle fibers (hypertrophy) and neural adaptations governing motor unit recruitment and firing rates."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which parameters are essential components of the mathematical definition of muscular power? (Select all that apply)",
+                "opts": [
+                    "Force (Strength)",
+                    "Distance (Displacement)",
+                    "Time (Duration)",
+                    "Velocity (Speed of movement)"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "Muscular power is defined as Work / Time = (Force x Distance) / Time = Force x Velocity."
+            },
+            {
+                "id": 2,
+                "q": "Which statements correctly distinguish muscular strength from muscular power? (Select all that apply)",
+                "opts": [
+                    "Muscular strength focuses on maximal force production regardless of time",
+                    "Muscular power incorporates the speed or velocity of movement",
+                    "Muscular strength is evaluated using 1RM testing",
+                    "Muscular power depends solely on oxygen consumption rate"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Strength is maximal force (1RM) without time constraints, whereas power incorporates movement velocity. Power does not depend solely on oxygen consumption."
+            },
+            {
+                "id": 3,
+                "q": "Which procedures are part of a standardized laboratory or weight-room 1RM strength testing protocol? (Select all that apply)",
+                "opts": [
+                    "Performing a thorough warm-up prior to maximal attempts",
+                    "Allowing adequate rest periods between incremental trial attempts",
+                    "Increasing the load until the subject can execute only a single repetition with proper form",
+                    "Forcing the subject to perform 30 continuous repetitions to exhaustion"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "1RM testing requires a warm-up, rest between trials, and incremental loading until exactly one rep can be completed."
+            },
+            {
+                "id": 4,
+                "q": "Which methods are utilized in laboratory research to quantify static and dynamic muscular strength? (Select all that apply)",
+                "opts": [
+                    "Isometric dynamometry for static force measurement",
+                    "Electronic equipment assessing dynamic force across various joint angles",
+                    "1RM weight-room testing",
+                    "Doubly labeled water technique"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Laboratory strength testing uses isometric dynamometry, electronic velocity/angle transducers, and 1RM testing. Doubly labeled water measures daily energy expenditure."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Muscular strength is defined as the maximal force that a muscle or muscle group can generate in a single effort.",
+                "ans": true,
+                "feedback": "True. Muscular strength represents the peak force capability of a muscle or muscle group."
+            },
+            {
+                "id": 2,
+                "q": "Two athletes who lift the same 1RM load across the same displacement always produce identical muscular power output.",
+                "ans": false,
+                "feedback": "False. Power incorporates movement time/velocity; the athlete who completes the lift faster generates greater muscular power."
+            },
+            {
+                "id": 3,
+                "q": "Movement velocity is a highly trainable trait that increases dramatically with traditional heavy strength training.",
+                "ans": false,
+                "feedback": "False. Movement velocity is largely an innate neuromuscular trait; power improvements are driven primarily by increasing strength."
+            },
+            {
+                "id": 4,
+                "q": "Static strength can be evaluated in laboratory settings using isometric dynamometry equipment.",
+                "ans": true,
+                "feedback": "True. Static (isometric) strength is measured at fixed joint angles without muscle length change using specialized dynamometers."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Muscular strength is quantified using the **1-repetition maximum**, whereas muscular power is the product of force and **velocity**.",
+                "targets": [
+                    "1-repetition maximum",
+                    "velocity"
+                ],
+                "optionsBank": [
+                    "1-repetition maximum",
+                    "velocity",
+                    "glycogen",
+                    "tidal volume",
+                    "heart rate"
+                ],
+                "hint": "Identify the standard maximal strength test metric and the speed component of power."
+            },
+            {
+                "id": 2,
+                "statement": "Muscular power is calculated as **work** divided by **time**.",
+                "targets": [
+                    "work",
+                    "time"
+                ],
+                "optionsBank": [
+                    "work",
+                    "time",
+                    "mass",
+                    "temperature",
+                    "lactate"
+                ],
+                "hint": "Identify the two components of the mechanical power formula P = W / t."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Explain the physiological and mechanical differences between muscular strength and muscular power, detailing the mathematical formula for power and why velocity is a key factor.",
+                "model": "Muscular strength is the maximal force that a muscle or muscle group can generate, typically measured by a 1-repetition maximum (1RM) without time constraints. Muscular power incorporates the dimension of speed, defined as the rate at which work is performed: Power = Work / Time = (Force x Distance) / Time = Force x Velocity. Velocity is critical because two athletes lifting identical loads produce different power outputs if one moves the load faster. Because movement velocity is largely an innate neuromuscular trait, power improvements are achieved primarily by increasing force (strength) via resistance training or performing high-velocity power exercises.",
+                "criteria": [
+                    "Define muscular strength (maximal force/1RM) and muscular power (rate of work performed).",
+                    "Provide the power formula: Power = Force x Velocity = (Force x Distance) / Time.",
+                    "Explain the role of movement velocity and why power gains depend heavily on increasing force capability."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Describe a standardized protocol for determining a subject's 1-repetition maximum (1RM) in a laboratory or weight-room setting, including warm-up, load adjustments, and termination criteria.",
+                "model": "Determining a true 1RM requires a controlled, standardized protocol. First, the subject performs a thorough low-intensity warm-up to prepare muscles and joints. Next, the subject selects an initial load anticipated to be below their 1RM. If the subject completes more than one repetition, weight is incrementally added after an adequate rest period (typically 3 to 5 minutes) to prevent fatigue. This process of adding load and resting is repeated until the subject can execute only a single repetition with proper technique. If the subject fails a rep, the load is slightly reduced until the true maximal load for 1 rep is established.",
+                "criteria": [
+                    "Specify the initial warm-up requirement.",
+                    "Detail the incremental loading process and rest periods between attempts.",
+                    "Identify the termination criterion (executing exactly one single repetition with proper form)."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "How is muscular endurance defined in exercise physiology?",
+                "opts": [
+                    "The maximal force generated in a single explosive contraction",
+                    "The capacity to perform repeated muscle contractions, or sustain a submaximal contraction over time",
+                    "The peak rate of oxygen consumption during dynamic exercise",
+                    "The total work completed in 5 seconds of maximal cycling"
+                ],
+                "correct": 1,
+                "rationale": "Muscular endurance is defined as the capacity to perform repeated muscle contractions, or to sustain a submaximal muscle contraction over time."
+            },
+            {
+                "id": 2,
+                "q": "How is muscular endurance evaluated in field and laboratory testing settings?",
+                "opts": [
+                    "By measuring the maximal weight lifted for 1 single rep",
+                    "By assessing the maximum number of repetitions performed at a specified percentage of 1RM",
+                    "By performing a 30-second Wingate cycle sprint",
+                    "By tracking resting metabolic rate via direct calorimetry"
+                ],
+                "correct": 1,
+                "rationale": "Muscular endurance is evaluated by assessing the maximum number of repetitions an individual can perform at a set percentage of their 1RM (e.g., 75% 1RM)."
+            },
+            {
+                "id": 3,
+                "q": "Which physiological adaptations contribute to improvements in local muscular endurance?",
+                "opts": [
+                    "Enhanced local blood flow, increased capillary density, and elevated absolute strength",
+                    "Decreased mitochondrial density and motor unit inhibition",
+                    "Reduction in capillary-to-fiber ratio",
+                    "Complete reliance on systemic arterial pressure drop"
+                ],
+                "correct": 0,
+                "rationale": "Gains in muscular endurance are driven by gains in absolute strength as well as local circulatory and metabolic adaptations, including enhanced local blood flow and capillary density."
+            },
+            {
+                "id": 4,
+                "q": "Consider Athlete A (1RM 100 kg, time 0.5 s, 15 reps at 75% 1RM) and Athlete B (1RM 200 kg, time 2.0 s, 10 reps at 75% 1RM). What is Athlete A's primary weakness requiring training emphasis?",
+                "opts": [
+                    "Athlete A lacks muscular endurance",
+                    "Athlete A lacks movement velocity",
+                    "Athlete A lacks maximal 1RM strength",
+                    "Athlete A lacks aerobic capacity"
+                ],
+                "correct": 2,
+                "rationale": "Athlete A has fast speed (0.5 s) and high endurance (15 reps), but half the absolute strength (100 kg vs 200 kg) of Athletes B and C; training should focus on developing maximal strength."
+            },
+            {
+                "id": 5,
+                "q": "Consider Athlete B (1RM 200 kg, movement time 2.0 s, 10 reps at 75% 1RM). Which training adaptation does Athlete B most critically need?",
+                "opts": [
+                    "Increased 1RM load to 300 kg",
+                    "Explosive power training to improve movement velocity",
+                    "High-repetition muscular endurance training",
+                    "Long slow distance aerobic run training"
+                ],
+                "correct": 1,
+                "rationale": "Athlete B has high absolute strength (200 kg) but slow movement velocity (2.0 s), yielding low power output; training should emphasize explosive power development."
+            },
+            {
+                "id": 6,
+                "q": "Consider Athlete C (1RM 200 kg, movement time 1.0 s, 5 reps at 75% 1RM). What is Athlete C's primary performance bottleneck?",
+                "opts": [
+                    "Low muscular endurance",
+                    "Low maximal strength",
+                    "Low movement velocity",
+                    "Excessive capillary density"
+                ],
+                "correct": 0,
+                "rationale": "Athlete C demonstrates high strength (200 kg) and high power (1.0 s), but low muscular endurance (only 5 reps at 75% 1RM); training should prioritize fatigue resistance and muscular endurance."
+            },
+            {
+                "id": 7,
+                "q": "Which athletic tasks specifically rely on high levels of local muscular endurance?",
+                "opts": [
+                    "Performing a 1RM maximal deadlift",
+                    "Executing repeated sit-ups, push-ups, or sustained wrestling holds",
+                    "A 50-meter maximal track sprint",
+                    "A single high jump attempt"
+                ],
+                "correct": 1,
+                "rationale": "Muscular endurance is essential in events requiring sustained or repeated submaximal force application, such as sit-ups, push-ups, rowing, or wrestling holds."
+            },
+            {
+                "id": 8,
+                "q": "Why does an increase in absolute 1RM strength often enhance submaximal muscular endurance at a fixed absolute load?",
+                "opts": [
+                    "A higher 1RM reduces the relative percentage that a fixed absolute load represents, reducing motor unit fatigue",
+                    "Higher strength destroys slow-twitch oxidative muscle fibers",
+                    "A higher 1RM eliminates the need for ATP during exercise",
+                    "Absolute strength decreases capillarization in working muscles"
+                ],
+                "correct": 0,
+                "rationale": "Increasing 1RM strength means a fixed weight (e.g., 50 kg) becomes a smaller percentage of maximal capacity, allowing the muscle to perform more repetitions before reaching exhaustion."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which factors contribute to improvements in muscular endurance following resistance training? (Select all that apply)",
+                "opts": [
+                    "Increases in absolute muscular strength (1RM)",
+                    "Enhanced local blood flow and capillary density",
+                    "Local metabolic adaptations in working muscle fibers",
+                    "Suppression of mitochondrial oxidative enzymes"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Muscular endurance improves through a combination of increased absolute strength, enhanced local microvascular blood flow (capillaries), and cellular metabolic adaptations."
+            },
+            {
+                "id": 2,
+                "q": "Which characteristics apply to Athlete A (1RM 100 kg, movement time 0.5 s, 15 reps at 75% 1RM)? (Select all that apply)",
+                "opts": [
+                    "High movement velocity",
+                    "High muscular endurance",
+                    "Equal power output to Athlete C (200 kg in 1.0 s) despite lower strength",
+                    "High absolute 1RM strength relative to Athlete B"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Athlete A has rapid velocity (0.5 s) and high endurance (15 reps). Power = 100/0.5 = 200 units, equal to Athlete C (200/1.0 = 200 units). Athlete A's 1RM (100 kg) is lower than Athlete B (200 kg)."
+            },
+            {
+                "id": 3,
+                "q": "Which statements are true regarding the comparative athlete profiles (Athletes A, B, and C)? (Select all that apply)",
+                "opts": [
+                    "Athlete B possesses high strength but low power due to slow movement velocity (2.0 s)",
+                    "Athlete C has high strength and high power, but low muscular endurance (5 reps)",
+                    "Profiling strength, power, and endurance reveals specific individual training needs",
+                    "All three athletes require identical training prescriptions"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Athlete B needs velocity/power work; Athlete C needs endurance training; profiling identifies specific bottlenecks so training prescriptions differ."
+            },
+            {
+                "id": 4,
+                "q": "Which activities require high muscular endurance for successful performance? (Select all that apply)",
+                "opts": [
+                    "Rowing continuously over a 2,000-meter course",
+                    "Sustaining a wrestling hold against an opponent",
+                    "Completing a 2-minute push-up fitness evaluation",
+                    "Attempting a single 1RM bench press"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Rowing, wrestling holds, and push-up tests require repeated or sustained contractions (endurance). A 1RM attempt tests absolute strength."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Muscular endurance can be tested by recording the maximum number of repetitions performed at a given percentage of an individual's 1RM.",
+                "ans": true,
+                "feedback": "True. Assessing repetitions at a fixed percentage of 1RM (e.g., 75% 1RM) is the standard method for evaluating muscular endurance."
+            },
+            {
+                "id": 2,
+                "q": "An athlete with high absolute strength (1RM) will automatically possess high local muscular endurance.",
+                "ans": false,
+                "feedback": "False. Athlete C demonstrates that high 1RM strength can coexist with low muscular endurance (e.g., only 5 reps at 75% 1RM)."
+            },
+            {
+                "id": 3,
+                "q": "Local capillary density increases contribute to improved muscular endurance by enhancing blood flow and metabolite clearance.",
+                "ans": true,
+                "feedback": "True. Increased capillary density surrounds muscle fibers, improving oxygen delivery and waste removal during sustained contractions."
+            },
+            {
+                "id": 4,
+                "q": "Athlete B (1RM 200 kg, 2.0 s movement time) produces higher power output than Athlete A (1RM 100 kg, 0.5 s movement time).",
+                "ans": false,
+                "feedback": "False. Athlete B's power (200/2.0 = 100 units) is lower than Athlete A's power (100/0.5 = 200 units)."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Muscular endurance is evaluated by assessing maximal repetitions performed at a specific **percentage of 1RM**, supported by increased **capillary density**.",
+                "targets": [
+                    "percentage of 1RM",
+                    "capillary density"
+                ],
+                "optionsBank": [
+                    "percentage of 1RM",
+                    "capillary density",
+                    "heart rate max",
+                    "bone density",
+                    "myosin heads"
+                ],
+                "hint": "Identify the standard endurance test load metric and the microvascular adaptation."
+            },
+            {
+                "id": 2,
+                "statement": "An athlete with high strength and slow movement speed has low **muscular power**, whereas an athlete with low rep capacity has low **muscular endurance**.",
+                "targets": [
+                    "muscular power",
+                    "muscular endurance"
+                ],
+                "optionsBank": [
+                    "muscular power",
+                    "muscular endurance",
+                    "aerobic deficit",
+                    "stroke volume",
+                    "flexibility"
+                ],
+                "hint": "Identify the velocity-dependent capacity and the repetition-dependent capacity."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Compare the performance profiles of Athlete B (1RM 200 kg, 2.0 s, 10 reps) and Athlete C (1RM 200 kg, 1.0 s, 5 reps), identifying each athlete's primary limitation and recommended training focus.",
+                "model": "Athletes B and C share identical maximal strength (200 kg 1RM), but differ in power and endurance. Athlete B takes 2.0 s to complete the lift, resulting in low power output (Force x Velocity). Athlete B's primary limitation is movement speed; training should focus on explosive power exercises to increase velocity. Athlete C completes the lift in 1.0 s, generating high power, but can only complete 5 repetitions at 75% 1RM. Athlete C's primary limitation is low muscular endurance; training should focus on fatigue resistance, high-repetition loading, and local metabolic adaptations.",
+                "criteria": [
+                    "State that both athletes have equal 1RM strength (200 kg).",
+                    "Identify Athlete B's bottleneck (slow movement speed/low power) and prescribe explosive power training.",
+                    "Identify Athlete C's bottleneck (low repetition capacity/low endurance) and prescribe muscular endurance training."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Explain how muscular endurance is evaluated in laboratory settings and detail the circulatory and structural adaptations that support improvements in muscular endurance.",
+                "model": "Muscular endurance is evaluated by having an individual perform maximal repetitions to failure at a standardized relative load, such as 75% of their 1RM. Improvements in muscular endurance are driven by a combination of increased absolute strength (which makes any submaximal load a smaller relative percentage of maximum) and local physiological adaptations. These adaptations include increased capillary density around muscle fibers (which enhances local blood flow, oxygen delivery, and metabolite removal), elevated mitochondrial density, and enhanced oxidative enzyme activity within working muscle fibers.",
+                "criteria": [
+                    "Describe the testing method (reps to failure at a set % 1RM, e.g., 75% 1RM).",
+                    "Explain the contribution of absolute strength (reducing relative load intensity).",
+                    "Detail local adaptations (increased capillary density, enhanced blood flow, metabolic adaptations)."
+                ]
+            }
+        ]
+    },
+    "p3": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "How is aerobic power defined in exercise physiology?",
+                "opts": [
+                    "The rate of energy release by cellular metabolic processes that depend on the continued availability of oxygen",
+                    "The maximal force generated in a 1RM bench press attempt",
+                    "The rate of energy release by cellular processes functioning strictly without oxygen",
+                    "The total work completed during a 5-second sprint"
+                ],
+                "correct": 0,
+                "rationale": "Aerobic power is defined as the rate of energy release by cellular metabolic processes that depend on the continued availability of oxygen."
+            },
+            {
+                "id": 2,
+                "q": "What term is synonymous with maximal aerobic power and represents the peak rate of oxygen consumption during dynamic exercise?",
+                "opts": [
+                    "Wingate peak power",
+                    "Maximal oxygen uptake (\\(\\dot{V}\\text{O}_{2\\max}\\))",
+                    "Anaerobic capacity",
+                    "Accumulated oxygen deficit"
+                ],
+                "correct": 1,
+                "rationale": "Maximal aerobic power is synonymous with aerobic capacity and maximal oxygen uptake (\\(\\dot{V}\\text{O}_{2\\max}\\))."
+            },
+            {
+                "id": 3,
+                "q": "What is the primary physiological limiting factor for maximal aerobic power in healthy individuals?",
+                "opts": [
+                    "The capacity of the central cardiovascular system to deliver oxygen to active muscles",
+                    "The speed of nerve conduction in alpha motor neurons",
+                    "The total mass of skeletal bone tissue",
+                    "The rate of lactic acid accumulation in resting muscle"
+                ],
+                "correct": 0,
+                "rationale": "In healthy individuals, maximal aerobic power (\\(\\dot{V}\\text{O}_{2\\max}\\)) is limited primarily by the central cardiovascular system's capacity to deliver oxygen to contracting skeletal muscles."
+            },
+            {
+                "id": 4,
+                "q": "How is anaerobic power defined in exercise physiology?",
+                "opts": [
+                    "The rate of energy release by cellular metabolic processes that function without the involvement of oxygen",
+                    "The rate of oxygen consumption at resting metabolic rate",
+                    "The maximum time an individual can sustain a submaximal isometric contraction",
+                    "The total volume of carbon dioxide expired per minute"
+                ],
+                "correct": 0,
+                "rationale": "Anaerobic power is defined as the rate of energy release by cellular metabolic processes that function without the involvement of oxygen."
+            },
+            {
+                "id": 5,
+                "q": "Which standardized laboratory test is widely used to evaluate peak anaerobic power and total anaerobic capacity?",
+                "opts": [
+                    "Graded exercise treadmill test (GXT)",
+                    "Wingate anaerobic test",
+                    "1RM leg press test",
+                    "Doubly labeled water assessment"
+                ],
+                "correct": 1,
+                "rationale": "The Wingate anaerobic test is a standardized 30-second all-out cycle ergometer sprint test used to evaluate peak anaerobic power and total anaerobic capacity."
+            },
+            {
+                "id": 6,
+                "q": "In a 30-second Wingate anaerobic test, what metabolic system is primarily evaluated during the initial 5 seconds to determine peak anaerobic power?",
+                "opts": [
+                    "Oxidative phosphorylation system",
+                    "ATP-phosphocreatine (ATP-PCr) system",
+                    "Beta-oxidation pathway",
+                    "Hepatic gluconeogenesis"
+                ],
+                "correct": 1,
+                "rationale": "Peak anaerobic power is calculated from work performed during the initial 5 seconds of the Wingate test, representing immediate ATP-PCr system energy release."
+            },
+            {
+                "id": 7,
+                "q": "What does the total work completed across the entire 30-second duration of a Wingate test represent?",
+                "opts": [
+                    "Maximal aerobic power (\\(\\dot{V}\\text{O}_{2\\max}\\))",
+                    "Anaerobic capacity (combining ATP-PCr and fast glycolytic systems)",
+                    "Basal metabolic rate (BMR)",
+                    "Isometric force capability"
+                ],
+                "correct": 1,
+                "rationale": "Anaerobic capacity is measured as the total work completed across the full 30-second Wingate test, reflecting energy contributions from both the ATP-PCr and fast glycolytic energy systems."
+            },
+            {
+                "id": 8,
+                "q": "What is the gold-standard laboratory assessment method for measuring maximal aerobic power?",
+                "opts": [
+                    "A 30-second Wingate cycle sprint",
+                    "A graded exercise test (GXT) to exhaustion with open-circuit spirometry",
+                    "Isometric handgrip dynamometry",
+                    "A 1RM bench press test"
+                ],
+                "correct": 1,
+                "rationale": "The gold standard for assessing maximal aerobic power is a graded exercise test (GXT) to exhaustion with direct open-circuit spirometry measuring oxygen consumption."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which metabolic energy systems supply ATP during anaerobic power generation? (Select all that apply)",
+                "opts": [
+                    "ATP-phosphocreatine (ATP-PCr) system",
+                    "Anaerobic glycolytic system",
+                    "Oxidative electron transport chain",
+                    "Beta-oxidation of fatty acids"
+                ],
+                "correctArray": [
+                    0,
+                    1
+                ],
+                "rationale": "Maximal anaerobic power/capacity relies on non-oxidative pathways: the ATP-PCr system and the anaerobic glycolytic system."
+            },
+            {
+                "id": 2,
+                "q": "Which metrics are derived from a 30-second Wingate anaerobic cycle ergometer test? (Select all that apply)",
+                "opts": [
+                    "Peak anaerobic power (calculated from work in initial 5 seconds)",
+                    "Anaerobic capacity (total work completed over 30 seconds)",
+                    "Maximal oxygen uptake (\\(\\dot{V}\\text{O}_{2\\max}\\))",
+                    "Braking resistance based on subject characteristics"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    3
+                ],
+                "rationale": "The Wingate test applies a tailored braking resistance and yields peak anaerobic power (0–5 s) and total anaerobic capacity (30 s). It does not measure VO2max."
+            },
+            {
+                "id": 3,
+                "q": "Which features characterize maximal aerobic power (\\(\\dot{V}\\text{O}_{2\\max}\\))? (Select all that apply)",
+                "opts": [
+                    "Requires continuous availability of oxygen",
+                    "Limited primarily by central cardiovascular oxygen delivery in healthy individuals",
+                    "Assessed using open-circuit spirometry during a graded exercise test",
+                    "Reflects energy release during a 5-second maximal sprint"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Aerobic power depends on oxygen, is limited by central cardiovascular delivery, and is measured via GXT spirometry. A 5-second sprint measures anaerobic peak power."
+            },
+            {
+                "id": 4,
+                "q": "Which laboratory tests are used to estimate or measure anaerobic power and capacity? (Select all that apply)",
+                "opts": [
+                    "Wingate anaerobic test",
+                    "Maximal accumulated oxygen deficit test",
+                    "Critical power test",
+                    "Graded treadmill exercise test to VO2max"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Anaerobic capacity/power can be evaluated using the Wingate test, accumulated oxygen deficit, and critical power tests. Graded treadmill tests measure aerobic power."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Maximal aerobic power is synonymous with maximal oxygen uptake (VO2max).",
+                "ans": true,
+                "feedback": "True. Maximal aerobic power represents the peak rate of aerobic ATP resynthesis and is synonymous with VO2max."
+            },
+            {
+                "id": 2,
+                "q": "Peak anaerobic power in a Wingate test is calculated from the total work performed during the final 10 seconds of the sprint.",
+                "ans": false,
+                "feedback": "False. Peak anaerobic power is calculated from the work completed during the initial 5 seconds of the test."
+            },
+            {
+                "id": 3,
+                "q": "In healthy individuals, maximal aerobic power is limited primarily by the central cardiovascular system's ability to deliver oxygen to active muscles.",
+                "ans": true,
+                "feedback": "True. Oxygen delivery by the cardiovascular system (cardiac output and blood flow) is the primary physiological bottleneck for VO2max."
+            },
+            {
+                "id": 4,
+                "q": "Anaerobic capacity measures total work across 30 seconds on a Wingate test, reflecting both ATP-PCr and fast glycolytic system energy outputs.",
+                "ans": true,
+                "feedback": "True. Total 30-second Wingate work captures combined energy contributions from phosphagens and anaerobic glycolysis."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Maximal aerobic power is synonymous with **VO2max**, whereas anaerobic testing utilizes the 30-second **Wingate test**.",
+                "targets": [
+                    "VO2max",
+                    "Wingate test"
+                ],
+                "optionsBank": [
+                    "VO2max",
+                    "Wingate test",
+                    "1RM test",
+                    "isometric hold",
+                    "BMR"
+                ],
+                "hint": "Identify the aerobic capacity abbreviation and the 30-second cycle sprint test."
+            },
+            {
+                "id": 2,
+                "statement": "Peak anaerobic power is measured during the initial **5 seconds** of a Wingate test, while total work over 30 seconds measures **anaerobic capacity**.",
+                "targets": [
+                    "5 seconds",
+                    "anaerobic capacity"
+                ],
+                "optionsBank": [
+                    "5 seconds",
+                    "anaerobic capacity",
+                    "60 minutes",
+                    "aerobic deficit",
+                    "stroke volume"
+                ],
+                "hint": "Identify the initial time window for peak power and the 30-second cumulative metric."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Compare aerobic power and anaerobic power in terms of oxygen dependency, underlying metabolic energy systems, primary physiological limiting factors, and standard laboratory testing procedures.",
+                "model": "Aerobic power depends on the continuous availability of oxygen, utilizing oxidative phosphorylation (TCA cycle and electron transport chain) to resynthesize ATP. It is limited primarily by central cardiovascular oxygen delivery and is tested using a graded exercise test (GXT) to exhaustion with open-circuit spirometry to determine VO2max. Anaerobic power functions without oxygen, relying on non-oxidative energy systems (ATP-PCr and anaerobic glycolysis). It is limited by intramuscular substrate availability and buffering capacity, and is commonly assessed using the 30-second Wingate cycle ergometer sprint test.",
+                "criteria": [
+                    "Differentiate oxygen dependence (aerobic requires O2; anaerobic functions without O2).",
+                    "Identify energy pathways (aerobic: oxidative phosphorylation; anaerobic: ATP-PCr and fast glycolysis).",
+                    "Contrast limiting factors (aerobic: central cardiovascular O2 delivery; anaerobic: substrate/buffering capacity) and test methods (GXT vs Wingate)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Describe the standardized administration protocol for the 30-second Wingate anaerobic test, and differentiate how peak anaerobic power and anaerobic capacity are calculated from the test data.",
+                "model": "The Wingate test is performed on a cycle ergometer with braking resistance tailored to the subject's body mass, sex, age, and fitness. After a warm-up and 5-second countdown, the subject pedals at maximal velocity, resistance is applied instantaneously, and the subject maintains all-out pedaling for 30 seconds. Peak anaerobic power is calculated from the work performed during the first 5 seconds of the test, representing immediate ATP-PCr energy release. Anaerobic capacity is calculated as the total work completed across the entire 30-second duration, reflecting energy contributions from both the ATP-PCr and fast glycolytic systems.",
+                "criteria": [
+                    "Detail the Wingate setup (braking resistance based on body mass/sex, 5-s countdown, 30-s all-out sprint).",
+                    "Explain Peak Anaerobic Power calculation (work during initial 5 seconds, ATP-PCr system).",
+                    "Explain Anaerobic Capacity calculation (total work across all 30 seconds, ATP-PCr + glycolytic systems)."
+                ]
+            }
+        ]
+    }
+}

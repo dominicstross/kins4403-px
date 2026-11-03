@@ -1,0 +1,500 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "Why is formal clinical medical evaluation not required for all healthy individuals prior to starting a physical activity program?",
+                "opts": [
+                    "Routine medical evaluation in healthy populations has not been proven to reduce exercise-related medical risks, and it creates a cost/access barrier",
+                    "Medical evaluation completely eliminates all possibility of muscular injury during high-intensity training",
+                    "Healthy individuals possess total immunity against all underlying cardiovascular and metabolic conditions",
+                    "Medical screening is prohibited by law for individuals under the age of 65"
+                ],
+                "correct": 0,
+                "rationale": "Medical evaluation before exercise in healthy populations has not been proven to reduce medical risks, and requiring it creates a financial and logistical barrier to starting exercise."
+            },
+            {
+                "id": 2,
+                "q": "Which three primary factors are utilized in modern health screening algorithms to determine if medical clearance is necessary?",
+                "opts": [
+                    "Current physical activity status, presence of known cardiometabolic/renal disease, and presence of clinical signs or symptoms",
+                    "Body weight, daily caloric intake, and resting blood glucose levels",
+                    "Bench press 1RM, sit-and-reach distance, and vertical jump height",
+                    "Age, height, and total years of formal education"
+                ],
+                "correct": 0,
+                "rationale": "Contemporary preparticipation screening algorithms determine medical clearance needs based on current physical activity level, known cardiovascular/metabolic/renal disease, and major signs or symptoms of disease."
+            },
+            {
+                "id": 3,
+                "q": "Which body composition model divides total body weight into fat mass and fat-free mass to accurately assess health risks beyond height and weight?",
+                "opts": [
+                    "Two-compartment model",
+                    "Three-compartment bone model",
+                    "Four-compartment fluid model",
+                    "Single-compartment BMI index"
+                ],
+                "correct": 0,
+                "rationale": "The two-compartment model measures fat mass and fat-free mass, providing vital health and fitness information that height and weight measurements (such as BMI) fail to capture."
+            },
+            {
+                "id": 4,
+                "q": "What muscular strength assessment serves as an important construct for activities of daily living and acts as a strong clinical predictor of functional status and premature mortality in older adults?",
+                "opts": [
+                    "Handgrip strength test",
+                    "Maximal 1RM leg press test",
+                    "Isokinetic quadriceps torque test",
+                    "Standing vertical jump test"
+                ],
+                "correct": 0,
+                "rationale": "Grip strength is an essential construct for activities of daily living and a reliable clinical predictor of functional independence and all-cause premature mortality in older adults."
+            },
+            {
+                "id": 5,
+                "q": "Why are sit-up and curl-up tests explicitly not recommended for field testing of abdominal muscular endurance in clinical practice?",
+                "opts": [
+                    "They correlate only moderately with abdominal endurance and carry a significant risk of inducing lower back injury",
+                    "They cause immediate cardiac arrest in young asymptomatic individuals",
+                    "They measure upper-body shoulder girdle strength rather than trunk endurance",
+                    "They require expensive computerized laboratory equipment"
+                ],
+                "correct": 0,
+                "rationale": "Sit-up and curl-up tests are discouraged because they show only moderate correlation with abdominal endurance and place excessive stress on the lumbar spine, potentially causing lower back injury."
+            },
+            {
+                "id": 6,
+                "q": "What is the recommended standard field test for measuring upper-body muscular endurance in fitness testing batteries?",
+                "opts": [
+                    "Push-up test (maximal properly performed push-ups in a fixed 1 or 2 minute timeframe)",
+                    "1RM bench press test",
+                    "Sit-and-reach flexibility test",
+                    "Handgrip dynamometry test"
+                ],
+                "correct": 0,
+                "rationale": "The push-up test, measuring the maximal number of properly executed push-ups completed in a fixed period (typically 1 to 2 minutes), is the standard field assessment for muscular endurance."
+            },
+            {
+                "id": 7,
+                "q": "Which musculotendinous groups are primarily evaluated during the sit-and-reach flexibility test?",
+                "opts": [
+                    "Hamstrings and lower back musculature",
+                    "Quadriceps and hip flexors",
+                    "Pectoralis major and anterior deltoids",
+                    "Gastrocnemius and Achilles tendon"
+                ],
+                "correct": 0,
+                "rationale": "The sit-and-reach test (trunk flexion test) specifically measures the flexibility of the hamstring muscles and the lower back (lumbar) region."
+            },
+            {
+                "id": 8,
+                "q": "What normative sex difference is consistently observed across clinical and laboratory joint flexibility assessments?",
+                "opts": [
+                    "Females almost routinely score significantly higher than males of a similar age",
+                    "Males score higher than females due to larger muscle cross-sectional area",
+                    "There are zero measurable differences between males and females at any age",
+                    "Males score higher in hamstring flexibility, while females score higher only in ankle flexibility"
+                ],
+                "correct": 0,
+                "rationale": "Flexibility tests are unique among physical fitness assessments in that females almost routinely achieve higher flexibility scores than age-matched males."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which components constitute a comprehensive health-related physical fitness assessment battery? (Select all that apply)",
+                "opts": [
+                    "Body composition (fat mass vs fat-free mass)",
+                    "Muscular strength and muscular endurance",
+                    "Joint flexibility (e.g., sit-and-reach test)",
+                    "Cardiorespiratory fitness (maximal oxygen consumption, \\(\\dot{V}\\text{O}_{2\\max}\\))"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "Health-related fitness testing evaluates body composition, muscular strength, muscular endurance, flexibility, and cardiorespiratory fitness (VO2max)."
+            },
+            {
+                "id": 2,
+                "q": "Which statements correctly describe muscular strength and endurance testing guidelines? (Select all that apply)",
+                "opts": [
+                    "1RM testing is the traditional laboratory standard for movement-specific maximal strength",
+                    "Grip strength predicts functional status and premature mortality in older adults",
+                    "Push-up tests evaluate upper-body muscular endurance over 1 to 2 minutes",
+                    "Sit-up tests are highly recommended as the safest gold-standard core test for all age groups"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "1RM, grip strength, and push-up tests are standard valid assessments, whereas sit-up tests are not recommended due to lower back injury risks."
+            },
+            {
+                "id": 3,
+                "q": "Which methods are utilized to assess cardiorespiratory fitness (aerobic capacity)? (Select all that apply)",
+                "opts": [
+                    "Direct gas analysis during a maximal graded exercise test (GXT) to volitional fatigue",
+                    "Extrapolating heart rate responses across submaximal GXT workloads to age-predicted \\(\\text{HR}_{\\max}\\)",
+                    "Field performance tests such as a 12-minute walk/run test",
+                    "Static handgrip dynamometry sustained for 10 seconds"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Cardiorespiratory fitness is measured directly via maximal GXT, or estimated via submaximal GXT heart rate extrapolation or field tests (12-min run/walk)."
+            },
+            {
+                "id": 4,
+                "q": "Which factors explain why routine preparticipation medical evaluation is not mandated for every healthy adult prior to exercise? (Select all that apply)",
+                "opts": [
+                    "Medical evaluation has not been proven to reduce exercise-related medical risks in asymptomatic healthy populations",
+                    "The medical healthcare system lacks the resources and capacity to screen the entire population",
+                    "Financial costs of comprehensive evaluations create a major barrier to physical activity adoption",
+                    "Healthy individuals are physically incapable of experiencing cardiac events during exercise"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Mandating medical screening is limited by lack of proven risk reduction in healthy groups, healthcare system capacity constraints, and financial barriers to participation."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Preparticipation health screening algorithms determine the need for medical clearance based on current activity, known disease, and clinical symptoms.",
+                "ans": true,
+                "feedback": "True. Preparticipation screening guidelines evaluate physical activity habits, established cardiometabolic/renal disease, and signs/symptoms to determine if medical clearance is required."
+            },
+            {
+                "id": 2,
+                "q": "Height and weight measurements alone adequately capture body composition health risks and fitness level in adults.",
+                "ans": false,
+                "feedback": "False. Stature and body weight alone do not adequately capture tissue distribution or fitness; assessing fat mass vs fat-free mass (two-compartment model) is required."
+            },
+            {
+                "id": 3,
+                "q": "Sit-up and curl-up tests are recommended as the safest, most valid field tests for abdominal muscular endurance.",
+                "ans": false,
+                "feedback": "False. Sit-up tests are explicitly not recommended because they correlate moderately with abdominal endurance and can cause lower back spinal stress."
+            },
+            {
+                "id": 4,
+                "q": "Females almost routinely score better on flexibility tests than males of a similar age.",
+                "ans": true,
+                "feedback": "True. Sex-specific normative data demonstrate that females consistently achieve higher range of motion scores than age-matched males on flexibility tests like the sit-and-reach."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Body composition assessment utilizes the **two-compartment model** to separate total mass into fat mass and **fat-free mass**.",
+                "targets": [
+                    "two-compartment model",
+                    "fat-free mass"
+                ],
+                "optionsBank": [
+                    "two-compartment model",
+                    "fat-free mass",
+                    "body mass index",
+                    "bone mineral density",
+                    "visceral water"
+                ],
+                "hint": "Identify the body composition model and the non-fat tissue component."
+            },
+            {
+                "id": 2,
+                "statement": "Muscular strength is standardly evaluated using the **1RM test**, while upper-body endurance is field-tested via the **push-up test**.",
+                "targets": [
+                    "1RM test",
+                    "push-up test"
+                ],
+                "optionsBank": [
+                    "1RM test",
+                    "push-up test",
+                    "sit-up test",
+                    "sit-and-reach test",
+                    "12-minute run"
+                ],
+                "hint": "Identify the maximal strength standard and the recommended upper-body endurance field test."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Explain why sit-up tests are discouraged in clinical health-related fitness batteries, and describe the alternative recommended field test for muscular endurance.",
+                "model": "Sit-up and curl-up tests are explicitly discouraged in clinical fitness testing batteries because they exhibit only a moderate statistical relationship with true abdominal muscular endurance and carry a significant risk of inducing lumbar spine stress and lower back injury. The recommended alternative field test for muscular endurance is the push-up test, which measures the maximal number of properly executed push-ups completed continuously or within a fixed timeframe (typically 1 to 2 minutes) to evaluate upper-body and core muscular endurance safely.",
+                "criteria": [
+                    "Explain why sit-ups are discouraged (moderate relation to abdominal endurance, high risk of lower back injury).",
+                    "Identify the recommended alternative (push-up test).",
+                    "Detail the push-up test protocol (maximal properly performed push-ups in 1 to 2 minutes measuring upper-body endurance)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Contrast body composition assessment via the two-compartment model with simple height/weight measurements, detailing their clinical relevance to disease risk.",
+                "model": "Simple height and weight measurements (and calculated Body Mass Index) fail to capture tissue distribution, relative adiposity, or physical fitness level. Increased adiposity—particularly central or abdominal visceral adiposity—is strongly associated with cardiometabolic disease, disability, and premature mortality. Evaluating body composition using the two-compartment model separates total body weight into fat mass and fat-free mass (lean tissue). Tracking changes in these two specific compartments provides essential clinical data regarding the metabolic effectiveness and health benefits of exercise and dietary interventions.",
+                "criteria": [
+                    "Explain limitations of height/weight alone (fails to capture tissue distribution, adiposity, or fitness).",
+                    "Detail the health risk of central/abdominal adiposity (strong association with cardiometabolic disease and mortality).",
+                    "Define the two-compartment model (fat mass vs fat-free mass) and its role in evaluating exercise/diet efficacy."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What diagnostic procedures are typically combined with a clinical graded exercise test (GXT) to improve its sensitivity and specificity for detecting coronary artery disease?",
+                "opts": [
+                    "Echocardiography, radionuclide myocardial perfusion imaging, and cardiovascular stress agents",
+                    "Static spirometry, skinfold calipers, and goniometry",
+                    "Hydrostatic weighing and DEXA body scans",
+                    "Serum lipid panels and urinalysis only"
+                ],
+                "correct": 0,
+                "rationale": "When used for diagnostic purposes, clinical GXTs are combined with echocardiography, radionuclide scans, or pharmacological cardiovascular stress agents to visualize myocardial anatomy and perfusion, improving diagnostic validity."
+            },
+            {
+                "id": 2,
+                "q": "During a standard clinical diagnostic graded exercise test, what workload progression and target physiological endpoint are typically used?",
+                "opts": [
+                    "Workload increases every 1 to 3 minutes until reaching approximately 85% of estimated maximal heart rate",
+                    "Workload increases every 30 seconds until 100% volitional exhaustion in all patients",
+                    "Workload remains completely static for 60 minutes while heart rate drops",
+                    "Workload is decreased continuously until the patient falls asleep"
+                ],
+                "correct": 0,
+                "rationale": "Clinical diagnostic GXTs are progressive, increasing workload every 1 to 3 minutes until reaching a predetermined heart rate—commonly 85% of estimated maximal heart rate."
+            },
+            {
+                "id": 3,
+                "q": "What normal blood pressure response should be observed during a progressive clinical graded exercise test?",
+                "opts": [
+                    "A linear increase in systolic blood pressure with little to no change in diastolic blood pressure",
+                    "A dramatic drop in systolic blood pressure with a 100 mmHg rise in diastolic blood pressure",
+                    "Equal 50 mmHg drops in both systolic and diastolic blood pressure",
+                    "Zero change in systolic blood pressure while diastolic blood pressure doubles"
+                ],
+                "correct": 0,
+                "rationale": "During a normal progressive GXT, systolic blood pressure increases linearly with increasing workload, while diastolic blood pressure displays little or no change."
+            },
+            {
+                "id": 4,
+                "q": "Which clinical signs or symptoms during a graded exercise test indicate an abnormal physiological response requiring diagnostic follow-up?",
+                "opts": [
+                    "Chest pain or pressure (angina), unusual shortness of breath, dizziness, or inappropriate heart rate response",
+                    "Light sweating on the forehead and a mild increase in respiratory rate",
+                    "Achieving 85% of estimated maximal heart rate without symptoms",
+                    "A linear increase in systolic blood pressure during workload advancement"
+                ],
+                "correct": 0,
+                "rationale": "Adverse signs/symptoms requiring evaluation include angina pectoris, inappropriate dyspnea, light-headedness/dizziness, or abnormal heart rate/blood pressure responses."
+            },
+            {
+                "id": 5,
+                "q": "How is the 'sensitivity' of a diagnostic clinical exercise electrocardiogram (ECG) defined?",
+                "opts": [
+                    "The statistical capacity of the test to correctly identify individuals who actually have coronary artery disease",
+                    "The statistical capacity of the test to correctly identify individuals who are free of disease",
+                    "The speed at which the electrocardiogram machine prints paper records",
+                    "The monetary cost of performing a stress test in a clinical hospital"
+                ],
+                "correct": 0,
+                "rationale": "Sensitivity refers to the exercise test's statistical ability to correctly identify individuals who actually possess the disease in question (e.g., CAD)."
+            },
+            {
+                "id": 6,
+                "q": "What is the average reported sensitivity of an exercise 12-lead ECG for detecting coronary artery disease in asymptomatic healthy populations?",
+                "opts": [
+                    "Approximately 66% (leaving a 34% false-negative rate)",
+                    "Exactly 100% (zero false negatives)",
+                    "Less than 5% (fails in almost all cases)",
+                    "95% (leaving only a 5% false-negative rate)"
+                ],
+                "correct": 0,
+                "rationale": "Studies show that exercise ECG sensitivity averages ~66%, meaning 66% of CAD cases are correctly identified while 34% of individuals with CAD receive a false-negative result."
+            },
+            {
+                "id": 7,
+                "q": "How is the 'specificity' of a diagnostic exercise test defined in clinical exercise physiology?",
+                "opts": [
+                    "The statistical capacity of the test to correctly identify individuals who do not have the disease",
+                    "The percentage of patients who experience chest pain during treadmill walking",
+                    "The accuracy of predicting maximal oxygen consumption from field tests",
+                    "The ratio of maximal heart rate to resting blood pressure"
+                ],
+                "correct": 0,
+                "rationale": "Specificity refers to the exercise test's statistical ability to correctly identify individuals who are free of the disease (true negatives)."
+            },
+            {
+                "id": 8,
+                "q": "Why is performing a diagnostic graded exercise test (GXT) rarely indicated for purely screening young, apparently healthy individuals?",
+                "opts": [
+                    "Because exercise ECGs have relatively low sensitivity and low predictive value for CAD in low-risk, asymptomatic populations",
+                    "Because young individuals are physiologically unable to walk on a treadmill",
+                    "Because 12-lead ECGs cannot record electrical signals in people under 30 years old",
+                    "Because diagnostic testing is legally restricted to competitive professional athletes"
+                ],
+                "correct": 0,
+                "rationale": "Routine diagnostic GXTs have limited utility in young healthy populations due to low pre-test disease probability, resulting in low positive predictive value and a ~34% false-negative rate."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which clinical parameters are continuously monitored during a diagnostic graded exercise test (GXT)? (Select all that apply)",
+                "opts": [
+                    "12-lead electrocardiogram (ECG) for cardiac rhythm and conduction abnormalities",
+                    "Systemic blood pressure response (systolic and diastolic BP)",
+                    "Rating of perceived exertion (RPE) and angina/pain symptom scales",
+                    "Blood lactate accumulation via continuous arterial catheters in all routine tests"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Diagnostic GXTs include continuous 12-lead ECG, blood pressure measurements, and subjective RPE/symptom scale monitoring."
+            },
+            {
+                "id": 2,
+                "q": "Which statistical metrics define the clinical validity of a diagnostic exercise ECG test? (Select all that apply)",
+                "opts": [
+                    "Sensitivity (correctly identifying individuals with disease)",
+                    "Specificity (correctly identifying individuals without disease)",
+                    "Predictive value (accuracy with which abnormal results reflect actual disease presence)",
+                    "Treadmill belt velocity coefficient"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Diagnostic test validity is defined by sensitivity, specificity, and predictive value."
+            },
+            {
+                "id": 3,
+                "q": "Which outcomes may result from a diagnostic graded exercise test evaluation? (Select all that apply)",
+                "opts": [
+                    "Positive test (indicative of myocardial ischemia / CAD)",
+                    "Negative test (normal physiological response without ischemia)",
+                    "Equivocal test (uncertain or non-conclusive results requiring follow-up)",
+                    "Automatic referral to emergency heart transplant surgery regardless of results"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "GXT results are classified as positive, negative, or equivocal; positive/equivocal outcomes prompt follow-up procedures such as coronary angiography."
+            },
+            {
+                "id": 4,
+                "q": "Which clinical signs or symptoms during a GXT require immediate practitioner attention or test termination? (Select all that apply)",
+                "opts": [
+                    "Chest pain, pressure, or angina pectoris",
+                    "Unusual shortness of breath (inappropriate dyspnea)",
+                    "Light-headedness, dizziness, or ataxia",
+                    "Failure of systolic blood pressure to increase or an inappropriate heart rate drop"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "Angina, inappropriate dyspnea, dizziness/light-headedness, and abnormal BP/HR kinetics are critical clinical indicators of exercise intolerance or cardiovascular distress."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "A normal blood pressure response during a progressive GXT involves a linear increase in systolic blood pressure with little to no change in diastolic blood pressure.",
+                "ans": true,
+                "feedback": "True. As workload increases, systolic blood pressure increases linearly to drive cardiac output, while diastolic blood pressure remains stable or decreases slightly due to vasodilation."
+            },
+            {
+                "id": 2,
+                "q": "Exercise 12-lead ECG testing has a 100% sensitivity for detecting coronary artery disease in asymptomatic healthy populations.",
+                "ans": false,
+                "feedback": "False. Exercise ECG sensitivity for CAD averages ~66%, meaning approximately 34% of individuals with CAD receive false-negative test results."
+            },
+            {
+                "id": 3,
+                "q": "Diagnostic GXTs are commonly combined with echocardiography or radionuclide scans to improve diagnostic accuracy.",
+                "ans": true,
+                "feedback": "True. Combining GXT with imaging procedures (echocardiography or radionuclide myocardial perfusion) increases sensitivity and specificity for coronary artery disease."
+            },
+            {
+                "id": 4,
+                "q": "Routine diagnostic GXTs are highly recommended as a mandatory screening tool for all young, asymptomatic healthy adults.",
+                "ans": false,
+                "feedback": "False. Routine diagnostic GXTs are of limited value in young asymptomatic populations due to low pre-test disease probability and low predictive value."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "The statistical ability of a test to identify diseased individuals is **sensitivity**, whereas identifying healthy individuals is **specificity**.",
+                "targets": [
+                    "sensitivity",
+                    "specificity"
+                ],
+                "optionsBank": [
+                    "sensitivity",
+                    "specificity",
+                    "predictive value",
+                    "reliability",
+                    "validity"
+                ],
+                "hint": "Identify the true-positive metric and the true-negative metric."
+            },
+            {
+                "id": 2,
+                "statement": "Exercise ECG sensitivity for CAD averages **~66%**, resulting in a **34% false-negative rate** in asymptomatic populations.",
+                "targets": [
+                    "~66%",
+                    "34% false-negative rate"
+                ],
+                "optionsBank": [
+                    "~66%",
+                    "34% false-negative rate",
+                    "100%",
+                    "zero percent",
+                    "95%"
+                ],
+                "hint": "Identify the average sensitivity percentage and the corresponding false-negative percentage."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Define sensitivity, specificity, and predictive value in the context of clinical exercise ECG testing, and explain why routine diagnostic GXT screening is not indicated for young, asymptomatic adults.",
+                "model": "Sensitivity is the statistical capacity of a test to correctly identify individuals who actually have the disease (averaging ~66% for exercise ECG detection of CAD). Specificity is the capacity to correctly identify individuals free of disease. Predictive value is the accuracy with which an abnormal test result reflects true disease presence in the population. In young, asymptomatic, apparently healthy populations, pre-test probability of CAD is extremely low, leading to low positive predictive value and a 34% false-negative rate. Consequently, routine diagnostic exercise GXT screening in young healthy individuals is of limited clinical utility and rarely indicated.",
+                "criteria": [
+                    "Define sensitivity (~66% for exercise ECG CAD detection) and specificity.",
+                    "Define predictive value (accuracy of abnormal results reflecting true disease in the tested group).",
+                    "Explain why routine screening in young asymptomatic adults is not indicated (low pre-test probability, low predictive value, ~34% false negatives)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Detail the clinical procedures and physiological monitoring conducted during a diagnostic graded exercise test (GXT), including normal vs abnormal blood pressure responses.",
+                "model": "A clinical diagnostic GXT involves progressive workload increases every 1 to 3 minutes, typically continuing until a target heart rate (commonly 85% of estimated HRmax) is reached. Continuous monitoring includes a 12-lead exercise ECG (evaluating rhythm and ST-segment changes for ischemia), systemic blood pressure, and subjective symptom scales (RPE, angina). A normal blood pressure response is characterized by a linear increase in systolic blood pressure with little to no change in diastolic blood pressure. Abnormal responses requiring clinical evaluation include a failure of systolic blood pressure to rise, an inappropriate drop in systolic pressure, excessive diastolic elevation, chest pain (angina), unusual dyspnea, or dizziness.",
+                "criteria": [
+                    "Detail GXT protocol (progressive workload every 1-3 min to 85% HRmax target).",
+                    "Detail physiological monitoring (12-lead ECG for rhythm/ischemia, BP, RPE/angina scales).",
+                    "Contrast normal BP response (linear SBP rise, stable DBP) with abnormal clinical responses (SBP drop/failure to rise, angina, dyspnea, dizziness)."
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,250 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "In which decade did cardiopulmonary rehabilitation programs originate, marking the beginning of structured clinical exercise rehabilitation?",
+                "opts": [
+                    "1950s",
+                    "1980s",
+                    "1920s",
+                    "2000s"
+                ],
+                "correct": 0,
+                "rationale": "Cardiopulmonary rehabilitation programs began in the 1950s and have become the most visible clinical exercise rehabilitation programs."
+            },
+            {
+                "id": 2,
+                "q": "Which professional organization was formed as a result of advances in cardiopulmonary rehabilitation?",
+                "opts": [
+                    "American Association of Cardiovascular and Pulmonary Rehabilitation (AACVPR)",
+                    "American College of Sports Medicine (ACSM)",
+                    "American Heart Association (AHA)",
+                    "National Strength and Conditioning Association (NSCA)"
+                ],
+                "correct": 0,
+                "rationale": "Advances in cardiopulmonary rehabilitation led to the formation of the American Association of Cardiovascular and Pulmonary Rehabilitation."
+            },
+            {
+                "id": 3,
+                "q": "What is the official professional research journal established to publish clinical studies in cardiovascular and pulmonary rehabilitation?",
+                "opts": [
+                    "Journal of Cardiopulmonary Rehabilitation and Prevention",
+                    "Journal of Applied Physiology",
+                    "Medicine & Science in Sports & Exercise",
+                    "Cardiovascular Exercise Physiology Review"
+                ],
+                "correct": 0,
+                "rationale": "The official research journal mentioned in the text is the Journal of Cardiopulmonary Rehabilitation and Prevention."
+            },
+            {
+                "id": 4,
+                "q": "Why has emphasis on exercise rehabilitation specifically increased for organ transplant patients (heart, liver, or kidney transplants)?",
+                "opts": [
+                    "Exercise helps alleviate some drug side effects and improves general health",
+                    "Exercise completely eliminates the need for immunosuppressive medications",
+                    "Transplant recipients are required to run marathons within 30 days post-surgery",
+                    "Exercise converts transplanted organs into skeletal muscle tissue"
+                ],
+                "correct": 0,
+                "rationale": "Exercise in transplant patients (heart, liver, or kidney) has increased because exercise helps alleviate some drug side effects and improves general health."
+            },
+            {
+                "id": 5,
+                "q": "Which statement best describes the current scientific understanding of specific physiological mechanisms explaining exercise benefits across various diseases?",
+                "opts": [
+                    "Specific physiological mechanisms for each disease have not been clearly defined, but exercise carries general health benefits that improve prognosis",
+                    "Every cellular and molecular pathway is 100% defined and mapped for every disease",
+                    "Exercise has no measurable health or clinical benefits in diseased populations",
+                    "Exercise benefits are identical regardless of the specific disease or organ system involved"
+                ],
+                "correct": 0,
+                "rationale": "The textbook notes that although specific physiological mechanisms explaining exercise benefits for each disease have not been clearly defined, exercise carries general health benefits that improve patient prognosis."
+            },
+            {
+                "id": 6,
+                "q": "How is exercise prescribed and applied in the rehabilitation of individuals with specific chronic diseases?",
+                "opts": [
+                    "Exercise prescription is highly specific to the nature and extent of the disease",
+                    "A single generic exercise protocol is given identically to all patients regardless of disease",
+                    "Exercise is prescribed at 100% VO2max for all clinical populations",
+                    "Exercise prescription is dictated exclusively by patient age without regard to health status"
+                ],
+                "correct": 0,
+                "rationale": "The manner in which exercise is used in disease rehabilitation is highly specific to the nature and extent of the disease."
+            },
+            {
+                "id": 7,
+                "q": "For which chronic conditions listed in the textbook is exercise recognized as an important component of rehabilitation?",
+                "opts": [
+                    "Cancer, obesity, diabetes, renal disease, osteoporosis, arthritis, chronic fatigue syndrome, fibromyalgia, and cystic fibrosis",
+                    "Acute bacterial pneumonia and appendicitis exclusively",
+                    "Congenital color blindness and hair loss",
+                    "Dental caries and bone fractures only"
+                ],
+                "correct": 0,
+                "rationale": "Textbook section 20.7 explicitly lists cancer, obesity, diabetes, renal disease, osteoporosis, arthritis, chronic fatigue syndrome, fibromyalgia, and cystic fibrosis."
+            },
+            {
+                "id": 8,
+                "q": "Which organ transplants are explicitly mentioned as benefiting from post-transplantation exercise rehabilitation?",
+                "opts": [
+                    "Heart, liver, and kidney transplants",
+                    "Corneal and skin grafts exclusively",
+                    "Pancreas and lung transplants only",
+                    "Bone marrow transplants exclusively"
+                ],
+                "correct": 0,
+                "rationale": "The text specifically cites heart, liver, or kidney transplants as organ transplant populations benefiting from exercise rehabilitation."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which clinical disease populations are explicitly highlighted in the textbook as utilizing exercise in rehabilitation? (Select all that apply)",
+                "opts": [
+                    "Cancer, obesity, and diabetes",
+                    "Renal disease and cystic fibrosis",
+                    "Osteoporosis, arthritis, chronic fatigue syndrome, and fibromyalgia",
+                    "Acute viral influenza and simple bone fractures"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Section 20.7 explicitly identifies cancer, obesity, diabetes, renal disease, cystic fibrosis, osteoporosis, arthritis, chronic fatigue syndrome, and fibromyalgia."
+            },
+            {
+                "id": 2,
+                "q": "Which organ transplant populations have seen increased emphasis on exercise rehabilitation in clinical practice? (Select all that apply)",
+                "opts": [
+                    "Heart transplant recipients",
+                    "Liver transplant recipients",
+                    "Kidney transplant recipients",
+                    "Hair follicle transplant recipients"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "The textbook specifically notes increased emphasis on exercise rehabilitation in heart, liver, or kidney transplant patients."
+            },
+            {
+                "id": 3,
+                "q": "Which institutional achievements arose directly from advances in cardiopulmonary rehabilitation? (Select all that apply)",
+                "opts": [
+                    "Formation of the American Association of Cardiovascular and Pulmonary Rehabilitation (AACVPR)",
+                    "Publication of the Journal of Cardiopulmonary Rehabilitation and Prevention",
+                    "Establishment of cardiopulmonary rehab starting in the 1950s",
+                    "Development of the Olympic Games"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Cardiopulmonary rehab began in the 1950s and led to the formation of the AACVPR and the Journal of Cardiopulmonary Rehabilitation and Prevention."
+            },
+            {
+                "id": 4,
+                "q": "Which statements accurately reflect textbook principles regarding exercise rehabilitation in disease management? (Select all that apply)",
+                "opts": [
+                    "Exercise application is highly specific to the nature and extent of the individual disease",
+                    "Exercise carries general health benefits that improve patient prognosis",
+                    "Exercise helps alleviate drug side effects in transplant patients",
+                    "Specific physiological mechanisms are 100% defined for every disease in this chapter"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Exercise is highly disease-specific, improves patient prognosis through general health benefits, and alleviates drug side effects in transplant recipients. Specific mechanisms for each disease are NOT yet fully defined."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Cardiopulmonary rehabilitation programs began in the 1950s and represent the most visible clinical exercise rehabilitation programs.",
+                "ans": true,
+                "feedback": "True. Cardiopulmonary rehabilitation programs originated in the 1950s and stand as the most visible clinical exercise rehab programs."
+            },
+            {
+                "id": 2,
+                "q": "Exercise in organ transplant recipients is emphasized primarily because it helps alleviate drug side effects and improves general health.",
+                "ans": true,
+                "feedback": "True. Clinical emphasis on exercise in heart, liver, or kidney transplant recipients has increased because exercise helps mitigate drug side effects and enhances general health."
+            },
+            {
+                "id": 3,
+                "q": "The specific physiological mechanisms explaining exercise training benefits are identical and fully mapped for every disease state.",
+                "ans": false,
+                "feedback": "False. The text explicitly notes that specific physiological mechanisms explaining exercise benefits for each disease have not been clearly defined."
+            },
+            {
+                "id": 4,
+                "q": "Exercise prescription in clinical disease rehabilitation is uniform and generic across all diseases regardless of severity.",
+                "ans": false,
+                "feedback": "False. The application of exercise in rehabilitation is highly specific to the nature and extent of the disease."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Cardiopulmonary rehabilitation began in the **1950s** and led to the formation of the **American Association of Cardiovascular and Pulmonary Rehabilitation**.",
+                "targets": [
+                    "1950s",
+                    "American Association of Cardiovascular and Pulmonary Rehabilitation"
+                ],
+                "optionsBank": [
+                    "1950s",
+                    "American Association of Cardiovascular and Pulmonary Rehabilitation",
+                    "1990s",
+                    "American College of Sports Medicine",
+                    "2010s"
+                ],
+                "hint": "Identify the decade cardiopulmonary rehab originated and the professional association established."
+            },
+            {
+                "id": 2,
+                "statement": "In transplant patients, exercise helps alleviate **drug side effects** and improves **general health**.",
+                "targets": [
+                    "drug side effects",
+                    "general health"
+                ],
+                "optionsBank": [
+                    "drug side effects",
+                    "general health",
+                    "organ rejection",
+                    "surgical incisions",
+                    "genetic mutations"
+                ],
+                "hint": "Identify the two key benefits of exercise rehabilitation in heart, liver, or kidney transplant recipients."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Discuss the clinical role of exercise in organ transplant rehabilitation (heart, liver, or kidney), detailing the primary benefits for these patients.",
+                "model": "In recent years, clinical emphasis on the use of structured exercise in the rehabilitation of organ transplant recipients—including heart, liver, and kidney transplant patients—has increased substantially. The primary clinical rationale for incorporating exercise post-transplantation is that regular exercise helps alleviate adverse pharmacological drug side effects (such as immunosuppressive-induced muscle wasting, metabolic dysregulation, and fatigue) while significantly improving overall general health and physical prognosis.",
+                "criteria": [
+                    "Identify organ transplant populations (heart, liver, kidney transplants).",
+                    "Explain primary therapeutic benefits (alleviates drug side effects, improves general health).",
+                    "Explain impact on patient prognosis (enhances overall clinical prognosis and functional capacity)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Explain why exercise programming in clinical disease rehabilitation must be highly individualized, addressing the relationship between general health benefits and disease-specific mechanisms.",
+                "model": "Exercise prescription in disease rehabilitation must be highly individualized because the application of exercise is highly specific to the unique nature and extent of the individual disease. Although the exact, specific physiological mechanisms explaining exercise benefits across diverse pathologies (such as cancer, diabetes, renal disease, osteoporosis, and cystic fibrosis) have not been fully defined, exercise training imparts broad general health benefits that improve overall patient prognosis. Because disease severity and functional limitations vary, exercise must be customized to the patient's specific health status.",
+                "criteria": [
+                    "Explain disease specificity (manner of exercise use depends on nature and extent of disease).",
+                    "Address physiological mechanisms (specific mechanisms are not fully defined for all diseases, but general health benefits improve prognosis).",
+                    "Highlight clinical individualization (programs must be tailored to specific clinical conditions like cancer, diabetes, or renal disease)."
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,745 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "Which energy system predominates during short, explosive sprint events lasting less than 10 seconds (e.g., a 100-meter dash)?",
+                "opts": [
+                    "ATP-phosphocreatine (ATP-PCr) system",
+                    "Anaerobic glycolytic system",
+                    "Oxidative phosphorylation system",
+                    "Beta-oxidation pathway"
+                ],
+                "correct": 0,
+                "rationale": "Short, maximal explosive efforts lasting under 10 seconds rely almost exclusively on the ATP-phosphocreatine (ATP-PCr) system for immediate, high-power ATP resynthesis."
+            },
+            {
+                "id": 2,
+                "q": "Who first popularized group exercise training in 1968, originally focusing on rhythmic dance movements to music for cardiovascular disease prevention?",
+                "opts": [
+                    "Dr. Kenneth Cooper",
+                    "Dr. Ernst van Aaken",
+                    "Dr. Per-Olof Åstrand",
+                    "Dr. Archibald Hill"
+                ],
+                "correct": 0,
+                "rationale": "Group exercise training was first popularized in 1968 by Dr. Kenneth Cooper as an enjoyable, structured method to promote cardiovascular health and disease prevention."
+            },
+            {
+                "id": 3,
+                "q": "Which target exercise intensity (% max velocity) is recommended when designing interval training specifically to develop the ATP-PCr energy system?",
+                "opts": [
+                    "90% to 98% max velocity",
+                    "60% to 75% max velocity",
+                    "40% to 50% max velocity",
+                    "20% to 30% max velocity"
+                ],
+                "correct": 0,
+                "rationale": "ATP-PCr system interval training requires near-maximal speeds ranging from 90% to 98% of maximal movement velocity (90% to 100% HRmax) to maximize neuromuscular power adaptations."
+            },
+            {
+                "id": 4,
+                "q": "For an athlete under 30 years of age, what target heart rate range should be reached during active recovery before initiating the next high-intensity work interval?",
+                "opts": [
+                    "130 to 150 beats/min",
+                    "180 to 200 beats/min",
+                    "60 to 70 beats/min",
+                    "90 to 100 beats/min"
+                ],
+                "correct": 0,
+                "rationale": "For athletes age 30 or younger, the heart rate should drop to between 130 and 150 beats/min during recovery intervals before starting the next work bout."
+            },
+            {
+                "id": 5,
+                "q": "How should the work-interval re-entry heart rate threshold be adjusted for a 45-year-old athlete during interval training?",
+                "opts": [
+                    "Subtract 15 beats/min from standard boundaries (target: 115 to 135 beats/min)",
+                    "Add 15 beats/min to standard boundaries (target: 145 to 165 beats/min)",
+                    "Maintain identical heart rate boundaries as an 18-year-old athlete",
+                    "Subtract 45 beats/min from standard boundaries (target: 85 to 105 beats/min)"
+                ],
+                "correct": 0,
+                "rationale": "For athletes over 30 years of age, target recovery heart rate boundaries are adjusted by subtracting (Age - 30) beats/min. For a 45-year-old, 45 - 30 = 15 beats/min, giving a target of 115 to 135 beats/min."
+            },
+            {
+                "id": 6,
+                "q": "What heart rate threshold should be reached during inter-set recovery periods before starting a new set of interval repetitions?",
+                "opts": [
+                    "Below 120 beats/min",
+                    "Above 170 beats/min",
+                    "Exactly 160 beats/min",
+                    "Between 140 and 150 beats/min"
+                ],
+                "correct": 0,
+                "rationale": "Inter-set rest periods should be long enough to allow the athlete's heart rate to fall below 120 beats/min before commencing the next set."
+            },
+            {
+                "id": 7,
+                "q": "Which cardiometabolic adaptations result from chronic participation in structured group exercise programs?",
+                "opts": [
+                    "Increased VO2max, elevated HDL cholesterol, and reduced fasting glucose and body fat mass",
+                    "Decreased VO2max and reduced HDL cholesterol",
+                    "Elevated resting blood pressure and increased blood triglycerides",
+                    "Complete loss of skeletal muscle mass"
+                ],
+                "correct": 0,
+                "rationale": "Group exercise training induces positive cardiorespiratory and metabolic adaptations, including increased VO2max and HDL cholesterol, along with reductions in resting blood pressure, fasting glucose, triglycerides, and body fat."
+            },
+            {
+                "id": 8,
+                "q": "Why does interval training allow an athlete to perform a greater total volume of high-intensity work compared to continuous exercise?",
+                "opts": [
+                    "Inserting structured recovery periods allows partial phosphagen resynthesis and lactate clearance between bouts",
+                    "Interval training eliminates all oxygen consumption during exercise",
+                    "Interval training prevents heart rate from exceeding resting levels",
+                    "Continuous exercise relies entirely on anaerobic glycolysis without oxidative contribution"
+                ],
+                "correct": 0,
+                "rationale": "Interspersing high-intensity work bouts with structured rest intervals permits partial PCr resynthesis, buffering of hydrogen ions, and partial metabolic recovery, enabling a much higher total workload at peak intensities."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which six core physiological variables must be specified when designing an interval training prescription? (Select all that apply)",
+                "opts": [
+                    "Rate (intensity) and distance/duration of the work interval",
+                    "Number of repetitions and sets",
+                    "Duration of rest/recovery interval and type of recovery activity",
+                    "Training frequency per week"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "All six variables—intensity, distance/duration, reps/sets, rest duration, recovery activity type, and weekly training frequency—define the interval prescription."
+            },
+            {
+                "id": 2,
+                "q": "Which statements regarding energy system contributions across the energy system continuum are correct? (Select all that apply)",
+                "opts": [
+                    "Short 100 m sprints rely predominantly on the ATP-PCr energy system",
+                    "Middle-distance events rely heavily on anaerobic glycolysis",
+                    "Marathon running depends predominantly on oxidative phosphorylation",
+                    "Long-distance events operate with zero interaction from non-oxidative energy pathways"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Events along the continuum draw on ATP-PCr, glycolytic, and oxidative pathways according to duration and intensity; multiple systems always interact to support total ATP turnover."
+            },
+            {
+                "id": 3,
+                "q": "Which physiological guidelines apply to recovery heart rate monitoring during interval training? (Select all that apply)",
+                "opts": [
+                    "For athletes age <= 30, work interval re-entry HR target is 130 to 150 beats/min",
+                    "For athletes age > 30, subtract (Age - 30) from the standard 130 to 150 beats/min boundaries",
+                    "Inter-set recovery should allow heart rate to drop below 120 beats/min",
+                    "Heart rate should remain at 190 beats/min continuously throughout all rest intervals"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Re-entry HR is 130–150 bpm for age <= 30, age-adjusted for age > 30, and inter-set rest requires HR < 120 bpm."
+            },
+            {
+                "id": 4,
+                "q": "Which training intensity parameters correspond to anaerobic glycolytic system development? (Select all that apply)",
+                "opts": [
+                    "Exercise interval intensity of 80% to 95% max velocity",
+                    "Target heart rate of 85% to 100% HRmax",
+                    "Severe blood lactate accumulation (> 8 to 12 mmol/L)",
+                    "Low-intensity walking at 20% HRmax"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Glycolytic system interval training requires 80%–95% max velocity, 85%–100% HRmax, and induces substantial blood lactate accumulation (>8–12 mmol/L)."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "For an athlete 30 years of age or younger, the target heart rate before initiating the next work interval is 130 to 150 beats/min.",
+                "ans": true,
+                "feedback": "True. In athletes age 30 or younger, work intervals resume when heart rate drops into the 130–150 beats/min range."
+            },
+            {
+                "id": 2,
+                "q": "Interval training allows athletes to complete a greater total volume of high-intensity exercise than continuous exercise at the same intensity.",
+                "ans": true,
+                "feedback": "True. Structured rest intervals facilitate partial metabolic recovery, enabling higher total high-intensity work volume."
+            },
+            {
+                "id": 3,
+                "q": "Group exercise training programs produce zero measurable improvements in maximal oxygen consumption (VO2max).",
+                "ans": false,
+                "feedback": "False. Group exercise training significantly increases VO2max, HDL cholesterol, and lean body mass."
+            },
+            {
+                "id": 4,
+                "q": "Inter-set rest periods in interval training should allow heart rate to decline below 120 beats/min.",
+                "ans": true,
+                "feedback": "True. Complete inter-set recovery requires heart rate to drop below 120 beats/min before starting a new set."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Short maximal sprints rely on the **ATP-PCr system**, while interval recovery for athletes age \\(\\le 30\\) targets **130 to 150 beats/min**.",
+                "targets": [
+                    "ATP-PCr system",
+                    "130 to 150 beats/min"
+                ],
+                "optionsBank": [
+                    "ATP-PCr system",
+                    "130 to 150 beats/min",
+                    "oxidative system",
+                    "180 to 200 beats/min",
+                    "glycogen depletion"
+                ],
+                "hint": "Identify the immediate high-power energy system and the standard young athlete recovery heart rate range."
+            },
+            {
+                "id": 2,
+                "statement": "Inter-set recovery requires heart rate to drop below **120 beats/min**, and age adjustment subtracts **Age - 30** from recovery boundaries.",
+                "targets": [
+                    "120 beats/min",
+                    "Age - 30"
+                ],
+                "optionsBank": [
+                    "120 beats/min",
+                    "Age - 30",
+                    "160 beats/min",
+                    "Age + 10",
+                    "lactate threshold"
+                ],
+                "hint": "Identify the inter-set target heart rate cutoff and the age-adjustment formula."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "List the six core variables required to design an interval training prescription, and explain why inserting recovery intervals enables greater total high-intensity workload compared to continuous training.",
+                "model": "The six core variables of an interval training prescription are: (1) Rate (intensity) of the exercise interval; (2) Distance or duration of the exercise interval; (3) Number of repetitions and sets; (4) Duration of the rest or active recovery interval; (5) Type of activity during recovery; and (6) Weekly training frequency. Inserting recovery intervals enables greater total high-intensity workload because rest periods allow partial resynthesis of intramuscular phosphagens (ATP and PCr), partial clearance and buffering of accumulated hydrogen ions and lactate, and restoration of acute neuromuscular drive. This prevents early exhaustion, allowing the athlete to accumulate significantly more time at peak intensity than possible during uninterrupted continuous exertion.",
+                "criteria": [
+                    "List all 6 core interval variables (intensity, distance/duration, reps/sets, rest duration, recovery activity type, frequency).",
+                    "Explain physiological mechanism of recovery intervals (partial PCr resynthesis, H+ buffering, neuromuscular recovery).",
+                    "Contrast workload capacity of interval vs continuous high-intensity training."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Explain the physiological rules for monitoring recovery heart rates during interval training, including the standard range for athletes age 30 or younger, the age-adjustment formula for older athletes, and the inter-set recovery threshold.",
+                "model": "During interval training, recovery intervals are dictated by heart rate recovery rather than fixed clocks alone. For athletes age 30 or younger, the work interval re-entry threshold requires heart rate to drop to between 130 and 150 beats/min before starting the next repetition. For athletes over 30 years of age, age-related declines in maximal heart rate (~1 beat/min/year) require adjusting recovery boundaries by subtracting (Age - 30) from both limits. For example, a 45-year-old athlete subtracts 15 beats/min, yielding a target re-entry range of 115 to 135 beats/min. Additionally, between sets of repetitions, inter-set rest must be long enough for heart rate to drop below 120 beats/min.",
+                "criteria": [
+                    "State the standard re-entry range for age <= 30 (130 to 150 beats/min).",
+                    "Provide the age-adjustment formula for age > 30 (subtract [Age - 30] from recovery limits) with a concrete example.",
+                    "State the inter-set recovery threshold (heart rate < 120 beats/min)."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "Which continuous training modality is performed at 85% to 95% HRmax, operating at or near the athlete's lactate threshold to provide pace-specific race conditioning?",
+                "opts": [
+                    "High-intensity continuous training",
+                    "Long, slow distance (LSD) training",
+                    "Interval-circuit training",
+                    "Passive isometric recovery"
+                ],
+                "correct": 0,
+                "rationale": "High-intensity continuous training operates at 85% to 95% HRmax, directly stressing the lactate threshold to prepare distance athletes for competitive race pace."
+            },
+            {
+                "id": 2,
+                "q": "Who pioneered Long, Slow Distance (LSD) training in the 1920s, emphasizing high training volume (15 to 30 miles/day) at low intensities (60% to 80% HRmax)?",
+                "opts": [
+                    "Dr. Ernst van Aaken",
+                    "Dr. Kenneth Cooper",
+                    "Dr. Per-Olof Åstrand",
+                    "Dr. Jonas Bergström"
+                ],
+                "correct": 0,
+                "rationale": "Dr. Ernst van Aaken popularized LSD training in the 1920s, advocating high mileage (up to 100 to 200 miles/week) at modest aerobic intensities."
+            },
+            {
+                "id": 3,
+                "q": "What is a major physiological drawback or risk associated with exclusive reliance on high-volume Long, Slow Distance (LSD) training?",
+                "opts": [
+                    "Increased risk of overuse injuries and failure to develop maximal leg speed",
+                    "Immediate loss of all capillary density",
+                    "Severe acute drop in mitochondrial enzyme activity",
+                    "Excessive hypertrophy of Type IIx fast-twitch fibers"
+                ],
+                "correct": 0,
+                "rationale": "Excessive LSD training subjects joints and connective tissues to repetitive mechanical strain (increasing overuse injury risk) and fails to recruit high-threshold motor units necessary for maximal leg speed."
+            },
+            {
+                "id": 4,
+                "q": "Where originated the continuous, unscripted training modality known as Fartlek ('speed play') in the 1930s?",
+                "opts": [
+                    "Sweden",
+                    "United States",
+                    "Germany",
+                    "Japan"
+                ],
+                "correct": 0,
+                "rationale": "Fartlek training (meaning 'speed play') was developed in Sweden in the 1930s as a continuous workout alternating pace spontaneously across natural terrain."
+            },
+            {
+                "id": 5,
+                "q": "What structural format characterizes an interval-circuit training course as developed in Scandinavia during the 1960s and 1970s?",
+                "opts": [
+                    "A 3,000 to 10,000 m total course with exercise stations positioned every 400 to 1,600 m",
+                    "A 100 m indoor track with zero exercise stations",
+                    "A 50-mile marathon course with 100 heavy powerlifting stations",
+                    "A stationary bike routine with no movement"
+                ],
+                "correct": 0,
+                "rationale": "Interval-circuit training features a 3,000 to 10,000 m course punctuated by exercise stations every 400 to 1,600 m where athletes perform strength/endurance exercises before resuming running."
+            },
+            {
+                "id": 6,
+                "q": "Which metabolic adaptations are enhanced by Long, Slow Distance (LSD) training?",
+                "opts": [
+                    "Increased skeletal muscle mitochondrial density and enhanced fat oxidation capacity",
+                    "Decreased capillary-to-fiber ratio",
+                    "Suppression of oxidative phosphorylation enzymes",
+                    "Complete reliance on anaerobic glycolysis for energy"
+                ],
+                "correct": 0,
+                "rationale": "LSD training enhances aerobic endurance by expanding skeletal muscle mitochondrial density, increasing oxidative enzyme concentrations, and promoting lipid oxidation."
+            },
+            {
+                "id": 7,
+                "q": "Why is high-intensity continuous training at 85% to 95% HRmax essential for competitive marathon runners?",
+                "opts": [
+                    "It enhances velocity at the lactate threshold, matching the physiological intensity of competitive race pace",
+                    "It completely eliminates the need for glycogen during races",
+                    "It converts all Type I slow-twitch fibers into Type IIx fibers",
+                    "It reduces resting blood volume by 50%"
+                ],
+                "correct": 0,
+                "rationale": "Marathon runners compete at or near their lactate threshold; high-intensity continuous runs at 85%–95% HRmax drive adaptations that raise race-pace velocity and running economy."
+            },
+            {
+                "id": 8,
+                "q": "Which energy systems are concurrently engaged during Fartlek ('speed play') training across varied hilly terrain?",
+                "opts": [
+                    "ATP-PCr, Anaerobic Glycolytic, and Oxidative Phosphorylation systems",
+                    "ATP-PCr system exclusively",
+                    "Oxidative Phosphorylation system exclusively",
+                    "No metabolic energy systems"
+                ],
+                "correct": 0,
+                "rationale": "Because Fartlek alternates spontaneously between high-speed surges, moderate trots, and recovery jogs over hills, it engages phosphagen, glycolytic, and oxidative energy systems."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which continuous training modalities are correctly matched with their intensity domain? (Select all that apply)",
+                "opts": [
+                    "High-Intensity Continuous: 85% to 95% HRmax",
+                    "Long, Slow Distance (LSD): 60% to 80% HRmax (50% to 75% VO2max)",
+                    "Fartlek Training: Unscripted, varying between 60% and 95% HRmax",
+                    "LSD Training: 95% to 100% HRmax all-out sprints"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "High-intensity continuous operates at 85–95% HRmax, LSD at 60–80% HRmax, and Fartlek varies unscripted between 60–95% HRmax."
+            },
+            {
+                "id": 2,
+                "q": "Which features describe Fartlek training? (Select all that apply)",
+                "opts": [
+                    "Developed in Sweden in the 1930s (means 'speed play')",
+                    "Unscripted continuous exercise alternating speeds spontaneously over varied terrain",
+                    "Engages both aerobic and anaerobic energy systems",
+                    "Requires strict 10-second rest intervals every 50 meters"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Fartlek is Swedish for 'speed play', unscripted continuous terrain running, and taxes both aerobic and anaerobic pathways."
+            },
+            {
+                "id": 3,
+                "q": "Which physiological adaptations result from Long, Slow Distance (LSD) training? (Select all that apply)",
+                "opts": [
+                    "Increased skeletal muscle mitochondrial density",
+                    "Enhanced lipid (fat) oxidation capacity during submaximal exercise",
+                    "Improved cardiovascular endurance base",
+                    "Maximal leg turnover speed development for 100 m sprinters"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "LSD increases mitochondrial density, fat oxidation, and aerobic base, but fails to develop maximal explosive leg speed."
+            },
+            {
+                "id": 4,
+                "q": "Which characteristics define Scandinavian interval-circuit training? (Select all that apply)",
+                "opts": [
+                    "Combines interval running with muscular endurance and strength stations",
+                    "Total course length of 3,000 to 10,000 meters",
+                    "Exercise stations placed every 400 to 1,600 meters",
+                    "Eliminates all cardiovascular running between stations"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Interval-circuit training spans 3,000–10,000 m with stations every 400–1,600 m combining running with strength/endurance exercises."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "High-intensity continuous training is performed at 85% to 95% HRmax, targeting adaptations at or near the lactate threshold.",
+                "ans": true,
+                "feedback": "True. High-intensity continuous training directly stresses the lactate threshold at 85%–95% HRmax."
+            },
+            {
+                "id": 2,
+                "q": "Long, Slow Distance (LSD) training prioritizes maximal running velocity over workout distance and duration.",
+                "ans": false,
+                "feedback": "False. LSD training prioritizes high workout distance and duration over speed."
+            },
+            {
+                "id": 3,
+                "q": "Fartlek training is a Swedish continuous training method translating to 'speed play'.",
+                "ans": true,
+                "feedback": "True. Fartlek was developed in Sweden in the 1930s and means 'speed play'."
+            },
+            {
+                "id": 4,
+                "q": "Interval-circuit training combines interval running over 3,000 to 10,000 meters with exercise stations placed every 400 to 1,600 meters.",
+                "ans": true,
+                "feedback": "True. Interval-circuit training integrates running over 3,000–10,000 m with strength/endurance stations every 400–1,600 m."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "LSD training operates at **60% to 80% HRmax**, while high-intensity continuous runs target **85% to 95% HRmax** near the lactate threshold.",
+                "targets": [
+                    "60% to 80% HRmax",
+                    "85% to 95% HRmax"
+                ],
+                "optionsBank": [
+                    "60% to 80% HRmax",
+                    "85% to 95% HRmax",
+                    "20% to 30% HRmax",
+                    "100% HRmax",
+                    "glycogen depletion"
+                ],
+                "hint": "Identify the low-intensity LSD range and the high-intensity lactate threshold continuous range."
+            },
+            {
+                "id": 2,
+                "statement": "Fartlek is Swedish for **speed play**, while interval-circuit training features stations every **400 to 1,600 m**.",
+                "targets": [
+                    "speed play",
+                    "400 to 1,600 m"
+                ],
+                "optionsBank": [
+                    "speed play",
+                    "400 to 1,600 m",
+                    "power lifter",
+                    "10 to 20 m",
+                    "isometric hold"
+                ],
+                "hint": "Identify the Fartlek translation and the interval-circuit station spacing."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Compare Long, Slow Distance (LSD) training with High-Intensity Continuous training in terms of intensity domains (% HRmax), primary physiological adaptations, and specific risks or limitations.",
+                "model": "Long, Slow Distance (LSD) training operates at continuous low intensities (60% to 80% HRmax, 50% to 75% VO2max), prioritizing high workout volume and distance (e.g., 15 to 30 miles/day). LSD primary adaptations include increased skeletal muscle mitochondrial density, enhanced lipid oxidation, and expanded cardiovascular capillary density. However, LSD risks repetitive mechanical strain (overuse injuries) and fails to develop maximal leg speed or high-threshold motor unit recruitment. High-Intensity Continuous training operates at 85% to 95% HRmax, directly stressing the lactate threshold. It develops pace-specific running economy and lactate clearance capacity for competitive race speeds, but carries higher acute fatigue and requires careful recovery management.",
+                "criteria": [
+                    "Differentiate intensities (LSD: 60-80% HRmax vs High-Intensity Continuous: 85-95% HRmax).",
+                    "Compare physiological adaptations (LSD: mitochondria, fat oxidation, capillary density vs High-Intensity: lactate threshold, race-pace economy).",
+                    "Identify limitations/risks (LSD: overuse injuries, lack of maximal leg speed vs High-Intensity: high acute fatigue)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Describe the origins, structure, and physiological benefits of Fartlek training and Scandinavian Interval-Circuit training.",
+                "model": "Fartlek training ('speed play') originated in Sweden in the 1930s as a continuous workout where the athlete unscriptedly alters running pace across varied natural terrain (hills, trails). Its continuous nature engages phosphagen, glycolytic, and oxidative energy systems concurrently, enhancing terrain adaptability and psychological engagement. Scandinavian Interval-Circuit training was developed in the 1960s/1970s, featuring a 3,000 to 10,000 m course with exercise stations every 400 to 1,600 m. Athletes jog/sprint between stations, stopping at each to perform strength, flexibility, or muscular endurance exercises before resuming running. It develops concurrent aerobic capacity, muscular endurance, and functional strength.",
+                "criteria": [
+                    "Detail Fartlek origins (Sweden, 1930s), structure (unscripted pace changes over natural terrain), and benefits (multi-energy system engagement).",
+                    "Detail Interval-Circuit origins (Scandinavia, 1960s-1970s), structure (3,000-10,000 m course, stations every 400-1,600 m), and benefits (concurrent aerobic and muscular endurance)."
+                ]
+            }
+        ]
+    },
+    "p3": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What landmark finding was demonstrated by McMaster University researchers regarding Wingate-based sprint interval protocols (4–6 x 30 s all-out bouts)?",
+                "opts": [
+                    "6 HIIT sessions over 2 weeks (15 min total all-out work) produced adaptations comparable to traditional continuous endurance training",
+                    "HIIT caused complete destruction of mitochondrial enzymes within 24 hours",
+                    "HIIT reduced VO2max by 40% in healthy young adults",
+                    "HIIT required 50 hours of continuous exertion per week to show any benefit"
+                ],
+                "correct": 0,
+                "rationale": "McMaster University researchers proved that accumulating just 15 minutes of all-out sprint work over 2 weeks (6 sessions) elicited metabolic and cardiorespiratory gains comparable to hours of traditional endurance training."
+            },
+            {
+                "id": 2,
+                "q": "Which peripheral cellular adaptations occur in skeletal muscle following 2 weeks of Wingate-based High-Intensity Interval Training (HIIT)?",
+                "opts": [
+                    "Increased citrate synthase activity, mitochondrial biogenesis, and elevated GLUT-4 and monocarboxylate transporters",
+                    "Decreased pyruvate dehydrogenase activity and lost GLUT-4 transporters",
+                    "Complete loss of Type I slow-twitch muscle fibers",
+                    "Reduction in insulin sensitivity and vascular endothelial dysfunction"
+                ],
+                "correct": 0,
+                "rationale": "HIIT rapidly upregulates skeletal muscle oxidative enzymes (citrate synthase, pyruvate dehydrogenase), drives mitochondrial biogenesis, and increases GLUT-4 glucose transporters and monocarboxylate lactate transporters."
+            },
+            {
+                "id": 3,
+                "q": "What constitutes the '10-20-30 concept' HIIT framework for endurance runners?",
+                "opts": [
+                    "5-minute continuous blocks alternating 30 s low speed, 20 s moderate speed, and 10 s maximal sprint",
+                    "10 minutes of lifting, 20 minutes of swimming, and 30 minutes of sleeping",
+                    "10 repetitions of 20-second sprints with 30-minute rest intervals",
+                    "Running 10 miles, cycling 20 miles, and swimming 30 miles daily"
+                ],
+                "correct": 0,
+                "rationale": "The 10-20-30 concept uses 5-minute continuous blocks consisting of 30 seconds at low speed, 20 seconds at moderate speed, and 10 seconds at maximal sprint speed."
+            },
+            {
+                "id": 4,
+                "q": "What performance and physiological improvements resulted from 7 weeks of 10-20-30 training in trained runners despite a ~50% reduction in weekly training volume?",
+                "opts": [
+                    "A 4% increase in VO2max and improved 1,500 m and 5 km time-trial performances",
+                    "A 20% drop in VO2max and slower 5 km times",
+                    "Complete muscle fiber atrophy and bone loss",
+                    "Zero change in athletic performance or aerobic capacity"
+                ],
+                "correct": 0,
+                "rationale": "10-20-30 training increased VO2max by 4% and improved 1,500 m and 5 km performance times while reducing weekly running volume by ~50%."
+            },
+            {
+                "id": 5,
+                "q": "According to evidence-based periodization guidelines for endurance athletes, how should annual training volume be distributed (the 75–15 rule)?",
+                "opts": [
+                    "75% of volume at continuous low intensity, 10% to 15% at high-intensity intervals",
+                    "100% of volume at maximal sprint intensity",
+                    "75% of volume at high-intensity intervals, 10% at continuous low intensity",
+                    "50% weightlifting, 50% static stretching with 0% cardio"
+                ],
+                "correct": 0,
+                "rationale": "Endurance periodization guidelines recommend allocating ~75% of training volume to continuous low-intensity aerobic work and 10% to 15% to high-intensity interval workouts."
+            },
+            {
+                "id": 6,
+                "q": "What physiological improvement was observed in elite soccer players following a 5-week HIIT protocol (6–9 x 30 s at 90%–95% VO2max)?",
+                "opts": [
+                    "An 11% increase in repeated shuttle-run capacity and improved submaximal running economy",
+                    "A 30% reduction in running economy",
+                    "Immediate loss of motor unit recruitment",
+                    "Increased risk of Type 2 diabetes"
+                ],
+                "correct": 0,
+                "rationale": "In elite soccer players, 5 weeks of HIIT increased high-intensity shuttle-run capacity by 11% and improved running economy (reduced oxygen cost at submaximal speed)."
+            },
+            {
+                "id": 7,
+                "q": "How is 'running economy' defined in exercise physiology?",
+                "opts": [
+                    "The oxygen cost of running at a given submaximal velocity",
+                    "The monetary cost of purchasing elite running shoes",
+                    "The total distance run in 24 hours",
+                    "The percentage of fast-twitch fibers in the leg extensors"
+                ],
+                "correct": 0,
+                "rationale": "Running economy represents metabolic efficiency during locomotion, measured as the oxygen cost (VO2) required to run at a given submaximal speed."
+            },
+            {
+                "id": 8,
+                "q": "Which clinical benefits make High-Intensity Interval Training (HIIT) valuable for patients with or at risk for type 2 diabetes?",
+                "opts": [
+                    "Enhanced skeletal muscle insulin sensitivity, improved glycemic control, and increased GLUT-4 transporter density",
+                    "Decreased skeletal muscle glucose uptake",
+                    "Permanent suppression of pancreatic insulin secretion",
+                    "Elevated resting blood pressure and arterial stiffness"
+                ],
+                "correct": 0,
+                "rationale": "HIIT upregulates GLUT-4 transporters and insulin signaling pathways in skeletal muscle, significantly improving insulin sensitivity, glycemic control, and vascular health in clinical populations."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which metabolic and skeletal muscle adaptations occur following short-term High-Intensity Interval Training (HIIT)? (Select all that apply)",
+                "opts": [
+                    "Increased citrate synthase and pyruvate dehydrogenase activity",
+                    "Enhanced mitochondrial biogenesis",
+                    "Increased GLUT-4 and monocarboxylate transporter density",
+                    "Complete depletion of muscle mitochondrial density"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "HIIT rapidly expands mitochondrial density, upregulates oxidative enzymes (citrate synthase, PDH), and increases GLUT-4 and lactate transporters."
+            },
+            {
+                "id": 2,
+                "q": "Which parameters define the 10-20-30 concept HIIT protocol? (Select all that apply)",
+                "opts": [
+                    "5-minute continuous blocks",
+                    "30 seconds of low speed, 20 seconds of moderate speed, 10 seconds of maximal sprint",
+                    "Reduces total weekly training volume by ~50% while improving 1,500 m and 5 km times",
+                    "Requires 4 hours of continuous wall-sits daily"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "The 10-20-30 protocol uses 5-min blocks (30 s low, 20 s mod, 10 s sprint) and improves race performance despite a ~50% volume reduction."
+            },
+            {
+                "id": 3,
+                "q": "Which adaptations were observed in elite team-sport (soccer) players following a 5-week HIIT intervention? (Select all that apply)",
+                "opts": [
+                    "11% increase in high-intensity repeated shuttle-run capacity",
+                    "Improved submaximal running economy (lower VO2 cost at 10 km/h)",
+                    "Enhanced aerobic power without signs of overtraining",
+                    "50% drop in maximal cardiac output"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "HIIT improved shuttle capacity (+11%), running economy, and aerobic power in soccer players without overtraining."
+            },
+            {
+                "id": 4,
+                "q": "Which clinical health outcomes are improved by High-Intensity Interval Training (HIIT) in clinical populations? (Select all that apply)",
+                "opts": [
+                    "Enhanced insulin sensitivity and glycemic control",
+                    "Improved vascular endothelial function",
+                    "Increased VO2max in cardiorespiratory disease patients",
+                    "Permanent loss of pancreatic function"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "HIIT improves insulin sensitivity, blood glucose control, endothelial function, and cardiorespiratory fitness in clinical groups."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "McMaster University research showed that 6 HIIT sessions over 2 weeks produced skeletal muscle oxidative adaptations comparable to continuous endurance training.",
+                "ans": true,
+                "feedback": "True. 15 minutes of total all-out work across 2 weeks produced oxidative enzyme gains comparable to traditional endurance training."
+            },
+            {
+                "id": 2,
+                "q": "The 10-20-30 concept alternates 30 seconds of maximal sprint, 20 seconds of moderate speed, and 10 seconds of low speed.",
+                "ans": false,
+                "feedback": "False. The 10-20-30 concept alternates 30 seconds low speed, 20 seconds moderate speed, and 10 seconds maximal sprint."
+            },
+            {
+                "id": 3,
+                "q": "Running economy is defined as the oxygen cost (VO2) of running at a given submaximal velocity.",
+                "ans": true,
+                "feedback": "True. Running economy reflects metabolic efficiency, measured as submaximal oxygen cost."
+            },
+            {
+                "id": 4,
+                "q": "Evidence-based periodization for endurance athletes recommends spending 75% of total volume at continuous low intensity and 10% to 15% on high-intensity intervals.",
+                "ans": true,
+                "feedback": "True. The 75–15 rule balances low-intensity volume base with high-intensity interval quality."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "The 10-20-30 concept uses 5-minute blocks featuring **10 seconds of maximal sprint**, reducing weekly volume by **~50%**.",
+                "targets": [
+                    "10 seconds of maximal sprint",
+                    "~50%"
+                ],
+                "optionsBank": [
+                    "10 seconds of maximal sprint",
+                    "~50%",
+                    "30 seconds of wall sits",
+                    "0%",
+                    "100% volume increase"
+                ],
+                "hint": "Identify the high-intensity burst duration and the volume reduction percentage."
+            },
+            {
+                "id": 2,
+                "statement": "Running economy measures the **submaximal oxygen cost** of locomotion, while HIIT increases skeletal muscle **GLUT-4 transporters**.",
+                "targets": [
+                    "submaximal oxygen cost",
+                    "GLUT-4 transporters"
+                ],
+                "optionsBank": [
+                    "submaximal oxygen cost",
+                    "GLUT-4 transporters",
+                    "maximal heart rate",
+                    "hemoglobin collapse",
+                    "isometric force"
+                ],
+                "hint": "Identify the economy metric definition and the glucose transport protein upregulated by HIIT."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Summarize the landmark findings from McMaster University regarding Wingate-based High-Intensity Interval Training (HIIT), listing four specific cellular/enzymatic adaptations in skeletal muscle.",
+                "model": "Landmark research from McMaster University demonstrated that a Wingate-based HIIT protocol—consisting of 4 to 6 bouts of 30-second all-out sprints interspersed with 4.5 minutes of recovery—produced cardiorespiratory and metabolic adaptations comparable to traditional continuous endurance training despite a fraction of the time commitment. Performing just 6 HIIT sessions over a 2-week span (accumulating only 15 minutes of all-out exercise within a 2.5-hour total commitment) significantly increased VO2max. Four specific cellular/enzymatic adaptations in skeletal muscle include: (1) Increased activity of mitochondrial oxidative enzymes (citrate synthase and pyruvate dehydrogenase); (2) Stimulation of mitochondrial biogenesis; (3) Increased density of GLUT-4 glucose transport proteins; and (4) Upregulated monocarboxylate lactate transport proteins.",
+                "criteria": [
+                    "Summarize McMaster protocol (4-6 x 30 s sprints, 15 min total all-out work over 2 weeks equals continuous training adaptations).",
+                    "List 4 cellular/enzymatic adaptations (citrate synthase/PDH activity, mitochondrial biogenesis, GLUT-4 density, monocarboxylate transporters)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Explain the 10-20-30 concept HIIT framework, detail its effect on weekly training volume and performance in trained runners, and outline the 75–15 rule for endurance training periodization.",
+                "model": "The 10-20-30 concept is a structured HIIT framework composed of 5-minute continuous blocks that alternate 30 seconds at low speed, 20 seconds at moderate speed, and 10 seconds at maximal sprint speed. In trained runners, applying the 10-20-30 framework for 7 weeks reduced total weekly training volume by ~50% while simultaneously increasing VO2max by 4% and significantly improving 1,500 m and 5 km time-trial performances. To structure long-term training, the evidence-based 75–15 periodization rule dictates allocating ~75% of total annual training volume to continuous low-intensity aerobic work, while devoting 10% to 15% to high-intensity interval sessions. This optimizes performance peaking while preventing overtraining syndrome.",
+                "criteria": [
+                    "Detail the 10-20-30 structure (5-min blocks: 30 s low, 20 s mod, 10 s sprint).",
+                    "Explain training volume and performance effects (~50% volume reduction, +4% VO2max, improved 1.5 km & 5 km times).",
+                    "Explain the 75-15 periodization rule (75% low-intensity volume base, 10-15% high-intensity interval work)."
+                ]
+            }
+        ]
+    }
+}

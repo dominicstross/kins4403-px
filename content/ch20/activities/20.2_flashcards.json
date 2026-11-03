@@ -1,0 +1,76 @@
+{
+    "chapterId": "20.2",
+    "title": "20.2 Physical Activity Recommendations",
+    "cards": [
+        {
+            "id": "20.2-01",
+            "tag": "Exercise Misconceptions",
+            "reference": "Section 20.2",
+            "front": "What common <strong>exercise myth</strong> regarding training volume and intensity was challenged by the 1995 CDC/ACSM report?",
+            "back": "The persistent myth that <strong>high volume and high intensity</strong> of exercise training (such as jogging 8 km/day or lifting to complete failure) are necessary to attain health-related benefits. The report concluded that substantial health benefits are achieved through a <strong>moderate amount of daily physical activity</strong>."
+        },
+        {
+            "id": "20.2-02",
+            "tag": "CDC/ACSM 1995 Recommendations",
+            "reference": "Section 20.2",
+            "front": "What moderate physical activity options were highlighted in the landmark <strong>1995 CDC/ACSM consensus report</strong>?",
+            "back": "Significant health benefits can be obtained by incorporating a moderate amount of physical activity on most, if not all, days of the week, such as:<ul><li><strong>30 minutes</strong> of brisk walking</li><li><strong>15 minutes</strong> of running</li><li><strong>45 minutes</strong> of playing volleyball</li></ul>"
+        },
+        {
+            "id": "20.2-03",
+            "tag": "Older Adult Mortality & Activity",
+            "reference": "Section 20.2",
+            "front": "What did research in <strong>older adults (aged 70–82 years)</strong> demonstrate regarding non-formal physical activity and mortality risk?",
+            "back": "Research demonstrated that simply <strong>being more active</strong> greatly reduced the risk of mortality in older adults, <em>independent</em> of participation in a formal structured exercise program."
+        },
+        {
+            "id": "20.2-04",
+            "tag": "ACSM/AHA Aerobic Guidelines",
+            "reference": "Section 20.2",
+            "front": "What are the 2007 <strong>ACSM/AHA aerobic physical activity recommendations</strong> for healthy adults aged 18 to 65 years?",
+            "back": "Healthy adults should engage in either:<ul><li><strong>Moderate-intensity aerobic activity:</strong> Minimum of <strong>30 minutes on 5 days/week</strong>.</li><li><strong>Vigorous-intensity aerobic activity:</strong> Minimum of <strong>20 minutes on 3 days/week</strong>.</li><li>Or an equivalent combination of moderate and vigorous activities.</li></ul>"
+        },
+        {
+            "id": "20.2-05",
+            "tag": "Aerobic Bout Accumulation Rule",
+            "reference": "Section 20.2",
+            "front": "How can the 30-minute daily <strong>moderate-intensity aerobic activity</strong> recommendation be accumulated throughout the day?",
+            "back": "Moderate-intensity aerobic activity can be accumulated by performing discrete bouts each lasting <strong>&ge; 10 minutes</strong> to reach the 30-minute daily total."
+        },
+        {
+            "id": "20.2-06",
+            "tag": "Muscular Strength & Endurance Guidelines",
+            "reference": "Section 20.2",
+            "front": "What is the ACSM/AHA minimum recommendation for maintaining or increasing <strong>muscular strength and endurance</strong>?",
+            "back": "Every adult should perform activities that maintain or increase <strong>muscular strength and endurance</strong> for a minimum of <strong>2 days per week</strong>."
+        },
+        {
+            "id": "20.2-07",
+            "tag": "Dose-Response & Exceeding Minimums",
+            "reference": "Section 20.2",
+            "front": "Why do individuals benefit from <strong>exceeding minimum physical activity guidelines</strong>?",
+            "back": "Due to the <strong>dose-response relationship</strong> between physical activity and health, individuals who exceed minimum recommended amounts derive greater protection against chronic diseases and disabilities, further improve fitness, and prevent unhealthy weight gain."
+        },
+        {
+            "id": "20.2-08",
+            "tag": "Exercise is Medicine (EIM) Initiative",
+            "reference": "Section 20.2",
+            "front": "What is the primary objective of the <strong>Exercise is Medicine (EIM)</strong> initiative launched by the ACSM and AMA?",
+            "back": "To encourage healthcare providers to routinely assess, counsel, and prescribe <strong>physical activity</strong> as a standard component of patient medical care, providing education to clinicians in exercise prescription basics."
+        },
+        {
+            "id": "20.2-09",
+            "tag": "EIM Clinical Action Resources",
+            "reference": "Section 20.2",
+            "front": "Which clinical resource guide is offered via <code>ExerciseIsMedicine.org</code> to assist healthcare providers?",
+            "back": "The website provides the <strong>'Health Care Providers' Action Guide'</strong> to educate and guide clinicians in including physical activity in their patients' overall healthcare plans."
+        },
+        {
+            "id": "20.2-10",
+            "tag": "Exercise Program Initiation Steps",
+            "reference": "Section 20.2",
+            "front": "What are the two essential <strong>initial steps</strong> an individual must take when beginning an exercise program?",
+            "back": "The two initial steps are:<ul><li><strong>Step 1:</strong> Deciding to take action (behavioral commitment).</li><li><strong>Step 2:</strong> Getting <strong>medical clearance</strong> through clinical health screening to ensure safe exercise program initiation.</li></ul>"
+        }
+    ]
+}

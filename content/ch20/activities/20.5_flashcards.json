@@ -1,0 +1,76 @@
+{
+    "chapterId": "20.5",
+    "title": "20.5 Monitoring Exercise Intensity",
+    "cards": [
+        {
+            "id": "20.5-01",
+            "tag": "Training Heart Rate",
+            "reference": "Section 20.5",
+            "front": "What physiological relationship forms the basis for using <strong>Training Heart Rate (THR)</strong> to monitor exercise intensity?",
+            "back": "The strong <strong>linear relationship between heart rate and oxygen consumption (VO<sub>2</sub>)</strong> as exercise workload increases. Heart rate serves as a direct proxy for myocardial workload and relative metabolic exertion."
+        },
+        {
+            "id": "20.5-02",
+            "tag": "VO2max vs HRmax Discrepancy",
+            "reference": "Section 20.5",
+            "front": "Why does a given percentage of <strong>VO<sub>2max</sub></strong> not equal the same percentage of <strong>maximal heart rate (HR<sub>max</sub>)</strong>?",
+            "back": "Heart rate and oxygen consumption progress at different relative percentages during incremental exertion. For example, exercising at <strong>75% VO<sub>2max</sub></strong> corresponds to an intensity of approximately <strong>65% to 90% of HR<sub>max</sub></strong>."
+        },
+        {
+            "id": "20.5-03",
+            "tag": "Karvonen Method / HRR",
+            "reference": "Section 20.5",
+            "front": "What is the <strong>Heart Rate Reserve (HRR) / Karvonen method</strong> formula for calculating Training Heart Rate (THR)?",
+            "back": "The Karvonen formula calculates THR by multiplying a target percentage of maximal HRR by the difference between HR<sub>max</sub> and resting heart rate (HR<sub>rest</sub>), then adding HR<sub>rest</sub>:<ul><li><strong>Maximal HRR:</strong> HRR = HR<sub>max</sub> - HR<sub>rest</sub></li><li><strong>THR Formula:</strong> THR = HR<sub>rest</sub> + %Target x (HR<sub>max</sub> - HR<sub>rest</sub>)</li></ul><em>Advantage:</em> Percentage of maximal HRR is nearly identical to percentage of VO<sub>2max</sub> at moderate-to-high intensities."
+        },
+        {
+            "id": "20.5-04",
+            "tag": "Training Heart Rate Range",
+            "reference": "Section 20.5",
+            "front": "Why is setting a <strong>Training Heart Rate Range</strong> preferred over prescribing a single fixed THR value?",
+            "back": "Prescribing a single rigid THR based on a fixed percentage of VO<sub>2max</sub> can inadvertently force individuals above their <strong>lactate threshold</strong>, causing rapid fatigue. Establishing a target range (e.g., 50% to 75% HRR) accommodates daily physiological fluctuations and allows progressive intensity increases as fitness improves."
+        },
+        {
+            "id": "20.5-05",
+            "tag": "Age-Predicted HRmax",
+            "reference": "Section 20.5",
+            "front": "What formula is used to estimate <strong>age-predicted maximal heart rate (HR<sub>max</sub>)</strong> when direct testing is unavailable?",
+            "back": "The age-predicted HR<sub>max</sub> formula is:<ul><li><strong>HR<sub>max</sub> = 208 - (0.7 x age)</strong></li></ul>This equation provides an accurate estimate of maximal heart rate for establishing HRR training zones without requiring maximal exercise testing."
+        },
+        {
+            "id": "20.5-06",
+            "tag": "VO2 Reserve Method",
+            "reference": "Section 20.5",
+            "front": "How is exercise intensity prescribed using the <strong>VO<sub>2</sub> Reserve (VO<sub>2</sub>R) method</strong>?",
+            "back": "Intensity is calculated as a percentage of <strong>VO<sub>2</sub>R</strong>, defined as:<ul><li><strong>VO<sub>2</sub>R = VO<sub>2max</sub> - VO<sub>2rest</sub></strong></li></ul><em>Primary Advantage:</em> Percentage of VO<sub>2</sub>R provides a direct 1-to-1 mathematical equivalence to percentage of HRR across all exercise intensities."
+        },
+        {
+            "id": "20.5-07",
+            "tag": "VO2 Reserve Limitations",
+            "reference": "Section 20.5",
+            "front": "What potential limitation exists when using standard <strong>VO<sub>2</sub>R equations</strong> across diverse populations?",
+            "back": "Standard VO<sub>2</sub>R calculations assume a constant resting VO<sub>2</sub> value of <strong>3.5 mL x kg<sup>-1</sup> x min<sup>-1</sup></strong>. In reality, actual resting VO<sub>2</sub> varies widely across individuals (ranging from 1.6 to 4.1 mL x kg<sup>-1</sup> x min<sup>-1</sup>, averaging ~2.5 in women and ~2.7 in men)."
+        },
+        {
+            "id": "20.5-08",
+            "tag": "Metabolic Equivalent System",
+            "reference": "Section 20.5",
+            "front": "How is <strong>1 MET (Metabolic Equivalent)</strong> defined, and how are physical activities categorized using the MET system?",
+            "back": "<strong>1 MET</strong> represents baseline resting oxygen consumption, standardized as <strong>3.5 mL O<sub>2</sub> x kg<sup>-1</sup> x min<sup>-1</sup></strong>. Activities are rated as multiples of resting metabolism:<ul><li><strong>2-MET Activity:</strong> Requires 2 x 3.5 = 7.0 mL O<sub>2</sub> x kg<sup>-1</sup> x min<sup>-1</sup>.</li><li><strong>4-MET Activity:</strong> Requires 4 x 3.5 = 14.0 mL O<sub>2</sub> x kg<sup>-1</sup> x min<sup>-1</sup>.</li></ul>"
+        },
+        {
+            "id": "20.5-09",
+            "tag": "MET System Applications & Limitations",
+            "reference": "Section 20.5",
+            "front": "What are the primary clinical applications and limitations of the <strong>MET system</strong>?",
+            "back": "<ul><li><strong>Clinical Application:</strong> Excellent for evaluating a person's functional capacity to perform daily recreational or occupational tasks (e.g., comparing 4.3-5.0 MET treadmill walking to 4.5-6.0 MET doubles tennis).</li><li><strong>Limitations:</strong> Fails to account for environmental stressors (heat, cold, altitude), variations in mechanical skill/efficiency, or progressive changes in fitness conditioning over time.</li></ul>"
+        },
+        {
+            "id": "20.5-10",
+            "tag": "RPE & The Talk Test",
+            "reference": "Section 20.5",
+            "front": "How do <strong>Ratings of Perceived Exertion (RPE)</strong> and the <strong>Talk Test</strong> monitor exercise intensity?",
+            "back": "<ul><li><strong>Borg RPE Scale (6–20):</strong> Subjectively rates effort. Moderate intensity corresponds to <strong>RPE 12–13 ('somewhat hard')</strong>, while vigorous intensity corresponds to <strong>RPE 14–16 ('hard')</strong>.</li><li><strong>Talk Test:</strong> The highest exercise intensity that just barely allows comfortable speech correlates closely with the <strong>ventilatory threshold</strong> and falls accurately within the THR range.</li><li><strong>Combined Use:</strong> Integrating RPE/Talk Test with THR allows exercisers to self-regulate intensity accurately based on comfort and environmental stress without taking frequent heart rate measurements.</li></ul>"
+        }
+    ]
+}

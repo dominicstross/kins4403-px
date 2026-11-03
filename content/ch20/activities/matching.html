@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Vocabulary Match</title>
+    <style>
+        :root {
+            --bg: #090d16;
+            --surface: #131b2e;
+            --card-bg: #1e293b;
+            --border: #334155;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --primary-hover: #60a5fa;
+            --success: #22c55e;
+            --error: #ef4444;
+            --radius: 10px;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        [data-theme="light"] {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #16a34a;
+            --error: #dc2626;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem;
+        }
+
+        header {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .titles h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .titles p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        button.btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.45rem 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        button.btn:hover {
+            border-color: var(--primary);
+        }
+
+        /* Mode & Toolbar */
+        .toolbar {
+            width: 100%;
+            max-width: 900px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.85rem 1.25rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .mode-switch {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .segmented-control {
+            display: flex;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 2px;
+        }
+
+        .segmented-control button {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            padding: 0.35rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .segmented-control button.active {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .score-badge {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        /* Game Canvas */
+        .game-board {
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .column-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            padding-bottom: 0.25rem;
+        }
+
+        /* Card styling */
+        .match-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            user-select: none;
+            position: relative;
+        }
+
+        .draggable {
+            cursor: grab;
+            border-left: 4px solid var(--primary);
+        }
+
+        .draggable:active {
+            cursor: grabbing;
+        }
+
+        .draggable.dragging {
+            opacity: 0.4;
+            transform: scale(0.98);
+        }
+
+        .draggable.matched {
+            display: none;
+        }
+
+        .drop-slot {
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        .drop-slot.drag-over {
+            border-color: var(--primary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .drop-slot.is-matched {
+            border-color: var(--success);
+            background: rgba(34, 197, 94, 0.08);
+        }
+
+        .drop-slot.is-wrong {
+            border-color: var(--error);
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-6px);
+            }
+
+            75% {
+                transform: translateX(6px);
+            }
+        }
+
+        .paired-tag {
+            align-self: flex-start;
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-top: 0.35rem;
+        }
+
+        /* Dropdown UI variant */
+        .dropdown-container {
+            margin-top: 0.5rem;
+        }
+
+        select.term-selector {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.45rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        select.term-selector:focus {
+            border-color: var(--primary);
+        }
+
+        select.term-selector.matched-select {
+            border-color: var(--success);
+            color: var(--success);
+            font-weight: 600;
+            pointer-events: none;
+        }
+
+        /* Completion Overlay */
+        .completion-banner {
+            grid-column: span 2;
+            background: var(--surface);
+            border: 1px solid var(--success);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            text-align: center;
+            display: none;
+        }
+
+        .completion-banner h2 {
+            color: var(--success);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .completion-banner p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 650px) {
+            .game-board {
+                grid-template-columns: 1fr;
+            }
+
+            .completion-banner {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="titles">
+            <h1 id="activity-title">Concept Match</h1>
+            <p id="activity-subtitle">Pair terms with correct physiological descriptions</p>
+        </div>
+        <div class="header-actions">
+            <button class="btn" id="theme-btn">🌓 Theme</button>
+            <button class="btn" id="reset-btn">🔄 Reset</button>
+        </div>
+    </header>
+
+    <div class="toolbar">
+        <div class="mode-switch">
+            <span>Mode:</span>
+            <div class="segmented-control">
+                <button id="btn-drag-mode" class="active">Drag & Drop</button>
+                <button id="btn-select-mode">Dropdown</button>
+            </div>
+        </div>
+        <div class="score-badge" id="score-tracker">Matched: 0 / 0</div>
+    </div>
+
+    <main class="game-board">
+        <div class="completion-banner" id="completion-banner">
+            <h2>All Terms Matched! 🎉</h2>
+            <p>You have successfully matched every concept in this chapter section.</p>
+            <button class="btn" onclick="initGame()" style="margin: 0 auto;">Play Again</button>
+        </div>
+
+        <!-- Terms / Draggables Column -->
+        <div class="column" id="terms-column">
+            <div class="column-title">Key Terms</div>
+            <div id="terms-list" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
+        </div>
+
+        <!-- Definitions / Slots Column -->
+        <div class="column" id="definitions-column">
+            <div class="column-title">Definitions / Functional Roles</div>
+            <div id="definitions-list" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
+        </div>
+    </main>
+
+    <script>
+        // State
+        let rawPairs = [];
+        let currentMode = "drag"; // 'drag' | 'select'
+        let matchedCount = 0;
+        let draggedTermId = null;
+
+        // DOM Elements
+        const termsList = document.getElementById("terms-list");
+        const defsList = document.getElementById("definitions-list");
+        const termsCol = document.getElementById("terms-column");
+        const scoreTracker = document.getElementById("score-tracker");
+        const completionBanner = document.getElementById("completion-banner");
+        const btnDrag = document.getElementById("btn-drag-mode");
+        const btnSelect = document.getElementById("btn-select-mode");
+        const activityTitle = document.getElementById("activity-title");
+        const activitySub = document.getElementById("activity-subtitle");
+
+        // Fisher-Yates Shuffle
+        function shuffle(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // Theme Management
+        const themeBtn = document.getElementById("theme-btn");
+        const initTheme = () => {
+            const saved = localStorage.getItem("matching_theme") || "dark";
+            document.documentElement.setAttribute("data-theme", saved);
+        };
+        themeBtn.addEventListener("click", () => {
+            const current = document.documentElement.getAttribute("data-theme");
+            const next = current === "dark" ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", next);
+            localStorage.setItem("matching_theme", next);
+        });
+
+        // Load JSON from Query Params or Default Fallback
+        async function loadData() {
+            const params = new URLSearchParams(window.location.search);
+            const section = params.get("section") || params.get("ch") || "20.1";
+            const fileUrl = params.get("data") || `data/${section}_content.json`;
+
+            try {
+                const res = await fetch(fileUrl);
+                if (!res.ok) throw new Error(`Could not find ${fileUrl}`);
+                const data = await res.json();
+
+                activityTitle.textContent = `${data.sectionId || section}: Vocabulary Matching`;
+                if (data.title) activitySub.textContent = data.title;
+
+                // Auto-detect array schema
+                const list = data.glossary || data.terms || data.vocabulary || [];
+                rawPairs = list.map((item, idx) => ({
+                    id: `term-${idx}`,
+                    term: item.term || item.word || item.concept,
+                    definition: item.definition || item.def || item.description
+                })).filter(item => item.term && item.definition);
+
+                if (rawPairs.length === 0) throw new Error("No glossary terms found in JSON.");
+                initGame();
+            } catch (err) {
+                activityTitle.textContent = "Data Loading Notice";
+                activitySub.textContent = "Could not automatically fetch content JSON. Demo dataset loaded below.";
+
+                // Graceful mock fallback for testing without a live HTTP server
+                rawPairs = [
+                    { id: "term-0", term: "Fick Principle", definition: "VO2 max = Cardiac Output (Q) × Arterial-Venous Oxygen Difference (a-vO2 diff)." },
+                    { id: "term-1", term: "Mitochondrial Biogenesis", definition: "The synthesis of new mitochondria, increasing cellular oxidative phosphorylation capacity." },
+                    { id: "term-2", term: "Angiogenesis", definition: "The growth and expansion of capillary networks perfusing skeletal muscle fibers." },
+                    { id: "term-3", term: "Stroke Volume", definition: "Volume of blood pumped from the left ventricle per beat, governed by Frank-Starling mechanics." }
+                ];
+                initGame();
+            }
+        }
+
+        // Initialize Game Board
+        function initGame() {
+            matchedCount = 0;
+            completionBanner.style.display = "none";
+            scoreTracker.textContent = `Matched: 0 / ${rawPairs.length}`;
+
+            termsList.innerHTML = "";
+            defsList.innerHTML = "";
+
+            if (currentMode === "drag") {
+                termsCol.style.display = "flex";
+            } else {
+                termsCol.style.display = "none";
+            }
+
+            const shuffledTerms = shuffle(rawPairs);
+            const shuffledDefs = shuffle(rawPairs);
+
+            // Render Draggable Terms
+            shuffledTerms.forEach(item => {
+                const div = document.createElement("div");
+                div.className = "match-item draggable";
+                div.textContent = item.term;
+                div.id = item.id;
+                div.draggable = true;
+
+                div.addEventListener("dragstart", (e) => {
+                    draggedTermId = item.id;
+                    div.classList.add("dragging");
+                    e.dataTransfer.setData("text/plain", item.id);
+                });
+
+                div.addEventListener("dragend", () => {
+                    div.classList.remove("dragging");
+                });
+
+                termsList.appendChild(div);
+            });
+
+            // Render Definition Slots
+            shuffledDefs.forEach(item => {
+                const slot = document.createElement("div");
+                slot.className = "match-item drop-slot";
+                slot.dataset.expectedId = item.id;
+
+                const defText = document.createElement("div");
+                defText.innerHTML = item.definition;
+                slot.appendChild(defText);
+
+                if (currentMode === "drag") {
+                    // Drag & drop dropzone listeners
+                    slot.addEventListener("dragover", (e) => {
+                        e.preventDefault();
+                        if (!slot.classList.contains("is-matched")) {
+                            slot.classList.add("drag-over");
+                        }
+                    });
+
+                    slot.addEventListener("dragleave", () => {
+                        slot.classList.remove("drag-over");
+                    });
+
+                    slot.addEventListener("drop", (e) => {
+                        e.preventDefault();
+                        slot.classList.remove("drag-over");
+                        if (slot.classList.contains("is-matched")) return;
+
+                        const droppedId = e.dataTransfer.getData("text/plain") || draggedTermId;
+                        handleMatchAttempt(droppedId, slot);
+                    });
+                } else {
+                    // Dropdown selector mode
+                    const dropdownWrap = document.createElement("div");
+                    dropdownWrap.className = "dropdown-container";
+
+                    const select = document.createElement("select");
+                    select.className = "term-selector";
+                    select.innerHTML = `<option value="">-- Select Matching Term --</option>`;
+
+                    shuffledTerms.forEach(t => {
+                        const opt = document.createElement("option");
+                        opt.value = t.id;
+                        opt.textContent = t.term;
+                        select.appendChild(opt);
+                    });
+
+                    select.addEventListener("change", (e) => {
+                        if (e.target.value) {
+                            handleMatchAttempt(e.target.value, slot, select);
+                        }
+                    });
+
+                    dropdownWrap.appendChild(select);
+                    slot.appendChild(dropdownWrap);
+                }
+
+                defsList.appendChild(slot);
+            });
+        }
+
+        // Evaluate Attempt
+        function handleMatchAttempt(termId, slotElement, selectElement = null) {
+            const expectedId = slotElement.dataset.expectedId;
+
+            if (termId === expectedId) {
+                // Success
+                slotElement.classList.add("is-matched");
+                const termData = rawPairs.find(p => p.id === termId);
+
+                if (currentMode === "drag") {
+                    const badge = document.createElement("span");
+                    badge.className = "paired-tag";
+                    badge.textContent = `✓ ${termData.term}`;
+                    slotElement.appendChild(badge);
+
+                    const termCard = document.getElementById(termId);
+                    if (termCard) termCard.classList.add("matched");
+                } else if (selectElement) {
+                    selectElement.classList.add("matched-select");
+                    selectElement.disabled = true;
+                }
+
+                matchedCount++;
+                scoreTracker.textContent = `Matched: ${matchedCount} / ${rawPairs.length}`;
+
+                if (matchedCount === rawPairs.length) {
+                    completionBanner.style.display = "block";
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+            } else {
+                // Failure
+                slotElement.classList.add("is-wrong");
+                setTimeout(() => slotElement.classList.remove("is-wrong"), 450);
+
+                if (selectElement) {
+                    setTimeout(() => { selectElement.value = ""; }, 500);
+                }
+            }
+        }
+
+        // Switch interaction mode
+        btnDrag.addEventListener("click", () => {
+            if (currentMode === "drag") return;
+            currentMode = "drag";
+            btnDrag.classList.add("active");
+            btnSelect.classList.remove("active");
+            initGame();
+        });
+
+        btnSelect.addEventListener("click", () => {
+            if (currentMode === "select") return;
+            currentMode = "select";
+            btnSelect.classList.add("active");
+            btnDrag.classList.remove("active");
+            initGame();
+        });
+
+        document.getElementById("reset-btn").addEventListener("click", initGame);
+
+        // Bootstrap
+        initTheme();
+        loadData();
+    </script>
+</body>
+
+</html>

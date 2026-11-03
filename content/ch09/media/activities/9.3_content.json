@@ -1,0 +1,70 @@
+{
+    "meta": {
+        "course": "PX - KINS 4403 Physiology of Exercise",
+        "chapter": "09",
+        "section": "09.3",
+        "ch": "09",
+        "mod": "09.3",
+        "moduleTitle": "09.3 Resistance Training Programs"
+    },
+    "pages": [
+        {
+            "id": "p1",
+            "title": "Part 1: Recommendations for Resistance Training Programs",
+            "sampleCounts": {
+                "mcq": 2,
+                "ms": 2,
+                "tf": 2,
+                "cloze": 2,
+                "sa": 1
+            },
+            "readingHtml": "<h2>Program Design Variables and ACSM Guidelines</h2><p>Over the past \\(75\\text{ years}\\), exercise physiology research has established a comprehensive framework for designing resistance training programs tailored to sport performance and health outcomes. Designing an effective resistance training prescription requires the systematic manipulation of six key program variables:</p><ul><li><strong>Exercise Selection:</strong> Choosing specific multi-joint and single-joint exercises targeting major muscle groups.</li><li><strong>Exercise Order:</strong> The sequence in which exercises are executed during a training session.</li><li><strong>Training Volume:</strong> The total number of sets and repetitions performed per exercise and session.</li><li><strong>Rest Intervals:</strong> The duration of rest permitted between sets and between different exercises.</li><li><strong>Load and Repetitions:</strong> The amount of resistance (percentage of 1-repetition maximum, or \\(1\\text{RM}\\)) and the number of repetitions completed per set.</li><li><strong>Movement Velocity:</strong> The speed at which concentric and eccentric muscle actions are performed.</li></ul><p>In \\(2009\\), the American College of Sports Medicine (ACSM) updated its landmark position stand on progressive resistance training for healthy adults. Whereas earlier recommendations prescribed a standardized minimum of one set of \\(8\\text{ to }12\\text{ repetitions}\\) across \\(8\\text{ to }10\\text{ exercises}\\) for all adults, the updated guidelines emphasize outcome-specific training models. Resistance programs must be tailored to specific performance goals: maximal strength, muscular hypertrophy, explosive power, local muscular endurance, or gross motor performance.</p><h2>Exercise Order, Rest Intervals, and Load Progression</h2><p>To maximize neuromuscular adaptations and safety, exercises must be performed in a logical sequence. ACSM guidelines specify that <strong>large muscle groups</strong> should be trained before small muscle groups, <strong>multiple-joint exercises</strong> (e.g., squats, bench press) before single-joint exercises (e.g., leg extensions, bicep curls), and <strong>higher-intensity efforts</strong> before lower-intensity efforts. Exercising large muscle groups and multi-joint movements early in the workout capitalizes on fresh central nervous system drive and prevents premature local fatigue in stabilizing synergist muscles.</p><p>Rest interval duration directly influences acute endocrine, metabolic, and cardiorespiratory responses:</p><ul><li><strong>Heavy Strength Loads:</strong> For novice and intermediate lifters training with heavy loads, rest periods of \\(2\\text{ to }3\\text{ minutes}\\) or more are recommended to allow complete phosphagen (ATP-PCr) resynthesis and peripheral fatigue recovery. Advanced lifters may require \\(1\\text{ to }2\\text{ minutes}\\) depending on training density.</li><li><strong>Hypertrophy and Power:</strong> Sequencing and rest recommendations for hypertrophy and power mirror strength guidelines, but volume and movement velocity are altered to maximize mechanical tension or rate of force development (\\(RFD\\)).</li><li><strong>Load Progression Protocol:</strong> To adhere to progressive overload, once an athlete can perform the assigned workload for two consecutive training sessions beyond the target repetition threshold, a \\(2\\%\\text{ to }10\\%\\text{ load increase}\\) should be applied.</li></ul><table class=\"data-table\"><thead><tr><th>Training Outcome</th><th>Target Load (% 1RM)</th><th>Repetition Range</th><th>Sets Per Exercise</th><th>Rest Period Duration</th></tr></thead><tbody><tr><td><strong>Maximal Strength</strong></td><td>\\(\\ge 80\\%\\text{--}85\\%\\text{ 1RM}\\)</td><td>\\(1\\text{--}6\\text{ reps}\\)</td><td>\\(3\\text{--}6\\text{ sets}\\)</td><td>\\(2\\text{--}3\\text{ min}\\) (Novice/Inter) / \\(1\\text{--}2\\text{ min}\\) (Advanced)</td></tr><tr><td><strong>Muscle Hypertrophy</strong></td><td>\\(70\\%\\text{--}85\\%\\text{ 1RM}\\)</td><td>\\(6\\text{--}12\\text{ reps}\\)</td><td>\\(3\\text{--}6\\text{ sets}\\)</td><td>\\(1\\text{--}2\\text{ min}\\)</td></tr><tr><td><strong>Muscular Power</strong></td><td>\\(30\\%\\text{--}60\\%\\text{ 1RM}\\) (Upper) / \\(0\\%\\text{--}60\\%\\text{ 1RM}\\) (Lower)</td><td>\\(1\\text{--}5\\text{ reps}\\) (High velocity)</td><td>\\(3\\text{--}5\\text{ sets}\\)</td><td>\\(2\\text{--}3\\text{ min}\\)</td></tr><tr><td><strong>Local Muscular Endurance</strong></td><td>\\(< 65\\%\\text{ 1RM}\\)</td><td>\\(15\\text{--}25+\\text{ reps}\\)</td><td>\\(2\\text{--}3\\text{ sets}\\)</td><td>\\(\\le 30\\text{--}60\\text{ s}\\)</td></tr></tbody></table><div class=\"callout-box\"><div class=\"callout-title\">Clinical / Coaching Application</div><p>When designing strength training sessions, coaches must enforce proper exercise order: schedule multi-joint power and strength movements (e.g., power cleans, back squats) at the beginning of the workout when the central nervous system is fresh. Perform single-joint isolation exercises at the end. Additionally, apply the 2-for-2 rule for load progression—increasing resistance by \\(2\\%\\text{ to }10\\%\\) only after an athlete completes two extra repetitions past their target goal in two consecutive sessions.</p></div>"
+        },
+        {
+            "id": "p2",
+            "title": "Part 2: Types of Resistance Training",
+            "sampleCounts": {
+                "mcq": 2,
+                "ms": 2,
+                "tf": 2,
+                "cloze": 2,
+                "sa": 1
+            },
+            "readingHtml": "<h2>Static Contractions and Free Weights vs. Machines</h2><p>Resistance training utilizes static (isometric) contractions, dynamic contractions (concentric and eccentric), or combinations of both across various exercise modalities:</p><ul><li><strong>Static-Contraction (Isometric) Training:</strong> Muscle force is generated without joint movement or change in muscle length. While isometric training produces angle-specific strength gains, it is heavily utilized in clinical postsurgical rehabilitation to reduce muscle atrophy and strength loss during limb immobilization, as well as for core stabilization and grip strength.</li><li><strong>Free Weights vs. Machines:</strong> Free weights (barbells, dumbbells) provide a constant resistance load throughout the range of motion. However, human skeletal leverage creates a variable strength curve across joint angles. For example, during a two-arm bicep curl, maximal flexor torque occurs at \\(100^\\circ\\) of elbow flexion, whereas the muscle is weakest at full extension (\\(180^\\circ\\)) and full flexion (\\(60^\\circ\\)), generating only \\(71\\%\\) and \\(67\\%\\) of maximal force, respectively. Free weights tax the weakest joint angle, leaving the strongest midrange under-loaded. Conversely, free weights require the recruitment of stabilizing synergist motor units, permit multi-planar movement, and offer superior sport-specific transfer compared to machine training.</li></ul><h2>Variable-Resistance, Isokinetic, Eccentric, Plyometric, and Core Modalities</h2><p>Advanced resistance training incorporates specialized equipment and neuromuscular methods:</p><ul><li><strong>Variable-Resistance Training:</strong> Uses cams, pulleys, and levers to alter resistance throughout the movement, decreasing load at biomechanically weak joint angles and increasing load at strong joint angles to maximally tax the muscle throughout the entire range of motion.</li><li><strong>Isokinetic Training:</strong> Performed on electronic or hydraulic devices that maintain a constant movement speed (angular velocity ranging from \\(0^\\circ/\\text{s}\\) to \\(300^\\circ/\\text{s}\\) or higher). Regardless of effort, movement speed remains fixed, allowing maximal force generation at every point in the range of motion.</li><li><strong>Eccentric Training:</strong> Emphasizes muscle lengthening under load, where muscle force production capability is significantly greater than in concentric contractions, serving as a potent stimulus for muscle hypertrophy and strength gains.</li><li><strong>Plyometrics (Stretch-Shortening Cycle):</strong> Explosive exercise utilizing the stretch reflex and elastic energy storage in passive and contractile structures during a rapid eccentric pre-stretch to enhance concentric force and power development.</li><li><strong>Electrical Stimulation:</strong> Direct electrical current applied across a muscle or motor nerve to induce contraction, proven highly effective in clinical rehabilitation to preserve muscle mass and strength during immobilization.</li><li><strong>Core Training:</strong> Targets trunk musculature surrounding the spine and viscera (abdominal, gluteal, hip girdle, paraspinal muscles). Operating on the principle of <em>proximal stability for distal mobility</em>, core training enhances muscle spindle sensitivity, improves biomechanical force transfer to extremities, and lowers low back injury risk. Core muscles feature a high proportion of Type I slow-twitch fibers, responding optimally to high-repetition, instability-based exercises.</li></ul><table class=\"data-table\"><thead><tr><th>Resistance Modality</th><th>Movement Velocity Kinetics</th><th>Resistance Characteristics</th><th>Primary Advantages &amp; Clinical Applications</th></tr></thead><tbody><tr><td><strong>Free Weights</strong></td><td>Variable / User-controlled</td><td>Constant mass load; limited by weakest joint angle</td><td>Recruits stabilizer motor units; multi-planar; sport-specific transfer.</td></tr><tr><td><strong>Variable Resistance</strong></td><td>Variable / Machine-guided</td><td>Cams/pulleys alter load matching human strength curve</td><td>Maximally taxes muscle across entire ROM; easy body stabilization.</td></tr><tr><td><strong>Isokinetic Devices</strong></td><td>Constant angular velocity (\\(0^\\circ\\text{--}300^\\circ+/\\text{s}\\))</td><td>Accommodating resistance matches applied muscle force</td><td>Maximal force production across full ROM; objective clinical rehab testing.</td></tr><tr><td><strong>Plyometrics</strong></td><td>Explosive high velocity</td><td>Body weight / light elastic stretch-shortening cycle</td><td>Enhances stretch reflex &amp; elastic energy storage; increases peak power.</td></tr><tr><td><strong>Core Stabilization</strong></td><td>Isometric to controlled dynamic</td><td>Body weight / instability devices (physioball)</td><td>Proximal stability for distal mobility; increases muscle spindle sensitivity.</td></tr></tbody></tbody></table><div class=\"callout-box\"><div class=\"callout-title\">Clinical / Coaching Application</div><p>When selecting resistance modalities, coaches should align equipment with athlete experience and sport demands. Novice lifters and post-injury patients benefit from machine-based and isometric exercises that stabilize the body and isolate target muscles. Advanced athletes should emphasize free weights, plyometrics, and core stabilization to recruit stabilizer motor units, improve multi-planar force transfer, and maximize athletic performance.</p></div>"
+        }
+    ],
+    "glossary": [
+        {
+            "term": "Static-Contraction Resistance Training (Isometric Training)",
+            "def": "Resistance training in which the muscle produces force without changing length or causing joint movement."
+        },
+        {
+            "term": "Free Weights",
+            "def": "Resistance training equipment, such as barbells and dumbbells, where the weight lifted remains constant throughout the range of motion."
+        },
+        {
+            "term": "Variable-Resistance Training",
+            "def": "Resistance training using devices equipped with cams, pulleys, or levers that alter resistance throughout the range of movement to match the human strength curve."
+        },
+        {
+            "term": "Isokinetic Training",
+            "def": "Resistance training performed on specialized equipment that maintains a constant movement speed (angular velocity) regardless of the force applied."
+        },
+        {
+            "term": "Eccentric Training",
+            "def": "Resistance training that emphasizes the muscle-lengthening phase under load, generating higher force output and muscle hypertrophy stimulus than concentric actions."
+        },
+        {
+            "term": "Plyometrics",
+            "def": "Stretch-shortening cycle exercise that uses rapid eccentric pre-stretching and the stretch reflex to facilitate motor unit recruitment and enhance explosive concentric power."
+        },
+        {
+            "term": "Electrical Stimulation",
+            "def": "The application of an electric current directly across a muscle or motor nerve to induce contraction, primarily used clinically to prevent muscle atrophy during immobilization."
+        },
+        {
+            "term": "Core Stability",
+            "def": "The capacity of the trunk musculature (abdominal, gluteal, hip girdle, paraspinal) to stabilize the spine and pelvis, providing proximal stability for distal mobility."
+        }
+    ]
+}

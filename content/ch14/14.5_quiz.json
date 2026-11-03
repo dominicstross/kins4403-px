@@ -1,0 +1,747 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "How is detraining defined in exercise physiology?",
+                "opts": [
+                    "The partial or complete loss of training-induced adaptations due to complete cessation of training or a substantial decrement in workload",
+                    "A structured 7-day reduction in workout volume designed to peak an athlete for major competition",
+                    "An acute muscular metabolic depletion of phosphocreatine during maximal sprinting",
+                    "A temporary loss of flexibility occurring immediately after a single heavy resistance session"
+                ],
+                "correct": 0,
+                "rationale": "Detraining is defined as the partial or complete loss of training-induced physiological adaptations caused by stopping training or significantly reducing training load."
+            },
+            {
+                "id": 2,
+                "q": "What structural and cellular change occurs rapidly when a skeletal muscle limb is immobilized in a rigid cast?",
+                "opts": [
+                    "Skeletal muscle atrophy accompanied by reduced muscle mass and decreased intracellular water content",
+                    "Rapid muscle hyperplasia causing tight swelling inside the cast within 24 hours",
+                    "Conversion of all Type I slow-twitch fibers into cardiac myocytes",
+                    "Complete uncoupling of all motor units from spinal motoneurons"
+                ],
+                "correct": 0,
+                "rationale": "Immobilization triggers rapid muscle atrophy, characterized by a substantial decrease in skeletal muscle size, mass, and water content."
+            },
+            {
+                "id": 3,
+                "q": "How do previously untrained individuals compare to highly skilled weightlifters regarding muscular strength retention during detraining?",
+                "opts": [
+                    "Untrained individuals retain strength gains for months (zero loss at 12 weeks), whereas trained weightlifters lose strength rapidly within a few weeks",
+                    "Trained weightlifters retain 100% of strength for 10 years, whereas untrained individuals lose all strength in 2 days",
+                    "Both groups lose 50% of 1RM strength after exactly 48 hours of inactivity",
+                    "Untrained individuals undergo immediate bone mineral dissolution upon stopping exercise"
+                ],
+                "correct": 0,
+                "rationale": "Research shows highly trained weightlifters lose strength rapidly within weeks of stopping training, whereas previously untrained adults maintain strength gains for several months (zero loss at 12 weeks)."
+            },
+            {
+                "id": 4,
+                "q": "In research on collegiate swimmers subjected to 4 weeks of detraining (complete rest or reduced training), what happened to absolute arm strength versus swimming power?",
+                "opts": [
+                    "Absolute arm/shoulder strength was unchanged, but swimming power decreased by 8% to 14%",
+                    "Absolute arm strength dropped by 50%, while swimming power increased by 25%",
+                    "Both arm strength and swimming power dropped by 90%",
+                    "Both arm strength and swimming power increased by 15%"
+                ],
+                "correct": 0,
+                "rationale": "4 weeks of inactivity or reduced training in swimmers left absolute arm strength unchanged, but reduced swimming power by 8% to 14% due to loss of stroke coordination."
+            },
+            {
+                "id": 5,
+                "q": "What primary mechanism accounts for the 8% to 14% reduction in swimming power despite preserved arm strength after 4 weeks of detraining?",
+                "opts": [
+                    "Loss of sport-specific movement skill and neuromuscular force application coordination",
+                    "Catastrophic destruction of all Type IIa muscle fibers",
+                    "Complete depletion of blood hemoglobin concentration",
+                    "Immediate calcification of shoulder joint cartilage"
+                ],
+                "correct": 0,
+                "rationale": "Swimmers lose swimming power because detraining impairs sport-specific motor coordination and technical skill needed to apply force effectively in water."
+            },
+            {
+                "id": 6,
+                "q": "Which neurological and muscular mechanism contributes to muscular strength loss during detraining or limb immobilization?",
+                "opts": [
+                    "Reduced frequency of neurological stimulation and disrupted motor unit recruitment patterns",
+                    "Instantaneous breakdown of all motor nerve axons",
+                    "Permanent uncoupling of troponin from actin filaments",
+                    "Hyper-activation of gamma motor neurons causing joint rigidity"
+                ],
+                "correct": 0,
+                "rationale": "Strength loss stems from neural activation failure (reduced firing rates, disrupted motor unit recruitment) alongside muscle fiber atrophy and altered protein synthesis."
+            },
+            {
+                "id": 7,
+                "q": "Why is performing low-level isometric contractions during early injury rehabilitation recommended for preserving strength?",
+                "opts": [
+                    "Isometric contractions allow force intensity to be graded without joint movement, maintaining motor unit recruitment and reducing atrophy",
+                    "Isometric contractions increase maximal stroke volume by 200%",
+                    "Isometric contractions replace the need for dietary protein intake",
+                    "Isometric contractions permanently prevent all oxidative enzyme loss"
+                ],
+                "correct": 0,
+                "rationale": "Simple isometric contractions can be performed safely without joint movement, helping preserve neural activation pathways and skeletal muscle size during early injury recovery."
+            },
+            {
+                "id": 8,
+                "q": "What magnitude of 1RM strength loss was recorded in younger adults (20–30 yrs) after 31 weeks of detraining following 9 weeks of strength training?",
+                "opts": [
+                    "An 8% strength loss (retaining most of their initial 34% strength gain)",
+                    "A 100% loss of all muscular strength",
+                    "A 50% loss of bone density",
+                    "Zero percent strength loss (strength doubled during detraining)"
+                ],
+                "correct": 0,
+                "rationale": "After 9 weeks of training (gaining 34% 1RM strength), young adults retained most strength, showing zero loss at 12 weeks and only an 8% decline after 31 weeks of detraining."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which characteristics distinguish detraining from tapering? (Select all that apply)",
+                "opts": [
+                    "Detraining involves partial or complete loss of adaptations due to stopping or heavily reducing workload",
+                    "Tapering is a structured, planned reduction in training load over days to weeks to optimize competition performance",
+                    "Short rest periods (a few days) can enhance performance (similar to tapering), whereas prolonged inactivity causes detraining",
+                    "Detraining is illegal under international Olympic conditioning guidelines"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Detraining is unplanned/prolonged loss of fitness; tapering is structured short-term workload reduction for performance peaking; short rest helps, long rest detrains."
+            },
+            {
+                "id": 2,
+                "q": "Which factors explain why strength loss occurs during skeletal muscle immobilization or detraining? (Select all that apply)",
+                "opts": [
+                    "Decreased muscle fiber cross-sectional area and reduced intracellular water content from atrophy",
+                    "Altered rates of myofibrillar protein synthesis and protein degradation",
+                    "Reduced neurological stimulation frequency and disrupted motor unit recruitment",
+                    "Conversion of skeletal muscle into adipose tissue within 24 hours"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Strength loss results from muscle atrophy (reduced fiber area and water), protein synthesis/degradation imbalance, and neural activation failure."
+            },
+            {
+                "id": 3,
+                "q": "Which outcomes were observed in collegiate swimmers subjected to 4 weeks of detraining? (Select all that apply)",
+                "opts": [
+                    "Arm and shoulder absolute muscular strength remained unchanged",
+                    "Swimming power decreased significantly by 8% to 14%",
+                    "Loss of swimming power resulted from impaired sport-specific coordination and skill",
+                    "Maximal bench press 1RM increased by 50%"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Swimmers maintained absolute arm strength over 4 weeks detraining, but lost 8-14% swimming power due to loss of stroke coordination."
+            },
+            {
+                "id": 4,
+                "q": "Which clinical rehabilitation practices minimize muscle atrophy and strength loss during injury immobilization? (Select all that apply)",
+                "opts": [
+                    "Introducing low-level isometric contractions within the first few days of recovery",
+                    "Grading contraction intensity without causing joint movement",
+                    "Coordinating rehabilitation programs with supervising physicians and physical therapists",
+                    "Forcing heavy high-velocity plyometrics on immobilized joints"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Early low-level isometric exercises preserve muscle size and neural recruitment without moving joints, when coordinated with medical professionals."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Detraining is defined as the partial or complete loss of training-induced adaptations from training cessation or severe load reduction.",
+                "ans": true,
+                "feedback": "True. Detraining refers to the regression of physical capacity caused by stopping training or drastically cutting training load."
+            },
+            {
+                "id": 2,
+                "q": "Four weeks of detraining in competitive swimmers reduces absolute arm muscular strength by 50%.",
+                "ans": false,
+                "feedback": "False. Four weeks of detraining in swimmers leaves absolute arm and shoulder strength unchanged, though swimming power drops by 8% to 14%."
+            },
+            {
+                "id": 3,
+                "q": "Previously untrained individuals maintain training-induced strength gains longer during detraining than highly trained weightlifters.",
+                "ans": true,
+                "feedback": "True. Untrained subjects show zero strength loss at 12 weeks of detraining, whereas elite weightlifters experience rapid strength drops within weeks."
+            },
+            {
+                "id": 4,
+                "q": "Isometric contractions can be safely used during early limb immobilization to maintain motor unit recruitment without joint movement.",
+                "ans": true,
+                "feedback": "True. Isometric contractions preserve neural drive and muscle mass without requiring joint movement."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Inactivity leads to **muscle atrophy**, whereas short-term planned workload reduction is **tapering**.",
+                "targets": [
+                    "muscle atrophy",
+                    "tapering"
+                ],
+                "optionsBank": [
+                    "muscle atrophy",
+                    "tapering",
+                    "hypertrophy",
+                    "glycolysis",
+                    "supercompensation"
+                ],
+                "hint": "Identify the loss of muscle mass condition and the peak preparation tactic."
+            },
+            {
+                "id": 2,
+                "statement": "Four weeks of detraining in swimmers leaves **absolute muscular strength** unchanged while reducing **swimming power**.",
+                "targets": [
+                    "absolute muscular strength",
+                    "swimming power"
+                ],
+                "optionsBank": [
+                    "absolute muscular strength",
+                    "swimming power",
+                    "stroke volume",
+                    "VO2max",
+                    "flexibility"
+                ],
+                "hint": "Identify the preserved muscular capability and the reduced functional aquatic capability."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Differentiate detraining from tapering, detailing the physiological mechanisms responsible for muscular strength loss during prolonged inactivity or cast immobilization.",
+                "model": "Detraining is the partial or complete loss of training-induced physiological adaptations resulting from complete cessation of training or a substantial drop in training load. In contrast, tapering is a planned, structured reduction in training workload over days to weeks designed to optimize peak performance. During prolonged inactivity or cast immobilization, strength loss is driven by: (1) Muscle atrophy, characterized by reduced muscle fiber cross-sectional area, decreased muscle mass, and lowered intracellular water content; (2) Altered myofibrillar protein kinetics, where protein degradation exceeds protein synthesis; and (3) Neural activation failure, marked by reduced motor unit firing rates and disrupted motor unit recruitment patterns.",
+                "criteria": [
+                    "Define detraining vs tapering (unplanned/prolonged regression vs structured short-term peaking reduction).",
+                    "Explain structural mechanisms of strength loss (muscle atrophy, reduced fiber area, decreased water content).",
+                    "Explain neurological mechanisms (neural activation failure, reduced firing rates, disrupted recruitment)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Explain the research findings in collegiate swimmers regarding absolute arm strength versus swimming power during 4 weeks of detraining, and outline an early injury rehabilitation strategy using isometric exercise.",
+                "model": "Research on collegiate swimmers subjected to 4 weeks of detraining (complete rest or reduced training) revealed a clear dissociation: absolute arm and shoulder strength remained completely unchanged, whereas swimming power decreased by 8% to 14%. This loss of power despite preserved strength indicates that detraining disrupts sport-specific motor coordination and technical skill required to apply force effectively in water. To prevent severe muscle atrophy and strength loss during early injury recovery, clinicians should implement low-level isometric contractions. Isometric exercise allows contraction intensity to be precisely graded without joint movement, preserving motor unit recruitment pathways and skeletal muscle size.",
+                "criteria": [
+                    "Detail swim research findings (absolute strength unchanged; swimming power reduced 8-14%).",
+                    "Explain mechanism of power loss (disruption of sport-specific movement skill and force application coordination).",
+                    "Describe isometric rehabilitation rationale (preserves neural drive and muscle mass without moving injured joints)."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "How rapidly does muscular endurance decrease during complete physical inactivity?",
+                "opts": [
+                    "Muscular endurance decreases significantly after only 2 weeks of inactivity",
+                    "Muscular endurance remains fully preserved for 5 years",
+                    "Muscular endurance increases by 50% during the first month of rest",
+                    "Muscular endurance drops to zero after 10 seconds of sitting"
+                ],
+                "correct": 0,
+                "rationale": "Muscular endurance declines rapidly, showing significant drops after only 2 weeks of physical inactivity due to localized skeletal muscle metabolic enzyme changes."
+            },
+            {
+                "id": 2,
+                "q": "What magnitude of decrease occurs in mitochondrial oxidative enzymes (SDH and cytochrome oxidase) after 1 to 2 weeks of detraining or immobilization?",
+                "opts": [
+                    "A 40% to 60% decrease in mitochondrial oxidative enzyme activity",
+                    "Zero change in oxidative enzyme activity",
+                    "A 300% increase in SDH activity",
+                    "A 100% loss of all glycolytic enzymes"
+                ],
+                "correct": 0,
+                "rationale": "Key mitochondrial oxidative enzymes (succinate dehydrogenase and cytochrome oxidase) drop by 40% to 60% within 1 to 2 weeks of detraining."
+            },
+            {
+                "id": 3,
+                "q": "How do glycolytic enzymes (phosphorylase and phosphofructokinase) respond to 4 to 12 weeks of detraining compared to oxidative enzymes?",
+                "opts": [
+                    "Glycolytic enzyme activities change little or not at all for at least 4 weeks (no change up to 84 days)",
+                    "Glycolytic enzymes collapse by 99% within 24 hours",
+                    "Glycolytic enzymes drop at twice the rate of oxidative enzymes",
+                    "Glycolytic enzymes are completely destroyed during rest"
+                ],
+                "correct": 0,
+                "rationale": "Unlike oxidative enzymes which drop 40-60% in 1-2 weeks, glycolytic enzymes (PFK, phosphorylase) remain stable with no significant change for up to 84 days of detraining."
+            },
+            {
+                "id": 4,
+                "q": "Why are anaerobic sprint performance times unaffected by a month or more of detraining, whereas submaximal endurance performance drops rapidly?",
+                "opts": [
+                    "Glycolytic enzymes remain stable during detraining, whereas mitochondrial oxidative enzymes drop rapidly within 1 to 2 weeks",
+                    "Sprint performance relies on plasma volume rather than muscle fibers",
+                    "Endurance exercise relies exclusively on Type IIx fast-twitch fibers",
+                    "Sprint performance requires zero ATP resynthesis"
+                ],
+                "correct": 0,
+                "rationale": "Glycolytic enzyme stability preserves fast anaerobic sprint capacity for months, whereas rapid oxidative enzyme loss (SDH) impairs submaximal endurance within 2 weeks."
+            },
+            {
+                "id": 5,
+                "q": "What magnitude of reduction in skeletal muscle glycogen content occurs after 4 weeks of detraining?",
+                "opts": [
+                    "A 40% reduction in muscle glycogen content",
+                    "Zero change in muscle glycogen content",
+                    "A 100% complete loss of muscle protein",
+                    "A 500% increase in glycogen storage capacity"
+                ],
+                "correct": 0,
+                "rationale": "Four weeks of detraining reduces skeletal muscle glycogen content by 40%, returning trained muscle glycogen storage capacity to the baseline of untrained controls."
+            },
+            {
+                "id": 6,
+                "q": "What acid-base disturbance occurred in collegiate swimmers performing a standardized submaximal swim test after 4 weeks of detraining?",
+                "opts": [
+                    "Significantly elevated post-exercise blood lactate concentrations accompanied by a significant drop in blood bicarbonate (HCO3-)",
+                    "Complete absence of blood lactate production",
+                    "A 50% increase in blood pH and bicarbonate buffering capacity",
+                    "Total stabilization of blood lactate at resting levels"
+                ],
+                "correct": 0,
+                "rationale": "After 4 weeks of detraining, swimmers exhibited severe metabolic acidosis during a submaximal swim test, showing higher blood lactate and depleted bicarbonate buffer."
+            },
+            {
+                "id": 7,
+                "q": "How does the rate of muscle oxidative enzyme decline compare to the rate of maximal oxygen uptake (VO2max) decline during early detraining?",
+                "opts": [
+                    "Muscle oxidative potential (SDH) decreases much more rapidly than VO2max during detraining",
+                    "VO2max drops by 100% on day 1, while SDH remains elevated for 10 years",
+                    "Both SDH and VO2max drop at identical percentage rates on a daily basis",
+                    "Neither SDH nor VO2max changes during inactivity"
+                ],
+                "correct": 0,
+                "rationale": "Textbook data (Figure 14.9) demonstrate that muscle oxidative potential (SDH activity) decreases much more rapidly than VO2max during early detraining."
+            },
+            {
+                "id": 8,
+                "q": "What happens to the elevated muscle glycogen storage capacity of competitive swimmers after 4 weeks of inactivity?",
+                "opts": [
+                    "It is completely reversed, returning to the baseline levels of untrained controls",
+                    "It doubles due to carbohydrate accumulation without expenditure",
+                    "It converts into muscle protein fibers",
+                    "It remains permanently elevated for the rest of their lives"
+                ],
+                "correct": 0,
+                "rationale": "Trained swimmers' initial glycogen storage advantage is fully lost after 4 weeks of detraining, returning muscle glycogen to control levels."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which metabolic enzyme changes occur in skeletal muscle during 1 to 4 weeks of detraining? (Select all that apply)",
+                "opts": [
+                    "Mitochondrial oxidative enzymes (SDH, cytochrome oxidase) drop by 40% to 60% within 1 to 2 weeks",
+                    "Glycolytic enzymes (PFK, phosphorylase) remain stable for up to 84 days",
+                    "Muscle oxidative capacity declines faster than VO2max",
+                    "Glycolytic enzymes drop by 90% in the first 24 hours of rest"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Oxidative enzymes drop 40-60% in 1-2 weeks (faster than VO2max drop), whereas glycolytic enzymes remain unchanged for up to 84 days."
+            },
+            {
+                "id": 2,
+                "q": "Which metabolic and performance consequences result from 4 weeks of detraining in endurance athletes? (Select all that apply)",
+                "opts": [
+                    "A 40% reduction in muscle glycogen content",
+                    "Elevated post-exercise blood lactate concentrations after submaximal work",
+                    "Depleted blood bicarbonate (HCO3-) buffering capacity",
+                    "Instant destruction of all sprint speed capacity"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "4 weeks detraining drops glycogen by 40%, increases submaximal blood lactate, and depletes bicarbonate buffers, while sprint speed is maintained."
+            },
+            {
+                "id": 3,
+                "q": "Why does submaximal muscular endurance drop rapidly after 2 weeks of inactivity while sprint speed is maintained? (Select all that apply)",
+                "opts": [
+                    "Oxidative enzymes (SDH) collapse by 40-60%, impairing oxidative ATP production",
+                    "Glycolytic enzymes (PFK) remain stable, preserving fast anaerobic ATP production",
+                    "Glycogen storage drops by 40%, limiting sustained endurance fuel",
+                    "Sprint exercise requires maximal mitochondrial density"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Endurance drops because SDH drops 40-60% and glycogen drops 40%. Sprint speed is preserved because PFK glycolytic enzymes remain stable."
+            },
+            {
+                "id": 4,
+                "q": "Which physiological parameters measured during a standardized submaximal swim test worsen progressively over 4 weeks of detraining? (Select all that apply)",
+                "opts": [
+                    "Post-exercise blood lactate concentrations (increase week-to-week)",
+                    "Blood bicarbonate buffer capacity (decreases significantly by week 4)",
+                    "Metabolic acid-base balance stability (severe disturbance)",
+                    "Phosphofructokinase activity (drops by 99% weekly)"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Standardized submaximal swims reveal progressive lactate elevation, bicarbonate buffer depletion, and severe acid-base disturbance over 4 weeks detraining."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Mitochondrial oxidative enzymes (SDH) decrease by 40% to 60% after only 1 to 2 weeks of detraining.",
+                "ans": true,
+                "feedback": "True. Oxidative enzymes drop rapidly (40-60% in 1-2 weeks), impairing submaximal muscular endurance."
+            },
+            {
+                "id": 2,
+                "q": "Glycolytic enzymes such as PFK drop by 50% within the first week of physical inactivity.",
+                "ans": false,
+                "feedback": "False. Glycolytic enzymes show little or no change for at least 4 weeks, remaining stable for up to 84 days."
+            },
+            {
+                "id": 3,
+                "q": "Four weeks of detraining reduces skeletal muscle glycogen storage by 40%.",
+                "ans": true,
+                "feedback": "True. Detraining causes a 40% loss of muscle glycogen, reversing trained glycogen adaptations back to untrained baseline."
+            },
+            {
+                "id": 4,
+                "q": "Sprint performance times deteriorate faster than submaximal endurance performance during detraining.",
+                "ans": false,
+                "feedback": "False. Submaximal endurance drops within 2 weeks due to SDH loss, whereas sprint performance is maintained for a month or more due to PFK stability."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Detraining causes **succinate dehydrogenase (SDH)** to collapse by 40-60%, while **phosphofructokinase (PFK)** remains stable.",
+                "targets": [
+                    "succinate dehydrogenase (SDH)",
+                    "phosphofructokinase (PFK)"
+                ],
+                "optionsBank": [
+                    "succinate dehydrogenase (SDH)",
+                    "phosphofructokinase (PFK)",
+                    "myoglobin",
+                    "troponin",
+                    "creatine kinase"
+                ],
+                "hint": "Identify the rapidly declining oxidative enzyme and the stable glycolytic enzyme."
+            },
+            {
+                "id": 2,
+                "statement": "Four weeks of inactivity reduces **muscle glycogen** by 40% and depletes the **bicarbonate buffer** during exercise.",
+                "targets": [
+                    "muscle glycogen",
+                    "bicarbonate buffer"
+                ],
+                "optionsBank": [
+                    "muscle glycogen",
+                    "bicarbonate buffer",
+                    "plasma volume",
+                    "stroke volume",
+                    "hemoglobin"
+                ],
+                "hint": "Identify the depleted substrate store and the depleted blood acid-base buffer."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Contrast the enzyme kinetics of oxidative enzymes (SDH) versus glycolytic enzymes (PFK) during detraining, explaining how these shifts affect sprint versus endurance performance.",
+                "model": "During detraining, skeletal muscle metabolic enzymes exhibit dramatic, divergent kinetics. Key mitochondrial oxidative enzymes, such as succinate dehydrogenase (SDH) and cytochrome oxidase, decrease by 40% to 60% within 1 to 2 weeks of inactivity or immobilization. In contrast, glycolytic enzymes, such as phosphofructokinase (PFK) and phosphorylase, change little if at all for at least 4 weeks, with research demonstrating stability for up to 84 days of detraining. These enzyme kinetics explain functional performance changes: submaximal muscular endurance decreases rapidly after 2 weeks because oxidative ATP resynthesis is impaired, whereas maximal sprint performance times remain unaffected for a month or more because fast glycolytic capacity is fully preserved.",
+                "criteria": [
+                    "Detail oxidative enzyme kinetics (SDH drops 40-60% within 1-2 weeks).",
+                    "Detail glycolytic enzyme kinetics (PFK remains stable for 4 weeks up to 84 days).",
+                    "Explain performance impact (endurance drops in 2 weeks due to SDH loss; sprint speed preserved due to PFK stability)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Detail the metabolic consequences of 4 weeks of detraining on skeletal muscle glycogen storage and post-exercise acid-base balance during standardized submaximal testing.",
+                "model": "Four weeks of detraining induces severe metabolic deconditioning in endurance-trained athletes. First, skeletal muscle glycogen storage content decreases by 40%, completely reversing training-induced glycogen storage capacity back to the baseline levels of untrained controls. Second, when athletes perform a standardized submaximal exercise test (such as a 200 yd swim at 90% seasonal best pace), post-exercise blood lactate concentrations increase progressively week-to-week during detraining. By week 4 of inactivity, athletes suffer severe acid-base disturbance during submaximal work, characterized by significantly elevated blood lactate and a significant drop in blood bicarbonate (HCO3-) buffering capacity, resulting in rapid muscular fatigue and blood acidosis.",
+                "criteria": [
+                    "Detail glycogen reversal (40% drop in muscle glycogen after 4 weeks, returning to control baseline).",
+                    "Detail submaximal blood lactate kinetics (progressive week-to-week increase during standardized test).",
+                    "Detail acid-base disturbance (significantly elevated blood lactate and depleted blood bicarbonate HCO3- buffer by week 4)."
+                ]
+            }
+        ]
+    },
+    "p3": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "How does detraining affect flexibility compared to basic speed and agility?",
+                "opts": [
+                    "Flexibility is lost rapidly during inactivity (increasing injury risk), whereas basic speed and agility are relatively resilient",
+                    "Flexibility increases by 200% during inactivity",
+                    "Speed and agility are lost in 5 seconds, while flexibility is permanent",
+                    "Neither flexibility nor speed changes during 50 years of bed rest"
+                ],
+                "correct": 0,
+                "rationale": "Flexibility is lost rapidly during inactivity, requiring regular stretching to prevent injury, whereas basic speed and agility are relatively stable."
+            },
+            {
+                "id": 2,
+                "q": "In the classic 20-day bed rest study, what magnitude of decrease was recorded for stroke volume, maximal cardiac output (Qmax), and VO2max?",
+                "opts": [
+                    "Stroke volume decreased by 25%, Qmax decreased by 25%, and VO2max decreased by 27%",
+                    "Stroke volume increased by 50%, Qmax doubled, and VO2max remained unchanged",
+                    "All three parameters dropped by 100% within 1 hour",
+                    "VO2max decreased by 3%, while stroke volume increased by 10%"
+                ],
+                "correct": 0,
+                "rationale": "20 days of bed rest decreased submaximal stroke volume by 25%, maximal cardiac output by 25%, and VO2max by 27%."
+            },
+            {
+                "id": 3,
+                "q": "What primary cardiovascular mechanism drives the rapid reduction in stroke volume, cardiac output, and VO2max during bed rest?",
+                "opts": [
+                    "A rapid contraction in circulating blood plasma volume",
+                    "Complete destruction of cardiac beta-receptors",
+                    "Sudden calcification of the aortic valve",
+                    "Immediate loss of all skeletal muscle hemoglobin"
+                ],
+                "correct": 0,
+                "rationale": "The reduction in stroke volume, cardiac output, and VO2max during bed rest is primarily caused by a rapid reduction in plasma volume."
+            },
+            {
+                "id": 4,
+                "q": "How do initial fitness levels affect VO2max decrements and subsequent reconditioning timelines following 20 days of bed rest?",
+                "opts": [
+                    "Highly trained subjects experience greater relative VO2max drops and require ~40 days of retraining, whereas untrained subjects recover baseline in 10 days",
+                    "Untrained subjects take 10 years to recover, whereas trained subjects recover in 1 minute",
+                    "Both trained and untrained subjects recover baseline conditioning in exactly 2 hours",
+                    "Trained subjects show zero VO2max loss during bed rest"
+                ],
+                "correct": 0,
+                "rationale": "Highly fit individuals suffer larger relative VO2max drops and require ~40 days of reconditioning for full recovery, compared to 10 days for untrained subjects."
+            },
+            {
+                "id": 5,
+                "q": "What is the minimal training intensity required to maintain maximal aerobic capacity (VO2max) during periods of reduced training volume?",
+                "opts": [
+                    "A minimum training intensity of 70% VO2max",
+                    "A maximum training intensity of 10% VO2max",
+                    "Training at 100% 1RM bench press only",
+                    "Zero physical intensity (complete rest)"
+                ],
+                "correct": 0,
+                "rationale": "Training intensity plays the most critical role in preserving VO2max during reduced volume; a minimum intensity of 70% VO2max is required."
+            },
+            {
+                "id": 6,
+                "q": "When do cardiorespiratory endurance losses become significant during reduced training phases?",
+                "opts": [
+                    "When training frequency and duration are reduced by more than two-thirds (66.7%) of regular training load",
+                    "When training volume is reduced by 5%",
+                    "When daily workout duration drops from 60 minutes to 59 minutes",
+                    "Whenever an athlete consumes water during exercise"
+                ],
+                "correct": 0,
+                "rationale": "Aerobic capacity losses become significant only when training frequency and duration are cut by more than two-thirds of regular load."
+            },
+            {
+                "id": 7,
+                "q": "What submaximal heart rate response occurs at a fixed workload following 20 days of bed rest?",
+                "opts": [
+                    "Submaximal heart rate increases considerably to compensate for reduced stroke volume",
+                    "Submaximal heart rate drops to resting bradycardia levels of 30 bpm",
+                    "Submaximal heart rate becomes zero during exercise",
+                    "Submaximal heart rate remains completely unchanged"
+                ],
+                "correct": 0,
+                "rationale": "Because stroke volume drops 25% during bed rest, submaximal heart rate increases significantly at fixed workloads to maintain cardiac output."
+            },
+            {
+                "id": 8,
+                "q": "Why is flexibility loss during inactivity clinically significant for athletes?",
+                "opts": [
+                    "Reduced joint range of motion increases susceptibility to serious musculoskeletal injuries",
+                    "Loss of flexibility causes immediate heart failure",
+                    "Flexibility loss prevents muscle glycogen synthesis",
+                    "Flexibility loss converts Type I fibers into Type II fibers"
+                ],
+                "correct": 0,
+                "rationale": "Inactivity causes rapid flexibility loss, reducing joint range of motion and increasing susceptibility to muscle strains and connective tissue injury."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which cardiovascular impairments were documented in the classic 20-day bed rest study? (Select all that apply)",
+                "opts": [
+                    "Submaximal stroke volume decreased by 25%",
+                    "Maximal cardiac output (Qmax) decreased by 25%",
+                    "Maximal oxygen consumption (VO2max) decreased by 27%",
+                    "Submaximal heart rate at a fixed workload increased significantly"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "20 days of bed rest caused a 25% drop in SV and Qmax, a 27% drop in VO2max, and compensatory submaximal heart rate elevation."
+            },
+            {
+                "id": 2,
+                "q": "Which factors dictate cardiorespiratory preservation and recovery during detraining? (Select all that apply)",
+                "opts": [
+                    "Plasma volume contraction is the primary cause of reduced stroke volume and VO2max decline",
+                    "Training intensity >= 70% VO2max is critical for preserving aerobic power during volume reductions",
+                    "Highly fit individuals require longer reconditioning (~40 days) than untrained individuals (~10 days)",
+                    "Aerobic fitness cannot be maintained if training volume drops by even 5%"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Plasma volume contraction drives SV loss; >=70% VO2max intensity preserves aerobic capacity; fit subjects take longer (~40 days) to recondition."
+            },
+            {
+                "id": 3,
+                "q": "Which statements are true regarding speed, agility, and flexibility loss during detraining? (Select all that apply)",
+                "opts": [
+                    "Basic speed and agility show relatively small losses during inactivity",
+                    "Sprinters require regular practice to maintain sport-specific mechanics and finishing skill",
+                    "Flexibility is lost rapidly during inactivity, increasing physical injury risk",
+                    "Flexibility increases continuously during bed rest"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Basic speed/agility are resilient (though sprinters need skill practice), while flexibility is lost rapidly, heightening injury risk."
+            },
+            {
+                "id": 4,
+                "q": "Which guidelines successfully maintain maximal aerobic capacity during off-season or reduced workload blocks? (Select all that apply)",
+                "opts": [
+                    "Maintain training intensity at or above 70% VO2max",
+                    "Avoid reducing training frequency and duration by more than two-thirds (66.7%)",
+                    "Incorporate high-intensity interval workouts to preserve cardiac stroke volume",
+                    "Eliminate all physical activity for 6 months continuously"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Preserving VO2max requires maintaining intensity >= 70% VO2max and avoiding frequency/duration cuts > 66.7%."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "In the 20-day bed rest study, maximal oxygen uptake (VO2max) decreased by 27%.",
+                "ans": true,
+                "feedback": "True. Strict bed rest for 20 days reduced VO2max by 27% due to plasma volume loss and reduced stroke volume."
+            },
+            {
+                "id": 2,
+                "q": "The primary cause of stroke volume and VO2max decline during bed rest is a rapid contraction in plasma volume.",
+                "ans": true,
+                "feedback": "True. Rapid plasma volume contraction decreases venous return, driving drops in stroke volume and cardiac output."
+            },
+            {
+                "id": 3,
+                "q": "Highly trained athletes recover their baseline VO2max faster after bed rest than untrained subjects.",
+                "ans": false,
+                "feedback": "False. Highly trained subjects take ~40 days of retraining to recover baseline VO2max, whereas untrained subjects recover in 10 days."
+            },
+            {
+                "id": 4,
+                "q": "Training intensity is the most critical factor for maintaining maximal aerobic capacity during reduced training.",
+                "ans": true,
+                "feedback": "True. Maintaining intensity at or above 70% VO2max preserves aerobic capacity even when volume is reduced."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Bed rest reduces stroke volume by 25% primarily due to a rapid contraction in **plasma volume**, dropping **VO2max** by 27%.",
+                "targets": [
+                    "plasma volume",
+                    "VO2max"
+                ],
+                "optionsBank": [
+                    "plasma volume",
+                    "VO2max",
+                    "muscle mass",
+                    "glycogen",
+                    "flexibility"
+                ],
+                "hint": "Identify the fluid volume that contracts and the maximal cardiorespiratory capacity metric."
+            },
+            {
+                "id": 2,
+                "statement": "Preserving aerobic capacity during reduced workload requires maintaining an intensity of at least **70% VO2max** and avoiding frequency cuts over **two-thirds**.",
+                "targets": [
+                    "70% VO2max",
+                    "two-thirds"
+                ],
+                "optionsBank": [
+                    "70% VO2max",
+                    "two-thirds",
+                    "10% VO2max",
+                    "zero percent",
+                    "hypertrophy"
+                ],
+                "hint": "Identify the minimal maintenance intensity percentage and the maximum allowed frequency reduction fraction."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Detail the cardiovascular deconditioning outcomes of the classic 20-day bed rest study, explaining the primary underlying physiological mechanism and comparing reconditioning timelines for trained vs untrained individuals.",
+                "model": "The classic 20-day bed rest study demonstrated severe cardiovascular deconditioning: submaximal heart rate at a fixed workload increased significantly, submaximal stroke volume dropped by 25%, maximal cardiac output (Qmax) dropped by 25%, and maximal oxygen uptake (VO2max) decreased by 27%. The primary physiological mechanism driving these reductions is a rapid contraction in circulating blood plasma volume, which reduces end-diastolic ventricular filling and stroke volume (with heart volume and contractility changes playing smaller secondary roles). Reconditioning timelines differed significantly by fitness status: untrained subjects regained baseline conditioning within 10 days of retraining, whereas highly trained athletes (who suffered larger relative VO2max losses) required approximately 40 days of intense retraining for full recovery.",
+                "criteria": [
+                    "Detail 20-day bed rest findings (submaximal HR elevated, SV down 25%, Qmax down 25%, VO2max down 27%).",
+                    "Explain primary physiological mechanism (rapid blood plasma volume contraction reducing stroke volume).",
+                    "Compare reconditioning timelines (untrained recover baseline in 10 days vs highly trained require ~40 days)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Outline the practical guidelines for preserving cardiorespiratory endurance and VO2max during off-season transition phases or reduced training blocks.",
+                "model": "To prevent severe cardiorespiratory deconditioning during off-seasons or reduced workload phases, coaches and athletes must follow two core physiological principles: (1) Maintain Training Intensity: Exercise intensity is the single most critical factor for preserving aerobic power. Athletes must maintain a minimum training intensity of 70% VO2max during workouts; and (2) Manage Frequency and Duration: Cardiorespiratory losses become significant only when training frequency and duration are reduced by more than two-thirds (66.7%) of regular training volume. By maintaining intensity at >= 70% VO2max and capping volume cuts at 60-66%, plasma volume and maximal cardiac output are preserved, preventing aerobic deconditioning and eliminating long retraining phases.",
+                "criteria": [
+                    "Explain the critical role of training intensity (minimum intensity of 70% VO2max required).",
+                    "Detail volume/frequency limits (aerobic loss becomes significant only when frequency/duration drop > two-thirds / 66.7%).",
+                    "Summarize physiological outcome (preserves plasma volume and cardiac output, avoiding lengthy reconditioning)."
+                ]
+            }
+        ]
+    }
+}

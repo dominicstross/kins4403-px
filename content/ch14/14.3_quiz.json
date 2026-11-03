@@ -1,0 +1,747 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "How is overtraining syndrome (OTS) defined in exercise physiology?",
+                "opts": [
+                    "An unexplained decline in physical performance and physiological function extending over weeks, months, or years that cannot be remedied by short-term rest",
+                    "A temporary 24-hour muscular soreness following an acute resistance training workout",
+                    "A planned 3-day phase of heavy volume designed to induce athletic supercompensation",
+                    "An acute metabolic depletion of phosphocreatine that resolves within 3 minutes of rest"
+                ],
+                "correct": 0,
+                "rationale": "Overtraining syndrome is defined as an unexplained prolonged decline in performance and physiological function lasting weeks, months, or years that does not resolve with short-term rest or dietary changes."
+            },
+            {
+                "id": 2,
+                "q": "Which landmark observation regarding the psychological etiology of overtraining syndrome was highlighted by researchers Armstrong and VanHeest?",
+                "opts": [
+                    "Overtraining syndrome and clinical depression share remarkably similar signs, symptoms, neurotransmitter alterations, and immune responses",
+                    "Overtraining syndrome is caused exclusively by a lack of dietary protein",
+                    "Overtraining syndrome affects only Type I slow-twitch muscle fibers",
+                    "Overtraining syndrome can be cured instantly by performing 10 minutes of light jogging"
+                ],
+                "correct": 0,
+                "rationale": "Armstrong and VanHeest emphasized that overtraining syndrome and clinical depression share identical physiological and psychological markers, including brain structure alterations, neurotransmitter shifts, and immune dysfunction."
+            },
+            {
+                "id": 3,
+                "q": "Which form of overtraining syndrome predominantly occurs in athletes emphasizing high-intensity resistance or sprint overload?",
+                "opts": [
+                    "Sympathetic overtraining",
+                    "Parasympathetic overtraining",
+                    "Hyper-glycolytic overtraining",
+                    "Isokinetic overtraining"
+                ],
+                "correct": 0,
+                "rationale": "Sympathetic overtraining is associated with high-intensity resistance and anaerobic sprint overload, reflecting hyper-reactivity of the sympathetic nervous system."
+            },
+            {
+                "id": 4,
+                "q": "Which resting cardiovascular and autonomic symptoms characterize sympathetic overtraining?",
+                "opts": [
+                    "Increased resting heart rate and elevated resting blood pressure",
+                    "Decreased resting heart rate and decreased resting blood pressure",
+                    "Abnormally rapid heart rate recovery after submaximal exercise",
+                    "Complete cessation of resting blood flow to skeletal muscle"
+                ],
+                "correct": 0,
+                "rationale": "Sympathetic overtraining induces autonomic hyper-reactivity, manifesting as increased resting heart rate, elevated resting blood pressure, insomnia, loss of appetite, and emotional instability."
+            },
+            {
+                "id": 5,
+                "q": "Which form of overtraining syndrome predominantly affects endurance athletes subjected to excessive volume overload?",
+                "opts": [
+                    "Parasympathetic overtraining",
+                    "Sympathetic overtraining",
+                    "Anaerobic overtraining",
+                    "Neuromuscular junction overtraining"
+                ],
+                "correct": 0,
+                "rationale": "Parasympathetic overtraining predominates among high-volume endurance athletes, characterized by parasympathetic dominance and reduced sympathetic responsiveness."
+            },
+            {
+                "id": 6,
+                "q": "Which physiological symptom pattern is characteristic of parasympathetic overtraining?",
+                "opts": [
+                    "Early onset of muscular fatigue, decreased resting heart rate, and rapid post-exercise heart rate recovery",
+                    "Severe insomnia, elevated resting heart rate, and rapid weight loss",
+                    "Extreme elevation in resting systolic blood pressure above 180 mmHg",
+                    "Hyper-reactivity of the sympathetic nervous system during sleep"
+                ],
+                "correct": 0,
+                "rationale": "Parasympathetic overtraining manifests as early muscular fatigue, reduced resting heart rate, lower resting blood pressure, and abnormally rapid post-exercise heart rate recovery."
+            },
+            {
+                "id": 7,
+                "q": "According to Hans Selye's stress concepts, why do non-physical emotional stressors contribute to overtraining syndrome?",
+                "opts": [
+                    "Human stress tolerance breaks down from sudden emotional anxiety just as readily as from physical distress",
+                    "Emotional stressors affect only cardiac tissue while physical stress affects only muscle tissue",
+                    "Emotional stress increases muscle glycogen synthesis by 500%",
+                    "Non-physical stress prevents the pituitary gland from releasing any hormones"
+                ],
+                "correct": 0,
+                "rationale": "Hans Selye demonstrated that systemic stress tolerance breaks down from emotional stressors (competitive pressure, fear of failure) as readily as from physical training overload."
+            },
+            {
+                "id": 8,
+                "q": "What effect does sympathetic overtraining typically have on an athlete's basal metabolic rate (BMR) and body weight?",
+                "opts": [
+                    "Elevated basal metabolic rate and loss of body mass",
+                    "Decreased basal metabolic rate and rapid body fat accumulation",
+                    "Zero change in basal metabolic rate or body weight",
+                    "Suppression of metabolic rate accompanied by fluid retention"
+                ],
+                "correct": 0,
+                "rationale": "Sympathetic hyper-reactivity increases basal metabolic rate and suppresses appetite, resulting in progressive loss of body mass."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which clinical symptoms and autonomic markers characterize sympathetic overtraining? (Select all that apply)",
+                "opts": [
+                    "Increased resting heart rate and elevated resting blood pressure",
+                    "Loss of appetite and decreased body mass",
+                    "Sleep disturbances and emotional instability",
+                    "Decreased resting heart rate and abnormally low blood pressure"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Sympathetic overtraining causes increased resting HR, elevated BP, loss of appetite, weight loss, insomnia, and emotional instability. Decreased resting HR and low BP characterize parasympathetic overtraining."
+            },
+            {
+                "id": 2,
+                "q": "Which clinical symptoms and autonomic markers characterize parasympathetic overtraining? (Select all that apply)",
+                "opts": [
+                    "Decreased resting heart rate and decreased resting blood pressure",
+                    "Early onset of muscular fatigue during submaximal work",
+                    "Abnormally rapid heart rate recovery following exercise",
+                    "Severe insomnia and elevated basal metabolic rate"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Parasympathetic overtraining manifests with lower resting HR and BP, early fatigue, and rapid HR recovery. Insomnia and elevated BMR belong to sympathetic overtraining."
+            },
+            {
+                "id": 3,
+                "q": "Which factors contribute to the etiology of overtraining syndrome? (Select all that apply)",
+                "opts": [
+                    "Unmanaged excessive physical training volume or intensity",
+                    "Inadequate recovery and rest intervals between workouts",
+                    "Psychological stressors such as competitive pressure and fear of failure",
+                    "Daily carbohydrate intake exceeding 10 grams per kilogram of body mass"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Overtraining syndrome stems from excessive physical loading, inadequate recovery, and psychological stressors (anxiety, pressure). High carbohydrate intake protects against OTS."
+            },
+            {
+                "id": 4,
+                "q": "Which physiological pathways and features are shared between overtraining syndrome and clinical depression? (Select all that apply)",
+                "opts": [
+                    "Alterations in key central neurotransmitter pathways",
+                    "Hypothalamic-pituitary-adrenocortical (HPA) axis dysregulation",
+                    "Systemic immune dysfunction and cytokine elevation",
+                    "Permanent loss of all cardiac muscle tissue"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Research highlights that OTS and clinical depression share neurotransmitter alterations, HPA axis dysregulation, and immune dysfunction."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Overtraining syndrome is a short-term fatigue condition that resolves within 48 hours of rest.",
+                "ans": false,
+                "feedback": "False. Overtraining syndrome involves a prolonged decline in performance lasting weeks, months, or years that does not resolve with short-term rest."
+            },
+            {
+                "id": 2,
+                "q": "Sympathetic overtraining occurs predominantly in athletes undergoing high-intensity resistance or sprint overload.",
+                "ans": true,
+                "feedback": "True. Sympathetic overtraining is associated with high-intensity anaerobic overload, inducing sympathetic hyper-reactivity."
+            },
+            {
+                "id": 3,
+                "q": "Parasympathetic overtraining is characterized by an elevated resting heart rate and severe insomnia.",
+                "ans": false,
+                "feedback": "False. Parasympathetic overtraining features a decreased resting heart rate and lethargy; elevated resting HR and insomnia characterize sympathetic overtraining."
+            },
+            {
+                "id": 4,
+                "q": "Emotional anxiety and competitive pressure can contribute to overtraining syndrome as significantly as physical workload.",
+                "ans": true,
+                "feedback": "True. Psychological stress acts through the neuroendocrine system, breaking down systemic stress tolerance alongside physical overload."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Intensity-related overload leads to **sympathetic overtraining**, whereas volume-related endurance overload leads to **parasympathetic overtraining**.",
+                "targets": [
+                    "sympathetic overtraining",
+                    "parasympathetic overtraining"
+                ],
+                "optionsBank": [
+                    "sympathetic overtraining",
+                    "parasympathetic overtraining",
+                    "acute overload",
+                    "isokinetic training",
+                    "glycogen depletion"
+                ],
+                "hint": "Identify the high-intensity autonomic classification and the high-volume autonomic classification."
+            },
+            {
+                "id": 2,
+                "statement": "Sympathetic overtraining increases **resting heart rate**, while parasympathetic overtraining causes **early muscular fatigue**.",
+                "targets": [
+                    "resting heart rate",
+                    "early muscular fatigue"
+                ],
+                "optionsBank": [
+                    "resting heart rate",
+                    "early muscular fatigue",
+                    "stroke volume",
+                    "alveolar ventilation",
+                    "supercompensation"
+                ],
+                "hint": "Identify the elevated resting cardiovascular marker and the primary submaximal fatigue symptom."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Compare sympathetic overtraining with parasympathetic overtraining in terms of primary training stressors, resting cardiovascular kinetics, and clinical manifestations.",
+                "model": "Sympathetic overtraining is driven by high-intensity resistance or anaerobic sprint overload. It is characterized by sympathetic hyper-reactivity, resulting in an increased resting heart rate, elevated blood pressure, loss of appetite, body mass loss, insomnia, elevated basal metabolic rate, and emotional instability. In contrast, parasympathetic overtraining is driven by excessive continuous aerobic volume overload. It is characterized by parasympathetic dominance and reduced sympathetic responsiveness, resulting in a decreased resting heart rate, lowered blood pressure, early onset of muscular fatigue during submaximal work, and abnormally rapid post-exercise heart rate recovery.",
+                "criteria": [
+                    "Identify primary stressors (sympathetic: high-intensity resistance/sprint vs parasympathetic: high-volume endurance).",
+                    "Compare cardiovascular kinetics (sympathetic: elevated resting HR/BP vs parasympathetic: decreased resting HR/BP, rapid HR recovery).",
+                    "Detail clinical symptoms (sympathetic: insomnia, weight loss, emotional instability vs parasympathetic: early fatigue, lethargy)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Explain the psychological etiology of overtraining syndrome, detailing the shared physiological pathways between overtraining syndrome and clinical depression.",
+                "model": "The etiology of overtraining syndrome involves a complex combination of physical and psychological stressors. According to Selye's stress concept, systemic stress tolerance breaks down from emotional anxiety (fear of failure, competitive pressure, unrealistic goals) just as readily as from physical overload. Researchers Armstrong and VanHeest established that overtraining syndrome and clinical depression share remarkably similar physiological pathways, including alterations in brain neurotransmitters (such as serotonin), dysregulation of the hypothalamic-pituitary-adrenocortical (HPA) axis, elevated catabolic hormone activity, and systemic pro-inflammatory cytokine elevation, indicating a shared central neuroendocrine and immunological foundation.",
+                "criteria": [
+                    "Explain psychological stress contribution (Selye's concept: anxiety and performance pressure break down stress tolerance).",
+                    "Detail shared pathways with clinical depression (neurotransmitter shifts like serotonin, HPA axis dysregulation).",
+                    "Identify hormonal and immune links (elevated catabolic markers and pro-inflammatory cytokine responses)."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What shift in the resting testosterone-to-cortisol ratio occurs during heavy overreaching and overtraining?",
+                "opts": [
+                    "The ratio shifts in favor of cortisol, indicating greater protein catabolism than anabolism in skeletal muscle",
+                    "The ratio shifts in favor of testosterone, driving rapid involuntary muscle hypertrophy",
+                    "The ratio remains permanently locked at 1:1 regardless of workload",
+                    "Cortisol drops to zero while testosterone increases by 1000%"
+                ],
+                "correct": 0,
+                "rationale": "Heavy overreaching causes blood testosterone to drop while cortisol rises. A decreased testosterone-to-cortisol ratio indicates a catabolic state where muscle protein breakdown exceeds synthesis."
+            },
+            {
+                "id": 2,
+                "q": "Why do resting blood hormone concentrations fail to provide a definitive diagnostic biomarker for overtraining syndrome?",
+                "opts": [
+                    "Hormonal responses vary significantly across training states, and advanced OTS can cause adrenal exhaustion where resting cortisol drops",
+                    "Hormones do not circulate in the bloodstream of trained athletes",
+                    "Cortisol levels never change during physical exercise",
+                    "Testosterone is produced only during sleep and cannot be measured in blood"
+                ],
+                "correct": 0,
+                "rationale": "Blood hormones do not provide a definitive OTS diagnostic test because early overreaching elevates resting cortisol, whereas advanced OTS leads to HPA axis and adrenal exhaustion where resting cortisol declines."
+            },
+            {
+                "id": 3,
+                "q": "According to the Cytokine Cascade Theory of overtraining, what initial events trigger systemic inflammation and OTS sickness behavior?",
+                "opts": [
+                    "Repetitive musculoskeletal microtrauma and muscle glycogen depletion combined with inadequate recovery",
+                    "Consuming excess dietary glucose before a workout",
+                    "Sleeping for more than 10 hours per night",
+                    "Performing static stretching exercises twice per week"
+                ],
+                "correct": 0,
+                "rationale": "The Cytokine Cascade Theory states that unmanaged local muscle trauma and chronic glycogen depletion trigger local inflammation, which evolves into systemic inflammation as monocytes release pro-inflammatory cytokines."
+            },
+            {
+                "id": 4,
+                "q": "How do circulating pro-inflammatory cytokines act on the central nervous system to induce overtraining syndrome symptoms?",
+                "opts": [
+                    "They signal into the brain to induce sickness behavior, depressed mood, appetite suppression, and neuroendocrine dysfunction",
+                    "They accelerate nerve conduction velocity to double movement speed",
+                    "They stimulate immediate muscle protein synthesis and glycogen storage",
+                    "They convert cardiac tissue into Type IIx skeletal muscle fibers"
+                ],
+                "correct": 0,
+                "rationale": "Pro-inflammatory cytokines act on brain centers to trigger systemic sickness behaviors, including fatigue, clinical depression symptoms, loss of appetite, and altered neuroendocrine regulation."
+            },
+            {
+                "id": 5,
+                "q": "What immunological phenomenon occurs following intense, prolonged exercise bouts, increasing an athlete's vulnerability to infections?",
+                "opts": [
+                    "An 'immune window' of suppression marked by decreased circulating lymphocytes and antibodies",
+                    "An immediate 500% increase in salivary IgA antibodies",
+                    "Complete destruction of all red blood cells in the spleen",
+                    "Permanent immunity against all upper respiratory tract viruses"
+                ],
+                "correct": 0,
+                "rationale": "Intense exertion opens an 'immune window' of post-exercise immunosuppression characterized by reduced circulating lymphocytes and suppressed antibody levels, raising upper respiratory tract infection (URTI) risk."
+            },
+            {
+                "id": 6,
+                "q": "According to the ACSM/ECSS Joint Consensus Statement, what key feature distinguishes nonfunctional overreaching (NFOR) from overtraining syndrome (OTS)?",
+                "opts": [
+                    "NFOR performance decrements resolve after several days to weeks of rest, whereas OTS requires several months to years for recovery",
+                    "NFOR causes permanent heart failure, whereas OTS has no physical symptoms",
+                    "NFOR affects only female athletes, whereas OTS affects only male athletes",
+                    "NFOR requires complete surgical muscle reattachment"
+                ],
+                "correct": 0,
+                "rationale": "The ACSM/ECSS consensus defines NFOR as a temporary performance stagnation/decline resolving within days or weeks of rest, whereas OTS involves long-term physiological collapse requiring months to years of recovery."
+            },
+            {
+                "id": 7,
+                "q": "Why is an 'exclusion diagnosis' required before confirming a diagnosis of overtraining syndrome?",
+                "opts": [
+                    "Medical conditions such as anemia, Epstein-Barr virus, thyroid disease, or eating disorders must be ruled out first",
+                    "Overtraining syndrome cannot be diagnosed if an athlete consumes protein",
+                    "Exclusion diagnosis is required by law for insurance billing only",
+                    "All sports athletes are assumed to have OTS unless proven otherwise"
+                ],
+                "correct": 0,
+                "rationale": "Because OTS symptoms overlap with organic diseases (anemia, infectious mononucleosis/EBV, Lyme disease, thyroid disorders), clinicians must rule out underlying medical conditions before diagnosing OTS."
+            },
+            {
+                "id": 8,
+                "q": "Which central neurotransmitter plays a pivotal role in modulating central fatigue and mood disturbances along the hypothalamic axis in OTS?",
+                "opts": [
+                    "Serotonin",
+                    "Acetylcholinesterase",
+                    "Creatine kinase",
+                    "Myoglobin"
+                ],
+                "correct": 0,
+                "rationale": "Serotonin alterations within the brain and hypothalamus modulate central fatigue, sleep disruption, and mood alterations associated with overtraining syndrome."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which endocrine alterations are commonly observed during periods of heavy overreaching? (Select all that apply)",
+                "opts": [
+                    "Decreased blood testosterone concentrations",
+                    "Elevated blood cortisol concentrations in early stages",
+                    "Altered testosterone-to-cortisol ratio favoring protein catabolism",
+                    "Permanent complete cessation of thyroid hormone secretion"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Heavy overreaching lowers testosterone and elevates early cortisol, shifting the anabolic-catabolic balance toward catabolism. Complete thyroid cessation does not occur."
+            },
+            {
+                "id": 2,
+                "q": "Which physiological steps describe the Cytokine Cascade Theory of overtraining? (Select all that apply)",
+                "opts": [
+                    "Repetitive muscle trauma and glycogen depletion cause local tissue inflammation",
+                    "Unmanaged local stress evolves into systemic chronic inflammation",
+                    "Circulating monocytes release pro-inflammatory cytokines into the blood",
+                    "Cytokines signal the brain to trigger sickness behavior, depression symptoms, and neuroendocrine dysfunction"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "All four steps define the Cytokine Cascade Theory: local trauma -> systemic inflammation -> monocyte cytokine release -> CNS sickness behavior and neuroendocrine disruption."
+            },
+            {
+                "id": 3,
+                "q": "Which immunological changes occur during the post-exercise 'immune window' following heavy overtraining bouts? (Select all that apply)",
+                "opts": [
+                    "Decreased circulating lymphocyte counts",
+                    "Suppressed mucosal antibody (salivary IgA) concentrations",
+                    "Increased susceptibility to upper respiratory tract infections (URTI)",
+                    "Immediate doubling of white blood cell immune protection"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "The immune window features lowered lymphocytes and antibodies, increasing URTI vulnerability. Immune protection is suppressed, not doubled."
+            },
+            {
+                "id": 4,
+                "q": "Which diagnostic criteria and guidelines are established in the ACSM/ECSS Joint Consensus Statement? (Select all that apply)",
+                "opts": [
+                    "Nonfunctional overreaching (NFOR) resolves with several days to weeks of rest",
+                    "Overtraining syndrome (OTS) causes long-term performance collapse lasting months to years",
+                    "Diagnosis requires excluding organic medical conditions (anemia, EBV, thyroid disorders)",
+                    "OTS can be diagnosed using a simple 5-second blood dipstick test"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "The ACSM/ECSS consensus distinguishes NFOR from OTS based on recovery timeframes and mandates an exclusion diagnosis. No simple single dipstick test exists for OTS."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "An altered testosterone-to-cortisol ratio favoring cortisol indicates heightened protein anabolism in skeletal muscle.",
+                "ans": false,
+                "feedback": "False. A lower testosterone-to-cortisol ratio indicates greater protein catabolism (breakdown) than anabolism (synthesis)."
+            },
+            {
+                "id": 2,
+                "q": "In advanced overtraining syndrome, resting cortisol levels can decline due to HPA axis and adrenal exhaustion.",
+                "ans": true,
+                "feedback": "True. Prolonged unmanaged stress exhausts the HPA axis, causing resting and exercise cortisol levels to drop in advanced OTS."
+            },
+            {
+                "id": 3,
+                "q": "Pro-inflammatory cytokines released during systemic inflammation can signal the brain to induce sickness behaviors and mood disturbances.",
+                "ans": true,
+                "feedback": "True. Cytokines act on central nervous system targets, mediating the psychological and behavioral symptoms of OTS."
+            },
+            {
+                "id": 4,
+                "q": "Nonfunctional overreaching (NFOR) requires 3 to 5 years of complete bed rest for performance recovery.",
+                "ans": false,
+                "feedback": "False. NFOR resolves with several days to several weeks of rest; recovery requiring months or years defines overtraining syndrome."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Heavy overreaching decreases **testosterone** and increases **cortisol**, shifting skeletal muscle toward protein catabolism.",
+                "targets": [
+                    "testosterone",
+                    "cortisol"
+                ],
+                "optionsBank": [
+                    "testosterone",
+                    "cortisol",
+                    "insulin",
+                    "myosin",
+                    "hemoglobin"
+                ],
+                "hint": "Identify the primary anabolic steroid hormone and the primary catabolic glucocorticoid."
+            },
+            {
+                "id": 2,
+                "statement": "Systemic inflammation causes monocytes to release **cytokines**, which open an **immune window** of infection risk.",
+                "targets": [
+                    "cytokines",
+                    "immune window"
+                ],
+                "optionsBank": [
+                    "cytokines",
+                    "immune window",
+                    "troponin",
+                    "lactate threshold",
+                    "myoglobin"
+                ],
+                "hint": "Identify the inflammatory signaling proteins and the post-exercise vulnerability timeframe."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Explain the Cytokine Cascade Theory of overtraining syndrome, detailing how local tissue trauma evolves into systemic neuroendocrine and psychological symptoms.",
+                "model": "The Cytokine Cascade Theory explains OTS as a chronic systemic inflammatory disease. Repetitive musculoskeletal microtrauma and glycogen depletion, when combined with inadequate recovery rest, produce localized muscle tissue inflammation. When heavy loading continues, local inflammation escalates into chronic systemic inflammation. This activates circulating monocytes and macrophages to release high concentrations of pro-inflammatory cytokines (such as IL-1b, IL-6, and TNF-a) into the bloodstream. These cytokines signal into the brain and hypothalamus, altering central neurotransmitter function (serotonin) and dysregulating the HPA axis. This produces systemic 'sickness behavior', including clinical depression symptoms, appetite suppression, sleep disruption, and prolonged performance failure.",
+                "criteria": [
+                    "Explain initial trigger (repetitive microtrauma and glycogen depletion with inadequate rest cause local inflammation).",
+                    "Detail systemic progression (local inflammation evolves into systemic inflammation; monocytes release pro-inflammatory cytokines).",
+                    "Explain CNS effect (cytokines act on brain/HPA axis to induce sickness behavior, depression, appetite loss, and neuroendocrine dysfunction)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Differentiate Nonfunctional Overreaching (NFOR) from Overtraining Syndrome (OTS) based on the ACSM/ECSS Joint Consensus Statement, and outline the clinical exclusion diagnosis protocol.",
+                "model": "According to the ACSM/ECSS Joint Consensus Statement, Nonfunctional Overreaching (NFOR) is a state of stagnated or reduced athletic performance resulting from heavy overload where full recovery of performance and physiological function is achieved after several days to several weeks of rest. In contrast, Overtraining Syndrome (OTS) represents a severe, long-term collapse in performance and neuroendocrine function requiring several months or years for recovery. Because OTS lacks a single definitive biomarker, clinicians must execute an exclusion diagnosis protocol: ruling out underlying medical conditions (anemia, Epstein-Barr virus/mononucleosis, Lyme disease, thyroid disorders, eating disorders) and training errors before confirming OTS.",
+                "criteria": [
+                    "Define NFOR recovery timeframe (stagnated performance resolving within several days to weeks of rest).",
+                    "Define OTS recovery timeframe (long-term performance collapse requiring several months to years).",
+                    "Outline exclusion diagnosis (ruling out organic medical conditions like anemia, EBV, thyroid disorders, and training errors)."
+                ]
+            }
+        ]
+    },
+    "p3": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What is the most practical, evidence-based method for detecting early overtraining in an athlete during routine training?",
+                "opts": [
+                    "Monitoring submaximal heart rate during a standardized fixed-pace exercise test",
+                    "Measuring resting hair follicle growth rate",
+                    "Performing daily brain MRI scans",
+                    "Checking blood type once per month"
+                ],
+                "correct": 0,
+                "rationale": "Because no single biological biomarker diagnoses OTS, monitoring an athlete's heart rate during a standardized submaximal exercise test (e.g., fixed-pace run) provides an objective red flag when submaximal HR increases unexpectedly."
+            },
+            {
+                "id": 2,
+                "q": "What heart rate response occurs during a standardized submaximal exercise test when an athlete is entering an overtrained state?",
+                "opts": [
+                    "Submaximal heart rate is significantly higher at the fixed workload compared to when properly adapted",
+                    "Submaximal heart rate drops to zero during exercise",
+                    "Submaximal heart rate becomes completely unmeasurable",
+                    "Submaximal heart rate decreases by 50 beats per minute"
+                ],
+                "correct": 0,
+                "rationale": "An athlete entering overtraining exhibits an abnormally elevated heart rate response to a standardized submaximal workload compared to their baseline adapted state."
+            },
+            {
+                "id": 3,
+                "q": "How is exercise addiction defined as a psychological condition?",
+                "opts": [
+                    "A compulsive, maladaptive central focus of life continued despite physical injury, illness, or severe personal disruption",
+                    "A healthy habit of exercising 30 minutes 3 times per week",
+                    "An athletic preference for playing team sports during winter months",
+                    "A temporary interest in buying new athletic footwear"
+                ],
+                "correct": 0,
+                "rationale": "Exercise addiction is a psychological condition where exercise becomes compulsive and maladaptive, executed to control negative emotions and continued despite physical injury, illness, or social impairment."
+            },
+            {
+                "id": 4,
+                "q": "What primary psychological motivation distinguishes exercise-addicted individuals from healthy committed exercisers?",
+                "opts": [
+                    "Addicted exercisers engage in exercise compulsively to avoid unpleasant emotions like guilt and severe anxiety",
+                    "Addicted exercisers participate only to earn monetary trophies",
+                    "Addicted exercisers train solely to improve their golf swing mechanics",
+                    "Addicted exercisers perform exercise only when forced by a physician"
+                ],
+                "correct": 0,
+                "rationale": "Committed exercisers view activity as a positive, healthy pursuit, whereas exercise-addicted individuals exercise compulsively as a negative coping mechanism to escape guilt, anxiety, or emotional distress."
+            },
+            {
+                "id": 5,
+                "q": "Which periodized microcycle scheduling strategy effectively guards against neuroendocrine overload and OTS?",
+                "opts": [
+                    "Alternating 1 to 2 days of heavy high-intensity training with an equal number of light recovery days",
+                    "Training at 100% maximal intensity for 30 consecutive days without rest",
+                    "Eliminating all recovery days from the annual macrocycle",
+                    "Executing 5 high-intensity interval sessions per day"
+                ],
+                "correct": 0,
+                "rationale": "Structuring microcycles with a 1:1 or 2:2 hard-to-easy day ratio provides sufficient acute recovery to prevent cumulative neuroendocrine overload."
+            },
+            {
+                "id": 6,
+                "q": "What nutritional practice is essential for endurance athletes during heavy training blocks to prevent accelerating overtraining syndrome?",
+                "opts": [
+                    "Maintaining high calorie and high carbohydrate intake to preserve muscle glycogen and prevent protein catabolism",
+                    "Restricting carbohydrate intake to zero grams per day",
+                    "Consuming only distilled water for 7 consecutive days",
+                    "Restricting total daily energy intake to under 500 kcal"
+                ],
+                "correct": 0,
+                "rationale": "Endurance athletes must consume adequate carbohydrates during heavy training blocks to replenish muscle and liver glycogen; low glycogen forces protein catabolism and accelerates OTS onset."
+            },
+            {
+                "id": 7,
+                "q": "What is the mandatory clinical treatment protocol once an athlete is diagnosed with overtraining syndrome?",
+                "opts": [
+                    "Significant reduction in training intensity or complete rest/cessation of physical activity for weeks or months",
+                    "Doubling daily workout volume immediately to force adaptation",
+                    "Performing 100 depth jumps every morning at sunrise",
+                    "Restricting sleep duration to 2 hours per night"
+                ],
+                "correct": 0,
+                "rationale": "Treating established OTS requires a dramatic reduction in workload or complete cessation of physical training for weeks or months to allow HPA axis and autonomic restoration."
+            },
+            {
+                "id": 8,
+                "q": "What mesocycle deloading strategy helps prevent local acute muscle inflammation from evolving into systemic OTS?",
+                "opts": [
+                    "Following 1 to 2 weeks of hard heavy training with a week of reduced volume and low anaerobic stress",
+                    "Increasing training volume by 50% every week for 52 consecutive weeks",
+                    "Performing 3 workouts daily during deload weeks",
+                    "Replacing all sleep with high-caffeine energy drinks"
+                ],
+                "correct": 0,
+                "rationale": "Including a planned deloading week (reduced volume, minimal anaerobic stress) after 1 to 2 weeks of heavy loading allows tissue repair, preventing local inflammation from becoming systemic."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which methods are effective for monitoring and predicting early overtraining in athletes? (Select all that apply)",
+                "opts": [
+                    "Standardized submaximal exercise testing to detect abnormal heart rate spikes",
+                    "Daily tracking of subjective mood state disturbances and fatigue scores",
+                    "Monitoring resting heart rate trends upon waking",
+                    "Relying on a single universal blood hormone test that guarantees 100% diagnostic accuracy"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Standardized submaximal HR testing, subjective mood tracking, and resting HR monitoring provide objective red flags. No single blood hormone test provides universal diagnosis."
+            },
+            {
+                "id": 2,
+                "q": "Which behavioral characteristics define exercise addiction? (Select all that apply)",
+                "opts": [
+                    "Compulsive exercise driven by a need to avoid guilt and severe anxiety",
+                    "Continuation of high-intensity training despite physical injury or illness",
+                    "Disruption of social, personal, and professional relationships due to compulsive training",
+                    "Complete avoidance of all physical activity for 10 years"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Exercise addiction involves compulsive exercise to escape negative affect, persistence despite injury/illness, and severe personal relationship disruption."
+            },
+            {
+                "id": 3,
+                "q": "Which core preventive strategies protect athletes against overtraining syndrome? (Select all that apply)",
+                "opts": [
+                    "Enforcing hard/easy microcycle ratios (1:1 or 2:2 hard-to-light days)",
+                    "Scheduling regular mesocycle deloading weeks after 1 to 2 weeks of heavy loading",
+                    "Ensuring high-carbohydrate nutrition to preserve muscle glycogen",
+                    "Requiring athletes to train through severe overuse injuries without rest"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Hard/easy scheduling, deload weeks, and high carbohydrate nutrition protect against OTS. Training through severe injuries accelerates OTS."
+            },
+            {
+                "id": 4,
+                "q": "Which physiological restore processes occur during extended total rest in an OTS recovery protocol? (Select all that apply)",
+                "opts": [
+                    "Restoration of hypothalamic-pituitary-adrenocortical (HPA) axis responsiveness",
+                    "Re-balancing of sympathetic and parasympathetic autonomic nervous system tone",
+                    "Recovery of circulating lymphocyte counts and mucosal antibody protection",
+                    "Instant loss of all bone mineral density"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Extended rest restores HPA axis function, autonomic balance, and immune cell/antibody counts. Bone mineral density is not lost instantly."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "An unexplained increase in heart rate during a standardized submaximal exercise test indicates potential overtraining.",
+                "ans": true,
+                "feedback": "True. An elevated submaximal heart rate at a fixed workload serves as a reliable practical indicator of overtraining."
+            },
+            {
+                "id": 2,
+                "q": "Exercise addiction is characterized by a healthy, flexible approach to physical fitness that is easily paused during injury.",
+                "ans": false,
+                "feedback": "False. Exercise addiction is compulsive and maladaptive, continued despite physical injury, illness, or severe personal consequences."
+            },
+            {
+                "id": 3,
+                "q": "Chronic glycogen depletion forces skeletal muscle to catabolize structural proteins for fuel, accelerating overtraining syndrome.",
+                "ans": true,
+                "feedback": "True. Low glycogen forces amino acid oxidation and protein breakdown, elevating blood urea and worsening fatigue."
+            },
+            {
+                "id": 4,
+                "q": "Overtraining syndrome can be completely cured by taking a 15-minute nap after a workout.",
+                "ans": false,
+                "feedback": "False. Curing overtraining syndrome requires weeks to months of workload reduction or complete cessation of physical activity."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Early overtraining is detected by an elevated **submaximal heart rate** during a **standardized exercise test**.",
+                "targets": [
+                    "submaximal heart rate",
+                    "standardized exercise test"
+                ],
+                "optionsBank": [
+                    "submaximal heart rate",
+                    "standardized exercise test",
+                    "maximal stroke volume",
+                    "bone scan",
+                    "isometric hold"
+                ],
+                "hint": "Identify the cardiovascular response marker and the objective testing protocol."
+            },
+            {
+                "id": 2,
+                "statement": "OTS prevention requires **hard/easy microcycles** and adequate **carbohydrate intake** to preserve glycogen.",
+                "targets": [
+                    "hard/easy microcycles",
+                    "carbohydrate intake"
+                ],
+                "optionsBank": [
+                    "hard/easy microcycles",
+                    "carbohydrate intake",
+                    "continuous high volume",
+                    "protein restriction",
+                    "sleep deprivation"
+                ],
+                "hint": "Identify the periodized scheduling rule and the essential dietary macronutrient."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Describe how standardized submaximal exercise testing is used to monitor and predict overtraining in endurance athletes, explaining the physiological basis of the test.",
+                "model": "Standardized submaximal exercise testing involves having an athlete perform a workout at a fixed, repeatable submaximal workload (e.g., running at 6 min/mile or 10 km/h on a treadmill) while tracking heart rate. When an athlete is properly adapted and recovered, heart rate at this fixed workload remains stable and predictable. However, when an athlete enters an overtrained state, the autonomic nervous system becomes dysregulated and cardiovascular efficiency declines. As a result, submaximal heart rate during the standardized test rises significantly above baseline. This unexplained heart rate jump serves as an objective, practical red flag, signaling coaches to immediately reduce training volume before full overtraining syndrome develops.",
+                "criteria": [
+                    "Describe test structure (fixed submaximal workload/pace while tracking heart rate).",
+                    "Explain baseline vs overtrained response (adapted: stable HR vs overtrained: significantly elevated HR at fixed pace).",
+                    "Detail practical application (serves as an objective red flag to reduce workload before OTS occurs)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Detail three core preventive strategies for overtraining syndrome, including periodized microcycle scheduling, mesocycle deloading, and nutritional protection.",
+                "model": "Three core preventive strategies for overtraining syndrome are: (1) Periodized Microcycle Scheduling: Structure microcycles with a hard/easy ratio, alternating 1 to 2 days of heavy high-intensity training with an equal number of light recovery days to allow acute muscular and autonomic recovery; (2) Mesocycle Deloading: Follow 1 to 2 weeks of hard loading with a planned deload week featuring reduced volume and minimal anaerobic stress, preventing local muscle inflammation from progressing into systemic inflammation; and (3) Nutritional Protection: Ensure endurance athletes maintain high calorie and high carbohydrate intake during heavy training blocks. Adequate carbohydrate preserves muscle and liver glycogen, preventing forced protein catabolism and metabolic exhaustion.",
+                "criteria": [
+                    "Explain periodized microcycle scheduling (1:1 or 2:2 hard-to-light day ratio for acute recovery).",
+                    "Explain mesocycle deloading (reduced volume week after 1-2 weeks hard loading to prevent systemic inflammation).",
+                    "Explain nutritional protection (high carbohydrate intake to preserve glycogen and prevent muscle protein breakdown)."
+                ]
+            }
+        ]
+    }
+}

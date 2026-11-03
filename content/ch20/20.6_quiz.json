@@ -1,0 +1,496 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "Which activities form the central core of an exercise program to develop cardiorespiratory capacity and efficiency?",
+                "opts": [
+                    "Endurance training activities (e.g., walking, running, cycling, swimming, rowing)",
+                    "Isolated bowling and golf without walking",
+                    "Static stretching performed exclusively before warm-up",
+                    "Single-joint wrist curls"
+                ],
+                "correct": 0,
+                "rationale": "Physical activities that develop cardiorespiratory endurance are the heart of the exercise program, improving capacity and efficiency of cardiovascular, respiratory, and metabolic systems."
+            },
+            {
+                "id": 2,
+                "q": "What is the primary physiological purpose of beginning an exercise session with a low-intensity dynamic warm-up?",
+                "opts": [
+                    "To gradually increase heart rate, respiration, and tissue temperature to prepare the cardiorespiratory and muscular systems for vigorous exercise",
+                    "To induce acute muscle glycogen depletion prior to endurance training",
+                    "To reduce maximal cardiac output during subsequent exercise",
+                    "To induce muscle fatigue and elevate blood lactate prior to workout"
+                ],
+                "correct": 0,
+                "rationale": "A dynamic warm-up gradually increases heart rate and breathing, preparing the exerciser for efficient, safe functioning of the heart, blood vessels, lungs, and muscles during vigorous exercise."
+            },
+            {
+                "id": 3,
+                "q": "Why is an active cool-down period essential immediately following an endurance exercise bout?",
+                "opts": [
+                    "It maintains the skeletal muscle pump, preventing blood from pooling in the extremities and reducing risks of syncope and dysrhythmias",
+                    "It increases circulating catecholamine levels to maximal limits",
+                    "It converts slow-twitch muscle fibers into fast-twitch muscle fibers",
+                    "It prevents any sweating from occurring during post-exercise recovery"
+                ],
+                "correct": 0,
+                "rationale": "Stopping abruptly after endurance exercise causes blood to pool in the legs, leading to dizziness or fainting (syncope). Also, elevated recovery catecholamines combined with abrupt stopping can trigger cardiac dysrhythmias."
+            },
+            {
+                "id": 4,
+                "q": "Why are quick, ballistic stretching movements considered dangerous during flexibility training?",
+                "opts": [
+                    "They can trigger acute muscle pulls or spasms by activating the stretch reflex",
+                    "They lower heart rate too rapidly below resting levels",
+                    "They increase bone mineral density excessively in 5 seconds",
+                    "They prevent blood flow to the brain completely"
+                ],
+                "correct": 0,
+                "rationale": "Flexibility exercises should be performed slowly because quick stretching movements are potentially dangerous and can lead to muscle pulls or spasms."
+            },
+            {
+                "id": 5,
+                "q": "When are muscles, tendons, ligaments, and joints hypothesized to be most adaptable and responsive to flexibility exercises?",
+                "opts": [
+                    "After the endurance conditioning phase when muscle and tissue temperatures are elevated",
+                    "Prior to any warm-up while muscle tissue is completely cold",
+                    "Only during 3:00 AM REM sleep",
+                    "Exclusively while lifting maximal 1RM loads"
+                ],
+                "correct": 0,
+                "rationale": "It is hypothesized that muscles, tendons, ligaments, and joints are more adaptable and responsive to flexibility exercises when performed after the endurance conditioning phase."
+            },
+            {
+                "id": 6,
+                "q": "Which sports provide high aerobic training potential if pursued vigorously?",
+                "opts": [
+                    "Handball, racquetball, tennis, badminton, and basketball",
+                    "Golf with a motorized cart, bowling, and archery",
+                    "Softball, billiards, and darts",
+                    "Chess and esports"
+                ],
+                "correct": 0,
+                "rationale": "Sports such as handball, racquetball, tennis, badminton, and basketball have high aerobic potential if pursued vigorously."
+            },
+            {
+                "id": 7,
+                "q": "How do sports like golf, bowling, and softball rate regarding cardiorespiratory endurance development?",
+                "opts": [
+                    "They offer minimal value for developing cardiorespiratory endurance but possess definite recreational and health-related physical activity value",
+                    "They provide 100% of the aerobic conditioning needed for marathon runners",
+                    "They are strictly prohibited in any physical activity program",
+                    "They elevate VO2max higher than continuous running"
+                ],
+                "correct": 0,
+                "rationale": "Golf, bowling, and softball are generally of little value for developing cardiorespiratory endurance, but they have definite recreational and physical activity value."
+            },
+            {
+                "id": 8,
+                "q": "What risk is associated with elevated recovery catecholamines immediately following an abrupt stop in endurance exercise?",
+                "opts": [
+                    "It can lead to cardiac dysrhythmias",
+                    "It causes instantaneous skeletal muscle hypertrophy",
+                    "It completely stops lipid oxidation",
+                    "It lowers body temperature to freezing levels"
+                ],
+                "correct": 0,
+                "rationale": "Elevated catecholamine levels during immediate recovery following abrupt exercise termination can lead to heart dysrhythmias."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which physiological responses are directly facilitated by a dynamic warm-up? (Select all that apply)",
+                "opts": [
+                    "Gradual elevation of heart rate and respiration rate",
+                    "Increased tissue temperature and muscle blood flow",
+                    "Preparation of cardiovascular and pulmonary systems for vigorous exertion",
+                    "Immediate 50% loss of muscle mass"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "A dynamic warm-up gradually increases heart rate, breathing, muscle blood flow, and tissue temperature to prepare the body for vigorous work."
+            },
+            {
+                "id": 2,
+                "q": "Which physiological consequences can occur if endurance exercise is terminated abruptly without a cool-down? (Select all that apply)",
+                "opts": [
+                    "Venous blood pooling in the lower extremities",
+                    "Dizziness or fainting (syncope) due to reduced venous return",
+                    "Increased risk of cardiac dysrhythmias from elevated recovery catecholamines",
+                    "Instantaneous complete recovery of all muscle glycogen"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Abrupt termination causes venous blood pooling in the legs, dizziness/fainting, and dysrhythmia risks due to elevated catecholamines."
+            },
+            {
+                "id": 3,
+                "q": "Which activities serve as effective primary modalities for developing cardiorespiratory endurance? (Select all that apply)",
+                "opts": [
+                    "Walking, jogging, and running",
+                    "Cycling, swimming, and rowing",
+                    "Vigorous racquet sports (handball, racquetball, tennis)",
+                    "Bowling and darts exclusively"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Walking, jogging, running, cycling, swimming, rowing, and vigorous racquet sports all develop cardiorespiratory endurance."
+            },
+            {
+                "id": 4,
+                "q": "Which guidelines apply to flexibility training safety and effectiveness? (Select all that apply)",
+                "opts": [
+                    "Flexibility exercises should be performed slowly and deliberately",
+                    "Quick, ballistic stretching should be avoided to prevent muscle pulls or spasms",
+                    "Stretching warm muscles after endurance exercise enhances tissue adaptability",
+                    "Stretching should always involve rapid bouncing movements"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Flexibility exercises should be slow; quick movements risk pulls/spasms, and stretching warm tissues post-endurance improves adaptability."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "A dynamic warm-up should consist of low-intensity activities that prepare the cardiorespiratory and muscular systems for vigorous exertion.",
+                "ans": true,
+                "feedback": "True. Dynamic warm-ups gradually increase heart rate and breathing, preparing the body for safe, efficient vigorous exercise."
+            },
+            {
+                "id": 2,
+                "q": "Stopping abruptly after a vigorous run helps accelerate venous blood return to the heart.",
+                "ans": false,
+                "feedback": "False. Stopping abruptly causes blood to pool in the legs due to loss of the muscle pump, causing dizziness or fainting."
+            },
+            {
+                "id": 3,
+                "q": "Elevated catecholamines during immediate recovery from abrupt exercise termination can trigger heart dysrhythmias.",
+                "ans": true,
+                "feedback": "True. High circulating catecholamine levels combined with abrupt exercise cessation increase the risk of cardiac dysrhythmias."
+            },
+            {
+                "id": 4,
+                "q": "Quick, ballistic stretching movements are recommended as the safest way to increase joint range of motion.",
+                "ans": false,
+                "feedback": "False. Quick stretching movements are dangerous and can cause muscle pulls or spasms; flexibility exercises should be performed slowly."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Abrupt exercise cessation causes blood pooling in the legs leading to **dizziness or fainting**, while elevated **catecholamine levels** increase dysrhythmia risk.",
+                "targets": [
+                    "dizziness or fainting",
+                    "catecholamine levels"
+                ],
+                "optionsBank": [
+                    "dizziness or fainting",
+                    "catecholamine levels",
+                    "hypertrophy",
+                    "glycogen depletion",
+                    "bradycardia"
+                ],
+                "hint": "Identify the cerebral symptom of venous pooling and the hormone class linked to post-exercise dysrhythmias."
+            },
+            {
+                "id": 2,
+                "statement": "Endurance training forms the core of an exercise program, whereas flexibility is most effective when performed **after the endurance conditioning phase**.",
+                "targets": [
+                    "after the endurance conditioning phase"
+                ],
+                "optionsBank": [
+                    "after the endurance conditioning phase",
+                    "before the warm-up",
+                    "during maximal 1RM lifts",
+                    "only while sleeping"
+                ],
+                "hint": "Identify when tissues are most compliant and responsive to stretching exercises."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Explain the physiological necessity of an active cool-down period following vigorous cardiorespiratory endurance exercise, detailing the risks of abrupt termination.",
+                "model": "An active cool-down (such as tapering from a run to a slow walk for several minutes) is physiologically critical because it maintains the skeletal muscle pump. During vigorous exercise, contracting leg muscles compress veins to propel blood back to the heart. Stopping abruptly eliminates this muscle pump while systemic vasodilation remains, causing blood to pool in the lower extremities. This sudden drop in venous return reduces cardiac output and cerebral blood flow, causing orthostatic hypotension, dizziness, or syncope. Additionally, circulating catecholamines (epinephrine and norepinephrine) remain elevated during immediate recovery; abrupt cessation combined with high catecholamines significantly elevates the risk of heart dysrhythmias.",
+                "criteria": [
+                    "Explain the skeletal muscle pump mechanism during active cool-down.",
+                    "Detail the physiological consequences of abrupt cessation (venous blood pooling, reduced venous return, dizziness/syncope).",
+                    "Explain the cardiovascular arrhythmia risk associated with elevated post-exercise catecholamines."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Detail the components and physiological objectives of a proper exercise warm-up and flexibility training protocol.",
+                "model": "A proper warm-up begins with 5 to 10 minutes of low-intensity dynamic activity (such as light jogging, lunges, or light-resistance band work) that mirrors the workout modalities at reduced intensity. Physiological objectives include gradually elevating heart rate, cardiac output, respiration, and muscle tissue temperature, preparing the cardiovascular, respiratory, and neuromuscular systems for safe, efficient vigorous exertion. Flexibility exercises should be performed slowly and deliberately, avoiding dangerous quick/ballistic movements that trigger muscle pulls or spasms. Flexibility training is most effective when conducted after the endurance conditioning phase when muscle and connective tissues are warm and pliable.",
+                "criteria": [
+                    "Detail warm-up protocol (5-10 min low-intensity dynamic movements mirroring workout).",
+                    "State warm-up physiological objectives (elevate HR, breathing, tissue temp, prepare cardiorespiratory system).",
+                    "State flexibility guidelines (slow deliberate movements; avoid ballistic stretching; perform when tissues are warm post-endurance)."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What initial weight intensity range is recommended for beginners starting a resistance training program?",
+                "opts": [
+                    "40% to 60% of 1-repetition maximum (1RM)",
+                    "85% to 100% of 1RM",
+                    "10% to 20% of 1RM",
+                    "Always 100% 1RM to failure on day 1"
+                ],
+                "correct": 0,
+                "rationale": "When starting a resistance training program, beginners should initiate lifting with a weight between 40% and 60% of their 1RM."
+            },
+            {
+                "id": 2,
+                "q": "How many repetitions per set are generally recommended for improving muscular strength and power in most healthy adults?",
+                "opts": [
+                    "8 to 12 repetitions",
+                    "1 to 2 repetitions",
+                    "50 to 100 repetitions",
+                    "Exactly 500 repetitions"
+                ],
+                "correct": 0,
+                "rationale": "Generally, between 8 and 12 repetitions are recommended for improvement of strength and power in most adults."
+            },
+            {
+                "id": 3,
+                "q": "What progress milestone indicates that an individual is ready to increase weight to the next higher increment in progressive resistance exercise?",
+                "opts": [
+                    "When they can successfully complete 15 repetitions on the first set",
+                    "When they complete 2 repetitions with extreme difficulty",
+                    "After exactly 1 year of using the same weight",
+                    "When resting heart rate drops below 30 bpm"
+                ],
+                "correct": 0,
+                "rationale": "When people reach 15 repetitions on the first set, they are usually ready to progress to the next higher weight in progressive resistance training."
+            },
+            {
+                "id": 4,
+                "q": "How many sets per exercise are sufficient to achieve strength gains in previously untrained individuals?",
+                "opts": [
+                    "Just 1 set per day",
+                    "Minimum of 10 sets per exercise",
+                    "Exactly 20 sets per muscle group",
+                    "Strength gains require at least 5 sets per lift"
+                ],
+                "correct": 0,
+                "rationale": "Strength gains appear to be fully achieved with just one set per day in previously untrained people."
+            },
+            {
+                "id": 5,
+                "q": "What fitness components are specifically targeted by neuromotor exercise (functional training)?",
+                "opts": [
+                    "Balance, agility, coordination, gait, proprioception, and core engagement",
+                    "Maximal oxygen uptake (VO2max) during marathon running",
+                    "1RM bench press strength exclusively",
+                    "Resting metabolic rate acceleration during sleep"
+                ],
+                "correct": 0,
+                "rationale": "Neuromotor exercise (functional training) includes balance, engagement of musculature, proprioceptive training, gait, and core training."
+            },
+            {
+                "id": 6,
+                "q": "What primary functional benefits have been documented for neuromotor (functional) exercise in clinical populations?",
+                "opts": [
+                    "Fall prevention in older adults and reduced musculoskeletal injury in athletes",
+                    "Complete reversal of type 1 diabetes in 24 hours",
+                    "Immediate 10-inch growth in body height",
+                    "Elimination of the need for all dietary intake"
+                ],
+                "correct": 0,
+                "rationale": "Initial research indicates that functional exercise helps in fall prevention in older adults and reduces injury in athletes."
+            },
+            {
+                "id": 7,
+                "q": "If time is a limiting factor during a resistance training session, what modification is recommended?",
+                "opts": [
+                    "Reduce the number of sets to 1 or 2 while maintaining a full-body workout",
+                    "Eliminate lower-body exercises completely and train only arms",
+                    "Skip warm-up and cool-down while lifting 100% 1RM as fast as possible",
+                    "Cancel the workout permanently"
+                ],
+                "correct": 0,
+                "rationale": "If time is a factor, it is better to reduce the number of sets to one or two and maintain a full-body workout taxing all major muscle groups."
+            },
+            {
+                "id": 8,
+                "q": "Which criteria should be evaluated when selecting recreational activities for a health improvement program?",
+                "opts": [
+                    "Skill competency, social opportunities, financial cost, long-term interest, and safety for age/health status",
+                    "Only whether the sport leads to an Olympic gold medal",
+                    "Whether the activity requires buying $10,000 of gear",
+                    "Selecting activities that cause severe joint pain"
+                ],
+                "correct": 0,
+                "rationale": "Guidelines for selecting recreational activities include ability to perform with moderate success, social opportunities, reasonable cost, long-term interest, and safety."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which resistance training guidelines are recommended for healthy adult exercise programming? (Select all that apply)",
+                "opts": [
+                    "Beginners start at 40% to 60% of 1RM",
+                    "8 to 12 repetitions per set for strength and power",
+                    "Progress to higher weight when 15 repetitions are reached on the first set",
+                    "Untrained individuals must perform 10 sets per exercise to gain any strength"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Beginners start at 40-60% 1RM, perform 8-12 reps/set, and progress when hitting 15 reps on set 1. 1 set is sufficient for untrained adults."
+            },
+            {
+                "id": 2,
+                "q": "Which elements are characteristic of neuromotor (functional) exercise? (Select all that apply)",
+                "opts": [
+                    "Multi-joint exercises using body weight, light dumbbells, kettlebells, or bands",
+                    "Incorporation into movements such as lunges, lifts, bending, and twisting",
+                    "Reactivation of muscle groups (e.g., gluteals, abdominals) inhibited by sedentary behavior",
+                    "Exclusively static single-joint bench press repetitions"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Neuromotor exercise uses multi-joint dynamic movements (lunges, lifts, twists) to engage balance, core, gluteals, and proprioception."
+            },
+            {
+                "id": 3,
+                "q": "Which muscle groups should be targeted in a comprehensive full-body resistance training program? (Select all that apply)",
+                "opts": [
+                    "Upper body major muscle groups",
+                    "Trunk and abdominal muscle groups",
+                    "Lower body major muscle groups",
+                    "Exclusively right forearm flexors"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "A comprehensive resistance program should tax most or all major muscle groups of the upper body, trunk, and lower body."
+            },
+            {
+                "id": 4,
+                "q": "Which criteria determine the suitability of a recreational activity for a participant's program? (Select all that apply)",
+                "opts": [
+                    "Ability to perform the activity with at least moderate success",
+                    "Reasonable cost within the participant's budget",
+                    "Safety given current age and health status",
+                    "Guaranteed professional sports contract"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Recreational activity selection depends on performance success, social aspects, reasonable budget, long-term interest, and personal safety."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "Beginners in resistance training should start with loads between 40% and 60% of their 1RM.",
+                "ans": true,
+                "feedback": "True. ACSM guidelines recommend starting novice lifters at 40% to 60% 1RM to build foundational strength safely."
+            },
+            {
+                "id": 2,
+                "q": "Progressive resistance training dictates increasing weight when an exerciser reaches 15 repetitions on their first set.",
+                "ans": true,
+                "feedback": "True. Reaching 15 repetitions on set 1 indicates readiness to progress to the next higher weight increment."
+            },
+            {
+                "id": 3,
+                "q": "Neuromotor exercise focuses solely on maximal aerobic VO2max expansion without involving balance or coordination.",
+                "ans": false,
+                "feedback": "False. Neuromotor exercise (functional training) targets balance, coordination, gait, proprioception, and core stabilization."
+            },
+            {
+                "id": 4,
+                "q": "In previously untrained individuals, significant strength gains can be achieved with just one set per exercise per day.",
+                "ans": true,
+                "feedback": "True. Research confirms that a single set per exercise yields full initial strength gains in previously untrained adults."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Novice resistance lifters should start at **40% to 60% of 1RM**, performing **8 to 12 repetitions** per set.",
+                "targets": [
+                    "40% to 60% of 1RM",
+                    "8 to 12 repetitions"
+                ],
+                "optionsBank": [
+                    "40% to 60% of 1RM",
+                    "8 to 12 repetitions",
+                    "100% 1RM",
+                    "500 repetitions",
+                    "10% 1RM"
+                ],
+                "hint": "Identify the initial resistance loading percentage range and target repetition range for adults."
+            },
+            {
+                "id": 2,
+                "statement": "Functional training is also called **neuromotor exercise**, which aids in **fall prevention in older adults**.",
+                "targets": [
+                    "neuromotor exercise",
+                    "fall prevention in older adults"
+                ],
+                "optionsBank": [
+                    "neuromotor exercise",
+                    "fall prevention in older adults",
+                    "plyometrics",
+                    "carbohydrate loading",
+                    "bed rest"
+                ],
+                "hint": "Identify the formal term for functional training and its key clinical benefit for seniors."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Outline the resistance training guidelines for a beginner adult, including starting intensity (%1RM), repetition ranges, progression criteria, and set volume options when time is limited.",
+                "model": "Starting Intensity & Repetitions: Beginners should start at 40% to 60% of their 1-repetition maximum (1RM) for each lift, performing 8 to 12 repetitions per set to develop strength and power. Progression Criteria: Under progressive resistance exercise principles, when an individual can complete 15 repetitions on their first set, they should progress to the next higher weight increment. Set Volume & Time Constraints: Performing 2 to 3 sets per exercise, 2 or 3 days per week on non-consecutive days is standard. However, in previously untrained individuals, significant strength gains are achieved with just 1 set per exercise per day. If workout time is limited, set volume should be reduced to 1 or 2 sets while preserving a full-body workout taxing upper body, trunk, and lower body.",
+                "criteria": [
+                    "State starting intensity (40% to 60% 1RM) and repetition range (8 to 12 reps/set).",
+                    "Detail progression rule (increase weight when reaching 15 reps on set 1).",
+                    "Explain set options (2-3 sets standard, 1 set effective for novices; reduce sets to 1-2 if time is constrained to maintain full-body focus)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Define neuromotor exercise (functional training), describing its key fitness components, exercise modalities, and documented functional/clinical benefits.",
+                "model": "Definition & Components: Neuromotor exercise (functional training) incorporates balance, agility, coordination, gait, proprioceptive awareness, and core muscle engagement. Modalities: It utilizes multi-joint, multi-planar movements incorporating body weight, light dumbbells, kettlebells, resistance bands, or weighted balls into functional movement patterns such as lunges, lifts, and bending/twisting. Functional & Clinical Benefits: These exercises improve the ability to perform activities of daily living and reactivate muscle groups (such as gluteals and abdominals) that become neuromuscularly inhibited during sedentary sitting. Clinically, initial research demonstrates that neuromotor training aids in fall prevention in older adults and reduces athletic injury risk.",
+                "criteria": [
+                    "Define neuromotor exercise components (balance, agility, coordination, gait, proprioception, core engagement).",
+                    "Describe modalities/movements (multi-joint bodyweight, kettlebells, bands incorporated into lunges, lifts, twists).",
+                    "Explain functional/clinical benefits (daily living performance, reactivation of gluteal/abdominal muscles, fall prevention in seniors, injury reduction in athletes)."
+                ]
+            }
+        ]
+    }
+}

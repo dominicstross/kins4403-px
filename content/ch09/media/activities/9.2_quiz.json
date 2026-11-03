@@ -1,0 +1,748 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What core concept is established by the principle of individuality in exercise physiology?",
+                "opts": [
+                    "All individuals adapt at identical rates when given the same training program",
+                    "Heredity plays a major role, causing individuals to adapt differently to exercise training",
+                    "Individual athletic performance depends exclusively on mental discipline",
+                    "Training adaptations are entirely independent of biological genetics"
+                ],
+                "correct": 1,
+                "rationale": "The principle of individuality states that heredity plays a primary role in determining how an individual responds and adapts to exercise training, resulting in non-uniform adaptation across individuals."
+            },
+            {
+                "id": 2,
+                "q": "What term designates individuals who show minimal or negligible physiological improvements after completing a structured exercise program identical to one that produces large gains in others?",
+                "opts": [
+                    "High responders",
+                    "Low responders",
+                    "Overtrained athletes",
+                    "Non-genetic adapters"
+                ],
+                "correct": 1,
+                "rationale": "Individuals who exhibit minimal or non-detectable physiological improvements following a standard exercise protocol are classified as low responders."
+            },
+            {
+                "id": 3,
+                "q": "According to the principle of specificity, how must a training program be designed to achieve optimal performance transfer?",
+                "opts": [
+                    "It must focus exclusively on high-volume marathon running regardless of sport",
+                    "It must stress the specific energy systems and neuromuscular structures critical to the sport",
+                    "It must avoid high-intensity exercise entirely",
+                    "It must alter exercise selection daily without targeting specific movement patterns"
+                ],
+                "correct": 1,
+                "rationale": "The principle of specificity dictates that training adaptations are specific to the mode, intensity, duration, and movement patterns of exercise; programs must target the primary energy systems and muscle actions of the sport."
+            },
+            {
+                "id": 4,
+                "q": "Why would high-volume long-distance running be counterproductive for an elite shot-putter requiring maximal explosive power?",
+                "opts": [
+                    "Long-distance running destroys joint cartilage instantly",
+                    "Distance running fails to train the high-intensity anaerobic energy systems and high rate of force development required in shot-putting",
+                    "Shot-putters lack the aerobic enzymes required for running",
+                    "Distance running increases explosive power too rapidly for field athletes"
+                ],
+                "correct": 1,
+                "rationale": "Specificity dictates that high-volume aerobic running stresses slow-twitch oxidative pathways, failing to develop the rapid neuromuscular force development and ATP-PCr energy system required for shot-putting."
+            },
+            {
+                "id": 5,
+                "q": "Which underlying biological factor contributes to inter-individual variance in exercise training adaptations?",
+                "opts": [
+                    "Genetically mediated rates of satellite cell activation and muscle protein synthesis",
+                    "Uniform endocrine receptor sensitivity across all human beings",
+                    "Identical baseline mitochondrial density in all skeletal muscle",
+                    "Equal cardiac stroke volume capacity regardless of genetics"
+                ],
+                "correct": 0,
+                "rationale": "Variations in training response (high vs. low responders) are driven by genetic differences in muscle protein synthesis, satellite cell recruitment, metabolic kinetics, and endocrine function."
+            },
+            {
+                "id": 6,
+                "q": "What physiological characteristic is typically observed in athletes trained strictly for maximal strength and power, such as elite weightlifters?",
+                "opts": [
+                    "Exceptional force capabilities accompanied by aerobic endurance comparable to untrained individuals",
+                    "World-class VO2max values exceeding elite marathon runners",
+                    "Total absence of fast-twitch muscle fibers",
+                    "Complete inability to recruit high-threshold motor units"
+                ],
+                "correct": 0,
+                "rationale": "Due to specificity, weightlifters develop extreme strength and high-threshold motor unit power, but their aerobic capacity remains similar to that of untrained people because oxidative pathways were not stressed."
+            },
+            {
+                "id": 7,
+                "q": "If two non-twin athletes complete an identical 12-week resistance training program, what outcome is predicted by the principle of individuality?",
+                "opts": [
+                    "Both athletes will gain exactly 5.0 kg of muscle mass",
+                    "The athletes will demonstrate varying degrees of strength and hypertrophic adaptation due to genetic differences",
+                    "Neither athlete will show any measurable physiological change",
+                    "Both athletes will experience identical reductions in cardiac output"
+                ],
+                "correct": 1,
+                "rationale": "Except for identical twins, genetic variation dictates that no two individuals adapt identically to the same exercise regimen."
+            },
+            {
+                "id": 8,
+                "q": "What is the primary practical implication of the principle of individuality for strength coaches and exercise physiologists?",
+                "opts": [
+                    "Coaches should prescribe identical rigid workouts to all athletes",
+                    "Coaches must monitor individual training responses and adjust programs to accommodate high and low responders",
+                    "Coaches should eliminate all resistance exercise from training plans",
+                    "Coaches must assume low responders cannot engage in physical activity"
+                ],
+                "correct": 1,
+                "rationale": "Understanding individuality requires coaches to customize workloads and progression rates rather than expecting uniform adaptation from a single generic template."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which physiological variables explain why individuals demonstrate high or low responsiveness to resistance training? (Select all that apply)",
+                "opts": [
+                    "Genetically governed muscle protein synthesis and satellite cell kinetics",
+                    "Variations in baseline endocrine hormone levels and receptor sensitivity",
+                    "Differences in neural motor unit recruitment thresholds and activation",
+                    "Uniform pulmonary alveolar capillary surface area in all humans"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Inter-individual variance stems from cellular growth kinetics, endocrine function/sensitivity, and neural drive. Alveolar surface area is not a uniform driver of strength variance."
+            },
+            {
+                "id": 2,
+                "q": "Which factors must be aligned with sport demands according to the principle of specificity? (Select all that apply)",
+                "opts": [
+                    "Metabolic energy systems (ATP-PCr, glycolytic, or oxidative pathways)",
+                    "Movement velocity and rate of force development",
+                    "Specific muscle groups and joint biomechanics involved",
+                    "Color of athletic footwear worn during practice"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Specificity demands matching metabolic energy systems, movement velocity, and muscle action patterns to competition requirements."
+            },
+            {
+                "id": 3,
+                "q": "Which statements accurately reflect the principle of individuality? (Select all that apply)",
+                "opts": [
+                    "Heredity plays a key role in acute responses and chronic adaptations to exercise",
+                    "Identical twins are the main exception demonstrating nearly identical adaptations",
+                    "High responders gain significant fitness while low responders gain less under the same stimulus",
+                    "All humans possess identical genetic capacity for muscle hypertrophy"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Heredity dictates individual response, twins show similar gains, and high/low responder status reflects genetic variation."
+            },
+            {
+                "id": 4,
+                "q": "Which training mismatches violate the principle of specificity? (Select all that apply)",
+                "opts": [
+                    "Prescribing marathon running to increase 1RM squat strength",
+                    "Using heavy 1RM powerlifting to train a 100-meter sprinter's aerobic endurance",
+                    "Performing high-velocity plyometrics to improve explosive vertical jump",
+                    "Training slow, low-intensity bench press for explosive shot-put performance"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    3
+                ],
+                "rationale": "Distance running for 1RM strength, powerlifting for aerobic endurance, and slow lifting for explosive shot-putting violate specificity. Plyometrics for vertical jump aligns with specificity."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "The principle of individuality states that every individual responds and adapts to exercise training in an identical manner.",
+                "ans": false,
+                "feedback": "False. Due to genetic variations, individuals adapt differently to exercise training, producing high and low responders."
+            },
+            {
+                "id": 2,
+                "q": "Training adaptations are specific to the mode, intensity, duration, and movement speed of the exercise performed.",
+                "ans": true,
+                "feedback": "True. The principle of specificity establishes that physiological adaptations occur specifically in the systems and muscle actions stressed."
+            },
+            {
+                "id": 3,
+                "q": "Low responders are individuals who show little or no physiological improvement following a structured exercise program.",
+                "ans": true,
+                "feedback": "True. Low responders exhibit minimal performance gains compared to high responders under identical training protocols."
+            },
+            {
+                "id": 4,
+                "q": "Elite weightlifters who possess extreme muscular power typically exhibit exceptionally high aerobic capacity (VO2max).",
+                "ans": false,
+                "feedback": "False. Mismatched training means weightlifters develop high strength/power but maintain aerobic capacity similar to untrained individuals."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "The principle of **individuality** explains why genetics create high and **low responders** to identical exercise programs.",
+                "targets": [
+                    "individuality",
+                    "low responders"
+                ],
+                "optionsBank": [
+                    "individuality",
+                    "low responders",
+                    "reversibility",
+                    "hypertrophy",
+                    "glycogen"
+                ],
+                "hint": "Identify the genetic training principle and the minimal-adaptation classification."
+            },
+            {
+                "id": 2,
+                "statement": "According to the principle of **specificity**, exercise adaptations depend directly on the mode, intensity, and **movement patterns** stressed.",
+                "targets": [
+                    "specificity",
+                    "movement patterns"
+                ],
+                "optionsBank": [
+                    "specificity",
+                    "movement patterns",
+                    "overload",
+                    "heart rate",
+                    "detraining"
+                ],
+                "hint": "Identify the target system principle and the biomechanical action variable."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Define the principle of individuality and explain how genetic variations create 'high responders' and 'low responders' in exercise training programs.",
+                "model": "The principle of individuality states that training programs must account for specific individual needs and capacities because genetic heredity causes people to respond and adapt differently to exercise. High responders are individuals who exhibit substantial physiological gains (e.g., muscle hypertrophy, strength increases, VO2max expansion) in response to a given training regimen. Low responders show minimal or non-detectable improvements under the exact same protocol. Inter-individual variance is driven by biological factors including genetically mediated rates of satellite cell activation, protein synthesis, endocrine receptor sensitivity, and neural motor unit recruitment.",
+                "criteria": [
+                    "Define the principle of individuality (heredity drives non-uniform exercise response/adaptation).",
+                    "Distinguish between high responders (large gains) and low responders (minimal gains) under identical programs.",
+                    "Cite underlying biological factors (protein synthesis rates, satellite cells, endocrine sensitivity, neural drive)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Explain the principle of specificity, detailing why a cross-training regimen of high-volume aerobic distance running fails to enhance performance in an explosive sport like shot-putting.",
+                "model": "The principle of specificity dictates that physiological adaptations are highly specific to the exercise mode, intensity, duration, metabolic energy systems, and movement patterns stressed during training. Shot-putting requires maximal explosive power, rapid rate of force development (RFD), and high reliance on the anaerobic ATP-PCr energy system in fast-twitch motor units. High-volume distance running stresses slow-twitch oxidative muscle fibers, mitochondrial enzymes, and aerobic pathways while failing to load high-threshold motor units or explosive velocity. Consequently, running does not transfer to shot-put performance.",
+                "criteria": [
+                    "Define the principle of specificity (adaptations match exercise mode, intensity, energy system, and movement pattern).",
+                    "Describe shot-putting physiological demands (explosive power, high RFD, ATP-PCr system, fast-twitch fibers).",
+                    "Explain why distance running fails to transfer (stresses oxidative pathways and slow-twitch fibers without high RFD loading)."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What is the primary requirement of the principle of progressive overload for continued physical improvement?",
+                "opts": [
+                    "Systematically increasing the physical demands placed upon the body beyond baseline operational levels",
+                    "Decreasing training load to zero every alternate week",
+                    "Maintaining identical resistance loads for several consecutive years",
+                    "Replacing all resistance exercise with flexibility training"
+                ],
+                "correct": 0,
+                "rationale": "Progressive overload requires systematically increasing workloads or resistance to continually stress target tissues beyond baseline capacity."
+            },
+            {
+                "id": 2,
+                "q": "What occurs when a muscle is repeatedly loaded at the exact same resistance without progressing the stimulus over time?",
+                "opts": [
+                    "Continuous exponential growth in muscle fiber size",
+                    "Accommodation and a plateau in strength and performance gains",
+                    "Immediate catastrophic muscle fiber atrophy",
+                    "Spontaneous conversion of Type I fibers into Type IIx fibers"
+                ],
+                "correct": 1,
+                "rationale": "If the training stimulus is not progressively increased, the tissue adapts to the current load, leading to accommodation and a performance plateau."
+            },
+            {
+                "id": 3,
+                "q": "How is the principle of reversibility commonly summarized in exercise physiology?",
+                "opts": [
+                    "\"No pain, no gain\"",
+                    "\"Use it or lose it\"",
+                    "\"More is always better\"",
+                    "\"Fast velocity equals high force\""
+                ],
+                "correct": 1,
+                "rationale": "Reversibility dictates that training adaptations are transient and will regress toward baseline if training stops, summarized as \"use it or lose it.\""
+            },
+            {
+                "id": 4,
+                "q": "When a novice lifter progresses from performing 10 repetitions at 30 kg to 15 repetitions at 30 kg, what adjustment maintains progressive overload?",
+                "opts": [
+                    "Increasing the resistance load (e.g., by 2.3 kg / 5 lb) to reset repetition capacity to 8–10 reps",
+                    "Reducing the load to 15 kg for 30 repetitions",
+                    "Stopping training for 4 weeks to induce detraining",
+                    "Keeping the load at 30 kg for another 6 months without change"
+                ],
+                "correct": 0,
+                "rationale": "As repetition capacity increases at a given weight, advancing the load (e.g., adding 2.3 kg) resets the repetition range to challenge muscle tissue continuously."
+            },
+            {
+                "id": 5,
+                "q": "Which cardiorespiratory change occurs rapidly during detraining following the cessation of endurance conditioning?",
+                "opts": [
+                    "Rapid reduction in plasma volume and maximal cardiac stroke volume",
+                    "Dramatic expansion of total red blood cell volume",
+                    "Doubling of maximal cardiac output",
+                    "Increase in capillary-to-fiber ratio"
+                ],
+                "correct": 0,
+                "rationale": "Detraining from endurance exercise causes rapid declines in plasma volume, stroke volume, and maximal cardiac output, lowering VO2max."
+            },
+            {
+                "id": 6,
+                "q": "What neuromuscular alteration accompanies complete resistance training cessation during detraining?",
+                "opts": [
+                    "Reductions in motor unit recruitment frequency and loss of muscle fiber cross-sectional area (atrophy)",
+                    "Immediate doubling of motor unit firing rates",
+                    "Permanent gain in muscle cross-sectional area",
+                    "Hyper-activation of Golgi tendon organs"
+                ],
+                "correct": 0,
+                "rationale": "Cessation of resistance training leads to neural regression (decreased motor unit activation/firing rate) and muscular atrophy."
+            },
+            {
+                "id": 7,
+                "q": "In progressive overload for aerobic conditioning, which variables can be manipulated to increase training stimulus?",
+                "opts": [
+                    "Increasing work rate, volume, or interval intensity, or decreasing recovery duration",
+                    "Increasing rest duration between sessions to 10 days",
+                    "Decreasing running speed while reducing weekly mileage",
+                    "Eliminating all metabolic heart rate tracking"
+                ],
+                "correct": 0,
+                "rationale": "Aerobic progressive overload involves systematically increasing exercise volume, pace, interval intensity, or shortening recovery periods."
+            },
+            {
+                "id": 8,
+                "q": "Why do periodized training regimens incorporate structured maintenance phases during competitive transition periods?",
+                "opts": [
+                    "To preserve hard-won physiological adaptations and prevent reversibility without inducing overtraining",
+                    "To cause complete muscular atrophy before the next season",
+                    "To force athletes to lose all cardiovascular fitness",
+                    "To eliminate the need for warm-up exercises"
+                ],
+                "correct": 0,
+                "rationale": "Maintenance phases use reduced training volume to preserve cardiovascular and neuromuscular adaptations, protecting against reversibility during off-seasons."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which strategies effectively apply the principle of progressive overload in resistance training? (Select all that apply)",
+                "opts": [
+                    "Increasing the resistance load when repetition targets are met",
+                    "Increasing the number of sets or repetitions performed",
+                    "Decreasing rest intervals between sets at a fixed load",
+                    "Maintaining identical weight and reps for years without change"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Increasing load, set/rep volume, or reducing rest intervals increases physical demand (overload). Unchanged loads lead to accommodation."
+            },
+            {
+                "id": 2,
+                "q": "Which physiological regressions occur during detraining according to the principle of reversibility? (Select all that apply)",
+                "opts": [
+                    "Decreased plasma volume and stroke volume",
+                    "Reductions in mitochondrial oxidative enzyme activity (e.g., citrate synthase)",
+                    "Loss of muscle fiber cross-sectional area (hypertrophy loss)",
+                    "Permanent elevation of maximal oxygen consumption (VO2max)"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Detraining lowers plasma volume, stroke volume, mitochondrial enzymes, and muscle cross-sectional area. VO2max declines rather than elevates."
+            },
+            {
+                "id": 3,
+                "q": "Which statements regarding progressive overload are correct? (Select all that apply)",
+                "opts": [
+                    "Target tissues must be loaded beyond baseline operational levels to stimulate adaptation",
+                    "Failing to progress overload leads to performance plateaus",
+                    "Progression can be achieved in aerobic training by increasing speed or distance",
+                    "Overload should be increased by 500% in a single session to maximize safety"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Overload requires exceeding baseline demands, prevents plateaus, and can be applied via speed/distance in aerobic work. Excessive sudden increases risk injury."
+            },
+            {
+                "id": 4,
+                "q": "Which steps help prevent performance loss due to reversibility during an athlete's off-season? (Select all that apply)",
+                "opts": [
+                    "Implementing reduced-volume maintenance training sessions",
+                    "Preserving high exercise intensity during reduced-volume sessions",
+                    "Completely avoiding all physical activity for 4 consecutive months",
+                    "Maintaining core sport-specific neuromuscular movement patterns"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    3
+                ],
+                "rationale": "High-intensity, reduced-volume maintenance sessions preserve fitness during off-seasons. Total cessation leads to detraining regression."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "The principle of progressive overload dictates that training demand must be systematically increased to drive continued adaptation.",
+                "ans": true,
+                "feedback": "True. Continual progress requires increasing physical demands beyond current capacity to prevent accommodation."
+            },
+            {
+                "id": 2,
+                "q": "Physiological adaptations gained through chronic exercise training are permanent and cannot be lost.",
+                "ans": false,
+                "feedback": "False. The principle of reversibility states that fitness gains regress toward baseline if training is reduced or stopped."
+            },
+            {
+                "id": 3,
+                "q": "Endurance detraining causes rapid drops in plasma volume and maximal stroke volume.",
+                "ans": true,
+                "feedback": "True. Cardiovascular detraining leads to prompt reductions in plasma volume, stroke volume, and cardiac output."
+            },
+            {
+                "id": 4,
+                "q": "Decreasing rest periods between sets at a given weight is a valid method of applying progressive overload.",
+                "ans": true,
+                "feedback": "True. Reducing recovery time increases metabolic and neuromuscular density, providing an overload stimulus."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "The principle of **progressive overload** requires systematically increasing training demands, whereas **reversibility** explains loss of fitness upon detraining.",
+                "targets": [
+                    "progressive overload",
+                    "reversibility"
+                ],
+                "optionsBank": [
+                    "progressive overload",
+                    "reversibility",
+                    "individuality",
+                    "glycolysis",
+                    "bradycardia"
+                ],
+                "hint": "Identify the overload principle and the detraining principle."
+            },
+            {
+                "id": 2,
+                "statement": "Detraining leads to muscular **atrophy** and rapid reductions in cardiovascular **plasma volume**.",
+                "targets": [
+                    "atrophy",
+                    "plasma volume"
+                ],
+                "optionsBank": [
+                    "atrophy",
+                    "plasma volume",
+                    "hypertrophy",
+                    "mitochondria",
+                    "lactate"
+                ],
+                "hint": "Identify the muscle loss process and the blood volume component."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Define the principle of progressive overload and describe how a strength coach systematically applies it in a resistance training program as an athlete adapts.",
+                "model": "The principle of progressive overload states that to achieve continued physiological improvements, training demands must be systematically increased to load target tissues beyond their current operational capacity. When an athlete begins training, a given resistance (e.g., 30 kg) causes fatigue at 10 repetitions. As neural and muscular adaptations occur, repetition capacity increases to 14–15 reps at 30 kg, indicating accommodation. To re-establish overload, the coach increases the resistance load (e.g., by 2.3 kg / 5 lb), bringing repetition capacity back down to 8–10 reps. Continued training drives further adaptation until repetition targets are met again, triggering the next load increase.",
+                "criteria": [
+                    "Define progressive overload (systematically increasing physical demands beyond baseline capacity).",
+                    "Explain accommodation (muscle adapts to constant load, causing plateau).",
+                    "Provide a concrete progression example (increasing weight when repetition targets are achieved)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Explain the principle of reversibility and detail the specific neuromuscular and cardiorespiratory regressions that occur during detraining.",
+                "model": "The principle of reversibility ('use it or lose it') states that physiological adaptations resulting from exercise training are transient and will regress toward baseline if training is reduced or discontinued. Neuromuscular regressions during detraining include reduced motor unit recruitment frequency, lowered motor neuron discharge rates, and muscle fiber atrophy (reduction in cross-sectional area). Cardiorespiratory regressions include rapid reductions in plasma volume, maximal stroke volume, maximal cardiac output, capillary density, and oxidative enzyme activity (e.g., citrate synthase), causing a marked drop in VO2max.",
+                "criteria": [
+                    "Define reversibility (transient adaptations regress toward baseline if training ceases).",
+                    "Detail neuromuscular detraining changes (reduced motor unit recruitment/firing rate, muscle fiber atrophy).",
+                    "Detail cardiorespiratory detraining changes (decreased plasma volume, stroke volume, Qmax, mitochondrial enzymes, VO2max)."
+                ]
+            }
+        ]
+    },
+    "p3": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What is the primary objective of the principle of variation (periodization) in athletic training?",
+                "opts": [
+                    "Systematically manipulating training variables over time to prevent accommodation and peak performance for competition",
+                    "Ensuring the athlete performs the exact same workout 365 days a year",
+                    "Eliminating all recovery phases from annual training plans",
+                    "Replacing all physical training with psychological imagery"
+                ],
+                "correct": 0,
+                "rationale": "Periodization systematically alters volume, intensity, and exercise selection over time to avoid physiological accommodation, lower injury risk, and peak performance."
+            },
+            {
+                "id": 2,
+                "q": "How does classical (linear) periodization structure volume and intensity kinetics over a macrocycle?",
+                "opts": [
+                    "High initial volume and low intensity, progressing to low volume and high intensity near competition",
+                    "High initial intensity and low volume, progressing to high volume at competition",
+                    "Random unscripted daily changes in volume and intensity",
+                    "Constant high volume and maximal intensity maintained indefinitely"
+                ],
+                "correct": 0,
+                "rationale": "Classical linear periodization starts with high volume/low intensity in early phases and systematically transitions to low volume/high intensity near competition."
+            },
+            {
+                "id": 3,
+                "q": "What defines undulating (non-linear) periodization compared to classical periodization?",
+                "opts": [
+                    "Frequent (daily or weekly) fluctuations in training volume and intensity within microcycles",
+                    "Complete absence of resistance training load variation for 12 months",
+                    "Structuring training around a single 4-year Olympic block with zero daily changes",
+                    "Exclusive reliance on low-intensity aerobic walking"
+                ],
+                "correct": 0,
+                "rationale": "Undulating periodization varies volume and intensity frequently (e.g., alternating heavy, light, and power focus days within a week)."
+            },
+            {
+                "id": 4,
+                "q": "What structural training division represents the overarching annual or multi-month training plan (up to 1 year)?",
+                "opts": [
+                    "Microcycle",
+                    "Mesocycle",
+                    "Macrocycle",
+                    "Nanocycle"
+                ],
+                "correct": 2,
+                "rationale": "A macrocycle is the overall annual or multi-month training period composed of several mesocycles targeting major competitive goals."
+            },
+            {
+                "id": 5,
+                "q": "How long does a mesocycle typically last, and how is it structured?",
+                "opts": [
+                    "Several weeks to months, divided into preparatory, competitive, and transition phases",
+                    "Exactly 24 hours",
+                    "4 consecutive years",
+                    "10 minutes prior to competition"
+                ],
+                "correct": 0,
+                "rationale": "A mesocycle lasts several weeks to months, focusing on specific training blocks (e.g., hypertrophy, maximal strength, or power) within a macrocycle."
+            },
+            {
+                "id": 6,
+                "q": "What is a microcycle in periodized training planning?",
+                "opts": [
+                    "A short-term training block, typically lasting 1 week, detailing daily workout sessions and rest",
+                    "A 6-month competitive phase",
+                    "An annual athletic calendar",
+                    "A 10-year career arc"
+                ],
+                "correct": 0,
+                "rationale": "A microcycle is a short-term training block (usually 7 days / 1 week) that specifies daily training sessions, volume, intensity, and recovery."
+            },
+            {
+                "id": 7,
+                "q": "Why does maintaining a static, unvarying training routine lead to performance plateaus?",
+                "opts": [
+                    "The central nervous system and muscles accommodate to repetitive stimuli, reducing biological adaptation rate",
+                    "Unvarying training destroys muscle glycogen permanently",
+                    "The body stops producing ATP during repetitive workouts",
+                    "Static routines cause spontaneous cardiac arrest"
+                ],
+                "correct": 0,
+                "rationale": "Biological systems accommodate to constant repetitive stimuli, decreasing adaptive response rates and leading to stagnation or overuse injury."
+            },
+            {
+                "id": 8,
+                "q": "Which training outcome is minimized by incorporating structured periodized variation into an annual program?",
+                "opts": [
+                    "Risk of overtraining syndrome and overuse injuries",
+                    "Maximal strength capabilities",
+                    "Peak competitive readiness",
+                    "Neuromuscular motor unit recruitment"
+                ],
+                "correct": 0,
+                "rationale": "Periodized variation manages fatigue, preventing central/peripheral exhaustion and significantly lowering overtraining and injury risks."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which cyclical divisions make up a periodized training plan? (Select all that apply)",
+                "opts": [
+                    "Macrocycle (overall annual or multi-month plan)",
+                    "Mesocycle (intermediate blocks of several weeks to months)",
+                    "Microcycle (short-term blocks typically lasting 1 week)",
+                    "Epicycle (planetary rotation cycles)"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Macrocycles, mesocycles, and microcycles form the nested structural framework of periodization."
+            },
+            {
+                "id": 2,
+                "q": "Which features describe classical (linear) periodization? (Select all that apply)",
+                "opts": [
+                    "High initial training volume and low intensity during early phases",
+                    "Systematic progression toward low volume and high intensity near competition",
+                    "Gradual progression designed to peak performance for major events",
+                    "Daily random shifts in exercise selection without structure"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Classical linear periodization transitions systematically from high volume/low intensity to low volume/high intensity to peak performance."
+            },
+            {
+                "id": 3,
+                "q": "What are the primary benefits of applying the principle of variation? (Select all that apply)",
+                "opts": [
+                    "Prevents physiological accommodation to repetitive stimuli",
+                    "Reduces risk of overtraining syndrome and overuse injuries",
+                    "Keeps the training stimulus novel and biologically effective",
+                    "Guarantees zero need for rest or sleep"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Variation prevents accommodation, lowers overtraining/injury risk, and keeps stimuli effective. Sleep and rest remain essential."
+            },
+            {
+                "id": 4,
+                "q": "Which variables are manipulated within periodized mesocycles and microcycles? (Select all that apply)",
+                "opts": [
+                    "Training load / resistance intensity",
+                    "Total set and repetition volume",
+                    "Exercise mode and movement velocity",
+                    "Frequency of workout sessions and rest periods"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "Periodization manipulates load, volume, movement mode/velocity, and training frequency/rest distribution."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "The principle of variation (periodization) involves the systematic manipulation of volume, intensity, and training mode over time.",
+                "ans": true,
+                "feedback": "True. Periodization systematically alters training variables to prevent accommodation and optimize performance peaking."
+            },
+            {
+                "id": 2,
+                "q": "In classical linear periodization, training volume increases while intensity decreases as competition approaches.",
+                "ans": false,
+                "feedback": "False. Linear periodization progresses from high volume / low intensity to low volume / high intensity near competition."
+            },
+            {
+                "id": 3,
+                "q": "A microcycle is a short-term periodized block, typically lasting approximately 1 week.",
+                "ans": true,
+                "feedback": "True. Microcycles usually cover 7 days, outlining daily workouts, intensity, and recovery."
+            },
+            {
+                "id": 4,
+                "q": "Undulating periodization utilizes daily or weekly variations in volume and intensity to prevent accommodation.",
+                "ans": true,
+                "feedback": "True. Non-linear undulating periodization alters loads frequently within microcycles to maintain novel training stimuli."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "The principle of **variation** uses **periodization** to prevent training accommodation and peak performance.",
+                "targets": [
+                    "variation",
+                    "periodization"
+                ],
+                "optionsBank": [
+                    "variation",
+                    "periodization",
+                    "reversibility",
+                    "atrophy",
+                    "glycolysis"
+                ],
+                "hint": "Identify the core principle name and its systematic planning process."
+            },
+            {
+                "id": 2,
+                "statement": "An annual training plan is a **macrocycle**, which is divided into multi-week **mesocycles**.",
+                "targets": [
+                    "macrocycle",
+                    "mesocycles"
+                ],
+                "optionsBank": [
+                    "macrocycle",
+                    "mesocycles",
+                    "microcycle",
+                    "isometric",
+                    "enzymes"
+                ],
+                "hint": "Identify the annual block term and the multi-week sub-block term."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Define the principle of variation (periodization) and contrast classical (linear) periodization with undulating (non-linear) periodization.",
+                "model": "The principle of variation (periodization) is the systematic process of changing one or more training variables—mode, volume, intensity, or frequency—over time to keep the training stimulus novel, challenging, and effective, while preventing accommodation and overtraining. Classical (linear) periodization begins with high volume and low intensity during early preparatory phases, systematically progressing over multi-month mesocycles toward low volume and high intensity near major competition. Undulating (non-linear) periodization incorporates frequent (daily or weekly) fluctuations in volume and intensity within microcycles (e.g., alternating hypertrophy, max strength, and power days in a single week).",
+                "criteria": [
+                    "Define variation/periodization (systematic manipulation of volume, intensity, mode over time).",
+                    "Describe classical linear periodization (high volume/low intensity -> low volume/high intensity progression).",
+                    "Describe undulating periodization (frequent daily/weekly fluctuations in load/volume within microcycles)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Describe the nested structural hierarchy of periodization, defining the macrocycle, mesocycle, and microcycle, and explain their role in peaking athletic performance.",
+                "model": "Periodization organizes training into a nested structural hierarchy: (1) Macrocycle: The overarching annual or multi-month training plan (up to 1 year) structured around primary competitive goals; (2) Mesocycle: Intermediate training blocks lasting several weeks to months, targeting specific physiological goals (e.g., hypertrophy, strength, power, or transition phases); (3) Microcycle: Short-term training blocks, typically lasting 1 week (7 days), detailing daily session workloads, exercise selection, and recovery. This structural hierarchy ensures progressive overload, prevents accommodation and overtraining, and coordinates physiological peaking for target competitions.",
+                "criteria": [
+                    "Define macrocycle (annual/multi-month overall plan up to 1 year).",
+                    "Define mesocycle (intermediate blocks of several weeks/months targeting specific adaptations).",
+                    "Define microcycle (short-term ~1 week block outlining daily workouts and rest).",
+                    "Explain their role in peaking performance and avoiding overtraining/accommodation."
+                ]
+            }
+        ]
+    }
+}

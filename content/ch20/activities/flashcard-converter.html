@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashcard & Assessment Export Studio</title>
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --surface: #111827;
+            --surface-elevated: #1f2937;
+            --border: #374151;
+            --text: #f9fafb;
+            --text-muted: #9ca3af;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --purple: #8b5cf6;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+        }
+
+        header {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto 1.25rem auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        header h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        header p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        main {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            flex: 1;
+        }
+
+        .drop-zone {
+            border: 2px dashed var(--border);
+            background-color: var(--surface);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+
+        .drop-zone.dragover {
+            border-color: var(--primary);
+            background-color: rgba(59, 130, 246, 0.08);
+        }
+
+        .drop-zone svg {
+            width: 40px;
+            height: 40px;
+            fill: none;
+            stroke: var(--text-muted);
+            stroke-width: 1.75;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            margin-bottom: 0.5rem;
+        }
+
+        .drop-zone p {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .drop-zone span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Meta bar */
+        .meta-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .meta-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .meta-field label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .meta-field input {
+            background: var(--surface-elevated);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            outline: none;
+        }
+
+        .meta-field input:focus {
+            border-color: var(--primary);
+        }
+
+        /* Multi-format Export Ribbon */
+        .export-ribbon {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+        }
+
+        .export-ribbon-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .export-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        button.btn {
+            background: var(--surface-elevated);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.45rem 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.775rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: all 0.15s ease;
+        }
+
+        button.btn:hover {
+            border-color: var(--primary);
+            background: rgba(59, 130, 246, 0.15);
+        }
+
+        button.btn-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
+        button.btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        button.btn-quizlet {
+            border-color: #3b82f6;
+            color: #93c5fd;
+        }
+
+        button.btn-kahoot {
+            border-color: #8b5cf6;
+            color: #c4b5fd;
+        }
+
+        button.btn-d2l {
+            border-color: #f59e0b;
+            color: #fde68a;
+        }
+
+        button.btn-md {
+            border-color: #10b981;
+            color: #a7f3d0;
+        }
+
+        /* Workspace */
+        .workspace {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            flex: 1;
+            min-height: 440px;
+        }
+
+        .panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            background: var(--surface-elevated);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .panel-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        textarea.code-editor {
+            width: 100%;
+            height: 100%;
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text);
+            font-family: var(--font-mono);
+            font-size: 0.825rem;
+            line-height: 1.5;
+            padding: 1rem;
+            resize: none;
+            white-space: pre;
+        }
+
+        pre.json-view {
+            flex: 1;
+            margin: 0;
+            padding: 1rem;
+            overflow: auto;
+            font-family: var(--font-mono);
+            font-size: 0.825rem;
+            line-height: 1.5;
+            color: #93c5fd;
+            background: #090d16;
+        }
+
+        .stats-footer {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            padding: 0.5rem 1rem;
+            background: var(--surface-elevated);
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 900px) {
+            .workspace {
+                grid-template-columns: 1fr;
+            }
+
+            .panel {
+                height: 360px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <h1>Assessment & Flashcard Studio</h1>
+            <p>Convert and export questions across Course Engine JSON, Quizlet, Kahoot!, Brightspace D2L, and Markdown
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Drop & Selection Zone -->
+        <div class="drop-zone" id="drop-zone">
+            <svg viewBox="0 0 24 24">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <p>Drop your <code>.md</code> study guide or <code>.json</code> deck here, or click to browse</p>
+            <span>Accepts Markdown study notes, JSON flashcard decks, or raw text</span>
+            <input type="file" id="file-input" accept=".md,.markdown,.json,.txt" />
+        </div>
+
+        <!-- Metadata Configuration -->
+        <div class="meta-bar">
+            <div class="meta-field">
+                <label for="chapter-id">Section / Chapter ID</label>
+                <input type="text" id="chapter-id" placeholder="20.1" />
+            </div>
+            <div class="meta-field">
+                <label for="chapter-title">Title / Topic</label>
+                <input type="text" id="chapter-title" placeholder="Aerobic Adaptations" />
+            </div>
+            <div class="meta-field">
+                <label for="file-name">Base Output Filename</label>
+                <input type="text" id="file-name" placeholder="20.1_flashcards.json" />
+            </div>
+        </div>
+
+        <!-- One-Click Export Ribbon -->
+        <div class="export-ribbon">
+            <div class="export-ribbon-title">One-Click Multi-Format Exports</div>
+            <div class="export-buttons">
+                <button class="btn btn-primary" id="exp-json">💾 Flashcards JSON</button>
+                <button class="btn btn-md" id="exp-md">📝 Markdown (## Question)</button>
+                <button class="btn btn-quizlet" id="exp-quizlet">⚡ Quizlet (TSV / Text)</button>
+                <button class="btn btn-kahoot" id="exp-kahoot">🎮 Kahoot! (CSV)</button>
+                <button class="btn btn-d2l" id="exp-d2l">🏫 Brightspace D2L (CSV)</button>
+            </div>
+        </div>
+
+        <!-- Workspace Panels -->
+        <div class="workspace">
+            <!-- Input Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span>Source Input (Markdown or Raw Text)</span>
+                    <div class="panel-actions">
+                        <button class="btn" id="load-sample-btn">Sample</button>
+                        <button class="btn" id="clear-btn">Clear</button>
+                    </div>
+                </div>
+                <textarea class="code-editor" id="source-input"
+                    placeholder="Paste Markdown, JSON, or drop a file..."></textarea>
+                <div class="stats-footer" id="source-stats">Lines: 0 | Characters: 0</div>
+            </div>
+
+            <!-- JSON Preview Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span>Parsed Master Schema Preview</span>
+                    <div class="panel-actions">
+                        <button class="btn" id="copy-json-btn">Copy JSON</button>
+                    </div>
+                </div>
+                <pre class="json-view"><code id="json-output">{\n  "cards": []\n}</code></pre>
+                <div class="stats-footer" id="json-stats">Cards Parsed: 0</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // State
+        let parsedData = { chapterId: "20.1", title: "Aerobic Adaptations", cards: [] };
+
+        // DOM Elements
+        const dropZone = document.getElementById("drop-zone");
+        const fileInput = document.getElementById("file-input");
+        const sourceInput = document.getElementById("source-input");
+        const jsonOutput = document.getElementById("json-output");
+        const chapterIdInput = document.getElementById("chapter-id");
+        const chapterTitleInput = document.getElementById("chapter-title");
+        const fileNameInput = document.getElementById("file-name");
+        const sourceStats = document.getElementById("source-stats");
+        const jsonStats = document.getElementById("json-stats");
+
+        // Utilities
+        function stripHtml(html) {
+            const doc = new DOMParser().parseFromString(html || "", 'text/html');
+            return doc.body.textContent || "";
+        }
+
+        function escapeCsvCell(text) {
+            if (text === null || text === undefined) return '""';
+            let clean = String(text).replace(/"/g, '""');
+            return `"${clean}"`;
+        }
+
+        function downloadFile(content, fileName, mimeType) {
+            const blob = new Blob([content], { type: mimeType });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = fileName;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function markdownToHtml(text) {
+            if (!text) return "";
+            let str = text.trim();
+            str = str.replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>");
+            str = str.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+            str = str.replace(/\*(.+?)\*/g, "<em>$1</em>");
+            str = str.replace(/`([^`]+)`/g, "<code>$1</code>");
+
+            const lines = str.split("\n");
+            const htmlLines = [];
+            let inUl = false;
+            let inOl = false;
+
+            for (let line of lines) {
+                const stripped = line.trim();
+                const ulMatch = stripped.match(/^[-*]\s+(.*)$/);
+                const olMatch = stripped.match(/^\d+\.\s+(.*)$/);
+
+                if (ulMatch) {
+                    if (!inUl) {
+                        if (inOl) { htmlLines.push("</ol>"); inOl = false; }
+                        htmlLines.push("<ul>");
+                        inUl = true;
+                    }
+                    htmlLines.push(`  <li>${ulMatch[1]}</li>`);
+                } else if (olMatch) {
+                    if (!inOl) {
+                        if (inUl) { htmlLines.push("</ul>"); inUl = false; }
+                        htmlLines.push("<ol>");
+                        inOl = true;
+                    }
+                    htmlLines.push(`  <li>${olMatch[1]}</li>`);
+                } else {
+                    if (inUl) { htmlLines.push("</ul>"); inUl = false; }
+                    if (inOl) { htmlLines.push("</ol>"); inOl = false; }
+                    if (stripped.length > 0) {
+                        htmlLines.push(`<p>${stripped}</p>`);
+                    }
+                }
+            }
+
+            if (inUl) htmlLines.push("</ul>");
+            if (inOl) htmlLines.push("</ol>");
+
+            let result = htmlLines.join("\n");
+            if (result.startsWith("<p>") && result.endsWith("</p>") && (result.match(/<p>/g) || []).length === 1) {
+                result = result.substring(3, result.length - 4);
+            }
+            return result;
+        }
+
+        // Core Parser
+        function parseInput(rawText) {
+            const trimmed = rawText.trim();
+            if (!trimmed) {
+                return { chapterId: chapterIdInput.value || "20.1", title: chapterTitleInput.value || "Section Flashcards", cards: [] };
+            }
+
+            // Check if input is already JSON
+            if (trimmed.startsWith("{") && trimmed.endsWith("}")) {
+                try {
+                    const json = JSON.parse(trimmed);
+                    if (json.cards && Array.isArray(json.cards)) {
+                        return json;
+                    }
+                } catch (e) {
+                    // Fall through to markdown parsing if JSON fails
+                }
+            }
+
+            // Parse Markdown
+            let docTitle = chapterTitleInput.value.trim();
+            const h1Match = rawText.match(/^#\s+(.+)$/m);
+            if (h1Match && !docTitle) {
+                docTitle = h1Match[1].trim();
+            }
+
+            let chapterId = chapterIdInput.value.trim() || "20.1";
+
+            const chunks = rawText.split(/\n(?=##\s+)/);
+            const cards = [];
+            let cardIdx = 1;
+
+            for (let chunk of chunks) {
+                const item = chunk.trim();
+                if (!item || item.startsWith("# ")) continue;
+
+                const headerMatch = item.match(/^##\s+(?:Card:\s*)?([^\n]+)/);
+                if (!headerMatch) continue;
+
+                let rawHeader = headerMatch[1].trim();
+                let cardId = `${chapterId}-${String(cardIdx).padStart(2, "0")}`;
+                let body = item.substring(headerMatch[0].length);
+
+                let tag = "General";
+                let ref = `Section ${chapterId}`;
+                let frontText = "";
+                let backText = "";
+
+                // Check for style: ## Question \n <br> \n Answer
+                if (body.includes("<br>") || body.includes("<br/>") || body.includes("<br />")) {
+                    frontText = rawHeader;
+                    const afterBreak = body.split(/<br\s*\/?>/i)[1];
+                    backText = afterBreak ? afterBreak.trim() : "";
+                } else {
+                    // Check for metadata tags
+                    const tagMatch = body.match(/[-*]?\s*\*\*Tag:\*\*\s*([^\n]+)/i);
+                    const refMatch = body.match(/[-*]?\s*\*\*Ref(?:erence)?:\*\*\s*([^\n]+)/i);
+                    if (tagMatch) tag = tagMatch[1].trim();
+                    if (refMatch) ref = refMatch[1].trim();
+
+                    // Section splitting
+                    const sections = body.split(/\n###\s+/);
+                    for (let sec of sections) {
+                        const s = sec.trim();
+                        if (s.toLowerCase().startsWith("front")) {
+                            frontText = s.substring(5).trim();
+                        } else if (s.toLowerCase().startsWith("back")) {
+                            backText = s.substring(4).trim();
+                        }
+                    }
+
+                    if (!frontText || !backText) {
+                        const altMatch = body.match(/\*\*Front:\*\*\s*([\s\S]*?)\s*\*\*Back:\*\*\s*([\s\S]*?)(?=(?:\n---|\Z))/i);
+                        if (altMatch) {
+                            frontText = altMatch[1].trim();
+                            backText = altMatch[2].trim();
+                        } else {
+                            // Fallback: Header is the question, rest is the answer
+                            frontText = rawHeader;
+                            backText = body.trim();
+                        }
+                    }
+                }
+
+                if (frontText && backText) {
+                    cards.push({
+                        id: cardId,
+                        tag: tag,
+                        reference: ref,
+                        front: markdownToHtml(frontText),
+                        back: markdownToHtml(backText)
+                    });
+                    cardIdx++;
+                }
+            }
+
+            return {
+                chapterId: chapterId,
+                title: docTitle || `Section ${chapterId}`,
+                cards: cards
+            };
+        }
+
+        function updateStudio() {
+            const text = sourceInput.value;
+            sourceStats.textContent = `Lines: ${text ? text.split('\n').length : 0} | Characters: ${text.length}`;
+
+            parsedData = parseInput(text);
+
+            if (!chapterIdInput.value && parsedData.chapterId) chapterIdInput.value = parsedData.chapterId;
+            if (!chapterTitleInput.value && parsedData.title) chapterTitleInput.value = parsedData.title;
+
+            jsonOutput.textContent = JSON.stringify(parsedData, null, 2);
+            jsonStats.textContent = `Cards Parsed: ${parsedData.cards.length}`;
+        }
+
+        // File Drop & Load Handlers
+        function loadFile(file) {
+            if (!file) return;
+            const baseName = file.name.replace(/\.[^/.]+$/, "");
+            fileNameInput.value = `${baseName}.json`;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                sourceInput.value = e.target.result;
+                updateStudio();
+            };
+            reader.readAsText(file);
+        }
+
+        dropZone.addEventListener("click", () => fileInput.click());
+        fileInput.addEventListener("change", (e) => loadFile(e.target.files[0]));
+
+        ["dragenter", "dragover"].forEach(name => {
+            dropZone.addEventListener(name, (e) => {
+                e.preventDefault();
+                dropZone.classList.add("dragover");
+            });
+        });
+
+        ["dragleave", "drop"].forEach(name => {
+            dropZone.addEventListener(name, (e) => {
+                e.preventDefault();
+                dropZone.classList.remove("dragover");
+            });
+        });
+
+        dropZone.addEventListener("drop", (e) => {
+            const dt = e.dataTransfer;
+            if (dt.files.length) loadFile(dt.files[0]);
+        });
+
+        sourceInput.addEventListener("input", updateStudio);
+        chapterIdInput.addEventListener("input", () => {
+            parsedData.chapterId = chapterIdInput.value;
+            jsonOutput.textContent = JSON.stringify(parsedData, null, 2);
+        });
+        chapterTitleInput.addEventListener("input", () => {
+            parsedData.title = chapterTitleInput.value;
+            jsonOutput.textContent = JSON.stringify(parsedData, null, 2);
+        });
+
+        // ==================== EXPORT GENERATORS ====================
+
+        // 1. JSON Export
+        document.getElementById("exp-json").addEventListener("click", () => {
+            const fileName = fileNameInput.value.trim() || `${parsedData.chapterId || "deck"}_flashcards.json`;
+            downloadFile(JSON.stringify(parsedData, null, 2), fileName, "application/json");
+        });
+
+        // 2. Markdown Study Guide Export (## Question <br> Answer)
+        document.getElementById("exp-md").addEventListener("click", () => {
+            if (!parsedData.cards.length) return alert("No cards to export.");
+            let md = `# ${parsedData.title || "Study Guide"}\n\n`;
+
+            parsedData.cards.forEach((card) => {
+                const q = stripHtml(card.front).replace(/\n/g, " ");
+                const a = stripHtml(card.back);
+                md += `## ${q}<br>\n${a}\n\n`;
+            });
+
+            const fileName = `${parsedData.chapterId || "study"}_guide.md`;
+            downloadFile(md, fileName, "text/markdown");
+        });
+
+        // 3. Quizlet Export (Tab between Front & Back, Newline between cards)
+        document.getElementById("exp-quizlet").addEventListener("click", () => {
+            if (!parsedData.cards.length) return alert("No cards to export.");
+            let tsv = "";
+            parsedData.cards.forEach(card => {
+                const front = stripHtml(card.front).replace(/\t/g, " ").replace(/\n/g, " ");
+                const back = stripHtml(card.back).replace(/\t/g, " ").replace(/\n/g, " ");
+                tsv += `${front}\t${back}\n`;
+            });
+
+            const fileName = `${parsedData.chapterId || "quizlet"}_import.txt`;
+            downloadFile(tsv, fileName, "text/plain");
+        });
+
+        // 4. Kahoot! Export (CSV format)
+        document.getElementById("exp-kahoot").addEventListener("click", () => {
+            if (!parsedData.cards.length) return alert("No cards to export.");
+
+            // Standard Kahoot template header
+            let csv = "Question,Answer 1,Answer 2,Answer 3,Answer 4,Time limit (sec),Correct answer\n";
+
+            parsedData.cards.forEach((card, idx) => {
+                let question = stripHtml(card.front).replace(/\n/g, " ").substring(0, 95);
+                let correctAns = stripHtml(card.back).replace(/\n/g, " ").substring(0, 60);
+
+                // Distractor generation: pick answers from other cards in the deck
+                let distractors = parsedData.cards
+                    .filter((_, i) => i !== idx)
+                    .map(c => stripHtml(c.back).replace(/\n/g, " ").substring(0, 60));
+
+                let d1 = distractors[0] || "None of the above";
+                let d2 = distractors[1] || "All of the above";
+                let d3 = distractors[2] || "Opposing physiological effect";
+
+                // Answer 1 is correct, time limit 30 seconds
+                csv += `${escapeCsvCell(question)},${escapeCsvCell(correctAns)},${escapeCsvCell(d1)},${escapeCsvCell(d2)},${escapeCsvCell(d3)},30,1\n`;
+            });
+
+            const fileName = `${parsedData.chapterId || "kahoot"}_import.csv`;
+            downloadFile(csv, fileName, "text/csv");
+        });
+
+        // 5. Brightspace D2L Quiz Question Library (CSV format)
+        document.getElementById("exp-d2l").addEventListener("click", () => {
+            if (!parsedData.cards.length) return alert("No cards to export.");
+
+            // D2L standard question batch CSV format
+            let csv = "";
+            parsedData.cards.forEach((card, idx) => {
+                let question = stripHtml(card.front);
+                let correctAns = stripHtml(card.back);
+
+                let distractors = parsedData.cards
+                    .filter((_, i) => i !== idx)
+                    .map(c => stripHtml(c.back).replace(/\n/g, " "));
+
+                let d1 = distractors[0] || "No physiological change occurs";
+                let d2 = distractors[1] || "Decreases proportionally with intensity";
+                let d3 = distractors[2] || "Controlled exclusively by sympathetic tone";
+
+                csv += `NewQuestion,MC,,,\n`;
+                csv += `Title,${escapeCsvCell(card.id || `Q${idx + 1}`)},,,\n`;
+                csv += `QuestionText,${escapeCsvCell(question)},HTML,,\n`;
+                csv += `Points,1,,,\n`;
+                csv += `Option,100,${escapeCsvCell(correctAns)},HTML,Correct\n`;
+                csv += `Option,0,${escapeCsvCell(d1)},HTML,Incorrect\n`;
+                csv += `Option,0,${escapeCsvCell(d2)},HTML,Incorrect\n`;
+                csv += `Option,0,${escapeCsvCell(d3)},HTML,Incorrect\n\n`;
+            });
+
+            const fileName = `${parsedData.chapterId || "d2l"}_questions.csv`;
+            downloadFile(csv, fileName, "text/csv");
+        });
+
+        // UI Buttons
+        document.getElementById("copy-json-btn").addEventListener("click", () => {
+            navigator.clipboard.writeText(JSON.stringify(parsedData, null, 2)).then(() => {
+                const btn = document.getElementById("copy-json-btn");
+                const orig = btn.textContent;
+                btn.textContent = "✓ Copied!";
+                setTimeout(() => btn.textContent = orig, 1500);
+            });
+        });
+
+        document.getElementById("clear-btn").addEventListener("click", () => {
+            sourceInput.value = "";
+            updateStudio();
+        });
+
+        document.getElementById("load-sample-btn").addEventListener("click", () => {
+            sourceInput.value = `# Section 20.1: Aerobic Training Adaptations
+
+## Card: 20.1-01
+- **Tag:** Hemodynamics
+- **Ref:** Section 20.1
+
+### Front
+State the equation for the <strong>Fick principle</strong> used to determine maximal oxygen consumption (VO<sub>2</sub> max).
+
+### Back
+VO<sub>2</sub> max = <strong>Q</strong> × <strong>(a-vO<sub>2</sub> difference)</strong>, where Q represents cardiac output (HR × SV).
+
+---
+
+## Card: 20.1-02
+- **Tag:** Skeletal Muscle
+- **Ref:** Section 20.1
+
+### Front
+What primary mitochondrial adaptation occurs in <strong>Type I</strong> skeletal muscle fibers following chronic aerobic training?
+
+### Back
+An increase in both mitochondrial <strong>size (volume density)</strong> and <strong>number</strong>, accompanied by elevated citrate synthase and oxidative enzyme activity.
+`;
+            chapterIdInput.value = "20.1";
+            chapterTitleInput.value = "Aerobic Training Adaptations";
+            fileNameInput.value = "20.1_flashcards.json";
+            updateStudio();
+        });
+
+        // Auto-load sample on startup
+        document.getElementById("load-sample-btn").click();
+    </script>
+</body>
+
+</html>

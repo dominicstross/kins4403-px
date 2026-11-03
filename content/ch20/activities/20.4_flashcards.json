@@ -1,0 +1,76 @@
+{
+    "chapterId": "20.4",
+    "title": "20.4 Exercise Prescription",
+    "cards": [
+        {
+            "id": "20.4-01",
+            "tag": "FITT-VP Principle",
+            "reference": "Section 20.4",
+            "front": "What six basic factors comprise the modern ACSM <strong>FITT-VP framework</strong> for exercise prescription?",
+            "back": "The six core factors of the <strong>FITT-VP framework</strong> are:<ul><li><strong>F - Frequency:</strong> How often exercise is performed per week.</li><li><strong>I - Intensity:</strong> The level of exertion or physiological strain during the exercise bout.</li><li><strong>T - Type (Mode):</strong> The specific exercise modality performed.</li><li><strong>T - Time (Duration):</strong> The length of time spent in an exercise session.</li><li><strong>V - Volume:</strong> The cumulative total amount of exercise performed per week.</li><li><strong>P - Progression:</strong> The systematic advancement of the exercise workload over time.</li></ul>"
+        },
+        {
+            "id": "20.4-02",
+            "tag": "Training Threshold Concept",
+            "reference": "Section 20.4",
+            "front": "What is the <strong>minimal training threshold concept</strong> in aerobic exercise prescription, and how does it vary among individuals?",
+            "back": "A specific minimal threshold for <strong>frequency, duration, and intensity</strong> must be exceeded to elicit cardiorespiratory endurance adaptations. This threshold varies based on baseline fitness level:<ul><li><strong>Healthy Adults:</strong> The lower moderate intensity threshold is defined as <strong>40% of Heart Rate Reserve (HRR)</strong> or <strong>40% of VO<sub>2max</sub></strong>.</li><li><strong>Low-Fit / Deconditioned Individuals:</strong> Aerobic fitness improvements can occur at exercise intensities <strong>below 40% VO<sub>2max</sub></strong>.</li><li><strong>Progression:</strong> As cardiorespiratory endurance improves, an individual's minimal training threshold progressively increases.</li></ul>"
+        },
+        {
+            "id": "20.4-03",
+            "tag": "Exercise Frequency Guidelines",
+            "reference": "Section 20.4",
+            "front": "What are the optimal weekly <strong>exercise frequency recommendations</strong> for moderate versus vigorous physical activity?",
+            "back": "Optimal health-related cardiorespiratory benefits are achieved with a time investment of <strong>3 to 5 days per week</strong>:<ul><li><strong>Moderate-Intensity Activity:</strong> Optimal frequency is <strong>5 days per week</strong>.</li><li><strong>Vigorous-Intensity Activity:</strong> Optimal frequency is <strong>3 days per week</strong>.</li></ul><em>Note:</em> Participating 6 to 7 days per week provides additional caloric expenditure for weight loss, but high daily frequency should not be encouraged until exercise habits are established to minimize musculoskeletal injury risk."
+        },
+        {
+            "id": "20.4-04",
+            "tag": "Exercise Intensity Standards",
+            "reference": "Section 20.4",
+            "front": "How does the ACSM categorize <strong>moderate versus vigorous exercise intensity</strong>, and why is intensity the most critical factor?",
+            "back": "Exercise intensity is the <strong>single most critical factor</strong> for developing cardiorespiratory endurance. ACSM defines exercise intensity zones as:<ul><li><strong>Moderate Intensity:</strong> <strong>40% to 59%</strong> of Heart Rate Reserve (HRR) or VO<sub>2max</sub>.</li><li><strong>Vigorous Intensity:</strong> <strong>60% to 90%</strong> of Heart Rate Reserve (HRR) or VO<sub>2max</sub>.</li></ul>"
+        },
+        {
+            "id": "20.4-05",
+            "tag": "High-Intensity Interval Training",
+            "reference": "Section 20.4",
+            "front": "What physiological adaptations result from <strong>High-Intensity Interval Training (HIIT)</strong>, and how does its time efficiency compare to continuous endurance training?",
+            "back": "Low-volume, very high-intensity <strong>HIIT</strong> produces cardiorespiratory and metabolic adaptations similar to high-volume, lower-intensity continuous endurance training. Substantial increases in <strong>skeletal muscle oxidative capacity</strong>, cardiometabolic health markers, and aerobic endurance performance can be achieved in interventions as brief as <strong>10 minutes per day over 2 weeks</strong>."
+        },
+        {
+            "id": "20.4-06",
+            "tag": "Exercise Duration & Accumulation",
+            "reference": "Section 20.4",
+            "front": "How are <strong>exercise duration and intensity</strong> related, and how do single continuous sessions compare to accumulated shorter bouts?",
+            "back": "Duration and intensity are inversely related. Key principles include:<ul><li><strong>Optimal Session Duration:</strong> Sustaining an appropriate intensity for <strong>20 to 30 minutes per day</strong> provides optimal cardiovascular conditioning for time invested.</li><li><strong>Bout Accumulation:</strong> Similar cardiorespiratory improvements occur whether daily endurance training is performed in a <strong>single continuous session</strong> (e.g., 1 x 30 min) or <strong>accumulated in multiple shorter bouts</strong> (e.g., 3 x 10 min bouts lasting &ge; 10 min each).</li><li><strong>Weight Loss:</strong> Longer continuous bouts are primarily prescribed to maximize total caloric expenditure.</li></ul>"
+        },
+        {
+            "id": "20.4-07",
+            "tag": "Exercise Volume & MET-Minutes",
+            "reference": "Section 20.4",
+            "front": "How is weekly <strong>exercise volume</strong> calculated using <strong>MET-minutes</strong>, and what are the ACSM target volume guidelines?",
+            "back": "Exercise volume combines intensity, frequency, and duration into a single quantifiable metric:<ul><li><strong>MET-Minutes Calculation:</strong> Activity intensity in <strong>METs x total weekly minutes</strong> (where 1 MET = resting oxygen uptake of ~3.5 mL O<sub>2</sub>/kg/min).</li><li><strong>ACSM Target Volume:</strong> Recommended weekly volume is <strong>&ge; 500 to 1,000 MET-minutes/week</strong>, which equals approximately <strong>150 minutes/week of moderate-intensity exercise</strong>.</li><li><strong>Caloric Equivalent:</strong> Corresponds to <strong>1,000 to 1,500 kcal/week</strong> expended in physical activity.</li></ul>"
+        },
+        {
+            "id": "20.4-08",
+            "tag": "Progression Principles",
+            "reference": "Section 20.4",
+            "front": "How should <strong>exercise progression</strong> be managed according to principles of training overload?",
+            "back": "<strong>Progression</strong> involves systematically advancing one or more FITT-VP components over time to maintain progressive overload as fitness improves. Progression must be <strong>individualized</strong> based on age, initial fitness level, and health goals, and should be advanced gradually (typically increasing duration before intensity) to prevent musculoskeletal injury or excessive physiological fatigue."
+        },
+        {
+            "id": "20.4-09",
+            "tag": "Sedentary Behavior & Physiology",
+            "reference": "Section 20.4",
+            "front": "How is <strong>sedentary behavior</strong> defined physiologically, and what acute pathophysiological changes occur after 30 minutes of continuous sitting?",
+            "back": "<strong>Sedentary behavior</strong> is defined as any waking activity requiring an energy expenditure of <strong>&lt; 1.5 METs</strong> while sitting, reclining, or lying down (comprising ~60% of waking hours). As few as <strong>30 minutes of continuous sitting</strong> induces acute pathophysiological changes:<ul><li><strong>Insulin Resistance:</strong> Rapid elevation in acute insulin resistance.</li><li><strong>Impaired Lipid/Carbohydrate Metabolism:</strong> Suppressed lipoprotein lipase (LPL) activity and metabolic shift prioritizing glucose utilization and fat storage.</li><li><strong>Subacute Inflammation:</strong> Promotion of systemic, subacute vascular inflammation and changes in muscle fiber characteristics.</li></ul>"
+        },
+        {
+            "id": "20.4-10",
+            "tag": "Breaks in Prolonged Sitting",
+            "reference": "Section 20.4",
+            "front": "Why does regular structured exercise <em>not</em> counteract sedentary sitting, and what movement threshold effectively breaks <strong>sedentary physiology</strong>?",
+            "back": "Key clinical distinctions between exercise and sedentary behavior include:<ul><li><strong>Exercise Limitation:</strong> Regular structured exercise (e.g., 30-60 min/day) improves VO<sub>2max</sub> but <strong>does NOT reverse or counteract</strong> the negative cardiometabolic effects of continuous, prolonged sitting during the rest of the day.</li><li><strong>Movement Break Threshold:</strong> Engaging in as little as <strong>2 minutes of low-intensity physical activity (2.0 to 2.5 METs)</strong> periodically during prolonged sitting directly interrupts sedentary physiology, restoring normal glucose metabolism and insulin sensitivity.</li></ul>"
+        }
+    ]
+}

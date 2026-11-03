@@ -1,0 +1,498 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "Which six key program variables must be systematically manipulated when designing a resistance training prescription?",
+                "opts": [
+                    "Exercise selection, exercise order, training volume, rest intervals, load/repetitions, and movement velocity",
+                    "Heart rate reserve, VO2max, tidal volume, stroke volume, blood pressure, and lactate threshold",
+                    "Caloric intake, water consumption, sleep duration, protein timing, muscle mass, and body fat percentage",
+                    "Flexibility, agility, reaction time, balance, coordination, and muscular power"
+                ],
+                "correct": 0,
+                "rationale": "Designing an effective resistance training program requires systematically manipulating six core variables: exercise selection, exercise order, training volume, rest intervals, load and repetitions, and movement velocity."
+            },
+            {
+                "id": 2,
+                "q": "According to ACSM guidelines, how should exercise order be structured within a resistance training session?",
+                "opts": [
+                    "Small muscle groups before large muscle groups, and single-joint exercises before multi-joint exercises",
+                    "Large muscle groups before small muscle groups, multi-joint exercises before single-joint exercises, and higher-intensity before lower-intensity efforts",
+                    "Single-joint isolation exercises first, followed by maximal sprinting and static stretching",
+                    "Randomized sequence without regard to muscle group size or joint involvement"
+                ],
+                "correct": 1,
+                "rationale": "ACSM guidelines recommend training large muscle groups before small muscle groups, multi-joint exercises before single-joint exercises, and higher-intensity exercises before lower-intensity exercises to optimize neural drive and safety."
+            },
+            {
+                "id": 3,
+                "q": "What rest interval duration is recommended for novice and intermediate lifters training with heavy loads for maximal strength?",
+                "opts": [
+                    "10 to 15 seconds",
+                    "30 to 60 seconds",
+                    "2 to 3 minutes or more",
+                    "10 to 12 minutes"
+                ],
+                "correct": 2,
+                "rationale": "For heavy strength training in novice and intermediate lifters, rest periods of 2 to 3 minutes or longer allow adequate phosphagen (ATP-PCr) resynthesis and peripheral neuromuscular recovery between sets."
+            },
+            {
+                "id": 4,
+                "q": "What load (% 1RM) and repetition range are recommended by the ACSM to maximize muscular hypertrophy?",
+                "opts": [
+                    "70% to 85% 1RM for 6 to 12 repetitions",
+                    "95% to 100% 1RM for 1 to 2 repetitions",
+                    "< 50% 1RM for 30 to 50 repetitions",
+                    "30% to 40% 1RM for 1 to 3 repetitions at slow speeds"
+                ],
+                "correct": 0,
+                "rationale": "To promote muscle hypertrophy, ACSM guidelines recommend loads of 70% to 85% of 1RM for 6 to 12 repetitions per set."
+            },
+            {
+                "id": 5,
+                "q": "What load progression rule (the '2-for-2 rule') signals that an athlete is ready to advance resistance training loads?",
+                "opts": [
+                    "If the athlete gains 2 kg of body weight in 2 days",
+                    "If the athlete can perform 2 additional repetitions beyond their target goal on the last set in 2 consecutive training sessions",
+                    "If the athlete rests for 2 minutes after completing 2 sets",
+                    "If the athlete performs 2 workouts per day for 2 weeks"
+                ],
+                "correct": 1,
+                "rationale": "The 2-for-2 load progression rule dictates that if an athlete can complete 2 or more repetitions over their assigned target on the final set for 2 consecutive workouts, load should be increased."
+            },
+            {
+                "id": 6,
+                "q": "By what percentage range should resistance training loads typically be increased when applying progressive overload?",
+                "opts": [
+                    "2% to 10%",
+                    "25% to 50%",
+                    "75% to 100%",
+                    "0.1% to 0.5%"
+                ],
+                "correct": 0,
+                "rationale": "When progressing load, a conservative increase of 2% to 10% is recommended to maintain safe form and continuous adaptation."
+            },
+            {
+                "id": 7,
+                "q": "Which training parameters characterize local muscular endurance prescriptions according to ACSM guidelines?",
+                "opts": [
+                    "Loads < 65% 1RM, 15 to 25+ repetitions, short rest periods (\\le 30\\text{ to }60\\text{ s})",
+                    "Loads \\ge 90\\%\\text{ 1RM}, 1 to 3 repetitions, 5-minute rest periods",
+                    "Loads 30% to 50% 1RM, 1 to 5 explosive reps, 3-minute rest periods",
+                    "Isometric holds for 10 consecutive minutes with no rest"
+                ],
+                "correct": 0,
+                "rationale": "Local muscular endurance training utilizes lighter loads (<65% 1RM), higher repetition ranges (15–25+ reps), and short rest periods (\\le 30\\text{--}60\\text{ s})."
+            },
+            {
+                "id": 8,
+                "q": "Why should multi-joint exercises like squats and bench presses be scheduled before single-joint exercises like leg extensions and bicep curls?",
+                "opts": [
+                    "Single-joint exercises cause immediate loss of arterial blood pressure",
+                    "Multi-joint movements require greater neural coordination and muscle mass, so performing them early avoids fatigue in synergist stabilizer muscles",
+                    "Multi-joint exercises do not require ATP",
+                    "Single-joint exercises must only be performed after midnight"
+                ],
+                "correct": 1,
+                "rationale": "Performing multi-joint exercises first capitalizes on fresh central nervous system drive and prevents local fatigue in smaller stabilizing synergist muscles that could compromise form."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which six core program design variables are manipulated in resistance training prescriptions? (Select all that apply)",
+                "opts": [
+                    "Exercise selection and exercise order",
+                    "Training volume (sets and repetitions)",
+                    "Rest intervals and load/repetitions",
+                    "Movement velocity"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "rationale": "All six variables—exercise selection, exercise order, training volume, rest intervals, load/repetitions, and movement velocity—constitute the resistance training prescription framework."
+            },
+            {
+                "id": 2,
+                "q": "Which statements align with ACSM exercise order recommendations? (Select all that apply)",
+                "opts": [
+                    "Train large muscle groups before small muscle groups",
+                    "Perform multi-joint exercises before single-joint exercises",
+                    "Perform higher-intensity exercises before lower-intensity exercises",
+                    "Perform single-joint isolation exercises to complete exhaustion before multi-joint power cleans"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "ACSM specifies large muscles before small muscles, multi-joint before single-joint, and high-intensity before low-intensity. Performing single-joint isolation first compromises stabilizer function during multi-joint lifts."
+            },
+            {
+                "id": 3,
+                "q": "Which resistance training prescriptions correctly match the target outcome? (Select all that apply)",
+                "opts": [
+                    "Maximal Strength: \\ge 80\\%\\text{--}85\\%\\text{ 1RM}, 1–6 reps, 2–3 min rest",
+                    "Hypertrophy: 70%–85% 1RM, 6–12 reps, 1–2 min rest",
+                    "Local Muscular Endurance: < 65% 1RM, 15–25+ reps, \\le 30\\text{--}60\\text{ s} rest",
+                    "Power: 95%–100% 1RM, 30–50 reps, 10-second rest"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Strength uses heavy loads (80-85%+ 1RM, 1-6 reps); Hypertrophy uses 70-85% 1RM (6-12 reps); Endurance uses <65% 1RM (15-25+ reps, short rest). Power uses lighter loads (30-60% 1RM) moved at explosive velocities."
+            },
+            {
+                "id": 4,
+                "q": "Which factors dictate the rest period duration between sets in resistance training? (Select all that apply)",
+                "opts": [
+                    "Training outcome goal (strength vs endurance)",
+                    "Load intensity (% 1RM) being lifted",
+                    "Athlete training status (novice vs advanced)",
+                    "Eye color of the athlete"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Rest interval length depends on the specific performance goal, load intensity (% 1RM), and athlete training status."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "ACSM guidelines recommend training large muscle groups before small muscle groups during a workout session.",
+                "ans": true,
+                "feedback": "True. Training large muscle groups first ensures peak neural drive and avoids premature fatigue in synergist stabilizing muscles."
+            },
+            {
+                "id": 2,
+                "q": "Short rest periods of 30 seconds are optimal for maximizing maximal 1RM strength adaptations.",
+                "ans": false,
+                "feedback": "False. Maximal strength training requires longer rest periods (2 to 3 minutes or more) to allow complete phosphagen resynthesis."
+            },
+            {
+                "id": 3,
+                "q": "The '2-for-2 rule' states that if an athlete completes 2 extra reps beyond target on the final set in 2 consecutive workouts, load should be increased.",
+                "ans": true,
+                "feedback": "True. The 2-for-2 rule provides a systematic criterion for advancing resistance training loads by 2% to 10%."
+            },
+            {
+                "id": 4,
+                "q": "Local muscular endurance programs utilize heavy loads above 85% 1RM for 1 to 3 repetitions.",
+                "ans": false,
+                "feedback": "False. Local muscular endurance programs utilize lighter loads (<65% 1RM) and higher repetition ranges (15 to 25+ reps)."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Proper exercise order requires performing **multi-joint** exercises before single-joint exercises and training **large muscle groups** first.",
+                "targets": [
+                    "multi-joint",
+                    "large muscle groups"
+                ],
+                "optionsBank": [
+                    "multi-joint",
+                    "large muscle groups",
+                    "single-joint",
+                    "small muscle groups",
+                    "isometric"
+                ],
+                "hint": "Identify the multi-articulation exercise type and the primary muscle mass category."
+            },
+            {
+                "id": 2,
+                "statement": "Maximal strength development requires heavy loads of **80% to 85% 1RM** paired with rest periods of **2 to 3 minutes**.",
+                "targets": [
+                    "80% to 85% 1RM",
+                    "2 to 3 minutes"
+                ],
+                "optionsBank": [
+                    "80% to 85% 1RM",
+                    "2 to 3 minutes",
+                    "30% 1RM",
+                    "10 seconds",
+                    "50% 1RM"
+                ],
+                "hint": "Identify the heavy load percentage range and the recovery interval duration."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Detail ACSM guidelines regarding exercise order within a resistance training session, explaining the physiological rationale for scheduling multi-joint movements before single-joint movements.",
+                "model": "ACSM guidelines specify that resistance workouts should be ordered as follows: (1) Large muscle groups before small muscle groups; (2) Multi-joint exercises before single-joint exercises; and (3) Higher-intensity efforts before lower-intensity efforts. Scheduling multi-joint movements (e.g., back squats, bench press) early in the session capitalizes on fresh central nervous system drive and maximal motor unit recruitment. If single-joint exercises (e.g., leg extensions, tricep pushdowns) are performed first, smaller synergist and stabilizer muscles become fatigued, compromising form, force production, and safety during subsequent multi-joint lifts.",
+                "criteria": [
+                    "State ACSM order rules (large before small muscles, multi-joint before single-joint, high-intensity before low-intensity).",
+                    "Explain neural rationale (capitalizes on fresh CNS drive and peak motor unit recruitment).",
+                    "Detail risk of pre-fatiguing stabilizers (fatigued synergists compromise multi-joint technique and force output)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Compare the load (% 1RM), repetition range, set volume, and rest interval recommendations for Maximal Strength versus Local Muscular Endurance.",
+                "model": "Maximal Strength prescriptions require heavy loads (\\ge 80\\%\\text{--}85\\%\\text{ 1RM}), low repetition ranges (1 to 6 reps per set), 3 to 6 sets per exercise, and longer rest intervals (2 to 3 minutes or more) to allow complete phosphagen (ATP-PCr) resynthesis. In contrast, Local Muscular Endurance prescriptions require lighter loads (<65% 1RM), higher repetition ranges (15 to 25+ reps per set), 2 to 3 sets per exercise, and short rest intervals (\\le 30\\text{ to }60\\text{ s}) to induce local vascular and metabolic buffering adaptations.",
+                "criteria": [
+                    "Specify Maximal Strength parameters (\\ge 80\\%-85\\% 1RM, 1-6 reps, 3-6 sets, 2-3+ min rest).",
+                    "Specify Local Muscular Endurance parameters (<65% 1RM, 15-25+ reps, 2-3 sets, \\le 30-60 s rest).",
+                    "Explain physiological basis for rest difference (ATP-PCr resynthesis vs metabolic buffering stress)."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "Why do free weights (barbells and dumbbells) tax human skeletal muscle unevenly across a joint's full range of motion?",
+                "opts": [
+                    "Free weights change mass as they are lifted",
+                    "Human skeletal leverage creates a variable strength curve, making the muscle weakest at extreme joint angles while free weight resistance load remains constant",
+                    "Free weights eliminate gravity during concentric movement",
+                    "Barbells absorb muscle force through elastic deformation"
+                ],
+                "correct": 1,
+                "rationale": "Free weights provide a constant mass load. Because human joint leverage varies throughout the range of motion (creating a strength curve), the maximum weight lifted is limited by the weakest joint angle, leaving strong midrange angles under-loaded."
+            },
+            {
+                "id": 2,
+                "q": "During a two-arm bicep curl with free weights, at what elbow flexion angle does maximal muscle torque occur?",
+                "opts": [
+                    "100 degrees of flexion",
+                    "180 degrees (full extension)",
+                    "60 degrees (full flexion)",
+                    "0 degrees"
+                ],
+                "correct": 0,
+                "rationale": "Maximal flexor torque during a bicep curl occurs at 100 degrees of elbow flexion. At 180 degrees (full extension) and 60 degrees (full flexion), force capability drops to 71% and 67% of maximum, respectively."
+            },
+            {
+                "id": 3,
+                "q": "What mechanism defines variable-resistance training equipment (e.g., machines with cams, pulleys, or levers)?",
+                "opts": [
+                    "The equipment maintains a constant angular velocity regardless of effort",
+                    "The equipment uses cams or levers to alter resistance across the range of motion, matching the human strength curve",
+                    "The machine uses electrical shocks to force muscle contractions",
+                    "The resistance drops to zero at the midpoint of movement"
+                ],
+                "correct": 1,
+                "rationale": "Variable-resistance machines use specialized cams, levers, or pulleys to decrease resistance at biomechanically weak joint angles and increase resistance at strong joint angles, matching the human strength curve."
+            },
+            {
+                "id": 4,
+                "q": "What key characteristic defines isokinetic resistance training devices?",
+                "opts": [
+                    "Movement speed (angular velocity) remains constant regardless of the force exerted by the user",
+                    "Load resistance increases exponentially with every rep",
+                    "Movement speed accelerates to infinity during eccentric contraction",
+                    "The user lifts a constant iron mass against gravity"
+                ],
+                "correct": 0,
+                "rationale": "Isokinetic equipment maintains a constant, fixed angular velocity (speed of movement). As the user pushes harder, the machine increases accommodating resistance to keep speed constant."
+            },
+            {
+                "id": 5,
+                "q": "How does plyometric exercise utilize neuromuscular mechanics to enhance explosive concentric power?",
+                "opts": [
+                    "By eliminating the muscle stretch reflex",
+                    "By utilizing a rapid eccentric pre-stretch to trigger the stretch reflex and store elastic energy in connective tissues",
+                    "By performing static isometric holds for 5 minutes",
+                    "By reducing motor unit recruitment in fast-twitch fibers"
+                ],
+                "correct": 1,
+                "rationale": "Plyometrics relies on the stretch-shortening cycle, using a rapid eccentric pre-stretch to activate muscle spindles (stretch reflex) and store elastic energy, augmenting subsequent concentric force and power."
+            },
+            {
+                "id": 6,
+                "q": "What core physiological principle explains why core stability training improves athletic movement in the extremities?",
+                "opts": [
+                    "Distal stability for proximal mobility",
+                    "Proximal stability for distal mobility",
+                    "Isometric tension eliminates cardiac output",
+                    "Core muscles contain 100% Type IIx fast-twitch fibers"
+                ],
+                "correct": 1,
+                "rationale": "Core training operates on the principle of 'proximal stability for distal mobility,' where a stable trunk and pelvis provide a rigid anchor for efficient force transfer to the limbs."
+            },
+            {
+                "id": 7,
+                "q": "Which clinical application represents the primary use of electrical muscle stimulation in physical therapy?",
+                "opts": [
+                    "Replacing all voluntary exercise in healthy Olympic sprinters",
+                    "Preserving muscle mass and strength during limb immobilization or postsurgical rehabilitation",
+                    "Increasing marathon VO2max by 50%",
+                    "Curing bone fractures within 24 hours"
+                ],
+                "correct": 1,
+                "rationale": "Electrical stimulation is primarily applied clinically across immobilized limbs or postsurgical nerves/muscles to reduce muscle atrophy and strength loss when voluntary contraction is restricted."
+            },
+            {
+                "id": 8,
+                "q": "Why is force production capability significantly higher during eccentric muscle actions compared to concentric actions?",
+                "opts": [
+                    "Eccentric actions recruitment requires zero ATP",
+                    "Cross-bridge mechanics during lengthening involve passive tension contributions from structural proteins (like titin) and mechanical unbinding",
+                    "Concentric actions recruit twice as many motor units",
+                    "Eccentric actions occur only when blood flow is blocked"
+                ],
+                "correct": 1,
+                "rationale": "During eccentric lengthening contractions, force output is higher because passive tension from structural muscle proteins (such as titin) adds to active cross-bridge force, and mechanical force is required to detach bound myosin heads."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which advantages are associated with free weight training compared to machine training? (Select all that apply)",
+                "opts": [
+                    "Recruitment of stabilizing synergist motor units",
+                    "Multi-planar movement freedom matching sport skills",
+                    "Greater sport-specific performance transfer",
+                    "Variable resistance that automatically changes mass at weak joint angles"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Free weights recruit stabilizer synergists, permit multi-planar movement, and offer superior sport transfer. They maintain a constant mass load rather than variable resistance."
+            },
+            {
+                "id": 2,
+                "q": "Which characteristics describe isokinetic resistance training? (Select all that apply)",
+                "opts": [
+                    "Constant movement speed (angular velocity) maintained by electronic/hydraulic devices",
+                    "Accommodating resistance that matches applied muscle force throughout full ROM",
+                    "Maximal force generation capability at every point in the range of motion",
+                    "Constant gravitational load like a dumbbell"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Isokinetic devices maintain a constant angular velocity, provide accommodating resistance, and allow maximal force production across full ROM."
+            },
+            {
+                "id": 3,
+                "q": "Which muscle groups and fiber type characteristics define the core trunk musculature? (Select all that apply)",
+                "opts": [
+                    "Abdominal, gluteal, hip girdle, and paraspinal muscles",
+                    "High proportion of Type I slow-twitch endurance muscle fibers",
+                    "Responsiveness to high-repetition, stability, and control exercises",
+                    "Exclusive composition of 100% fast-twitch glycolytic fibers that fatigue in 2 seconds"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "The core encompasses abdominal, gluteal, hip girdle, and paraspinal muscles, possessing a high percentage of Type I slow-twitch fibers adapted for postural endurance and stability."
+            },
+            {
+                "id": 4,
+                "q": "Which specialized resistance modalities utilize the stretch-shortening cycle to train explosive power? (Select all that apply)",
+                "opts": [
+                    "Plyometrics (depth jumps, bounding)",
+                    "Rapid eccentric pre-stretch exercises",
+                    "Static isometric wall-sits",
+                    "Slow zero-velocity isokinetic holds"
+                ],
+                "correctArray": [
+                    0,
+                    1
+                ],
+                "rationale": "Plyometrics and rapid eccentric pre-stretching utilize the stretch-shortening cycle. Wall-sits and isometric holds lack eccentric pre-stretch kinetics."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "During a free-weight bicep curl, the resistance load changes automatically to match the human strength curve.",
+                "ans": false,
+                "feedback": "False. Free weights provide a constant mass load; variable-resistance machines are required to alter load along the strength curve."
+            },
+            {
+                "id": 2,
+                "q": "Isometric (static) resistance training produces strength gains that are largely specific to the joint angle trained.",
+                "ans": true,
+                "feedback": "True. Static isometric training increases strength primarily at and near the specific joint angle utilized during contraction."
+            },
+            {
+                "id": 3,
+                "q": "Isokinetic training equipment allows movement velocity to accelerate indefinitely as force increases.",
+                "ans": false,
+                "feedback": "False. Isokinetic devices lock movement at a constant pre-set angular velocity regardless of how hard the user pushes."
+            },
+            {
+                "id": 4,
+                "q": "Core stability operates on the physiological concept of 'proximal stability for distal mobility'.",
+                "ans": true,
+                "feedback": "True. A stable core provides a firm anchor that optimizes force transfer to distal limbs during athletic movement."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Free weights provide a **constant load**, whereas variable-resistance machines alter load to match the human **strength curve**.",
+                "targets": [
+                    "constant load",
+                    "strength curve"
+                ],
+                "optionsBank": [
+                    "constant load",
+                    "strength curve",
+                    "isokinetic velocity",
+                    "blood pressure",
+                    "stretch reflex"
+                ],
+                "hint": "Identify the fixed mass characteristic and the leverage variation curve."
+            },
+            {
+                "id": 2,
+                "statement": "Isokinetic training maintains a constant **angular velocity**, while plyometrics relies on the **stretch-shortening cycle**.",
+                "targets": [
+                    "angular velocity",
+                    "stretch-shortening cycle"
+                ],
+                "optionsBank": [
+                    "angular velocity",
+                    "stretch-shortening cycle",
+                    "isometric hold",
+                    "caloric deficit",
+                    "glycogen depletion"
+                ],
+                "hint": "Identify the constant movement speed metric and the explosive reflex mechanism."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Compare free weight training with variable-resistance machine training, detailing the biomechanical limitations of free weights regarding human joint leverage and strength curves.",
+                "model": "Free weights (barbells, dumbbells) supply a constant mass load against gravity. However, human skeletal leverage creates a variable strength curve across joint angles; for example, during a bicep curl, maximal flexor torque occurs at 100 degrees of elbow flexion, while capacity drops significantly at full extension (180 degrees) and full flexion (60 degrees). Consequently, free weights tax the muscle heavily only at its weakest joint angle, leaving strong midrange angles under-loaded. Variable-resistance machines overcome this by using cams, pulleys, or levers that alter resistance throughout the movement, matching the human strength curve to tax the muscle fully across its entire range of motion.",
+                "criteria": [
+                    "Explain free weight mechanics (constant mass load, limited by weakest joint angle/leverage curve).",
+                    "Provide bicep curl example (peak torque at 100 deg, lower capacity at 180 deg and 60 deg).",
+                    "Explain variable-resistance machine solution (cams/levers alter load to match human strength curve)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Explain the mechanics of plyometric training, detailing how the stretch-shortening cycle, stretch reflex, and elastic energy storage combine to enhance explosive concentric power output.",
+                "model": "Plyometric training utilizes rapid stretch-shortening cycle (SSC) actions to generate explosive concentric power. The movement begins with a rapid eccentric pre-stretch of the agonist muscle. This rapid stretch stimulates muscle spindles, triggering the involuntary monosynaptic stretch reflex that increases reflex motor unit recruitment. Concurrently, passive elastic tissue components (tendons and structural proteins) store mechanical elastic energy during the elongation phase. When followed immediately by an explosive concentric contraction, the released elastic energy and reflex motor unit recruitment combine with voluntary activation to dramatically increase concentric force and power output.",
+                "criteria": [
+                    "Identify the core mechanism (stretch-shortening cycle with rapid eccentric pre-stretch).",
+                    "Explain neural component (muscle spindle stimulation triggering stretch reflex and motor unit recruitment).",
+                    "Explain mechanical component (storage and release of elastic energy in tendons/structural proteins)."
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,498 @@
+{
+    "p1": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "What fundamental physiological relationship forms the basis for using training heart rate (THR) to monitor exercise intensity?",
+                "opts": [
+                    "The linear relationship between heart rate and oxygen consumption (\\(\\dot{V}\\text{O}_2\\)) with increasing work rates",
+                    "The inverse relationship between heart rate and systolic blood pressure",
+                    "The exponential decay of heart rate during maximal sprint exercise",
+                    "The constant unvarying heart rate response across all work intensities"
+                ],
+                "correct": 0,
+                "rationale": "Training heart rate (THR) is based on the linear relation between heart rate and oxygen consumption (\\(\\dot{V}\\text{O}_2\\)) with increasing rates of work."
+            },
+            {
+                "id": 2,
+                "q": "If a training level is set at 75% of \\(\\dot{V}\\text{O}_{2\\max}\\), what approximate percentage of maximal heart rate (\\(\\text{HR}_{\\max}\\)) does this represent?",
+                "opts": [
+                    "Approximately 65% to 90% of \\(\\text{HR}_{\\max}\\)",
+                    "Exactly 75% of \\(\\text{HR}_{\\max}\\) in all individuals",
+                    "Less than 30% of \\(\\text{HR}_{\\max}\\)",
+                    "100% of \\(\\text{HR}_{\\max}\\) continuously"
+                ],
+                "correct": 0,
+                "rationale": "An exercise intensity set at 75% of \\(\\dot{V}\\text{O}_{2\\max}\\) does not equal 75% of \\(\\text{HR}_{\\max}\\); instead, it represents approximately 65% to 90% of \\(\\text{HR}_{\\max}\\)."
+            },
+            {
+                "id": 3,
+                "q": "How is maximal heart rate reserve (HRR) defined in the Karvonen method?",
+                "opts": [
+                    "The difference between maximal heart rate and resting heart rate (\\(\\text{HR}_{\\max} - \\text{HR}_{\\text{rest}}\\))",
+                    "The sum of maximal heart rate and resting heart rate (\\(\\text{HR}_{\\max} + \\text{HR}_{\\text{rest}}\\))",
+                    "Maximal heart rate divided by resting blood pressure",
+                    "Resting heart rate multiplied by age"
+                ],
+                "correct": 0,
+                "rationale": "Heart rate reserve (HRR) is defined as maximal heart rate minus resting heart rate (\\(\\text{HR}_{\\max} - \\text{HR}_{\\text{rest}}\\))."
+            },
+            {
+                "id": 4,
+                "q": "Using the Karvonen formula, what is the calculated training heart rate for a 40-year-old man with a resting heart rate of 75 beats/min and a maximum heart rate of 180 beats/min at 50% HRR?",
+                "opts": [
+                    "128 beats/min",
+                    "154 beats/min",
+                    "105 beats/min",
+                    "165 beats/min"
+                ],
+                "correct": 0,
+                "rationale": "\\(\\text{THR}_{50\\%} = \\text{HR}_{\\text{rest}} + 0.50 \\times (\\text{HR}_{\\max} - \\text{HR}_{\\text{rest}}) = 75 + 0.50 \\times (180 - 75) = 75 + 52.5 = 127.5 \\approx 128\\text{ beats/min}\\)."
+            },
+            {
+                "id": 5,
+                "q": "Using the same Karvonen formula for the 40-year-old man (\\(\\text{HR}_{\\text{rest}} = 75\\), \\(\\text{HR}_{\\max} = 180\\)), what is his training heart rate at 75% HRR?",
+                "opts": [
+                    "154 beats/min",
+                    "128 beats/min",
+                    "135 beats/min",
+                    "175 beats/min"
+                ],
+                "correct": 0,
+                "rationale": "\\(\\text{THR}_{75\\%} = 75 + 0.75 \\times (180 - 75) = 75 + 0.75 \\times 105 = 75 + 78.75 = 153.75 \\approx 154\\text{ beats/min}\\)."
+            },
+            {
+                "id": 6,
+                "q": "Why is setting a training heart rate range preferred over prescribing a single THR value?",
+                "opts": [
+                    "Exercising at a fixed single percentage of \\(\\dot{V}\\text{O}_{2\\max}\\) can force people above their lactate threshold, causing rapid fatigue",
+                    "Single THR values are physically impossible to calculate",
+                    "Heart rate ranges prevent exercisers from sweating",
+                    "Single THR values are restricted only to competitive sprinters"
+                ],
+                "correct": 0,
+                "rationale": "Setting a THR range is more sensible because exercising at a single set percentage of \\(\\dot{V}\\text{O}_{2\\max}\\) can place people above their lactate threshold, making extended training difficult."
+            },
+            {
+                "id": 7,
+                "q": "What formula is provided in the textbook for estimating age-predicted maximal heart rate if true \\(\\text{HR}_{\\max}\\) has not been directly measured?",
+                "opts": [
+                    "\\(\\text{HR}_{\\max} = 208 - (0.7 \\times \\text{age})\\)",
+                    "\\(\\text{HR}_{\\max} = 220 + \\text{age}\\)",
+                    "\\(\\text{HR}_{\\max} = 100 + (1.5 \\times \\text{age})\\)",
+                    "\\(\\text{HR}_{\\max} = 300 - (2.0 \\times \\text{age})\\)"
+                ],
+                "correct": 0,
+                "rationale": "The textbook specifies the age-predicted formula \\(\\text{HR}_{\\max} = 208 - (0.7 \\times \\text{age})\\) for estimating maximum heart rate without significant loss of accuracy."
+            },
+            {
+                "id": 8,
+                "q": "What is the primary physiological advantage of using the \\(\\dot{V}\\text{O}_2\\text{R}\\) (oxygen reserve) method for prescribing exercise intensity?",
+                "opts": [
+                    "It establishes direct mathematical equivalency between the percentage of maximal HRR and the percentage of \\(\\dot{V}\\text{O}_{2\\max}\\) reserve",
+                    "It eliminates the need to measure oxygen consumption during exercise",
+                    "It lowers resting blood pressure by 50% immediately",
+                    "It prevents muscle glycogen depletion during marathon running"
+                ],
+                "correct": 0,
+                "rationale": "The major advantage of the \\(\\dot{V}\\text{O}_2\\text{R}\\) technique is that percentage of maximal HRR is equivalent to the percentage of \\(\\dot{V}\\text{O}_{2\\max}\\) reserve."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which statements accurately describe the Heart Rate Reserve (Karvonen) method? (Select all that apply)",
+                "opts": [
+                    "Maximal HRR is calculated as \\(\\text{HR}_{\\max} - \\text{HR}_{\\text{rest}}\\)",
+                    "THR is calculated as \\(\\text{HR}_{\\text{rest}} + \\%\\text{Target} \\times (\\text{HR}_{\\max} - \\text{HR}_{\\text{rest}})\\)",
+                    "Percentage of maximal HRR is nearly identical to percentage of \\(\\dot{V}\\text{O}_{2\\max}\\) at moderate to high intensities",
+                    "Percentage of maximal HRR is completely unrelated to oxygen consumption"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "HRR equals \\(\\text{HR}_{\\max} - \\text{HR}_{\\text{rest}}\\), THR uses the Karvonen formula, and percentage HRR matches percentage \\(\\dot{V}\\text{O}_{2\\max}\\) at moderate-to-high intensities."
+            },
+            {
+                "id": 2,
+                "q": "Which physiological factors support the use of heart rate as the preferred method for monitoring exercise intensity? (Select all that apply)",
+                "opts": [
+                    "Heart rate is highly correlated with the myocardial workload (stress on the heart)",
+                    "Heart rate allows for progressive workload increases as fitness improves while keeping the same THR",
+                    "Heart rate reserve accounts for individual differences in resting heart rate",
+                    "Heart rate never changes regardless of exercise intensity"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Heart rate correlates directly with cardiac strain, accommodates fitness progression, and HRR incorporates resting heart rate."
+            },
+            {
+                "id": 3,
+                "q": "Which statements regarding the \\(\\dot{V}\\text{O}_2\\text{R}\\) method and resting oxygen consumption are true based on textbook data? (Select all that apply)",
+                "opts": [
+                    "\\(\\dot{V}\\text{O}_2\\text{R}\\) is defined as \\(\\dot{V}\\text{O}_{2\\max} - \\dot{V}\\text{O}_{2\\text{rest}}\\)",
+                    "Using a standard resting value of \\(3.5\\text{ mL } \\cdot \\text{kg}^{-1} \\cdot \\text{min}^{-1}\\) assumes everyone has identical resting oxygen uptake",
+                    "Study data showed average resting \\(\\dot{V}\\text{O}_2\\) was 2.5 in women and 2.7 in men, with a range from 1.6 to 4.1 \\(\\text{mL } \\cdot \\text{kg}^{-1} \\cdot \\text{min}^{-1}\\)",
+                    "Resting oxygen uptake is exactly 10.0 \\(\\text{mL } \\cdot \\text{kg}^{-1} \\cdot \\text{min}^{-1}\\) in all humans"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "\\(\\dot{V}\\text{O}_2\\text{R} = \\dot{V}\\text{O}_{2\\max} - \\dot{V}\\text{O}_{2\\text{rest}}\\). Standardizing resting \\(\\dot{V}\\text{O}_2\\) at 3.5 is an assumption; research shows actual averages of 2.5 (women) and 2.7 (men) ranging from 1.6 to 4.1."
+            },
+            {
+                "id": 4,
+                "q": "Which calculation steps are correct for establishing a THR range of 50% to 75% HRR for an individual with \\(\\text{HR}_{\\text{rest}} = 75\\) and \\(\\text{HR}_{\\max} = 180\\)? (Select all that apply)",
+                "opts": [
+                    "Calculate maximal HRR as \\(180 - 75 = 105\\text{ beats/min}\\)",
+                    "Calculate lower THR limit (50% HRR) as \\(75 + 0.50 \\times 105 = 128\\text{ beats/min}\\)",
+                    "Calculate upper THR limit (75% HRR) as \\(75 + 0.75 \\times 105 = 154\\text{ beats/min}\\)",
+                    "Multiply 180 by 0.50 to get a lower limit of 90 beats/min"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Maximal HRR = 105. 50% HRR = 75 + 52.5 = 128 bpm. 75% HRR = 75 + 78.75 = 154 bpm. Multiplying 180 by 0.50 ignores resting heart rate (not the Karvonen method)."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "An exercise intensity corresponding to 75% of \\(\\dot{V}\\text{O}_{2\\max}\\) always equals 75% of maximal heart rate (\\(\\text{HR}_{\\max}\\)).",
+                "ans": false,
+                "feedback": "False. An intensity of 75% \\(\\dot{V}\\text{O}_{2\\max}\\) represents approximately 65% to 90% of \\(\\text{HR}_{\\max}\\)."
+            },
+            {
+                "id": 2,
+                "q": "The Heart Rate Reserve (Karvonen) method calculates THR by adding a target percentage of maximal HRR to resting heart rate.",
+                "ans": true,
+                "feedback": "True. The Karvonen formula is \\(\\text{THR} = \\text{HR}_{\\text{rest}} + \\%\\text{Target} \\times (\\text{HR}_{\\max} - \\text{HR}_{\\text{rest}})\\)."
+            },
+            {
+                "id": 3,
+                "q": "Exercising at a single rigid percentage of \\(\\dot{V}\\text{O}_{2\\max}\\) can place an individual above their lactate threshold, causing rapid fatigue.",
+                "ans": true,
+                "feedback": "True. Setting a heart rate range rather than a single THR value prevents exercisers from inadvertently exceeding their lactate threshold."
+            },
+            {
+                "id": 4,
+                "q": "The age-predicted formula \\(\\text{HR}_{\\max} = 208 - (0.7 \\times \\text{age})\\) provides an accurate estimate of maximal heart rate when direct testing is unavailable.",
+                "ans": true,
+                "feedback": "True. The textbook highlights this formula as an accurate method for estimating \\(\\text{HR}_{\\max}\\) without losing accuracy."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "Maximal HRR is calculated as **\\(\\text{HR}_{\\max} - \\text{HR}_{\\text{rest}}\\)**, and the Karvonen formula adds this product to **resting heart rate**.",
+                "targets": [
+                    "\\(\\text{HR}_{\\max} - \\text{HR}_{\\text{rest}}\\)",
+                    "resting heart rate"
+                ],
+                "optionsBank": [
+                    "\\(\\text{HR}_{\\max} - \\text{HR}_{\\text{rest}}\\)",
+                    "resting heart rate",
+                    "\\(\\text{HR}_{\\max} + \\text{HR}_{\\text{rest}}\\)",
+                    "systolic blood pressure",
+                    "stroke volume"
+                ],
+                "hint": "Identify the formula for heart rate reserve and the baseline heart rate added in the Karvonen method."
+            },
+            {
+                "id": 2,
+                "statement": "The \\(\\dot{V}\\text{O}_2\\text{R}\\) method defines oxygen reserve as **\\(\\dot{V}\\text{O}_{2\\max} - \\dot{V}\\text{O}_{2\\text{rest}}\\)**, providing equivalency to **percentage HRR**.",
+                "targets": [
+                    "\\(\\dot{V}\\text{O}_{2\\max} - \\dot{V}\\text{O}_{2\\text{rest}}\\)",
+                    "percentage HRR"
+                ],
+                "optionsBank": [
+                    "\\(\\dot{V}\\text{O}_{2\\max} - \\dot{V}\\text{O}_{2\\text{rest}}\\)",
+                    "percentage HRR",
+                    "lactate threshold",
+                    "ventilatory equivalent",
+                    "RPE score"
+                ],
+                "hint": "Identify the mathematical definition of VO2 reserve and the heart rate parameter it mirrors."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Calculate the training heart rate range at 50% to 75% HRR for a 40-year-old male with a resting heart rate of 75 beats/min and a maximal heart rate of 180 beats/min, and explain why establishing a range is clinically superior to a single THR.",
+                "model": "Calculation: (1) Maximal HRR = 180 - 75 = 105 beats/min. (2) Lower limit (50% HRR) = 75 + 0.50(105) = 75 + 52.5 = 128 beats/min. (3) Upper limit (75% HRR) = 75 + 0.75(105) = 75 + 78.75 = 154 beats/min. The THR range is 128 to 154 beats/min. Clinical Superiority: Establishing a THR range is superior because exercising at a single rigid THR or fixed percentage of VO2max can force individuals above their lactate threshold, causing rapid metabolic fatigue. A range allows exercisers to begin at the lower end and progress toward the upper limit as comfort and cardiovascular fitness improve.",
+                "criteria": [
+                    "Perform correct mathematical calculations (Max HRR = 105 bpm; 50% HRR = 128 bpm; 75% HRR = 154 bpm).",
+                    "Explain lactate threshold prevention (prevents inadvertently exceeding lactate threshold and causing early fatigue).",
+                    "Explain progression benefits (allows starting at lower end and progressing as fitness improves)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Detail the VO2 Reserve (VO2R) method for exercise prescription, explaining its primary advantage over raw VO2max percentage and its potential limitation regarding resting oxygen consumption.",
+                "model": "The VO2 Reserve (VO2R) method calculates exercise intensity based on a percentage of VO2R, defined as VO2max - VO2rest. Primary Advantage: It establishes a direct 1-to-1 mathematical equivalency between percentage of VO2R and percentage of Heart Rate Reserve (HRR) across exercise intensities. Potential Limitation: Standard VO2R calculations assume a universal resting VO2 value of 3.5 mL/kg/min for all individuals. However, actual study data demonstrate wide inter-individual variability (1.6 to 4.1 mL/kg/min, averaging 2.5 in women and 2.7 in men), meaning standard 3.5 mL/kg/min values are only approximations.",
+                "criteria": [
+                    "Define VO2R formula (VO2R = VO2max - VO2rest).",
+                    "Explain primary advantage (direct mathematical equivalency to percentage HRR).",
+                    "Detail limitation (assumes fixed 3.5 mL/kg/min resting VO2, whereas actual research shows wide variation averaging 2.5 in women and 2.7 in men)."
+                ]
+            }
+        ]
+    },
+    "p2": {
+        "mcq": [
+            {
+                "id": 1,
+                "q": "How is 1 MET (Metabolic Equivalent) standardly defined in terms of oxygen consumption?",
+                "opts": [
+                    "3.5 mL of oxygen per kilogram of body weight per minute (3.5 mL · kg⁻¹ · min⁻¹)",
+                    "10.0 mL of oxygen per kilogram of body weight per minute",
+                    "1.0 mL of oxygen per gram of muscle per second",
+                    "100 mL of oxygen per kilogram of body weight per minute"
+                ],
+                "correct": 0,
+                "rationale": "1 MET is defined as the baseline resting metabolic rate, assumed to be approximately 3.5 mL of oxygen per kilogram of body weight per minute (3.5 mL · kg⁻¹ · min⁻¹)."
+            },
+            {
+                "id": 2,
+                "q": "What is the oxygen requirement for a physical activity rated at 4 METs?",
+                "opts": [
+                    "14.0 mL · kg⁻¹ · min⁻¹",
+                    "7.0 mL · kg⁻¹ · min⁻¹",
+                    "3.5 mL · kg⁻¹ · min⁻¹",
+                    "28.0 mL · kg⁻¹ · min⁻¹"
+                ],
+                "correct": 0,
+                "rationale": "A 4-MET activity requires four times resting metabolic rate: 4 × 3.5 = 14.0 mL · kg⁻¹ · min⁻¹."
+            },
+            {
+                "id": 3,
+                "q": "What is a primary clinical limitation of using the MET system to prescribe exercise intensity?",
+                "opts": [
+                    "It fails to account for environmental conditions (e.g., heat, humidity) and changes in physical conditioning",
+                    "It cannot be used for any recreational sports or occupational tasks",
+                    "It requires continuous blood sampling during exercise",
+                    "It applies only to elite Olympic powerlifters"
+                ],
+                "correct": 0,
+                "rationale": "The MET system fails to account for changes in environmental conditions and does not automatically adjust for improvements in physical conditioning."
+            },
+            {
+                "id": 4,
+                "q": "How is the MET system particularly useful in clinical practice for deconditioned or cardiac patients?",
+                "opts": [
+                    "It determines potential functional capacity to perform daily physical activities and recreational sports (e.g., doubles tennis at 4.5-6.0 METs)",
+                    "It guarantees 100% cure of coronary artery disease",
+                    "It replaces the need for 12-lead electrocardiography",
+                    "It measures exact skeletal muscle fiber hypertrophy"
+                ],
+                "correct": 0,
+                "rationale": "The MET system is very useful for evaluating whether recreational or daily activities (like doubles tennis at 4.5 to 6.0 METs) fall within a patient's aerobic capacity."
+            },
+            {
+                "id": 5,
+                "q": "On the Borg RPE scale (ranging from 6 to 20), what numerical range corresponds to moderate exercise intensity?",
+                "opts": [
+                    "RPE 12 to 14 ('somewhat hard')",
+                    "RPE 6 to 8 ('very, very light')",
+                    "RPE 18 to 20 ('maximal exertion')",
+                    "RPE 2 to 4 ('extremely easy')"
+                ],
+                "correct": 0,
+                "rationale": "On the Borg 6-20 RPE scale, moderate exercise corresponds to an RPE of 12 to 14 ('somewhat hard'), while 12-13 specifically denotes moderate intensity."
+            },
+            {
+                "id": 6,
+                "q": "What numerical RPE range on the Borg 6–20 scale corresponds to vigorous exercise intensity?",
+                "opts": [
+                    "RPE 14 to 16 ('hard')",
+                    "RPE 6 to 9 ('very light')",
+                    "RPE 10 to 11 ('light')",
+                    "RPE 19 to 20 ('maximal')"
+                ],
+                "correct": 0,
+                "rationale": "On the Borg scale, vigorous exercise corresponds to an RPE of 14 to 16 ('hard')."
+            },
+            {
+                "id": 7,
+                "q": "What informal exercise monitoring guideline has been scientifically validated to correlate closely with the ventilatory threshold and target heart rate range?",
+                "opts": [
+                    "The Talk Test",
+                    "The Sweat Rate Test",
+                    "The Pulse Oximetry Pinch",
+                    "The Muscle Soreness Scale"
+                ],
+                "correct": 0,
+                "rationale": "Scientists have confirmed that the highest exercise intensity that just barely allows a person to talk comfortably (the Talk Test) correlates well with the ventilatory threshold and THR range."
+            },
+            {
+                "id": 8,
+                "q": "What is considered the best clinical practice when utilizing Ratings of Perceived Exertion (RPE) for exercise monitoring?",
+                "opts": [
+                    "Combining RPE with Training Heart Rate (THR) so exercisers self-select intensity by both heart rate and comfort level",
+                    "Using RPE exclusively while banning all heart rate measurements forever",
+                    "Replacing RPE with daily maximal 1RM strength testing",
+                    "Ignoring exerciser perceptions completely and enforcing rigid speed settings"
+                ],
+                "correct": 0,
+                "rationale": "The best use of RPE is combining it with THR, allowing the exerciser to self-select exercise intensity by both heart rate and subjective comfort level."
+            }
+        ],
+        "ms": [
+            {
+                "id": 1,
+                "q": "Which statements accurately describe the Metabolic Equivalent (MET) system? (Select all that apply)",
+                "opts": [
+                    "1 MET is defined as baseline resting oxygen consumption (~3.5 mL · kg⁻¹ · min⁻¹)",
+                    "A 2-MET activity requires 7.0 mL · kg⁻¹ · min⁻¹ and a 4-MET activity requires 14.0 mL · kg⁻¹ · min⁻¹",
+                    "Doubles tennis requires approximately 4.5 to 6.0 METs",
+                    "1 MET represents 100 mL · kg⁻¹ · min⁻¹ of oxygen consumption"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "1 MET = 3.5 mL/kg/min resting oxygen uptake. 2 METs = 7.0, 4 METs = 14.0, doubles tennis = 4.5-6.0 METs."
+            },
+            {
+                "id": 2,
+                "q": "Which factors contribute to potential error when prescribing exercise using the MET system? (Select all that apply)",
+                "opts": [
+                    "Assumed constant resting value of 3.5 mL · kg⁻¹ · min⁻¹ varies among individuals",
+                    "Metabolic efficiency varies considerably between people and even within the same person",
+                    "The MET system fails to account for environmental stress (heat, humidity, cold, altitude)",
+                    "The MET system cannot be calculated for walking or cycling"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "MET errors stem from resting VO2 variations, individual differences in metabolic efficiency, and lack of accounting for environmental stressors."
+            },
+            {
+                "id": 3,
+                "q": "Which statements correctly describe Ratings of Perceived Exertion (RPE) and the Borg scale? (Select all that apply)",
+                "opts": [
+                    "The Borg RPE scale ranges from numerical values of 6 to 20",
+                    "Moderate exercise corresponds to RPE 12 to 14 ('somewhat hard')",
+                    "Vigorous exercise corresponds to RPE 14 to 16 ('hard')",
+                    "Studies show people cannot accurately select treadmill speeds matching target RPE"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "Borg scale runs 6-20. Moderate = 12-14 ('somewhat hard'). Vigorous = 14-16 ('hard'). Research proves subjects accurately match heart rates when selecting speed/resistance by target RPE."
+            },
+            {
+                "id": 4,
+                "q": "Which characteristics validate the Talk Test as a clinical exercise intensity monitoring tool? (Select all that apply)",
+                "opts": [
+                    "The highest intensity allowing comfortable speech correlates closely with the ventilatory threshold",
+                    "The comfortable speech threshold falls well within the training heart rate (THR) range",
+                    "It provides a simple, practical, cost-free informal guideline for exercisers",
+                    "It requires sophisticated laboratory gas analyzers to perform during outdoor walking"
+                ],
+                "correctArray": [
+                    0,
+                    1,
+                    2
+                ],
+                "rationale": "The Talk Test correlates with ventilatory threshold, lies within the THR range, and provides an accessible practical guideline without equipment."
+            }
+        ],
+        "tf": [
+            {
+                "id": 1,
+                "q": "One MET represents a baseline resting oxygen consumption of approximately 3.5 mL of oxygen per kilogram of body weight per minute.",
+                "ans": true,
+                "feedback": "True. 1 MET equals resting metabolic rate, standardized as 3.5 mL · kg⁻¹ · min⁻¹."
+            },
+            {
+                "id": 2,
+                "q": "The MET system automatically adjusts exercise intensity for changes in ambient environmental conditions such as heat and humidity.",
+                "ans": false,
+                "feedback": "False. A major limitation of the MET system is that it fails to account for environmental conditions or changes in physical conditioning."
+            },
+            {
+                "id": 3,
+                "q": "On the Borg RPE scale (6 to 20), moderate exercise intensity corresponds to a rating of 12 to 14 ('somewhat hard').",
+                "ans": true,
+                "feedback": "True. RPE 12-14 corresponds to moderate exercise intensity, while 14-16 corresponds to vigorous exercise."
+            },
+            {
+                "id": 4,
+                "q": "The Talk Test fails to correlate with ventilatory threshold or target heart rate ranges in healthy adults.",
+                "ans": false,
+                "feedback": "False. Research confirms that the highest intensity allowing comfortable speech correlates well with ventilatory threshold and target heart rate."
+            }
+        ],
+        "cloze": [
+            {
+                "id": 1,
+                "statement": "The MET system standardizes resting oxygen consumption at **3.5 mL · kg⁻¹ · min⁻¹**, so a 4-MET activity requires **14.0 mL · kg⁻¹ · min⁻¹**.",
+                "targets": [
+                    "3.5 mL · kg⁻¹ · min⁻¹",
+                    "14.0 mL · kg⁻¹ · min⁻¹"
+                ],
+                "optionsBank": [
+                    "3.5 mL · kg⁻¹ · min⁻¹",
+                    "14.0 mL · kg⁻¹ · min⁻¹",
+                    "7.0 mL · kg⁻¹ · min⁻¹",
+                    "100 mL · kg⁻¹ · min⁻¹",
+                    "zero"
+                ],
+                "hint": "Identify 1 MET baseline resting oxygen uptake and the oxygen requirement for a 4-MET task."
+            },
+            {
+                "id": 2,
+                "statement": "On the Borg 6-20 scale, moderate exercise corresponds to **RPE 12 to 14**, whereas vigorous exercise corresponds to **RPE 14 to 16**.",
+                "targets": [
+                    "RPE 12 to 14",
+                    "RPE 14 to 16"
+                ],
+                "optionsBank": [
+                    "RPE 12 to 14",
+                    "RPE 14 to 16",
+                    "RPE 6 to 8",
+                    "RPE 19 to 20",
+                    "RPE 1 to 3"
+                ],
+                "hint": "Identify the Borg RPE ranges for moderate and vigorous exercise intensity."
+            }
+        ],
+        "sa": [
+            {
+                "id": 1,
+                "prompt": "Define the Metabolic Equivalent (MET) system, calculate oxygen requirements for 1-MET, 2-MET, and 4-MET activities, and detail three major limitations of using METs for exercise prescription.",
+                "model": "Definition & Calculations: The MET system quantifies physical activity intensity relative to resting metabolic rate, where 1 MET represents resting oxygen consumption standardized as 3.5 mL/kg/min. - 1 MET = 3.5 mL/kg/min - 2 METs = 2 x 3.5 = 7.0 mL/kg/min - 4 METs = 4 x 3.5 = 14.0 mL/kg/min Three Major Limitations: (1) Standard 3.5 mL/kg/min resting value assumes identical resting metabolic rates, but actual resting VO2 varies widely across individuals (1.6 to 4.1 mL/kg/min); (2) Metabolic efficiency and skill vary between individuals; and (3) METs fail to account for environmental stressors (heat, humidity, cold, altitude) or progressive improvements in physical fitness over time.",
+                "criteria": [
+                    "Define 1 MET (3.5 mL/kg/min resting oxygen uptake) and calculate 2-MET (7.0 mL/kg/min) and 4-MET (14.0 mL/kg/min) requirements.",
+                    "Detail resting VO2 variation limitation (3.5 assumption vs actual 1.6-4.1 mL/kg/min range).",
+                    "Detail environmental/conditioning limitations (fails to account for heat/humidity or fitness changes over time)."
+                ]
+            },
+            {
+                "id": 2,
+                "prompt": "Explain how Ratings of Perceived Exertion (RPE) on the Borg 6-20 scale and the Talk Test are used to monitor exercise intensity, and describe why combining RPE with Training Heart Rate (THR) is clinically optimal.",
+                "model": "Borg RPE Scale: Individuals subjectively rate physical effort on a 6-20 scale. Moderate intensity corresponds to RPE 12-14 ('somewhat hard'), while vigorous intensity corresponds to RPE 14-16 ('hard'). Research shows subjects accurately self-select treadmill speed or cycle resistance to match target heart rates when using target RPE. Talk Test: The highest exercise intensity that just barely permits comfortable conversation correlates closely with the ventilatory threshold and THR range. Clinical Synergy: Combining RPE with THR allows exercisers to self-regulate intensity by both heart rate and subjective comfort. If environmental heat or fatigue elevates heart rate at a given pace, relying on RPE ensures the exerciser naturally reduces workload to remain in a safe physiological zone without needing constant heart rate checks.",
+                "criteria": [
+                    "Detail Borg 6-20 RPE targets (moderate = RPE 12-14; vigorous = RPE 14-16).",
+                    "Explain Talk Test mechanism (highest intensity allowing comfortable speech correlates with ventilatory threshold and THR).",
+                    "Explain clinical advantage of combining RPE with THR (allows self-regulation across environmental stress and fatigue without constant pulse checks)."
+                ]
+            }
+        ]
+    }
+}
